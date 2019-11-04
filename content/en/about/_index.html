@@ -18,7 +18,16 @@ menu:
 {{% blocks/lead %}}
 Butler was born out of a need to solve a set of specific challenges around using Qlik Sense together with other software tools.
 
-Goldydocs is a sample site using the <a href="https://github.com/google/docsy">Docsy</a> Hugo theme that shows what it can do and provides you with a template site structure. It’s designed for you to clone and edit as much as you like. See the different sections of the documentation and site for more ideas.
+Initially it offered a REST API for sending [Slack](https://slack.com) messages from the Sense load script, 
+but over the years more have been added and Butler today offers a rather diverse set of features. 
+
+Some features are offered via a REST API (trigger app reloads, send Slack messages, send MQTT pubsub messages etc), 
+while others hook into the Sense logging framework to get notifications when tasks fail, users log on/off or any 
+other log events occur. 
+
+The logging framework integration is pretty interesting: It makes it easier to get notifications from Sense *as they happen*, 
+rather than minutes or hours later (as might be the case when relying on polling APIs or reloading the Operations Monitor app).
+
 {{% /blocks/lead %}}
 
 
@@ -36,5 +45,7 @@ Goldydocs is a sample site using the <a href="https://github.com/google/docsy">D
 <div class="col-12">
 <h1 class="text-center">This is another section</h1>
 </div>
+
+sdfsdfsdf
 
 {{< /blocks/section >}}

@@ -22,17 +22,58 @@ linkTitle = "Butler"
 {{< /blocks/cover >}}
 
 
-{{% blocks/lead color="primary" %}}
-Butler includes a palette of features:
+{{% blocks/section color="primary" %}}
 
-- A REST API making it easy to access Sense features from 3rd party systems, or from within the load script. 
-  API endpoints include starting tasks, sending Slack messages and publishing data to MQTT messages. 
-- Instructions and sample files for hooking into Sense's logging framework and get notified when tasks fail, users log on and more.
-- Use MQTT to start Sense reload tasks.
+<div class="col-12">
+<h1 class="text-center">Want better control over Sense reload tasks?</h1>
+
+</div>
+	
+
+	Butler exposes a REST API endpoint for starting reload tasks.  
+	This makes it easy to start reloads from within the load script of Sense apps, 
+	or from any external system.  
+
+	A great use case is to have a source system kick off Sense reloads once 
+	new data is available in the source system, minimizing delays. 
+{{% /blocks/section %}}
+
+
+{{% blocks/lead color="dark" %}}
+Tired of end users asking "when is the new data available?"
+
+	Use Butler to send Slack messages to end users and stakeholders when
+	apps have reloaded with fresh data.
+
+	Sending a Slack message is as simple as calling a single function in
+	the Sense load script.
+{{% /blocks/lead %}}
+
+
+
+{{% blocks/lead color="orange" %}}
+Would you like to get an email when reload tasks fail?
+
+	Use the templates included with Butler to hook into the Sense logging framework.
+	You can get task failure notifications as emails, MQTT messages, or
+	just plain UDP messages.
+{{% /blocks/lead %}}
+
+
+
+{{% blocks/lead color="primary" %}}
+Are you a fan of machine-to-machine communication?
+
+	Great, have your source system publish an MQTT message to the `sense/starttask` topic. 
+	Butler will pick it up - and guess what - start the task.
+
+
+And more. Butler is somewhat like a Swiss army knife - it gets the job done...
 
 {{% /blocks/lead %}}
 
-{{< blocks/section color="dark" >}}
+
+{{< blocks/section>}}
 
 {{% blocks/feature icon="fa-lightbulb" title="Latest release: 3.0" %}}
 Enable exactly the REST API endpoints you need - no more, no less.
