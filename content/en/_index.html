@@ -22,54 +22,57 @@ linkTitle = "Butler"
 {{< /blocks/cover >}}
 
 
-{{% blocks/section color="primary" %}}
-
+{{% blocks/lead color="primary" %}}
 <div class="col-12">
-<h1 class="text-center">Want better control over Sense reload tasks?</h1>
-
-</div>
-	
-
+	<h1 class="text-center">Want better control over Sense reload tasks?</h1>
+	<p class="text-center">
 	Butler exposes a REST API endpoint for starting reload tasks.  
 	This makes it easy to start reloads from within the load script of Sense apps, 
-	or from any external system.  
+	or from any external system. <br><br>
 
 	A great use case is to have a source system kick off Sense reloads once 
 	new data is available in the source system, minimizing delays. 
-{{% /blocks/section %}}
+	</p>
+</div>
+{{% /blocks/lead %}}
 
 
 {{% blocks/lead color="dark" %}}
-Tired of end users asking "when is the new data available?"
+<div class="col-12">
+	<h1 class="text-center">Tired of end users asking "when is the new data available?"</h1>
+	<p class="text-center">
+	Use Butler to send Slack messages to end users and stakeholders when apps have reloaded with fresh data.<br><br>
 
-	Use Butler to send Slack messages to end users and stakeholders when
-	apps have reloaded with fresh data.
-
-	Sending a Slack message is as simple as calling a single function in
-	the Sense load script.
+	Sending a Slack message is as simple as calling a single function in the Sense load script.
+	</p>
+</div>
 {{% /blocks/lead %}}
 
 
 
 {{% blocks/lead color="orange" %}}
-Would you like to get an email when reload tasks fail?
-
-	Use the templates included with Butler to hook into the Sense logging framework.
-	You can get task failure notifications as emails, MQTT messages, or
-	just plain UDP messages.
+<div class="col-12">
+	<h1 class="text-center">Email or Slack when reloads fail? Sure!</h1>
+	<p class="text-center">
+	Use the templates included with Butler to hook into the Sense logging framework.<br><br>
+	You can get task failure notifications as emails, MQTT messages, or just plain UDP messages.
+	</p>
+</div>
 {{% /blocks/lead %}}
 
 
 
 {{% blocks/lead color="primary" %}}
-Are you a fan of machine-to-machine communication?
+<div class="col-12">
+	<h1 class="text-center">Data delays - no thanks.</h1>
+	<p class="text-center">
+	Send a reload request in a pubsub message, from your source system to Butler.
+	Messages are sent using the standardized MQTT protocol.<br>
+	Butler will process the message and start the requested reload task in Sense.<br><br>
 
-	Great, have your source system publish an MQTT message to the `sense/starttask` topic. 
-	Butler will pick it up - and guess what - start the task.
-
-
-And more. Butler is somewhat like a Swiss army knife - it gets the job done...
-
+	This way you can ensure that Sense starts to process new data as soon as it is available in the source system.
+	</p>
+</div>	
 {{% /blocks/lead %}}
 
 
