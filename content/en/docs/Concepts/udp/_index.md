@@ -40,7 +40,7 @@ Sending a message to Butler looks like this (with a fake IP address):
 
 
 Butler will receive the message, parse it, and  
-a) send a message to a Slack channel (customizable in the [Butler config file](install-config/#configuration)), and  
+a) send a message to a Slack channel (customizable in the [Butler config file](/docs/getting-started/setup/config_file_syntax/)), and  
 b) publish a MQTT message to the topic specified in, again, the Butler config file.
 
 The output to Slack looks like this (the default use of port 9997 is to handle audit events, i.e. users starting/ending sessions etc):  

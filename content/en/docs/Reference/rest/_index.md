@@ -28,7 +28,10 @@ Its main purpose is to allow various tasks to be carried out/started from a Sens
 4. **Start Sense tasks when MQTT messages arrive**  
     Butler subscribes to a certain (configurable) MQTT topic, and starts Sense tasks based on messages received in that topic.
 
-5. **Send messages to Slack and other 3rd party services**  
+5. **Extract metadata about Sense apps**
+    You can use Butler to get a JSON representing all metadata in Sense apps. This can be useful for backup purposes, or as an easy way to get basic data lineage info.
+
+6. **Send messages to Slack and other 3rd party services**  
     Integrating [Slack](https://slack.com/) with Sense has proven extremely useful.  
 
     From within a Sense load script it is possible to write progress info for long running reloads to Slack, notifying users that a reload has finished, notifying sysadmins that a reload has encountered some error condition etc.  

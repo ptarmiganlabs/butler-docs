@@ -23,7 +23,7 @@ It's not as bad as it sounds though, the instructions here should help settings 
 
 ## Prerequisites
 
-Either you install a few pieces of software (most notably [node.js](https://nodejs.org/en/) and some node modules), or you run Butler in a Docker container.  
+Either you install a few pieces of software (most notably [Node.js](https://nodejs.org/en/) and some node modules), or you run Butler in a Docker container.  
 
 Either way you also need to edit the configuration file and provide certificates exported from Qlik Sense Enterprise.
 
@@ -32,7 +32,7 @@ Either way you also need to edit the configuration file and provide certificates
 
 Where can your user find your project code? How can they install it (binaries, installable package, build from source)? Are there multiple options/versions they can install and how should they choose the right one for them?
 
-Follow the [installation and configuration instructions](install-config.md) - they will guide through the setup process, including requirements and customisation.
+Follow the [installation and configuration instructions](/docs/getting-started/install) - they will guide through the setup process, including requirements and customisation.
 
 ## Setup
 
@@ -43,5 +43,5 @@ Is there any initial setup users need to do after installation to try your proje
 
 Can your users test their installation, for example by running a commmand or deploying a Hello World example?
 
-Then browse through [the examples](sample-code.md) to get an understanding of how to use Butler.
+Then browse through [the examples](/docs/examples) to get an understanding of how to use Butler.
 

@@ -31,6 +31,6 @@ When Butler finds such a message, it is analysed and if the topic matches any of
 
 Topics with special meaning are:
 
-* `qliksense/start_task`: Starts the Sense task identified by the ID sent in the message body. See the [Examples](sample-code/#use_mqtt_to_start_sense_tasks) secion.
+* `qliksense/start_task`: Starts the Sense task identified by the ID sent in the message body. See the [Examples](/docs/examples/start_task_from_mqtt/#use-mqtt-to-start-sense-tasks) secion.
 
 As Butler listens to all messages in qliksense/#, it can easily be extended with handlers for additional topics.

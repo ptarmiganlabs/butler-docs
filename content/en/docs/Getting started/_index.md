@@ -19,14 +19,14 @@ It's not as bad as it sounds though, the instructions here should help settings 
 
 ## Prerequisites
 
-Either you install a few pieces of software (most notably [node.js](https://nodejs.org/en/) and some node modules), or you run Butler in a Docker container (all dependencies are included in the Docker image).  
+Either you install a few pieces of software (most notably [Node.js](https://nodejs.org/en/) and some node modules), or you run Butler in a Docker container (all dependencies are included in the Docker image).  
 
 Either way you also need to edit the configuration file and provide certificates exported from Qlik Sense Enterprise.
 
 
 ## Installation
 
-Follow the [installation instructions](./install) - they will guide through the setup process, including requirements and customisation.
+Follow the [installation instructions](/docs/getting-started/install) - they will guide through the setup process, including requirements and customisation.
 
 
 ## Setup
@@ -35,5 +35,5 @@ Once everything is installed you need to [edit the configuration file](./setup) 
 
 ## Try it out!
 
-Feel free to browse through [the examples](sample-code.md) to get an understanding of how Butler can be used.
+Feel free to browse through [the examples](/docs/examples) to get an understanding of how Butler can be used.
 

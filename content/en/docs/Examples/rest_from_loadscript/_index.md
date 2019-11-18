@@ -11,7 +11,7 @@ description: >
 
 While it is quite possible to call the Butler REST endpoints directly from a LOAD...FROM statement, it is usually more convenient to use the subroutine wrappers that are available as .qvs files in the sense_script folder in the Butler repository.
 
-Before doing any calls to Butler, we should initialize things. Failing to do so might lead to errors and unpredictable responses from the Butler APIs.    
+Before doing any calls to Butler, we should initialize things. Failing to do so might lead to errors and unpredictable responses from the Butler APIs.  
 
     $(Must_Include=[lib://Butler scripts/butler_init.qvs]);
     CALL ButlerInit;
@@ -24,6 +24,7 @@ Note:
 With this taken care of, we can call any other Butler API.
 
 ### Posting to Slack
+
     $(Must_Include=[lib://Butler scripts/butler_init.qvs]);
     $(Must_Include=[lib://Butler scripts/post_to_slack.qvs]);
 
@@ -32,10 +33,11 @@ With this taken care of, we can call any other Butler API.
     CALL PostToSlack('sense-reload-info', subfield(OSUser(),'UserId=',2) & ' on server: ' & ComputerName(), '*Reloaded by: ' & subfield(OSUser(),'UserId=',2) & '* <App name>: Reload starting', ':test:');  
 
 This will result in the following Slack entries:  
-![alt text](img/post_to_slack_1.png "Posting to Slack")  
-![alt text](img/post_to_slack_2.png "Posting to Slack")  
+![alt text](post_to_slack_1.png "Posting to Slack")  
+![alt text](post_to_slack_2.png "Posting to Slack")  
 
 ### Start a Sense task
+
     $(Must_Include=[lib://Butler scripts/butler_init.qvs]);
     $(Must_Include=[lib://Butler scripts/start_task.qvs]);
 
@@ -104,4 +106,4 @@ To dynamically control which app is serialized you can use the "with connection"
 
 Here is what the Sense data model can look like for a Sense app:
 
-![alt text](img/data_model_of_a_qlik_sense_app.png "Qlik Sense app data model")  
+![alt text](data_model_of_a_qlik_sense_app.png "Qlik Sense app data model")  

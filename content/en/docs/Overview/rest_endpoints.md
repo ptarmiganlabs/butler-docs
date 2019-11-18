@@ -27,5 +27,5 @@ Endpoint | Description
 `/v2/senseStartTask` | Start a Sense task. Can for example be used by upstream data providers to trigger reloads of Sense apps
 `/v2/slackPostMessage` | Post to Slack from Sense load scripts
 
-Full documentation is available [here](../reference/rest).
+Full documentation is available [here](/docs/reference/rest).
 

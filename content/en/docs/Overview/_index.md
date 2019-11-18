@@ -65,6 +65,6 @@ Ready to move on?
 
 Great, here are some starting points:
 
-* [Getting Started](/getting-started/): Get started with Butler.
-* [Examples](/examples/): Check out some example use cases.
+* [Getting Started](/docs/getting-started/): Get started with Butler.
+* [Examples](/docs/examples/): Check out some example use cases.
 
