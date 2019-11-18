@@ -75,8 +75,7 @@ The following actions are taken
 
 2. Publish a message to MQTT, in the topic defined in the Butler.mqttConfig.connectionCloseTopic configuration setting.  
 
-Examples on how the Slack messages will look can be found on the [UDP client page](udp-client). 
-
+Examples of what the Slack messages will look like can be found on the [UDP client page](/docs/concepts/udp).
 
 
 ##  Task reload errors
