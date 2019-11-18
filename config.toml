@@ -1,5 +1,9 @@
-baseURL = "/"
+baseURL = "https://butler.ptarmiganlabs.com/"
 title = "Butler"
+
+# Added to support publishing to GitHub Pages, as per https://gohugo.io/hosting-and-deployment/hosting-on-github/
+publishDir = "docs"
+
 
 enableRobotsTXT = true
 
