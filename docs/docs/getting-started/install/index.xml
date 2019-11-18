@@ -66,27 +66,28 @@ proton:~ goran$ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; /Users
 proton:butler goran$ mkdir -p config/certificate
 proton:butler goran$
 proton:butler goran$ wget https://raw.githubusercontent.com/ptarmiganlabs/butler/master/src/docker-compose.yml
---2018-09-26 &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt;:27:14--  https://raw.githubusercontent.com/ptarmiganlabs/butler/master/src/docker-compose.yml
+--2019-11-18 &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22&lt;/span&gt;:47:02--  https://raw.githubusercontent.com/ptarmiganlabs/butler/master/src/docker-compose.yml
 Resolving raw.githubusercontent.com &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;raw.githubusercontent.com&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;... &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;151&lt;/span&gt;.101.84.133
 Connecting to raw.githubusercontent.com &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;raw.githubusercontent.com&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;151&lt;/span&gt;.101.84.133&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;:443... connected.
 HTTP request sent, awaiting response... &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;200&lt;/span&gt; OK
-Length: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;565&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;text/plain&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
-Saving to: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;docker-compose.yml.1&amp;#39;&lt;/span&gt;
+Length: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;618&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;text/plain&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+Saving to: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;docker-compose.yml&amp;#39;&lt;/span&gt;
 
-docker-compose.yml.1                                       &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;%&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[========================================================================================================================================&lt;/span&gt;&amp;gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;565&lt;/span&gt;  --.-KB/s    in 0s
+docker-compose.yml                         &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;%&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[========================================================================================&lt;/span&gt;&amp;gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;618&lt;/span&gt;  --.-KB/s    in 0s
 
-&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2018&lt;/span&gt;-09-26 &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16&lt;/span&gt;:27:15 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt;.34 MB/s&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;docker-compose.yml.1&amp;#39;&lt;/span&gt; saved &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;565&lt;/span&gt;/565&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18 &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;22&lt;/span&gt;:47:03 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;10&lt;/span&gt;.7 MB/s&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;docker-compose.yml&amp;#39;&lt;/span&gt; saved &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;618&lt;/span&gt;/618&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+
 
 proton:butler goran$ cat docker-compose.yml
 &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# docker-compose.yml&lt;/span&gt;
-version: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;2.2&amp;#39;&lt;/span&gt;
+version: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;3.3&amp;#39;&lt;/span&gt;
 services:
-  verisure-mqtt:
-    image: ptarmiganlabs/butler:latest
+  butler:
+    image: ptarmiganlabs/butler:3.0.0
     container_name: butler
     restart: always
     ports:
-      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;8180:8080&amp;#34;&lt;/span&gt;     &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# REST API available on port 8180 to services outside the container&lt;/span&gt;
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;8080:8080&amp;#34;&lt;/span&gt;     &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# REST API available on port 8180 to services outside the container&lt;/span&gt;
       - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;9997:9997&amp;#34;&lt;/span&gt;     &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# UDP port for session connection events&lt;/span&gt;
       - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;9998:9998&amp;#34;&lt;/span&gt;     &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# UDP port for task failure events&lt;/span&gt;
     volumes:
@@ -96,6 +97,9 @@ services:
       - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;NODE_ENV=production&amp;#34;&lt;/span&gt;
     logging:
       driver: json-file
+      options:
+        max-file: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5&amp;#34;&lt;/span&gt;
+        max-size: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5m&amp;#34;&lt;/span&gt;
 proton:butler goran$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;At this point you should&lt;/p&gt;
 
@@ -134,13 +138,53 @@ drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/spa
 proton:butler goran$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;At this point everything is ready and you can start the Butler container using docker-compose:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:butler goran$ docker-compose up
+Creating network &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;butler_default&amp;#34;&lt;/span&gt; with the default driver
+Pulling butler &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;ptarmiganlabs/butler:3.0.0&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;...
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3&lt;/span&gt;.0.0: Pulling from ptarmiganlabs/butler
+9a0b0ce99936: Already exists
+db3b6004c61a: Already exists
+f8f075920295: Already exists
+6ef14aff1139: Already exists
+0bbd8b48260f: Already exists
+524be717efb1: Already exists
+da330b3729a7: Already exists
+2c9863d012f5: Already exists
+06cd084e76f0: Already exists
+2c5533f377d0: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+307c3aa5e73e: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+10617d6f19b9: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+ad221e369f17: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+b1f6c19b1af6: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+Digest: sha256:b3c17c93c1779d62e21db5f3f7691f524ab0c21d8b0814cab41a66e814702a17
+Status: Downloaded newer image &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; ptarmiganlabs/butler:3.0.0
 Creating butler ... &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;done&lt;/span&gt;
 Attaching to butler
-butler           &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2018&lt;/span&gt;-09-26T14:38:57.895Z - debug: Server &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; UDP server: localhost
-butler           &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2018&lt;/span&gt;-09-26T14:38:57.912Z - info: REST server listening on http://&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;::&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;:8080
-butler           &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2018&lt;/span&gt;-09-26T14:38:57.918Z - info: UDP server listening on &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;127&lt;/span&gt;.0.0.1:9997
-butler           &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2018&lt;/span&gt;-09-26T14:38:57.930Z - info: UDP server listening on &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;127&lt;/span&gt;.0.0.1:9998
-butler           &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2018&lt;/span&gt;-09-26T14:38:58.124Z - info: Connected to MQTT server &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;192&lt;/span&gt;.168.1.51:1884, with client ID mqttjs_215c09dc&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.630Z info: --------------------------------------
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.634Z info: Starting Butler
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.635Z info: Log level is: debug
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.636Z info: App version is: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3&lt;/span&gt;.0.0
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.637Z info: --------------------------------------
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.638Z debug: Client cert: /nodeapp/config/certificate/client.pem
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.639Z debug: Client cert key: /nodeapp/config/certificate/client_key.pem
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.639Z debug: CA cert: /nodeapp/config/certificate/root.pem
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.673Z debug: Registering REST endpoint /v2/activeUserCount
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.676Z debug: Registering REST endpoint /v2/activeUsers
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.679Z debug: Registering REST endpoint /v2/slackPostMessage
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.680Z debug: Registering REST endpoint /v2/createDir
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.681Z debug: Registering REST endpoint /v2/createDirQVD
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.681Z debug: Registering REST endpoint /v2/mqttPublishMessage
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.682Z debug: Registering REST endpoint /v2/senseStartTask
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.683Z debug: Registering REST endpoint /v2/senseAppDump
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.684Z debug: Registering REST endpoint /v2/senseListApps
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.684Z debug: Registering REST endpoint /v2/butlerping
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.685Z debug: Registering REST endpoint /v2/base62ToBase16
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.686Z debug: Registering REST endpoint /v2/base16ToBase62
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.687Z debug: Server &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; UDP server: butler
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.688Z debug: REST server host: butler
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.688Z debug: REST server port: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8080&lt;/span&gt;
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.696Z info: UDP server listening on &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;172&lt;/span&gt;.21.0.2:9998
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.699Z info: REST server listening on http://172.21.0.2:8080
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2019&lt;/span&gt;-11-18T21:51:17.700Z info: UDP server listening on &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;172&lt;/span&gt;.21.0.2:9997&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;If you haven&amp;rsquo;t configured MQTT in the config file, you won&amp;rsquo;t see the &amp;ldquo;&amp;hellip;Connected to MQTT server&amp;rdquo; line.&lt;/p&gt;
 
 &lt;p&gt;Let&amp;rsquo;s make sure things are working by opening a new terminal window and from there requesting a list of all apps on the server:&lt;/p&gt;
