@@ -3,36 +3,68 @@ title: "Overview"
 linkTitle: "Overview"
 weight: 1
 description: >
-  Here's where your user finds out if your project is for them.
+  Butler is an open source add-on tool for Qlik Sense, extending that platform with various features, most of which are focused on integrating Sense with other systems.
 ---
 
-{{% pageinfo %}}
-This is a placeholder page that shows you how to use this template site.
-{{% /pageinfo %}}
+<!-- {{% pageinfo %}}
+{{% /pageinfo %}} -->
 
+## What is Butler?
 
-The Overview is where your users find out about your project. Depending on the size of your docset, you can have a separate overview page (like this one) or put your overview contents in the Documentation landing page (like in the Docsy User Guide). 
+Butler is tool that provides add-on features to Qlik Sense.
+Some of the features can be used from Sense load scripts, while other provide integration with other systems.
 
-Try answering these questions for your user in this page:
+The tool started out as a way of posting to Slack from Qlik Sense load scripts, but has since been generalized and now supports several high level features:
 
-## What is it?
+* REST endpoints that can be called from Sense load scripts or external systems.
+* Event proxies used to forward messages from Sense's logging framework. In plan English this means sending messages using [Slack](https://slack.com), [MQTT](https://mqtt.org) or email when some event (reload task fail, user logs on, ...) occur in Sense.
+* In- and outbound MQTT messages for stable, reliable machine-to-machine communication and notifications.
 
-Introduce your project, including what it does or lets you do, why you would use it, and its primary goal (and how it achieves it). This should be similar to your README description, though you can go into a little more detail here if you want.
+## What can I use it for?
 
-## Why do I want it?
+Sample use cases include:  
 
-Help your user know if your project will help them. Useful information can include: 
+* **Information about failing tasks** can be sent to a Slack channel. This gives sysadmins real-time insight into what's happening with respect to task execution.
+* **Trigger Sense reload tasks from a reload script**. This makes it possible to start different Sense tasks based on what data has been read from a database, for example.
+* **Trigger Sense reloads from external systems**. When new data is available in a source database, immediately trigger reloads of the Sense apps that use that data.
+* **Extract metadata about Sense apps**. Exporting an app as JSON can be very useful for backup purposes, or to take regular snapshots of all apps in Sense cluster.
+* **Slack messages can include full formatting** (web links, text formatting etc), as well as "poking" users.  
+  I.e. notifying specific Slack users that they have a new message. Can for example be used to notify user(s) that an app has reloaded with new data, or that some error condition has occured.
+* **Send and receive MQTT publish-subscribe messages**. MQTT (and the pubsub concept in general) is a great way for systems to communicate reliably with each other.
+* Modify the Operations Monitor app to **send a daily metrics summary** of daily/weekly/monthly active users, # of failed tasks etc **to a Slack channe**l
+* **Real-time monitoring of active users**. This data is posted to MQTT, from where it can be plotted by various tools, see below.
+* Butler is fully **open source**, as well as written in a modular and extensible way. It is thus possible to integrate it with most other systems, as well as adding new features if/when needed.
 
-* **What is it good for?**: What types of problems does your project solve? What are the benefits of using it?
+![alt text](active_user_sessions.png "Active user sessions")  
+Real-time view of # of active users. This particular chart was created by sending metrics via MQTT to a [Node-RED](https://nodered.org) dashboard. While this works well, you might want to take a look at [Butler SOS](https://github.com/ptarmiganlabs/butler-sos) if you are interested in more enterprise grade monitoring of Sense environments. Butler SOS is another open source project from [Ptarmigan Labs](https://ptarmiganlabs.com/).
 
-* **What is it not good for?**: For example, point out situations that might intuitively seem suited for your project, but aren't for some reason. Also mention known limitations, scaling issues, or anything else that might let your users know if the project is not for them.
+All Butler project files are available on [GitHub](https://github.com/ptarmiganlabs/butler).
 
-* **What is it *not yet* good for?**: Highlight any useful features that are coming soon.
+Use the menu to the left to access the different parts of the Butler documentation.
+
+Throughout this documentation the words "Qlik Sense" and "Sense" are used, both referring to the product Qlik Sense from the company Qlik.
+
+Updates to Butler will be published on [GitHub](https://github.com/ptarmiganlabs/butler) and descried on [Ptarmigan Labs'](https://ptarmiganlabs.com/) site.
+
+Good luck and have fun!
+
+## Contributing
+
+Pull requests and stars are always welcome.  
+For bugs and feature requests, [please create an issue](https://github.com/ptarmiganlabs/butler/issues/new).
+Or fork the project and contribute with enhancements!  
+
+## License
+
+Copyright © 2016-2019 Ptarmigan Labs AB.  
+Released under the MIT license.
 
 ## Where should I go next?
 
-Give your users next steps from the Overview. For example:
+Ready to move on?  
 
-* [Getting Started](/getting-started/): Get started with $project
-* [Examples](/examples/): Check out some example code!
+Great, here are some starting points:
+
+* [Getting Started](/getting-started/): Get started with Butler.
+* [Examples](/examples/): Check out some example use cases.
 

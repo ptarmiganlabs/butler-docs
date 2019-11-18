@@ -1,9 +1,9 @@
 ---
-title: "Reference"
-linkTitle: "Reference"
-weight: 9
+title: "Setup"
+linkTitle: "Setup"
+weight: 2
 description: >
-  Low level, technical documentation.
+  Everything you wanted to know about Butler configuration but never dared to ask.
 ---
 
 <!-- {{% pageinfo %}}

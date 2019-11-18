@@ -3,34 +3,37 @@ title: "Getting Started"
 linkTitle: "Getting Started"
 weight: 2
 description: >
-  What does your user need to know to try your project?
+  What you need to know to get Butler off the ground.
 ---
 
-{{% pageinfo %}}
+<!-- {{% pageinfo %}}
 This is a placeholder page that shows you how to use this template site.
-{{% /pageinfo %}}
+{{% /pageinfo %}} -->
 
-Information in this section helps your user try your project themselves.
+## Getting started
 
-* What do your users need to do to start using your project? This could include downloading/installation instructions, including any prerequisites or system requirements.
+Sorry - there is no installer for Butler.  
+You will need to work a bit on the command line to set things up.  
 
-* Introductory “Hello World” example, if appropriate. More complex tutorials should live in the Tutorials section.
-
-Consider using the headings below for your getting started page. You can delete any that are not applicable to your project.
+It's not as bad as it sounds though, the instructions here should help settings things up.
 
 ## Prerequisites
 
-Are there any system requirements for using your project? What languages are supported (if any)? Do users need to already have any software or tools installed?
+Either you install a few pieces of software (most notably [node.js](https://nodejs.org/en/) and some node modules), or you run Butler in a Docker container (all dependencies are included in the Docker image).  
+
+Either way you also need to edit the configuration file and provide certificates exported from Qlik Sense Enterprise.
+
 
 ## Installation
 
-Where can your user find your project code? How can they install it (binaries, installable package, build from source)? Are there multiple options/versions they can install and how should they choose the right one for them?
+Follow the [installation instructions](./install) - they will guide through the setup process, including requirements and customisation.
+
 
 ## Setup
 
-Is there any initial setup users need to do after installation to try your project?
+Once everything is installed you need to [edit the configuration file](./setup) to suit your specific needs.
 
 ## Try it out!
 
-Can your users test their installation, for example by running a commmand or deploying a Hello World example?
+Feel free to browse through [the examples](sample-code.md) to get an understanding of how Butler can be used.
 
