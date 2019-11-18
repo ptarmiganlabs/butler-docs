@@ -1,0 +1,331 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler – Concepts</title>
+    <link>https://butler.ptarmiganlabs.com/docs/concepts/</link>
+    <description>Recent content in Concepts on Butler</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://butler.ptarmiganlabs.com/docs/concepts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Log event handlers</title>
+      <link>https://butler.ptarmiganlabs.com/docs/concepts/log_event_handlers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler.ptarmiganlabs.com/docs/concepts/log_event_handlers/</guid>
+      <description>
+        
+        
+        
+
+&lt;!-- 
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;This is a placeholder page that shows you how to use this template site.&lt;/p&gt;
+
+&lt;/div&gt;
+ --&gt;
+
+&lt;h2 id=&#34;creating-log4net-appenders&#34;&gt;Creating log4net appenders&lt;/h2&gt;
+
+&lt;p&gt;QLik Sense uses the &lt;a href=&#34;https://logging.apache.org/log4net/&#34; target=&#34;_blank&#34;&gt;Apache log4net logging framework&lt;/a&gt;. It is used to write all the log files found in the C:\ProgramData\Qlik\Sense\Log directory tree.&lt;br /&gt;
+log4net is extensible in that you can hook in your own event handlers, and in this way get notifications.&lt;/p&gt;
+
+&lt;p&gt;Qlik provides basic &lt;a href=&#34;https://help.qlik.com/en-US/sense-admin/November2019/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders.htm&#34; target=&#34;_blank&#34;&gt;documentation&lt;/a&gt; for this, unfortunately a lot of trial and error is usually needed when crating new XML files that will be hooked into the framework.&lt;/p&gt;
+
+&lt;p&gt;A couple of custom appenders (in the form of XML files) are included with Butler, these are described below.&lt;/p&gt;
+
+&lt;h2 id=&#34;session-start-stop-connection-open-close&#34;&gt;Session start/stop, connection open/close&lt;/h2&gt;
+
+&lt;p&gt;In the &lt;code&gt;log4net_user-audit-event&lt;/code&gt; folder in the Butler repository there is an XML file that will send a UDP message on port 9997 to Butler when any of the following events occur:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Session start&lt;/strong&gt;: When a user logs into Sense and do not have Sense open in any other window or tab in the browser.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Session end&lt;/strong&gt;: When a user has not been active for a while, and the session timeout is reached.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Connection open&lt;/strong&gt;: When a user open a new app, or do a browser refresh of a Sense app&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Connection close&lt;/strong&gt;: When a user closes a browser window or tab, in which a Sense app was open
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Usually the UDP message is sent very quickly, typically within a second of the app being opened or close, for example.&lt;br /&gt;
+The message contains this information:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;%hostname;%property{Command};%property{UserDirectory};%property{UserId}  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I.e. the information sent to Butler is&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Server name where the log message originated&lt;/li&gt;
+&lt;li&gt;What command is associated with the message (session start/stop, connection open/close)&lt;/li&gt;
+&lt;li&gt;What Sense user directory the associated user belongs to&lt;/li&gt;
+&lt;li&gt;The username of the associated user.
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The UDP server built into Butler will then extract the data and take several actions, exactly which depending on what event was received.&lt;/p&gt;
+
+&lt;h3 id=&#34;session-start&#34;&gt;Session start&lt;/h3&gt;
+
+&lt;p&gt;The following actions are taken&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Posts the event data to Slack, using the Butler.slackConfig.loginNotificationChannel configuration setting.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Publish a message to MQTT, in the topic defined in the Butler.mqttConfig.sessionStartTopic configuration setting.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;session-stop&#34;&gt;Session stop&lt;/h3&gt;
+
+&lt;p&gt;The following actions are taken&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Posts the event data to Slack, using the Butler.slackConfig.loginNotificationChannel configuration setting.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Publish a message to MQTT, in the topic defined in the Butler.mqttConfig.sessionStopTopic configuration setting.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;connection-open&#34;&gt;Connection open&lt;/h3&gt;
+
+&lt;p&gt;The following actions are taken&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Posts the event data to Slack, using the Butler.slackConfig.loginNotificationChannel configuration setting.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Publish a message to MQTT, in the topic defined in the Butler.mqttConfig.connectionOpenTopic configuration setting.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;connection-close&#34;&gt;Connection close&lt;/h3&gt;
+
+&lt;p&gt;The following actions are taken&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Posts the event data to Slack, using the Butler.slackConfig.loginNotificationChannel configuration setting.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Publish a message to MQTT, in the topic defined in the Butler.mqttConfig.connectionCloseTopic configuration setting.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Examples of what the Slack messages will look like can be found on the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/concepts/udp&#34;&gt;UDP client page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;task-reload-errors&#34;&gt;Task reload errors&lt;/h2&gt;
+
+&lt;p&gt;In the &lt;code&gt;log4net_task-failed&lt;/code&gt; folder in the Butler repository there is an XML file that will send a UDP message on port 9998 to Butler when any of the following events occur:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Task failing&lt;/strong&gt;: When a Sense task, started by the Sense scheduler, for some reason fails, the XML file make a couple of UDP messages (with slightly different contents) to be sent to Butler. Manually started reloads (from the script editor) that fail will not generate these events.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The message contains this information:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;%hostname;%property{TaskName};%property{AppName};%property{UserId}  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I.e. the information sent to Butler is&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Server name where the log message originated&lt;/li&gt;
+&lt;li&gt;Name of the task&lt;/li&gt;
+&lt;li&gt;Name of the app that the task is associated with&lt;/li&gt;
+&lt;li&gt;Username of the user running the task.
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The UDP server built into Butler will then extract the data and take several actions, exactly which depending on what event was received.&lt;/p&gt;
+
+&lt;h3 id=&#34;failing-task&#34;&gt;Failing task&lt;/h3&gt;
+
+&lt;p&gt;The following actions are taken&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Posts the event data to Slack, using the Butler.slackConfig.taskFailureTopic configuration setting.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Publish a message to MQTT, in the topic defined in the Butler.mqttConfig.taskFailureTopic configuration setting.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Examples on how the Slack messages will look can be found on the &lt;a href=&#34;udp-client&#34; target=&#34;_blank&#34;&gt;UDP client page&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Real-time metrics</title>
+      <link>https://butler.ptarmiganlabs.com/docs/concepts/real_time_metrics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler.ptarmiganlabs.com/docs/concepts/real_time_metrics/</guid>
+      <description>
+        
+        
+        
+
+
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
+&lt;p&gt;Looking for info on number of active Sense users, what apps are loaded into the Sense engine or what warnings and errors are logged by Sense?&lt;/p&gt;
+
+&lt;p&gt;If yes, you are probably looking for &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34; target=&#34;_blank&#34;&gt;Butler SOS&lt;/a&gt;, another open source project in the &lt;a href=&#34;https://github.com/ptarmiganlabs&#34; target=&#34;_blank&#34;&gt;Butler family of tools&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The metrics offered by Butler (this tool) are rather basic and has some inherit design issue that have been adressed in Butler SOS.&lt;/p&gt;
+
+&lt;p&gt;That said, there certainly are cases where Butler&amp;rsquo;s metrics will work fine.&lt;br /&gt;
+Take a look at both tools and then decide which suits your needs best. The most common scenario is actually to use both tools: Butler for it&amp;rsquo;s REST API and MQTT integration, and Butler SOS for enterprise grade operational monitoring of Qlik Sense Enterprise.&lt;/p&gt;
+
+&lt;/div&gt;
+
+
+&lt;h2 id=&#34;real-time-data-on-active-user-sessions&#34;&gt;Real time data on active user sessions&lt;/h2&gt;
+
+&lt;p&gt;Butler listens to session start/end messages from Sense&amp;rsquo;s log4net logging framework, and keeps records of both how many and which users currently have active sessions.&lt;br /&gt;
+Ideal would be if the Sense APIs would provide a list of currently active users, that us however currently not available.
+For that reason Butler&amp;rsquo;s tactic is to listen to log events to determine when users start and end sessions.&lt;/p&gt;
+
+&lt;p&gt;There is however a downside to this approach.&lt;/p&gt;
+
+&lt;p&gt;When Butler is first started, it will not know what sessions are currently active. Instead, it will collect that inforamation as time passes.&lt;br /&gt;
+This means that the active user count, as well as what specific users are active, might be incorrect when Butler is first started.&lt;br /&gt;
+The data will then become more and more exact as users end their sessions, and later restart them (Butler will then capture the session restart, and update its data structures accordingly).&lt;/p&gt;
+
+&lt;p&gt;If there are demands for enterprise grade monitoring of a Qlik Sense environment, the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos&#34; target=&#34;_blank&#34;&gt;Butler SOS&lt;/a&gt; tool focuses exclusively on this and might be worth looking into.&lt;/p&gt;
+
+&lt;h2 id=&#34;active-users-data-as-mqtt-messages&#34;&gt;Active users data as MQTT messages&lt;/h2&gt;
+
+&lt;p&gt;Butler publishes a set of MQTT messages relating to active sessions.&lt;br /&gt;
+Whenever a session starts or ends, two MQT messages will be sent:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The new number for number of active user sessions is posted to the MQTT topic defined by the config entry Butler.mqttConfig.activeUserCountTopic&lt;/li&gt;
+&lt;li&gt;A string array with usernames of all users with active sessions is posted to MQTT topic defined by Butler.mqttConfig.activeUsersTopic&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Making this data available as MQTT messages, it can then be used in real-time dashboards or for alerting purposes.&lt;br /&gt;
+For example, using &lt;a href=&#34;https://github.com/node-red/node-red-dashboard&#34; target=&#34;_blank&#34;&gt;Node-RED&amp;rsquo;s dashboard module&lt;/a&gt;, it is trivial to create a real-time updating dashboard like this one (showing data for the last few days):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;active_user_sessions.png&#34; alt=&#34;alt text&#34; title=&#34;Active user sessions&#34; /&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: MQTT integration</title>
+      <link>https://butler.ptarmiganlabs.com/docs/concepts/mqtt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler.ptarmiganlabs.com/docs/concepts/mqtt/</guid>
+      <description>
+        
+        
+        
+
+&lt;h2 id=&#34;what-is-mqtt&#34;&gt;What is MQTT?&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://mqtt.org&#34; target=&#34;_blank&#34;&gt;MQTT&lt;/a&gt; is a light weight publish-subscribe (&amp;ldquo;pub-sub&amp;rdquo;) protocol.&lt;br /&gt;
+Used in both the telecomms industry and various Internet of Things applications, there are client libraries available for many different languages and platforms. This is important, as there is a good chance other systems can find a way of sending MQTT messages, which Butler can then listen for/subscribe to.&lt;/p&gt;
+
+&lt;h2 id=&#34;outgoing-mqtt-publish&#34;&gt;Outgoing MQTT - publish&lt;/h2&gt;
+
+&lt;p&gt;Butler can post messages to MQTT topics. The &lt;code&gt;/mqqtPublishMessage&lt;/code&gt; is used to achieve this.&lt;br /&gt;
+This way Butler can send status information and notifications to other systems, outside of Qlik Sense. Use cases include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Notify downstream systems that Sense has finished creating some data set that the downstream system is depending on.&lt;/li&gt;
+&lt;li&gt;Send debug or trace messages to MQTT instead of to the Sense log. Using a MQTT client (there are multiple ones on both Windows, OSX and Linux) you can the monitor the messages in real time. Very useful during development of tricky Sense load scripts!&lt;/li&gt;
+&lt;li&gt;Start Sense tasks (typically reloads) from the Sense load script. Very useful when you need to trigger a second app reload once the first app&amp;rsquo;s load script reaches some specific point of execution.&lt;br /&gt;
+This way the scheduling and execution of Sense tasks can be made much more flexible than using the built in QMC scheduler.&lt;/li&gt;
+&lt;li&gt;Send messages to platforms such as Node-RED. Node-RED is an open source platform (with a graphical editor) intended for integrating different systems and data sources. As it is built on node.red there are many different modules available, offering integrations with all sorts of systems and protocols.&lt;br /&gt;
+Using Node.RED together with Qlik Sense and Butler, it is possible to interface with social media from the Sense load script (send a Tweet when some condition occur during app reload, for example).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;incoming-mqtt-subscribe&#34;&gt;Incoming MQTT - subscribe&lt;/h2&gt;
+
+&lt;p&gt;Butler listens to all MQTT messages in the qliksense/# topic tree. Which in MQTT lingo means &amp;ldquo;listen to all messages in the qliksense topic, as well as in any subtopics&amp;rdquo;.&lt;br /&gt;
+When Butler finds such a message, it is analysed and if the topic matches any of the predefined topics with special meaning, the associated tasks are carried out.&lt;/p&gt;
+
+&lt;p&gt;Topics with special meaning are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;qliksense/start_task&lt;/code&gt;: Starts the Sense task identified by the ID sent in the message body. See the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/start_task_from_mqtt/#use-mqtt-to-start-sense-tasks&#34;&gt;Examples&lt;/a&gt; secion.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As Butler listens to all messages in qliksense/#, it can easily be extended with handlers for additional topics.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: UDP client</title>
+      <link>https://butler.ptarmiganlabs.com/docs/concepts/udp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler.ptarmiganlabs.com/docs/concepts/udp/</guid>
+      <description>
+        
+        
+        
+
+&lt;p&gt;Butler includes a very basic UDP client, which can be used to send test messages to Butler&amp;rsquo;s UDP servers.&lt;br /&gt;
+This can be useful when debugging a Butler server, when adding new UDP handlers etc.&lt;br /&gt;
+The client is built using node.js, and is found in the src/udp_client directory.&lt;/p&gt;
+
+&lt;p&gt;Run the app to show its help text (in this case the UDP client is executed on a Mac):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ node udp_client.js
+Usage: node udp_client.js [options]
+
+This app sends messages to the UDP server(s) built into Butler (or any other UDP
+server)
+
+Options:
+  --version   Show version number                                      [boolean]
+  -i, --ip    IP address of UDP server message will be sent to        [required]
+  -p, --port  Port on UDP server                                      [required]
+  -m, --msg   Message to send                          [default: &amp;quot;Test message&amp;quot;]
+  -h, --help  Show help                                                [boolean]
+
+Missing required arguments: i, p
+$
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;testing-the-session-start-stop-connection-open-close-udp-server&#34;&gt;Testing the session start/stop, connection open/close UDP server&lt;/h2&gt;
+
+&lt;p&gt;Sending a message to Butler looks like this (with a fake IP address):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ node udp_client.js --ip 1.2.3.4 -p 9997 -m &amp;quot;Abc;123;456;test&amp;quot;
+UDP message sent to 1.2.3.4:9997, 16 bytes.
+$   
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Butler will receive the message, parse it, and&lt;br /&gt;
+a) send a message to a Slack channel (customizable in the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/config_file_syntax/&#34;&gt;Butler config file&lt;/a&gt;), and&lt;br /&gt;
+b) publish a MQTT message to the topic specified in, again, the Butler config file.&lt;/p&gt;
+
+&lt;p&gt;The output to Slack looks like this (the default use of port 9997 is to handle audit events, i.e. users starting/ending sessions etc):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;slack_audit_event_test_1.jpg&#34; alt=&#34;alt text&#34; title=&#34;Slack audit event test&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;testing-the-failed-task-udp-server&#34;&gt;Testing the failed task UDP server&lt;/h2&gt;
+
+&lt;p&gt;Sending a message to port 9998 will test the UDP server responsible for handling task failure messages:&lt;/p&gt;
+
+&lt;p&gt;Sending a message to Butler looks like this (with a fake IP address):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ node udp_client.js --ip 1.2.3.4 -p 9998 -m &amp;quot;Abc;123;456;test&amp;quot;
+UDP message sent to 1.2.3.4:9998, 16 bytes.
+$
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The resulting Slack message looks like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;slack_failed_task_1.jpg&#34; alt=&#34;alt text&#34; title=&#34;Slack failed task&#34; /&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

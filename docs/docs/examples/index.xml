@@ -1,0 +1,171 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler – Examples</title>
+    <link>https://butler.ptarmiganlabs.com/docs/examples/</link>
+    <description>Recent content in Examples on Butler</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://butler.ptarmiganlabs.com/docs/examples/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Call REST API from Sense load script</title>
+      <link>https://butler.ptarmiganlabs.com/docs/examples/rest_from_loadscript/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler.ptarmiganlabs.com/docs/examples/rest_from_loadscript/</guid>
+      <description>
+        
+        
+        
+
+&lt;p&gt;While it is quite possible to call the Butler REST endpoints directly from a LOAD&amp;hellip;FROM statement, it is usually more convenient to use the subroutine wrappers that are available as .qvs files in the sense_script folder in the Butler repository.&lt;/p&gt;
+
+&lt;p&gt;Before doing any calls to Butler, we should initialize things. Failing to do so might lead to errors and unpredictable responses from the Butler APIs.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$(Must_Include=[lib://Butler scripts/butler_init.qvs]);
+CALL ButlerInit;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;We first include the subroutine from a .qvs file, then call it. The same concept is used throughout Butler when it comes to making use of Butler features from the Sense load script.&lt;/li&gt;
+&lt;li&gt;The Butler qvs files are stored in a folder on the Sense server, which is linked to a data connection called &amp;ldquo;Butler scripts&amp;rdquo;.&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;With this taken care of, we can call any other Butler API.&lt;/p&gt;
+
+&lt;h3 id=&#34;posting-to-slack&#34;&gt;Posting to Slack&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$(Must_Include=[lib://Butler scripts/butler_init.qvs]);
+$(Must_Include=[lib://Butler scripts/post_to_slack.qvs]);
+
+CALL ButlerInit;
+CALL PostToSlack(&#39;sense-reload-info&#39;, &#39;server: senseServer1&#39;, &#39;*&amp;lt;App name&amp;gt;*: reload starting&#39;, &#39;:ghost:&#39;);  // Post a starting message to Slack
+CALL PostToSlack(&#39;sense-reload-info&#39;, subfield(OSUser(),&#39;UserId=&#39;,2) &amp;amp; &#39; on server: &#39; &amp;amp; ComputerName(), &#39;*Reloaded by: &#39; &amp;amp; subfield(OSUser(),&#39;UserId=&#39;,2) &amp;amp; &#39;* &amp;lt;App name&amp;gt;: Reload starting&#39;, &#39;:test:&#39;);  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will result in the following Slack entries:&lt;br /&gt;
+&lt;img src=&#34;post_to_slack_1.png&#34; alt=&#34;alt text&#34; title=&#34;Posting to Slack&#34; /&gt;&lt;br /&gt;
+&lt;img src=&#34;post_to_slack_2.png&#34; alt=&#34;alt text&#34; title=&#34;Posting to Slack&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;start-a-sense-task&#34;&gt;Start a Sense task&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$(Must_Include=[lib://Butler scripts/butler_init.qvs]);
+$(Must_Include=[lib://Butler scripts/start_task.qvs]);
+
+CALL ButlerInit;
+CALL StartTask(&#39;abcd1234-5678-abcd-1234-abcd1234abcd&#39;);     // Parameter should be ID of the task that is to be started
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;post-a-message-to-an-mqtt-topic&#34;&gt;Post a message to an MQTT topic&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$(Must_Include=[lib://Butler scripts/butler_init.qvs]);
+$(Must_Include=[lib://Butler scripts/post_to_slack.qvs]);
+
+CALL ButlerInit;
+CALL PostToMQTT(&#39;qliksense/myapp/reload_status&#39;, &#39;starting&#39;);   // Posting message &amp;quot;starting&amp;quot; to topic &amp;quot;qliksense/myapp/reload_status&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;create-a-directory-on-disk&#34;&gt;Create a directory on disk&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$(Must_Include=[lib://Butler scripts/butler_init.qvs]);
+$(Must_Include=[lib://Butler scripts/create_directory.qvs]);
+
+CALL ButlerInit;
+CALL CreateDir(&#39;d:/abc/def/ghi&#39;);       // Note that forward slashes work
+CALL CreateDir(&#39;d:\123\456\789&#39;);       // Backslashes work too
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;list-all-sense-apps-on-the-server&#34;&gt;List all Sense apps on the server&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;// &amp;quot;Sense list apps&amp;quot; is a data connection using Qlik&#39;s standard REST connector, connected 
+// to http://&amp;lt;FQDN or IP of Butler server&amp;gt;:8080/senseListApps
+// The Apps table will contain id and name of all apps on the server
+
+LIB CONNECT TO &#39;Sense list apps&#39;;
+
+RestConnectorMasterTable:
+SQL SELECT 
+    &amp;quot;id&amp;quot;,
+    &amp;quot;name&amp;quot;
+FROM JSON (wrap on) &amp;quot;root&amp;quot;;
+
+Apps:
+LOAD    
+    [id]    AS [App id],
+    [name]  AS [App name]
+RESIDENT RestConnectorMasterTable;
+
+DROP TABLE RestConnectorMasterTable;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;serialise-a-sense-app-to-json-and-a-sense-data-model&#34;&gt;Serialise a Sense app to JSON and a Sense data model&lt;/h3&gt;
+
+&lt;p&gt;Create a data connection (for example called &amp;ldquo;Sense app extract&amp;rdquo;) using Qlik&amp;rsquo;s REST connector, against http://&lt;FQDN or IP of Butler server&gt;:8080/senseAppDump
+This will generate several thousands lines of code in the Sense script editor, modelling a Sense app&amp;rsquo;s internal data model.
+The Butler endpoint returns a JSON, which the REST connector then transforms into a Sense data model.
+To dynamically control which app is serialized you can use the &amp;ldquo;with connection&amp;rdquo; syntax.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;LIB CONNECT TO &#39;Sense app extract&#39;;
+
+let vAppId = &#39;abcd1234-5678-abcd-1234-abcd1234abcd&#39;;
+
+RestConnectorMasterTable:
+SQL SELECT 
+&amp;quot;loadScript&amp;quot;,
+...
+FROM JSON (wrap on) &amp;quot;root&amp;quot; PK &amp;quot;__KEY_root&amp;quot;
+WITH CONNECTION (
+QUERY &amp;quot;guid&amp;quot; &amp;quot;$(vAppId)&amp;quot;);
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here is what the Sense data model can look like for a Sense app:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;data_model_of_a_qlik_sense_app.png&#34; alt=&#34;alt text&#34; title=&#34;Qlik Sense app data model&#34; /&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Start Sense tasks using MQTT</title>
+      <link>https://butler.ptarmiganlabs.com/docs/examples/start_task_from_mqtt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler.ptarmiganlabs.com/docs/examples/start_task_from_mqtt/</guid>
+      <description>
+        
+        
+        
+
+&lt;h2 id=&#34;use-mqtt-to-start-sense-tasks&#34;&gt;Use MQTT to start Sense tasks&lt;/h2&gt;
+
+&lt;p&gt;Butler is configured to listen to a specific MQTT topic, qliksense/start_task, and use any message received in that topic as a Sense task ID, which is then started.&lt;/p&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A Sense app, used by end users, relies on data in a MS SQL Server database.&lt;/li&gt;
+&lt;li&gt;The data in the datbase can be updated at any time.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In order to update the Sense app with data, the most common approach is to schedule reloads of the app at certain intervals, i.e. polling the database.&lt;/p&gt;
+
+&lt;p&gt;But if the database instead posts a MQTT message on the qliksense/start_task topic when new data is available, the database will trigger the Sense app&amp;rsquo;s reload.&lt;/p&gt;
+
+&lt;p&gt;This way the Sense app will be updated as quickly as possible after new data is availabe in the database.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;I.e. the end user will have access to more up-to-date data, compared to the polling based solution.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,35 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler – Butler</title>
+    <link>https://butler.ptarmiganlabs.com/</link>
+    <description>Recent content on Butler</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://butler.ptarmiganlabs.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+      
+    
+    
+    <item>
+      <title>Blog: v3.0.0: Enable some REST API endpoints, disable others.</title>
+      <link>https://butler.ptarmiganlabs.com/blog/2019/11/01/v3.0.0-enable-some-rest-api-endpoints-disable-others./</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler.ptarmiganlabs.com/blog/2019/11/01/v3.0.0-enable-some-rest-api-endpoints-disable-others./</guid>
+      <description>
+        
+        
+        &lt;p&gt;As Butler offers a set of rather different API endpoints, there might be cases where you only need some of those features.&lt;/p&gt;
+
+&lt;p&gt;In the spirit of security you might then want to enable only the endpoints you actually need.&lt;br /&gt;
+Butler 3.0 adds exactly this feature.&lt;/p&gt;
+
+&lt;p&gt;Configuration is easy. Just enable/disable the individual REST API endpoints in Butler&amp;rsquo;s configuration file, and you&amp;rsquo;re done. Done!&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
