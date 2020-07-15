@@ -42,13 +42,9 @@ New docs, blog and news coming to Butler.
 	&lt;/div&gt;
 	
 &lt;/div&gt;
-
 &lt;p&gt;The old doc site was ok, but a few years old and pretty outdated when it came to examples in particular. It was also kind of difficult to maintain, resulting in - no surpise - few updates over the years.&lt;/p&gt;
-
-&lt;p&gt;Butler joins its sibling &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34; target=&#34;_blank&#34;&gt;Butler SOS&lt;/a&gt;, with both tools now having their own, dedicated doc sites based on the great &lt;a href=&#34;https://gohugo.io/&#34; target=&#34;_blank&#34;&gt;Hugo&lt;/a&gt; tool, using the &lt;a href=&#34;https://www.docsy.dev/&#34; target=&#34;_blank&#34;&gt;Docsy&lt;/a&gt; template.&lt;/p&gt;
-
+&lt;p&gt;Butler joins its sibling &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34;&gt;Butler SOS&lt;/a&gt;, with both tools now having their own, dedicated doc sites based on the great &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; tool, using the &lt;a href=&#34;https://www.docsy.dev/&#34;&gt;Docsy&lt;/a&gt; template.&lt;/p&gt;
 &lt;p&gt;The new site has plenty of room for structured growth, allowing us to add examples, tutorials etc in a good way.&lt;/p&gt;
-
 &lt;p&gt;It&amp;rsquo;s also easy for anyone to provide feedback - just click the &amp;ldquo;Create issue&amp;rdquo; link in the upper right corner of each page, and are taken straight to the issues section on GitHub. Easy!&lt;/p&gt;
 
       </description>

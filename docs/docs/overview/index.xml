@@ -22,19 +22,14 @@
       <description>
         
         
-        
-
-&lt;!-- 
+        &lt;!-- 
 
 &lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
 
 &lt;/div&gt;
  --&gt;
-
 &lt;h1 id=&#34;available-endpoints&#34;&gt;Available endpoints&lt;/h1&gt;
-
 &lt;p&gt;The following REST endpoints are available:&lt;/p&gt;
-
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -42,65 +37,53 @@
 &lt;th&gt;Description&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
-
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;/v2/activeUserCount&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;# of users with open Sense sessions&lt;/td&gt;
 &lt;/tr&gt;
-
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;/v2/activeUsers&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Usernames of users with open Sense sessions&lt;/td&gt;
 &lt;/tr&gt;
-
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;/v2/butlerPing&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Checks if Butler is running&lt;/td&gt;
 &lt;/tr&gt;
-
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;/v2/createDir&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Create directories (anywhere in the file system) on the server where Butler is running&lt;/td&gt;
 &lt;/tr&gt;
-
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;/v2/createDirQVD&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Create directories (relative to a hard coded path) on the server where Butler is running&lt;/td&gt;
 &lt;/tr&gt;
-
 &lt;tr&gt;
 &lt;td&gt;&lt;strike&gt;&lt;code&gt;/v2/getDiskSpace&lt;/code&gt;&lt;strike&gt;&lt;/td&gt;
 &lt;td&gt;&lt;strike&gt;Check available disk space&lt;/strike&gt;&lt;br&gt;Removed in v2.1 due to difficulties getting consistent behaviour across Windows, Linux and Mac OS&lt;/td&gt;
 &lt;/tr&gt;
-
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;/v2/mqttPublishMessage&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Publish message to MQTT topic&lt;/td&gt;
 &lt;/tr&gt;
-
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;/v2/senseAppDump&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Retrieves metadata (load script etc) about a Sense app&lt;/td&gt;
 &lt;/tr&gt;
-
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;/v2/senseListApps&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;List name and GUID of all Sense apps in the system&lt;/td&gt;
 &lt;/tr&gt;
-
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;/v2/senseStartTask&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Start a Sense task. Can for example be used by upstream data providers to trigger reloads of Sense apps&lt;/td&gt;
 &lt;/tr&gt;
-
 &lt;tr&gt;
 &lt;td&gt;&lt;code&gt;/v2/slackPostMessage&lt;/code&gt;&lt;/td&gt;
 &lt;td&gt;Post to Slack from Sense load scripts&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-
 &lt;p&gt;Full documentation is available &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/rest&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
       </description>
@@ -115,16 +98,15 @@
       <description>
         
         
-        
-
-&lt;!-- 
+        &lt;!-- 
 
 &lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
-&lt;p&gt;*&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;/div&gt;
  --&gt;
-
 &lt;h2 id=&#34;what-is-butler&#34;&gt;What is Butler&lt;/h2&gt;
 
       </description>
@@ -139,16 +121,15 @@
       <description>
         
         
-        
-
-&lt;!-- 
+        &lt;!-- 
 
 &lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
-&lt;p&gt;*&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;/div&gt;
  --&gt;
-
 &lt;h2 id=&#34;what-is-butler&#34;&gt;What is Butler&lt;/h2&gt;
 
       </description>
@@ -163,16 +144,15 @@
       <description>
         
         
-        
-
-&lt;!-- 
+        &lt;!-- 
 
 &lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
-&lt;p&gt;*&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;/div&gt;
  --&gt;
-
 &lt;h2 id=&#34;what-is-butler&#34;&gt;What is Butler&lt;/h2&gt;
 
       </description>
@@ -187,16 +167,15 @@
       <description>
         
         
-        
-
-&lt;!-- 
+        &lt;!-- 
 
 &lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
-&lt;p&gt;*&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;/div&gt;
  --&gt;
-
 &lt;h2 id=&#34;what-is-butler&#34;&gt;What is Butler&lt;/h2&gt;
 
       </description>

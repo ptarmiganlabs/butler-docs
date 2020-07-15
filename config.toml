@@ -42,6 +42,11 @@ hrefTargetBlank = true
 angledQuotes = false
 latexDashes = true
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 # Image processing configuration.
 [imaging]
 resampleFilter = "CatmullRom"
@@ -58,7 +63,7 @@ id = "UA-58487795-5"
 [languages]
 [languages.en]
 title = "Butler"
-description = "Butler documentation site"
+description = "Butler documentation"
 languageName ="English"
 # Weight used for sorting.
 weight = 1
@@ -118,8 +123,8 @@ footer_about_disable = false
 [params.ui.feedback]
 enable = true
 # The responses that the user sees after clicking "yes" (the page was helpful) or "no" (the page was not helpful).
-yes = 'Glad to hear it! Please <a href="https://github.com/ptarmiganlabs/butler-docs/issues/new">tell us how we can improve</a>.'
-no = 'Sorry to hear that. Please <a href="https://github.com/ptarmiganlabs/butler-docs/issues/new">tell us how we can improve</a>.'
+yes = 'Glad to hear it! Please <a href="https://github.com/ptarmiganlabs/butler/issues/new">tell us how we can improve</a>.'
+no = 'Sorry to hear that. Please <a href="https://github.com/ptarmiganlabs/butler/issues/new">tell us how we can improve</a>.'
 
 [params.links]
 # End user relevant links. These will show up on left side of footer and in the community page if you have one.

@@ -14,6 +14,28 @@
     
     
     <item>
+      <title>Blog: v3.1.0: An armful of heart beats</title>
+      <link>https://butler.ptarmiganlabs.com/blog/2020/07/15/v3.1.0-an-armful-of-heart-beats/</link>
+      <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler.ptarmiganlabs.com/blog/2020/07/15/v3.1.0-an-armful-of-heart-beats/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;strong&gt;Our trusted Butler has turned four - quite an age in the world of fast-moving DevOps tools!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Over time it&amp;rsquo;s become clear that some features are more useful than others, which is not really surprising of course.&lt;br&gt;
+Some of Butler&amp;rsquo;s features are on the other hand &lt;em&gt;very&lt;/em&gt; useful - for example starting reloads or dumping app metadata to JSON via REST calls.&lt;/p&gt;
+&lt;p&gt;The trusted old Butler is thus very much alive and as of version 5.5.0 it&amp;rsquo;s available as Arm and Arm64 Docker images, in addition to the already supported amd64 (equals regular x86 computers, more or less) architecture.&lt;/p&gt;
+&lt;p&gt;And - the Butler can now be configured to send heart beats to a monitoring tool, to monitor and make sure that Butler itself is alive and well.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;What does that mean in regular English?&lt;/strong&gt;&lt;br&gt;
+You can now run Butler on more cost effective AWS EC2 Arm instances, or even a Raspberry Pi - or a Kubernetes cluster of Pis - just because it&amp;rsquo;s possible and gives you some tech respect.&lt;/p&gt;
+&lt;p&gt;And that you can monitor the Butler itself.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Respect.&lt;/em&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Blog: v3.0.1: Docker health check is now... healthy.</title>
       <link>https://butler.ptarmiganlabs.com/blog/2019/11/29/v3.0.1-docker-health-check-is-now...-healthy./</link>
       <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
@@ -23,9 +45,7 @@
         
         
         &lt;p&gt;A small bug found its way into v3.0.0. Nothing affecting the core functions of Butler, but as it &lt;em&gt;does&lt;/em&gt; support Docker health checks, those should work..&lt;/p&gt;
-
 &lt;p&gt;Which is now the case.&lt;/p&gt;
-
 &lt;p&gt;No features added, just that bug fix and some minor upgrades to the software components used in Butler.&lt;/p&gt;
 
       </description>
@@ -41,10 +61,8 @@
         
         
         &lt;p&gt;As Butler offers a set of rather different API endpoints, there might be cases where you only need some of those features.&lt;/p&gt;
-
-&lt;p&gt;In the spirit of security you might then want to enable only the endpoints you actually need.&lt;br /&gt;
+&lt;p&gt;In the spirit of security you might then want to enable only the endpoints you actually need.&lt;br&gt;
 Butler 3.0 adds exactly this feature.&lt;/p&gt;
-
 &lt;p&gt;Configuration is easy. Just enable/disable the individual REST API endpoints in Butler&amp;rsquo;s configuration file, and you&amp;rsquo;re done. Done!&lt;/p&gt;
 
       </description>
