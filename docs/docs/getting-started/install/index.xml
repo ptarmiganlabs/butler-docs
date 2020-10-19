@@ -1,11 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Butler – Installation</title>
-    <link>https://butler.ptarmiganlabs.com/docs/getting-started/install/</link>
-    <description>Recent content in Installation on Butler</description>
+    <title>Butler – Installing Butler</title>
+    <link>/docs/getting-started/install/</link>
+    <description>Recent content in Installing Butler on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
     
-	  <atom:link href="https://butler.ptarmiganlabs.com/docs/getting-started/install/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="/docs/getting-started/install/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -14,15 +15,18 @@
     
     
     <item>
-      <title>Docs: Running Butler in Docker</title>
-      <link>https://butler.ptarmiganlabs.com/docs/getting-started/install/docker/</link>
+      <title>Docs: Running Butler as a native Node.js application</title>
+      <link>/docs/getting-started/install/natively/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/install/docker/</guid>
+      <guid>/docs/getting-started/install/natively/</guid>
       <description>
         
         
-        &lt;h2 id=&#34;running-in-docker&#34;&gt;Running in Docker&lt;/h2&gt;
+        &lt;h2 id=&#34;selecting-an-os&#34;&gt;Selecting an OS&lt;/h2&gt;
+&lt;p&gt;While Qlik Sense Enterprise is a Windows only system, Butler should be able to run on any OS where Node.js is available.&lt;br&gt;
+Butler has been succesfully used - during development and production - on Windows, Linux (Debian and Ubuntu tested) and OSX.&lt;/p&gt;
+&lt;h2 id=&#34;running-as-native-app&#34;&gt;Running as native app&lt;/h2&gt;
 &lt;p&gt;If you have access to or can set up a Docker runtime environment, this is by far the preferred way of running Butler.&lt;br&gt;
 Installation is less error prone compared to installing Butler natively, you get all the benefits from the Docker ecosystem (monitoring of running containers etc), and upgrades to future Butler versions become trivial.&lt;/p&gt;
 &lt;p&gt;Prerequisites:&lt;/p&gt;
@@ -39,8 +43,8 @@ Installation is less error prone compared to installing Butler natively, you get
 &lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; Butler is developed with Sense Enterprise in mind. While many Butler features might also work with Sense Desktop, you are on your own there.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;Docker&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; A Docker runtime environment on any supported platform. This means you can run Butler on any platform where Docker is available, including Linux, Mac OS, Windows and most cloud providers. It is very doable to run Butler under Kubernetes too, if so desired.&lt;/td&gt;
+&lt;td&gt;Node.js&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; Butler is written in Node - which is thus a firm requirement.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;MQTT broker&lt;/td&gt;
@@ -49,8 +53,97 @@ Installation is less error prone compared to installing Butler natively, you get
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;installation-steps&#34;&gt;Installation steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Install node.js&lt;/strong&gt;&lt;br&gt;
+Butler has been developed and tested using the 64 bit version of &lt;a href=&#34;https://nodejs.org/en/download/&#34;&gt;node.js&lt;/a&gt;. The most recent LTS (Long Term Support) version is usually a good choice.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Decide where to install Butler&lt;/strong&gt;&lt;br&gt;
+It is usually a good starting point to run Butler on the Sense server. If there are more than one server in the Sense cluster, Butler can be placed on the reload server (as the /createDir endpoint then can be used to create folders in which QVD and other files can be stored).&lt;/p&gt;
+&lt;p&gt;On the other hand, you might want to keep the Sense servers as clean as possible (with respect to software running on them). If that is a priority you should install Butler on some other server.&lt;/p&gt;
+&lt;p&gt;The bottom line is that Butler can run on any server, as long as there is network connectivity to the Sense server(s).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Download Butler&lt;/strong&gt;&lt;br&gt;
+Download the repository zip from the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/releases&#34;&gt;releases page&lt;/a&gt; file or clone the Butler repository using your git tool of choice. Both options achieve the same thing, i.e. a directory such as d:\node\butler, which is then Butler&amp;rsquo;s root directory.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Install node dependencies&lt;/strong&gt;&lt;br&gt;
+From a Windows command prompt (assuming the Butler ZIP file/repository was saved to d:\node\butler):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  d:
+  cd \node\butler\src
+  npm install  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This will download and install all Node.js modules used by Butler.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;MQTT message broker&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Several of Butler&amp;rsquo;s features use &lt;a href=&#34;http://mqtt.org/&#34;&gt;MQTT&lt;/a&gt; for sending and receiving messages.&lt;br&gt;
+MQTT is a standardised messaging protocol, and it should be possible to use &lt;a href=&#34;https://github.com/mqtt/mqtt.github.io/wiki/software?id=software&#34;&gt;any broker following the MQTT standard&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Butler has been developed and tested using &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; running on OSX and Debian Linux - both work flawlessly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Choose a platform</title>
+      <link>/docs/getting-started/install/choose-platform/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/getting-started/install/choose-platform/</guid>
+      <description>
+        
+        
+        &lt;p&gt;If you have access to or can set up a &lt;strong&gt;Docker&lt;/strong&gt; runtime environment, this is by far the preferred way of running Butler.&lt;/p&gt;
+&lt;p&gt;Installation is less error prone compared to installing Butler as a &lt;strong&gt;Node.js app&lt;/strong&gt;, you get all the benefits from the Docker ecosystem (monitoring of running containers etc), and upgrades to future Butler versions become trivial.&lt;/p&gt;
+&lt;p&gt;If you have access to a &lt;strong&gt;Kubernetes&lt;/strong&gt; cluster, that is usually an even better option than Docker. Kubernetes can be daunting when first approached, but will give you superb reliability, failover and restarts if a server goes down or becomes unresponsive etc.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://k3s.io/&#34;&gt;Rancher&amp;rsquo;s K3s&lt;/a&gt; is a very good way to get started with Kubnernetes. Fully featured, well supported and a vibrant developer community.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Installing Butler in a Docker container</title>
+      <link>/docs/getting-started/install/docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/getting-started/install/docker/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Prerequisites for running Butler in Docker:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;What&lt;/th&gt;
+&lt;th&gt;Comment&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Qlik Sense Enterprise on Windows&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; Butler is developed with Sense Enterprise in mind. While some Butler features might also work with Sense Desktop or Sense cloud, you are on your own there.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Docker&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; A Docker runtime environment on any supported platform. This means you can run Butler on any platform where Docker is available, including Linux, Mac OS, Windows and most cloud providers. It is very doable to run Butler under Kubernetes too, if so desired.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MQTT broker&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; MQTT is used for both in- and out-bound pub-sub messaging. Butler assumes a working MQTT broker is available, the IP of which is defined in the Butler config file. &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; is a nice open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&amp;hellip; instance is enough, if you want a dedicated MQTT server. If you don&amp;rsquo;t care about the pubsub features of Butler, you don&amp;rsquo;t need a MQTT broker. In this case you can disable the MQTT features in Butler&amp;rsquo;s config file.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.influxdata.com/time-series-platform/&#34;&gt;InfluxDB&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; A database for realtime information, used to store metrics around Butler&amp;rsquo;s own memory usage over time (if this feature is enabled).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;installation-steps&#34;&gt;Installation steps&lt;/h2&gt;
 &lt;p&gt;The following steps give some guidance on how to get Butler running on Docker.&lt;br&gt;
-Here Mac OS has been used, things will of course look slightly different on Linux and Windows.&lt;/p&gt;
+Here Mac OS has been used, things will look different on Linux and Windows.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:~ goran$ mkdir /Users/goran/butler
 proton:~ goran$ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; /Users/goran/butler
 proton:butler goran$ mkdir -p config/certificate
@@ -96,9 +189,10 @@ proton:butler goran$
 &lt;ol&gt;
 &lt;li&gt;Export certificates from the Qlik Sense QMC. Export a full set of certificates in PEM format, no psasword on the certificates.&lt;/li&gt;
 &lt;li&gt;Copy the certificates to the ./config/certificate directory.&lt;/li&gt;
-&lt;li&gt;copy the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/src/config/default_template.yaml&#34;&gt;template config file&lt;/a&gt; from the GitHub repository to the ./config directory, modify it as needed based on your system(s), and rename it to for example &lt;code&gt;production.yaml&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;copy the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/src/config/default_template.yaml&#34;&gt;template config file&lt;/a&gt; from the GitHub repository to the ./config directory, modify it as needed based on your system(s) and which Butler features you want enabled, and rename it to for example &lt;code&gt;production.yaml&lt;/code&gt;.&lt;br&gt;
+You can name the config file anything, but its name has to match the NODE_ENV environment variable, as set it the &lt;code&gt;docker-compose.yml&lt;/code&gt; file.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Optional.&lt;/em&gt; Copy the template schedule file to the location specified in Butler&amp;rsquo;s config file. This is only needed if you manually want to add schedules. If using the API to create schedules, there is no need to first manually create a schedules file.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;You can name the config file anything, but its name has to match the NODE_ENV environment variable, as set it the &lt;code&gt;docker-compose.yml&lt;/code&gt; file.&lt;/p&gt;
 &lt;p&gt;When done, you should see something like this:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:butler goran$ &lt;span style=&#34;color:#204a87&#34;&gt;pwd&lt;/span&gt;
 /Users/goran/butler
@@ -174,7 +268,8 @@ butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;
 butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.699Z info: REST server listening on http://172.21.0.2:8080
 butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.700Z info: UDP server listening on 172.21.0.2:9997
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you haven&amp;rsquo;t configured MQTT in the config file, you won&amp;rsquo;t see the &amp;ldquo;&amp;hellip;Connected to MQTT server&amp;rdquo; line.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;What you see on your screen will depend on which Butler features are enabled.
+In the example above &lt;em&gt;all&lt;/em&gt; Butler features are enabled.&lt;/p&gt;
 &lt;p&gt;Let&amp;rsquo;s make sure things are working by opening a new terminal window and from there requesting a list of all apps on the server:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:~ goran$
 proton:~ goran$ curl &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://localhost:8180/v2/senseListApps&amp;#34;&lt;/span&gt;
@@ -199,19 +294,16 @@ butler           &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/s
     
     <item>
       <title>Docs: Running Butler as a native Node.js application</title>
-      <link>https://butler.ptarmiganlabs.com/docs/getting-started/install/natively/</link>
+      <link>/docs/getting-started/install/nodejs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/install/natively/</guid>
+      <guid>/docs/getting-started/install/nodejs/</guid>
       <description>
         
         
-        &lt;h2 id=&#34;selecting-an-os&#34;&gt;Selecting an OS&lt;/h2&gt;
-&lt;p&gt;While Qlik Sense Enterprise is a Windows only system, Butler should be able to run on any OS where Node.js is available.&lt;br&gt;
-Butler has been succesfully used - during development and production - on Windows, Linux (Debian and Ubuntu tested) and OSX.&lt;/p&gt;
-&lt;h2 id=&#34;running-as-native-app&#34;&gt;Running as native app&lt;/h2&gt;
-&lt;p&gt;If you have access to or can set up a Docker runtime environment, this is by far the preferred way of running Butler.&lt;br&gt;
-Installation is less error prone compared to installing Butler natively, you get all the benefits from the Docker ecosystem (monitoring of running containers etc), and upgrades to future Butler versions become trivial.&lt;/p&gt;
+        &lt;p&gt;While Qlik Sense Enterprise is a Windows only system, Butler runs on any OS where Node.js is available.&lt;br&gt;
+Butler has been succesfully used using standard Node.js - during development and production - on Windows, Linux (Debian and Ubuntu tested) and Mac OS.&lt;/p&gt;
+&lt;h2 id=&#34;running-as-nodejs-app&#34;&gt;Running as Node.js app&lt;/h2&gt;
 &lt;p&gt;Prerequisites:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -227,11 +319,15 @@ Installation is less error prone compared to installing Butler natively, you get
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;Node.js&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; Butler is written in Node - which is thus a firm requirement.&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;MQTT broker&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; MQTT is used for both in- and out-bound pub-sub messaging. Butler assumes a working MQTT broker is available, the IP of which is defined in the Butler config file. Mosquitto is a nice open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&amp;hellip; instance is enough, if you want a dedicated MQTT server. If you don&amp;rsquo;t care about the pubsub features of Butler, you don&amp;rsquo;t need a MQTT broker. In this case you can disable the MQTT features in the config YAML file.&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; MQTT is used for both in- and out-bound pub-sub messaging. Butler assumes a working MQTT broker is available, the IP of which is defined in the Butler config file. &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; is a nice open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&amp;hellip; instance is enough, if you want a dedicated MQTT server. If you don&amp;rsquo;t care about the pubsub features of Butler, you don&amp;rsquo;t need a MQTT broker. In this case you can disable the MQTT features in Butler&amp;rsquo;s config file.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.influxdata.com/time-series-platform/&#34;&gt;InfluxDB&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; A database for realtime information, used to store metrics around Butler&amp;rsquo;s own memory usage over time (if this feature is enabled).&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -239,13 +335,13 @@ Installation is less error prone compared to installing Butler natively, you get
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Install node.js&lt;/strong&gt;&lt;br&gt;
-Butler has been developed and tested using the 64 bit version of &lt;a href=&#34;https://nodejs.org/en/download/&#34;&gt;node.js&lt;/a&gt;. The most recent LTS (Long Term Support) version is usually a good choice.&lt;/p&gt;
+Butler has been developed and tested using the 64 bit version of &lt;a href=&#34;https://nodejs.org/en/download/&#34;&gt;Node.js&lt;/a&gt;. The most recent LTS (Long Term Support) version is usually a good choice.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Decide where to install Butler&lt;/strong&gt;&lt;br&gt;
 It is usually a good starting point to run Butler on the Sense server. If there are more than one server in the Sense cluster, Butler can be placed on the reload server (as the /createDir endpoint then can be used to create folders in which QVD and other files can be stored).&lt;/p&gt;
-&lt;p&gt;On the other hand, you might want to keep the Sense servers as clean as possible (with respect to software running on them). If that is a priority you should install Butler on some other server.&lt;/p&gt;
-&lt;p&gt;The bottom line is that Butler can run on any server, as long as there is network connectivity to the Sense server(s).&lt;/p&gt;
+&lt;p&gt;On the other hand, you might want to keep the Sense servers as clean as possible (with respect to software running on them). If that is a priority you should install Butler on some other server. A small &amp;ldquo;utility&amp;rdquo; or &amp;ldquo;misc&amp;rdquo; server can often be useful for running various add-on services to Qlik Sense.&lt;/p&gt;
+&lt;p&gt;The bottom line is that Butler can run on any server, as long as Node.js is available and there is network connectivity to the actual Qlik Sense server(s).&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Download Butler&lt;/strong&gt;&lt;br&gt;
@@ -254,9 +350,9 @@ Download the repository zip from the &lt;a href=&#34;https://github.com/ptarmiga
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Install node dependencies&lt;/strong&gt;&lt;br&gt;
 From a Windows command prompt (assuming the Butler ZIP file/repository was saved to d:\node\butler):&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;  d:
-  cd \node\butler\src
-  npm install  
+&lt;pre&gt;&lt;code&gt;d:
+cd \node\butler\src
+npm install
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This will download and install all Node.js modules used by Butler.&lt;/p&gt;
 &lt;/li&gt;
@@ -264,7 +360,7 @@ From a Windows command prompt (assuming the Butler ZIP file/repository was saved
 &lt;p&gt;&lt;strong&gt;MQTT message broker&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Several of Butler&amp;rsquo;s features use &lt;a href=&#34;http://mqtt.org/&#34;&gt;MQTT&lt;/a&gt; for sending and receiving messages.&lt;br&gt;
 MQTT is a standardised messaging protocol, and it should be possible to use &lt;a href=&#34;https://github.com/mqtt/mqtt.github.io/wiki/software?id=software&#34;&gt;any broker following the MQTT standard&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Butler has been developed and tested using &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; running on OSX and Debian Linux - both work flawlessly.&lt;/p&gt;
+&lt;p&gt;Butler has been developed and tested using &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; running on OSX, Debian Linux and Windows Server - all work flawlessly.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 

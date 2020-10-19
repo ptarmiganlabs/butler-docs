@@ -1,0 +1,181 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler – About</title>
+    <link>/docs/about/</link>
+    <description>Recent content in About on Butler</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/docs/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Butler</title>
+      <link>/docs/about/butler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/about/butler/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The Butler project is all about adding useful features to Qlik Sense Enterprise.&lt;br&gt;
+Some of the features can be used from Sense load scripts, while other provide integration with other systems.&lt;/p&gt;
+&lt;p&gt;The goal is to integrate battle-proven concepts and best-of-breed open-source tools into Butler and thus make them available to developers of Sense apps or those responsible for running Sense clusters.&lt;br&gt;
+In some cases it might be possible to use these tools from within Sense also without Butler - in those cases Butler simply tries make things easier, lowering the barriers to get started and get things done.&lt;/p&gt;
+&lt;p&gt;There is also a clear goal that Butler should be very configurable. In practice this means that features can be turned on/off as needed, improving security and lowering memory usage.&lt;/p&gt;
+&lt;p&gt;Butler is written in &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js&lt;/a&gt; and runs on most modern operating systems.&lt;br&gt;
+You can run Butler on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).&lt;/p&gt;
+&lt;p&gt;Butler is a member of a group of tools collectively referred to as the &amp;ldquo;Butler family&amp;rdquo;, more info is available &lt;a href=&#34;/docs/about/butler-family&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: The Butler family</title>
+      <link>/docs/about/butler-family/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/about/butler-family/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Butler started out with a very specific need to start Sense reloads from outside systems.&lt;br&gt;
+Over the years a couple of projects have spun off from Butler (for example Butler SOS), and still other projects have been created to solve specific challenges around developing Sense apps (for example the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-app-duplicator&#34;&gt;Butler App Duplicator&lt;/a&gt;) or simplifying day 2 operations ([&lt;a href=&#34;https://www.infoworld.com/article/3442754/why-de-risking-day-2-operations-is-a-smart-business-strategy.html&#34;&gt;1&lt;/a&gt;], [&lt;a href=&#34;https://dzone.com/articles/defining-day-2-operations&#34;&gt;2&lt;/a&gt;]) in the form of &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos&#34;&gt;Butler SOS&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;All members of the Butler family are available on &lt;a href=&#34;https://github.com/ptarmiganlabs&#34;&gt;Ptarmigan Labs&#39; GitHub page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Projects with production grade release status are (as of this writing):&lt;/p&gt;
+&lt;h3 id=&#34;butler&#34;&gt;Butler&lt;/h3&gt;
+&lt;p&gt;The original Butler. Offers various utilities that make it easier to develop Sense apps, as well as simplifying day 2 operations.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https:/butler.ptarmiganlabs.com&#34;&gt;butler.ptarmiganlabs.com&lt;/a&gt;. (This site!)&lt;/p&gt;
+&lt;h3 id=&#34;butler-sos&#34;&gt;Butler SOS&lt;/h3&gt;
+&lt;p&gt;Real-time operational metrics for Qlik Sense. A must-have if you are responsible for a Sense environment with more than a dozen or so users. Butler SOS makes it possible to detect and alert on issues as they happen, rather than in retrospect much later.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34;&gt;butler-sos.ptarmiganlabs.com&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;butler-cw&#34;&gt;Butler CW&lt;/h3&gt;
+&lt;p&gt;Butler Cache Warmer. Cache warming is the process of proactively forcing Sense apps to be loaded into RAM, so they are readily available when users open them. Once again - if your Sense environment serve more than a dozen users, you should consider a cache warming tool.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-cw&#34;&gt;github.com/ptarmiganlabs/butler-cw&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;butler-app-duplicator&#34;&gt;Butler App Duplicator&lt;/h3&gt;
+&lt;p&gt;No matter if you are a single developer creating Sense apps, or have lots of developers doing this, having app templates is a good idea:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lowered barrier of entry for new Sense developers.&lt;/li&gt;
+&lt;li&gt;Productivity boost when developing Sense apps.&lt;/li&gt;
+&lt;li&gt;Encouraging a common coding standard across all apps.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-app-duplicator&#34;&gt;github.com/ptarmiganlabs/butler-app-duplicator&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;butler-spyglass&#34;&gt;Butler Spyglass&lt;/h3&gt;
+&lt;p&gt;This tool is mainly of interest if you have lots of QVDs and apps, but when that&amp;rsquo;s the case it&amp;rsquo;s of paramount importance to understand what apps use which QVDs. In other words what data lineage looks like.&lt;/p&gt;
+&lt;p&gt;Butler Spyglass also extracts full load scripts for all Sense apps, creating a historical record of all load scripts for all Sense apps.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-spyglass&#34;&gt;github.com/ptarmiganlabs/butler-spyglass&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;butler-notifier&#34;&gt;Butler Notifier&lt;/h3&gt;
+&lt;p&gt;This tool makes it easy to tap into the Qlik Sense notification API. From there you can get all kinds of notifications, including task reload failures and changes in session state (user login/logout etc).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-notifier&#34;&gt;github.com/ptarmiganlabs/butler-notifier&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;butler-icon-uploader&#34;&gt;Butler Icon Uploader&lt;/h3&gt;
+&lt;p&gt;Visual looks is important when it comes to analytics, and this holds true also for Sense apps.
+The Butler Icon Uploader makes it easy to upload icon libraries (for example Font Awesome) to Qlik Sense Enterprise.&lt;br&gt;
+With such icons available it is then easy for app developers to use professional quality sheet and app icons in their Sense apps.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-icon-upload&#34;&gt;github.com/ptarmiganlabs/butler-icon-upload&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Use cases</title>
+      <link>/docs/about/use-cases/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/about/use-cases/</guid>
+      <description>
+        
+        
+        &lt;!-- //TODO --&gt;
+&lt;h3 id=&#34;more-flexible-scheduling-of-app-reloads-in-qseow&#34;&gt;More flexible scheduling of app reloads in QSEoW&lt;/h3&gt;
+&lt;h3 id=&#34;passing-parameters-between-reload-tasks&#34;&gt;Passing parameters between reload tasks&lt;/h3&gt;
+&lt;h3 id=&#34;storing-state-across-several-apps&#34;&gt;Storing state across several apps&lt;/h3&gt;
+&lt;h4 id=&#34;time-to-live-ttl-for-key-value-pairs&#34;&gt;Time-to-live (TTL) for key-value pairs&lt;/h4&gt;
+&lt;h3 id=&#34;start-reloads-from-load-script-or-from-upstream-data-sources&#34;&gt;Start reloads from load script or from upstream data sources&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Trigger Sense reload tasks from a reload script&lt;/strong&gt;. This makes it possible to start different Sense tasks based on what data has been read from a database, for example.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Trigger Sense reloads from external systems&lt;/strong&gt;. When new data is available in a source database, immediately trigger reloads of the Sense apps that use that data.&lt;/p&gt;
+&lt;h3 id=&#34;make-new-data-reach-end-users-as-quickly-as-possible&#34;&gt;Make new data reach end users as quickly as possible&lt;/h3&gt;
+&lt;h3 id=&#34;using-mqtt-to-notify-downstream-systems-that-sense-is-done-processing-data&#34;&gt;Using MQTT to notify downstream systems that Sense is done processing data&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Send and receive MQTT publish-subscribe messages&lt;/strong&gt;. MQTT (and the pubsub concept in general) is a great way for systems to communicate reliably with each other.&lt;/p&gt;
+&lt;h3 id=&#34;instant-notifications-when-reload-tasks-fail&#34;&gt;Instant notifications when reload tasks fail&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Information about failing tasks&lt;/strong&gt; can be sent to a Slack channel. This gives sysadmins real-time insight into what&amp;rsquo;s happening with respect to task execution.&lt;/p&gt;
+&lt;h3 id=&#34;create-directories-move-or-delete-files&#34;&gt;Create directories, move or delete files&lt;/h3&gt;
+&lt;h3 id=&#34;extract-metadata-for-apps&#34;&gt;Extract metadata for apps&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Extract metadata about Sense apps&lt;/strong&gt;. Exporting an app as JSON can be very useful for backup purposes, or to take regular snapshots of all apps in Sense cluster.&lt;/p&gt;
+&lt;h3 id=&#34;post-messages-to-slack&#34;&gt;Post messages to Slack&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Slack messages can include full formatting&lt;/strong&gt; (web links, text formatting etc), as well as &amp;ldquo;poking&amp;rdquo; users.&lt;br&gt;
+I.e. notifying specific Slack users that they have a new message. Can for example be used to notify user(s) that an app has reloaded with new data, or that some error condition has occured.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Versions</title>
+      <link>/docs/about/versioning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/about/versioning/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;In the spirit of not copying information to several places, the version history is kept as annotations of each release on the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/releases&#34;&gt;GitHub release page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Version numbers include up to 3 levels, for example version 4.6.2 (which is a fictitious version):&lt;/p&gt;
+&lt;p&gt;4 is the &lt;strong&gt;major&lt;/strong&gt; version. It is increased when Butler has added major new features, or in other ways changed in major ways. If following this principle, breaking changes should always result in a bumped major version.&lt;/p&gt;
+&lt;p&gt;6 is the &lt;strong&gt;minor&lt;/strong&gt; version. This indicates a smaller update, when one or a few minor features have been added.&lt;/p&gt;
+&lt;p&gt;2 is the &lt;strong&gt;patch&lt;/strong&gt; level. When individual bugs are fixed, these are released with an increased patch level.&lt;/p&gt;
+&lt;p&gt;Note 1: Major and minor updates usually include bug fixes too.&lt;br&gt;
+Note 2: If a version of 5.2 is mentioned, this implicitly means 5.2.0.&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&#34;documentation-updates&#34;&gt;Documentation updates&lt;/h2&gt;
+&lt;p&gt;Starting with Butler version 4.0, this documentation site will offer both latest and earlier site versions.&lt;/p&gt;
+&lt;p&gt;Select which doc site to view in drop-down list in the upper right corner of the page.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Contribution guidelines</title>
+      <link>/docs/about/contributing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/about/contributing/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;Butler is an open source project, using the &lt;a href=&#34;https://choosealicense.com/licenses/mit/&#34;&gt;MIT license&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This means that all source code, documentation etc is available as-is, at no cost.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;It however also means that anyone interested can - and is encouraged to - contribute to the project!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Butler is developed in &lt;a href=&#34;https://nodejs.org&#34;&gt;Node.js&lt;/a&gt;, with support from various &lt;a href=&#34;https://www.npmjs.com/&#34;&gt;NPM&lt;/a&gt; modules.&lt;/p&gt;
+&lt;p&gt;We use &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; to format and generate this documentation site, the &lt;a href=&#34;https://github.com/google/docsy&#34;&gt;Docsy&lt;/a&gt; theme for styling and site structure.&lt;br&gt;
+Hugo is an open-source static site generator that provides us with templates, content organisation in a standard directory structure, and a website generation engine. You write the pages in Markdown (or HTML if you want), and Hugo wraps them up into a website.&lt;/p&gt;
+&lt;p&gt;All submissions, including submissions by project members, require review. We use GitHub pull requests for this purpose. Consult &lt;a href=&#34;https://help.github.com/articles/about-pull-requests/&#34;&gt;GitHub Help&lt;/a&gt; for more information on using pull requests.&lt;/p&gt;
+&lt;h2 id=&#34;creating-an-issue&#34;&gt;Creating an issue&lt;/h2&gt;
+&lt;p&gt;If you&amp;rsquo;ve found a problem - or have a feature suggestion - with Butler itself or the documentation, but you&amp;rsquo;re not sure how to fix it yourself, please create an issue in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/issues/new&#34;&gt;Butler repo&lt;/a&gt;. You can also create an issue about a specific doc page by clicking the &lt;strong&gt;Create Issue&lt;/strong&gt; button in the top right hand corner of the page.&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Security/Disclosure&lt;/h4&gt;
+If you discover a serious bug with Butler that may pose a security problem, please disclose it confidentially to &lt;a href=&#34;mailto:security@ptarmiganlabs.com&#34;&gt;security@ptarmiganlabs.com&lt;/a&gt; first, so that it can be assessed and hopefully fixed prior to being exploited. Please do not raise GitHub issues for security-related doubts or problems.
+&lt;/div&gt;
+
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

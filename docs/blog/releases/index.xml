@@ -1,11 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler – New Releases</title>
-    <link>https://butler.ptarmiganlabs.com/blog/releases/</link>
+    <link>/blog/releases/</link>
     <description>Recent content in New Releases on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
     
-	  <atom:link href="https://butler.ptarmiganlabs.com/blog/releases/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="/blog/releases/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -15,10 +16,10 @@
     
     <item>
       <title>Blog: v3.1.0: An armful of heart beats</title>
-      <link>https://butler.ptarmiganlabs.com/blog/2020/07/15/v3.1.0-an-armful-of-heart-beats/</link>
+      <link>/blog/releases/v3.1.0/</link>
       <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://butler.ptarmiganlabs.com/blog/2020/07/15/v3.1.0-an-armful-of-heart-beats/</guid>
+      <guid>/blog/releases/v3.1.0/</guid>
       <description>
         
         
@@ -37,10 +38,10 @@ You can now run Butler on more cost effective AWS EC2 Arm instances, or even a R
     
     <item>
       <title>Blog: v3.0.1: Docker health check is now... healthy.</title>
-      <link>https://butler.ptarmiganlabs.com/blog/2019/11/29/v3.0.1-docker-health-check-is-now...-healthy./</link>
+      <link>/blog/releases/v3.0.1/</link>
       <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://butler.ptarmiganlabs.com/blog/2019/11/29/v3.0.1-docker-health-check-is-now...-healthy./</guid>
+      <guid>/blog/releases/v3.0.1/</guid>
       <description>
         
         
@@ -53,10 +54,10 @@ You can now run Butler on more cost effective AWS EC2 Arm instances, or even a R
     
     <item>
       <title>Blog: v3.0.0: Enable some REST API endpoints, disable others.</title>
-      <link>https://butler.ptarmiganlabs.com/blog/2019/11/01/v3.0.0-enable-some-rest-api-endpoints-disable-others./</link>
+      <link>/blog/releases/v3.0.0/</link>
       <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://butler.ptarmiganlabs.com/blog/2019/11/01/v3.0.0-enable-some-rest-api-endpoints-disable-others./</guid>
+      <guid>/blog/releases/v3.0.0/</guid>
       <description>
         
         

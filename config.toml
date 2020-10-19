@@ -5,6 +5,9 @@ theme = ["docsy"]
 description = "Butler adds features and services to Qlik Sense Enterprise on Windows, making it easier to develop for and operate QSEoW."
 Paginate = 20
 
+# Added to support publishing to GitHub Pages, as per https://gohugo.io/hosting-and-deployment/hosting-on-github/
+publishDir = "docs"
+
 # SEO
 enableRobotsTXT = true
 

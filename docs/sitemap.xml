@@ -3,207 +3,231 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/examples/rest_from_loadscript/</loc>
-    <lastmod>2019-11-18T20:26:56+01:00</lastmod>
+    <loc>/docs/reference/rest/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/getting-started/install/</loc>
-    <lastmod>2019-11-18T20:26:56+01:00</lastmod>
+    <loc>/docs/getting-started/setup/config_file_syntax/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/concepts/log_event_handlers/</loc>
-    <lastmod>2019-11-18T20:29:58+01:00</lastmod>
+    <loc>/docs/getting-started/running/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/overview/</loc>
-    <lastmod>2019-11-18T20:26:56+01:00</lastmod>
+    <loc>/docs/getting-started/install/natively/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/reference/rest/</loc>
-    <lastmod>2019-11-18T20:26:56+01:00</lastmod>
+    <loc>/docs/about/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/overview/rest_endpoints/</loc>
-    <lastmod>2019-11-18T20:26:56+01:00</lastmod>
+    <loc>/docs/about/butler/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/getting-started/</loc>
-    <lastmod>2019-11-18T20:26:56+01:00</lastmod>
+    <loc>/docs/getting-started/setup/config_env_var/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/overview/log_event_handler/</loc>
-    <lastmod>2019-11-18T17:13:25+01:00</lastmod>
+    <loc>/docs/reference/config-file/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/examples/start_task_from_mqtt/</loc>
-    <lastmod>2019-11-18T17:13:25+01:00</lastmod>
+    <loc>/docs/concepts/key-value/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/concepts/real_time_metrics/</loc>
-    <lastmod>2019-11-18T17:13:25+01:00</lastmod>
+    <loc>/docs/examples/openapi-docs/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/getting-started/install/docker/</loc>
-    <lastmod>2019-11-18T22:54:47+01:00</lastmod>
+    <loc>/docs/getting-started/overview/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/getting-started/setup/</loc>
-    <lastmod>2019-11-18T17:13:25+01:00</lastmod>
+    <loc>/docs/about/use-cases/retired/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/getting-started/setup/config_env_var/</loc>
-    <lastmod>2019-11-18T17:13:25+01:00</lastmod>
+    <loc>/docs/getting-started/install/choose-platform/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/getting-started/setup/config_file_syntax/</loc>
-    <lastmod>2019-11-18T17:13:25+01:00</lastmod>
+    <loc>/docs/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/examples/</loc>
-    <lastmod>2019-11-18T20:26:56+01:00</lastmod>
+    <loc>/docs/getting-started/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/concepts/mqtt/</loc>
-    <lastmod>2019-11-18T20:26:56+01:00</lastmod>
+    <loc>/docs/getting-started/install/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/getting-started/running/</loc>
-    <lastmod>2019-11-18T17:13:25+01:00</lastmod>
+    <loc>/docs/getting-started/setup/log4net_appender/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/getting-started/install/natively/</loc>
-    <lastmod>2019-11-18T17:13:25+01:00</lastmod>
+    <loc>/blog/news/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/overview/realtime_user_metrics/</loc>
-    <lastmod>2019-11-18T17:13:25+01:00</lastmod>
+    <loc>/blog/releases/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/concepts/</loc>
-    <lastmod>2019-12-07T15:17:04+01:00</lastmod>
+    <loc>/docs/reference/rest_api/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/getting-started/setup/log4net_appender/</loc>
-    <lastmod>2019-11-18T17:13:25+01:00</lastmod>
+    <loc>/docs/concepts/scheduler/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/overview/mqtt_handlers/</loc>
-    <lastmod>2019-11-18T17:13:25+01:00</lastmod>
+    <loc>/docs/examples/scheduling/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/concepts/udp/</loc>
-    <lastmod>2019-11-18T20:26:56+01:00</lastmod>
+    <loc>/docs/about/butler-family/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/overview/extending_butler/</loc>
-    <lastmod>2019-11-18T17:13:25+01:00</lastmod>
+    <loc>/docs/concepts/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/reference/</loc>
-    <lastmod>2019-11-18T17:13:25+01:00</lastmod>
+    <loc>/docs/getting-started/install/docker/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/security/</loc>
-    <lastmod>2019-11-18T20:26:56+01:00</lastmod>
+    <loc>/docs/examples/reload-chaining/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/version_history/</loc>
-    <lastmod>2019-11-18T20:26:56+01:00</lastmod>
+    <loc>/docs/reference/scheduler/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/contribution-guidelines/</loc>
-    <lastmod>2019-11-18T20:26:56+01:00</lastmod>
+    <loc>/docs/getting-started/setup/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/legal_stuff/</loc>
-    <lastmod>2019-11-18T20:26:56+01:00</lastmod>
+    <loc>/docs/about/use-cases/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/docs/</loc>
-    <lastmod>2019-11-05T09:11:41+01:00</lastmod>
+    <loc>/docs/getting-started/operations/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/blog/news/</loc>
-    <lastmod>2019-11-29T11:44:52+01:00</lastmod>
+    <loc>/docs/examples/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/blog/releases/</loc>
-    <lastmod>2019-11-05T09:11:41+01:00</lastmod>
+    <loc>/docs/reference/key-value/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/blog/2020/07/15/v3.1.0-an-armful-of-heart-beats/</loc>
-    <lastmod>2020-07-16T00:57:18+02:00</lastmod>
+    <loc>/docs/examples/influxdb-metrics/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/blog/2019/11/29/new-documentation-site-for-butler/</loc>
-    <lastmod>2019-11-29T11:44:52+01:00</lastmod>
+    <loc>/docs/concepts/mqtt/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/blog/2019/11/29/v3.0.1-docker-health-check-is-now...-healthy./</loc>
-    <lastmod>2019-11-29T11:44:52+01:00</lastmod>
+    <loc>/docs/getting-started/install/nodejs/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/blog/2019/11/01/v3.0.0-enable-some-rest-api-endpoints-disable-others./</loc>
-    <lastmod>2019-11-05T09:11:41+01:00</lastmod>
+    <loc>/docs/concepts/log_event_handlers/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/about/</loc>
-    <lastmod>2019-11-05T09:11:41+01:00</lastmod>
+    <loc>/docs/about/versioning/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/blog/</loc>
-    <lastmod>2019-11-18T20:26:56+01:00</lastmod>
+    <loc>/docs/about/contributing/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/</loc>
-    <lastmod>2020-07-16T00:57:18+02:00</lastmod>
+    <loc>/docs/reference/</loc>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/community/</loc>
-    <lastmod>2018-10-05T14:41:45+01:00</lastmod>
+    <loc>/docs/security/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://butler.ptarmiganlabs.com/search/</loc>
+    <loc>/docs/legal_stuff/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/concepts/udp/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/concepts/real_time_metrics/</loc>
+  </url>
+  
+  <url>
+    <loc>/blog/releases/v3.1.0/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/news/20191129-1/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/releases/v3.0.1/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/releases/v3.0.0/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/about/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/community/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/search/</loc>
     <lastmod>2018-09-04T11:36:40+02:00</lastmod>
   </url>
   
