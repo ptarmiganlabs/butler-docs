@@ -3,10 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/docs/reference/rest/</loc>
-  </url>
-  
-  <url>
     <loc>/docs/getting-started/setup/config_file_syntax/</loc>
   </url>
   
