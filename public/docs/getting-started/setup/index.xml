@@ -15,42 +15,6 @@
     
     
     <item>
-      <title>Docs: Which config file to use</title>
-      <link>/docs/getting-started/setup/config_env_var/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/docs/getting-started/setup/config_env_var/</guid>
-      <description>
-        
-        
-        &lt;!-- 
-
-&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
-&lt;p&gt;This is a placeholder page that shows you how to use this template site.&lt;/p&gt;
-
-&lt;/div&gt;
- --&gt;
-&lt;h2 id=&#34;select-which-config-file-to-use&#34;&gt;Select which config file to use&lt;/h2&gt;
-&lt;p&gt;Butler uses configuration files in YAML format. The config files are stored in the &lt;code&gt;src/config&lt;/code&gt; folder.&lt;/p&gt;
-&lt;p&gt;Prior to Butler v2.1, JSON config files were used. YAML is however much more human readable than JSON, thus the config file was changed to YANL.&lt;br&gt;
-JSON config files can still be used though (just create the file i JSON syntax and suffix it with .json), but YAML is the default as of Butler v2.1.&lt;/p&gt;
-&lt;p&gt;Butler comes with a default config file called &lt;code&gt;default_template.yaml&lt;/code&gt;. Make a copy of it, then rename the copy to &lt;code&gt;default.yaml&lt;/code&gt; or &lt;code&gt;production.yaml&lt;/code&gt;.&lt;br&gt;
-Update it as needed (see below for details).&lt;/p&gt;
-&lt;p&gt;Trying to run Butler with the default config file (the one included in the files download from GitHub) will not work - you need to adapt it to your server environment.&lt;/p&gt;
-&lt;p&gt;Note: Butler uses the &lt;a href=&#34;https://github.com/lorenwest/node-config&#34;&gt;node-config&lt;/a&gt; module to handle config files. As per node-config&amp;rsquo;s documentation, to switch to using the production.yaml config file, at a command prompt type (for Windows)&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;set NODE_ENV=production
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;before starting Butler with &lt;code&gt;node butler.js&lt;/code&gt;.&lt;br&gt;
-If developing on OSX or Linux, instead use&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;export NODE_ENV=production
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You may want to set that variable during server boot, to ensure Butler starts properly when the server is rebooted.&lt;/p&gt;
-&lt;p&gt;If using Docker, the NODE_ENV environment varible is set in the docker-compose.yml file (as already done in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/src/docker-compose.yml&#34;&gt;template docker-compose file&lt;/a&gt;.)&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
       <title>Docs: Config file syntax</title>
       <link>/docs/getting-started/setup/config_file_syntax/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -170,6 +134,50 @@ If developing on OSX or Linux, instead use&lt;/p&gt;
     </item>
     
     <item>
+      <title>Docs: Which config file to use</title>
+      <link>/docs/getting-started/setup/config_env_var/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/getting-started/setup/config_env_var/</guid>
+      <description>
+        
+        
+        &lt;p&gt;A description of the config file format is available &lt;a href=&#34;/docs/reference/config-file/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;select-which-config-file-to-use&#34;&gt;Select which config file to use&lt;/h2&gt;
+&lt;p&gt;Butler uses configuration files in YAML format. The config files are stored in the &lt;code&gt;src/config&lt;/code&gt; folder.&lt;/p&gt;
+&lt;p&gt;Prior to Butler v2.1, JSON config files were used. YAML is however much more human readable than JSON, thus the config file was changed to YAML.&lt;br&gt;
+JSON config files can still be used though (just create the file i JSON syntax and suffix it with .json), but YAML is the default as of Butler v2.1.&lt;/p&gt;
+&lt;p&gt;Butler comes with a default config file called &lt;code&gt;production_template.yaml&lt;/code&gt;. Make a copy of it, then rename the copy to &lt;code&gt;default.yaml&lt;/code&gt;, &lt;code&gt;production.yaml&lt;/code&gt; or somthing else suitable for your specific use case.&lt;br&gt;
+Update it as needed (see the &lt;a href=&#34;/docs/reference/config-file/&#34;&gt;config file reference page&lt;/a&gt; for details).&lt;/p&gt;
+&lt;p&gt;Trying to run Butler with the default config file (the one included in the files download from GitHub) will not work - you need to adapt it to your server environment.&lt;/p&gt;
+&lt;p&gt;The name of the config file matters. Butler will first look for an environment variable called &amp;ldquo;NODE_ENV&amp;rdquo; and then try to load a config file named with the value found in NODE_ENV.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;NODE_ENV=production&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Butler will look for a config file &lt;code&gt;config/production.yaml&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;running-several-butler-instances-in-parallel&#34;&gt;Running several Butler instances in parallel&lt;/h3&gt;
+&lt;p&gt;If you have several Sense clusters (for example DEV, TEST and PROD environments) you might want several Butler instances running.&lt;br&gt;
+You can then create config files names &lt;code&gt;butler_dev.yaml&lt;/code&gt;, &lt;code&gt;butler_test.yaml&lt;/code&gt; and &lt;code&gt;butler_prod.yaml&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In this scenario three instances of Butler should be started, each given a different config file by setting the NODE_ENV variable as needed when starting Butler.&lt;/p&gt;
+&lt;h3 id=&#34;setting-environment-variables&#34;&gt;Setting environment variables&lt;/h3&gt;
+&lt;p&gt;The method for setting environment variables varies between different operating systems:&lt;/p&gt;
+&lt;p&gt;On Windows:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set NODE_ENV=production
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Mac OS or Linux&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;export NODE_ENV=production
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If using Docker, the NODE_ENV environment varible is set in the docker-compose.yml file (as already done in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/src/docker-compose.yml&#34;&gt;template docker-compose file&lt;/a&gt;.)&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Log notifications</title>
       <link>/docs/getting-started/setup/log4net_appender/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -188,19 +196,30 @@ If developing on OSX or Linux, instead use&lt;/p&gt;
 &lt;h2 id=&#34;log4net-extenders&#34;&gt;Log4net extenders&lt;/h2&gt;
 &lt;p&gt;Butler includes a set of xml files that when deployed to the Sense server will create real-time UDP messages for certain log events (tasks failing, user sessions starting/ending etc).&lt;br&gt;
 This is a great way to get real-time notifications when almost any event occurs in a Qlik Sense environment.&lt;/p&gt;
-&lt;p&gt;The XML files can be tricky to get right, but a couple of them are included in the Butler repository to get you started. These are also described below.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://help.qlik.com/en-US/sense-admin/November2019/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders.htm&#34;&gt;Qlik&amp;rsquo;s documenation&lt;/a&gt; on this topic is somewhat brief, but it does provide a starting point if you want to dive deeper into this topic.&lt;br&gt;
-The main &lt;a href=&#34;https://logging.apache.org/log4net/&#34;&gt;log4net documentation&lt;/a&gt; (log4net is the logging framework used by Qlik Sense Enterprise) can also be useful.&lt;/p&gt;
+&lt;p&gt;The XML files can be tricky to get right, but a couple of them are included in the Butler repository to get you started. These are described below.&lt;/p&gt;
 &lt;h3 id=&#34;task-failure-events&#34;&gt;Task failure events&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;XML file found in &lt;code&gt;log4net_task-failed/LocalLogConfig.xml&lt;/code&gt;. This file includes settings to both send an email and a UDP message to Butler when a task fails. Butler then forwards this message as a MQTT message.&lt;/li&gt;
+&lt;li&gt;XML file found in &lt;code&gt;log4net_task-failed/LocalLogConfig.xml&lt;/code&gt;. This file includes settings to both send an email and a UDP message to Butler when a scheduled reload task fails. Butler then forwards this message as a MQTT message, or to Slack or MS Teams.&lt;/li&gt;
 &lt;li&gt;XML file should be deployed to the server where reloads are done, in the C:\ProgramData\Qlik\Sense\Scheduler directory.&lt;/li&gt;
+&lt;li&gt;Note that this concepts only works for &lt;em&gt;scheduled&lt;/em&gt; reload tasks, i.e. reloads started as a result of a &lt;em&gt;reload task&lt;/em&gt; being started by Qlik&amp;rsquo;s scheduling service. Reloads started from the script editor will not result in these events if they fail.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;user-audit-events&#34;&gt;User audit events&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;XML file found in &lt;code&gt;log4net_user-audit-event/LocalLogConfig.xml&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;XML file should be deployed on the server where the proxy is running, in the &lt;code&gt;C:\ProgramData\Qlik\Sense\Proxy&lt;/code&gt; directory.&lt;/li&gt;
 &lt;li&gt;If there multiple proxies on different servers, it might make sense deploying the xml file on all of them, to capture all user audit events.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;references&#34;&gt;References&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://help.qlik.com/en-US/sense-admin/September2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders.htm&#34;&gt;Qlik&amp;rsquo;s documenation&lt;/a&gt; on this topic is somewhat brief, but it does provide a starting point if you want to dive deeper into this topic.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The main &lt;a href=&#34;https://logging.apache.org/log4net/&#34;&gt;log4net documentation&lt;/a&gt; (log4net is the logging framework used by Qlik Sense Enterprise) can also be useful.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Christof Schwarz has a &lt;a href=&#34;https://www.linkedin.com/pulse/qlik-sense-task-email-notifications-so-easy-christof-schwarz/?trackingId=X8MEGEmppfSvdukFRbnLwQ%3D%3D&#34;&gt;good post&lt;/a&gt; on sending notification emails when scheduled reloads fail, with links to &lt;a href=&#34;https://github.com/levi-turner/getting_notified_from_qliksense&#34;&gt;Levi Turners examples&lt;/a&gt;. These links describe exactly the same concept used in Butler, but with different words - which sometimes helps understanding things. One difference is that Butler (optionally) forwards these event also to Slack, Teeams and MQTT (in addition to email).&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 
       </description>

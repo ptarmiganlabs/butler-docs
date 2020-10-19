@@ -20,23 +20,23 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Running Butler in Docker | Butler</title><meta property="og:title" content="Running Butler in Docker" />
+<title>Installing Butler in a Docker container | Butler</title><meta property="og:title" content="Installing Butler in a Docker container" />
 <meta property="og:description" content="How to install Butler as a Docker container.
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/getting-started/install/docker/" />
 <meta property="og:site_name" content="Butler" />
-<meta itemprop="name" content="Running Butler in Docker">
+<meta itemprop="name" content="Installing Butler in a Docker container">
 <meta itemprop="description" content="How to install Butler as a Docker container.
 ">
 
-<meta itemprop="wordCount" content="1054">
+<meta itemprop="wordCount" content="1081">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Running Butler in Docker"/>
+<meta name="twitter:title" content="Installing Butler in a Docker container"/>
 <meta name="twitter:description" content="How to install Butler as a Docker container.
 "/>
 
@@ -57,8 +57,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.4de7cef6a69fac33af07bd03105ba7f0dc1d97f880d258427ce7e4e60315a964.css" as="style">
-<link href="/scss/main.min.4de7cef6a69fac33af07bd03105ba7f0dc1d97f880d258427ce7e4e60315a964.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.2b4bf39be404ca7a43c26700c441cf9f43564bb81ee6c5ff538378bf216e05a1.css" as="style">
+<link href="/scss/main.min.2b4bf39be404ca7a43c26700c441cf9f43564bb81ee6c5ff538378bf216e05a1.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -118,17 +118,9 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="https://github.com/ptarmiganlabs.com/" target="_blank" ><span>GitHub</span></a>
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0">
 				
 				
-				
-				
-				
-				
-				<a class="nav-link" href="/community/" ><span>Community</span></a>
+				<a class="nav-link" href="/about/" ><span>About</span></a>
 			</li>
 			
 			
@@ -138,7 +130,7 @@ if (!doNotTrack) {
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	
-	<a class="dropdown-item" href="https://master.butler.ptarmiganlabs.com">master</a>
+	<a class="dropdown-item" href="https://butler.ptarmiganlabs.com">v4.0</a>
 	
 </div>
 
@@ -148,8 +140,6 @@ if (!doNotTrack) {
 		</ul>
 	</div>
 	<div class="navbar-nav d-none d-lg-block">
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
-
 </div>
 </nav>
 
@@ -168,8 +158,6 @@ if (!doNotTrack) {
   <div id="content-mobile">
   <form class="td-sidebar__search d-flex align-items-center">
     
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
-
 
     <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
@@ -205,41 +193,64 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Overview</a>
+    <a  href="/docs/about/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">About</a>
   </li>
   <ul>
-    <li class="collapse " id="docsoverview">
+    <li class="collapse " id="docsabout">
       
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverviewrest_endpoints" href="/docs/overview/rest_endpoints/">REST endpoints</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutbutler" href="/docs/about/butler/">Butler</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverviewlog_event_handler" href="/docs/overview/log_event_handler/">Log event handler</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutbutler-family" href="/docs/about/butler-family/">The Butler family</a>
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/about/use-cases/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Use cases</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsaboutuse-cases">
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverviewrealtime_user_metrics" href="/docs/overview/realtime_user_metrics/">User activity metrics</a>
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutuse-casesretired" href="/docs/about/use-cases/retired/">Retired use cases</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverviewmqtt_handlers" href="/docs/overview/mqtt_handlers/">MQTT handlers</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutversioning" href="/docs/about/versioning/">Versions</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverviewextending_butler" href="/docs/overview/extending_butler/">Extending Butler</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutcontributing" href="/docs/about/contributing/">Contribution guidelines</a>
       
       
     </li>
@@ -258,7 +269,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting-started/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Getting Started</a>
+    <a  href="/docs/getting-started/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Getting started</a>
   </li>
   <ul>
     <li class="collapse show" id="docsgetting-started">
@@ -275,7 +286,53 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting-started/install/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Installation</a>
+    <a  href="/docs/getting-started/running/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Running Butler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedrunning">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Overview</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedoverview">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/install/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Installing Butler</a>
   </li>
   <ul>
     <li class="collapse show" id="docsgetting-startedinstall">
@@ -285,13 +342,25 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-docsgetting-startedinstalldocker" href="/docs/getting-started/install/docker/">Running in Docker</a>
-      
-      
-      
-      
-      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstallnatively" href="/docs/getting-started/install/natively/">Running natively</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstallchoose-platform" href="/docs/getting-started/install/choose-platform/">Choose a platform</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-docsgetting-startedinstalldocker" href="/docs/getting-started/install/docker/">Docker</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstallnodejs" href="/docs/getting-started/install/nodejs/">Node.js app</a>
       
       
     </li>
@@ -320,13 +389,13 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedsetupconfig_env_var" href="/docs/getting-started/setup/config_env_var/">Which config file?</a>
-      
-      
-      
-      
-      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedsetupconfig_file_syntax" href="/docs/getting-started/setup/config_file_syntax/">Config file syntax</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedsetupconfig_env_var" href="/docs/getting-started/setup/config_env_var/">Config file</a>
       
       
       
@@ -351,79 +420,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting-started/running/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Running Butler</a>
+    <a  href="/docs/getting-started/operations/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Day 2 operations</a>
   </li>
   <ul>
-    <li class="collapse " id="docsgetting-startedrunning">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/examples/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Examples</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsexamples">
-      
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/examples/rest_from_loadscript/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Call REST API</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsexamplesrest_from_loadscript">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/examples/start_task_from_mqtt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">MQTT starting Sense tasks</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsexamplesstart_task_from_mqtt">
+    <li class="collapse " id="docsgetting-startedoperations">
       
       
       
@@ -466,10 +466,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/concepts/log_event_handlers/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Log event handlers</a>
+    <a  href="/docs/concepts/key-value/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Key-value store</a>
   </li>
   <ul>
-    <li class="collapse " id="docsconceptslog_event_handlers">
+    <li class="collapse " id="docsconceptskey-value">
       
       
       
@@ -489,10 +489,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/concepts/real_time_metrics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Real-time metrics</a>
+    <a  href="/docs/concepts/scheduler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Scheduler</a>
   </li>
   <ul>
-    <li class="collapse " id="docsconceptsreal_time_metrics">
+    <li class="collapse " id="docsconceptsscheduler">
       
       
       
@@ -535,10 +535,56 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/log_event_handlers/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Log event handlers</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptslog_event_handlers">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
     <a  href="/docs/concepts/udp/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">UDP client</a>
   </li>
   <ul>
     <li class="collapse " id="docsconceptsudp">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/real_time_metrics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Real-time metrics</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsreal_time_metrics">
       
       
       
@@ -564,7 +610,122 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/reference/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Reference</a>
+    <a  href="/docs/examples/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Examples</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamples">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/openapi-docs/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">OpenAPI/Swagger</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesopenapi-docs">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/scheduling/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Task scheduling</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesscheduling">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/reload-chaining/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Reload chaining</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesreload-chaining">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/influxdb-metrics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Monitoring Butler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesinfluxdb-metrics">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Reference docs</a>
   </li>
   <ul>
     <li class="collapse " id="docsreference">
@@ -594,6 +755,98 @@ if (!doNotTrack) {
 
       
       
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/config-file/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Config file syntax</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferenceconfig-file">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/rest_api/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">REST API</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencerest_api">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/scheduler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Scheduler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencescheduler">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/key-value/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Key-value store</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencekey-value">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
     </li>
   </ul>
 </ul>
@@ -614,52 +867,6 @@ if (!doNotTrack) {
   </li>
   <ul>
     <li class="collapse " id="docssecurity">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/version_history/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Version history</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsversion_history">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/contribution-guidelines/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Contribution guidelines</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docscontribution-guidelines">
       
       
       
@@ -717,8 +924,8 @@ if (!doNotTrack) {
 
 
 
-<a href="https://github.com/ptarmiganlabs/butler-docs/edit/master/content/en/docs/Getting%20started/install/docker.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-<a href="https://github.com/ptarmiganlabs/butler-docs/issues/new?title=Running%20Butler%20in%20Docker" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/ptarmiganlabs/butler-docs/edit/master/content/en/docs/getting%20started/install/docker.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/ptarmiganlabs/butler-docs/issues/new?title=Installing%20Butler%20in%20a%20Docker%20container" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
 
 
 <a href="https://github.com/ptarmiganlabs/butler/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
@@ -736,19 +943,6 @@ if (!doNotTrack) {
           <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
             
   
-  
-  
-  
-  <div class="pageinfo pageinfo-primary">
-    <p>Version v4.0 of the
-      documentation is no longer actively maintained. The site that you are
-      currently viewing is an archived snapshot. 
-      For up-to-date documentation, see the 
-        <a href="https://butler.ptarmiganlabs.com" target="_blank">latest version</a>.</p>
-      
-    
-  </div>
-
 
             <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
 	<ol class="breadcrumb spb-1">
@@ -774,21 +968,21 @@ if (!doNotTrack) {
 
 
 <li class="breadcrumb-item" >
-	<a href="/docs/getting-started/">Getting Started</a>
+	<a href="/docs/getting-started/">Getting started</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item" >
-	<a href="/docs/getting-started/install/">Installation</a>
+	<a href="/docs/getting-started/install/">Installing Butler</a>
 </li>
 
 
 
 
 <li class="breadcrumb-item active" aria-current="page">
-	<a href="/docs/getting-started/install/docker/">Running in Docker</a>
+	<a href="/docs/getting-started/install/docker/">Docker</a>
 </li>
 
 	</ol>
@@ -796,13 +990,10 @@ if (!doNotTrack) {
 
             
 <div class="td-content">
-	<h1>Running Butler in Docker</h1>
+	<h1>Installing Butler in a Docker container</h1>
     <div class="lead">How to install Butler as a Docker container.</div>
 	       
-	<h2 id="running-in-docker">Running in Docker</h2>
-<p>If you have access to or can set up a Docker runtime environment, this is by far the preferred way of running Butler.<br>
-Installation is less error prone compared to installing Butler natively, you get all the benefits from the Docker ecosystem (monitoring of running containers etc), and upgrades to future Butler versions become trivial.</p>
-<p>Prerequisites:</p>
+	<p>Prerequisites for running Butler in Docker:</p>
 <table>
 <thead>
 <tr>
@@ -812,8 +1003,8 @@ Installation is less error prone compared to installing Butler natively, you get
 </thead>
 <tbody>
 <tr>
-<td>Sense Enterprise</td>
-<td><em>Mandatory.</em> Butler is developed with Sense Enterprise in mind. While many Butler features might also work with Sense Desktop, you are on your own there.</td>
+<td>Qlik Sense Enterprise on Windows</td>
+<td><em>Mandatory.</em> Butler is developed with Sense Enterprise in mind. While some Butler features might also work with Sense Desktop or Sense cloud, you are on your own there.</td>
 </tr>
 <tr>
 <td>Docker</td>
@@ -821,13 +1012,17 @@ Installation is less error prone compared to installing Butler natively, you get
 </tr>
 <tr>
 <td>MQTT broker</td>
-<td><em>Optional.</em> MQTT is used for both in- and out-bound pub-sub messaging. Butler assumes a working MQTT broker is available, the IP of which is defined in the Butler config file. Mosquitto is a nice open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&hellip; instance is enough, if you want a dedicated MQTT server. If you don&rsquo;t care about the pubsub features of Butler, you don&rsquo;t need a MQTT broker. In this case you can disable the MQTT features in the config YAML file.</td>
+<td><em>Optional.</em> MQTT is used for both in- and out-bound pub-sub messaging. Butler assumes a working MQTT broker is available, the IP of which is defined in the Butler config file. <a href="https://mosquitto.org/">Mosquitto</a> is a nice open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&hellip; instance is enough, if you want a dedicated MQTT server. If you don&rsquo;t care about the pubsub features of Butler, you don&rsquo;t need a MQTT broker. In this case you can disable the MQTT features in Butler&rsquo;s config file.</td>
+</tr>
+<tr>
+<td><a href="https://www.influxdata.com/time-series-platform/">InfluxDB</a></td>
+<td><em>Optional.</em> A database for realtime information, used to store metrics around Butler&rsquo;s own memory usage over time (if this feature is enabled).</td>
 </tr>
 </tbody>
 </table>
 <h2 id="installation-steps">Installation steps</h2>
 <p>The following steps give some guidance on how to get Butler running on Docker.<br>
-Here Mac OS has been used, things will of course look slightly different on Linux and Windows.</p>
+Here Mac OS has been used, things will look different on Linux and Windows.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">proton:~ goran$ mkdir /Users/goran/butler
 proton:~ goran$ <span style="color:#204a87">cd</span> /Users/goran/butler
 proton:butler goran$ mkdir -p config/certificate
@@ -873,9 +1068,10 @@ proton:butler goran$
 <ol>
 <li>Export certificates from the Qlik Sense QMC. Export a full set of certificates in PEM format, no psasword on the certificates.</li>
 <li>Copy the certificates to the ./config/certificate directory.</li>
-<li>copy the <a href="https://github.com/ptarmiganlabs/butler/blob/master/src/config/default_template.yaml">template config file</a> from the GitHub repository to the ./config directory, modify it as needed based on your system(s), and rename it to for example <code>production.yaml</code>.</li>
+<li>copy the <a href="https://github.com/ptarmiganlabs/butler/blob/master/src/config/default_template.yaml">template config file</a> from the GitHub repository to the ./config directory, modify it as needed based on your system(s) and which Butler features you want enabled, and rename it to for example <code>production.yaml</code>.<br>
+You can name the config file anything, but its name has to match the NODE_ENV environment variable, as set it the <code>docker-compose.yml</code> file.</li>
+<li><em>Optional.</em> Copy the template schedule file to the location specified in Butler&rsquo;s config file. This is only needed if you manually want to add schedules. If using the API to create schedules, there is no need to first manually create a schedules file.</li>
 </ol>
-<p>You can name the config file anything, but its name has to match the NODE_ENV environment variable, as set it the <code>docker-compose.yml</code> file.</p>
 <p>When done, you should see something like this:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">proton:butler goran$ <span style="color:#204a87">pwd</span>
 /Users/goran/butler
@@ -951,7 +1147,8 @@ butler    <span style="color:#000;font-weight:bold">|</span> 2019-11-18T21:51:17
 butler    <span style="color:#000;font-weight:bold">|</span> 2019-11-18T21:51:17.699Z info: REST server listening on http://172.21.0.2:8080
 butler    <span style="color:#000;font-weight:bold">|</span> 2019-11-18T21:51:17.700Z info: UDP server listening on 172.21.0.2:9997
 
-</code></pre></div><p>If you haven&rsquo;t configured MQTT in the config file, you won&rsquo;t see the &ldquo;&hellip;Connected to MQTT server&rdquo; line.</p>
+</code></pre></div><p>What you see on your screen will depend on which Butler features are enabled.
+In the example above <em>all</em> Butler features are enabled.</p>
 <p>Let&rsquo;s make sure things are working by opening a new terminal window and from there requesting a list of all apps on the server:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">proton:~ goran$
 proton:~ goran$ curl <span style="color:#4e9a06">&#34;http://localhost:8180/v2/senseListApps&#34;</span>
@@ -1033,7 +1230,7 @@ butler           <span style="color:#000;font-weight:bold">|</span> 2018-09-26T1
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 01.01.0001
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 0001-01-01
 </div>
 </div>
 

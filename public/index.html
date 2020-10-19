@@ -52,8 +52,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.4de7cef6a69fac33af07bd03105ba7f0dc1d97f880d258427ce7e4e60315a964.css" as="style">
-<link href="/scss/main.min.4de7cef6a69fac33af07bd03105ba7f0dc1d97f880d258427ce7e4e60315a964.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.2b4bf39be404ca7a43c26700c441cf9f43564bb81ee6c5ff538378bf216e05a1.css" as="style">
+<link href="/scss/main.min.2b4bf39be404ca7a43c26700c441cf9f43564bb81ee6c5ff538378bf216e05a1.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -113,17 +113,9 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="https://github.com/ptarmiganlabs.com/" target="_blank" ><span>GitHub</span></a>
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0">
 				
 				
-				
-				
-				
-				
-				<a class="nav-link" href="/community/" ><span>Community</span></a>
+				<a class="nav-link" href="/about/" ><span>About</span></a>
 			</li>
 			
 			
@@ -133,7 +125,7 @@ if (!doNotTrack) {
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	
-	<a class="dropdown-item" href="https://master.butler.ptarmiganlabs.com">master</a>
+	<a class="dropdown-item" href="https://butler.ptarmiganlabs.com">v4.0</a>
 	
 </div>
 
@@ -143,8 +135,6 @@ if (!doNotTrack) {
 		</ul>
 	</div>
 	<div class="navbar-nav d-none d-lg-block">
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
-
 </div>
 </nav>
 
@@ -189,7 +179,7 @@ if (!doNotTrack) {
           
           <div class="pt-3 lead">
             <div class="mx-auto">
-	<p class="lead mt-5">
+	<p class="lead mt-5" style="font-size: 120%" ">
 		Advanced task scheduling, document chaining, key-value store, start tasks, get notified when they fail, extract app metadata, post to Slack/Teams and more.<br><br>
 	</p>
 	<a class="btn btn-lg btn-primary mr-3 mb-4" href="/docs/">
@@ -219,93 +209,106 @@ if (!doNotTrack) {
 
 
 
+ 
 <a id="td-block-1" class="td-offset-anchor"></a>
-<section class="row td-box td-box--primary position-relative td-box--gradient td-box--height-auto">
-	<div class="container text-center td-arrow-down">
-		<span class="h4 mb-0">
-			<div class="col-12" >
-	<h1 class="text-center">Want better control over Sense reload tasks?</h1>
-	<p class="text-center">
-	Butler exposes a REST API endpoint for starting reload tasks.  
-	This makes it easy to start reloads from within the load script of Sense apps, 
-	or from any external system. <br><br>
-<pre><code>A great use case is to have a source system kick off Sense reloads once 
-new data is available in the source system, minimizing delays. 
-</code></pre>
+<section class="row td-box td-box--light td-box--gradient td-box--height-auto">
+	<div class="col">
+		<div class="row ">
+			<div class="col-lg-4 mb-5 mb-lg-0 text-center ">
+  <div class="mb-4 h1">
+    <i class="fas fa-clock"></i>
+  </div>
+  <h4 class="h3">Advanced task scheduler</h4>
+  <p class="mb-0"><p>Set up advanced task scheduling, more flexible than the one built into Sense.</p>
+<p>Cron for Qlik Sense, no more, no less.</p>
+<p><a href="/docs/">Read more&hellip;</a></p>
+</p>
+</div>
+<div class="col-lg-4 mb-5 mb-lg-0 text-center ">
+  <div class="mb-4 h1">
+    <i class="fas fa-link"></i>
+  </div>
+  <h4 class="h3">Task chaining with parameters</h4>
+  <p class="mb-0"><p>Need to pass parameters from one reload task to the next?</p>
+<p>Create chained app reloads with any number of parameters passed from app to app.</p>
+<p><a href="/docs/">Read more&hellip;</a></p>
+</p>
+</div>
+<div class="col-lg-4 mb-5 mb-lg-0 text-center ">
+  <div class="mb-4 h1">
+    <i class="fas fa-database"></i>
+  </div>
+  <h4 class="h3">Generic key-value store</h4>
+  <p class="mb-0"><p>Keep state across any number of apps. Namespace support and optional Time To Live (TTL) for each key-value pair.</p>
+<p><a href="/docs/">Read more&hellip;</a></p>
+</p>
+</div>
+<div class="col-lg-4 mb-5 mb-lg-0 text-center ">
+  <div class="mb-4 h1">
+    <i class="fas fa-play"></i>
+  </div>
+  <h4 class="h3">Start tasks via REST API or MQTT</h4>
+  <p class="mb-0"><p>Data delays - no thanks!<br>
+Start reload tasks from within app load scripts or from upstream source systems that feed Sense with data</p>
+<p><a href="/docs/">Read more&hellip;</a></p>
+</p>
+</div>
+<div class="col-lg-4 mb-5 mb-lg-0 text-center ">
+  <div class="mb-4 h1">
+    <i class="fas fa-envelope"></i>
+  </div>
+  <h4 class="h3">Task failure notifications</h4>
+  <p class="mb-0"><p>Who should be the first to know that a reload has failed? You or your users?</p>
+<p>Get notified when tasks fail, with notifications sent to Slack, Microsoft Teams or email.</p>
+<p><a href="/docs/">Read more&hellip;</a></p>
+</p>
+</div>
+<div class="col-lg-4 mb-5 mb-lg-0 text-center ">
+  <div class="mb-4 h1">
+    <i class="fas fa-shoe-prints"></i>
+  </div>
+  <h4 class="h3">App metadata extract</h4>
+  <p class="mb-0"><p>Extract app metadata for a single or all apps in a Sense cluster.
+Great for backup purposes!</p>
+<p><a href="/docs/">Read more&hellip;</a></p>
+</p>
+</div>
+<div class="col-lg-4 mb-5 mb-lg-0 text-center ">
+  <div class="mb-4 h1">
+    <i class="fas fa-comments"></i>
+  </div>
+  <h4 class="h3">Keep your users in the know</h4>
+  <p class="mb-0"><p>Tired of being asked &ldquo;when is new data available&rdquo;?</p>
+<p>Automatically inform your users via Slack or Teams when new data is available.</p>
+<p><a href="/docs/">Read more&hellip;</a></p>
+</p>
+</div>
+<div class="col-lg-4 mb-5 mb-lg-0 text-center ">
+  <div class="mb-4 h1">
+    <i class="fas fa-chart-line"></i>
+  </div>
+  <h4 class="h3">Observable</h4>
+  <p class="mb-0"><p>Butler can save data about its own memory usage for inclusion in operational monitoring tools.</p>
+<p><a href="/docs/">Read more&hellip;</a></p>
+</p>
+</div>
+<div class="col-lg-4 mb-5 mb-lg-0 text-center ">
+  <div class="mb-4 h1">
+    <i class="fas fa-server"></i>
+  </div>
+  <h4 class="h3">Runs anywhere</h4>
+  <p class="mb-0"><p>Run Butler on Windows server, Linux, Docker, Kubernetes or Mac OS.</p>
+<p><a href="/docs/">Read more&hellip;</a></p>
+</p>
 </div>
 
-		</span>
+		</div>
 	</div>
 </section>
 
 
 
 
-
-
-
-<a id="td-block-2" class="td-offset-anchor"></a>
-<section class="row td-box td-box--dark position-relative td-box--gradient td-box--height-auto">
-	<div class="container text-center td-arrow-down">
-		<span class="h4 mb-0">
-			<div class="col-12">
-	<h1 class="text-center">Tired of end users asking "when is the new data available?"</h1>
-	<p class="text-center">
-	Use Butler to send Slack messages to end users and stakeholders when apps have reloaded with fresh data.<br><br>
-<pre><code>Sending a Slack message is as simple as calling a single function in the Sense load script.
-</code></pre>
-</div>
-
-		</span>
-	</div>
-</section>
-
-
-
-
-
-
-
-
-<a id="td-block-3" class="td-offset-anchor"></a>
-<section class="row td-box td-box--orange position-relative td-box--gradient td-box--height-auto">
-	<div class="container text-center td-arrow-down">
-		<span class="h4 mb-0">
-			<div class="col-12">
-	<h1 class="text-center">Email or Slack when reloads fail? Sure!</h1>
-	<p class="text-center">
-	Use the templates included with Butler to hook into the Sense logging framework.<br><br>
-	You can get task failure notifications as emails, MQTT messages, or just plain UDP messages.
-</div>
-
-		</span>
-	</div>
-</section>
-
-
-
-
-
-
-
-
-<a id="td-block-4" class="td-offset-anchor"></a>
-<section class="row td-box td-box--primary position-relative td-box--gradient td-box--height-auto">
-	<div class="container text-center td-arrow-down">
-		<span class="h4 mb-0">
-			<div class="col-12">
-	<h1 class="text-center">Data delays - no thanks.</h1>
-	<p class="text-center">
-	Send a reload request in a pubsub message, from your source system to Butler.
-	Messages are sent using the standardized MQTT protocol.<br>
-	Butler will process the message and start the requested reload task in Sense.<br><br>
-<pre><code>This way you can ensure that Sense starts to process new data as soon as it is available in the source system.
-</code></pre>
-</div>	
-
-		</span>
-	</div>
-</section>
 
 
 
@@ -313,8 +316,8 @@ new data is available in the source system, minimizing delays.
 
 
  
-<a id="td-block-5" class="td-offset-anchor"></a>
-<section class="row td-box td-box--5 td-box--gradient td-box--height-auto">
+<a id="td-block-2" class="td-offset-anchor"></a>
+<section class="row td-box td-box--dark td-box--gradient td-box--height-auto">
 	<div class="col">
 		<div class="row ">
 			<div class="col-lg-4 mb-5 mb-lg-0 text-center ">
@@ -333,16 +336,18 @@ Scheduling, key-value store, MS Teams and more.</p>
   </div>
   <h4 class="h3">Contributions welcome!</h4>
   <p class="mb-0"><p>We do a <a href="https://github.com/ptarmiganlabs/butler/pulls">Pull Request</a> contributions workflow on <strong>GitHub</strong>. New developers are always welcome!</p>
+<p>Please consider giving us a star on <a href="https://github.com/ptarmiganlabs/butler">GitHub</a> if you find Butler useful.</p>
 </p>
+  <p><a href="https://github.com/ptarmiganlabs/butler">Read more …</a></p>
 </div>
 <div class="col-lg-4 mb-5 mb-lg-0 text-center ">
   <div class="mb-4 h1">
-    <i class="fab fa-twitter"></i>
+    <i class="fab fa-medium-m"></i>
   </div>
-  <h4 class="h3">Follow us on Twitter!</h4>
-  <p class="mb-0"><p>For announcement of latest features etc.</p>
+  <h4 class="h3">Don&rsquo;t be a stranger!</h4>
+  <p class="mb-0"><p>We have a great <a href="">newsletter</a>, we&rsquo;re on <a href="https://medium.com/ptarmigan-labs">Medium</a> and <a href="https://www.linkedin.com/in/gorsan">LinkedIn</a>.</p>
 </p>
-  <p><a href="https://twitter.com/ptarmiganlabs">Read more …</a></p>
+  <p><a href="https://medium.com/ptarmigan-labs">Read more …</a></p>
 </div>
 
 		</div>

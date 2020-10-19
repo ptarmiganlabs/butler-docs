@@ -52,8 +52,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.4de7cef6a69fac33af07bd03105ba7f0dc1d97f880d258427ce7e4e60315a964.css" as="style">
-<link href="/scss/main.min.4de7cef6a69fac33af07bd03105ba7f0dc1d97f880d258427ce7e4e60315a964.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.2b4bf39be404ca7a43c26700c441cf9f43564bb81ee6c5ff538378bf216e05a1.css" as="style">
+<link href="/scss/main.min.2b4bf39be404ca7a43c26700c441cf9f43564bb81ee6c5ff538378bf216e05a1.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -113,17 +113,9 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="https://github.com/ptarmiganlabs.com/" target="_blank" ><span>GitHub</span></a>
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0">
 				
 				
-				
-				
-				
-				
-				<a class="nav-link" href="/community/" ><span>Community</span></a>
+				<a class="nav-link" href="/about/" ><span>About</span></a>
 			</li>
 			
 			
@@ -133,7 +125,7 @@ if (!doNotTrack) {
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	
-	<a class="dropdown-item" href="https://master.butler.ptarmiganlabs.com">master</a>
+	<a class="dropdown-item" href="https://butler.ptarmiganlabs.com">v4.0</a>
 	
 </div>
 
@@ -143,8 +135,6 @@ if (!doNotTrack) {
 		</ul>
 	</div>
 	<div class="navbar-nav d-none d-lg-block">
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
-
 </div>
 </nav>
 
@@ -163,8 +153,6 @@ if (!doNotTrack) {
   <div id="content-mobile">
   <form class="td-sidebar__search d-flex align-items-center">
     
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
-
 
     <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
@@ -200,41 +188,64 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Overview</a>
+    <a  href="/docs/about/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">About</a>
   </li>
   <ul>
-    <li class="collapse " id="docsoverview">
+    <li class="collapse " id="docsabout">
       
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverviewrest_endpoints" href="/docs/overview/rest_endpoints/">REST endpoints</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutbutler" href="/docs/about/butler/">Butler</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverviewlog_event_handler" href="/docs/overview/log_event_handler/">Log event handler</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutbutler-family" href="/docs/about/butler-family/">The Butler family</a>
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/about/use-cases/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Use cases</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsaboutuse-cases">
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverviewrealtime_user_metrics" href="/docs/overview/realtime_user_metrics/">User activity metrics</a>
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutuse-casesretired" href="/docs/about/use-cases/retired/">Retired use cases</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverviewmqtt_handlers" href="/docs/overview/mqtt_handlers/">MQTT handlers</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutversioning" href="/docs/about/versioning/">Versions</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverviewextending_butler" href="/docs/overview/extending_butler/">Extending Butler</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutcontributing" href="/docs/about/contributing/">Contribution guidelines</a>
       
       
     </li>
@@ -253,7 +264,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting-started/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Getting Started</a>
+    <a  href="/docs/getting-started/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Getting started</a>
   </li>
   <ul>
     <li class="collapse " id="docsgetting-started">
@@ -270,7 +281,53 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting-started/install/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Installation</a>
+    <a  href="/docs/getting-started/running/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Running Butler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedrunning">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Overview</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedoverview">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/install/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Installing Butler</a>
   </li>
   <ul>
     <li class="collapse " id="docsgetting-startedinstall">
@@ -280,13 +337,25 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstalldocker" href="/docs/getting-started/install/docker/">Running in Docker</a>
-      
-      
-      
-      
-      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstallnatively" href="/docs/getting-started/install/natively/">Running natively</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstallchoose-platform" href="/docs/getting-started/install/choose-platform/">Choose a platform</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstalldocker" href="/docs/getting-started/install/docker/">Docker</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstallnodejs" href="/docs/getting-started/install/nodejs/">Node.js app</a>
       
       
     </li>
@@ -315,13 +384,13 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedsetupconfig_env_var" href="/docs/getting-started/setup/config_env_var/">Which config file?</a>
-      
-      
-      
-      
-      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedsetupconfig_file_syntax" href="/docs/getting-started/setup/config_file_syntax/">Config file syntax</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedsetupconfig_env_var" href="/docs/getting-started/setup/config_env_var/">Config file</a>
       
       
       
@@ -346,79 +415,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting-started/running/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Running Butler</a>
+    <a  href="/docs/getting-started/operations/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Day 2 operations</a>
   </li>
   <ul>
-    <li class="collapse " id="docsgetting-startedrunning">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/examples/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Examples</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsexamples">
-      
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/examples/rest_from_loadscript/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Call REST API</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsexamplesrest_from_loadscript">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/examples/start_task_from_mqtt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">MQTT starting Sense tasks</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsexamplesstart_task_from_mqtt">
+    <li class="collapse " id="docsgetting-startedoperations">
       
       
       
@@ -461,10 +461,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/concepts/log_event_handlers/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Log event handlers</a>
+    <a  href="/docs/concepts/key-value/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Key-value store</a>
   </li>
   <ul>
-    <li class="collapse show" id="docsconceptslog_event_handlers">
+    <li class="collapse " id="docsconceptskey-value">
       
       
       
@@ -484,10 +484,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/concepts/real_time_metrics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Real-time metrics</a>
+    <a  href="/docs/concepts/scheduler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Scheduler</a>
   </li>
   <ul>
-    <li class="collapse " id="docsconceptsreal_time_metrics">
+    <li class="collapse " id="docsconceptsscheduler">
       
       
       
@@ -530,10 +530,56 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/log_event_handlers/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Log event handlers</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docsconceptslog_event_handlers">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
     <a  href="/docs/concepts/udp/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">UDP client</a>
   </li>
   <ul>
     <li class="collapse " id="docsconceptsudp">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/real_time_metrics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Real-time metrics</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsreal_time_metrics">
       
       
       
@@ -559,7 +605,122 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/reference/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Reference</a>
+    <a  href="/docs/examples/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Examples</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamples">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/openapi-docs/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">OpenAPI/Swagger</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesopenapi-docs">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/scheduling/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Task scheduling</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesscheduling">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/reload-chaining/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Reload chaining</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesreload-chaining">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/influxdb-metrics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Monitoring Butler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesinfluxdb-metrics">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Reference docs</a>
   </li>
   <ul>
     <li class="collapse " id="docsreference">
@@ -589,6 +750,98 @@ if (!doNotTrack) {
 
       
       
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/config-file/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Config file syntax</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferenceconfig-file">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/rest_api/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">REST API</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencerest_api">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/scheduler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Scheduler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencescheduler">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/key-value/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Key-value store</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencekey-value">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
     </li>
   </ul>
 </ul>
@@ -609,52 +862,6 @@ if (!doNotTrack) {
   </li>
   <ul>
     <li class="collapse " id="docssecurity">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/version_history/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Version history</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsversion_history">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/contribution-guidelines/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Contribution guidelines</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docscontribution-guidelines">
       
       
       
@@ -712,7 +919,7 @@ if (!doNotTrack) {
 
 
 
-<a href="https://github.com/ptarmiganlabs/butler-docs/edit/master/content/en/docs/Concepts/log_event_handlers/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/ptarmiganlabs/butler-docs/edit/master/content/en/docs/concepts/log_event_handlers/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
 <a href="https://github.com/ptarmiganlabs/butler-docs/issues/new?title=Log%20event%20handlers" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
 
 
@@ -739,6 +946,7 @@ if (!doNotTrack) {
     <li><a href="#task-reload-errors">Task reload errors</a>
       <ul>
         <li><a href="#failing-task">Failing task</a></li>
+        <li><a href="#further-reading">Further reading</a></li>
       </ul>
     </li>
   </ul>
@@ -750,19 +958,6 @@ if (!doNotTrack) {
           <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
             
   
-  
-  
-  
-  <div class="pageinfo pageinfo-primary">
-    <p>Version v4.0 of the
-      documentation is no longer actively maintained. The site that you are
-      currently viewing is an archived snapshot. 
-      For up-to-date documentation, see the 
-        <a href="https://butler.ptarmiganlabs.com" target="_blank">latest version</a>.</p>
-      
-    
-  </div>
-
 
             <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
 	<ol class="breadcrumb spb-1">
@@ -811,8 +1006,8 @@ if (!doNotTrack) {
 </div>
  -->
 <h2 id="creating-log4net-appenders">Creating log4net appenders</h2>
-<p>QLik Sense uses the <a href="https://logging.apache.org/log4net/">Apache log4net logging framework</a>. It is used to write all the log files found in the C:\ProgramData\Qlik\Sense\Log directory tree.<br>
-log4net is extensible in that you can hook in your own event handlers, and in this way get notifications.</p>
+<p>Qlik Sense Enterprise uses the <a href="https://logging.apache.org/log4net/">Apache log4net logging framework</a>. It is used to write all the log files found in the C:\ProgramData\Qlik\Sense\Log directory tree.<br>
+log4net is extensible in that you can attach your own event handlers and in this way get notifications when events of interest occur.</p>
 <p>Qlik provides basic <a href="https://help.qlik.com/en-US/sense-admin/November2019/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders.htm">documentation</a> for this, unfortunately a lot of trial and error is usually needed when crating new XML files that will be hooked into the framework.</p>
 <p>A couple of custom appenders (in the form of XML files) are included with Butler, these are described below.</p>
 <h2 id="session-startstop-connection-openclose">Session start/stop, connection open/close</h2>
@@ -825,7 +1020,7 @@ log4net is extensible in that you can hook in your own event handlers, and in th
 </ul>
 <p>Usually the UDP message is sent very quickly, typically within a second of the app being opened or close, for example.<br>
 The message contains this information:</p>
-<pre><code>%hostname;%property{Command};%property{UserDirectory};%property{UserId}  
+<pre><code>%hostname;%property{Command};%property{UserDirectory};%property{UserId}
 </code></pre>
 <p>I.e. the information sent to Butler is</p>
 <ul>
@@ -882,7 +1077,7 @@ The message contains this information:</p>
 <li><strong>Task failing</strong>: When a Sense task, started by the Sense scheduler, for some reason fails, the XML file make a couple of UDP messages (with slightly different contents) to be sent to Butler. Manually started reloads (from the script editor) that fail will not generate these events.</li>
 </ul>
 <p>The message contains this information:</p>
-<pre><code>%hostname;%property{TaskName};%property{AppName};%property{UserId}  
+<pre><code>%hostname;%property{TaskName};%property{AppName};%property{UserId}
 </code></pre>
 <p>I.e. the information sent to Butler is</p>
 <ul>
@@ -903,6 +1098,8 @@ The message contains this information:</p>
 </li>
 </ol>
 <p>Examples on how the Slack messages will look can be found on the <a href="udp-client">UDP client page</a>.</p>
+<h3 id="further-reading">Further reading</h3>
+<p>The <a href="/docs/getting-started/setup/log4net_appender">log notifications setup page</a> has a bit more information on this topic, as well as links to external resources.</p>
 
         <div class="section-index">
     
@@ -910,6 +1107,28 @@ The message contains this information:</p>
     
     
     <hr class="panel-line">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
         
             
         
@@ -1036,7 +1255,7 @@ The message contains this information:</p>
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 01.01.0001
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 0001-01-01
 </div>
 </div>
 

@@ -49,8 +49,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.4de7cef6a69fac33af07bd03105ba7f0dc1d97f880d258427ce7e4e60315a964.css" as="style">
-<link href="/scss/main.min.4de7cef6a69fac33af07bd03105ba7f0dc1d97f880d258427ce7e4e60315a964.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.2b4bf39be404ca7a43c26700c441cf9f43564bb81ee6c5ff538378bf216e05a1.css" as="style">
+<link href="/scss/main.min.2b4bf39be404ca7a43c26700c441cf9f43564bb81ee6c5ff538378bf216e05a1.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -110,17 +110,9 @@ if (!doNotTrack) {
 				
 				
 				
-				<a class="nav-link" href="https://github.com/ptarmiganlabs.com/" target="_blank" ><span>GitHub</span></a>
-			</li>
-			
-			<li class="nav-item mr-4 mb-2 mb-lg-0">
 				
 				
-				
-				
-				
-				
-				<a class="nav-link" href="/community/" ><span>Community</span></a>
+				<a class="nav-link" href="/about/" ><span>About</span></a>
 			</li>
 			
 			
@@ -130,7 +122,7 @@ if (!doNotTrack) {
 </a>
 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	
-	<a class="dropdown-item" href="https://master.butler.ptarmiganlabs.com">master</a>
+	<a class="dropdown-item" href="https://butler.ptarmiganlabs.com">v4.0</a>
 	
 </div>
 
@@ -140,8 +132,6 @@ if (!doNotTrack) {
 		</ul>
 	</div>
 	<div class="navbar-nav d-none d-lg-block">
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
-
 </div>
 </nav>
 
@@ -160,8 +150,6 @@ if (!doNotTrack) {
   <div id="content-mobile">
   <form class="td-sidebar__search d-flex align-items-center">
     
-<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
-
 
     <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
@@ -197,41 +185,64 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Overview</a>
+    <a  href="/docs/about/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">About</a>
   </li>
   <ul>
-    <li class="collapse " id="docsoverview">
+    <li class="collapse " id="docsabout">
       
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverviewrest_endpoints" href="/docs/overview/rest_endpoints/">REST endpoints</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutbutler" href="/docs/about/butler/">Butler</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverviewlog_event_handler" href="/docs/overview/log_event_handler/">Log event handler</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutbutler-family" href="/docs/about/butler-family/">The Butler family</a>
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/about/use-cases/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Use cases</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsaboutuse-cases">
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverviewrealtime_user_metrics" href="/docs/overview/realtime_user_metrics/">User activity metrics</a>
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutuse-casesretired" href="/docs/about/use-cases/retired/">Retired use cases</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverviewmqtt_handlers" href="/docs/overview/mqtt_handlers/">MQTT handlers</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutversioning" href="/docs/about/versioning/">Versions</a>
       
       
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverviewextending_butler" href="/docs/overview/extending_butler/">Extending Butler</a>
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutcontributing" href="/docs/about/contributing/">Contribution guidelines</a>
       
       
     </li>
@@ -250,7 +261,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting-started/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Getting Started</a>
+    <a  href="/docs/getting-started/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Getting started</a>
   </li>
   <ul>
     <li class="collapse " id="docsgetting-started">
@@ -267,7 +278,53 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting-started/install/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Installation</a>
+    <a  href="/docs/getting-started/running/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Running Butler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedrunning">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Overview</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedoverview">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/install/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Installing Butler</a>
   </li>
   <ul>
     <li class="collapse " id="docsgetting-startedinstall">
@@ -277,13 +334,25 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstalldocker" href="/docs/getting-started/install/docker/">Running in Docker</a>
-      
-      
-      
-      
-      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstallnatively" href="/docs/getting-started/install/natively/">Running natively</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstallchoose-platform" href="/docs/getting-started/install/choose-platform/">Choose a platform</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstalldocker" href="/docs/getting-started/install/docker/">Docker</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstallnodejs" href="/docs/getting-started/install/nodejs/">Node.js app</a>
       
       
     </li>
@@ -312,13 +381,13 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedsetupconfig_env_var" href="/docs/getting-started/setup/config_env_var/">Which config file?</a>
-      
-      
-      
-      
-      
       <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedsetupconfig_file_syntax" href="/docs/getting-started/setup/config_file_syntax/">Config file syntax</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedsetupconfig_env_var" href="/docs/getting-started/setup/config_env_var/">Config file</a>
       
       
       
@@ -343,79 +412,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting-started/running/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Running Butler</a>
+    <a  href="/docs/getting-started/operations/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Day 2 operations</a>
   </li>
   <ul>
-    <li class="collapse " id="docsgetting-startedrunning">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/examples/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Examples</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsexamples">
-      
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/examples/rest_from_loadscript/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Call REST API</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsexamplesrest_from_loadscript">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/examples/start_task_from_mqtt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">MQTT starting Sense tasks</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsexamplesstart_task_from_mqtt">
+    <li class="collapse " id="docsgetting-startedoperations">
       
       
       
@@ -458,10 +458,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/concepts/log_event_handlers/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Log event handlers</a>
+    <a  href="/docs/concepts/key-value/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Key-value store</a>
   </li>
   <ul>
-    <li class="collapse " id="docsconceptslog_event_handlers">
+    <li class="collapse " id="docsconceptskey-value">
       
       
       
@@ -481,10 +481,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/concepts/real_time_metrics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Real-time metrics</a>
+    <a  href="/docs/concepts/scheduler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Scheduler</a>
   </li>
   <ul>
-    <li class="collapse " id="docsconceptsreal_time_metrics">
+    <li class="collapse " id="docsconceptsscheduler">
       
       
       
@@ -527,10 +527,56 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/log_event_handlers/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Log event handlers</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptslog_event_handlers">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
     <a  href="/docs/concepts/udp/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">UDP client</a>
   </li>
   <ul>
     <li class="collapse " id="docsconceptsudp">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/real_time_metrics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Real-time metrics</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsreal_time_metrics">
       
       
       
@@ -556,7 +602,122 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/reference/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Reference</a>
+    <a  href="/docs/examples/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Examples</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamples">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/openapi-docs/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">OpenAPI/Swagger</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesopenapi-docs">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/scheduling/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Task scheduling</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesscheduling">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/reload-chaining/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Reload chaining</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesreload-chaining">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/influxdb-metrics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Monitoring Butler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesinfluxdb-metrics">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Reference docs</a>
   </li>
   <ul>
     <li class="collapse " id="docsreference">
@@ -586,6 +747,98 @@ if (!doNotTrack) {
 
       
       
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/config-file/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Config file syntax</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferenceconfig-file">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/rest_api/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">REST API</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencerest_api">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/scheduler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Scheduler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencescheduler">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/key-value/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Key-value store</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencekey-value">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
     </li>
   </ul>
 </ul>
@@ -606,52 +859,6 @@ if (!doNotTrack) {
   </li>
   <ul>
     <li class="collapse " id="docssecurity">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/version_history/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Version history</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsversion_history">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/contribution-guidelines/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Contribution guidelines</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docscontribution-guidelines">
       
       
       
@@ -728,19 +935,6 @@ if (!doNotTrack) {
           <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
             
   
-  
-  
-  
-  <div class="pageinfo pageinfo-primary">
-    <p>Version v4.0 of the
-      documentation is no longer actively maintained. The site that you are
-      currently viewing is an archived snapshot. 
-      For up-to-date documentation, see the 
-        <a href="https://butler.ptarmiganlabs.com" target="_blank">latest version</a>.</p>
-      
-    
-  </div>
-
 
             <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
 	<ol class="breadcrumb spb-1">
@@ -764,12 +958,28 @@ if (!doNotTrack) {
 	
 
 <div class="pageinfo pageinfo-primary">
-<h3 id="whats-new-in-version-30">What&rsquo;s new in version 3.0</h3>
+<h3 id="whats-new-in-version-40">What&rsquo;s new in version 4.0</h3>
 <ul>
-<li><strong>Enable only the REST API endpoints you need.</strong> No more, no less.<br>
-This might seem like a minor change, but is actually conceptually important from a security perspective.
-Each and every endpoint is a possible attack vector into a system, and in the spirit of security you may thus want to only expose the endpoints you actually need and use.</li>
-<li><strong>Improved logging</strong> throughout the app makes it easier to debug and solve for example configuration issues.</li>
+<li>
+<p>An <strong>advanced scheduler</strong> that makes it possible to trigger reloads in Sense in a much more flexible way, compared to the scheduler available in the Qlik Sense QMC. It&rsquo;s essentially Cron for Qlik Sense.</p>
+</li>
+<li>
+<p>A generic <strong>key-value store</strong> can be used to send parameters between reload tasks. The reload script of the first task stash it&rsquo;s parameters away in the KV store, and the following task(s) pull the parameters from the store.<br>
+KV pairs can optionally also have a time-to-live (TTL) value. This can be an easy way to keep the KV store clean and tidy, or as a way to tell Sense apps that they are reloading within x hours of some event happening, for example.<br>
+Key-value stores are a very versatile tool and a great addition to Qlik Sense.</p>
+</li>
+<li>
+<p><strong>Moving and deleting files</strong> in the file system of the Sense servers, or on any disks accessible by those servers. You customize what directories are approved for these operations, and thus prevent this feature from becoming a security risk.</p>
+</li>
+<li>
+<p><strong>Better logging</strong>, including continuous logging of Butler&rsquo;s own memory usage to InfluxDB, from where it can be graphed using for example Grafana.</p>
+</li>
+<li>
+<p><strong>API docs</strong> using the OpenAPI/Swagger format.</p>
+</li>
+<li>
+<p>A totally <strong>re-engineered REST API</strong> that now better follows best practices when to use GET/POST/PUT/DELETE. Previously everything was done using GETs&hellip; which was really ugly. The downside is that this is a major breaking change! Please review the <a href="/docs/reference/rest_api">API docs</a> for details.</p>
+</li>
 </ul>
 
 </div>
@@ -789,11 +999,13 @@ Each and every endpoint is a possible attack vector into a system, and in the sp
             
         
             
+        
+            
                 <div class="entry">
                     <h5>
-                        <a href="/docs/overview/">Overview</a>
+                        <a href="/docs/about/">About</a>
                     </h5>
-                    <p>Butler is an open source add-on tool for Qlik Sense, extending that platform with various features, most of which are focused on integrating Sense with other systems.</p>
+                    <p>Information about the Butler software, community, docs and more.</p>
                 </div>
             
         
@@ -802,14 +1014,47 @@ Each and every endpoint is a possible attack vector into a system, and in the sp
             
         
             
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
                 <div class="entry">
                     <h5>
-                        <a href="/docs/getting-started/">Getting Started</a>
+                        <a href="/docs/getting-started/">Getting started</a>
                     </h5>
                     <p>What you need to know to get Butler off the ground.</p>
                 </div>
             
         
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <div class="entry">
+                    <h5>
+                        <a href="/docs/concepts/">Concepts</a>
+                    </h5>
+                    <p>Deep dive into the various components that make up Butler.</p>
+                </div>
             
         
             
@@ -842,17 +1087,6 @@ Each and every endpoint is a possible attack vector into a system, and in the sp
             
         
             
-                <div class="entry">
-                    <h5>
-                        <a href="/docs/concepts/">Concepts</a>
-                    </h5>
-                    <p>Various good-to-know stuff.</p>
-                </div>
-            
-        
-            
-        
-            
         
             
         
@@ -861,9 +1095,9 @@ Each and every endpoint is a possible attack vector into a system, and in the sp
             
                 <div class="entry">
                     <h5>
-                        <a href="/docs/reference/">Reference</a>
+                        <a href="/docs/reference/">Reference docs</a>
                     </h5>
-                    <p>Low level, technical documentation.</p>
+                    <p>Detailed, more technical descriptions of Butler&rsquo;s REST API and other parts of Butler.</p>
                 </div>
             
         
@@ -879,28 +1113,12 @@ Each and every endpoint is a possible attack vector into a system, and in the sp
             
                 <div class="entry">
                     <h5>
-                        <a href="/docs/version_history/">Version history</a>
-                    </h5>
-                    <p>Features are added, bugs fixed. The version history keeps track of what&rsquo;s happened.</p>
-                </div>
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="/docs/contribution-guidelines/">Contribution guidelines</a>
-                    </h5>
-                    <p>How to contribute to Butler</p>
-                </div>
-            
-        
-            
-                <div class="entry">
-                    <h5>
                         <a href="/docs/legal_stuff/">Legal stuff</a>
                     </h5>
                     <p>Information om licenses, personal integrity and more.</p>
                 </div>
+            
+        
             
         
             
@@ -970,7 +1188,7 @@ Each and every endpoint is a possible attack vector into a system, and in the sp
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 03.07.2019: <a  href="https://github.com/ptarmiganlabs/butler-docs/commit/d6aa89c8b24089d7e6741030864eff209465e896">Added links to user guide repo (d6aa89c)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2020-10-19: <a  href="https://github.com/ptarmiganlabs/butler-docs/commit/9bf410165e4a242948ec6a1c58ce25d488db64a1">WIP towards 4.0 release (9bf4101)</a>
 </div>
 </div>
 

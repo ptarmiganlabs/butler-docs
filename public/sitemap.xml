@@ -3,70 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/docs/examples/rest_from_loadscript/</loc>
-  </url>
-  
-  <url>
-    <loc>/docs/getting-started/install/</loc>
-  </url>
-  
-  <url>
-    <loc>/docs/concepts/log_event_handlers/</loc>
-  </url>
-  
-  <url>
-    <loc>/docs/overview/</loc>
-    <lastmod>2020-09-21T15:03:12+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/docs/reference/rest/</loc>
   </url>
   
   <url>
-    <loc>/docs/overview/rest_endpoints/</loc>
-  </url>
-  
-  <url>
-    <loc>/docs/getting-started/</loc>
-    <lastmod>2020-07-14T11:38:09+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/overview/log_event_handler/</loc>
-  </url>
-  
-  <url>
-    <loc>/docs/examples/start_task_from_mqtt/</loc>
-  </url>
-  
-  <url>
-    <loc>/docs/concepts/real_time_metrics/</loc>
-  </url>
-  
-  <url>
-    <loc>/docs/getting-started/install/docker/</loc>
-  </url>
-  
-  <url>
-    <loc>/docs/getting-started/setup/</loc>
-  </url>
-  
-  <url>
-    <loc>/docs/getting-started/setup/config_env_var/</loc>
-  </url>
-  
-  <url>
     <loc>/docs/getting-started/setup/config_file_syntax/</loc>
-  </url>
-  
-  <url>
-    <loc>/docs/examples/</loc>
-    <lastmod>2019-04-15T16:07:08+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/concepts/mqtt/</loc>
   </url>
   
   <url>
@@ -78,12 +19,55 @@
   </url>
   
   <url>
-    <loc>/docs/overview/realtime_user_metrics/</loc>
+    <loc>/docs/about/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/docs/concepts/</loc>
-    <lastmod>2019-04-15T16:07:08+01:00</lastmod>
+    <loc>/docs/about/butler/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/getting-started/setup/config_env_var/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/reference/config-file/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/concepts/key-value/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/examples/openapi-docs/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/getting-started/overview/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/about/use-cases/retired/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/getting-started/install/choose-platform/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/getting-started/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/getting-started/install/</loc>
   </url>
   
   <url>
@@ -91,7 +75,107 @@
   </url>
   
   <url>
-    <loc>/docs/overview/mqtt_handlers/</loc>
+    <loc>/blog/news/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/releases/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/reference/rest_api/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/concepts/scheduler/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/examples/scheduling/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/about/butler-family/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/concepts/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/getting-started/install/docker/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/examples/reload-chaining/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/reference/scheduler/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/getting-started/setup/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/about/use-cases/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/getting-started/operations/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/examples/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/reference/key-value/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/examples/influxdb-metrics/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/concepts/mqtt/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/getting-started/install/nodejs/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/concepts/log_event_handlers/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/about/versioning/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/about/contributing/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/reference/</loc>
+  </url>
+  
+  <url>
+    <loc>/docs/security/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/legal_stuff/</loc>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
   </url>
   
   <url>
@@ -99,84 +183,47 @@
   </url>
   
   <url>
-    <loc>/docs/overview/extending_butler/</loc>
-  </url>
-  
-  <url>
-    <loc>/docs/reference/</loc>
-    <lastmod>2019-11-27T14:31:41+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/security/</loc>
-  </url>
-  
-  <url>
-    <loc>/docs/version_history/</loc>
-  </url>
-  
-  <url>
-    <loc>/docs/contribution-guidelines/</loc>
-    <lastmod>2020-09-21T15:03:12+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docs/legal_stuff/</loc>
-  </url>
-  
-  <url>
-    <loc>/docs/</loc>
-    <lastmod>2019-07-03T16:05:26+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/news/</loc>
-    <lastmod>2018-10-05T12:27:38-04:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/releases/</loc>
-    <lastmod>2018-09-04T11:36:40+02:00</lastmod>
+    <loc>/docs/concepts/real_time_metrics/</loc>
   </url>
   
   <url>
     <loc>/blog/releases/v3.1.0/</loc>
-    <lastmod>2020-07-15T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
   </url>
   
   <url>
     <loc>/blog/news/20191129-1/</loc>
-    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
   </url>
   
   <url>
     <loc>/blog/releases/v3.0.1/</loc>
-    <lastmod>2019-11-29T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
   </url>
   
   <url>
     <loc>/blog/releases/v3.0.0/</loc>
-    <lastmod>2019-11-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
   </url>
   
   <url>
     <loc>/about/</loc>
-    <lastmod>2019-04-15T16:07:08+01:00</lastmod>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
   </url>
   
   <url>
     <loc>/blog/</loc>
-    <lastmod>2018-10-05T12:27:38-04:00</lastmod>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-04-26T10:19:01+02:00</lastmod>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
   </url>
   
   <url>
     <loc>/community/</loc>
-    <lastmod>2018-10-05T14:41:45+01:00</lastmod>
+    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
   </url>
   
   <url>
