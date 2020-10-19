@@ -1,0 +1,54 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler – News about Butler</title>
+    <link>https://butler.ptarmiganlabs.com/blog/news/</link>
+    <description>Recent content in News about Butler on Butler</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://butler.ptarmiganlabs.com/blog/news/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Blog: New documentation site for Butler</title>
+      <link>https://butler.ptarmiganlabs.com/blog/2019/11/29/new-documentation-site-for-butler/</link>
+      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler.ptarmiganlabs.com/blog/2019/11/29/new-documentation-site-for-butler/</guid>
+      <description>
+        
+        
+        
+        <![CDATA[<img src="https://butler.ptarmiganlabs.com/blog/2019/11/29/new-documentation-site-for-butler/featured-florian-klauer-mk7D-4UCfmg-unsplash_hu3d03a01dcc18bc5be0e67db3d8d209a6_8529867_640x0_resize_q75_catmullrom.jpg" width="640" height="939"/>]]>
+        
+        
+
+
+
+
+
+
+&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 610px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;https://butler.ptarmiganlabs.com/blog/2019/11/29/new-documentation-site-for-butler/featured-florian-klauer-mk7D-4UCfmg-unsplash_hu3d03a01dcc18bc5be0e67db3d8d209a6_8529867_600x300_fill_q75_catmullrom_smart1.jpg&#34; width=&#34;600&#34; height=&#34;300&#34;&gt;
+	
+	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt;
+New docs, blog and news coming to Butler.
+&lt;small class=&#34;text-muted&#34;&gt;&lt;br/&gt;Photo: Florian Klauer on Unsplash&lt;/small&gt;&lt;/p&gt;
+	&lt;/div&gt;
+	
+&lt;/div&gt;
+&lt;p&gt;The old doc site was ok, but a few years old and pretty outdated when it came to examples in particular. It was also kind of difficult to maintain, resulting in - no surpise - few updates over the years.&lt;/p&gt;
+&lt;p&gt;Butler joins its sibling &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34;&gt;Butler SOS&lt;/a&gt;, with both tools now having their own, dedicated doc sites based on the great &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; tool, using the &lt;a href=&#34;https://www.docsy.dev/&#34;&gt;Docsy&lt;/a&gt; template.&lt;/p&gt;
+&lt;p&gt;The new site has plenty of room for structured growth, allowing us to add examples, tutorials etc in a good way.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s also easy for anyone to provide feedback - just click the &amp;ldquo;Create issue&amp;rdquo; link in the upper right corner of each page, and are taken straight to the issues section on GitHub. Easy!&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

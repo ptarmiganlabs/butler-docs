@@ -1,0 +1,635 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler – Documentation</title>
+    <link>https://butler.ptarmiganlabs.com/docs/</link>
+    <description>Recent content in Documentation on Butler</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://butler.ptarmiganlabs.com/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: REST endpoint</title>
+      <link>https://butler.ptarmiganlabs.com/docs/overview/rest_endpoints/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler.ptarmiganlabs.com/docs/overview/rest_endpoints/</guid>
+      <description>
+        
+        
+        &lt;!-- 
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+
+&lt;/div&gt;
+ --&gt;
+&lt;h1 id=&#34;available-endpoints&#34;&gt;Available endpoints&lt;/h1&gt;
+&lt;p&gt;The following REST endpoints are available:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Endpoint&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/v2/activeUserCount&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;# of users with open Sense sessions&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/v2/activeUsers&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Usernames of users with open Sense sessions&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/v2/butlerPing&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Checks if Butler is running&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/v2/createDir&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Create directories (anywhere in the file system) on the server where Butler is running&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/v2/createDirQVD&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Create directories (relative to a hard coded path) on the server where Butler is running&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strike&gt;&lt;code&gt;/v2/getDiskSpace&lt;/code&gt;&lt;strike&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strike&gt;Check available disk space&lt;/strike&gt;&lt;br&gt;Removed in v2.1 due to difficulties getting consistent behaviour across Windows, Linux and Mac OS&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/v2/mqttPublishMessage&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Publish message to MQTT topic&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/v2/senseAppDump&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Retrieves metadata (load script etc) about a Sense app&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/v2/senseListApps&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;List name and GUID of all Sense apps in the system&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/v2/senseStartTask&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Start a Sense task. Can for example be used by upstream data providers to trigger reloads of Sense apps&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;/v2/slackPostMessage&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;Post to Slack from Sense load scripts&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Full documentation is available &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/rest&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Handler for Sense log messages</title>
+      <link>https://butler.ptarmiganlabs.com/docs/overview/log_event_handler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler.ptarmiganlabs.com/docs/overview/log_event_handler/</guid>
+      <description>
+        
+        
+        &lt;!-- 
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+ --&gt;
+&lt;h2 id=&#34;what-is-butler&#34;&gt;What is Butler&lt;/h2&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Running Butler in Docker</title>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/install/docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/install/docker/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;running-in-docker&#34;&gt;Running in Docker&lt;/h2&gt;
+&lt;p&gt;If you have access to or can set up a Docker runtime environment, this is by far the preferred way of running Butler.&lt;br&gt;
+Installation is less error prone compared to installing Butler natively, you get all the benefits from the Docker ecosystem (monitoring of running containers etc), and upgrades to future Butler versions become trivial.&lt;/p&gt;
+&lt;p&gt;Prerequisites:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;What&lt;/th&gt;
+&lt;th&gt;Comment&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Sense Enterprise&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; Butler is developed with Sense Enterprise in mind. While many Butler features might also work with Sense Desktop, you are on your own there.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Docker&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; A Docker runtime environment on any supported platform. This means you can run Butler on any platform where Docker is available, including Linux, Mac OS, Windows and most cloud providers. It is very doable to run Butler under Kubernetes too, if so desired.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MQTT broker&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; MQTT is used for both in- and out-bound pub-sub messaging. Butler assumes a working MQTT broker is available, the IP of which is defined in the Butler config file. Mosquitto is a nice open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&amp;hellip; instance is enough, if you want a dedicated MQTT server. If you don&amp;rsquo;t care about the pubsub features of Butler, you don&amp;rsquo;t need a MQTT broker. In this case you can disable the MQTT features in the config YAML file.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;installation-steps&#34;&gt;Installation steps&lt;/h2&gt;
+&lt;p&gt;The following steps give some guidance on how to get Butler running on Docker.&lt;br&gt;
+Here Mac OS has been used, things will of course look slightly different on Linux and Windows.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:~ goran$ mkdir /Users/goran/butler
+proton:~ goran$ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; /Users/goran/butler
+proton:butler goran$ mkdir -p config/certificate
+proton:butler goran$
+proton:butler goran$ wget https://raw.githubusercontent.com/ptarmiganlabs/butler/master/src/docker-compose.yml
+--2019-11-18 22:47:02--  https://raw.githubusercontent.com/ptarmiganlabs/butler/master/src/docker-compose.yml
+Resolving raw.githubusercontent.com &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;raw.githubusercontent.com&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;... 151.101.84.133
+Connecting to raw.githubusercontent.com &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;raw.githubusercontent.com&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;151.101.84.133&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;:443... connected.
+HTTP request sent, awaiting response... &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;200&lt;/span&gt; OK
+Length: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;618&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;text/plain&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+Saving to: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;docker-compose.yml&amp;#39;&lt;/span&gt;
+
+docker-compose.yml                         100%&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[========================================================================================&lt;/span&gt;&amp;gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;618&lt;/span&gt;  --.-KB/s    in 0s
+
+2019-11-18 22:47:03 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;10.7 MB/s&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;docker-compose.yml&amp;#39;&lt;/span&gt; saved &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;618/618&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+
+
+proton:butler goran$ cat docker-compose.yml
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# docker-compose.yml&lt;/span&gt;
+version: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;3.3&amp;#39;&lt;/span&gt;
+services:
+  butler:
+    image: ptarmiganlabs/butler:3.0.0
+    container_name: butler
+    restart: always
+    ports:
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;8080:8080&amp;#34;&lt;/span&gt;     &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# REST API available on port 8180 to services outside the container&lt;/span&gt;
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;9997:9997&amp;#34;&lt;/span&gt;     &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# UDP port for session connection events&lt;/span&gt;
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;9998:9998&amp;#34;&lt;/span&gt;     &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# UDP port for task failure events&lt;/span&gt;
+    volumes:
+      &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Make config file accessible outside of container&lt;/span&gt;
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./config:/nodeapp/config&amp;#34;&lt;/span&gt;
+    environment:
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;NODE_ENV=production&amp;#34;&lt;/span&gt;
+    logging:
+      driver: json-file
+      options:
+        max-file: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5&amp;#34;&lt;/span&gt;
+        max-size: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5m&amp;#34;&lt;/span&gt;
+proton:butler goran$
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;At this point you should&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Export certificates from the Qlik Sense QMC. Export a full set of certificates in PEM format, no psasword on the certificates.&lt;/li&gt;
+&lt;li&gt;Copy the certificates to the ./config/certificate directory.&lt;/li&gt;
+&lt;li&gt;copy the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/src/config/default_template.yaml&#34;&gt;template config file&lt;/a&gt; from the GitHub repository to the ./config directory, modify it as needed based on your system(s), and rename it to for example &lt;code&gt;production.yaml&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You can name the config file anything, but its name has to match the NODE_ENV environment variable, as set it the &lt;code&gt;docker-compose.yml&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;When done, you should see something like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:butler goran$ &lt;span style=&#34;color:#204a87&#34;&gt;pwd&lt;/span&gt;
+/Users/goran/butler
+proton:butler goran$ ls -la
+total &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8&lt;/span&gt;
+drwxr-xr-x   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 .
+drwxr-xr-x+ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;59&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1888&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:24 ..
+drwxr-xr-x   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 config
+-rw-r--r--   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;565&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:25 docker-compose.yml
+proton:butler goran$
+proton:butler goran$ ls -la config/
+total &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8&lt;/span&gt;
+drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 .
+drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 ..
+drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;192&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 certificate
+-rw-r--r--  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1861&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 production.yaml
+proton:butler goran$
+proton:butler goran$ ls -la config/certificate/
+total &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;32&lt;/span&gt;
+drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;192&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 .
+drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 ..
+-rw-r--r--@ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1166&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 client.pem
+-rw-r--r--@ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1702&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 client_key.pem
+-rw-r--r--@ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1192&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 root.pem
+proton:butler goran$
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;At this point everything is ready and you can start the Butler container using docker-compose:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:butler goran$ docker-compose up
+Creating network &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;butler_default&amp;#34;&lt;/span&gt; with the default driver
+Pulling butler &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;ptarmiganlabs/butler:3.0.0&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;...
+3.0.0: Pulling from ptarmiganlabs/butler
+9a0b0ce99936: Already exists
+db3b6004c61a: Already exists
+f8f075920295: Already exists
+6ef14aff1139: Already exists
+0bbd8b48260f: Already exists
+524be717efb1: Already exists
+da330b3729a7: Already exists
+2c9863d012f5: Already exists
+06cd084e76f0: Already exists
+2c5533f377d0: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+307c3aa5e73e: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+10617d6f19b9: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+ad221e369f17: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+b1f6c19b1af6: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+Digest: sha256:b3c17c93c1779d62e21db5f3f7691f524ab0c21d8b0814cab41a66e814702a17
+Status: Downloaded newer image &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; ptarmiganlabs/butler:3.0.0
+Creating butler ... &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;done&lt;/span&gt;
+Attaching to butler
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.630Z info: --------------------------------------
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.634Z info: Starting Butler
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.635Z info: Log level is: debug
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.636Z info: App version is: 3.0.0
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.637Z info: --------------------------------------
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.638Z debug: Client cert: /nodeapp/config/certificate/client.pem
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.639Z debug: Client cert key: /nodeapp/config/certificate/client_key.pem
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.639Z debug: CA cert: /nodeapp/config/certificate/root.pem
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.673Z debug: Registering REST endpoint /v2/activeUserCount
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.676Z debug: Registering REST endpoint /v2/activeUsers
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.679Z debug: Registering REST endpoint /v2/slackPostMessage
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.680Z debug: Registering REST endpoint /v2/createDir
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.681Z debug: Registering REST endpoint /v2/createDirQVD
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.681Z debug: Registering REST endpoint /v2/mqttPublishMessage
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.682Z debug: Registering REST endpoint /v2/senseStartTask
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.683Z debug: Registering REST endpoint /v2/senseAppDump
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.684Z debug: Registering REST endpoint /v2/senseListApps
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.684Z debug: Registering REST endpoint /v2/butlerping
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.685Z debug: Registering REST endpoint /v2/base62ToBase16
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.686Z debug: Registering REST endpoint /v2/base16ToBase62
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.687Z debug: Server &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; UDP server: butler
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.688Z debug: REST server host: butler
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.688Z debug: REST server port: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8080&lt;/span&gt;
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.696Z info: UDP server listening on 172.21.0.2:9998
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.699Z info: REST server listening on http://172.21.0.2:8080
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.700Z info: UDP server listening on 172.21.0.2:9997
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you haven&amp;rsquo;t configured MQTT in the config file, you won&amp;rsquo;t see the &amp;ldquo;&amp;hellip;Connected to MQTT server&amp;rdquo; line.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s make sure things are working by opening a new terminal window and from there requesting a list of all apps on the server:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:~ goran$
+proton:~ goran$ curl &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://localhost:8180/v2/senseListApps&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;492a1bca-1c41-4a01-9104-543a2334c465&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;2018 sales targets&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5b243cb2-8d00-44c9-b865-08b00a0af18b&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;App 1&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
+...
+...
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;181d101f-986c-49c5-a457-d351058c05b4&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Template app 1 DEV&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}]&lt;/span&gt;
+proton:~ goran$
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Nice, looking good.&lt;/p&gt;
+&lt;p&gt;In the terminal where you ran docker-compose, you will see a new line saying that a app list was retrieved:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;butler           &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2018-09-26T14:40:32.740Z - debug: Server &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; UDP server: localhost
+butler           &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2018-09-26T14:40:32.746Z - info: REST server listening on http://&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;::&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;:8080
+butler           &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2018-09-26T14:40:32.748Z - info: UDP server listening on 127.0.0.1:9997
+butler           &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2018-09-26T14:40:32.750Z - info: UDP server listening on 127.0.0.1:9998
+butler           &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2018-09-26T14:43:05.381Z - info: Getting list of all apps
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Which config file to use</title>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/config_env_var/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/config_env_var/</guid>
+      <description>
+        
+        
+        &lt;!-- 
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;This is a placeholder page that shows you how to use this template site.&lt;/p&gt;
+
+&lt;/div&gt;
+ --&gt;
+&lt;h2 id=&#34;select-which-config-file-to-use&#34;&gt;Select which config file to use&lt;/h2&gt;
+&lt;p&gt;Butler uses configuration files in YAML format. The config files are stored in the &lt;code&gt;src/config&lt;/code&gt; folder.&lt;/p&gt;
+&lt;p&gt;Prior to Butler v2.1, JSON config files were used. YAML is however much more human readable than JSON, thus the config file was changed to YANL.&lt;br&gt;
+JSON config files can still be used though (just create the file i JSON syntax and suffix it with .json), but YAML is the default as of Butler v2.1.&lt;/p&gt;
+&lt;p&gt;Butler comes with a default config file called &lt;code&gt;default_template.yaml&lt;/code&gt;. Make a copy of it, then rename the copy to &lt;code&gt;default.yaml&lt;/code&gt; or &lt;code&gt;production.yaml&lt;/code&gt;.&lt;br&gt;
+Update it as needed (see below for details).&lt;/p&gt;
+&lt;p&gt;Trying to run Butler with the default config file (the one included in the files download from GitHub) will not work - you need to adapt it to your server environment.&lt;/p&gt;
+&lt;p&gt;Note: Butler uses the &lt;a href=&#34;https://github.com/lorenwest/node-config&#34;&gt;node-config&lt;/a&gt; module to handle config files. As per node-config&amp;rsquo;s documentation, to switch to using the production.yaml config file, at a command prompt type (for Windows)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;set NODE_ENV=production
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;before starting Butler with &lt;code&gt;node butler.js&lt;/code&gt;.&lt;br&gt;
+If developing on OSX or Linux, instead use&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;export NODE_ENV=production
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You may want to set that variable during server boot, to ensure Butler starts properly when the server is rebooted.&lt;/p&gt;
+&lt;p&gt;If using Docker, the NODE_ENV environment varible is set in the docker-compose.yml file (as already done in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/src/docker-compose.yml&#34;&gt;template docker-compose file&lt;/a&gt;.)&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Config file syntax</title>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/config_file_syntax/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/config_file_syntax/</guid>
+      <description>
+        
+        
+        &lt;!-- 
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;This is a placeholder page that shows you how to use this template site.&lt;/p&gt;
+
+&lt;/div&gt;
+ --&gt;
+&lt;h2 id=&#34;config-file-syntax&#34;&gt;Config file syntax&lt;/h2&gt;
+&lt;p&gt;The &lt;code&gt;default_template.yaml&lt;/code&gt; config file looks like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;---&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;Butler&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Logging configuration&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;logLevel&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;info&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;          &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Log level. Possible log levels are silly, debug, verbose, info, warn, error&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;fileLogging&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;       &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# true/false to enable/disable logging to disk file&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;logDirectory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;log&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Subdirectory where log files are stored (no trailing / )&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;slackConfig&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;enable&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;webhookURL&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&amp;lt;fill&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;in&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;your&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;web&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;hook&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;URL&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;from&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;Slack&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;    loginNotificationChannel: sense-user-activity&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;taskFailureChannel&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;sense-task-failure&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;mqttConfig&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;enable&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;brokerHost&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&amp;lt;FQDN&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;or&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;IP&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;of&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;MQTT&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;server&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;    brokerPort: 1883&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;taskFailureTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;qliksense/task_failure&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;taskFailureServerStatusTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;qliksense/butler/task_failure_server&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;sessionStartTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;qliksense/session/start&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;sessionStopTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;qliksense/session/stop&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;connectionOpenTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;qliksense/connection/open&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;connectionCloseTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;qliksense/connection/close&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;sessionServerStatusTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;qliksense/butler/session_server&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;activeUserCountTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;qliksense/users/active/count&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;activeUsersTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;qliksense/users/active/usernames&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;udpServerConfig&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;enable&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;serverIP&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&amp;lt;FQDN&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;or&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;IP&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;(or&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;localhost)&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;of&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;server&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;where&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;Butler&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;is&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;running&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;    portSessionConnectionEvents: 9997&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;portTaskFailure&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9998&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;restServerConfig&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;enable&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;serverHost&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&amp;lt;FQDN&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;or&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;IP&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;(or&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;localhost)&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;of&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;server&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;where&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;Butler&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;is&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;running&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;    serverPort: 8080&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Enable/disable individual REST API endpoints. Set config item below to true to enable that endpoint.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;restServerEndpointsEnable&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;activeUserCount&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;activeUsers&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;slackPostMessage&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; 
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;createDir&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;createDirQVD&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;mqttPublishMessage&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;senseStartTask&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;senseAppDump&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;senseListApps&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;butlerping&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;base62ToBase16&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;base16ToBase62&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Certificates to use when connecting to Sense. Get these from the Certificate Export in QMC.&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;cert&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;clientCert&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&amp;lt;path/to/cert/client.pem&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;    clientCertKey: &amp;lt;path/to/cert/client_key.pem&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;clientCertCA&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&amp;lt;path/to/cert/root.pem&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;    # If running Butler in a Docker container, the cert paths MUST be the following&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# clientCert: /nodeapp/config/certificate/client.pem&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# clientCertKey: /nodeapp/config/certificate/client_key.pem&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# clientCertCA: /nodeapp/config/certificate/root.pem&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;configEngine&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;engineVersion&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;12.170.2&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Qlik Associative Engine version to use with Enigma.js. Ver 12.170.2 works with Feb 2019&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;host&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&amp;lt;FQDN&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;or&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;IP&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;of&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;Sense&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;server&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;where&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;Sense&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;Engine&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;is&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;running&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;    port: &amp;lt;Port to connect to, usually 4747&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;useSSL&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;headers&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;X-Qlik-User&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;UserDirectory=Internal;UserId=sa_repository&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;rejectUnauthorized&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;configQRS&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;authentication&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;certificates&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;host&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&amp;lt;FQDN&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;or&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;IP&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;of&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;Sense&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;server&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;where&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;QRS&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;is&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;running&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;    useSSL: true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;port&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4242&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;headerKey&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;X-Qlik-User&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;headerValue&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;UserDirectory=Internal;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;UserId=sa_repository&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;configDirectories&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# enableDirectoryCreation: false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;qvdPath&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&amp;lt;Path&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;to&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;folder&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;under&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;which&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;QVDs&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;are&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;stored&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;gt;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;  gitHub:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;host&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;api.github.com&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;pathPrefix&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;comments&#34;&gt;Comments:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Note that you can enable/disable the REST API, MQTT, UDP server and Slack independently. This makes it easy to have Butler do exactly what&amp;rsquo;s needed - no more - no less.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The default location cert/key files are found in (assuming a standard install of Qlik Sense) &lt;code&gt;C:\ProgramData\Qlik\Sense\Repository\Exported Certificates\&amp;lt;name specified during certificate export&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The files needed by Butler are &lt;code&gt;client.pem&lt;/code&gt;, &lt;code&gt;client_key.pem&lt;/code&gt; and &lt;code&gt;root.pem&lt;/code&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Running Butler as a native Node.js application</title>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/install/natively/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/install/natively/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;selecting-an-os&#34;&gt;Selecting an OS&lt;/h2&gt;
+&lt;p&gt;While Qlik Sense Enterprise is a Windows only system, Butler should be able to run on any OS where Node.js is available.&lt;br&gt;
+Butler has been succesfully used - during development and production - on Windows, Linux (Debian and Ubuntu tested) and OSX.&lt;/p&gt;
+&lt;h2 id=&#34;running-as-native-app&#34;&gt;Running as native app&lt;/h2&gt;
+&lt;p&gt;If you have access to or can set up a Docker runtime environment, this is by far the preferred way of running Butler.&lt;br&gt;
+Installation is less error prone compared to installing Butler natively, you get all the benefits from the Docker ecosystem (monitoring of running containers etc), and upgrades to future Butler versions become trivial.&lt;/p&gt;
+&lt;p&gt;Prerequisites:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;What&lt;/th&gt;
+&lt;th&gt;Comment&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Sense Enterprise&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; Butler is developed with Sense Enterprise in mind. While many Butler features might also work with Sense Desktop, you are on your own there.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Node.js&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; Butler is written in Node - which is thus a firm requirement.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MQTT broker&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; MQTT is used for both in- and out-bound pub-sub messaging. Butler assumes a working MQTT broker is available, the IP of which is defined in the Butler config file. Mosquitto is a nice open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&amp;hellip; instance is enough, if you want a dedicated MQTT server. If you don&amp;rsquo;t care about the pubsub features of Butler, you don&amp;rsquo;t need a MQTT broker. In this case you can disable the MQTT features in the config YAML file.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;installation-steps&#34;&gt;Installation steps&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Install node.js&lt;/strong&gt;&lt;br&gt;
+Butler has been developed and tested using the 64 bit version of &lt;a href=&#34;https://nodejs.org/en/download/&#34;&gt;node.js&lt;/a&gt;. The most recent LTS (Long Term Support) version is usually a good choice.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Decide where to install Butler&lt;/strong&gt;&lt;br&gt;
+It is usually a good starting point to run Butler on the Sense server. If there are more than one server in the Sense cluster, Butler can be placed on the reload server (as the /createDir endpoint then can be used to create folders in which QVD and other files can be stored).&lt;/p&gt;
+&lt;p&gt;On the other hand, you might want to keep the Sense servers as clean as possible (with respect to software running on them). If that is a priority you should install Butler on some other server.&lt;/p&gt;
+&lt;p&gt;The bottom line is that Butler can run on any server, as long as there is network connectivity to the Sense server(s).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Download Butler&lt;/strong&gt;&lt;br&gt;
+Download the repository zip from the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/releases&#34;&gt;releases page&lt;/a&gt; file or clone the Butler repository using your git tool of choice. Both options achieve the same thing, i.e. a directory such as d:\node\butler, which is then Butler&amp;rsquo;s root directory.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Install node dependencies&lt;/strong&gt;&lt;br&gt;
+From a Windows command prompt (assuming the Butler ZIP file/repository was saved to d:\node\butler):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  d:
+  cd \node\butler\src
+  npm install  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This will download and install all Node.js modules used by Butler.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;MQTT message broker&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Several of Butler&amp;rsquo;s features use &lt;a href=&#34;http://mqtt.org/&#34;&gt;MQTT&lt;/a&gt; for sending and receiving messages.&lt;br&gt;
+MQTT is a standardised messaging protocol, and it should be possible to use &lt;a href=&#34;https://github.com/mqtt/mqtt.github.io/wiki/software?id=software&#34;&gt;any broker following the MQTT standard&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Butler has been developed and tested using &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; running on OSX and Debian Linux - both work flawlessly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Real time active user metrics</title>
+      <link>https://butler.ptarmiganlabs.com/docs/overview/realtime_user_metrics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler.ptarmiganlabs.com/docs/overview/realtime_user_metrics/</guid>
+      <description>
+        
+        
+        &lt;!-- 
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+ --&gt;
+&lt;h2 id=&#34;what-is-butler&#34;&gt;What is Butler&lt;/h2&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Log notifications</title>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/log4net_appender/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/log4net_appender/</guid>
+      <description>
+        
+        
+        &lt;!-- 
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;This is a placeholder page that shows you how to use this template site.&lt;/p&gt;
+
+&lt;/div&gt;
+ --&gt;
+&lt;h2 id=&#34;log4net-extenders&#34;&gt;Log4net extenders&lt;/h2&gt;
+&lt;p&gt;Butler includes a set of xml files that when deployed to the Sense server will create real-time UDP messages for certain log events (tasks failing, user sessions starting/ending etc).&lt;br&gt;
+This is a great way to get real-time notifications when almost any event occurs in a Qlik Sense environment.&lt;/p&gt;
+&lt;p&gt;The XML files can be tricky to get right, but a couple of them are included in the Butler repository to get you started. These are also described below.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://help.qlik.com/en-US/sense-admin/November2019/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders.htm&#34;&gt;Qlik&amp;rsquo;s documenation&lt;/a&gt; on this topic is somewhat brief, but it does provide a starting point if you want to dive deeper into this topic.&lt;br&gt;
+The main &lt;a href=&#34;https://logging.apache.org/log4net/&#34;&gt;log4net documentation&lt;/a&gt; (log4net is the logging framework used by Qlik Sense Enterprise) can also be useful.&lt;/p&gt;
+&lt;h3 id=&#34;task-failure-events&#34;&gt;Task failure events&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;XML file found in &lt;code&gt;log4net_task-failed/LocalLogConfig.xml&lt;/code&gt;. This file includes settings to both send an email and a UDP message to Butler when a task fails. Butler then forwards this message as a MQTT message.&lt;/li&gt;
+&lt;li&gt;XML file should be deployed to the server where reloads are done, in the C:\ProgramData\Qlik\Sense\Scheduler directory.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;user-audit-events&#34;&gt;User audit events&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;XML file found in &lt;code&gt;log4net_user-audit-event/LocalLogConfig.xml&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;XML file should be deployed on the server where the proxy is running, in the &lt;code&gt;C:\ProgramData\Qlik\Sense\Proxy&lt;/code&gt; directory.&lt;/li&gt;
+&lt;li&gt;If there multiple proxies on different servers, it might make sense deploying the xml file on all of them, to capture all user audit events.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: MQTT handlers</title>
+      <link>https://butler.ptarmiganlabs.com/docs/overview/mqtt_handlers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler.ptarmiganlabs.com/docs/overview/mqtt_handlers/</guid>
+      <description>
+        
+        
+        &lt;!-- 
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+ --&gt;
+&lt;h2 id=&#34;what-is-butler&#34;&gt;What is Butler&lt;/h2&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Extending Butler</title>
+      <link>https://butler.ptarmiganlabs.com/docs/overview/extending_butler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler.ptarmiganlabs.com/docs/overview/extending_butler/</guid>
+      <description>
+        
+        
+        &lt;!-- 
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+ --&gt;
+&lt;h2 id=&#34;what-is-butler&#34;&gt;What is Butler&lt;/h2&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

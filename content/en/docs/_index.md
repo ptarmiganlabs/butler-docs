@@ -26,5 +26,4 @@ Key-value stores are a very versatile tool and a great addition to Qlik Sense.
 
 * A totally **re-engineered REST API** that now better follows best practices when to use GET/POST/PUT/DELETE. Previously everything was done using GETs... which was really ugly. The downside is that this is a major breaking change! Please review the [API docs](/docs/reference/rest_api) for details.
 
-
 {{% /pageinfo %}}
