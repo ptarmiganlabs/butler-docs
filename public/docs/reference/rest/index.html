@@ -1,0 +1,1161 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.75.1" />
+
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+<link rel="alternate" type="application/rss&#43;xml" href="/docs/reference/rest/index.xml">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>REST API | Butler</title><meta property="og:title" content="REST API" />
+<meta property="og:description" content="Details about the REST API exposed by Butler.
+" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/docs/reference/rest/" />
+<meta property="og:site_name" content="Butler" />
+<meta itemprop="name" content="REST API">
+<meta itemprop="description" content="Details about the REST API exposed by Butler.
+">
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="REST API"/>
+<meta name="twitter:description" content="Details about the REST API exposed by Butler.
+"/>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-58487795-5', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+<link rel="preload" href="/scss/main.min.4de7cef6a69fac33af07bd03105ba7f0dc1d97f880d258427ce7e4e60315a964.css" as="style">
+<link href="/scss/main.min.4de7cef6a69fac33af07bd03105ba7f0dc1d97f880d258427ce7e4e60315a964.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">Butler</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/about/butler/" ><span>What is Butler?</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/" ><span>Documentation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="https://ptarmiganlabs.com" target="_blank" ><span>Blog</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/about/butler-family" ><span>The Butler family</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="https://github.com/ptarmiganlabs.com/" target="_blank" ><span>GitHub</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/community/" ><span>Community</span></a>
+			</li>
+			
+			
+			<li class="nav-item dropdown d-none d-lg-block">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	v4.0
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="https://master.butler.ptarmiganlabs.com">master</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 Search this site…" aria-label="Search this site…" autocomplete="off">
+
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  
+  <nav class="collapse td-sidebar-nav" id="td-section-nav">
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docs">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Overview</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsoverview">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverviewrest_endpoints" href="/docs/overview/rest_endpoints/">REST endpoints</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverviewlog_event_handler" href="/docs/overview/log_event_handler/">Log event handler</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverviewrealtime_user_metrics" href="/docs/overview/realtime_user_metrics/">User activity metrics</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverviewmqtt_handlers" href="/docs/overview/mqtt_handlers/">MQTT handlers</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsoverviewextending_butler" href="/docs/overview/extending_butler/">Extending Butler</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Getting Started</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-started">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/install/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Installation</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedinstall">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstalldocker" href="/docs/getting-started/install/docker/">Running in Docker</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstallnatively" href="/docs/getting-started/install/natively/">Running natively</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Setup</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetup">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedsetupconfig_env_var" href="/docs/getting-started/setup/config_env_var/">Which config file?</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedsetupconfig_file_syntax" href="/docs/getting-started/setup/config_file_syntax/">Config file syntax</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedsetuplog4net_appender" href="/docs/getting-started/setup/log4net_appender/">Log notifications</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/running/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Running Butler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedrunning">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Examples</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamples">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/rest_from_loadscript/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Call REST API</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesrest_from_loadscript">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/start_task_from_mqtt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">MQTT starting Sense tasks</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesstart_task_from_mqtt">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Concepts</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconcepts">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/log_event_handlers/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Log event handlers</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptslog_event_handlers">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/real_time_metrics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Real-time metrics</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsreal_time_metrics">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/mqtt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">MQTT integration</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsmqtt">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/udp/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">UDP client</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsudp">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Reference</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docsreference">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/rest/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">REST API</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docsreferencerest">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/security/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Security considerations</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docssecurity">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/version_history/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Version history</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsversion_history">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/contribution-guidelines/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Contribution guidelines</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docscontribution-guidelines">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/legal_stuff/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Legal stuff</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslegal_stuff">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+            
+
+
+
+
+
+
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+
+
+
+
+
+<a href="https://github.com/ptarmiganlabs/butler-docs/edit/master/content/en/docs/Reference/rest/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/ptarmiganlabs/butler-docs/issues/new?title=REST%20API" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+
+
+<a href="https://github.com/ptarmiganlabs/butler/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+
+</div>
+
+
+
+
+
+
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#api-overview">API overview</a></li>
+    <li><a href="#versioning-of-the-rest-api">Versioning of the REST API</a></li>
+    <li><a href="#rest-api-endpoints">REST API endpoints</a>
+      <ul>
+        <li><a href="#v2activeusercount">/v2/activeUserCount</a></li>
+        <li><a href="#v2activeusers">/v2/activeUsers</a></li>
+        <li><a href="#v2base16tobase62">/v2/base16ToBase62</a></li>
+        <li><a href="#v2base62tobase16">/v2/base62ToBase16</a></li>
+        <li><a href="#v2butlerping">/v2/butlerPing</a></li>
+        <li><a href="#v2createdir">/v2/createDir</a></li>
+        <li><a href="#v2createdirqvd">/v2/createDirQVD</a></li>
+        <li><a href="#v2mqttpublishmessage">/v2/mqttPublishMessage</a></li>
+        <li><a href="#v2senseappdump">/v2/senseAppDump</a></li>
+        <li><a href="#v2senselistapps">/v2/senseListApps</a></li>
+        <li><a href="#v2sensestarttask">/v2/senseStartTask</a></li>
+        <li><a href="#v2slackpostmessage">/v2/slackPostMessage</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+          </div>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+  
+  
+  
+  <div class="pageinfo pageinfo-primary">
+    <p>Version v4.0 of the
+      documentation is no longer actively maintained. The site that you are
+      currently viewing is an archived snapshot. 
+      For up-to-date documentation, see the 
+        <a href="https://butler.ptarmiganlabs.com" target="_blank">latest version</a>.</p>
+      
+    
+  </div>
+
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/docs/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/docs/reference/">Reference</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/docs/reference/rest/">REST API</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>REST API</h1>
+        <div class="lead">Details about the REST API exposed by Butler.</div>
+	
+	<!-- 
+
+<div class="pageinfo pageinfo-primary">
+<p>This is a placeholder page that shows you how to use this template site.</p>
+
+</div>
+ -->
+<h2 id="api-overview">API overview</h2>
+<p>Butler&rsquo;s <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST API</a> serves several purposes.<br>
+Its main purpose is to allow various tasks to be carried out/started from a Sense load script, but the REST API can also be used by external systems (outside of the Sense environment) to communicate with Sense. The main areas are:</p>
+<ol>
+<li>
+<p><strong>Provide convenient and easy access to select Sense APIs</strong><br>
+Butler handles all authentication needed to talk to the Sense APIs, as well as combining multiple calls to Sense APIs, offering more high level features than those offered by Sense natively.</p>
+</li>
+<li>
+<p><strong>Start Sense tasks</strong><br>
+External systems (outside of Sense) can trigger Sense tasks (e.g. reload tasks). This way a database can trigger an app reload when new data is available in the database. Or a Sense load script can trigger other tasks when the execution of the script reaches certain points in the script.</p>
+</li>
+<li>
+<p><strong>Send MQTT messages</strong><br>
+Butler enables Sense load scripts to send <a href="http://mqtt.org/">MQTT</a> messages. MQTT is a very stable and widely adopted <a href="https://en.wikipedia.org/wiki/Machine_to_machine">m2m communication</a> protocol, with client libraries available in many different languages.</p>
+</li>
+<li>
+<p><strong>Start Sense tasks when MQTT messages arrive</strong><br>
+Butler subscribes to a certain (configurable) MQTT topic, and starts Sense tasks based on messages received in that topic.</p>
+</li>
+<li>
+<p><strong>Extract metadata about Sense apps</strong>
+You can use Butler to get a JSON representing all metadata in Sense apps. This can be useful for backup purposes, or as an easy way to get basic data lineage info.</p>
+</li>
+<li>
+<p><strong>Send messages to Slack and other 3rd party services</strong><br>
+Integrating <a href="https://slack.com/">Slack</a> with Sense has proven extremely useful.</p>
+<p>From within a Sense load script it is possible to write progress info for long running reloads to Slack, notifying users that a reload has finished, notifying sysadmins that a reload has encountered some error condition etc.</p>
+<p>As Slack works really well across both desktop and mobile devices, Sense will benefit that cross platform feature too.</p>
+<p>The Slack integration supports Slack&rsquo;s full markdown message formatting as well as <a href="https://get.slack.help/hc/en-us/articles/202931348-Emoji-and-emoticons">emoijs</a>.</p>
+</li>
+</ol>
+<h2 id="versioning-of-the-rest-api">Versioning of the REST API</h2>
+<p>This is a very wide and complex topic in itself.<br>
+For now Butler uses a very simple and rather naive approach, by just prefixing the endpoint name with a version number, e.g. <code>http://FQDN/v2/EndpointName/...</code></p>
+<p>This allows Butler to support multiple versions, and old versions to be (possibly) deprecated in the future.</p>
+<h2 id="rest-api-endpoints">REST API endpoints</h2>
+<h3 id="v2activeusercount">/v2/activeUserCount</h3>
+<pre><code>Purpose    : Get number of users that have active sessions. This value is based on session start/stop events, which means that there are corner cases where the incorrect value will be shown - for example just after starting Butler.  
+Parameters : -
+Example    : curl http://&lt;FQDN or IP of Butler&gt;:8080/v2/activeUserCount
+Returns    : 5
+</code></pre>
+<h3 id="v2activeusers">/v2/activeUsers</h3>
+<pre><code>Purpose    : Get an arrary with the usernames of users that currently have active sessions. This endpoint suffers from same limitation as the activeUserCount endpoint, i.e. it will not capture sessions that are active when Butler is started.  
+Parameters : -
+Example    : curl http://&lt;FQDN or IP of Butler&gt;:8080/v2/activeUsers
+Returns    : [&quot;userA&quot;,&quot;userB&quot;,&quot;userC&quot;]
+</code></pre>
+<h3 id="v2base16tobase62">/v2/base16ToBase62</h3>
+<pre><code>Purpose    : Convert a value coded in base16 to a base62 value. Works on arbitrary length input strings.  
+Parameters : base16
+Example    : curl http://&lt;FQDN or IP of Butler&gt;:8080/v2/base16ToBase62?base16=1f5848b5f8ba4e85a57c7ca55a9e
+Returns    : 3t5Na7R7Hj5yaBCv80S
+</code></pre>
+<h3 id="v2base62tobase16">/v2/base62ToBase16</h3>
+<pre><code>Purpose    : Convert a value coded in base62 to a base16 value. Works on arbitrary length input strings.  
+Parameters : base62
+Example    : curl http://&lt;FQDN or IP of Butler&gt;:8080/v2/base62ToBase16?base62=0X96HlegVXzQfJVIBWC31
+Returns    : 816c8710661a0a69e51ac8dc4ccf13
+</code></pre>
+<h3 id="v2butlerping">/v2/butlerPing</h3>
+<pre><code>Purpose    : Ask Butler if it is running and all is ok.
+Parameters : -
+Example    : curl http://&lt;FQDN or IP of Butler&gt;:8080/v2/butlerPing
+Returns    : {&quot;response&quot;:&quot;Butler reporting for duty&quot;}
+</code></pre>
+<h3 id="v2createdir">/v2/createDir</h3>
+<pre><code>Purpose    : Create a directory in any place (where the account Butler is running under has write access) on the server.  
+            Intermediate directories will be created too, i.e. if creating d:\abc\def when d:\abc does net yet exist, it will also be created.
+Parameters : directory
+Example    : curl http://&lt;FQDN or IP of Butler&gt;:8080/v2/createDir?directory=d:/abc/def
+Returns    : {&quot;directory&quot;:&quot;d:/abc/def&quot;}
+</code></pre>
+<h3 id="v2createdirqvd">/v2/createDirQVD</h3>
+<pre><code>Purpose    : Create a directory relative to a predefined path. Can be used to ensure all QVDs are stored in a well defined location.
+            Intermediate directories will be created too, i.e. if creating d:\abc\def when d:\abc does net yet exist, it will also be created.
+Parameters : directory
+Example    : curl http://&lt;FQDN or IP of Butler&gt;:8080/v2/createDirQVD?directory=abc/def
+Returns    : {&quot;directory&quot;:&quot;abc/def&quot;}
+</code></pre>
+<h3 id="v2mqttpublishmessage">/v2/mqttPublishMessage</h3>
+<pre><code>Purpose    : Publish a message to a MQTT topic, using a MQTT broker defined in the Butler config file
+Parameters : topic, message
+Example    : curl &quot;http://&lt;FQDN or IP of Butler&gt;:8080/v2/mqttPublishMessage?topic=abc/def&amp;message=ButlerTalksMQTT&quot;
+            curl -G &quot;http://&lt;FQDN or IP of Butler&gt;:8080/v2/mqttPublishMessage&quot; --data-urlencode &quot;topic=abc/def&quot; --data-urlencode &quot;message=Butler talks MQTT&quot;
+Returns    : {&quot;topic&quot;:&quot;abc/def&quot;,&quot;message&quot;:&quot;ButlerTalksMQTT&quot;}
+            {&quot;topic&quot;:&quot;abc/def&quot;,&quot;message&quot;:&quot;Butler talks MQTT&quot;}
+</code></pre>
+<h3 id="v2senseappdump">/v2/senseAppDump</h3>
+<pre><code>Purpose    : Extracts metadata about a Sense app.
+Parameters : appId
+Example    : curl http://&lt;FQDN or IP of Butler&gt;:8080/v2/senseAppDump?appId=98765e52-abcd-1234-5678-5678203b23b3
+Returns    : A long, long JSON string.
+</code></pre>
+<h3 id="v2senselistapps">/v2/senseListApps</h3>
+<pre><code>Purpose    : List name and GUID of all apps in the Sense cluster where Butler is installed.
+Parameters : -
+Example    : curl http://&lt;FQDN or IP of Butler&gt;:8080/v2/senseListApps
+Returns    : A long, long JSON string.
+</code></pre>
+<h3 id="v2sensestarttask">/v2/senseStartTask</h3>
+<pre><code>Purpose    : Start a Sense task. Can be used by upstream data providers to trigger reloads of Sense apps when new data is available.
+Parameters : taskId
+Example    : curl http://&lt;FQDN or IP of Butler&gt;:8080/v2/senseStartTask?taskId=abcd1234-5678-abcd-1234-abcd1234abcd
+Returns    : {&quot;taskId&quot;:&quot;abcd1234-5678-abcd-1234-abcd1234abcd&quot;}
+</code></pre>
+<h3 id="v2slackpostmessage">/v2/slackPostMessage</h3>
+<pre><code>Purpose    : Post a message to a Slack channel. Normal Slack formatting options (emoijs, markdown etc) can be used.
+Parameters : channel, from_user, msg, emoij
+Example    : curl -G http://&lt;FQDN or IP of Butler&gt;:8080/v2/slackPostMessage --data-urlencode &quot;channel=#sense-test-slack&quot; --data-urlencode &quot;msg=Butler posting to *Slack*&quot; --data-urlencode &quot;from_user=sa_scheduler&quot; --data-urlencode &quot;emoji=:test:&quot;
+Returns    : {&quot;channel&quot;:&quot;#sense-test-slack&quot;,&quot;msg&quot;:&quot;Butler posting to *Slack*&quot;,&quot;from_user&quot;:&quot;sa_scheduler&quot;,&quot;emoji&quot;:&quot;:test:&quot;}
+</code></pre>
+
+        <div class="section-index">
+    
+    
+    
+    
+    <hr class="panel-line">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</div>
+
+	
+		<style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="feedback--answer feedback--answer-yes">Yes</button>
+<button class="feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it! Please <a href="https://github.com/ptarmiganlabs/butler/issues/new">tell us how we can improve</a>.
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that. Please <a href="https://github.com/ptarmiganlabs/butler/issues/new">tell us how we can improve</a>.
+</p>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+		<br />
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 01.01.0001
+</div>
+</div>
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ptarmiganlabs">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/ptarmiganlabs/butler">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/gorsan/">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Newsletter" aria-label="Newsletter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.subscribepage.com/g3c1f1">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/ptarmiganlabs/butler">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Get in touch with Ptarmigan Labs" aria-label="Get in touch with Ptarmigan Labs">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="mailto://info@ptarmiganlabs.com">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2020 Ptarmigan Labs AB All Rights Reserved</small>
+        
+	
+		<p class="mt-2"><a href="/about/">About Butler</a></p>
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+<script src="/js/main.min.29b0315468c00226fa6f4556a9cebc0ac4fe1ce1457a01b22c0a06b329877383.js" integrity="sha256-KbAxVGjAAib6b0VWqc68CsT&#43;HOFFegGyLAoGsymHc4M=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

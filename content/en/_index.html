@@ -1,81 +1,139 @@
 +++
-title = "Goldydocs"
-linkTitle = "Goldydocs"
+title = "Butler"
+linkTitle = "Butler"
 
 +++
 
-{{< blocks/cover title="Welcome to Goldydocs: A Docsy Example Project!" image_anchor="top" height="full" color="orange" >}}
+{{< blocks/cover title="Butler: Adding superpowers to Qlik Sense" image_anchor="center" height="full" color="dark" >}}
 <div class="mx-auto">
+	<p class="lead mt-5" style="font-size: 120%" ">
+		Advanced task scheduling, document chaining, key-value store, start tasks, get notified when they fail, extract app metadata, post to Slack/Teams and more.<br><br>
+	</p>
 	<a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< relref "/docs" >}}">
-		Learn More <i class="fas fa-arrow-alt-circle-right ml-2"></i>
+		Documentation <i class="fas fa-arrow-alt-circle-right ml-2"></i>
 	</a>
-	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://github.com/google/docsy-example">
+	<a class="btn btn-lg btn-secondary mr-3 mb-4" href="https://github.com/ptarmiganlabs/butler">
 		Download <i class="fab fa-github ml-2 "></i>
 	</a>
-	<p class="lead mt-5">Porridge temperature assessment - in the cloud!</p>
-	{{< blocks/link-down color="info" >}}
+	<p class="lead mt-5">
+		Click the arrow ⬇️ or scroll down to learn more.
+	</p>
+	<div class="mx-auto mt-5">
+		{{< blocks/link-down color="light" >}}
 </div>
 {{< /blocks/cover >}}
 
 
-{{% blocks/lead color="primary" %}}
-Goldydocs provides a single web UI providing visibility into porridge temperature, chair size, and bed softness metrics! You can even find out who's been eating **your** porridge.
 
-(Sadly, Goldydocs isn't a real project, but you can use this site as an example to create your own real websites with [Docsy](http://docsy.dev))
-{{% /blocks/lead %}}
+{{< blocks/section color="light">}}
 
-{{< blocks/section color="dark" >}}
-{{% blocks/feature icon="fa-lightbulb" title="New chair metrics!" %}}
-The Goldydocs UI now shows chair size metrics by default.
+{{% blocks/feature icon="fa-clock" title="Advanced task scheduler" %}}
+Set up advanced task scheduling, more flexible than the one built into Sense.
 
-Please follow this space for updates!
+Cron for Qlik Sense, no more, no less.
+
+[Read more...](/docs/) 
 {{% /blocks/feature %}}
 
 
-{{% blocks/feature icon="fab fa-github" title="Contributions welcome!" url="https://github.com/google/docsy-example" %}}
-We do a [Pull Request](https://github.com/google/docsy-example/pulls) contributions workflow on **GitHub**. New users are always welcome!
+
+{{% blocks/feature icon="fa-link" title="Task chaining with parameters" %}}
+Need to pass parameters from one reload task to the next?
+
+Create chained app reloads with any number of parameters passed from app to app.
+
+[Read more...](/docs/) 
 {{% /blocks/feature %}}
 
 
-{{% blocks/feature icon="fab fa-twitter" title="Follow us on Twitter!" url="https://twitter.com/docsydocs" %}}
-For announcement of latest features etc.
+
+{{% blocks/feature icon="fa-database" title="Generic key-value store" %}}
+Keep state across any number of apps. Namespace support and optional Time To Live (TTL) for each key-value pair.
+
+[Read more...](/docs/) 
+{{% /blocks/feature %}}
+
+
+
+{{% blocks/feature icon="fa-play" title="Start tasks via REST API or MQTT" %}}
+Data delays - no thanks!  
+Start reload tasks from within app load scripts or from upstream source systems that feed Sense with data
+
+[Read more...](/docs/) 
+{{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fa-envelope" title="Task failure notifications" %}}
+Who should be the first to know that a reload has failed? You or your users?  
+
+Get notified when tasks fail, with notifications sent to Slack, Microsoft Teams or email.
+
+[Read more...](/docs/) 
+{{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fa-shoe-prints" title="App metadata extract" %}}
+Extract app metadata for a single or all apps in a Sense cluster.
+Great for backup purposes!
+
+[Read more...](/docs/) 
+{{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fa-comments" title="Keep your users in the know" %}}
+Tired of being asked "when is new data available"?
+
+Automatically inform your users via Slack or Teams when new data is available.
+
+[Read more...](/docs/) 
+{{% /blocks/feature %}}
+
+
+
+{{% blocks/feature icon="fa-chart-line" title="Observable" %}}
+Butler can save data about its own memory usage for inclusion in operational monitoring tools.
+
+[Read more...](/docs/) 
+{{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fa-server" title="Runs anywhere" %}}
+Run Butler on Windows server, Linux, Docker, Kubernetes or Mac OS.
+
+[Read more...](/docs/) 
+{{% /blocks/feature %}}
+
+{{< /blocks/section >}}
+
+
+
+
+
+
+{{< blocks/section color="dark">}}
+
+{{% blocks/feature icon="fa-lightbulb" title="Latest release: 4.0" %}}
+Butler reboot. Biggest release ever!  
+Scheduling, key-value store, MS Teams and more.
+
+Available on [GitHub](https://github.com/ptarmiganlabs/butler/releases).
+{{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fab fa-github" title="Contributions welcome!"  url="https://github.com/ptarmiganlabs/butler" %}}
+We do a [Pull Request](https://github.com/ptarmiganlabs/butler/pulls) contributions workflow on **GitHub**. New developers are always welcome!
+
+Please consider giving us a star on [GitHub](https://github.com/ptarmiganlabs/butler) if you find Butler useful.
+{{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fab fa-medium-m" title="Don't be a stranger!" url="https://medium.com/ptarmigan-labs" %}}
+We have a great [newsletter](), we're on [Medium](https://medium.com/ptarmigan-labs) and [LinkedIn](https://www.linkedin.com/in/gorsan).
 {{% /blocks/feature %}}
 
 
 {{< /blocks/section >}}
 
 
-{{< blocks/section >}}
-<div class="col">
-<h1 class="text-center">This is the second Section</h1>
-</div>
-
-{{< /blocks/section >}}
 
 
-
-{{< blocks/section >}}
-{{% blocks/feature icon="fab fa-app-store-ios" title="Download **from AppStore**" %}}
-Get the Goldydocs app!
-{{% /blocks/feature %}}
-
-
-{{% blocks/feature icon="fab fa-github" title="Contributions welcome!" url="https://github.com/google/docsy-example" %}}
-We do a [Pull Request](https://github.com/google/docsy-example/pulls) contributions workflow on **GitHub**. New users are always welcome!
-{{% /blocks/feature %}}
-
-
-{{% blocks/feature icon="fab fa-twitter" title="Follow us on Twitter!" url="https://twitter.com/GoHugoIO" %}}
-For announcement of latest features etc.
-{{% /blocks/feature %}}
-
-
-{{< /blocks/section >}}
-
-{{< blocks/section >}}
-
-<div class="col-12">
-<h1 class="text-center">This is another Section</h1>
-</div>
-
-{{< /blocks/section >}}

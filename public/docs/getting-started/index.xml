@@ -1,0 +1,118 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler – Getting Started</title>
+    <link>/docs/getting-started/</link>
+    <description>Recent content in Getting Started on Butler</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/docs/getting-started/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Installation</title>
+      <link>/docs/getting-started/install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/getting-started/install/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;Given the cross platform nature of Node.js (which is the language Butler is written in), Butler can run lots of different hardware platforms and operating depends.&lt;/p&gt;
+&lt;p&gt;It is therefore difficult to give detailed installation instructions for each possible installation scenario. This site thus tries explain how to get started with Butler in some of the most common scenarios.&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&#34;getting-started&#34;&gt;Getting started&lt;/h2&gt;
+&lt;p&gt;Sorry - there is no installer for Butler.&lt;br&gt;
+You will need to work a bit on the command line to set things up.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s not as bad as it sounds though, the instructions here should help settings things up.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;p&gt;Either you install a few pieces of software (most notably &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js&lt;/a&gt; and some node modules), or you run Butler in a Docker container.&lt;/p&gt;
+&lt;p&gt;Either way you also need to edit the configuration file and provide certificates exported from Qlik Sense Enterprise.&lt;/p&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;p&gt;Where can your user find your project code? How can they install it (binaries, installable package, build from source)? Are there multiple options/versions they can install and how should they choose the right one for them?&lt;/p&gt;
+&lt;p&gt;Follow the &lt;a href=&#34;/docs/getting-started/install&#34;&gt;installation and configuration instructions&lt;/a&gt; - they will guide through the setup process, including requirements and customisation.&lt;/p&gt;
+&lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;
+&lt;p&gt;Is there any initial setup users need to do after installation to try your project?&lt;/p&gt;
+&lt;h2 id=&#34;try-it-out&#34;&gt;Try it out!&lt;/h2&gt;
+&lt;p&gt;Can your users test their installation, for example by running a commmand or deploying a Hello World example?&lt;/p&gt;
+&lt;p&gt;Then browse through &lt;a href=&#34;/docs/examples&#34;&gt;the examples&lt;/a&gt; to get an understanding of how to use Butler.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Setup</title>
+      <link>/docs/getting-started/setup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/getting-started/setup/</guid>
+      <description>
+        
+        
+        &lt;!-- 
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;This is a placeholder page that shows you how to use this template site.&lt;/p&gt;
+
+&lt;/div&gt;
+ --&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Running Butler</title>
+      <link>/docs/getting-started/running/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/getting-started/running/</guid>
+      <description>
+        
+        
+        &lt;!-- 
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;This is a placeholder page that shows you how to use this template site.&lt;/p&gt;
+
+&lt;/div&gt;
+ --&gt;
+&lt;h2 id=&#34;running-butler&#34;&gt;Running Butler&lt;/h2&gt;
+&lt;p&gt;How to start and keep Butler running varies depending on whether you are using Docker or a native Node.js approach.&lt;/p&gt;
+&lt;h3 id=&#34;running-under-docker&#34;&gt;Running under Docker&lt;/h3&gt;
+&lt;p&gt;Starting Butler is easy.&lt;br&gt;
+First configure (if needed) the docker&lt;code&gt;-compose.yml&lt;/code&gt; file, then start the Docker container in interactive mode (with output sent to the screen). This is useful to ensure all works as intended when first setting up Butler.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker-compose up
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once Butler has been verified to work as intended, hit &lt;code&gt;ctrl-c&lt;/code&gt; to stop Butler.&lt;br&gt;
+Then start Butler in deameon (background) mode:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker-compose up -d
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;From here on the Docker enviromment will make sure Butler is always running, including restarting it if it for some reason stops.&lt;/p&gt;
+&lt;h3 id=&#34;running-as-native-nodejs-app&#34;&gt;Running as native Node.js app&lt;/h3&gt;
+&lt;p&gt;Starting Butler as a Node.js task is easy too:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;d:
+cd \node\butler\src
+node butler.js
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It is of course also possible to put those commands in a command file (.bat on Windows, .sh etc on other platforms) file and execute that file instead.&lt;/p&gt;
+&lt;h4 id=&#34;process-monitors&#34;&gt;Process monitors&lt;/h4&gt;
+&lt;p&gt;As Butler is the kind of service that (probably) should always be running on a server, it makes sense using a Node.js process monitor to keep it alive (if running Butler as a Docker container you get this for free).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/Unitech/pm2&#34;&gt;PM2&lt;/a&gt; and &lt;a href=&#34;https://github.com/foreverjs/forever&#34;&gt;Forever&lt;/a&gt; are two process monitors that both have been successfully tested with Butler.&lt;/p&gt;
+&lt;p&gt;One caveat with these is that it is hard to start them (and thus Butler) when a Windows server is rebooted.
+PM2 can be used to solve this challenge in a nice way, more info in &lt;a href=&#34;https://ptarmiganlabs.com/blog/2017/07/12/monitoring-auto-starting-node-js-services-windows-server&#34;&gt;this blog post&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

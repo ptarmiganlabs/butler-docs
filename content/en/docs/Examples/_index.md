@@ -1,17 +1,20 @@
-
 ---
 title: "Examples"
 linkTitle: "Examples"
-weight: 3
-date: 2017-01-05
+weight: 40
 description: >
-  See your project in action!
+  Butler in action!
 ---
 
-{{% pageinfo %}}
-This is a placeholder page that shows you how to use this template site.
-{{% /pageinfo %}}
+First things first:
 
-Do you have any example **applications** or **code** for your users in your repo or elsewhere? Link to your examples here.
+If you intend to use the various Qlik script snippets included in the GithHub repository, you first need to initialize things.
 
+Initializing Butler in an app's load script is easy, just call the `ButlerInit` function.
+
+Note: It's usually a good idea to create a shared data connection for scripts that are available to all Sense apps.  
+In the example below this shared data connection is simply called "Butler scripts":
+
+    $(Must_Include=[lib://Butler scripts/butler_init.qvs]);
+    CALL ButlerInit;
 

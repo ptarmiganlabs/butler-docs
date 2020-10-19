@@ -1,24 +1,27 @@
 baseURL = "/"
-title = "Goldydocs"
+languageCode = "en-us"
+title = "Butler"
+theme = ["docsy"]
+description = "Butler adds features and services to Qlik Sense Enterprise on Windows, making it easier to develop for and operate QSEoW."
+Paginate = 20
 
+# SEO
 enableRobotsTXT = true
 
-# Hugo allows theme composition (and inheritance). The precedence is from left to right.
-theme = ["docsy"]
-
-# Will give values to .Lastmod etc.
+# Docsy: Gives values to .Lastmod etc.
 enableGitInfo = true
 
-# Language settings
+# Docsy: Language settings
 contentDir = "content/en"
 defaultContentLanguage = "en"
+# Tell Hugo not to include the /en/ element in the URL path for English docs:
 defaultContentLanguageInSubdir = false
-# Useful when translating.
+# Docsy: Useful when translating.
 enableMissingTranslationPlaceholders = true
 
 disableKinds = ["taxonomy", "taxonomyTerm"]
 
-# Highlighting config
+# Docsy: Highlighting config
 pygmentsCodeFences = true
 pygmentsUseClasses = false
 # Use the new Chroma Go highlighter in Hugo.
@@ -27,18 +30,49 @@ pygmentsUseClassic = false
 # See https://help.farbox.com/pygments.html
 pygmentsStyle = "tango"
 
-# Configure how URLs look like per section.
-[permalinks]
-blog = "/:section/:year/:month/:day/:slug/"
+ # Docsy: First one is picked as the Twitter card image if not set on page.
+ #images = ["images/project-illustration.png"]
 
-## Configuration for BlackFriday markdown parser: https://github.com/russross/blackfriday
-[blackfriday]
-plainIDAnchors = true
-hrefTargetBlank = true
-angledQuotes = false
-latexDashes = true
+# Top-level navigation (horizontal)
 
-# Image processing configuration.
+[[menu.main]]
+    name = "What is Butler?"
+    weight = -103
+    url = "/docs/about/butler/"
+[[menu.main]]
+    name = "Documentation"
+    weight = -101
+    url = "/docs/"
+# [[menu.main]]
+#     name = "Community"
+#     weight = -100
+#     url = "https://ptarmiganlabs.com"
+[[menu.main]]
+    name = "Blog"
+    weight = -99
+    url = "https://ptarmiganlabs.com"
+[[menu.main]]
+    name = "The Butler family"
+    weight = -98
+    url = "/docs/about/butler-family"
+# [[menu.main]]
+#     name = "GitHub"
+#     weight = -97
+#     url = "https://github.com/ptarmiganlabs/butler"
+
+# Docsy: Configure the format of URLs per section.
+#[permalinks]
+#blog = "/:section/:year/:month/:day/:slug/"
+
+# Docsy: Configuration for Goldmark markdown parser, which is default from 
+# Hugo 0.60 onwards. https://github.com/yuin/goldmark/
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+# Allow Goldmark to render raw HTML:
+      unsafe = true
+
+# Docsy: Image processing configuration.
 [imaging]
 resampleFilter = "CatmullRom"
 quality = 75
@@ -46,95 +80,88 @@ anchor = "smart"
 
 [services]
 [services.googleAnalytics]
-# Comment out the next line to disable GA tracking. Also disables the feature described in [params.ui.feedback].
-id = "UA-00000000-0"
+id = "UA-58487795-5"
 
-# Language configuration
+# Docsy: Language configuration
 
 [languages]
 [languages.en]
-title = "Goldydocs"
-description = "A Docsy example site"
+title = "Butler"
+description = "Butler adds features and services to Qlik Sense Enterprise on Windows, making it easier to develop for and operate QSEoW."
 languageName ="English"
-# Weight used for sorting.
+# Weight used for sorting in the language menu:
 weight = 1
-[languages.no]
-title = "Goldydocs"
-description = "Docsy er operativsystem for skyen"
-languageName ="Norsk"
-contentDir = "content/no"
-time_format_default = "02.01.2006"
-time_format_blog = "02.01.2006"
 
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
-  [markup.highlight]
-      # See a complete list of available styles at https://xyproto.github.io/splash/docs/all.html
-      style = "tango"
-      # Uncomment if you want your chosen highlight style used for code blocks without a specified language
-      # guessSyntax = "true"
+# Below is an example of another language (Norwegian):
+#[languages.no]
+#title = "Docsy"
+#description = "Docsy er operativsystem for skyen"
+#languageName ="Norsk"
+#contentDir = "content/no"
+time_format_default = "2006-01-02"
+time_format_blog = "2006-01-02"
 
-# Everything below this are Site Params
+# Site params
 
 [params]
-copyright = "The Docsy Authors"
-privacy_policy = "https://policies.google.com/privacy"
 
-# First one is picked as the Twitter card image if not set on page.
-# images = ["images/project-illustration.png"]
+# GitHub repository for in-page links to editing a page and opening and issues.
+github_repo = "https://github.com/ptarmiganlabs/butler-docs"
+# An optional link to a related project repo. For example, the sibling repository where your product code lives.
+github_project_repo = "https://github.com/ptarmiganlabs/butler"
 
-# Menu title if your navbar has a versions selector to access old versions of your site.
-# This menu appears only if you have at least one [params.versions] set.
-version_menu = "Releases"
+RSSLink = "/index.xml"
+author = "Ptarmigan Labs" # add your company name
+github = "ptarmiganlabs" # add your github profile name
+twitter = "ptarmiganlabs" # add your twitter profile
+email = "info@ptarmiganlabs.com"
+
+copyright = "Ptarmigan Labs AB"
+# privacy_policy = "https://policies.google.com/privacy"
+
+# Docsy: Google Custom Search Engine ID. Remove or comment out to disable search.
+gcs_engine_id = "011737558837375720776:fsdu1nryfng"
+
+# Text label for the version menu in the top bar of the website.
+version_menu = "v4.0"
+
+# The major.minor version tag for the version of the docs represented in this
+# branch of the repository. Used in the "version-banner" partial to display a
+# version number for this doc set.
+version = "v4.0"
 
 # Flag used in the "version-banner" partial to decide whether to display a 
 # banner on every page indicating that this is an archived version of the docs.
-# Set this flag to "true" if you want to display the banner.
 archived_version = false
-
-# The version number for the version of the docs represented in this doc set.
-# Used in the "version-banner" partial to display a version number for the 
-# current doc set.
-version = "0.0"
 
 # A link to latest version of the docs. Used in the "version-banner" partial to
 # point people to the main doc site.
-url_latest_version = "https://example.com"
+url_latest_version = "https://butler.ptarmiganlabs.com"
 
-# Repository configuration (URLs for in-page links to opening issues and suggesting changes)
-github_repo = "https://github.com/google/docsy-example"
-# An optional link to a related project repo. For example, the sibling repository where your product code lives.
-github_project_repo = "https://github.com/google/docsy"
+# A variable used in various docs to determine URLs for config files etc.
+# To find occurrences, search the repo for 'params "githubbranch"'.
+githubbranch = "v4.0-branch"
 
-# Specify a value here if your content directory is not in your repo's root directory
-# github_subdir = ""
+# Add new release versions here. These entries appear in the drop-down menu
+# at the top of the website.
+[[params.versions]]
+  version = "v4.0"
+  githubbranch = "master"
+  url = "https://butler.ptarmiganlabs.com"
 
-# Google Custom Search Engine ID. Remove or comment out to disable search.
-gcs_engine_id = "011737558837375720776:fsdu1nryfng"
+# [[params.versions]]
+#   version = "v1.0"
+#   githubbranch = "v1.0-branch"
+#   url = "https://v1-0-branch.kubeflow.org"
 
-# Enable Algolia DocSearch
-algolia_docsearch = false
-
-# Enable Lunr.js offline search
-offlineSearch = false
-
-# Enable syntax highlighting and copy buttons on code blocks with Prism
-prism_syntax_highlighting = false
-
-# User interface configuration
+# Docsy: User interface configuration
 [params.ui]
-# Enable to show the side bar menu in its compact state.
-sidebar_menu_compact = false
-#  Set to true to disable breadcrumb navigation.
+# Docsy: Enable to show the side bar menu in its compact state.
+sidebar_menu_compact = true
+# Docsy: Disable the search box in the side bar.
+sidebar_search_disable = true
+#  Docsy: Set to true to disable breadcrumb navigation.
 breadcrumb_disable = false
-#  Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
-sidebar_search_disable = false
-#  Set to false if you don't want to display a logo (/assets/icons/logo.svg) in the top nav bar
-navbar_logo = true
-# Set to true to disable the About link in the site footer
-footer_about_disable = false
 
 # Adds a H2 section titled "Feedback" to the bottom of each doc. The responses are sent to Google Analytics as events.
 # This feature depends on [services.googleAnalytics] and will be disabled if "services.googleAnalytics.id" is not set.
@@ -143,46 +170,75 @@ footer_about_disable = false
 [params.ui.feedback]
 enable = true
 # The responses that the user sees after clicking "yes" (the page was helpful) or "no" (the page was not helpful).
-yes = 'Glad to hear it! Please <a href="https://github.com/USERNAME/REPOSITORY/issues/new">tell us how we can improve</a>.'
-no = 'Sorry to hear that. Please <a href="https://github.com/USERNAME/REPOSITORY/issues/new">tell us how we can improve</a>.'
+yes = 'Glad to hear it! Please <a href="https://github.com/ptarmiganlabs/butler/issues/new">tell us how we can improve</a>.'
+no = 'Sorry to hear that. Please <a href="https://github.com/ptarmiganlabs/butler/issues/new">tell us how we can improve</a>.'
 
-# Adds a reading time to the top of each doc.
-# If you want this feature, but occasionally need to remove the Reading time from a single page, 
-# add "hide_readingtime: true" to the page's front matter
-[params.ui.readingtime]
-enable = false
 
 [params.links]
-# End user relevant links. These will show up on left side of footer and in the community page if you have one.
-[[params.links.user]]
-	name = "User mailing list"
-	url = "https://example.org/mail"
-	icon = "fa fa-envelope"
-        desc = "Discussion and help from your fellow users"
+# Docsy: "User" links will show on left side of footer and in the community page if you have one.
 [[params.links.user]]
 	name ="Twitter"
-	url = "https://example.org/twitter"
+	url = "https://twitter.com/ptarmiganlabs"
 	icon = "fab fa-twitter"
-        desc = "Follow us on Twitter to get the latest news!"
+        desc = "Follow us on Twitter to get the latest news"
 [[params.links.user]]
-	name = "Stack Overflow"
-	url = "https://example.org/stack"
-	icon = "fab fa-stack-overflow"
-        desc = "Practical questions and curated answers"
-# Developer relevant links. These will show up on right side of footer and in the community page if you have one.
+	name = "GitHub"
+	url = "https://github.com/ptarmiganlabs/butler"
+	icon = "fab fa-github"
+        desc = "Development happens here!"
+[[params.links.user]]
+	name = "LinkedIn"
+	url = "https://www.linkedin.com/in/gorsan/"
+	icon = "fab fa-linkedin"
+        desc = "Reach out to Ptarmigan Labs via LinkedIn"
+# [[params.links.user]]
+# 	name = "Slack"
+# 	url = "https://kubeflow.slack.com/join/shared_invite/zt-cpr020z4-PfcAue_2nw67~iIDy7maAQ"
+# 	icon = "fab fa-slack"
+#         desc = "Chat with other project contributors"
+[[params.links.user]]
+	name = "Newsletter"
+	url = "https://www.subscribepage.com/g3c1f1"
+	icon = "fa fa-envelope"
+        desc = "Be the first to hear about Butler news"
+
+
+# Docsy: "Developer" links will show on right side of footer and in the community page if you have one.
 [[params.links.developer]]
 	name = "GitHub"
-	url = "https://github.com/google/docsy"
+	url = "https://github.com/ptarmiganlabs/butler"
 	icon = "fab fa-github"
         desc = "Development takes place here!"
-[[params.links.developer]]
-	name = "Slack"
-	url = "https://example.org/slack"
-	icon = "fab fa-slack"
-        desc = "Chat with other project developers"
-[[params.links.developer]]
-	name = "Developer mailing list"
-	url = "https://example.org/mail"
-	icon = "fa fa-envelope"
-        desc = "Discuss development issues around the project"
 
+[[params.links.developer]]
+	name = "Get in touch with Ptarmigan Labs"
+	url = "mailto://info@ptarmiganlabs.com"
+	icon = "fa fa-envelope"
+        desc = "Get in touch with Ptarmigan Labs around Butler SOS"
+
+
+
+
+
+[privacy]
+  [privacy.disqus]
+    disable = true
+  [privacy.googleAnalytics]
+    anonymizeIP = true
+    disable = false
+    # respectDoNotTrack = false
+    # useSessionStorage = false
+  [privacy.instagram]
+    disable = true
+    # simple = false
+  [privacy.twitter]
+    disable = true
+    # enableDNT = false
+    # simple = false
+  [privacy.vimeo]
+    disable = true
+    # simple = false
+  [privacy.youtube]
+    disable = true
+    # privacyEnhanced = false
+	
