@@ -120,7 +120,7 @@ copyright = "Ptarmigan Labs AB"
 # privacy_policy = "https://policies.google.com/privacy"
 
 # Docsy: Google Custom Search Engine ID. Remove or comment out to disable search.
-gcs_engine_id = "011737558837375720776:fsdu1nryfng"
+# gcs_engine_id = "011737558837375720776:fsdu1nryfng"
 
 # Text label for the version menu in the top bar of the website.
 version_menu = "v4.0"
