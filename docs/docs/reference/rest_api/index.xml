@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Butler – </title>
+    <title>Butler – REST API documentation</title>
     <link>/docs/reference/rest_api/</link>
-    <description>Recent content on Butler</description>
+    <description>Recent content in REST API documentation on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
