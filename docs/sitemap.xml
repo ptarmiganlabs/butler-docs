@@ -151,6 +151,10 @@
   </url>
   
   <url>
+    <loc>/docs/examples/reload-failure-notification/</loc>
+  </url>
+  
+  <url>
     <loc>/docs/about/versioning/</loc>
     <lastmod>2020-10-19T22:41:44+02:00</lastmod>
   </url>

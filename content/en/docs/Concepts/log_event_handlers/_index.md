@@ -3,7 +3,8 @@ title: 'Log event handlers'
 linkTitle: 'Log event handlers'
 weight: 50
 description: >
-    Details about the Qlik Sense log events Butler implements special features for.
+    Details about the Qlik Sense log events Butler implements special features for.  
+    By hooking into Sense log events, it's possible to set up failed reload notifications, trigger actions when users log on/off and more.
 ---
 
 <!-- {{% pageinfo %}}
