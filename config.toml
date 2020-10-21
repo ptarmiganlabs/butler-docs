@@ -62,6 +62,10 @@ pygmentsStyle = "tango"
     name = "The Butler family"
     weight = -98
     url = "/docs/about/butler-family"
+[[menu.main]]
+    name = "About"
+    weight = -97
+    url = "/docs/about"
 # [[menu.main]]
 #     name = "GitHub"
 #     weight = -97
