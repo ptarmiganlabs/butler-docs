@@ -3,17 +3,19 @@ title: "Overview"
 linkTitle: "Overview"
 weight: 10
 description: >
-  How Butler makes it both easier to develop Qlik Sense apps and run Qlik Sense clusters.
+  Butler makes it both easier to develop Qlik Sense apps and run Qlik Sense clusters.
+  
+  This page explains how Butler relates to and uses other tools and services.
 ---
-
-<!-- {{% pageinfo %}}
-{{% /pageinfo %}} -->
 
 ## Conceptual overview
 
---- Add system diagram ---
+![alt text](butler-system-overview-1.png "Butler high level system overview")  
 
-<!-- TODO: Create system diagram showing what parts are included in Butler
+The main components of Butler are outlined in the system diagram above.
 
+{{% alert title="Remember!" color="primary" %}}
+Individual parts of Butler can be enabled/disabled in the main [config file](/docs/reference/config-file/).
 
-TODO: Explain that most features are turned off in the dafault production.yaml config file -->
+If you're unsure what each REST API endpoint does, the [API docs](/docs/reference/rest_api/) is the place to check.
+{{% /alert %}}

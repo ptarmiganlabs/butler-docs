@@ -48,3 +48,16 @@ If running Butler as a Node.js app on Linux, [PM2](https://github.com/Unitech/pm
 
 One caveat with these is that it can be hard to start them (and thus Butler) when a Windows server is rebooted.
 PM2 can be used to solve this challenge in a nice way, more info in [this blog post](https://ptarmiganlabs.com/blog/2017/07/12/monitoring-auto-starting-node-js-services-windows-server). On the other hand - just using Nssm is probably the easiest option for Windows.
+
+### Monitoring Butler
+
+Once Butler is running it's a good idea to also monitor it. Otherwise you stand the risk of not getting notified if Butler for some reason misbehaves.
+
+Butler will log data on its memory usage to InfluxDB if
+
+1. The config file's `Butler.uptimeMonitor.enable` and `Butler.uptimeMonitor.storeInInfluxdb.enable` properties are both set to `true`.
+2. The remaining InfluxDB properties of the config file are correctly configured.
+
+Assuming everything is correctly set up, you can then create a Grafana dashboard showing Butler's memory use over time. You can also set up alerts in Grafana if so desired, with notifications going to most IM tools and email.
+
+There is a [sample Grafana dashboard](https://github.com/ptarmiganlabs/butler/tree/master/docs/grafana) in Butler's GitHub repo.

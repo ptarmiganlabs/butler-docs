@@ -15,6 +15,28 @@
     
     
     <item>
+      <title>Blog: Material added to Butler doc site</title>
+      <link>/blog/news/20201021-1/</link>
+      <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/news/20201021-1/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Version 4 of Butler is a major release, and the doc site isn&amp;rsquo;t quite as complete as it should.
+Over coming weeks we&amp;rsquo;ll add more tutorials, reference documents etc.&lt;/p&gt;
+&lt;p&gt;The current update adds the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A &lt;a href=&#34;/docs/getting-started/overview/#conceptual-overview&#34;&gt;system overview diagram&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;More comprehensive description of &lt;a href=&#34;/docs/about/use-cases/&#34;&gt;use cases&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Description of how the &lt;a href=&#34;/docs/getting-started/operations/#monitoring-butler&#34;&gt;data (optionally) stored in InfluxDB&lt;/a&gt; can be used in &lt;a href=&#34;/docs/getting-started/operations/&#34;&gt;day 2 operations&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Various typos fixed.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Blog: v4.0.0: A SenseOps reboot</title>
       <link>/blog/releases/v4.0.0/</link>
       <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>

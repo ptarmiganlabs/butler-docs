@@ -15,50 +15,6 @@
     
     
     <item>
-      <title>Docs: Running Butler</title>
-      <link>/docs/getting-started/running/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/docs/getting-started/running/</guid>
-      <description>
-        
-        
-        &lt;!-- 
-
-&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
-&lt;p&gt;This is a placeholder page that shows you how to use this template site.&lt;/p&gt;
-
-&lt;/div&gt;
- --&gt;
-&lt;h2 id=&#34;running-butler&#34;&gt;Running Butler&lt;/h2&gt;
-&lt;p&gt;How to start and keep Butler running varies depending on whether you are using Docker or a native Node.js approach.&lt;/p&gt;
-&lt;h3 id=&#34;running-under-docker&#34;&gt;Running under Docker&lt;/h3&gt;
-&lt;p&gt;Starting Butler is easy.&lt;br&gt;
-First configure (if needed) the docker&lt;code&gt;-compose.yml&lt;/code&gt; file, then start the Docker container in interactive mode (with output sent to the screen). This is useful to ensure all works as intended when first setting up Butler.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;docker-compose up
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Once Butler has been verified to work as intended, hit &lt;code&gt;ctrl-c&lt;/code&gt; to stop Butler.&lt;br&gt;
-Then start Butler in deameon (background) mode:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;docker-compose up -d
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;From here on the Docker enviromment will make sure Butler is always running, including restarting it if it for some reason stops.&lt;/p&gt;
-&lt;h3 id=&#34;running-as-native-nodejs-app&#34;&gt;Running as native Node.js app&lt;/h3&gt;
-&lt;p&gt;Starting Butler as a Node.js task is easy too:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;d:
-cd \node\butler\src
-node butler.js
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;It is of course also possible to put those commands in a command file (.bat on Windows, .sh etc on other platforms) file and execute that file instead.&lt;/p&gt;
-&lt;h4 id=&#34;process-monitors&#34;&gt;Process monitors&lt;/h4&gt;
-&lt;p&gt;As Butler is the kind of service that (probably) should always be running on a server, it makes sense using a Node.js process monitor to keep it alive (if running Butler as a Docker container you get this for free).&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/Unitech/pm2&#34;&gt;PM2&lt;/a&gt; and &lt;a href=&#34;https://github.com/foreverjs/forever&#34;&gt;Forever&lt;/a&gt; are two process monitors that both have been successfully tested with Butler.&lt;/p&gt;
-&lt;p&gt;One caveat with these is that it is hard to start them (and thus Butler) when a Windows server is rebooted.
-PM2 can be used to solve this challenge in a nice way, more info in &lt;a href=&#34;https://ptarmiganlabs.com/blog/2017/07/12/monitoring-auto-starting-node-js-services-windows-server&#34;&gt;this blog post&lt;/a&gt;.&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
       <title>Docs: Overview</title>
       <link>/docs/getting-started/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -67,19 +23,18 @@ PM2 can be used to solve this challenge in a nice way, more info in &lt;a href=&
       <description>
         
         
-        &lt;!-- 
+        &lt;h2 id=&#34;conceptual-overview&#34;&gt;Conceptual overview&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;butler-system-overview-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler high level system overview&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The main components of Butler are outlined in the system diagram above.&lt;/p&gt;
 
-&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Remember!&lt;/h4&gt;
+&lt;p&gt;Individual parts of Butler can be enabled/disabled in the main &lt;a href=&#34;/docs/reference/config-file/&#34;&gt;config file&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;re unsure what each REST API endpoint does, the &lt;a href=&#34;/docs/reference/rest_api/&#34;&gt;API docs&lt;/a&gt; is the place to check.&lt;/p&gt;
 
 &lt;/div&gt;
- --&gt;
-&lt;h2 id=&#34;conceptual-overview&#34;&gt;Conceptual overview&lt;/h2&gt;
-&lt;p&gt;&amp;mdash; Add system diagram &amp;mdash;&lt;/p&gt;
-&lt;!-- TODO: Create system diagram showing what parts are included in Butler
 
-
-TODO: Explain that most features are turned off in the dafault production.yaml config file --&gt;&lt;blockquote&gt;
-&lt;/blockquote&gt;
 
       </description>
     </item>
@@ -173,6 +128,15 @@ node butler.js
 &lt;p&gt;If running Butler as a Node.js app on Linux, &lt;a href=&#34;https://github.com/Unitech/pm2&#34;&gt;PM2&lt;/a&gt; and &lt;a href=&#34;https://github.com/foreverjs/forever&#34;&gt;Forever&lt;/a&gt; are two process monitors that both have been successfully tested with Butler.&lt;/p&gt;
 &lt;p&gt;One caveat with these is that it can be hard to start them (and thus Butler) when a Windows server is rebooted.
 PM2 can be used to solve this challenge in a nice way, more info in &lt;a href=&#34;https://ptarmiganlabs.com/blog/2017/07/12/monitoring-auto-starting-node-js-services-windows-server&#34;&gt;this blog post&lt;/a&gt;. On the other hand - just using Nssm is probably the easiest option for Windows.&lt;/p&gt;
+&lt;h3 id=&#34;monitoring-butler&#34;&gt;Monitoring Butler&lt;/h3&gt;
+&lt;p&gt;Once Butler is running it&amp;rsquo;s a good idea to also monitor it. Otherwise you stand the risk of not getting notified if Butler for some reason misbehaves.&lt;/p&gt;
+&lt;p&gt;Butler will log data on its memory usage to InfluxDB if&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The config file&amp;rsquo;s &lt;code&gt;Butler.uptimeMonitor.enable&lt;/code&gt; and &lt;code&gt;Butler.uptimeMonitor.storeInInfluxdb.enable&lt;/code&gt; properties are both set to &lt;code&gt;true&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;The remaining InfluxDB properties of the config file are correctly configured.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Assuming everything is correctly set up, you can then create a Grafana dashboard showing Butler&amp;rsquo;s memory use over time. You can also set up alerts in Grafana if so desired, with notifications going to most IM tools and email.&lt;/p&gt;
+&lt;p&gt;There is a &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/tree/master/docs/grafana&#34;&gt;sample Grafana dashboard&lt;/a&gt; in Butler&amp;rsquo;s GitHub repo.&lt;/p&gt;
 
       </description>
     </item>

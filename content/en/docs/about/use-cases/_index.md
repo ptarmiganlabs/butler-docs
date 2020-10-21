@@ -1,6 +1,6 @@
 +++ 
 title = "Use cases" 
-description = "How can Butler be used?" 
+description = "How can Butler be used?"
 weight = 30
 +++
 

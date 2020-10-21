@@ -287,29 +287,6 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/docs/getting-started/running/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Running Butler</a>
-  </li>
-  <ul>
-    <li class="collapse " id="docsgetting-startedrunning">
-      
-      
-      
-    </li>
-  </ul>
-</ul>
-
-      
-      
-      
-      
-
-
-
-
-
-
-<ul class="td-sidebar-nav__section pr-md-3">
-  <li class="td-sidebar-nav__section-title">
     <a  href="/docs/getting-started/overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Overview</a>
   </li>
   <ul>
@@ -385,12 +362,6 @@ if (!doNotTrack) {
   <ul>
     <li class="collapse " id="docsgetting-startedsetup">
       
-      
-      
-      
-      
-      
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedsetupconfig_file_syntax" href="/docs/getting-started/setup/config_file_syntax/">Config file syntax</a>
       
       
       
@@ -944,6 +915,7 @@ if (!doNotTrack) {
       <ul>
         <li><a href="#running-under-docker">Running under Docker</a></li>
         <li><a href="#running-as-native-nodejs-app">Running as native Node.js app</a></li>
+        <li><a href="#monitoring-butler">Monitoring Butler</a></li>
       </ul>
     </li>
   </ul>
@@ -1027,6 +999,15 @@ node butler.js
 <p>If running Butler as a Node.js app on Linux, <a href="https://github.com/Unitech/pm2">PM2</a> and <a href="https://github.com/foreverjs/forever">Forever</a> are two process monitors that both have been successfully tested with Butler.</p>
 <p>One caveat with these is that it can be hard to start them (and thus Butler) when a Windows server is rebooted.
 PM2 can be used to solve this challenge in a nice way, more info in <a href="https://ptarmiganlabs.com/blog/2017/07/12/monitoring-auto-starting-node-js-services-windows-server">this blog post</a>. On the other hand - just using Nssm is probably the easiest option for Windows.</p>
+<h3 id="monitoring-butler">Monitoring Butler</h3>
+<p>Once Butler is running it&rsquo;s a good idea to also monitor it. Otherwise you stand the risk of not getting notified if Butler for some reason misbehaves.</p>
+<p>Butler will log data on its memory usage to InfluxDB if</p>
+<ol>
+<li>The config file&rsquo;s <code>Butler.uptimeMonitor.enable</code> and <code>Butler.uptimeMonitor.storeInInfluxdb.enable</code> properties are both set to <code>true</code>.</li>
+<li>The remaining InfluxDB properties of the config file are correctly configured.</li>
+</ol>
+<p>Assuming everything is correctly set up, you can then create a Grafana dashboard showing Butler&rsquo;s memory use over time. You can also set up alerts in Grafana if so desired, with notifications going to most IM tools and email.</p>
+<p>There is a <a href="https://github.com/ptarmiganlabs/butler/tree/master/docs/grafana">sample Grafana dashboard</a> in Butler&rsquo;s GitHub repo.</p>
 
         <div class="section-index">
     
@@ -1034,10 +1015,6 @@ PM2 can be used to solve this challenge in a nice way, more info in <a href="htt
     
     
     <hr class="panel-line">
-        
-            
-        
-            
         
             
         
