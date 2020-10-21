@@ -31,7 +31,7 @@ Features of the Butler scheduler:
 * 6 position cron pattern. The leftmost position represents seconds.
 * No hard limit on number of schedules that can be created.
 * A Qlik Sense task ID is associated with each schedule. When the schedule fires, the associated task is started.
-* Schedules can be added either manually in the YAML schedules file (as defined in the main Butler config file) or using [Butler's API](/docs/reference_rest_api). A sample schedule file is included in the GitHub repository. Schedules added using the API will be stored in the schedule YAML file referenced in the main Butler config file.
+* Schedules can be added either manually in the YAML schedules file (as defined in the main Butler config file) or using [Butler's API](/docs/reference/rest_api). A sample schedule file is included in the GitHub repository. Schedules added using the API will be stored in the schedule YAML file referenced in the main Butler config file.
 
 The two supported schedule formats look like this:
 

@@ -105,7 +105,7 @@ Cron has been the standard scheduler for decades in most Linux systems, it&amp;r
 &lt;li&gt;6 position cron pattern. The leftmost position represents seconds.&lt;/li&gt;
 &lt;li&gt;No hard limit on number of schedules that can be created.&lt;/li&gt;
 &lt;li&gt;A Qlik Sense task ID is associated with each schedule. When the schedule fires, the associated task is started.&lt;/li&gt;
-&lt;li&gt;Schedules can be added either manually in the YAML schedules file (as defined in the main Butler config file) or using &lt;a href=&#34;/docs/reference_rest_api&#34;&gt;Butler&amp;rsquo;s API&lt;/a&gt;. A sample schedule file is included in the GitHub repository. Schedules added using the API will be stored in the schedule YAML file referenced in the main Butler config file.&lt;/li&gt;
+&lt;li&gt;Schedules can be added either manually in the YAML schedules file (as defined in the main Butler config file) or using &lt;a href=&#34;/docs/reference/rest_api&#34;&gt;Butler&amp;rsquo;s API&lt;/a&gt;. A sample schedule file is included in the GitHub repository. Schedules added using the API will be stored in the schedule YAML file referenced in the main Butler config file.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The two supported schedule formats look like this:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;    ┌───────────── seconds (0 - 59)
