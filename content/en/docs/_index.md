@@ -20,6 +20,8 @@ Key-value stores are a very versatile tool and a great addition to Qlik Sense.
 
 * **Moving and deleting files** in the file system of the Sense servers, or on any disks accessible by those servers. You customize what directories are approved for these operations, and thus prevent this feature from becoming a security risk.
 
+* **Reload failure notifications** can now be sent to Microsoft Teams, in addition to Slack and as email.
+
 * **Better logging**, including continuous logging of Butler's own memory usage to InfluxDB, from where it can be graphed using for example Grafana.
 
 * **API docs** using the OpenAPI/Swagger format.

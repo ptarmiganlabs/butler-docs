@@ -51,6 +51,10 @@ pygmentsStyle = "tango"
 #     weight = -100
 #     url = "https://ptarmiganlabs.com"
 [[menu.main]]
+    name = "News"
+    weight = -100
+    url = "/blog"
+[[menu.main]]
     name = "Blog"
     weight = -99
     url = "https://ptarmiganlabs.com"
