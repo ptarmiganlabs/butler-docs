@@ -500,7 +500,7 @@ proton:butler goran$
 &lt;ol&gt;
 &lt;li&gt;Export certificates from the Qlik Sense QMC. Export a full set of certificates in PEM format, no psasword on the certificates.&lt;/li&gt;
 &lt;li&gt;Copy the certificates to the ./config/certificate directory.&lt;/li&gt;
-&lt;li&gt;copy the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/src/config/default_template.yaml&#34;&gt;template config file&lt;/a&gt; from the GitHub repository to the ./config directory, modify it as needed based on your system(s) and which Butler features you want enabled, and rename it to for example &lt;code&gt;production.yaml&lt;/code&gt;.&lt;br&gt;
+&lt;li&gt;Copy the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/src/config/production_template.yaml&#34;&gt;template config file&lt;/a&gt; from the GitHub repository to the ./config directory, modify it as needed based on your system(s) and which Butler features you want enabled, and rename it to for example &lt;code&gt;production.yaml&lt;/code&gt;.&lt;br&gt;
 You can name the config file anything, but its name has to match the NODE_ENV environment variable, as set it the &lt;code&gt;docker-compose.yml&lt;/code&gt; file.&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;Optional.&lt;/em&gt; Copy the template schedule file to the location specified in Butler&amp;rsquo;s config file. This is only needed if you manually want to add schedules. If using the API to create schedules, there is no need to first manually create a schedules file.&lt;/li&gt;
 &lt;/ol&gt;

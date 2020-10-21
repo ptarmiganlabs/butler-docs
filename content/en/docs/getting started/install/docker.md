@@ -68,7 +68,7 @@ At this point you should
 
 1. Export certificates from the Qlik Sense QMC. Export a full set of certificates in PEM format, no psasword on the certificates.
 2. Copy the certificates to the ./config/certificate directory.
-3. copy the [template config file](https://github.com/ptarmiganlabs/butler/blob/master/src/config/default_template.yaml) from the GitHub repository to the ./config directory, modify it as needed based on your system(s) and which Butler features you want enabled, and rename it to for example `production.yaml`.  
+3. Copy the [template config file](https://github.com/ptarmiganlabs/butler/blob/master/src/config/production_template.yaml) from the GitHub repository to the ./config directory, modify it as needed based on your system(s) and which Butler features you want enabled, and rename it to for example `production.yaml`.  
 You can name the config file anything, but its name has to match the NODE_ENV environment variable, as set it the `docker-compose.yml` file.
 4. *Optional.* Copy the template schedule file to the location specified in Butler's config file. This is only needed if you manually want to add schedules. If using the API to create schedules, there is no need to first manually create a schedules file.
 

@@ -280,7 +280,7 @@ The message contains this information:&lt;/p&gt;
 &lt;p&gt;Publish a message to MQTT, in the topic defined in the Butler.mqttConfig.taskFailureTopic configuration setting.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Examples on how the Slack messages will look can be found on the &lt;a href=&#34;udp-client&#34;&gt;UDP client page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Examples on how the Slack messages will look can be found on the &lt;a href=&#34;/docs/concepts/udp&#34;&gt;UDP client page&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;further-reading&#34;&gt;Further reading&lt;/h3&gt;
 &lt;p&gt;The &lt;a href=&#34;/docs/getting-started/setup/log4net_appender&#34;&gt;log notifications setup page&lt;/a&gt; has a bit more information on this topic, as well as links to external resources.&lt;/p&gt;
 

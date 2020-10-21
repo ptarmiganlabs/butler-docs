@@ -104,7 +104,7 @@ The following actions are taken
 
 2. Publish a message to MQTT, in the topic defined in the Butler.mqttConfig.taskFailureTopic configuration setting.
 
-Examples on how the Slack messages will look can be found on the [UDP client page](udp-client).
+Examples on how the Slack messages will look can be found on the [UDP client page](/docs/concepts/udp).
 
 ### Further reading
 
