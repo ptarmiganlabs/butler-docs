@@ -91,7 +91,7 @@ anchor = "smart"
 
 [services]
 [services.googleAnalytics]
-id = "UA-58487795-5"
+id = "UA-58487795-2"
 
 # Docsy: Language configuration
 
