@@ -1000,20 +1000,31 @@ if (!doNotTrack) {
 	<h1>Use cases</h1>
         <div class="lead">How can Butler be used?</div>
 	
-	<!-- //TODO -->
-<h3 id="more-flexible-scheduling-of-app-reloads-in-qseow">More flexible scheduling of app reloads in QSEoW</h3>
+	<h3 id="more-flexible-scheduling-of-app-reloads-in-qseow">More flexible scheduling of app reloads in QSEoW</h3>
+<p>Using the scheduler built into Qlik Sense you can&rsquo;t for example create schedules that are limited to a parts of a day.<br>
+This is a pretty common scenario though - you want to reload an app hourly from say 3 am to 3 pm.</p>
+<p>You <em>can</em> set this up in Sense, but it involves creating <em>a lot</em> of triggers for the reload task, which becomes a nightmare to maintain.</p>
+<p><a href="/docs/concepts/scheduler">Butler&rsquo;s task scheduler</a> is built on Cron, which has been used in Linux for decades. Battle proven and very flexible.</p>
 <h3 id="passing-parameters-between-reload-tasks">Passing parameters between reload tasks</h3>
+<p>This has always been hard both in QlikView and Sense.</p>
+<p><a href="/docs/concepts/key-value/">Butler&rsquo;s key-value store</a> makes it much easier to pass values from one app reload to the next.</p>
 <h3 id="storing-state-across-several-apps">Storing state across several apps</h3>
+<p>The key-value store can also be used to keep state in general across several apps or parts of a Qlik Sense environment. Maybe a Development cluster needs to share some information with the Test and Production clusters? Easily solved using Butler&rsquo;s key-value store.</p>
 <h4 id="time-to-live-ttl-for-key-value-pairs">Time-to-live (TTL) for key-value pairs</h4>
+<p>Key-value pairs can optionally be set up with a time-to-live (ttl) parameter. If ttl is set, the KV pair will auto-delete when the ttl expires.</p>
 <h3 id="start-reloads-from-load-script-or-from-upstream-data-sources">Start reloads from load script or from upstream data sources</h3>
-<p><strong>Trigger Sense reload tasks from a reload script</strong>. This makes it possible to start different Sense tasks based on what data has been read from a database, for example.</p>
-<p><strong>Trigger Sense reloads from external systems</strong>. When new data is available in a source database, immediately trigger reloads of the Sense apps that use that data.</p>
+<p><strong>Trigger Sense reload tasks from a reload script</strong>. This makes it possible to start different Sense tasks based on what data has been read from a database, what time of day it is etc.</p>
+<p><strong>Trigger Sense reloads from external systems</strong>. When new data is available in a source database, that database trigger a reload in Sense, and the data is loaded from database to Sense. This way delays caused by Sense polling for data are minimized and data arrives at end users as quickly as possible.</p>
 <h3 id="make-new-data-reach-end-users-as-quickly-as-possible">Make new data reach end users as quickly as possible</h3>
+<p>See above. Have the upstream data source initiate Sense app reloads, either via Butler&rsquo;s REST API or via MQTT messages sent to Butler.</p>
 <h3 id="using-mqtt-to-notify-downstream-systems-that-sense-is-done-processing-data">Using MQTT to notify downstream systems that Sense is done processing data</h3>
 <p><strong>Send and receive MQTT publish-subscribe messages</strong>. MQTT (and the pubsub concept in general) is a great way for systems to communicate reliably with each other.</p>
 <h3 id="instant-notifications-when-reload-tasks-fail">Instant notifications when reload tasks fail</h3>
 <p><strong>Information about failing tasks</strong> can be sent to a Slack channel. This gives sysadmins real-time insight into what&rsquo;s happening with respect to task execution.</p>
 <h3 id="create-directories-move-or-delete-files">Create directories, move or delete files</h3>
+<p>In &ldquo;standard mode&rdquo; apps reloading in Qlik Sense Enterprise on Windows can&rsquo;t access the file system of the Sense servers. This is a good thing because it adds a lot of security.</p>
+<p>From time to time you need to delete temp QVDs though, or move data files from one directory to another.</p>
+<p>Butler has REST API endpoints for these usecases, but as they are locked down to only work on specific directiories they don&rsquo;t result in the same security issues as seen in for example QlikView or Sense running in legacy mode.</p>
 <h3 id="extract-metadata-for-apps">Extract metadata for apps</h3>
 <p><strong>Extract metadata about Sense apps</strong>. Exporting an app as JSON can be very useful for backup purposes, or to take regular snapshots of all apps in Sense cluster.</p>
 <h3 id="post-messages-to-slack">Post messages to Slack</h3>
