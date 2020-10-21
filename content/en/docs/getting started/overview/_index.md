@@ -11,5 +11,9 @@ description: >
 
 ## Conceptual overview
 
-TODO: Create system diagram showing what parts are included in Butler
-TODO: Explain that most features are turned off in the dafault production.yaml config file
+--- Add system diagram ---
+
+<!-- TODO: Create system diagram showing what parts are included in Butler
+
+
+TODO: Explain that most features are turned off in the dafault production.yaml config file -->

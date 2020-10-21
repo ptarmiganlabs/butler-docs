@@ -47,7 +47,7 @@ See above. Have the upstream data source initiate Sense app reloads, either via 
 
 ### Create directories, move or delete files
 
-In "standard mode" apps reloading in Qlik Sense Enterprise on Windows can't access the file system of the Sense servers. This is a good thing because it adds a lot of security. 
+In "standard mode" apps reloading in Qlik Sense Enterprise on Windows can't access the file system of the Sense servers. This is a good thing because it adds a lot of security.
 
 From time to time you need to delete temp QVDs though, or move data files from one directory to another.
 

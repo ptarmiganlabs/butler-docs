@@ -74,8 +74,12 @@ PM2 can be used to solve this challenge in a nice way, more info in &lt;a href=&
 &lt;/div&gt;
  --&gt;
 &lt;h2 id=&#34;conceptual-overview&#34;&gt;Conceptual overview&lt;/h2&gt;
-&lt;p&gt;TODO: Create system diagram showing what parts are included in Butler
-TODO: Explain that most features are turned off in the dafault production.yaml config file&lt;/p&gt;
+&lt;p&gt;&amp;mdash; Add system diagram &amp;mdash;&lt;/p&gt;
+&lt;!-- TODO: Create system diagram showing what parts are included in Butler
+
+
+TODO: Explain that most features are turned off in the dafault production.yaml config file --&gt;&lt;blockquote&gt;
+&lt;/blockquote&gt;
 
       </description>
     </item>
