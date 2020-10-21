@@ -995,7 +995,7 @@ node butler.js
 <p>It is of course also possible to put those commands in a command file (.bat on Windows, .sh etc on other platforms) file and execute that file instead.</p>
 <h4 id="windows-services--process-monitors">Windows services &amp; process monitors</h4>
 <p>As Butler is the kind of service that (probably) should always be running on a server, it makes sense using a Node.js process monitor to keep it alive (if running Butler as a Docker container you get this for free).</p>
-<p>On Windows you can use the exccelent <a href="https://nssm.cc/">Nssm</a> tool to make Butler run as a Windows Service, with all the benefits that follow (can be monitored using operations tools, automatic restarts etc).</p>
+<p>On Windows you can use the excellent <a href="https://nssm.cc/">Nssm</a> tool to make Butler run as a Windows Service, with all the benefits that follow (can be monitored using operations tools, automatic restarts etc).</p>
 <p>If running Butler as a Node.js app on Linux, <a href="https://github.com/Unitech/pm2">PM2</a> and <a href="https://github.com/foreverjs/forever">Forever</a> are two process monitors that both have been successfully tested with Butler.</p>
 <p>One caveat with these is that it can be hard to start them (and thus Butler) when a Windows server is rebooted.
 PM2 can be used to solve this challenge in a nice way, more info in <a href="https://ptarmiganlabs.com/blog/2017/07/12/monitoring-auto-starting-node-js-services-windows-server">this blog post</a>. On the other hand - just using Nssm is probably the easiest option for Windows.</p>
@@ -1159,7 +1159,7 @@ PM2 can be used to solve this challenge in a nice way, more info in <a href="htt
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2020-10-21: <a  href="https://github.com/ptarmiganlabs/butler-docs/commit/0d1ce9efce9ee101cac8ffe7499892af1e522a4d">lowercase fix step 2 (0d1ce9e)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2020-10-21: <a  href="https://github.com/ptarmiganlabs/butler-docs/commit/2418846e126503009851b87185c831e160d117e9">Doc update (2418846)</a>
 </div>
 </div>
 
