@@ -216,7 +216,7 @@
 &lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Remember&lt;/h4&gt;
 &lt;p&gt;The &amp;ldquo;Try it out&amp;rdquo; feature of the API documentation below does not work when accessed from butler.ptarmiganlabs.com. This is only expected as this site does not know anything about where &lt;em&gt;your&lt;/em&gt; Butler instance is running.&lt;/p&gt;
-&lt;p&gt;The same feature is however also available from Butler itself, see &lt;a href=&#34;http://localhost:1313/docs/examples/openapi-docs/#openapi-documentation-built-into-butler&#34;&gt;this page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The same feature is however also available from Butler itself, see &lt;a href=&#34;/docs/examples/openapi-docs#openapi-documentation-built-into-butler&#34;&gt;this page&lt;/a&gt;.&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -425,7 +425,7 @@ On the other hand, it&amp;rsquo;s questionable if Sense jobs should run more oft
         
         
         &lt;h2 id=&#34;key-value-store-overview&#34;&gt;Key-value store overview&lt;/h2&gt;
-&lt;p&gt;The &lt;a href=&#34;http://localhost:1313/docs/reference/rest_api/&#34;&gt;API documentation&lt;/a&gt; is the best, most complete source of information about the key-value API endpoints.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;/docs/reference/rest_api/&#34;&gt;API documentation&lt;/a&gt; is the best, most complete source of information about the key-value API endpoints.&lt;/p&gt;
 &lt;h2 id=&#34;namespaces&#34;&gt;Namespaces&lt;/h2&gt;
 &lt;p&gt;Each key-value pair is associated with a &amp;ldquo;namespace&amp;rdquo;, which is simply a way to group KV pairs together in logical groups.&lt;/p&gt;
 &lt;p&gt;Examples:&lt;/p&gt;
