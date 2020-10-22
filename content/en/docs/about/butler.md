@@ -18,3 +18,7 @@ Butler is written in [Node.js](https://nodejs.org/en/) and runs on most modern o
 You can run Butler on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).
 
 Butler is a member of a group of tools collectively referred to as the "Butler family", more info is available [here](/docs/about/butler-family).
+
+This picture might be useful to understand what Butler does and how it fits into the larger system map around Qlik Sense:
+
+![alt text](/docs/about/butler-system-overview-1.png "Butler high level system overview")  
