@@ -10,6 +10,10 @@ weight: 20
 
 {{% pageinfo %}}
 
+### What's new in version 4.1
+
+* The REST API now lets you **copy files in a controlled, secure way**. Version 4.0 added similar features for file moving and deletes, so copying is a natural complement.
+
 ### What's new in version 4.0
 
 * An **advanced scheduler** that makes it possible to trigger reloads in Sense in a much more flexible way, compared to the scheduler available in the Qlik Sense QMC. It's essentially Cron for Qlik Sense.

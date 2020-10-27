@@ -134,12 +134,12 @@ copyright = "Ptarmigan Labs AB"
 # gcs_engine_id = "011737558837375720776:fsdu1nryfng"
 
 # Text label for the version menu in the top bar of the website.
-version_menu = "v4.0"
+version_menu = "Releases"
 
 # The major.minor version tag for the version of the docs represented in this
 # branch of the repository. Used in the "version-banner" partial to display a
 # version number for this doc set.
-version = "v4.0"
+version = "v4.1"
 
 # Flag used in the "version-banner" partial to decide whether to display a 
 # banner on every page indicating that this is an archived version of the docs.
@@ -151,14 +151,20 @@ url_latest_version = "https://butler.ptarmiganlabs.com"
 
 # A variable used in various docs to determine URLs for config files etc.
 # To find occurrences, search the repo for 'params "githubbranch"'.
-githubbranch = "v4.0-branch"
+githubbranch = "v4.1"
 
 # Add new release versions here. These entries appear in the drop-down menu
 # at the top of the website.
-[[params.versions]]
-  version = "v4.0"
-  githubbranch = "master"
-  url = "https://butler.ptarmiganlabs.com"
+# [[params.versions]]
+#   version = "v4.1"
+#   githubbranch = "master"
+#   url = "https://butler.ptarmiganlabs.com"
+
+# [[params.versions]]
+#   version = "v4.0"
+#   githubbranch = "v4.0"
+#   url = "https://butler.ptarmiganlabs.com"
+
 
 # [[params.versions]]
 #   version = "v1.0"

@@ -122,18 +122,6 @@ if (!doNotTrack) {
 			</li>
 			
 			
-			<li class="nav-item dropdown d-none d-lg-block">
-				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	v4.0
-</a>
-<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-	
-	<a class="dropdown-item" href="https://butler.ptarmiganlabs.com">v4.0</a>
-	
-</div>
-
-			</li>
-			
 			
 		</ul>
 	</div>
@@ -917,7 +905,7 @@ if (!doNotTrack) {
         <li><a href="#make-new-data-reach-end-users-as-quickly-as-possible">Make new data reach end users as quickly as possible</a></li>
         <li><a href="#using-mqtt-to-notify-downstream-systems-that-sense-is-done-processing-data">Using MQTT to notify downstream systems that Sense is done processing data</a></li>
         <li><a href="#instant-notifications-when-reload-tasks-fail">Instant notifications when reload tasks fail</a></li>
-        <li><a href="#create-directories-move-or-delete-files">Create directories, move or delete files</a></li>
+        <li><a href="#create-directories-copymovedelete-files">Create directories, copy/move/delete files</a></li>
         <li><a href="#extract-metadata-for-apps">Extract metadata for apps</a></li>
         <li><a href="#post-messages-to-slack">Post messages to Slack</a></li>
       </ul>
@@ -992,10 +980,10 @@ This is a pretty common scenario though - you want to reload an app hourly from 
 <p><strong>Send and receive MQTT publish-subscribe messages</strong>. MQTT (and the pubsub concept in general) is a great way for systems to communicate reliably with each other.</p>
 <h3 id="instant-notifications-when-reload-tasks-fail">Instant notifications when reload tasks fail</h3>
 <p><strong>Information about failing tasks</strong> can be sent to a Slack channel. This gives sysadmins real-time insight into what&rsquo;s happening with respect to task execution.</p>
-<h3 id="create-directories-move-or-delete-files">Create directories, move or delete files</h3>
+<h3 id="create-directories-copymovedelete-files">Create directories, copy/move/delete files</h3>
 <p>In &ldquo;standard mode&rdquo; apps reloading in Qlik Sense Enterprise on Windows can&rsquo;t access the file system of the Sense servers. This is a good thing because it adds a lot of security.</p>
-<p>From time to time you need to delete temp QVDs though, or move data files from one directory to another.</p>
-<p>Butler has REST API endpoints for these usecases, but as they are locked down to only work on specific directiories they don&rsquo;t result in the same security issues as seen in for example QlikView or Sense running in legacy mode.</p>
+<p>From time to time you need to delete temp QVDs though, or copy or move data files from one directory to another.</p>
+<p>Butler has REST API endpoints for these use cases, but as they are locked down to only work on specific directiories they don&rsquo;t result in the same security issues as seen in for example QlikView or Sense running in legacy mode.</p>
 <h3 id="extract-metadata-for-apps">Extract metadata for apps</h3>
 <p><strong>Extract metadata about Sense apps</strong>. Exporting an app as JSON can be very useful for backup purposes, or to take regular snapshots of all apps in Sense cluster.</p>
 <h3 id="post-messages-to-slack">Post messages to Slack</h3>

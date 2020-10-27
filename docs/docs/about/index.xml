@@ -113,10 +113,10 @@ This is a pretty common scenario though - you want to reload an app hourly from 
 &lt;p&gt;&lt;strong&gt;Send and receive MQTT publish-subscribe messages&lt;/strong&gt;. MQTT (and the pubsub concept in general) is a great way for systems to communicate reliably with each other.&lt;/p&gt;
 &lt;h3 id=&#34;instant-notifications-when-reload-tasks-fail&#34;&gt;Instant notifications when reload tasks fail&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Information about failing tasks&lt;/strong&gt; can be sent to a Slack channel. This gives sysadmins real-time insight into what&amp;rsquo;s happening with respect to task execution.&lt;/p&gt;
-&lt;h3 id=&#34;create-directories-move-or-delete-files&#34;&gt;Create directories, move or delete files&lt;/h3&gt;
+&lt;h3 id=&#34;create-directories-copymovedelete-files&#34;&gt;Create directories, copy/move/delete files&lt;/h3&gt;
 &lt;p&gt;In &amp;ldquo;standard mode&amp;rdquo; apps reloading in Qlik Sense Enterprise on Windows can&amp;rsquo;t access the file system of the Sense servers. This is a good thing because it adds a lot of security.&lt;/p&gt;
-&lt;p&gt;From time to time you need to delete temp QVDs though, or move data files from one directory to another.&lt;/p&gt;
-&lt;p&gt;Butler has REST API endpoints for these usecases, but as they are locked down to only work on specific directiories they don&amp;rsquo;t result in the same security issues as seen in for example QlikView or Sense running in legacy mode.&lt;/p&gt;
+&lt;p&gt;From time to time you need to delete temp QVDs though, or copy or move data files from one directory to another.&lt;/p&gt;
+&lt;p&gt;Butler has REST API endpoints for these use cases, but as they are locked down to only work on specific directiories they don&amp;rsquo;t result in the same security issues as seen in for example QlikView or Sense running in legacy mode.&lt;/p&gt;
 &lt;h3 id=&#34;extract-metadata-for-apps&#34;&gt;Extract metadata for apps&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Extract metadata about Sense apps&lt;/strong&gt;. Exporting an app as JSON can be very useful for backup purposes, or to take regular snapshots of all apps in Sense cluster.&lt;/p&gt;
 &lt;h3 id=&#34;post-messages-to-slack&#34;&gt;Post messages to Slack&lt;/h3&gt;

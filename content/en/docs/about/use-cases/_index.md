@@ -45,13 +45,13 @@ See above. Have the upstream data source initiate Sense app reloads, either via 
 
 **Information about failing tasks** can be sent to a Slack channel. This gives sysadmins real-time insight into what's happening with respect to task execution.
 
-### Create directories, move or delete files
+### Create directories, copy/move/delete files
 
 In "standard mode" apps reloading in Qlik Sense Enterprise on Windows can't access the file system of the Sense servers. This is a good thing because it adds a lot of security.
 
-From time to time you need to delete temp QVDs though, or move data files from one directory to another.
+From time to time you need to delete temp QVDs though, or copy or move data files from one directory to another.
 
-Butler has REST API endpoints for these usecases, but as they are locked down to only work on specific directiories they don't result in the same security issues as seen in for example QlikView or Sense running in legacy mode.
+Butler has REST API endpoints for these use cases, but as they are locked down to only work on specific directiories they don't result in the same security issues as seen in for example QlikView or Sense running in legacy mode.
 
 ### Extract metadata for apps
 
