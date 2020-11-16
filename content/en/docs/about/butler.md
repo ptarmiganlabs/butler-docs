@@ -14,11 +14,12 @@ In some cases it might be possible to use these tools from within Sense also wit
 
 There is also a clear goal that Butler should be very configurable. In practice this means that features can be turned on/off as needed, improving security and lowering memory usage.
 
-Butler is written in [Node.js](https://nodejs.org/en/) and runs on most modern operating systems.  
+Butler is written in [Node.js](https://nodejs.org/en/) and runs on most modern operating systems.
+
 You can run Butler on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).
 
 Butler is a member of a group of tools collectively referred to as the "Butler family", more info is available [here](/docs/about/butler-family).
 
 This picture might be useful to understand what Butler does and how it fits into the larger system map around Qlik Sense:
 
-![alt text](/docs/about/butler-system-overview-1.png "Butler high level system overview")  
+![alt text](/img/butler-system-overview-1.png "Butler high level system overview")  

@@ -102,55 +102,11 @@ Some of the features can be used from Sense load scripts, while other provide in
 &lt;p&gt;The goal is to integrate battle-proven concepts and best-of-breed open-source tools into Butler and thus make them available to developers of Sense apps or those responsible for running Sense clusters.&lt;br&gt;
 In some cases it might be possible to use these tools from within Sense also without Butler - in those cases Butler simply tries make things easier, lowering the barriers to get started and get things done.&lt;/p&gt;
 &lt;p&gt;There is also a clear goal that Butler should be very configurable. In practice this means that features can be turned on/off as needed, improving security and lowering memory usage.&lt;/p&gt;
-&lt;p&gt;Butler is written in &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js&lt;/a&gt; and runs on most modern operating systems.&lt;br&gt;
-You can run Butler on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).&lt;/p&gt;
+&lt;p&gt;Butler is written in &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js&lt;/a&gt; and runs on most modern operating systems.&lt;/p&gt;
+&lt;p&gt;You can run Butler on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).&lt;/p&gt;
 &lt;p&gt;Butler is a member of a group of tools collectively referred to as the &amp;ldquo;Butler family&amp;rdquo;, more info is available &lt;a href=&#34;/docs/about/butler-family&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;This picture might be useful to understand what Butler does and how it fits into the larger system map around Qlik Sense:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/docs/about/butler-system-overview-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler high level system overview&#34;&gt;&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Which config file to use</title>
-      <link>/docs/getting-started/setup/config_env_var/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/docs/getting-started/setup/config_env_var/</guid>
-      <description>
-        
-        
-        &lt;p&gt;A description of the config file format is available &lt;a href=&#34;/docs/reference/config-file/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;select-which-config-file-to-use&#34;&gt;Select which config file to use&lt;/h2&gt;
-&lt;p&gt;Butler uses configuration files in YAML format. The config files are stored in the &lt;code&gt;src/config&lt;/code&gt; folder.&lt;/p&gt;
-&lt;p&gt;Prior to Butler v2.1, JSON config files were used. YAML is however much more human readable than JSON, thus the config file was changed to YAML.&lt;br&gt;
-JSON config files can still be used though (just create the file i JSON syntax and suffix it with .json), but YAML is the default as of Butler v2.1.&lt;/p&gt;
-&lt;p&gt;Butler comes with a default config file called &lt;code&gt;production_template.yaml&lt;/code&gt;. Make a copy of it, then rename the copy to &lt;code&gt;default.yaml&lt;/code&gt;, &lt;code&gt;production.yaml&lt;/code&gt; or somthing else suitable for your specific use case.&lt;br&gt;
-Update it as needed (see the &lt;a href=&#34;/docs/reference/config-file/&#34;&gt;config file reference page&lt;/a&gt; for details).&lt;/p&gt;
-&lt;p&gt;Trying to run Butler with the default config file (the one included in the files download from GitHub) will not work - you need to adapt it to your server environment.&lt;/p&gt;
-&lt;p&gt;The name of the config file matters. Butler will first look for an environment variable called &amp;ldquo;NODE_ENV&amp;rdquo; and then try to load a config file named with the value found in NODE_ENV.&lt;/p&gt;
-&lt;p&gt;For example:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;NODE_ENV=production&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Butler will look for a config file &lt;code&gt;config/production.yaml&lt;/code&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;running-several-butler-instances-in-parallel&#34;&gt;Running several Butler instances in parallel&lt;/h3&gt;
-&lt;p&gt;If you have several Sense clusters (for example DEV, TEST and PROD environments) you might want several Butler instances running.&lt;br&gt;
-You can then create config files names &lt;code&gt;butler_dev.yaml&lt;/code&gt;, &lt;code&gt;butler_test.yaml&lt;/code&gt; and &lt;code&gt;butler_prod.yaml&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;In this scenario three instances of Butler should be started, each given a different config file by setting the NODE_ENV variable as needed when starting Butler.&lt;/p&gt;
-&lt;h3 id=&#34;setting-environment-variables&#34;&gt;Setting environment variables&lt;/h3&gt;
-&lt;p&gt;The method for setting environment variables varies between different operating systems:&lt;/p&gt;
-&lt;p&gt;On Windows:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;set NODE_ENV=production
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Mac OS or Linux&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;export NODE_ENV=production
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;If using Docker, the NODE_ENV environment varible is set in the docker-compose.yml file (as already done in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/src/docker-compose.yml&#34;&gt;template docker-compose file&lt;/a&gt;.)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/butler-system-overview-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler high level system overview&#34;&gt;&lt;/p&gt;
 
       </description>
     </item>
@@ -173,8 +129,8 @@ Here&amp;rsquo;s a list of features that are candidates for removal from Butler,
 For example, when Butler was started it wouldn&amp;rsquo;t capture currently active users or sessions - it was only after some event captured in the logs that Butler would update it&amp;rsquo;s internal counters. This meant that it would take some time (sometimes quite long) until the metrics were even approaching the real number of users using Sense.&lt;/p&gt;
 &lt;p&gt;There was also the risk of Butler missing UDP messages and not registering the associated log event.&lt;/p&gt;
 &lt;p&gt;The affected API endpoints are:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;/docs/reference/rest_api/&#34;&gt;/v4/activeusercount&lt;/a&gt;&lt;br&gt;
-&lt;a href=&#34;/docs/reference/rest_api/&#34;&gt;/v4/activeusers&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/docs/reference/rest-api/&#34;&gt;/v4/activeusercount&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;/docs/reference/rest-api/&#34;&gt;/v4/activeusers&lt;/a&gt;&lt;/p&gt;
 
 
 &lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
@@ -201,54 +157,6 @@ For example, when Butler was started it wouldn&amp;rsquo;t capture currently act
 &lt;p&gt;Installation is less error prone compared to installing Butler as a &lt;strong&gt;Node.js app&lt;/strong&gt;, you get all the benefits from the Docker ecosystem (monitoring of running containers etc), and upgrades to future Butler versions become trivial.&lt;/p&gt;
 &lt;p&gt;If you have access to a &lt;strong&gt;Kubernetes&lt;/strong&gt; cluster, that is usually an even better option than Docker. Kubernetes can be daunting when first approached, but will give you superb reliability, failover and restarts if a server goes down or becomes unresponsive etc.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://k3s.io/&#34;&gt;Rancher&amp;rsquo;s K3s&lt;/a&gt; is a very good way to get started with Kubnernetes. Fully featured, well supported and a vibrant developer community.&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Log notifications</title>
-      <link>/docs/getting-started/setup/log4net_appender/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/docs/getting-started/setup/log4net_appender/</guid>
-      <description>
-        
-        
-        &lt;!-- 
-
-&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
-&lt;p&gt;This is a placeholder page that shows you how to use this template site.&lt;/p&gt;
-
-&lt;/div&gt;
- --&gt;
-&lt;h2 id=&#34;log4net-extenders&#34;&gt;Log4net extenders&lt;/h2&gt;
-&lt;p&gt;Butler includes a set of xml files that when deployed to the Sense server will create real-time UDP messages for certain log events (tasks failing, user sessions starting/ending etc).&lt;br&gt;
-This is a great way to get real-time notifications when almost any event occurs in a Qlik Sense environment.&lt;/p&gt;
-&lt;p&gt;The XML files can be tricky to get right, but a couple of them are included in the Butler repository to get you started. These are described below.&lt;/p&gt;
-&lt;h3 id=&#34;task-failure-events&#34;&gt;Task failure events&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;XML file found in &lt;code&gt;log4net_task-failed/LocalLogConfig.xml&lt;/code&gt;. This file includes settings to both send an email and a UDP message to Butler when a scheduled reload task fails. Butler then forwards this message as a MQTT message, or to Slack or MS Teams.&lt;/li&gt;
-&lt;li&gt;XML file should be deployed to the server where reloads are done, in the C:\ProgramData\Qlik\Sense\Scheduler directory.&lt;/li&gt;
-&lt;li&gt;Note that this concepts only works for &lt;em&gt;scheduled&lt;/em&gt; reload tasks, i.e. reloads started as a result of a &lt;em&gt;reload task&lt;/em&gt; being started by Qlik&amp;rsquo;s scheduling service. Reloads started from the script editor will not result in these events if they fail.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;user-audit-events&#34;&gt;User audit events&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;XML file found in &lt;code&gt;log4net_user-audit-event/LocalLogConfig.xml&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;XML file should be deployed on the server where the proxy is running, in the &lt;code&gt;C:\ProgramData\Qlik\Sense\Proxy&lt;/code&gt; directory.&lt;/li&gt;
-&lt;li&gt;If there multiple proxies on different servers, it might make sense deploying the xml file on all of them, to capture all user audit events.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;references&#34;&gt;References&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://help.qlik.com/en-US/sense-admin/September2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders.htm&#34;&gt;Qlik&amp;rsquo;s documenation&lt;/a&gt; on this topic is somewhat brief, but it does provide a starting point if you want to dive deeper into this topic.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The main &lt;a href=&#34;https://logging.apache.org/log4net/&#34;&gt;log4net documentation&lt;/a&gt; (log4net is the logging framework used by Qlik Sense Enterprise) can also be useful.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Christof Schwarz has a &lt;a href=&#34;https://www.linkedin.com/pulse/qlik-sense-task-email-notifications-so-easy-christof-schwarz/?trackingId=X8MEGEmppfSvdukFRbnLwQ%3D%3D&#34;&gt;good post&lt;/a&gt; on sending notification emails when scheduled reloads fail, with links to &lt;a href=&#34;https://github.com/levi-turner/getting_notified_from_qliksense&#34;&gt;Levi Turners examples&lt;/a&gt;. These links describe exactly the same concept used in Butler, but with different words - which sometimes helps understanding things. One difference is that Butler (optionally) forwards these event also to Slack, Teeams and MQTT (in addition to email).&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 
       </description>
     </item>
@@ -338,6 +246,7 @@ With such icons available it is then easy for app developers to use professional
 &lt;h2 id=&#34;installation-steps&#34;&gt;Installation steps&lt;/h2&gt;
 &lt;p&gt;The following steps give some guidance on how to get Butler running on Docker.&lt;br&gt;
 Here Mac OS has been used, things will look different on Linux and Windows.&lt;/p&gt;
+&lt;!-- TODO: update Docker install instructions --&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:~ goran$ mkdir /Users/goran/butler
 proton:~ goran$ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; /Users/goran/butler
 proton:butler goran$ mkdir -p config/certificate
@@ -385,7 +294,7 @@ proton:butler goran$
 &lt;li&gt;Copy the certificates to the ./config/certificate directory.&lt;/li&gt;
 &lt;li&gt;Copy the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/src/config/production_template.yaml&#34;&gt;template config file&lt;/a&gt; from the GitHub repository to the ./config directory, modify it as needed based on your system(s) and which Butler features you want enabled, and rename it to for example &lt;code&gt;production.yaml&lt;/code&gt;.&lt;br&gt;
 You can name the config file anything, but its name has to match the NODE_ENV environment variable, as set it the &lt;code&gt;docker-compose.yml&lt;/code&gt; file.&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Optional.&lt;/em&gt; Copy the template schedule file to the location specified in Butler&amp;rsquo;s config file. This is only needed if you manually want to add schedules. If using the API to create schedules, there is no need to first manually create a schedules file.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Optional.&lt;/em&gt; Copy the template schedule file to the location specified in Butler&amp;rsquo;s config file. This is only needed if you manually want to add schedules. If using the API to create schedules, there is no need to first manually create a schedules file (the schedule file will be created by Butler in this case).&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;When done, you should see something like this:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:butler goran$ &lt;span style=&#34;color:#204a87&#34;&gt;pwd&lt;/span&gt;
@@ -462,7 +371,7 @@ butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;
 butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.699Z info: REST server listening on http://172.21.0.2:8080
 butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.700Z info: UDP server listening on 172.21.0.2:9997
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;What you see on your screen will depend on which Butler features are enabled.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;What you see on your screen will depend on which Butler version you are using and what features are enabled.
 In the example above &lt;em&gt;all&lt;/em&gt; Butler features are enabled.&lt;/p&gt;
 &lt;p&gt;Let&amp;rsquo;s make sure things are working by opening a new terminal window and from there requesting a list of all apps on the server:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:~ goran$
@@ -529,7 +438,7 @@ Butler has been succesfully used using standard Node.js - during development and
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Install node.js&lt;/strong&gt;&lt;br&gt;
-Butler has been developed and tested using the 64 bit version of &lt;a href=&#34;https://nodejs.org/en/download/&#34;&gt;Node.js&lt;/a&gt;. The most recent LTS (Long Term Support) version is usually a good choice.&lt;/p&gt;
+Butler was developed and tested using the 64 bit version of &lt;a href=&#34;https://nodejs.org/en/download/&#34;&gt;Node.js&lt;/a&gt;. The most recent LTS (Long Term Support) version of Node.js is a good choice for running Butler.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Decide where to install Butler&lt;/strong&gt;&lt;br&gt;
@@ -611,7 +520,7 @@ Note 2: If a version of 5.2 is mentioned, this implicitly means 5.2.0.&lt;/p&gt;
 &lt;p&gt;Butler is developed in &lt;a href=&#34;https://nodejs.org&#34;&gt;Node.js&lt;/a&gt;, with support from various &lt;a href=&#34;https://www.npmjs.com/&#34;&gt;NPM&lt;/a&gt; modules.&lt;/p&gt;
 &lt;p&gt;We use &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; to format and generate this documentation site, the &lt;a href=&#34;https://github.com/google/docsy&#34;&gt;Docsy&lt;/a&gt; theme for styling and site structure.&lt;br&gt;
 Hugo is an open-source static site generator that provides us with templates, content organisation in a standard directory structure, and a website generation engine. You write the pages in Markdown (or HTML if you want), and Hugo wraps them up into a website.&lt;/p&gt;
-&lt;p&gt;All submissions, including submissions by project members, require review. We use GitHub pull requests for this purpose. Consult &lt;a href=&#34;https://help.github.com/articles/about-pull-requests/&#34;&gt;GitHub Help&lt;/a&gt; for more information on using pull requests.&lt;/p&gt;
+&lt;p&gt;All submissions, including submissions by project members, require review. We use GitHub pull requests for this purpose. Consult &lt;a href=&#34;https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/about-pull-requests&#34;&gt;GitHub Help&lt;/a&gt; for more information on using pull requests.&lt;/p&gt;
 &lt;h2 id=&#34;creating-an-issue&#34;&gt;Creating an issue&lt;/h2&gt;
 &lt;p&gt;If you&amp;rsquo;ve found a problem - or have a feature suggestion - with Butler itself or the documentation, but you&amp;rsquo;re not sure how to fix it yourself, please create an issue in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/issues/new&#34;&gt;Butler repo&lt;/a&gt;. You can also create an issue about a specific doc page by clicking the &lt;strong&gt;Create Issue&lt;/strong&gt; button in the top right hand corner of the page.&lt;/p&gt;
 

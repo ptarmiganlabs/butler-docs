@@ -28,11 +28,11 @@ Some of the features can be used from Sense load scripts, while other provide in
 &lt;p&gt;The goal is to integrate battle-proven concepts and best-of-breed open-source tools into Butler and thus make them available to developers of Sense apps or those responsible for running Sense clusters.&lt;br&gt;
 In some cases it might be possible to use these tools from within Sense also without Butler - in those cases Butler simply tries make things easier, lowering the barriers to get started and get things done.&lt;/p&gt;
 &lt;p&gt;There is also a clear goal that Butler should be very configurable. In practice this means that features can be turned on/off as needed, improving security and lowering memory usage.&lt;/p&gt;
-&lt;p&gt;Butler is written in &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js&lt;/a&gt; and runs on most modern operating systems.&lt;br&gt;
-You can run Butler on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).&lt;/p&gt;
+&lt;p&gt;Butler is written in &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js&lt;/a&gt; and runs on most modern operating systems.&lt;/p&gt;
+&lt;p&gt;You can run Butler on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).&lt;/p&gt;
 &lt;p&gt;Butler is a member of a group of tools collectively referred to as the &amp;ldquo;Butler family&amp;rdquo;, more info is available &lt;a href=&#34;/docs/about/butler-family&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;This picture might be useful to understand what Butler does and how it fits into the larger system map around Qlik Sense:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/docs/about/butler-system-overview-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler high level system overview&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/butler-system-overview-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler high level system overview&#34;&gt;&lt;/p&gt;
 
       </description>
     </item>
@@ -92,7 +92,7 @@ With such icons available it is then easy for app developers to use professional
       <description>
         
         
-        &lt;h3 id=&#34;more-flexible-scheduling-of-app-reloads-in-qseow&#34;&gt;More flexible scheduling of app reloads in QSEoW&lt;/h3&gt;
+        &lt;h3 id=&#34;more-flexible-scheduling-of-app-reloads-in-qlik-sense-enterprise-on-windows&#34;&gt;More flexible scheduling of app reloads in Qlik Sense Enterprise on Windows&lt;/h3&gt;
 &lt;p&gt;Using the scheduler built into Qlik Sense you can&amp;rsquo;t for example create schedules that are limited to a parts of a day.&lt;br&gt;
 This is a pretty common scenario though - you want to reload an app hourly from say 3 am to 3 pm.&lt;/p&gt;
 &lt;p&gt;You &lt;em&gt;can&lt;/em&gt; set this up in Sense, but it involves creating &lt;em&gt;a lot&lt;/em&gt; of triggers for the reload task, which becomes a nightmare to maintain.&lt;/p&gt;
@@ -107,12 +107,16 @@ This is a pretty common scenario though - you want to reload an app hourly from 
 &lt;h3 id=&#34;start-reloads-from-load-script-or-from-upstream-data-sources&#34;&gt;Start reloads from load script or from upstream data sources&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Trigger Sense reload tasks from a reload script&lt;/strong&gt;. This makes it possible to start different Sense tasks based on what data has been read from a database, what time of day it is etc.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Trigger Sense reloads from external systems&lt;/strong&gt;. When new data is available in a source database, that database trigger a reload in Sense, and the data is loaded from database to Sense. This way delays caused by Sense polling for data are minimized and data arrives at end users as quickly as possible.&lt;/p&gt;
+&lt;h3 id=&#34;instant-notifications-when-reload-tasks-fail-or-are-stopped&#34;&gt;Instant notifications when reload tasks fail or are stopped&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Information about failing tasks&lt;/strong&gt; can be sent as emails, to Microsoft Teams, Slack or as MQTT messages.&lt;/p&gt;
+&lt;!-- TODO: add link to email templating page! --&gt;
+&lt;p&gt;Email notifications use a templating concept where HTML template files describe what the alert email should look like. Before the email is sent the used template fields are replaced with actual values from the reload task that failed.&lt;/p&gt;
+&lt;p&gt;Both subject and body of email can use the template fields.&lt;/p&gt;
+&lt;p&gt;This gives sysadmins real-time insight into what&amp;rsquo;s happening with respect to task execution.&lt;/p&gt;
 &lt;h3 id=&#34;make-new-data-reach-end-users-as-quickly-as-possible&#34;&gt;Make new data reach end users as quickly as possible&lt;/h3&gt;
 &lt;p&gt;See above. Have the upstream data source initiate Sense app reloads, either via Butler&amp;rsquo;s REST API or via MQTT messages sent to Butler.&lt;/p&gt;
 &lt;h3 id=&#34;using-mqtt-to-notify-downstream-systems-that-sense-is-done-processing-data&#34;&gt;Using MQTT to notify downstream systems that Sense is done processing data&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Send and receive MQTT publish-subscribe messages&lt;/strong&gt;. MQTT (and the pubsub concept in general) is a great way for systems to communicate reliably with each other.&lt;/p&gt;
-&lt;h3 id=&#34;instant-notifications-when-reload-tasks-fail&#34;&gt;Instant notifications when reload tasks fail&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Information about failing tasks&lt;/strong&gt; can be sent to a Slack channel. This gives sysadmins real-time insight into what&amp;rsquo;s happening with respect to task execution.&lt;/p&gt;
 &lt;h3 id=&#34;create-directories-copymovedelete-files&#34;&gt;Create directories, copy/move/delete files&lt;/h3&gt;
 &lt;p&gt;In &amp;ldquo;standard mode&amp;rdquo; apps reloading in Qlik Sense Enterprise on Windows can&amp;rsquo;t access the file system of the Sense servers. This is a good thing because it adds a lot of security.&lt;/p&gt;
 &lt;p&gt;From time to time you need to delete temp QVDs though, or copy or move data files from one directory to another.&lt;/p&gt;
@@ -176,7 +180,7 @@ Note 2: If a version of 5.2 is mentioned, this implicitly means 5.2.0.&lt;/p&gt;
 &lt;p&gt;Butler is developed in &lt;a href=&#34;https://nodejs.org&#34;&gt;Node.js&lt;/a&gt;, with support from various &lt;a href=&#34;https://www.npmjs.com/&#34;&gt;NPM&lt;/a&gt; modules.&lt;/p&gt;
 &lt;p&gt;We use &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; to format and generate this documentation site, the &lt;a href=&#34;https://github.com/google/docsy&#34;&gt;Docsy&lt;/a&gt; theme for styling and site structure.&lt;br&gt;
 Hugo is an open-source static site generator that provides us with templates, content organisation in a standard directory structure, and a website generation engine. You write the pages in Markdown (or HTML if you want), and Hugo wraps them up into a website.&lt;/p&gt;
-&lt;p&gt;All submissions, including submissions by project members, require review. We use GitHub pull requests for this purpose. Consult &lt;a href=&#34;https://help.github.com/articles/about-pull-requests/&#34;&gt;GitHub Help&lt;/a&gt; for more information on using pull requests.&lt;/p&gt;
+&lt;p&gt;All submissions, including submissions by project members, require review. We use GitHub pull requests for this purpose. Consult &lt;a href=&#34;https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/about-pull-requests&#34;&gt;GitHub Help&lt;/a&gt; for more information on using pull requests.&lt;/p&gt;
 &lt;h2 id=&#34;creating-an-issue&#34;&gt;Creating an issue&lt;/h2&gt;
 &lt;p&gt;If you&amp;rsquo;ve found a problem - or have a feature suggestion - with Butler itself or the documentation, but you&amp;rsquo;re not sure how to fix it yourself, please create an issue in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/issues/new&#34;&gt;Butler repo&lt;/a&gt;. You can also create an issue about a specific doc page by clicking the &lt;strong&gt;Create Issue&lt;/strong&gt; button in the top right hand corner of the page.&lt;/p&gt;
 

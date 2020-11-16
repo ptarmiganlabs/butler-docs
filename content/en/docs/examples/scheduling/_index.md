@@ -1,5 +1,5 @@
 ---
-title: "2. Flexible scheduling of Sense reload tasks"
+title: "Flexible scheduling of Sense reload tasks"
 linkTitle: "Task scheduling"
 weight: 20
 description: >

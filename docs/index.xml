@@ -14,6 +14,86 @@
     
     
     <item>
+      <title>Blog: v4.2.0: Failed reloads? Notify me!</title>
+      <link>/blog/releases/v4.2.0/</link>
+      <pubDate>Sat, 07 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/releases/v4.2.0/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;strong&gt;Advanced email notifications for failed and aborted reloads&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Email notifications are still very much alive and used in many companies.&lt;/p&gt;
+&lt;p&gt;Historically it&amp;rsquo;s been difficult or impossible to get good email notifications from Qlik Sense Enterprise on Windows - that feature simply isn&amp;rsquo;t part of the standard product.&lt;br&gt;
+Some commercial offerings have emerged lately (=Qlik&amp;rsquo;s own Qlik Alerting product), but no good open source has been available - until now.&lt;/p&gt;
+&lt;p&gt;Butler version 4.2 uses the proven concept of log appenders to capture log events from Qlik Sense.&lt;br&gt;
+But Butler goes way beyond staic alert emails with limited possibilities for customisation:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Alert emails be sent &lt;strong&gt;when scheduled reloads fail&lt;/strong&gt; or &lt;strong&gt;when running reloads are stopped&lt;/strong&gt; from the QMC or via Sense APIs.&lt;/li&gt;
+&lt;li&gt;Email bodies and subjects can be freely &lt;strong&gt;customised&lt;/strong&gt; using the &lt;a href=&#34;https://handlebarsjs.com/&#34;&gt;Handlebars&lt;/a&gt; templating engine.&lt;/li&gt;
+&lt;li&gt;More than 40 templating fields are available across both email subjects and bodies (but please don&amp;rsquo;t put full script logs in the email subject&amp;hellip;🤪).&lt;/li&gt;
+&lt;li&gt;Customisable rate limits prevent email spamming as a result of frequently scheduled, failing reloads.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A bonus feature is that alerts for stopped reloads can be sent not only as emails, but also over Slack, Teams and MQTT.&lt;/p&gt;
+&lt;p&gt;All in all this makes Butler a very powerful tool for anyone invovled in running a QSEoW environment, no matter if it has a few dozen or thousands of users.&lt;/p&gt;
+&lt;p&gt;Please see the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/changelog.md&#34;&gt;changelog&lt;/a&gt; for more information.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: v4.1.1: Fixing broken start Sense task API endpoint</title>
+      <link>/blog/releases/v4.1.1/</link>
+      <pubDate>Wed, 28 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/releases/v4.1.1/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;strong&gt;Fixing broken start Sense task API endpoint&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Oops. The API endpoint for starting Sense tasks was incorrectly documented, as noted in &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/issues/89&#34;&gt;#89&lt;/a&gt;.
+Fixed in version 4.1.1.&lt;/p&gt;
+&lt;p&gt;Please see the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/changelog.md&#34;&gt;changelog&lt;/a&gt; for more information.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: v4.1.2: Sense demo app can now start reloads</title>
+      <link>/blog/releases/v4.1.2/</link>
+      <pubDate>Wed, 28 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/releases/v4.1.2/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;strong&gt;Sense demo app can now start reloads&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The included Sense demo app now correctly uses the Butler API endpoint used to start reload tasks.&lt;/p&gt;
+&lt;p&gt;Please see the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/changelog.md&#34;&gt;changelog&lt;/a&gt; for more information.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: v4.1.0: File copying &#43; Qlik Sense = Useful</title>
+      <link>/blog/releases/v4.1.0/</link>
+      <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/releases/v4.1.0/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;strong&gt;File copying via Butler&amp;rsquo;s REST API&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This is a small release that just adds a single endpoint to Butler&amp;rsquo;s REST API: Copying files.&lt;/p&gt;
+&lt;p&gt;This is done in the same way as the moving files feature that was added in v4.0:&lt;/p&gt;
+&lt;p&gt;In the config file you define pairs of approved source/destination directories, between which file copying is allowed.
+This way the security risk is greatly reduced, and file copying can become an integral part of Qlik Sense load scripts&#39; logic.&lt;/p&gt;
+&lt;p&gt;Please see the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/changelog.md&#34;&gt;changelog&lt;/a&gt; for more information.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Blog: Material added to Butler doc site</title>
       <link>/blog/news/20201021-1/</link>
       <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>

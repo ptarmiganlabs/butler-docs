@@ -7,7 +7,7 @@ linkTitle = "Butler"
 {{< blocks/cover title="Butler: Adding superpowers to Qlik Sense" image_anchor="center" height="full" color="dark" >}}
 <div class="mx-auto">
 	<p class="lead mt-5" style="font-size: 120%" ">
-		Advanced task scheduling, task chaining with parameters, key-value store, start tasks, get notified when they fail, extract app metadata, post to Slack/Teams and more.<br><br>
+		Advanced task scheduling, task chaining with parameters, key-value store, start tasks, customisable alerts when they fail, extract app metadata, post to Slack/Teams and more.<br><br>
 	</p>
 	<a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< relref "/docs" >}}">
 		Documentation <i class="fas fa-arrow-alt-circle-right ml-2"></i>
@@ -62,16 +62,18 @@ Keep state across any number of apps. Namespace support and optional Time To Liv
 Data delays - no thanks!  
 Start reload tasks from within app load scripts or from upstream source systems that feed Sense with data
 
-[Read more...](/docs/reference/rest_api/) 
+[Read more...](/docs/reference/rest-api/) 
 {{% /blocks/feature %}}
 
 
 {{% blocks/feature icon="fa-envelope" title="Task failure notifications" %}}
 Who should be the first to know that a reload has failed? You or your users?  
+Who was it that stopped that important 3-hour reload 5 minutes before it was done?
 
-Get notified when tasks fail, with notifications sent to Slack, Microsoft Teams or email.
+Get notified when tasks fail or are stopped, with notifications sent to Slack, Microsoft Teams or email.  
+Emails support full HTML formatting and 40+ template fields in both email subject and body.
 
-[Read more...](/docs/examples/reload-failure-notification/) 
+[Read more...](/docs/concepts/alert-emails/) 
 {{% /blocks/feature %}}
 
 
@@ -79,7 +81,7 @@ Get notified when tasks fail, with notifications sent to Slack, Microsoft Teams 
 Extract app metadata for a single or all apps in a Sense cluster.
 Great for backup purposes!
 
-[Read more...](/docs/reference/rest_api/) 
+[Read more...](/docs/reference/rest-api/) 
 {{% /blocks/feature %}}
 
 
@@ -88,7 +90,7 @@ Tired of being asked "when is new data available"?
 
 Automatically inform your users via Slack or Teams when new data is available.
 
-[Read more...](/docs/reference/rest_api/) 
+[Read more...](/docs/reference/rest-api/) 
 {{% /blocks/feature %}}
 
 
@@ -115,8 +117,9 @@ Run Butler on Windows server, Linux, Docker, Kubernetes or Mac OS.
 
 {{< blocks/section color="dark">}}
 
-{{% blocks/feature icon="fa-lightbulb" title="Latest release: 4.1" %}}
-Nice little update adding controlled, secure file copying to Qlik Sense.
+{{% blocks/feature icon="fa-lightbulb" title="Latest release: 4.2" %}}
+Major improvement to reload failure alert emails.  
+Alerting deluxe for Qlik Sense!
 
 Available on [GitHub](https://github.com/ptarmiganlabs/butler/releases).
 {{% /blocks/feature %}}

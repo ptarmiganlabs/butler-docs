@@ -144,6 +144,7 @@ MQTT is a standardised messaging protocol, and it should be possible to use &lt;
 &lt;h2 id=&#34;installation-steps&#34;&gt;Installation steps&lt;/h2&gt;
 &lt;p&gt;The following steps give some guidance on how to get Butler running on Docker.&lt;br&gt;
 Here Mac OS has been used, things will look different on Linux and Windows.&lt;/p&gt;
+&lt;!-- TODO: update Docker install instructions --&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:~ goran$ mkdir /Users/goran/butler
 proton:~ goran$ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; /Users/goran/butler
 proton:butler goran$ mkdir -p config/certificate
@@ -191,7 +192,7 @@ proton:butler goran$
 &lt;li&gt;Copy the certificates to the ./config/certificate directory.&lt;/li&gt;
 &lt;li&gt;Copy the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/src/config/production_template.yaml&#34;&gt;template config file&lt;/a&gt; from the GitHub repository to the ./config directory, modify it as needed based on your system(s) and which Butler features you want enabled, and rename it to for example &lt;code&gt;production.yaml&lt;/code&gt;.&lt;br&gt;
 You can name the config file anything, but its name has to match the NODE_ENV environment variable, as set it the &lt;code&gt;docker-compose.yml&lt;/code&gt; file.&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Optional.&lt;/em&gt; Copy the template schedule file to the location specified in Butler&amp;rsquo;s config file. This is only needed if you manually want to add schedules. If using the API to create schedules, there is no need to first manually create a schedules file.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Optional.&lt;/em&gt; Copy the template schedule file to the location specified in Butler&amp;rsquo;s config file. This is only needed if you manually want to add schedules. If using the API to create schedules, there is no need to first manually create a schedules file (the schedule file will be created by Butler in this case).&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;When done, you should see something like this:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:butler goran$ &lt;span style=&#34;color:#204a87&#34;&gt;pwd&lt;/span&gt;
@@ -268,7 +269,7 @@ butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;
 butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.699Z info: REST server listening on http://172.21.0.2:8080
 butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.700Z info: UDP server listening on 172.21.0.2:9997
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;What you see on your screen will depend on which Butler features are enabled.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;What you see on your screen will depend on which Butler version you are using and what features are enabled.
 In the example above &lt;em&gt;all&lt;/em&gt; Butler features are enabled.&lt;/p&gt;
 &lt;p&gt;Let&amp;rsquo;s make sure things are working by opening a new terminal window and from there requesting a list of all apps on the server:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:~ goran$
@@ -335,7 +336,7 @@ Butler has been succesfully used using standard Node.js - during development and
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Install node.js&lt;/strong&gt;&lt;br&gt;
-Butler has been developed and tested using the 64 bit version of &lt;a href=&#34;https://nodejs.org/en/download/&#34;&gt;Node.js&lt;/a&gt;. The most recent LTS (Long Term Support) version is usually a good choice.&lt;/p&gt;
+Butler was developed and tested using the 64 bit version of &lt;a href=&#34;https://nodejs.org/en/download/&#34;&gt;Node.js&lt;/a&gt;. The most recent LTS (Long Term Support) version of Node.js is a good choice for running Butler.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Decide where to install Butler&lt;/strong&gt;&lt;br&gt;

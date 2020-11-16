@@ -12,7 +12,6 @@ The client is built using node.js, and is found in the src/udp_client directory.
 
 Run the app to show its help text (in this case the UDP client is executed on a Mac):
 
-
     $ node udp_client.js
     Usage: node udp_client.js [options]
 
@@ -29,7 +28,6 @@ Run the app to show its help text (in this case the UDP client is executed on a 
     Missing required arguments: i, p
     $
 
-
 ## Testing the session start/stop, connection open/close UDP server
 
 Sending a message to Butler looks like this (with a fake IP address):
@@ -38,9 +36,8 @@ Sending a message to Butler looks like this (with a fake IP address):
     UDP message sent to 1.2.3.4:9997, 16 bytes.
     $   
 
-
 Butler will receive the message, parse it, and  
-a) send a message to a Slack channel (customizable in the [Butler config file](/docs/getting-started/setup/config_file_syntax/)), and  
+a) send a message to a Slack channel (customizable in the [Butler config file](/docs/reference/config-file/)), and  
 b) publish a MQTT message to the topic specified in, again, the Butler config file.
 
 The output to Slack looks like this (the default use of port 9997 is to handle audit events, i.e. users starting/ending sessions etc):  
@@ -57,8 +54,6 @@ Sending a message to Butler looks like this (with a fake IP address):
     UDP message sent to 1.2.3.4:9998, 16 bytes.
     $
 
-
 The resulting Slack message looks like this:  
 
 ![alt text](slack_failed_task_1.jpg "Slack failed task")
-

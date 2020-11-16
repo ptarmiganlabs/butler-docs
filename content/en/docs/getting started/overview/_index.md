@@ -17,5 +17,5 @@ The main components of Butler are outlined in the system diagram above.
 {{% alert title="Remember!" color="primary" %}}
 Individual parts of Butler can be enabled/disabled in the main [config file](/docs/reference/config-file/).
 
-If you're unsure what each REST API endpoint does, the [API docs](/docs/reference/rest_api/) is the place to check.
+If you're unsure what each REST API endpoint does, the [API docs](/docs/reference/rest-api/) is the place to check.
 {{% /alert %}}

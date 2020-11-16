@@ -19,7 +19,7 @@ Prerequisites for running Butler in Docker:
 
 The following steps give some guidance on how to get Butler running on Docker.  
 Here Mac OS has been used, things will look different on Linux and Windows.
-
+<!-- TODO: update Docker install instructions -->
 ```bash
 proton:~ goran$ mkdir /Users/goran/butler
 proton:~ goran$ cd /Users/goran/butler
@@ -70,7 +70,7 @@ At this point you should
 2. Copy the certificates to the ./config/certificate directory.
 3. Copy the [template config file](https://github.com/ptarmiganlabs/butler/blob/master/src/config/production_template.yaml) from the GitHub repository to the ./config directory, modify it as needed based on your system(s) and which Butler features you want enabled, and rename it to for example `production.yaml`.  
 You can name the config file anything, but its name has to match the NODE_ENV environment variable, as set it the `docker-compose.yml` file.
-4. *Optional.* Copy the template schedule file to the location specified in Butler's config file. This is only needed if you manually want to add schedules. If using the API to create schedules, there is no need to first manually create a schedules file.
+4. *Optional.* Copy the template schedule file to the location specified in Butler's config file. This is only needed if you manually want to add schedules. If using the API to create schedules, there is no need to first manually create a schedules file (the schedule file will be created by Butler in this case).
 
 When done, you should see something like this:
 
@@ -155,7 +155,7 @@ butler    | 2019-11-18T21:51:17.700Z info: UDP server listening on 172.21.0.2:99
 
 ```
 
-What you see on your screen will depend on which Butler features are enabled.
+What you see on your screen will depend on which Butler version you are using and what features are enabled.
 In the example above *all* Butler features are enabled.
 
 Let's make sure things are working by opening a new terminal window and from there requesting a list of all apps on the server:

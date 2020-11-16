@@ -40,7 +40,7 @@ Both key and value are strings in Butler&amp;rsquo;s KV store. You must thus mak
 &lt;/div&gt;
 
 &lt;p&gt;There is also an optional, per KV-pair Time To Live (TTL) feature. If used it will auto-delete the KV pair when a certain time has passed from the KV-pair&amp;rsquo;s last update.&lt;/p&gt;
-&lt;p&gt;The &lt;a href=&#34;/docs/reference/rest_api&#34;&gt;API docs&lt;/a&gt; shows what methods are available to work with KV pairs.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;/docs/reference/rest-api&#34;&gt;API docs&lt;/a&gt; shows what methods are available to work with KV pairs.&lt;/p&gt;
 &lt;h2 id=&#34;how-can-a-key-value-store-be-used-in-sense-apps&#34;&gt;How can a key-value store be used in Sense apps?&lt;/h2&gt;
 &lt;p&gt;As mentioned above - A KV store can be useful whenever you need to stash data away for a while and then get it back. I.e. keeping track of the state of something.&lt;/p&gt;
 &lt;p&gt;For example&lt;/p&gt;
@@ -96,16 +96,18 @@ Qlik Sense Enterprise has its own, &lt;a href=&#34;https://help.qlik.com/en-US/s
 &lt;/ul&gt;
 &lt;h2 id=&#34;whats-wrong-with-senses-own-scheduler&#34;&gt;What&amp;rsquo;s wrong with Sense&amp;rsquo;s own scheduler?&lt;/h2&gt;
 &lt;p&gt;The built-in scheduler in Qlik Sense is ok in most aspects, but lack significantly in some.&lt;br&gt;
-Specifically, it doesn&amp;rsquo;t allow you to run a task certain hours of the day. This is a quite common scenario and thus Butler gets its own scheduler to solve the issue.&lt;/p&gt;
+Specifically, it doesn&amp;rsquo;t allow you to run a task certain hours of the day. At least not without resorting to creating lots of task triggers - which is not an attractive option from a maintenance perspective.&lt;/p&gt;
+&lt;p&gt;This is a quite common scenario and thus Butler gets its own scheduler to solve the issue.&lt;/p&gt;
 &lt;h2 id=&#34;the-butler-scheduler&#34;&gt;The Butler scheduler&lt;/h2&gt;
 &lt;p&gt;Butler&amp;rsquo;s scheduler is based on &lt;a href=&#34;https://en.wikipedia.org/wiki/Cron&#34;&gt;cron&lt;/a&gt;.&lt;br&gt;
 Cron has been the standard scheduler for decades in most Linux systems, it&amp;rsquo;s thus a proven concept.&lt;/p&gt;
 &lt;p&gt;Features of the Butler scheduler:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;6 position cron pattern. The leftmost position represents seconds.&lt;/li&gt;
-&lt;li&gt;No hard limit on number of schedules that can be created.&lt;/li&gt;
+&lt;li&gt;5 postition patterns are also supported, the leftmost position then represents minutes.&lt;/li&gt;
+&lt;li&gt;Hundreds of schedules tested and confirmed working as expected.&lt;/li&gt;
 &lt;li&gt;A Qlik Sense task ID is associated with each schedule. When the schedule fires, the associated task is started.&lt;/li&gt;
-&lt;li&gt;Schedules can be added either manually in the YAML schedules file (as defined in the main Butler config file) or using &lt;a href=&#34;/docs/reference/rest_api&#34;&gt;Butler&amp;rsquo;s API&lt;/a&gt;. A sample schedule file is included in the GitHub repository. Schedules added using the API will be stored in the schedule YAML file referenced in the main Butler config file.&lt;/li&gt;
+&lt;li&gt;Schedules can be added either manually in the YAML schedules file (as defined in the main Butler config file) or using &lt;a href=&#34;/docs/reference/rest-api&#34;&gt;Butler&amp;rsquo;s API&lt;/a&gt;. A sample schedule file is included in the GitHub repository. Schedules added using the API will be stored in the schedule YAML file referenced in the main Butler config file.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The two supported schedule formats look like this:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;    ┌───────────── seconds (0 - 59)
@@ -122,97 +124,197 @@ Cron has been the standard scheduler for decades in most Linux systems, it&amp;r
     Ranges. E.g. 1-3,5
     Steps. E.g. */2
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;There are quite a few online tools for creating cron patterns, for example &lt;a href=&#34;https://crontab.guru/&#34;&gt;crontab.guru&lt;/a&gt;, &lt;a href=&#34;http://corntab.com/&#34;&gt;corntab&lt;/a&gt; and &lt;a href=&#34;https://crontab-generator.org/&#34;&gt;crontab-generator&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;There are quite a few online tools for creating cron patterns, for example &lt;a href=&#34;https://crontab.guru/&#34;&gt;crontab.guru&lt;/a&gt; and &lt;a href=&#34;https://crontab-generator.org/&#34;&gt;crontab-generator&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Using a tool like these can save some time when setting things up, but keep in mind that most online tools use minutes as the smallest unit. Some manual tweaking might thus be needed before using the generated pattern in Butler&amp;rsquo;s scheduler.&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
-      <title>Docs: MQTT integration</title>
-      <link>/docs/concepts/mqtt/</link>
+      <title>Docs: Alert emails</title>
+      <link>/docs/concepts/alert-emails/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/concepts/mqtt/</guid>
+      <guid>/docs/concepts/alert-emails/</guid>
       <description>
         
         
-        &lt;h2 id=&#34;what-is-mqtt&#34;&gt;What is MQTT?&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;http://mqtt.org&#34;&gt;MQTT&lt;/a&gt; is a light weight publish-subscribe (&amp;ldquo;pub-sub&amp;rdquo;) protocol.&lt;br&gt;
-Used in both the telecomms industry and various Internet of Things applications, there are client libraries available for many different languages and platforms. This is important, as there is a good chance other systems can find a way of sending MQTT messages, which Butler can then listen for/subscribe to.&lt;/p&gt;
-&lt;h2 id=&#34;outgoing-mqtt---publish&#34;&gt;Outgoing MQTT - publish&lt;/h2&gt;
-&lt;p&gt;Butler can post messages to MQTT topics. The &lt;code&gt;/mqqtPublishMessage&lt;/code&gt; is used to achieve this.&lt;br&gt;
-This way Butler can send status information and notifications to other systems, outside of Qlik Sense. Use cases include:&lt;/p&gt;
+        &lt;!-- TODO --&gt;
+&lt;h2 id=&#34;scheduled-vs-manual-app-reloads&#34;&gt;Scheduled vs manual app reloads&lt;/h2&gt;
+&lt;p&gt;It might not be obvious at first, but there are several kinds of reloads in Qlik Sense Enterprise:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Reloads started from QMC.&lt;/strong&gt; These are usually created and managed in the QMC. Quite often they are also combined into reload chains. The common thing about these reloads is that they - under the hood - are managed by Sense&amp;rsquo;s scheduling service.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Manual reloads started from script edit.&lt;/strong&gt; When developing apps in the standard Sense client/script editor you usually reload the apps from there. This does trigger an app reload, but not via the Sense scheduling service.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The reload failure notifications described here work by looking at log entries written by the scheduling service. When that service writes information to the logs about a failed reload, your logging appender will detect it and send an email, and/or send a UDP message to Butler - who will forward the message to Teams and/or Slack.&lt;/p&gt;
+&lt;h2 id=&#34;alert-emails&#34;&gt;Alert emails&lt;/h2&gt;
+&lt;p&gt;Butler can send two kinds of alert emails:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;When a scheduled reload task fails.&lt;/li&gt;
+&lt;li&gt;When a running reload task is stopped.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Alert emails can be formatted using HTML, use CSS styling, emojis etc. There&amp;rsquo;s no reason an alert email can&amp;rsquo;t look good.&lt;/p&gt;
+&lt;p&gt;Alert emails viewed on a mobile phone give direct insight into what has happened:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;
+
+
+
+
+
+
+&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 283px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/alert-emails/reload-fail-alert-email-mobile-1_hu4db7033860926d00b760f31fa6e519f7_495784_600x600_fit_catmullrom_2.png&#34; width=&#34;273&#34; height=&#34;600&#34;&gt;
+	
+	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt;Failed reload alert email on mobile home screen.&lt;/p&gt;
+	&lt;/div&gt;
+	
+&lt;/div&gt;&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+
+&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 283px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/alert-emails/reload-fail-alert-email-mobile-2_hu00edd26148aa6620913d66039b3ac1b8_473599_600x600_fit_catmullrom_2.png&#34; width=&#34;273&#34; height=&#34;600&#34;&gt;
+	
+	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt;Failed reload alert email viewed on mobile.&lt;/p&gt;
+	&lt;/div&gt;
+	
+&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;In a regular email client a reload failed email could look like below.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Note the end of the script&lt;/strong&gt;&lt;/em&gt; - the last few lines of the reload log are often very useful when it comes to understanding what caused the reload failure.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;failed_reload_email_1.png&#34; alt=&#34;alt text&#34; title=&#34;Reload failed alert email&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;basic-alert-emails-also-possible&#34;&gt;Basic alert emails also possible&lt;/h3&gt;
+&lt;p&gt;Qlik Sense Enterprise on Windows uses the log4net logging framework to create log files. Log4net is quite flexible and can - among other things - send emails when events such as reload failures occur. There is however little flexibility when it comes to layout and contents of those emails. They are text only (no formatting, tables, different fonts, colors etc) and the email subjects cannot contain any dynamic fields (for example the name of the failed reload task).&lt;/p&gt;
+&lt;p&gt;The goal of Butler&amp;rsquo;s alert emails is to address these limitations and offer a flexible foundation not only for emails, but for all kinds of alerts.&lt;/p&gt;
+&lt;p&gt;If you want to explore what&amp;rsquo;s possible using just the features offered by log4net, Christof Schwarz has a &lt;a href=&#34;https://www.linkedin.com/pulse/qlik-sense-task-email-notifications-so-easy-christof-schwarz/?trackingId=X8MEGEmppfSvdukFRbnLwQ%3D%3D&#34;&gt;good post&lt;/a&gt; on sending basic notification emails when scheduled reloads fail, with links to &lt;a href=&#34;https://github.com/levi-turner/getting_notified_from_qliksense&#34;&gt;Levi Turners great examples&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;how-it-works&#34;&gt;How it works&lt;/h2&gt;
+&lt;p&gt;Butler uses a templating engine called &lt;a href=&#34;https://handlebarsjs.com/guide/&#34;&gt;Handlebars&lt;/a&gt;. It is used when sending all kinds of alert emails supported by Butler.&lt;/p&gt;
+&lt;p&gt;Slack, MS Teams and MQTT messages are currently not using the templating engine - this is however likely to change in coming Butler versions. Feel free to &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/issues&#34;&gt;add (or +1) a request on GitHub&lt;/a&gt; if this is of interest to you!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/butler_log4net_appenders_1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler high level system overview&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;template-fields&#34;&gt;Template fields&lt;/h3&gt;
+&lt;p&gt;The Handlebars templating engine looks for &lt;em&gt;template fields&lt;/em&gt; in the template files you create.&lt;/p&gt;
+&lt;p&gt;A complete list of template fields - including descriptions - is available in the &lt;a href=&#34;/docs/reference/alert-template-fields&#34;&gt;Reference&lt;/a&gt; section.&lt;/p&gt;
+&lt;h3 id=&#34;not-all-failed-reloads-will-cause-alert-emails&#34;&gt;Not all failed reloads will cause alert emails&lt;/h3&gt;
+&lt;p&gt;While not obvious at first, there are different kinds of reloads taking place in a Qlik Sense Enterprise environment:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Notify downstream systems that Sense has finished creating some data set that the downstream system depend on.&lt;/p&gt;
+&lt;p&gt;Reloads started by the Sense Scheduler service. These reloads always have a &lt;em&gt;task&lt;/em&gt; associated with them.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Send debug or trace messages to MQTT instead of to the Sense log. Using a MQTT client (there are multiple ones on both Windows, OSX and Linux) you can then monitor the messages in real time. Very useful during development of tricky Sense load scripts!&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Start Sense tasks (typically reloads) from the Sense load script. Very useful when you need to trigger a second app reload once the first app&amp;rsquo;s load script reaches some specific point of execution.&lt;br&gt;
-This way the scheduling and execution of Sense tasks can be made much more flexible than using the built in QMC scheduler.&lt;/p&gt;
-&lt;p&gt;Note: While possible to start reload tasks using MQTT, it&amp;rsquo;s usually easier to do this using &lt;a href=&#34;/docs/reference/rest_api&#34;&gt;Butler&amp;rsquo;s REST API&lt;/a&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Send messages to platforms such as Node-RED. Node-RED is an open source platform (with a graphical editor) intended for integrating different systems and data sources. As it is built on node.red there are many different modules available, offering integrations with all sorts of systems and protocols.&lt;br&gt;
-Using Node.RED together with Qlik Sense and Butler, it is possible to interface with social media from the Sense load script (send a Tweet when some condition occur during app reload, for example).&lt;/p&gt;
+&lt;p&gt;Reloads started from Sense&amp;rsquo;s standard script editor. These reloads are &lt;em&gt;not&lt;/em&gt; started by the Sense scheduler, but rather directly in the Sense engine. Progress for such reloads will therefore go to the &lt;em&gt;engine logs&lt;/em&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;incoming-mqtt---subscribe&#34;&gt;Incoming MQTT - subscribe&lt;/h2&gt;
-&lt;p&gt;Butler listens to all MQTT messages in the &lt;code&gt;qliksense/#&lt;/code&gt; topic tree. Which in MQTT lingo means &amp;ldquo;listen to all messages in the qliksense topic, as well as in any subtopics&amp;rdquo;.&lt;br&gt;
-When Butler finds such a message, it is analysed and if the topic matches any of the predefined topics with special meaning, the associated tasks are carried out.&lt;/p&gt;
-&lt;p&gt;Topics with special meaning are:&lt;/p&gt;
+&lt;p&gt;The log appenders that drive Butler&amp;rsquo;s alerts rely on the Scheduler logs - not the engine logs.&lt;br&gt;
+This is an intentional design decision.&lt;/p&gt;
+&lt;p&gt;It is certainly possible to add log appenders also for engine logs and that way get notified when &lt;em&gt;any&lt;/em&gt; reload fail. The question is whether that&amp;rsquo;s an interesting use case. In most cases sys admins aren&amp;rsquo;t very interested if reloads that fail during app development - they only care about failures caused by apps in production - i.e. apps driven by the Sense Scheduler. Thus, Butler currently doesn&amp;rsquo;t deal with reload failures reported from the Sense engine.&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;qliksense/start_task&lt;/code&gt;: Starts the Sense task identified by the ID sent in the message body. See the &lt;a href=&#34;/docs/examples/start_task_from_mqtt/#use-mqtt-to-start-sense-tasks&#34;&gt;Examples&lt;/a&gt; secion.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://help.qlik.com/en-US/sense-admin/September2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders.htm&#34;&gt;Qlik&amp;rsquo;s documenation&lt;/a&gt; around log appenders and how to hook into the Sense logs is somewhat brief, but does provide a starting point if you want to dive deeper into this topic.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The main &lt;a href=&#34;https://logging.apache.org/log4net/&#34;&gt;log4net documentation&lt;/a&gt; (log4net is the logging framework used by Qlik Sense Enterprise) can also be useful.&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;As Butler listens to all messages in qliksense/#, it can easily be extended with handlers for additional topics.&lt;/p&gt;
+&lt;p&gt;These links describe how emails can be sent from the log4net logging framework itself, directly to the recipient. Butler includes sameple XML files for this use case too, but Butler takes things further by using the data in the Sense logs to pull in more data around the failed or stopped reload.&lt;/p&gt;
+&lt;p&gt;In other words - Butler&amp;rsquo;s alert emails are significantly more flexible and contain information (such as script logs) that are not availble using purely log4net.&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
-      <title>Docs: Log event handlers</title>
-      <link>/docs/concepts/log_event_handlers/</link>
+      <title>Docs: Alerts via Slack and Microsoft Teams</title>
+      <link>/docs/concepts/alerts-slack/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/concepts/log_event_handlers/</guid>
+      <guid>/docs/concepts/alerts-slack/</guid>
       <description>
         
         
-        &lt;!-- 
+        &lt;h2 id=&#34;microsoft-teams-notifications&#34;&gt;Microsoft Teams notifications&lt;/h2&gt;
+&lt;p&gt;A reload failure notification in Team looks like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;reload-failure-notification-teams-1.png&#34; alt=&#34;alt text&#34; title=&#34;Failed reload notification in Microsoft Teams&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Requirements:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Log appenders being correctly set up on the Sense servers where failed reloads should be caught.&lt;/li&gt;
+&lt;li&gt;A running Butler instance with the UDP server enabled (&lt;code&gt;Butler.udpServerConfig.enable&lt;/code&gt; setting in Butler config file). Make sure the UDP IP and port in the XML file and Butler&amp;rsquo;s config matches!&lt;/li&gt;
+&lt;li&gt;MS Teams notifications must be enabled in the &lt;code&gt;Butler.teamsConfig.enable&lt;/code&gt; property in the config file.&lt;/li&gt;
+&lt;li&gt;An incoming webhook defined in MS Teams. These are created per channel in Teams, so make sure to create it in the channel where notifications should appear. The &lt;code&gt;Butler.teamsConfig.taskFailureWebhookURL&lt;/code&gt; should be set to the URL you get from Teams.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;slack-notifications&#34;&gt;Slack notifications&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;reload-failure-notification-slack-1.png&#34; alt=&#34;alt text&#34; title=&#34;Failed reload notification in Slack&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Requirements:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Log appenders being correctly set up on the Sense servers where failed reloads should be caught.&lt;/li&gt;
+&lt;li&gt;A running Butler instance with the UDP server enabled (&lt;code&gt;Butler.udpServerConfig.enable&lt;/code&gt; setting in Butler config file). Make sure the UDP IP and port in the XML file and Butler&amp;rsquo;s config match!&lt;/li&gt;
+&lt;li&gt;Slack notifications must be enabled in the &lt;code&gt;Butler.slackConfig.enable&lt;/code&gt; property in the config file.&lt;/li&gt;
+&lt;li&gt;An incoming webhook defined in Slack. While these are associated with a specific Slack channel, you can overrise the channel when posting messages. The &lt;code&gt;Butler.slackConfig.webhookURL&lt;/code&gt; should be set to the URL you get from Teams.&lt;/li&gt;
+&lt;li&gt;The name of the Slack channel to which notifications should be sent.&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
-&lt;p&gt;This is a placeholder page that shows you how to use this template site.&lt;/p&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Session and other user activity events</title>
+      <link>/docs/concepts/log-event-handlers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/concepts/log-event-handlers/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The features described on this page use the same concept as email notifications on reload failures, i.e. UDP messages sent from Sense to Butler when certain log events occur.&lt;/p&gt;
+&lt;p&gt;A slightly silly - but fun - use of these events is to blink a light when when users open apps, log into Sense etc.&lt;/p&gt;
+&lt;p&gt;Here is a &lt;a href=&#34;https://ptarmiganlabs.com/blog/2017/05/01/let-there-be-blinky-light/&#34;&gt;blog post&lt;/a&gt; describing this, with a video showing what it looks like.&lt;/p&gt;
+&lt;p&gt;Green light, someone opens a Sense app. Red light, someone closes a Sense app.&lt;/p&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+        &lt;iframe src=&#34;https://www.youtube.com/embed/T_IxQYdoqJA?enablejsapi=1&#34;
+                 allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;h2 id=&#34;session-startstop-connection-openclose&#34;&gt;Session start/stop, connection open/close&lt;/h2&gt;
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Remember&lt;/h4&gt;
+&lt;p&gt;The text below assumes the log appenders have been correctly set up for user activity notifications.&lt;/p&gt;
+&lt;p&gt;Make extra sure the log appender XML file contains the correct IP/port info specified in Butler&amp;rsquo;s UDP server config settings.&lt;/p&gt;
 
 &lt;/div&gt;
- --&gt;
-&lt;h2 id=&#34;creating-log4net-appenders&#34;&gt;Creating log4net appenders&lt;/h2&gt;
-&lt;p&gt;Qlik Sense Enterprise uses the &lt;a href=&#34;https://logging.apache.org/log4net/&#34;&gt;Apache log4net logging framework&lt;/a&gt;. It is used to write all the log files found in the C:\ProgramData\Qlik\Sense\Log directory tree.&lt;br&gt;
-log4net is extensible in that you can attach your own event handlers and in this way get notifications when events of interest occur.&lt;/p&gt;
-&lt;p&gt;Qlik provides basic &lt;a href=&#34;https://help.qlik.com/en-US/sense-admin/November2019/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders.htm&#34;&gt;documentation&lt;/a&gt; for this, unfortunately a lot of trial and error is usually needed when crating new XML files that will be hooked into the framework.&lt;/p&gt;
-&lt;p&gt;A couple of custom appenders (in the form of XML files) are included with Butler, these are described below.&lt;/p&gt;
-&lt;h2 id=&#34;session-startstop-connection-openclose&#34;&gt;Session start/stop, connection open/close&lt;/h2&gt;
-&lt;p&gt;In the &lt;code&gt;log4net_user-audit-event&lt;/code&gt; folder in the Butler repository there is an XML file that will send a UDP message on port 9997 to Butler when any of the following events occur:&lt;/p&gt;
+
+&lt;p&gt;Butler supports the following user activity events:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Session start&lt;/strong&gt;: When a user logs into Sense and do not have Sense open in any other window or tab in the browser.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Session end&lt;/strong&gt;: When a user has not been active for a while, and the session timeout is reached.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Connection open&lt;/strong&gt;: When a user open a new app, or do a browser refresh of a Sense app&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Connection close&lt;/strong&gt;: When a user closes a browser window or tab, in which a Sense app was open&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Usually the UDP message is sent very quickly, typically within a second of the app being opened or close, for example.&lt;br&gt;
-The message contains this information:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;%hostname;%property{Command};%property{UserDirectory};%property{UserId}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;I.e. the information sent to Butler is&lt;/p&gt;
+&lt;p&gt;The response time is usually quite good, typically Butler gets the notifiction from Sense within a second of the actual event taking place.&lt;/p&gt;
+&lt;p&gt;The information sent to Butler is&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Server name where the log message originated&lt;/li&gt;
 &lt;li&gt;What command is associated with the message (session start/stop, connection open/close)&lt;/li&gt;
 &lt;li&gt;What Sense user directory the associated user belongs to&lt;/li&gt;
 &lt;li&gt;The username of the associated user.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;The UDP server built into Butler will then extract the data and take several actions, exactly which depending on what event was received.&lt;/p&gt;
+&lt;p&gt;Butler will then use this information and take either of several possible actions depending on which event was received:&lt;/p&gt;
 &lt;h3 id=&#34;session-start&#34;&gt;Session start&lt;/h3&gt;
 &lt;p&gt;The following actions are taken&lt;/p&gt;
 &lt;ol&gt;
@@ -254,35 +356,61 @@ The message contains this information:&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Examples of what the Slack messages will look like can be found on the &lt;a href=&#34;/docs/concepts/udp&#34;&gt;UDP client page&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;task-reload-errors&#34;&gt;Task reload errors&lt;/h2&gt;
-&lt;p&gt;In the &lt;code&gt;log4net_task-failed&lt;/code&gt; folder in the Butler repository there is an XML file that will send a UDP message on port 9998 to Butler when any of the following events occur:&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Task failing&lt;/strong&gt;: When a Sense task, started by the Sense scheduler, for some reason fails, the XML file make a couple of UDP messages (with slightly different contents) to be sent to Butler. Manually started reloads (from the script editor) that fail will not generate these events.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The message contains this information:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;%hostname;%property{TaskName};%property{AppName};%property{UserId}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;I.e. the information sent to Butler is&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Server name where the log message originated&lt;/li&gt;
-&lt;li&gt;Name of the task&lt;/li&gt;
-&lt;li&gt;Name of the app that the task is associated with&lt;/li&gt;
-&lt;li&gt;Username of the user running the task.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The UDP server built into Butler will then extract the data and take several actions, exactly which depending on what event was received.&lt;/p&gt;
-&lt;h3 id=&#34;failing-task&#34;&gt;Failing task&lt;/h3&gt;
-&lt;p&gt;The following actions are taken&lt;/p&gt;
-&lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Posts the event data to Slack, using the Butler.slackConfig.taskFailureTopic configuration setting.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://help.qlik.com/en-US/sense-admin/September2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders.htm&#34;&gt;Qlik&amp;rsquo;s documenation&lt;/a&gt; around log appenders and how to hook into the Sense logs is somewhat brief, but does provide a starting point if you want to dive deeper into this topic.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Publish a message to MQTT, in the topic defined in the Butler.mqttConfig.taskFailureTopic configuration setting.&lt;/p&gt;
+&lt;p&gt;The main &lt;a href=&#34;https://logging.apache.org/log4net/&#34;&gt;log4net documentation&lt;/a&gt; (log4net is the logging framework used by Qlik Sense Enterprise) can also be useful.&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Examples on how the Slack messages will look can be found on the &lt;a href=&#34;/docs/concepts/udp&#34;&gt;UDP client page&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id=&#34;further-reading&#34;&gt;Further reading&lt;/h3&gt;
-&lt;p&gt;The &lt;a href=&#34;/docs/getting-started/setup/log4net_appender&#34;&gt;log notifications setup page&lt;/a&gt; has a bit more information on this topic, as well as links to external resources.&lt;/p&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: MQTT integration</title>
+      <link>/docs/concepts/mqtt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/concepts/mqtt/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;what-is-mqtt&#34;&gt;What is MQTT?&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://mqtt.org&#34;&gt;MQTT&lt;/a&gt; is a light weight publish-subscribe (&amp;ldquo;pub-sub&amp;rdquo;) protocol.&lt;/p&gt;
+&lt;p&gt;Used in both the telecomms industry and various Internet of Things applications, there are client libraries available for many different languages and platforms. This is important, as there is a good chance other systems can find a way of sending MQTT messages, which Butler can then listen for/subscribe to.&lt;/p&gt;
+&lt;h2 id=&#34;outgoing-mqtt-from-butler-itself&#34;&gt;Outgoing MQTT from Butler itself&lt;/h2&gt;
+&lt;p&gt;If MQTT is enabled, Butler will forward events (reload failed, user opened a session to Sense etc) to MQTT. These events are sent to the MQTT topics defined in the &lt;code&gt;Butler.mqttConfig&lt;/code&gt; section of Butler&amp;rsquo;s config file.&lt;/p&gt;
+&lt;h2 id=&#34;outgoing-mqtt---publish&#34;&gt;Outgoing MQTT - publish&lt;/h2&gt;
+&lt;p&gt;Butler can post messages to MQTT topics. The &lt;code&gt;/v4/mqttpublishmessage&lt;/code&gt; API endpoint is used for this.&lt;br&gt;
+This way Butler can send status information and notifications to other systems, outside of Qlik Sense. Use cases include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Notify downstream systems that Sense has finished creating some data set that the downstream system depends on.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Send debug or trace messages to MQTT instead of to the Sense log. Using a MQTT client (there are multiple ones on both Windows, OSX and Linux) you can then monitor the messages in real time. Very useful during development of tricky Sense load scripts!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Start Sense tasks (typically reloads) from the Sense load script. Very useful when you need to trigger a second app reload once the first app&amp;rsquo;s load script reaches some specific point of execution.&lt;br&gt;
+This way the scheduling and execution of Sense tasks can be made much more flexible than using the built in QMC scheduler.&lt;/p&gt;
+&lt;p&gt;Note: While possible to start reload tasks using MQTT, it&amp;rsquo;s usually easier to do this using &lt;a href=&#34;/docs/reference/rest-api&#34;&gt;Butler&amp;rsquo;s REST API&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Send messages to platforms such as Node-RED. Node-RED is an open source platform (with a graphical editor) intended for integrating different systems and data sources. As it is built on node.red there are many different modules available, offering integrations with all sorts of systems and protocols.&lt;br&gt;
+Using Node.RED together with Qlik Sense and Butler, it is possible to interface with social media from the Sense load script (send a Tweet when some condition occur during app reload, for example).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;incoming-mqtt---subscribe&#34;&gt;Incoming MQTT - subscribe&lt;/h2&gt;
+&lt;p&gt;Butler listens to all MQTT messages in the &lt;code&gt;qliksense/#&lt;/code&gt; topic tree. Which in MQTT lingo means &amp;ldquo;listen to all messages in the qliksense topic, as well as in any subtopics&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;When Butler finds such a message, it is analysed and if the topic matches any of the predefined topics with special meaning, the associated tasks are carried out.&lt;/p&gt;
+&lt;p&gt;Topics with special meaning are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;qliksense/start_task&lt;/code&gt;: Starts the Sense task identified by the ID sent in the message body. See the &lt;a href=&#34;/docs/examples/start-task-from-mqtt/#use-mqtt-to-start-sense-tasks&#34;&gt;Examples&lt;/a&gt; secion.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As Butler listens to all messages in qliksense/#, it can easily be extended with handlers for additional topics.&lt;/p&gt;
 
       </description>
     </item>
@@ -323,7 +451,7 @@ UDP message sent to 1.2.3.4:9997, 16 bytes.
 $   
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Butler will receive the message, parse it, and&lt;br&gt;
-a) send a message to a Slack channel (customizable in the &lt;a href=&#34;/docs/getting-started/setup/config_file_syntax/&#34;&gt;Butler config file&lt;/a&gt;), and&lt;br&gt;
+a) send a message to a Slack channel (customizable in the &lt;a href=&#34;/docs/reference/config-file/&#34;&gt;Butler config file&lt;/a&gt;), and&lt;br&gt;
 b) publish a MQTT message to the topic specified in, again, the Butler config file.&lt;/p&gt;
 &lt;p&gt;The output to Slack looks like this (the default use of port 9997 is to handle audit events, i.e. users starting/ending sessions etc):&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;slack_audit_event_test_1.jpg&#34; alt=&#34;alt text&#34; title=&#34;Slack audit event test&#34;&gt;&lt;/p&gt;
@@ -342,10 +470,10 @@ $
     
     <item>
       <title>Docs: Real-time metrics</title>
-      <link>/docs/concepts/real_time_metrics/</link>
+      <link>/docs/concepts/real-time-metrics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/concepts/real_time_metrics/</guid>
+      <guid>/docs/concepts/real-time-metrics/</guid>
       <description>
         
         
@@ -369,7 +497,7 @@ For that reason Butler&amp;rsquo;s tactic is to listen to log events to determin
 &lt;p&gt;When Butler is first started, it will not know what sessions are currently active. Instead, it will collect that inforamation as time passes.&lt;br&gt;
 This means that the active user count, as well as what specific users are active, might be incorrect when Butler is first started.&lt;br&gt;
 The data will then become more and more exact as users end their sessions, and later restart them (Butler will then capture the session restart, and update its data structures accordingly).&lt;/p&gt;
-&lt;p&gt;If there are demands for enterprise grade monitoring of a Qlik Sense environment, the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos&#34;&gt;Butler SOS&lt;/a&gt; tool focuses exclusively on this and might be worth looking into.&lt;/p&gt;
+&lt;p&gt;If there are demands for enterprise grade monitoring of a Qlik Sense environment, the &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/&#34;&gt;Butler SOS&lt;/a&gt; tool focuses exclusively on this and might be worth looking into.&lt;/p&gt;
 &lt;h2 id=&#34;active-users-data-as-mqtt-messages&#34;&gt;Active users data as MQTT messages&lt;/h2&gt;
 &lt;p&gt;Butler publishes a set of MQTT messages relating to active sessions.&lt;br&gt;
 Whenever a session starts or ends, two MQT messages will be sent:&lt;/p&gt;

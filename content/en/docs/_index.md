@@ -10,6 +10,15 @@ weight: 20
 
 {{% pageinfo %}}
 
+### What's new in version 4.2
+
+* **Email reload alerts taken to a new level.** Emails are created using template files, with full support for HTML formatting, emoji support in both email subject/body etc.  
+  This makes it possible to create nice looking alert emails that contain just the information you need, while also conforming to corporate design, colors etc.
+* Alert emails can be set up for either **failed scheduled reloads**, or running **reloads that are stopped** from the QMC or via APIs. Or both.
+* More than **40 templating fields** available, including task history (what steps the task has been through), beginning and end of reload script log, app/task metadata, 5+ date formats and more.
+* **Template fields** can be used **in both subject and body** of email.
+* **Rate limiter** that prevents email spamming for frequently failing tasks.
+
 ### What's new in version 4.1
 
 * The REST API now lets you **copy files in a controlled, secure way**. Version 4.0 added similar features for file moving and deletes, so copying is a natural complement.
@@ -30,6 +39,6 @@ Key-value stores are a very versatile tool and a great addition to Qlik Sense.
 
 * **API docs** using the OpenAPI/Swagger format.
 
-* A totally **re-engineered REST API** that now better follows best practices when to use GET/POST/PUT/DELETE. Previously everything was done using GETs... which was really ugly. The downside is that this is a major breaking change! Please review the [API docs](/docs/reference/rest_api) for details.
+* A totally **re-engineered REST API** that now better follows best practices when to use GET/POST/PUT/DELETE. Previously everything was done using GETs... which was really ugly. The downside is that this is a major breaking change! Please review the [API docs](/docs/reference/rest-api) for details.
 
 {{% /pageinfo %}}

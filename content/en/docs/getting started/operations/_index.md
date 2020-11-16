@@ -58,6 +58,11 @@ Butler will log data on its memory usage to InfluxDB if
 1. The config file's `Butler.uptimeMonitor.enable` and `Butler.uptimeMonitor.storeInInfluxdb.enable` properties are both set to `true`.
 2. The remaining InfluxDB properties of the config file are correctly configured.
 
-Assuming everything is correctly set up, you can then create a Grafana dashboard showing Butler's memory use over time. You can also set up alerts in Grafana if so desired, with notifications going to most IM tools and email.
+Assuming everything is correctly set up, you can then create a Grafana dashboard showing Butler's memory use over time. 
+You can also set up alerts in Grafana if so desired, with notifications going to most IM tools and email.
+
+A Grafana dashboard can look like this. Note that one of the available metrics (`external`) is not used in this particular dashboard. It's still logged to InfluxDB though.
+
+![alt text](butler-memory-usage-grafana-1.png "Butler memory usage in Grafana dashboard")  
 
 There is a [sample Grafana dashboard](https://github.com/ptarmiganlabs/butler/tree/master/docs/grafana) in Butler's GitHub repo.

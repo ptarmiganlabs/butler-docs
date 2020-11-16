@@ -30,7 +30,7 @@
 
 &lt;/div&gt;
  --&gt;
-&lt;h2 id=&#34;config-file-syntax&#34;&gt;Config file syntax&lt;/h2&gt;
+&lt;h2 id=&#34;main-butler-config-file&#34;&gt;Main Butler config file&lt;/h2&gt;
 &lt;p&gt;The &lt;code&gt;production_template.yaml&lt;/code&gt; config file looks like this:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;---&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;Butler&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -220,10 +220,10 @@
     
     <item>
       <title>Docs: REST API documentation</title>
-      <link>/docs/reference/rest_api/</link>
+      <link>/docs/reference/rest-api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/reference/rest_api/</guid>
+      <guid>/docs/reference/rest-api/</guid>
       <description>
         
         
@@ -241,7 +241,7 @@
 &lt;script&gt;
 window.onload = function() {
   const ui = SwaggerUIBundle({
-    url: &#34;/openapi/butler_4-0_openapi.json&#34;,
+    url: &#34;/openapi/butler_4-2-0_openapi.json&#34;,
     dom_id: &#39;#ohpen_swagger_ui&#39;,
     presets: [
       SwaggerUIBundle.presets.apis,
@@ -307,7 +307,7 @@ window.onload = function() {
 &lt;/table&gt;
 &lt;h3 id=&#34;schedules&#34;&gt;Schedules&lt;/h3&gt;
 &lt;p&gt;The Butler scheduler handles zero or more &lt;em&gt;schedules&lt;/em&gt;, where a schedule is simply a set of information about which Sense reload task should be started when.&lt;/p&gt;
-&lt;p&gt;While Butler is running it keeps the schedules in memory, but they are also stored on disk in the file specified in the Butler&amp;rsquo;s main config file. This means you can either manage the schedule file manually, or via the &lt;a href=&#34;/docs/reference/rest_api&#34;&gt;Butler APIs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;While Butler is running it keeps the schedules in memory, but they are also stored on disk in the file specified in the Butler&amp;rsquo;s main config file. This means you can either manage the schedule file manually, or via the &lt;a href=&#34;/docs/reference/rest-api&#34;&gt;Butler APIs&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The following information is kept about each schdule. Note that some fields are optional and only set when managing schedules via API calls.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -441,7 +441,7 @@ On the other hand, it&amp;rsquo;s questionable if Sense jobs should run more oft
         
         
         &lt;h2 id=&#34;key-value-store-overview&#34;&gt;Key-value store overview&lt;/h2&gt;
-&lt;p&gt;The &lt;a href=&#34;/docs/reference/rest_api/&#34;&gt;API documentation&lt;/a&gt; is the best, most complete source of information about the key-value API endpoints.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;/docs/reference/rest-api/&#34;&gt;API documentation&lt;/a&gt; is the best, most complete source of information about the key-value API endpoints.&lt;/p&gt;
 &lt;h2 id=&#34;namespaces&#34;&gt;Namespaces&lt;/h2&gt;
 &lt;p&gt;Each key-value pair is associated with a &amp;ldquo;namespace&amp;rdquo;, which is simply a way to group KV pairs together in logical groups.&lt;/p&gt;
 &lt;p&gt;Examples:&lt;/p&gt;
@@ -455,6 +455,288 @@ On the other hand, it&amp;rsquo;s questionable if Sense jobs should run more oft
 &lt;p&gt;If the ttl parameter is specified (=set to a non-zero value, unit is milliseconds) the created KV pair will only exist for that long.&lt;/p&gt;
 &lt;p&gt;If a KV pair with a running ttl clock is updated before the KV pair expires, the current ttl clock will be discarded and replaced with the ttl value from the new KV pair.&lt;/p&gt;
 &lt;p&gt;In other words: The ttl is relative to the &lt;strong&gt;last&lt;/strong&gt; update of the KV pair in question.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Alert template fields</title>
+      <link>/docs/reference/alert-template-fields/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/reference/alert-template-fields/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;template-fields&#34;&gt;Template fields&lt;/h2&gt;
+&lt;p&gt;Butler uses the &lt;a href=&#34;https://handlebarsjs.com/&#34;&gt;Handlebars&lt;/a&gt; library for templating work.&lt;/p&gt;
+&lt;p&gt;Handlebars offers a lot of useful features (nested template fields, evaluation context, template comments) and it&amp;rsquo;s recommended that you browse through at least the &lt;a href=&#34;https://handlebarsjs.com/guide/#installation&#34;&gt;language features&lt;/a&gt; section of their getting started guide to get a feeling for what&amp;rsquo;s possible.&lt;/p&gt;
+&lt;p&gt;Note that Handlebars supports nested template fields. The nesting notation is plain JSON, examples below.&lt;/p&gt;
+&lt;p&gt;If a template field is used for an alert type where that field is not supported, the field will simply be blank. No errors will occur.&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Warning&lt;/h4&gt;
+&lt;p&gt;Not all alert types support template fields.&lt;/p&gt;
+&lt;p&gt;Please see the &lt;a href=&#34;/docs/concepts&#34;&gt;Concepts&lt;/a&gt; and &lt;a href=&#34;/docs/getting-started/setup/reload-alerts&#34;&gt;Getting started&lt;/a&gt; sections for more information about which alert types support templates.&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;The following template fields are available in alert messages.&lt;/p&gt;
+&lt;p&gt;Note that some fields are usually (always?) empty, for example the script log for stopped messages.&lt;br&gt;
+This is simply how Sense works - the template fields just forward the information retrieved from the Sense APIs.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Failed&lt;br&gt;reload&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Stopped&lt;br&gt;reload&lt;/th&gt;
+&lt;th&gt;Field name&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;hostName&lt;/td&gt;
+&lt;td&gt;Server on which a reload or other event took place.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;user&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Reload failures:&lt;/strong&gt; User ID for use doing the reload. Typically &lt;code&gt;sa_scheduler&lt;/code&gt;.&lt;br&gt;&lt;strong&gt;Reload stopped:&lt;/strong&gt; User ID of user stopping the reload.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;taskId&lt;/td&gt;
+&lt;td&gt;ID of reload task that failed/was stopped.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;appName&lt;/td&gt;
+&lt;td&gt;Name of Sense whose reload failed/was stopped.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;appId&lt;/td&gt;
+&lt;td&gt;ID of Sense app whose reload failed/was stopped.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;logTimeStamp&lt;/td&gt;
+&lt;td&gt;Timestamp as recorded in the Sense logs&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;logLevel&lt;/td&gt;
+&lt;td&gt;Log level of the Sense log file entry causing the alert&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;logMessage&lt;/td&gt;
+&lt;td&gt;Log message from the Sense log files&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executingNodeName&lt;/td&gt;
+&lt;td&gt;Name of the server where the reload took place&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionDuration.hours&lt;/td&gt;
+&lt;td&gt;executionDuration is a JSON object.&lt;br&gt;Duration of reload (hours part)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionDuration.minutes&lt;/td&gt;
+&lt;td&gt;Duration of reload (minutes part)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionDuration.seconds&lt;/td&gt;
+&lt;td&gt;Duration of reload (seconds part)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionStartTime.startTimeUTC&lt;/td&gt;
+&lt;td&gt;JSON object.&lt;br&gt;UTC timestamp for reload start&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionStartTime.startTimeLocal1&lt;/td&gt;
+&lt;td&gt;Reload start timestamp, format 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionStartTime.startTimeLocal2&lt;/td&gt;
+&lt;td&gt;Reload start timestamp, format 2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionStartTime.startTimeLocal3&lt;/td&gt;
+&lt;td&gt;Reload start timestamp, format 3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionStartTime.startTimeLocal4&lt;/td&gt;
+&lt;td&gt;Reload start timestamp, format 4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionStartTime.startTimeLocal5&lt;/td&gt;
+&lt;td&gt;Reload start timestamp, format 5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionStopTime.stopTimeUTC&lt;/td&gt;
+&lt;td&gt;JSON object.&lt;br&gt;UTC timestamp for reload end&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionStopTime.stopTimeLocal1&lt;/td&gt;
+&lt;td&gt;Reload end timestamp, format 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionStopTime.stopTimeLocal2&lt;/td&gt;
+&lt;td&gt;Reload end timestamp, format 2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionStopTime.stopTimeLocal3&lt;/td&gt;
+&lt;td&gt;Reload end timestamp, format 3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionStopTime.stopTimeLocal4&lt;/td&gt;
+&lt;td&gt;Reload end timestamp, format 4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionStopTime.stopTimeLocal5&lt;/td&gt;
+&lt;td&gt;Reload end timestamp, format 5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionStatusNum&lt;/td&gt;
+&lt;td&gt;Final reload task status code&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionStatusText&lt;/td&gt;
+&lt;td&gt;Final reload task status message&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionDetails[].timestampUTC&lt;/td&gt;
+&lt;td&gt;executionDetails is an array of status updates for the reload task, similar to the one found in the QMC&amp;rsquo;s task view.&lt;br&gt;UTC timestamp of the task status&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionDetails[].timestampLocal1&lt;/td&gt;
+&lt;td&gt;Task status timestamp, format 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionDetails[].timestampLocal2&lt;/td&gt;
+&lt;td&gt;Task status timestamp, format 2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionDetails[].timestampLocal3&lt;/td&gt;
+&lt;td&gt;Task status timestamp, format 3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionDetails[].timestampLocal4&lt;/td&gt;
+&lt;td&gt;Task status timestamp, format 4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionDetails[].timestampLocal5&lt;/td&gt;
+&lt;td&gt;Task status timestamp, format 5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionDetails[].detailsType&lt;/td&gt;
+&lt;td&gt;Task status timestamp, format 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;executionDetails[].message&lt;/td&gt;
+&lt;td&gt;Task status message&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;scriptLogHeadCount&lt;/td&gt;
+&lt;td&gt;Number of lines extracted from the start of the script log&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;scriptLogHead&lt;/td&gt;
+&lt;td&gt;The first x lines from the reload&amp;rsquo;s script log&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;scriptLogTail&lt;/td&gt;
+&lt;td&gt;Number of lines extracted from the end of the script log&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;scriptLogTailCount&lt;/td&gt;
+&lt;td&gt;The first y lines from the reload&amp;rsquo;s script log&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;qliksSenseQMC&lt;/td&gt;
+&lt;td&gt;Links to QMC, as defined in main config file&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;qliksSenseHub&lt;/td&gt;
+&lt;td&gt;Links to Hub, as defined in main config file&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
       </description>
     </item>

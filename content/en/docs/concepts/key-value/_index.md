@@ -25,7 +25,7 @@ Both key and value are strings in Butler's KV store. You must thus make sure to 
 
 There is also an optional, per KV-pair Time To Live (TTL) feature. If used it will auto-delete the KV pair when a certain time has passed from the KV-pair's last update.
 
-The [API docs](/docs/reference/rest_api) shows what methods are available to work with KV pairs.
+The [API docs](/docs/reference/rest-api) shows what methods are available to work with KV pairs.
 
 ## How can a key-value store be used in Sense apps?
 

@@ -26,7 +26,7 @@ Put differently: Butler's scheduler is great for kicking off the first step if r
 
 The Butler scheduler handles zero or more *schedules*, where a schedule is simply a set of information about which Sense reload task should be started when.
 
-While Butler is running it keeps the schedules in memory, but they are also stored on disk in the file specified in the Butler's main config file. This means you can either manage the schedule file manually, or via the [Butler APIs](/docs/reference/rest_api).
+While Butler is running it keeps the schedules in memory, but they are also stored on disk in the file specified in the Butler's main config file. This means you can either manage the schedule file manually, or via the [Butler APIs](/docs/reference/rest-api).
 
 The following information is kept about each schdule. Note that some fields are optional and only set when managing schedules via API calls.
 

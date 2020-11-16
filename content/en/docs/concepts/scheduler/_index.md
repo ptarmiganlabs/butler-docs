@@ -19,7 +19,9 @@ The QMC interface to Sense's standard scheduler lets you create schedules for tw
 ## What's wrong with Sense's own scheduler?
 
 The built-in scheduler in Qlik Sense is ok in most aspects, but lack significantly in some.  
-Specifically, it doesn't allow you to run a task certain hours of the day. This is a quite common scenario and thus Butler gets its own scheduler to solve the issue.
+Specifically, it doesn't allow you to run a task certain hours of the day. At least not without resorting to creating lots of task triggers - which is not an attractive option from a maintenance perspective.
+
+This is a quite common scenario and thus Butler gets its own scheduler to solve the issue.
 
 ## The Butler scheduler
 
@@ -29,9 +31,10 @@ Cron has been the standard scheduler for decades in most Linux systems, it's thu
 Features of the Butler scheduler:
 
 * 6 position cron pattern. The leftmost position represents seconds.
-* No hard limit on number of schedules that can be created.
+* 5 postition patterns are also supported, the leftmost position then represents minutes.
+* Hundreds of schedules tested and confirmed working as expected.
 * A Qlik Sense task ID is associated with each schedule. When the schedule fires, the associated task is started.
-* Schedules can be added either manually in the YAML schedules file (as defined in the main Butler config file) or using [Butler's API](/docs/reference/rest_api). A sample schedule file is included in the GitHub repository. Schedules added using the API will be stored in the schedule YAML file referenced in the main Butler config file.
+* Schedules can be added either manually in the YAML schedules file (as defined in the main Butler config file) or using [Butler's API](/docs/reference/rest-api). A sample schedule file is included in the GitHub repository. Schedules added using the API will be stored in the schedule YAML file referenced in the main Butler config file.
 
 The two supported schedule formats look like this:
 
@@ -50,6 +53,6 @@ Valid cron patterns are:
         Ranges. E.g. 1-3,5
         Steps. E.g. */2
 
-There are quite a few online tools for creating cron patterns, for example [crontab.guru](https://crontab.guru/), [corntab](http://corntab.com/) and [crontab-generator](https://crontab-generator.org/).  
+There are quite a few online tools for creating cron patterns, for example [crontab.guru](https://crontab.guru/) and [crontab-generator](https://crontab-generator.org/).  
 
 Using a tool like these can save some time when setting things up, but keep in mind that most online tools use minutes as the smallest unit. Some manual tweaking might thus be needed before using the generated pattern in Butler's scheduler.

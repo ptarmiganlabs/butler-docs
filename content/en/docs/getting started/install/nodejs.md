@@ -23,7 +23,7 @@ Prerequisites:
 ## Installation steps
 
 - **Install node.js**  
-    Butler has been developed and tested using the 64 bit version of [Node.js](https://nodejs.org/en/download/). The most recent LTS (Long Term Support) version is usually a good choice.
+    Butler was developed and tested using the 64 bit version of [Node.js](https://nodejs.org/en/download/). The most recent LTS (Long Term Support) version of Node.js is a good choice for running Butler.
 
 - **Decide where to install Butler**  
     It is usually a good starting point to run Butler on the Sense server. If there are more than one server in the Sense cluster, Butler can be placed on the reload server (as the /createDir endpoint then can be used to create folders in which QVD and other files can be stored).

@@ -174,7 +174,7 @@ if (!doNotTrack) {
           <div class="pt-3 lead">
             <div class="mx-auto">
 	<p class="lead mt-5" style="font-size: 120%" ">
-		Advanced task scheduling, task chaining with parameters, key-value store, start tasks, get notified when they fail, extract app metadata, post to Slack/Teams and more.<br><br>
+		Advanced task scheduling, task chaining with parameters, key-value store, start tasks, customisable alerts when they fail, extract app metadata, post to Slack/Teams and more.<br><br>
 	</p>
 	<a class="btn btn-lg btn-primary mr-3 mb-4" href="/docs/">
 		Documentation <i class="fas fa-arrow-alt-circle-right ml-2"></i>
@@ -247,7 +247,7 @@ if (!doNotTrack) {
   <h4 class="h3">Start tasks via REST API or MQTT</h4>
   <p class="mb-0"><p>Data delays - no thanks!<br>
 Start reload tasks from within app load scripts or from upstream source systems that feed Sense with data</p>
-<p><a href="/docs/reference/rest_api/">Read more&hellip;</a></p>
+<p><a href="/docs/reference/rest-api/">Read more&hellip;</a></p>
 </p>
 </div>
 <div class="col-lg-4 mb-5 mb-lg-0 text-center ">
@@ -255,9 +255,11 @@ Start reload tasks from within app load scripts or from upstream source systems 
     <i class="fas fa-envelope"></i>
   </div>
   <h4 class="h3">Task failure notifications</h4>
-  <p class="mb-0"><p>Who should be the first to know that a reload has failed? You or your users?</p>
-<p>Get notified when tasks fail, with notifications sent to Slack, Microsoft Teams or email.</p>
-<p><a href="/docs/examples/reload-failure-notification/">Read more&hellip;</a></p>
+  <p class="mb-0"><p>Who should be the first to know that a reload has failed? You or your users?<br>
+Who was it that stopped that important 3-hour reload 5 minutes before it was done?</p>
+<p>Get notified when tasks fail or are stopped, with notifications sent to Slack, Microsoft Teams or email.<br>
+Emails support full HTML formatting and 40+ template fields in both email subject and body.</p>
+<p><a href="/docs/concepts/alert-emails/">Read more&hellip;</a></p>
 </p>
 </div>
 <div class="col-lg-4 mb-5 mb-lg-0 text-center ">
@@ -267,7 +269,7 @@ Start reload tasks from within app load scripts or from upstream source systems 
   <h4 class="h3">App metadata extract</h4>
   <p class="mb-0"><p>Extract app metadata for a single or all apps in a Sense cluster.
 Great for backup purposes!</p>
-<p><a href="/docs/reference/rest_api/">Read more&hellip;</a></p>
+<p><a href="/docs/reference/rest-api/">Read more&hellip;</a></p>
 </p>
 </div>
 <div class="col-lg-4 mb-5 mb-lg-0 text-center ">
@@ -277,7 +279,7 @@ Great for backup purposes!</p>
   <h4 class="h3">Keep your users in the know</h4>
   <p class="mb-0"><p>Tired of being asked &ldquo;when is new data available&rdquo;?</p>
 <p>Automatically inform your users via Slack or Teams when new data is available.</p>
-<p><a href="/docs/reference/rest_api/">Read more&hellip;</a></p>
+<p><a href="/docs/reference/rest-api/">Read more&hellip;</a></p>
 </p>
 </div>
 <div class="col-lg-4 mb-5 mb-lg-0 text-center ">
@@ -321,8 +323,9 @@ Great for backup purposes!</p>
   <div class="mb-4 h1">
     <i class="fas fa-lightbulb"></i>
   </div>
-  <h4 class="h3">Latest release: 4.1</h4>
-  <p class="mb-0"><p>Nice little update adding controlled, secure file copying to Qlik Sense.</p>
+  <h4 class="h3">Latest release: 4.2</h4>
+  <p class="mb-0"><p>Major improvement to reload failure alert emails.<br>
+Alerting deluxe for Qlik Sense!</p>
 <p>Available on <a href="https://github.com/ptarmiganlabs/butler/releases">GitHub</a>.</p>
 </p>
 </div>

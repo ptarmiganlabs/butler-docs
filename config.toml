@@ -139,7 +139,7 @@ version_menu = "Releases"
 # The major.minor version tag for the version of the docs represented in this
 # branch of the repository. Used in the "version-banner" partial to display a
 # version number for this doc set.
-version = "v4.1"
+version = "v4.2"
 
 # Flag used in the "version-banner" partial to decide whether to display a 
 # banner on every page indicating that this is an archived version of the docs.
@@ -151,7 +151,7 @@ url_latest_version = "https://butler.ptarmiganlabs.com"
 
 # A variable used in various docs to determine URLs for config files etc.
 # To find occurrences, search the repo for 'params "githubbranch"'.
-githubbranch = "v4.1"
+githubbranch = "v4.2"
 
 # Add new release versions here. These entries appear in the drop-down menu
 # at the top of the website.
@@ -187,8 +187,8 @@ breadcrumb_disable = false
 [params.ui.feedback]
 enable = true
 # The responses that the user sees after clicking "yes" (the page was helpful) or "no" (the page was not helpful).
-yes = 'Glad to hear it! Please <a href="https://github.com/ptarmiganlabs/butler/issues/new">tell us how we can improve</a>.'
-no = 'Sorry to hear that. Please <a href="https://github.com/ptarmiganlabs/butler/issues/new">tell us how we can improve</a>.'
+yes = 'Glad to hear it! Please <a href="https://github.com/ptarmiganlabs/butler/issues/new/choose">tell us how we can improve</a>.'
+no = 'Sorry to hear that. Please <a href="https://github.com/ptarmiganlabs/butler/issues/new/choose">tell us how we can improve</a>.'
 
 
 [params.links]
