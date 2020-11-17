@@ -598,5 +598,29 @@ It&amp;rsquo;s thus a good idea to monitor for example how much memory (RAM) too
       </description>
     </item>
     
+    <item>
+      <title>Docs: Start Sense tasks using MQTT</title>
+      <link>/docs/examples/start-task-from-mqtt/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/examples/start-task-from-mqtt/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;use-mqtt-to-start-sense-tasks&#34;&gt;Use MQTT to start Sense tasks&lt;/h2&gt;
+&lt;p&gt;Butler is configured to listen to a specific MQTT topic, qliksense/start_task, and use any message received in that topic as a Sense task ID, which is then started.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A Sense app, used by end users, relies on data in a MS SQL Server database.&lt;/li&gt;
+&lt;li&gt;The data in the datbase can be updated at any time.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In order to update the Sense app with data, the most common approach is to schedule reloads of the Qlik Sense app at certain intervals, i.e. polling the database.&lt;/p&gt;
+&lt;p&gt;But if the database instead posts a MQTT message on the qliksense/start_task topic when new data is available, the database will trigger the Sense app&amp;rsquo;s reload.&lt;/p&gt;
+&lt;p&gt;This way the Sense app will be updated as quickly as possible after new data is availabe in the database.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;I.e. the end user will have access to more up-to-date data, compared to the polling based solution.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
   </channel>
 </rss>

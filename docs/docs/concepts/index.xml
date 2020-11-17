@@ -139,8 +139,7 @@ Cron has been the standard scheduler for decades in most Linux systems, it&amp;r
       <description>
         
         
-        &lt;!-- TODO --&gt;
-&lt;h2 id=&#34;scheduled-vs-manual-app-reloads&#34;&gt;Scheduled vs manual app reloads&lt;/h2&gt;
+        &lt;h2 id=&#34;scheduled-vs-manual-app-reloads&#34;&gt;Scheduled vs manual app reloads&lt;/h2&gt;
 &lt;p&gt;It might not be obvious at first, but there are several kinds of reloads in Qlik Sense Enterprise:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Reloads started from QMC.&lt;/strong&gt; These are usually created and managed in the QMC. Quite often they are also combined into reload chains. The common thing about these reloads is that they - under the hood - are managed by Sense&amp;rsquo;s scheduling service.&lt;/li&gt;

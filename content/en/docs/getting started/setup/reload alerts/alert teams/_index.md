@@ -29,7 +29,7 @@ Don't forget to create the log appender .xml files on the Sense server(s).
 Those xml files are the foundation on top of which all Butler alerts are built - without them the alerts described on this page won't work.
 {{% /alert %}}
 
-The concept is the same as for [alert emails](../10-alert-emails/#how-it-works).
+The concept is the same as for [alert emails](../alert-emails/).
 
 Butler's Teams alerts don't currently support the templates available for alert emails.
 

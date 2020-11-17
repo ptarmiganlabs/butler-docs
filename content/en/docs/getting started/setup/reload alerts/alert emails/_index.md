@@ -19,7 +19,7 @@ Butler can send two kinds of alert emails:
 - When a scheduled, running reload task fails.
 - When a scheduled, running reload task is somehow stopped.
 
-See the [Concepts section](/docs/concepts/-emails/) for additional details on alert emails.
+See the [Concepts section](/docs/concepts/alert-emails/) for additional details on alert emails.
 
 ## Settings in main config file
 

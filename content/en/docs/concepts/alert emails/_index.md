@@ -5,7 +5,6 @@ weight: 30
 description: >
   Overview of the various kinds of alert emails Butler can send.
 ---
-<!-- TODO -->
 
 ## Scheduled vs manual app reloads
 

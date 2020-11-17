@@ -38,7 +38,7 @@ Do note though that Butler expects the configuration properties below to exist i
 &lt;li&gt;When a scheduled, running reload task fails.&lt;/li&gt;
 &lt;li&gt;When a scheduled, running reload task is somehow stopped.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;See the &lt;a href=&#34;/docs/concepts/-emails/&#34;&gt;Concepts section&lt;/a&gt; for additional details on alert emails.&lt;/p&gt;
+&lt;p&gt;See the &lt;a href=&#34;/docs/concepts/alert-emails/&#34;&gt;Concepts section&lt;/a&gt; for additional details on alert emails.&lt;/p&gt;
 &lt;h2 id=&#34;settings-in-main-config-file&#34;&gt;Settings in main config file&lt;/h2&gt;
 
 
@@ -186,7 +186,7 @@ If alerts via Slack are not of interest, just turn off this feature and leave th
 
 &lt;/div&gt;
 
-&lt;p&gt;The concept is the same as for &lt;a href=&#34;../alert-emails/#how-it-works&#34;&gt;alert emails&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The concept is the same as for &lt;a href=&#34;../alert-emails/&#34;&gt;alert emails&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Butler&amp;rsquo;s Slack alerts don&amp;rsquo;t currently support the templates available for alert emails.&lt;/p&gt;
 &lt;h2 id=&#34;settings-in-main-config-file&#34;&gt;Settings in main config file&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;---&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -247,7 +247,7 @@ If alerts via Teams are not of interest, just turn off this feature and leave th
 
 &lt;/div&gt;
 
-&lt;p&gt;The concept is the same as for &lt;a href=&#34;../10-alert-emails/#how-it-works&#34;&gt;alert emails&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The concept is the same as for &lt;a href=&#34;../alert-emails/&#34;&gt;alert emails&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Butler&amp;rsquo;s Teams alerts don&amp;rsquo;t currently support the templates available for alert emails.&lt;/p&gt;
 &lt;h2 id=&#34;settings-in-main-config-file&#34;&gt;Settings in main config file&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;---&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
