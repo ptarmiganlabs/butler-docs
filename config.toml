@@ -192,32 +192,27 @@ no = 'Sorry to hear that. Please <a href="https://github.com/ptarmiganlabs/butle
 
 
 [params.links]
-# Docsy: "User" links will show on left side of footer and in the community page if you have one.
+# End user relevant links. These will show up on left side of footer and in the community page if you have one.
 [[params.links.user]]
-	name ="Twitter"
+	name = "SenseOps mailing list"
+	url = "https://www.subscribepage.com/g3c1f1"
+	icon = "fa fa-envelope"
+        desc = "SenseOps newsletter from Ptarmigan Labs"
+[[params.links.user]]
+	name = "Discussion forums on GitHub"
+	url = "https://github.com/ptarmiganlabs/butler/discussions"
+	icon = "fa fa-comments"
+        desc = "Talk about both developing and using Butler Auth."
+[[params.links.user]]
+	name = "Ptarmigan Labs on Twitter"
 	url = "https://twitter.com/ptarmiganlabs"
 	icon = "fab fa-twitter"
-        desc = "Follow us on Twitter to get the latest news"
-[[params.links.user]]
-	name = "GitHub"
-	url = "https://github.com/ptarmiganlabs/butler"
-	icon = "fab fa-github"
-        desc = "Development happens here!"
+        desc = "Follow us here for latest news"
 [[params.links.user]]
 	name = "LinkedIn"
 	url = "https://www.linkedin.com/in/gorsan/"
 	icon = "fab fa-linkedin"
         desc = "Reach out to Ptarmigan Labs via LinkedIn"
-# [[params.links.user]]
-# 	name = "Slack"
-# 	url = "https://kubeflow.slack.com/join/shared_invite/zt-cpr020z4-PfcAue_2nw67~iIDy7maAQ"
-# 	icon = "fab fa-slack"
-#         desc = "Chat with other project contributors"
-[[params.links.user]]
-	name = "Newsletter"
-	url = "https://www.subscribepage.com/g3c1f1"
-	icon = "fa fa-envelope"
-        desc = "Be the first to hear about Butler news"
 
 
 # Docsy: "Developer" links will show on right side of footer and in the community page if you have one.
@@ -226,12 +221,16 @@ no = 'Sorry to hear that. Please <a href="https://github.com/ptarmiganlabs/butle
 	url = "https://github.com/ptarmiganlabs/butler"
 	icon = "fab fa-github"
         desc = "Development takes place here!"
-
+[[params.links.developer]]
+	name = "Bug reports & Feature requests"
+	url = "https://github.com/ptarmiganlabs/butler/issues/new/choose"
+	icon = "fa fa-bug"
+        desc = "Let us know what's working, what's not and what's missing."
 [[params.links.developer]]
 	name = "Get in touch with Ptarmigan Labs"
 	url = "mailto://info@ptarmiganlabs.com"
 	icon = "fa fa-envelope"
-        desc = "Get in touch with Ptarmigan Labs around Butler SOS"
+        desc = "Get in touch with Ptarmigan Labs around Butler"
 
 
 
