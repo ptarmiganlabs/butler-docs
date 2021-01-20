@@ -37,7 +37,6 @@ pygmentsStyle = "tango"
  #images = ["images/project-illustration.png"]
 
 # Top-level navigation (horizontal)
-
 [[menu.main]]
     name = "What is Butler?"
     weight = -103
