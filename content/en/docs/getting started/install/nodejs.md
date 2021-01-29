@@ -46,7 +46,7 @@ Prerequisites:
 
 - **MQTT message broker**
 
-    Several of Butler's features use [MQTT](http://mqtt.org/) for sending and receiving messages.  
-    MQTT is a standardised messaging protocol, and it should be possible to use [any broker following the MQTT standard](https://github.com/mqtt/mqtt.github.io/wiki/software?id=software).
+    Several of Butler's features use [MQTT](https://mqtt.org/) for sending and receiving messages.  
+    MQTT is a standardised messaging protocol, and it should be possible to use [any broker following the MQTT standard](https://github.com/mqtt/mqtt.org/wiki/software?id=software).
 
     Butler has been developed and tested using [Mosquitto](https://mosquitto.org/) running on OSX, Debian Linux and Windows Server - all work flawlessly.

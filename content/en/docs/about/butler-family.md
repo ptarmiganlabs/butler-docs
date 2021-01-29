@@ -5,7 +5,7 @@ weight: 20
 ---
 
 Butler started out with a very specific need to start Sense reloads from outside systems.  
-Over the years a couple of projects have spun off from Butler (for example Butler SOS), and still other projects have been created to solve specific challenges around developing Sense apps (for example the [Butler App Duplicator](https://github.com/ptarmiganlabs/butler-app-duplicator)) or simplifying day 2 operations ([[1](https://www.infoworld.com/article/3442754/why-de-risking-day-2-operations-is-a-smart-business-strategy.html)], [[2](https://dzone.com/articles/defining-day-2-operations)]) in the form of [Butler SOS](https://github.com/ptarmiganlabs/butler-sos).
+Over the years a couple of projects have spun off from Butler (for example Butler SOS), and still other projects have been created to solve specific challenges around developing Sense apps (for example the [Butler App Duplicator](https://github.com/ptarmiganlabs/butler-app-duplicator)) or simplifying day 2 operations ([[1](https://www.infoworld.com/article/3442754/why-de-risking-day-2-operations-is-a-smart-business-strategy.html)], [[2](https://dzone.com/articles/defining-day-2-operations)]) in the form of [Butler SOS](https://butler-sos.ptarmiganlabs.com).
 
 All members of the Butler family are available on [Ptarmigan Labs' GitHub page](https://github.com/ptarmiganlabs).
 

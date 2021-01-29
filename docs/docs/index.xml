@@ -79,8 +79,8 @@ From a Windows command prompt (assuming the Butler ZIP file/repository was saved
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;MQTT message broker&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Several of Butler&amp;rsquo;s features use &lt;a href=&#34;http://mqtt.org/&#34;&gt;MQTT&lt;/a&gt; for sending and receiving messages.&lt;br&gt;
-MQTT is a standardised messaging protocol, and it should be possible to use &lt;a href=&#34;https://github.com/mqtt/mqtt.github.io/wiki/software?id=software&#34;&gt;any broker following the MQTT standard&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Several of Butler&amp;rsquo;s features use &lt;a href=&#34;https://mqtt.org/&#34;&gt;MQTT&lt;/a&gt; for sending and receiving messages.&lt;br&gt;
+MQTT is a standardised messaging protocol, and it should be possible to use &lt;a href=&#34;https://github.com/mqtt/mqtt.org/wiki/software?id=software&#34;&gt;any broker following the MQTT standard&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Butler has been developed and tested using &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; running on OSX and Debian Linux - both work flawlessly.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -171,7 +171,7 @@ For example, when Butler was started it wouldn&amp;rsquo;t capture currently act
         
         
         &lt;p&gt;Butler started out with a very specific need to start Sense reloads from outside systems.&lt;br&gt;
-Over the years a couple of projects have spun off from Butler (for example Butler SOS), and still other projects have been created to solve specific challenges around developing Sense apps (for example the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-app-duplicator&#34;&gt;Butler App Duplicator&lt;/a&gt;) or simplifying day 2 operations ([&lt;a href=&#34;https://www.infoworld.com/article/3442754/why-de-risking-day-2-operations-is-a-smart-business-strategy.html&#34;&gt;1&lt;/a&gt;], [&lt;a href=&#34;https://dzone.com/articles/defining-day-2-operations&#34;&gt;2&lt;/a&gt;]) in the form of &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sos&#34;&gt;Butler SOS&lt;/a&gt;.&lt;/p&gt;
+Over the years a couple of projects have spun off from Butler (for example Butler SOS), and still other projects have been created to solve specific challenges around developing Sense apps (for example the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-app-duplicator&#34;&gt;Butler App Duplicator&lt;/a&gt;) or simplifying day 2 operations ([&lt;a href=&#34;https://www.infoworld.com/article/3442754/why-de-risking-day-2-operations-is-a-smart-business-strategy.html&#34;&gt;1&lt;/a&gt;], [&lt;a href=&#34;https://dzone.com/articles/defining-day-2-operations&#34;&gt;2&lt;/a&gt;]) in the form of &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34;&gt;Butler SOS&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;All members of the Butler family are available on &lt;a href=&#34;https://github.com/ptarmiganlabs&#34;&gt;Ptarmigan Labs&#39; GitHub page&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Projects with production grade release status are (as of this writing):&lt;/p&gt;
 &lt;h3 id=&#34;butler&#34;&gt;Butler&lt;/h3&gt;
@@ -461,8 +461,8 @@ npm install
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;MQTT message broker&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Several of Butler&amp;rsquo;s features use &lt;a href=&#34;http://mqtt.org/&#34;&gt;MQTT&lt;/a&gt; for sending and receiving messages.&lt;br&gt;
-MQTT is a standardised messaging protocol, and it should be possible to use &lt;a href=&#34;https://github.com/mqtt/mqtt.github.io/wiki/software?id=software&#34;&gt;any broker following the MQTT standard&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Several of Butler&amp;rsquo;s features use &lt;a href=&#34;https://mqtt.org/&#34;&gt;MQTT&lt;/a&gt; for sending and receiving messages.&lt;br&gt;
+MQTT is a standardised messaging protocol, and it should be possible to use &lt;a href=&#34;https://github.com/mqtt/mqtt.org/wiki/software?id=software&#34;&gt;any broker following the MQTT standard&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Butler has been developed and tested using &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; running on OSX, Debian Linux and Windows Server - all work flawlessly.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;

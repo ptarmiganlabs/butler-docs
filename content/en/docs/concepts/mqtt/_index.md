@@ -9,7 +9,7 @@ description: >
 
 ## What is MQTT?
 
-[MQTT](http://mqtt.org) is a light weight publish-subscribe ("pub-sub") protocol.
+[MQTT](https://mqtt.org) is a light weight publish-subscribe ("pub-sub") protocol.
 
 Used in both the telecomms industry and various Internet of Things applications, there are client libraries available for many different languages and platforms. This is important, as there is a good chance other systems can find a way of sending MQTT messages, which Butler can then listen for/subscribe to.
 

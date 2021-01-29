@@ -79,8 +79,8 @@ From a Windows command prompt (assuming the Butler ZIP file/repository was saved
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;MQTT message broker&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Several of Butler&amp;rsquo;s features use &lt;a href=&#34;http://mqtt.org/&#34;&gt;MQTT&lt;/a&gt; for sending and receiving messages.&lt;br&gt;
-MQTT is a standardised messaging protocol, and it should be possible to use &lt;a href=&#34;https://github.com/mqtt/mqtt.github.io/wiki/software?id=software&#34;&gt;any broker following the MQTT standard&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Several of Butler&amp;rsquo;s features use &lt;a href=&#34;https://mqtt.org/&#34;&gt;MQTT&lt;/a&gt; for sending and receiving messages.&lt;br&gt;
+MQTT is a standardised messaging protocol, and it should be possible to use &lt;a href=&#34;https://github.com/mqtt/mqtt.org/wiki/software?id=software&#34;&gt;any broker following the MQTT standard&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Butler has been developed and tested using &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; running on OSX and Debian Linux - both work flawlessly.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -359,8 +359,8 @@ npm install
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;MQTT message broker&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Several of Butler&amp;rsquo;s features use &lt;a href=&#34;http://mqtt.org/&#34;&gt;MQTT&lt;/a&gt; for sending and receiving messages.&lt;br&gt;
-MQTT is a standardised messaging protocol, and it should be possible to use &lt;a href=&#34;https://github.com/mqtt/mqtt.github.io/wiki/software?id=software&#34;&gt;any broker following the MQTT standard&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Several of Butler&amp;rsquo;s features use &lt;a href=&#34;https://mqtt.org/&#34;&gt;MQTT&lt;/a&gt; for sending and receiving messages.&lt;br&gt;
+MQTT is a standardised messaging protocol, and it should be possible to use &lt;a href=&#34;https://github.com/mqtt/mqtt.org/wiki/software?id=software&#34;&gt;any broker following the MQTT standard&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Butler has been developed and tested using &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; running on OSX, Debian Linux and Windows Server - all work flawlessly.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;

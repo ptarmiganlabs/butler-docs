@@ -378,7 +378,7 @@ This is an intentional design decision.&lt;/p&gt;
         
         
         &lt;h2 id=&#34;what-is-mqtt&#34;&gt;What is MQTT?&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;http://mqtt.org&#34;&gt;MQTT&lt;/a&gt; is a light weight publish-subscribe (&amp;ldquo;pub-sub&amp;rdquo;) protocol.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://mqtt.org&#34;&gt;MQTT&lt;/a&gt; is a light weight publish-subscribe (&amp;ldquo;pub-sub&amp;rdquo;) protocol.&lt;/p&gt;
 &lt;p&gt;Used in both the telecomms industry and various Internet of Things applications, there are client libraries available for many different languages and platforms. This is important, as there is a good chance other systems can find a way of sending MQTT messages, which Butler can then listen for/subscribe to.&lt;/p&gt;
 &lt;h2 id=&#34;outgoing-mqtt-from-butler-itself&#34;&gt;Outgoing MQTT from Butler itself&lt;/h2&gt;
 &lt;p&gt;If MQTT is enabled, Butler will forward events (reload failed, user opened a session to Sense etc) to MQTT. These events are sent to the MQTT topics defined in the &lt;code&gt;Butler.mqttConfig&lt;/code&gt; section of Butler&amp;rsquo;s config file.&lt;/p&gt;

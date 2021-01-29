@@ -1355,7 +1355,7 @@ if (!doNotTrack) {
         <div class="lead">Details about how Qlik Sense can use Butler to send pub-sub messages using MQTT.</div>
 	
 	<h2 id="what-is-mqtt">What is MQTT?</h2>
-<p><a href="http://mqtt.org">MQTT</a> is a light weight publish-subscribe (&ldquo;pub-sub&rdquo;) protocol.</p>
+<p><a href="https://mqtt.org">MQTT</a> is a light weight publish-subscribe (&ldquo;pub-sub&rdquo;) protocol.</p>
 <p>Used in both the telecomms industry and various Internet of Things applications, there are client libraries available for many different languages and platforms. This is important, as there is a good chance other systems can find a way of sending MQTT messages, which Butler can then listen for/subscribe to.</p>
 <h2 id="outgoing-mqtt-from-butler-itself">Outgoing MQTT from Butler itself</h2>
 <p>If MQTT is enabled, Butler will forward events (reload failed, user opened a session to Sense etc) to MQTT. These events are sent to the MQTT topics defined in the <code>Butler.mqttConfig</code> section of Butler&rsquo;s config file.</p>
