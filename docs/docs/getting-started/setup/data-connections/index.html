@@ -1434,7 +1434,7 @@ These settings are mandatory if you plan to use Butler&rsquo;s REST API from the
 <p>Two data connections must be created: Butler_GET and Butler_POST.</p>
 <p>The latter is used both for POST calls and also PUT, DELETE and other HTTP operations.<br>
 The <code>X-HTTP-Method-Override</code> HTTP header is used with the Butler_POST data connection to tell Butler which HTTP operation should be used.</p>
-<p>This is a way to work around a currently limitation of Qlik&rsquo;s REST connector, as it only supports GET and POST operations.</p>
+<p>This is a way to work around a limitation of Qlik&rsquo;s REST connector, as it only supports GET and POST operations.</p>
 <h2 id="butler_get">Butler_GET</h2>
 <p>With Butler running, create a new REST data connection called &ldquo;Butler_GET&rdquo;.<br>
 It&rsquo;s URL should point to Butler&rsquo;s host/port.</p>
@@ -1657,7 +1657,7 @@ As with all new data connections, Sense will change the name your new connection
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 0001-01-01
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-02-03: <a  href="https://github.com/ptarmiganlabs/butler-docs/commit/8b5673bd8581360ad5c17f0376763f10716717a2">Added: - How to create Butler_GET/POST data connections in Sense - Examples showing how to use file operations APIs - 4.3.0 release news (8b5673b)</a>
 </div>
 </div>
 

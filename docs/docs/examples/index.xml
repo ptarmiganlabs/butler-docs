@@ -721,7 +721,7 @@ sub DeleteFile(vFile)
     DROP TABLE RestConnectorMasterTable;
 end sub
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Note how the HTTP operation is set using the X-HTTP-Method-Override HTTP header.&lt;/p&gt;
-&lt;p&gt;This is a way to work around a currently limitation of Qlik&amp;rsquo;s REST connector, as it only supports GET and POST operations. The extra HTTP header tells Butler what kind of HTTP operation should &lt;em&gt;really&lt;/em&gt; be carried out.&lt;/p&gt;
+&lt;p&gt;This is a way to work around a limitation of Qlik&amp;rsquo;s REST connector, as it only supports GET and POST operations. The extra HTTP header tells Butler what kind of HTTP operation should &lt;em&gt;really&lt;/em&gt; be carried out.&lt;/p&gt;
 
       </description>
     </item>

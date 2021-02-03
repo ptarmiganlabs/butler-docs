@@ -15,7 +15,7 @@ Two data connections must be created: Butler_GET and Butler_POST.
 The latter is used both for POST calls and also PUT, DELETE and other HTTP operations.  
 The `X-HTTP-Method-Override` HTTP header is used with the Butler_POST data connection to tell Butler which HTTP operation should be used.
 
-This is a way to work around a currently limitation of Qlik's REST connector, as it only supports GET and POST operations.
+This is a way to work around a limitation of Qlik's REST connector, as it only supports GET and POST operations.
 
 ## Butler_GET
 

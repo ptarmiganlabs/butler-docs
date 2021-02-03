@@ -767,7 +767,7 @@ These settings are mandatory if you plan to use Butler&amp;rsquo;s REST API from
 &lt;p&gt;Two data connections must be created: Butler_GET and Butler_POST.&lt;/p&gt;
 &lt;p&gt;The latter is used both for POST calls and also PUT, DELETE and other HTTP operations.&lt;br&gt;
 The &lt;code&gt;X-HTTP-Method-Override&lt;/code&gt; HTTP header is used with the Butler_POST data connection to tell Butler which HTTP operation should be used.&lt;/p&gt;
-&lt;p&gt;This is a way to work around a currently limitation of Qlik&amp;rsquo;s REST connector, as it only supports GET and POST operations.&lt;/p&gt;
+&lt;p&gt;This is a way to work around a limitation of Qlik&amp;rsquo;s REST connector, as it only supports GET and POST operations.&lt;/p&gt;
 &lt;h2 id=&#34;butler_get&#34;&gt;Butler_GET&lt;/h2&gt;
 &lt;p&gt;With Butler running, create a new REST data connection called &amp;ldquo;Butler_GET&amp;rdquo;.&lt;br&gt;
 It&amp;rsquo;s URL should point to Butler&amp;rsquo;s host/port.&lt;/p&gt;

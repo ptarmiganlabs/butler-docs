@@ -15,6 +15,24 @@
     
     
     <item>
+      <title>Blog: File operations examples and better setup instructions</title>
+      <link>/blog/news/20210203-1/</link>
+      <pubDate>Wed, 03 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/news/20210203-1/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Nothing really major, but it should make the process of getting started with Butler a bit easier:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Added &lt;a href=&#34;/docs/getting-started/setup/data-connections/&#34;&gt;instructions&lt;/a&gt; for creating the Sense data connections needed to use Butler.&lt;/li&gt;
+&lt;li&gt;Added &lt;a href=&#34;/docs/examples/file-copy-move-delete/&#34;&gt;examples&lt;/a&gt; showing how file copy/move/delete operations can be done from Sense load scripts using Butler&amp;rsquo;s APIs.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Blog: v4.3.0: Bug fixes, improved documentation</title>
       <link>/blog/releases/v4.3.0/</link>
       <pubDate>Wed, 03 Feb 2021 00:00:00 +0000</pubDate>

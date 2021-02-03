@@ -120,4 +120,4 @@ end sub
 
 Note how the HTTP operation is set using the X-HTTP-Method-Override HTTP header.
 
-This is a way to work around a currently limitation of Qlik's REST connector, as it only supports GET and POST operations. The extra HTTP header tells Butler what kind of HTTP operation should *really* be carried out.
+This is a way to work around a limitation of Qlik's REST connector, as it only supports GET and POST operations. The extra HTTP header tells Butler what kind of HTTP operation should *really* be carried out.
