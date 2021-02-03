@@ -10,6 +10,13 @@ weight: 20
 
 {{% pageinfo %}}
 
+### What's new in version 4.3
+
+* **Fixed a [bug](https://github.com/ptarmiganlabs/butler/issues/114)** that in some cases prevented Sense reload tasks from being started using Butler's API.
+* **Added [instruction](https://butler.ptarmiganlabs.com/docs/getting-started/setup/data-connections/)** for creating the data connections needed to use Butler APIs from Sense load scripts.
+* **Added [concept page](https://butler.ptarmiganlabs.com/docs/concepts/file-system-access/)** explaining how Butler can be used to copy/move/delete files from load scripts.
+* **Added [example page](https://butler.ptarmiganlabs.com/docs/examples/file-copy-move-delete/)** showing how file manipulation (copy/move/delete) is done from Sense scripts, using Butler's APIs.
+
 ### What's new in version 4.2
 
 * **Email reload alerts taken to a new level.** Emails are created using template files, with full support for HTML formatting, emoji support in both email subject/body etc.  
