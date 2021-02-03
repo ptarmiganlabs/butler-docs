@@ -4,7 +4,7 @@
   
   <url>
     <loc>/docs/getting-started/install/natively/</loc>
-    <lastmod>2020-10-21T08:41:58+02:00</lastmod>
+    <lastmod>2021-01-29T18:27:15+01:00</lastmod>
   </url>
   
   <url>
@@ -109,7 +109,7 @@
   
   <url>
     <loc>/docs/about/butler-family/</loc>
-    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
+    <lastmod>2021-01-29T18:27:15+01:00</lastmod>
   </url>
   
   <url>
@@ -163,6 +163,10 @@
   </url>
   
   <url>
+    <loc>/docs/concepts/file-system-access/</loc>
+  </url>
+  
+  <url>
     <loc>/docs/getting-started/operations/</loc>
     <lastmod>2020-11-16T14:06:11+01:00</lastmod>
   </url>
@@ -189,7 +193,7 @@
   
   <url>
     <loc>/docs/getting-started/install/nodejs/</loc>
-    <lastmod>2020-11-16T14:06:11+01:00</lastmod>
+    <lastmod>2021-01-29T18:27:15+01:00</lastmod>
   </url>
   
   <url>
@@ -204,7 +208,7 @@
   
   <url>
     <loc>/docs/concepts/mqtt/</loc>
-    <lastmod>2020-11-16T14:06:11+01:00</lastmod>
+    <lastmod>2021-01-29T18:27:15+01:00</lastmod>
   </url>
   
   <url>
@@ -220,6 +224,10 @@
   <url>
     <loc>/docs/about/contributing/</loc>
     <lastmod>2020-11-16T14:06:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/examples/file-copy-move-delete/</loc>
   </url>
   
   <url>
@@ -285,6 +293,15 @@
   <url>
     <loc>/docs/getting-started/setup/docker-health-check/</loc>
     <lastmod>2020-11-16T14:06:11+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/getting-started/setup/data-connections/</loc>
+  </url>
+  
+  <url>
+    <loc>/blog/releases/v4.3.0/</loc>
+    <lastmod>2021-02-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>

@@ -110,7 +110,7 @@ One of them fires every 30 seconds and this is also visible in the Butler logs:&
       <description>
         
         
-        &lt;p&gt;There are many ways to call REST APIs. In this page curl is used, but the same tests can be done using Paw, Postman and by using the REST connector from within Qlik Sense load scripts.&lt;/p&gt;
+        &lt;p&gt;There are many ways to call REST APIs. In this page curl is used, but the same tests can be done using &lt;a href=&#34;https://paw.cloud/&#34;&gt;Paw&lt;/a&gt;, &lt;a href=&#34;https://www.postman.com/&#34;&gt;Postman&lt;/a&gt; and by using the &lt;a href=&#34;https://help.qlik.com/en-US/connectors/Subsystems/REST_connector_help/Content/Connectors_REST/REST-connector.htm&#34;&gt;REST connector&lt;/a&gt; from within Qlik Sense load scripts.&lt;/p&gt;
 &lt;p&gt;All the examples assume Butler is exposing it&amp;rsquo;s API on 192.168.1.168:8080.&lt;/p&gt;
 &lt;h2 id=&#34;list-all-defined-schedules&#34;&gt;List all defined schedules&lt;/h2&gt;
 &lt;p&gt;Looks like there currently are three schedules:&lt;/p&gt;
@@ -618,6 +618,110 @@ It&amp;rsquo;s thus a good idea to monitor for example how much memory (RAM) too
 &lt;p&gt;But if the database instead posts a MQTT message on the qliksense/start_task topic when new data is available, the database will trigger the Sense app&amp;rsquo;s reload.&lt;/p&gt;
 &lt;p&gt;This way the Sense app will be updated as quickly as possible after new data is availabe in the database.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;&lt;strong&gt;I.e. the end user will have access to more up-to-date data, compared to the polling based solution.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Controlled and secure file system operations</title>
+      <link>/docs/examples/file-copy-move-delete/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/examples/file-copy-move-delete/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;goal-copy-move-and-delete-files-from-sense-load-scripts&#34;&gt;Goal: Copy, move and delete files from Sense load scripts&lt;/h2&gt;
+&lt;p&gt;These steps are needed to achieve the goal:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Install and configure Butler&amp;rsquo;s general settings.&lt;/li&gt;
+&lt;li&gt;Add the directories in which file operations should be allowed to Butler&amp;rsquo;s config file.&lt;br&gt;
+Make sure the account Butler runs under has the appropriate access to those directories.&lt;/li&gt;
+&lt;li&gt;Make sure the &lt;a href=&#34;/docs/getting-started/setup/data-connections&#34;&gt;necessary Sense data connections&lt;/a&gt; exist.&lt;/li&gt;
+&lt;li&gt;Call the Butler APIs directly or use the subs included in the GitHub repo to do the desired file operations.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;1-install-and-configure-butler&#34;&gt;1. Install and configure Butler&lt;/h3&gt;
+&lt;p&gt;Described &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;2-add-approved-directories-to-butler-config-file&#34;&gt;2. Add approved directories to Butler config file&lt;/h3&gt;
+&lt;p&gt;The general idea is for each file system operation (copy, move and delete) you can specify in which (or between which) directories that operation should be allowed.&lt;/p&gt;
+&lt;p&gt;For example, let&amp;rsquo;s assume Butler&amp;rsquo;s config file includes this settings (note how both Linux and Windows style paths are supported):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;fileCopyApprovedDirectories&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;fromDirectory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;/data1/qvd&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;toDirectory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;/data2/qvd_archive&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;fromDirectory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;e:\data3\qvd&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;toDirectory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;e:\data4\qvd_archive&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;fromDirectory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;e:\data5\qvd&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;toDirectory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;e:\data6\qvd_archive&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;fileMoveApprovedDirectories&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;fromDirectory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;/data7/qvd&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;toDirectory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;/data8/qvd_archive&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;fromDirectory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;e:\data9\qvd&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;toDirectory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;e:\data10\qvd_archive&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;fileDeleteApprovedDirectories&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &lt;span style=&#34;color:#000&#34;&gt;/data1/qvd_archive&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &lt;span style=&#34;color:#000&#34;&gt;e:\data1\qvd_archive&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This configuration (for example) means:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Copying can be done from &lt;code&gt;e:\data3\qvd&lt;/code&gt; to &lt;code&gt;e:\data4\qvd_archive&lt;/code&gt;, but &lt;em&gt;not&lt;/em&gt; from &lt;code&gt;e:\data3\qvd&lt;/code&gt; to &lt;code&gt;e:\data6\qvd_archive&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Moving files can be done from &lt;code&gt;/data7/qvd&lt;/code&gt; to &lt;code&gt;/data8/qvd_archive&lt;/code&gt;, but &lt;em&gt;not&lt;/em&gt; from &lt;code&gt;/data7/qvd&lt;/code&gt; to &lt;code&gt;e:\data9\qvd&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Files can be deleted in the directories &lt;code&gt;/data1/qvd_archive&lt;/code&gt; and &lt;code&gt;e:\data1\qvd_archive&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;3-create-sense-data-connections-used-to-call-butlers-rest-api&#34;&gt;3. Create Sense data connections used to call Butler&amp;rsquo;s REST API&lt;/h3&gt;
+&lt;p&gt;Described &lt;a href=&#34;/docs/getting-started/setup/data-connections/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;4-call-the-butler-apis-or-use-convenience-subs&#34;&gt;4. Call the Butler APIs or use convenience subs&lt;/h3&gt;
+&lt;p&gt;Using the provided subs is easy:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// Where is Butler running?
+let vButlerHost = &#39;10.11.12.13&#39;;
+let vButlerPort = 8080;
+
+// Delete files
+Call DeleteFile(&#39;/data1/qvd_archive/a.txt&#39;)
+Call DeleteFile(&#39;e:\data1\qvd_archive\a.txt&#39;)
+
+// Copy files with options overwrite-if-exists=true and keep-source-timestamp=true
+Call CopyFile(&#39;/data1/qvd/a.txt&#39;, &#39;/data2/qvd_archive/a.txt&#39;, &#39;true&#39;, &#39;true&#39;)
+Call CopyFile(&#39;e:\data5\qvd\a.txt&#39;, &#39;e:\data6\qvd_archive\a.txt&#39;, &#39;true&#39;, &#39;true&#39;)
+
+// Move files with option overwrite-if-exists=true
+Call MoveFile(&#39;/data7/qvd/a.txt&#39;, &#39;/data8/qvd_archive/a.txt&#39;, &#39;true&#39;)
+Call MoveFile(&#39;e:\data9\qvd\a.txt&#39;, &#39;e:\data10\qvd_archive\a.txt&#39;, &#39;true&#39;)
+
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If you prefer to call the REST API directly, the DeleteFile sub might provide some inspiration:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// ------------------------------------------------------------
+// ** Delete file **
+//
+// Files can only be deleted in folders (and subfolders of) directories that 
+// have been approved in the Butler config file.
+//
+// Paramaters:
+// vFile                : File to be deleted. 
+// ------------------------------------------------------------
+sub DeleteFile(vFile)
+    let vFile = Replace(&#39;$(vFile)&#39;, &#39;\&#39;, &#39;/&#39;);
+    let vFile = Replace(&#39;$(vFile)&#39;, &#39;#&#39;, &#39;%23&#39;);
+
+    let vRequestBody = &#39;{&amp;quot;&amp;quot;deleteFile&amp;quot;&amp;quot;:&amp;quot;&amp;quot;$(vFile)&amp;quot;&amp;quot;}&#39;;
+
+    LIB CONNECT TO &#39;Butler_POST&#39;;
+
+    RestConnectorMasterTable:
+    SQL SELECT 
+    	&amp;quot;vFile&amp;quot;
+    FROM JSON (wrap on) &amp;quot;root&amp;quot;
+    WITH CONNECTION (
+    Url &amp;quot;http://$(vButlerHost):$(vButlerPort)/v4/filedelete&amp;quot;,
+    BODY &amp;quot;$(vRequestBody)&amp;quot;,
+    HTTPHEADER &amp;quot;X-HTTP-Method-Override&amp;quot; &amp;quot;DELETE&amp;quot;
+    );
+
+    set vFile=;
+
+    DROP TABLE RestConnectorMasterTable;
+end sub
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Note how the HTTP operation is set using the X-HTTP-Method-Override HTTP header.&lt;/p&gt;
+&lt;p&gt;This is a way to work around a currently limitation of Qlik&amp;rsquo;s REST connector, as it only supports GET and POST operations. The extra HTTP header tells Butler what kind of HTTP operation should &lt;em&gt;really&lt;/em&gt; be carried out.&lt;/p&gt;
 
       </description>
     </item>

@@ -6,7 +6,7 @@ description: >
   Examples showing how to use the Butler scheduler using direct API calls.
 ---
 
-There are many ways to call REST APIs. In this page curl is used, but the same tests can be done using Paw, Postman and by using the REST connector from within Qlik Sense load scripts.
+There are many ways to call REST APIs. In this page curl is used, but the same tests can be done using [Paw](https://paw.cloud/), [Postman](https://www.postman.com/) and by using the [REST connector](https://help.qlik.com/en-US/connectors/Subsystems/REST_connector_help/Content/Connectors_REST/REST-connector.htm) from within Qlik Sense load scripts.
 
 All the examples assume Butler is exposing it's API on 192.168.1.168:8080.
 

@@ -14,6 +14,25 @@
     
     
     <item>
+      <title>Blog: v4.3.0: Bug fixes, improved documentation</title>
+      <link>/blog/releases/v4.3.0/</link>
+      <pubDate>Wed, 03 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/releases/v4.3.0/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;great-features-are-useless-if-no-one-uses-them&#34;&gt;Great features are useless if no one uses them&lt;/h2&gt;
+&lt;p&gt;The previous couple of Butler releases included new features (in the form of REST API endpoints) for among other things copying/moving/deleting files in a controlled way.&lt;/p&gt;
+&lt;p&gt;The problem was that there were no examples showing how to use those new features.&lt;br&gt;
+That is fixed in this release, together with a general cleanup of this documentation site, a few bug fixes (&lt;a href=&#34;https://github.com/ptarmiganlabs/butler/issues/114&#34;&gt;this one&lt;/a&gt; was a bit nasty..) and minor improvements and tweaks in Butler itself.&lt;/p&gt;
+&lt;p&gt;Please see the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/changelog.md&#34;&gt;changelog&lt;/a&gt; for more information.&lt;/p&gt;
+&lt;p&gt;Butler releases are &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/releases&#34;&gt;available on GitHub&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Blog: v4.2.0: Failed reloads? Notify me!</title>
       <link>/blog/releases/v4.2.0/</link>
       <pubDate>Sat, 07 Nov 2020 00:00:00 +0000</pubDate>
