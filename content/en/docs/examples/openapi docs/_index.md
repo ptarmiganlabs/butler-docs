@@ -32,7 +32,8 @@ In addition to the API endpoints, the API documentation will be available at htt
 {{< /imgproc >}}
 
 {{% alert title="Other tools for exploring APIs" color="info" %}}
-If the OpenAPI interface to Butler's API feels limited, there exists lots of tools that focus soley on this task.
+If the OpenAPI interface to Butler's API feels limited, there are lots of tools dedicated to this task.  
+Two good ones are:
 
 * [Paw](https://paw.cloud/) is Mac only, costs a bit of money, but is very, very good. Highly recommended.
 * [Postman](https://www.postman.com/) is also good and cross platform.
