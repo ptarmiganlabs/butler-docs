@@ -23,8 +23,8 @@ The affected API endpoints are:
 [/v4/activeusercount](/docs/reference/rest-api/)  
 [/v4/activeusers](/docs/reference/rest-api/)
 
-{{% alert title="Butler SOS" color="info" %}}
-The shortcomings above lead to the creation of the Butler SOS project, which has over the years evolved into a very comprehensive tool for professional grade, real-time monitoring of Qlik Sense.
+{{% alert title="Tip: Butler SOS" color="info" %}}
+The shortcomings above lead to the creation of the Butler SOS project, which has over the years evolved into a very comprehensive open source tool for professional grade, real-time monitoring of Qlik Sense.
 
 More information available at [butler-sos.ptarmiganlabs.com](https://butler-sos.ptarmiganlabs.com).
 {{% /alert %}}

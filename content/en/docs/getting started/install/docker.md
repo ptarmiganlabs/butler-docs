@@ -1,17 +1,17 @@
 ---
-title: "Installing Butler in a Docker container"
+title: "Running Butler in Docker"
 linkTitle: "Docker"
 weight: 30
 description: >
   How to install Butler as a Docker container.
 ---
 
-Prerequisites for running Butler in Docker:
+## Prerequisites
 
 | What | Comment |
 | ---- | ------- |
-| Qlik Sense Enterprise on Windows | *Mandatory.* Butler is developed with Sense Enterprise in mind. While some Butler features might also work with Sense Desktop or Sense cloud, you are on your own there. |
-| Docker | *Mandatory.* A Docker runtime environment on any supported platform. This means you can run Butler on any platform where Docker is available, including Linux, Mac OS, Windows and most cloud providers. It is very doable to run Butler under Kubernetes too, if so desired. |
+| Qlik Sense Enterprise on Windows | *Mandatory.* Butler is developed with Qlik Sense Enterprise on Windows (QSEoW) in mind. <br>While some Butler features might also work with Sense Desktop or Sense cloud, you are on your own there. |
+| Docker | *Mandatory.* A Docker runtime environment on any supported platform.<br>This means you can run Butler on any platform where Docker is available, including Linux, Mac OS, Windows and most cloud providers. It is very doable to run Butler under Kubernetes too, if so desired. |
 | MQTT broker | *Optional.* MQTT is used for both in- and out-bound pub-sub messaging. Butler assumes a working MQTT broker is available, the IP of which is defined in the Butler config file. [Mosquitto](https://mosquitto.org/) is a nice open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/... instance is enough, if you want a dedicated MQTT server. If you don't care about the pubsub features of Butler, you don't need a MQTT broker. In this case you can disable the MQTT features in Butler's config file. |
 | [InfluxDB](https://www.influxdata.com/time-series-platform/) | *Optional.* A database for realtime information, used to store metrics around Butler's own memory usage over time (if this feature is enabled). |
 

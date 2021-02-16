@@ -22,9 +22,24 @@ Butler can send two kinds of alert messages as MQTT messages:
 
 ## How it works
 
-The MQTT message will be sent on the MQTT topic defined in the config file property `Buler.mqttConfig.taskAbtortedTopic` or `Butler.mqttConfig.taskFailureTopic`, depending on the nature of the event.
+### Basic message
 
+The MQTT message will be sent on the MQTT topic defined in the config file property `Butler.mqttConfig.taskAbortedTopic` or `Butler.mqttConfig.taskFailureTopic`, depending on the event type.  
 The task name will be sent in the message body.
+
+The basic message looks like this when viewed in the MQTTLens app:
+
+![alt text](mqtt_failed_task_basic_1.png "A basic reload task failed message sent via MQTT")  
+
+### Complete message
+
+Optionally a larger, more complete message is also sent if `Butler.mqttConfig.taskFailureSendFull` or `Butler.mqttConfig.taskFailureSendFull` are set to true.  
+This message contains a stringified JSON of all available information about the failed/aborted task.  
+The message is sent on the `Butler.mqttConfig.taskFailureFullTopic` or `Butler.mqttConfig.taskAbortedFullTopic` topics.
+
+That message can look like this:
+
+![alt text](mqtt_failed_task_full_1.png "A complete reload task failed message sent via MQTT")  
 
 {{% alert title="Remember" color="warning" %}}
 Don't forget to create the log appender .xml files on the Sense server(s).  
@@ -34,8 +49,6 @@ Those xml files are the foundation on top of which all Butler alerts are built -
 {{% /alert %}}
 
 The concept is more or less the same as for [alert emails](../alert-emails/#how-it-works).
-
-Butler's MQTT alerts don't currently support the templates available for alert emails.
 
 ## Settings in main config file
 
@@ -48,9 +61,13 @@ Butler:
     enable: false                                     # Should Qlik Sense events be forwarded as MQTT messages?
     brokerHost: <FQDN or IP of MQTT server>
     brokerPort: 1883
+    taskFailureSendFull: true
+    taskAbortedSendFull: true
     taskFailureTopic: qliksense/task_failure
+    taskFailureFullTopic: qliksense/task_failure_full
     taskFailureServerStatusTopic: qliksense/butler/task_failure_server
     taskAbortedTopic: qliksense/task_aborted
+    taskAbortedFullTopic: qliksense/task_aborted_full
   ...
   ...
   udpServerConfig:

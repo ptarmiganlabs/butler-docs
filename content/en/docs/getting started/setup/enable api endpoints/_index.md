@@ -1,5 +1,5 @@
 ---
-title: "Enadling endpoints in Butler's REST API"
+title: "Enabling endpoints in Butler's REST API"
 linkTitle: "API endpoints"
 weight: 30
 description: >
@@ -49,10 +49,11 @@ Butler:
       deleteSchedule: false
       startSchedule: false
       stopSchedule: false
+    senseAppReload: false
     senseAppDump: false
     senseListApps: false
     senseStartTask: false
-    slackPostMessage: false
+    slackPostMessage: false 
   ...
   ...
 ```

@@ -15,7 +15,7 @@ Butler uses configuration files in YAML format. The config files are stored in t
 Prior to Butler v2.1, JSON config files were used. YAML is however much more human readable than JSON, thus the config file was changed to YAML.  
 JSON config files can still be used though (just create the file in JSON syntax and suffix it with .json), but YAML is the default as of Butler v2.1.
 
-Butler comes with a default config file called `production_template.yaml`. Make a copy of it, then rename the copy to `default.yaml`, `production.yaml`, `staging.yaml` or somthing else suitable for your specific use case.  
+Butler comes with a default config file called `production_template.yaml`. Make a copy of it, then rename the copy to `default.yaml`, `production.yaml`, `staging.yaml` or something else suitable to your specific use case.  
 Update it as needed (see the [config file reference page](/docs/reference/config-file/) for details).
 
 Trying to run Butler with the default config file (the one included in the files download from GitHub) will not work - you need to adapt it to your server environment. For example, you need to enter the IP or host name of you Sense server(s), the IP or host name where Butler is running etc.
@@ -30,8 +30,8 @@ For example:
 
 ### Running several Butler instances in parallel
 
-If you have several Sense clusters (for example DEV, TEST and PROD environments) you might want several Butler instances running.  
-You can then create config files names `butler_dev.yaml`, `butler_test.yaml` and `butler_prod.yaml`.
+If you have several Sense clusters (for example DEV, TEST and PROD environments) you might probably want several Butler instances.  
+Solution: Create several config files: `butler_dev.yaml`, `butler_test.yaml` and `butler_prod.yaml`.
 
 In this scenario three instances of Butler should be started, each given a different config file by setting the NODE_ENV variable as needed when starting Butler.
 
@@ -39,7 +39,7 @@ Note: If running several Butler instances in parallel, you must also ensure that
 
 ### Setting environment variables
 
-The method for setting environment variables varies between different operating systems:
+The method for setting environment variables varies between operating systems:
 
 On Windows:
 

@@ -9,6 +9,18 @@ weight: 20
 
 
 {{% pageinfo %}}
+### What's new in version 5.0
+
+* **Greatly improved failed reload notifications** for both **MS Teams** and **Slack**.  
+  Task failure alerts for these channels now use the same advanced templating solution that's already available for Butler's email notifications. This is in many ways a milestone as it brings a new level of reload alerts to Qlik Sense Enterprise.  
+  The downside is that the Slack and Teams settings in Butler's config file have been changed in a breaking way - **make sure to update the config file** as needed when upgrading Butler.  
+  Due to the breaking nature of the config file changes, the version number was [bumped to 5.0 rather than 4.4](/docs/about/versioning/).
+
+* Added a **new API endpoint for doing app reloads**. Both full and partial reloads are supported. When the app has reloaded, a one or more reload tasks can be started based on whether the app reload completed successfully or not.
+
+* Added new API endpoints for **listing all apps** in the Sense server, as well as **extracting metadata for a specific app**. Those features have been available in Butler for many years, they just get a couple of new endpoints that better align with Butler's current API naming standard.
+
+* Refined **user session monitoring**. The previous XML appender file provided by Butler was too generous and passed on too many user activity events to Butler. The new appender files provide a tighter/more relevant filtering and only returns session start/stop events to Butler (from which this info can be sent to Slack or MS Teams).
 
 ### What's new in version 4.3
 

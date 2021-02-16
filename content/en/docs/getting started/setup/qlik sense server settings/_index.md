@@ -33,7 +33,8 @@ Butler:
     # clientCertCA: /nodeapp/config/certificate/root.pem
 
   configEngine:
-    engineVersion: 12.170.2        # Qlik Associative Engine version to use with Enigma.js. Ver 12.170.2 works with Feb 2019
+    # engineVersion: 12.170.2        # Qlik Associative Engine version to use with Enigma.js. Ver 12.170.2 works with Feb 2019
+    engineVersion: 12.612.0         # Qlik Associative Engine version to use with Enigma.js. Works with Feb 2020 and others
     host: <FQDN or IP of Sense server where Sense Engine is running>
     port: <Port to connect to, usually 4747>
     useSSL: true

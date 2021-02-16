@@ -7,10 +7,10 @@ aliases: ['/docs/', '/docs/about/', '/docs/butler/']
 ---
 
 The Butler project is all about adding useful features to Qlik Sense Enterprise.  
-Some of the features can be used from Sense load scripts, while other provide integration with other systems.
+Some of the features can be used from Sense load scripts, other features provide integration with 3rd party systems.
 
 The goal is to integrate battle-proven concepts and best-of-breed open-source tools into Butler and thus make them available to developers of Sense apps or those responsible for running Sense clusters.  
-In some cases it might be possible to use these tools from within Sense also without Butler - in those cases Butler simply tries make things easier, lowering the barriers to get started and get things done.
+In some cases it might be possible to use these tools from within Sense also without Butler - in those cases Butler simply tries to make things easier, lowering the barriers to get started and get things done.
 
 There is also a clear goal that Butler should be very configurable. In practice this means that features can be turned on/off as needed, improving security and lowering memory usage.
 

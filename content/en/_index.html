@@ -7,7 +7,7 @@ linkTitle = "Butler"
 {{< blocks/cover title="Butler: Adding superpowers to Qlik Sense" image_anchor="center" height="full" color="dark" >}}
 <div class="mx-auto">
 	<p class="lead mt-5" style="font-size: 120%" ">
-		Advanced task scheduling, task chaining with parameters, key-value store, start tasks, customisable alerts when they fail, extract app metadata, post to Slack/Teams and more.<br><br>
+		Great looking alerts to Slack, Teams or email when reloads fail, advanced task scheduling, task chaining with parameters, key-value store, start reload tasks from any system, extract app metadata, post to Slack/Teams and more.<br><br>
 	</p>
 	<a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< relref "/docs" >}}">
 		Documentation <i class="fas fa-arrow-alt-circle-right ml-2"></i>
@@ -65,18 +65,28 @@ Keep state across any number of apps. Namespace support and optional Time To Liv
 Data delays - no thanks!  
 Start reload tasks from within app load scripts or from upstream source systems that feed Sense with data
 
-[Read more...](/docs/reference/rest-api/) 
+[Read more...](/docs/reference/TODO/) 
 {{% /blocks/feature %}}
 
 
 {{% blocks/feature icon="fa-envelope" title="Task failure notifications" %}}
-Who should be the first to know that a reload has failed? You or your users?  
+Who should be the first to know that a reload has failed?  
+You or your users?  
 Who was it that stopped that important 3-hour reload 5 minutes before it was done?
 
 Get notified when tasks fail or are stopped, with notifications sent to Slack, Microsoft Teams or email.  
-Emails support full HTML formatting and 40+ template fields in both email subject and body.
+Full support for HTML/Markdown formatting and 40+ template fields.
 
 [Read more...](/docs/concepts/alert-emails/) 
+{{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fa-redo" title="Partial app reloads" %}}
+Trigger full or partial app reloads using Butler's REST API.
+
+Useful when dealing with reload chains that only should update a subset of an app's data.
+
+[Read more...](/docs/reference/TODO/) 
 {{% /blocks/feature %}}
 
 
@@ -93,7 +103,7 @@ Tired of being asked "when is new data available"?
 
 Automatically inform your users via Slack or Teams when new data is available.
 
-[Read more...](/docs/reference/rest-api/) 
+[Read more...](/docs/reference/TODO/) 
 {{% /blocks/feature %}}
 
 
@@ -120,8 +130,9 @@ Run Butler on Windows server, Linux, Docker, Kubernetes or Mac OS.
 
 {{< blocks/section color="dark">}}
 
-{{% blocks/feature icon="fa-lightbulb" title="Latest release: 4.3" %}}
-More and better examples and config instructions.
+{{% blocks/feature icon="fa-lightbulb" title="Latest release: 5.0" %}}
+- Great looking reload failure alerts to Slack and Teams.
+- Start full or partial reloads of Sense apps, without involving reload tasks.
 
 Available on [GitHub](https://github.com/ptarmiganlabs/butler/releases).
 {{% /blocks/feature %}}

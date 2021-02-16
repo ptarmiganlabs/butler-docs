@@ -19,7 +19,17 @@ Butler can send two kinds of alert emails:
 - When a scheduled, running reload task fails.
 - When a scheduled, running reload task is somehow stopped.
 
-See the [Concepts section](/docs/concepts/alert-emails/) for additional details on alert emails.
+See the [Concepts section](/docs/concepts/alert-emails/) for additional details and sample alert emails.
+
+## Basic vs formatted email alerts
+
+If you want Butler to send email alerts you must provide an email template file.
+
+For some other alert destinations (Slack and Teams) Butler offers a "basic" option. A fixed format alert is then sent by Butler.  
+The closest thing available for emails is to use the mail log appender described [here](/docs/getting-started/setup/reload-alerts/#sending-basic-alert-emails-from-log4net), but if you set up a log appender AND have Butler running, you might as well use the formatted email option as it provides **much** more flexibility than log4net's email appender.
+
+## Sending alerts to app owners
+<!-- TODO -->
 
 ## Settings in main config file
 
@@ -35,34 +45,34 @@ Those xml files are the foundation on top of which all Butler alerts are built -
 Butler:
   ...
   ...
-  # Qlik Sense related links used in notification messages (currently emails)
+  # Qlik Sense related links used in notification messages
   qlikSenseUrls:
     qmc: <Link to Qlik Sense QMC>
     hub: <Link to Qlik Sense Hub>
   ...
   ...
-  # Info needed to send email notifications when for example reloads fail.
+  # Settings needed to send email notifications when for example reload tasks fail.
   # Reload failure notifications assume a log appender is configured in Sense AND that the UDP server in Butler is running.
   emailNotification:
     enable: false
-    reladTaskAborted:
+    reloadTaskAborted:
       enable: false
       rateLimit: 600                                  # Min seconds between emails for a given taskID. Defaults to 5 minutes.
-      headScriptLogLines: 0                           # # of lines from start of script to include in email
-      tailScriptLogLines: 25                          # # of lines from end of script to include in email
+      headScriptLogLines: 15                           # # of lines from start of script to include in email
+      tailScriptLogLines: 15                          # # of lines from end of script to include in email
       priority: high                                  # high/normal/low
       subject: 'Qlik Sense reload aborted: "{{taskName}}"'  # Email subject. Can use template fields
       bodyFileDirectory: config/email_templates       # Directory where email body template files are stored
       htmlTemplateFile: aborted-reload                # Name of email body template file to use
-      fromAdress: Qlik Sense (no-reply) <qliksense-noreply@ptarmiganlabs.com>
+      fromAdress: Qlik Sense (no-reply) <qliksense-noreply@mydomain.com>
       toAdress:                                       # Array of email addresses to which the notification email will be sent
         - <Email address 1>
         - <Email address 2>
     reladTaskFailure:
       enable: false
       rateLimit: 600                                  # Min seconds between emails for a given taskID. Defaults to 5 minutes.
-      headScriptLogLines: 30                          # # of lines from start of script to include in email
-      tailScriptLogLines: 25                          # # of lines from end of script to include in email
+      headScriptLogLines: 15                          # # of lines from start of script to include in email
+      tailScriptLogLines: 15                          # # of lines from end of script to include in email
       priority: high                                  # high/normal/low
       subject: 'Qlik Sense reload failed: "{{taskName}}"'   # Email subject. Can use template fields
       bodyFileDirectory: config/email_templates       # Directory where email body template files are stored
@@ -105,11 +115,11 @@ Butler's process for sending alert emails is
       `Butler.emailNotification.reladTaskFailure.bodyFileDirectory` and
       `Butler.emailNotification.reladTaskFailure.htmlTemplateFile`
    2. For *aborted reload emails* these config file properties are used:
-      `Butler.emailNotification.reladTaskAborted.bodyFileDirectory` and
-      `Butler.emailNotification.reladTaskAborted.htmlTemplateFile`
-2. For email subjects, thse config properties are used:
+      `Butler.emailNotification.reloadTaskAborted.bodyFileDirectory` and
+      `Butler.emailNotification.reloadTaskAborted.htmlTemplateFile`
+2. For email subjects, these config properties are used:
    `Butler.emailNotification.reladTaskFailure.subject` and
-   `Butler.emailNotification.reladTaskAborted.subject`
+   `Butler.emailNotification.reloadTaskAborted.subject`
 3. Process the body template, replacing template fields with actual values.
 4. Process the email subject template, replacing template fields with actual values.
 5. Send the email.

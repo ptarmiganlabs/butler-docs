@@ -17,7 +17,8 @@ It is therefore difficult to give detailed installation instructions for each po
 Sorry - there is no installer for Butler.  
 You will need to work a bit on the command line to set things up.
 
-It's not as bad as it sounds though, the instructions here should help settings things up.
+It's not as bad as it sounds though, the instructions here should help.  
+If you run into troubles you can always reach out via the [GitHub discussion forums](https://github.com/ptarmiganlabs/butler/discussions).
 
 ## Prerequisites
 
