@@ -6,29 +6,47 @@ description: >
   Sending alerts to IM services like Slack and Microsoft Teams can be a great way to quickly notify people about urgent issues.
 ---
 
+## Teams, Slack and email notifications
 
+Microsoft Teams, Slack and email are all notification ***destinations***.
+
+Alert messages/notifications come in two variants: "basic" and "formatted".
+
+### Formatted messages
+
+These messages take full advantage of the formatting available in each notification destination.
+
+Slack has its own way for creating messages with rich layout and formatting - as does Teams and email.
+
+Formatted messages are created using template files.  
+Each notification destination has its own set of template files. It's therefore possible to take advantage of each destination's specific features when it comes to formatting the messages sent by Butler.
+
+Message templates can include "template fields". These are placeholders that are replaced with actual event values before the message is sent.
+
+The GitHub repository includes fully functional template files for all destinations.
+
+### Basic messages
+
+Basic message formats are available for all notification destinations.
+
+This message type is useful if you only want a short, basic notification that a task failed or was aborted. The basic formats are pre-defined and are thus easy to set up.
 
 ## Microsoft Teams notifications
 
-A reload failure notification in Team looks like this:
+Basic and formatted reload task failure notifications can look like this in Teams:
 
-![alt text](reload-failure-notification-teams-1.png "Failed reload notification in Microsoft Teams")  
+![alt text](/img/failed-reload-teams-basic_1.png "Basic failed reload notification in Microsoft Teams")  
 
-Requirements:
+![alt text](/img/failed-reload-teams-formatted_1.png "Formatted failed reload notification in Microsoft Teams")  
 
-1. Log appenders being correctly set up on the Sense servers where failed reloads should be caught.
-2. A running Butler instance with the UDP server enabled (`Butler.udpServerConfig.enable` setting in Butler config file). Make sure the UDP IP and port in the XML file and Butler's config matches!
-3. MS Teams notifications must be enabled in the `Butler.teamsConfig.enable` property in the config file.
-4. An incoming webhook defined in MS Teams. These are created per channel in Teams, so make sure to create it in the channel where notifications should appear. The `Butler.teamsConfig.taskFailureWebhookURL` should be set to the URL you get from Teams.
+The configuration needed for setting this up is described [here](/docs/getting-started/setup/reload-alerts/alert-teams/). 
 
 ## Slack notifications
 
-![alt text](reload-failure-notification-slack-1.png "Failed reload notification in Slack")  
+Basic and formatted reload task failure notifications can look like this in Teams:
 
-Requirements:
+![alt text](/img/failed-reload-slack-basic_1.png "Basic failed reload notification in Microsoft Teams")  
 
-1. Log appenders being correctly set up on the Sense servers where failed reloads should be caught.
-2. A running Butler instance with the UDP server enabled (`Butler.udpServerConfig.enable` setting in Butler config file). Make sure the UDP IP and port in the XML file and Butler's config match!
-3. Slack notifications must be enabled in the `Butler.slackConfig.enable` property in the config file.
-4. An incoming webhook defined in Slack. While these are associated with a specific Slack channel, you can overrise the channel when posting messages. The `Butler.slackConfig.webhookURL` should be set to the URL you get from Teams.
-5. The name of the Slack channel to which notifications should be sent.
+![alt text](/img/failed-reload-slack-formatted_1.png "Formatted failed reload notification in Microsoft Teams")  
+
+The configuration needed for setting this up is described [here](/docs/getting-started/setup/reload-alerts/alert-slack/). 

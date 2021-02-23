@@ -17,7 +17,7 @@ Note that Handlebars supports nested template fields. The nesting notation is pl
 If a template field is used for an alert type where that field is not supported, the field will simply be blank. No errors will occur.
 
 {{% alert title="Warning" color="warning" %}}
-Not all alert types support template fields.
+Not all alert destinations (Slack, Teams, Email, MQTT, outgoing webhooks etc) support template fields.
 
 Please see the [Concepts](/docs/concepts) and [Getting started](/docs/getting-started/setup/reload-alerts) sections for more information about which alert types support templates.
 {{% /alert %}}

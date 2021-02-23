@@ -33,12 +33,15 @@ Using Node.RED together with Qlik Sense and Butler, it is possible to interface 
 
 ## Incoming MQTT - subscribe
 
-Butler listens to all MQTT messages in the `qliksense/#` topic tree. Which in MQTT lingo means "listen to all messages in the qliksense topic, as well as in any subtopics".
+Butler subscribes to all MQTT messages in the topic specied in the confif file property `Butler.mqttConfig.subscriptionRootTopic`.  
+Which in MQTT lingo means "listen to all messages in the this topic, as well as in any subtopics".
 
-When Butler finds such a message, it is analysed and if the topic matches any of the predefined topics with special meaning, the associated tasks are carried out.  
+When Butler gets a message as a result of this subscription it is analysed and if the topic matches any of the predefined topics with special meaning, the associated tasks are carried out.  
 
 Topics with special meaning are:
 
-* `qliksense/start_task`: Starts the Sense task identified by the ID sent in the message body. See the [Examples](/docs/examples/start-task-from-mqtt/#use-mqtt-to-start-sense-tasks) secion.
+* Start Sense task. The exact topic is defined in config property `Butler.mqttConfig.taskStartTopic`.  
+  Note that this topic *must* be a subtopic to the topic specified in `Butler.mqttConfig.subscriptionRootTopic`!  
+  Starts the Sense task identified by the ID sent in the message body. More info in the [examples](/docs/examples/start-task-from-mqtt/#use-mqtt-to-start-sense-tasks) section.
 
-As Butler listens to all messages in qliksense/#, it can easily be extended with handlers for additional topics.
+As Butler listens to all messages in the topic tree specified by `Butler.mqttConfig.subscriptionRootTopic` it can easily be extended with handlers for additional topics.

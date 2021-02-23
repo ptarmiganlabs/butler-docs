@@ -87,7 +87,7 @@ Butler:
   ...
   # Settings for notifications and messages sent using outgoing webhooks
   webhookNotification:
-    enable: true
+    enable: false
     reloadTaskFailure:
       rateLimit: 300              # Min seconds between outgoing webhook calls for a given taskID. Defaults to 5 minutes.
       webhooks:

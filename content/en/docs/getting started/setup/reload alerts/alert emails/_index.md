@@ -28,8 +28,51 @@ If you want Butler to send email alerts you must provide an email template file.
 For some other alert destinations (Slack and Teams) Butler offers a "basic" option. A fixed format alert is then sent by Butler.  
 The closest thing available for emails is to use the mail log appender described [here](/docs/getting-started/setup/reload-alerts/#sending-basic-alert-emails-from-log4net), but if you set up a log appender AND have Butler running, you might as well use the formatted email option as it provides **much** more flexibility than log4net's email appender.
 
-## Sending alerts to app owners
-<!-- TODO -->
+## Sending alert emails to app owners
+
+Butler can optionally send alert emails to the owners of the app that failed reloading/was aborted.
+
+{{% alert title="Email addresses must be available" color="warning" %}}
+App owner notification email can only be sent to app owners that have an email stored in their Qlik Sense user profile.  
+This is typically the case if the Qlik Sense user directory has been synced from a Microsoft Active Directory - but there is no guarantee this is the case.
+
+If there is no email available for an app owner, he/she will simply not receive a notification email.
+{{% /alert %}}
+
+This feature is controlled by the config file properties `Butler.emailNotification.reloadTaskAborted.appOwnerAlert.enable` and `Butler.emailNotification.reloadTaskFailure.appOwnerAlert.enable`. 
+
+If set to `true` the app owner will be added to the send list of alert emails, in addition to the recipients specied in `Butler.emailNotification.reloadTaskAborted.recipients` and `Butler.emailNotification.reloadTaskFailure.recipients`.
+
+The sections of the config file dealing with app owner notification emails looks like this:
+
+```yaml
+appOwnerAlert:
+  enable: true              # Should app owner get notification email (assuming email address is available in Sense user directory)
+  includeOwner:
+    includeAll: true                            # true = Send notification to all app owners except those in exclude list
+                                                # false = Send notification to all app owners in the include list
+    user:
+      - directory: <Sense user directory>
+        userId: <userId>
+      - directory: <Sense user directory>
+        userId: <userId>
+  excludeOwner:
+    user:
+      - directory: <Sense user directory>
+        userId: <userId>
+      - directory: <Sense user directory>
+        userId: <userId>
+```
+
+It works like this:
+
+- If `appOwnerAlert.enable` is set to `false` no app owner emails will be sent. If it's set to `true` the rules below apply.
+- If `appOwnerAlert.includeOwner.includeAll` is set to `true` all app owners will get notification emails when apps the own fail/are aborted...
+  - ... except those app owners listed in the `appOwnerAlert.excludeOwner.user` array.
+  - That array thus provides a way to exclude some app owners (e.g. system accounts) to receive notifcation emails.
+- If `appOwnerAlert.includeOwner.includeAll` is set to `false` it's still possible to add individual app owners to the `appOwnerAlert.includeOwner.user` array.  
+  Those users will then receive notification emails for apps they own.
+
 
 ## Settings in main config file
 
@@ -57,28 +100,60 @@ Butler:
     enable: false
     reloadTaskAborted:
       enable: false
+      appOwnerAlert:
+        enable: true              # Should app owner get notification email (assuming email address is available in Sense user directory)
+        includeOwner:
+          includeAll: true                            # true = Send notification to all app owners except those in exclude list
+                                                      # false = Send notification to all app owners in the include list
+          user:
+            - directory: <Sense user directory>
+              userId: <userId>
+            - directory: <Sense user directory>
+              userId: <userId>
+        excludeOwner:
+          user:
+            - directory: <Sense user directory>
+              userId: <userId>
+            - directory: <Sense user directory>
+              userId: <userId>
       rateLimit: 600                                  # Min seconds between emails for a given taskID. Defaults to 5 minutes.
-      headScriptLogLines: 15                           # # of lines from start of script to include in email
-      tailScriptLogLines: 15                          # # of lines from end of script to include in email
+      headScriptLogLines: 15                          # Number of lines from start of script to include in email
+      tailScriptLogLines: 15                          # Number of lines from end of script to include in email
       priority: high                                  # high/normal/low
       subject: 'Qlik Sense reload aborted: "{{taskName}}"'  # Email subject. Can use template fields
       bodyFileDirectory: config/email_templates       # Directory where email body template files are stored
       htmlTemplateFile: aborted-reload                # Name of email body template file to use
       fromAdress: Qlik Sense (no-reply) <qliksense-noreply@mydomain.com>
-      toAdress:                                       # Array of email addresses to which the notification email will be sent
+      recipients:                                       # Array of email addresses to which the notification email will be sent
         - <Email address 1>
         - <Email address 2>
-    reladTaskFailure:
+    reloadTaskFailure:
       enable: false
+      appOwnerAlert:
+        enable: true              # Should app owner get notification email (assuming email address is available in Sense user directory)
+        includeOwner:
+          includeAll: true                            # true = Send notification to all app owners except those in exclude list
+                                                      # false = Send notification to all app owners in the include list
+          user:
+            - directory: <Sense user directory>
+              userId: <userId>
+            - directory: <Sense user directory>
+              userId: <userId>
+        excludeOwner:
+          user:
+            - directory: <Sense user directory>
+              userId: <userId>
+            - directory: <Sense user directory>
+              userId: <userId>
       rateLimit: 600                                  # Min seconds between emails for a given taskID. Defaults to 5 minutes.
-      headScriptLogLines: 15                          # # of lines from start of script to include in email
-      tailScriptLogLines: 15                          # # of lines from end of script to include in email
+      headScriptLogLines: 15                          # Number of lines from start of script to include in email
+      tailScriptLogLines: 15                          # Number of lines from end of script to include in email
       priority: high                                  # high/normal/low
       subject: 'Qlik Sense reload failed: "{{taskName}}"'   # Email subject. Can use template fields
       bodyFileDirectory: config/email_templates       # Directory where email body template files are stored
       htmlTemplateFile: failed-reload                 # Name of email body template file to use
       fromAdress: Qlik Sense (no-reply) <qliksense-noreply@mydomain.com>
-      toAdress:                                       # Array of email addresses to which the notification email will be sent
+      recipients:                                       # Array of email addresses to which the notification email will be sent
         - <Email address 1>
         - <Email address 2>
     smtp:                                             # Email server settings. See https://nodemailer.com/smtp/ for details on the meaning of these fields.

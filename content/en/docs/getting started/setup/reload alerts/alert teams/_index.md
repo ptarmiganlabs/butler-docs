@@ -38,7 +38,7 @@ Which option to go for depends on whether you want just a notification that some
 
 A "reload task failed" Teams message using the custom formatting option could look like this:
 
-![alt text](failed-reload-teams-formatted_1.png "Reload failed alert email")  
+![alt text](/img/failed-reload-teams-formatted_1.png "Reload failed alert email")  
 
 Here's how to set it up:
 
@@ -58,7 +58,7 @@ Here's how to set it up:
 
 A "reload task failed" Teams message with basic formatting could look like this:
 
-![alt text](failed-reload-teams-basic_1.png "Reload failed alert email")  
+![alt text](/img/failed-reload-teams-basic_1.png "Reload failed alert email")  
 
 To set it up:
 
@@ -68,6 +68,26 @@ To set it up:
    The `messageType` property should be set to `basic`.  
    The `basicMsgTemplate` property is the message that will be sent via Teams. [Template fields](/docs/reference/alert-template-fields/) can be used.
 3. Restart Butler if it's already running.
+
+## Customizing Teams messages
+
+When using the formatted Teams alerts you have full freedom to create the alert *you* need.  
+Behind the scenes Teams messages (or "message cards" in MS Teams lingo) are constructed using JSON. Each Teams message consists of one or more parts defined in that JSON object.
+
+The [Teams documentation](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/connectors-using) contains a wealth of information.
+
+When it comes to Butler, it uses the [Handlebars](https://handlebarsjs.com/) templating engine to render a template file into a MS Teams JSON object that is then sent to the Teams webhook API.
+
+A few things to keep in mind when creating custom Teams messages:
+
+- The handlebars syntax itself must be correct. If incorrect no Teams JSON object will be created. And no Teams message sent.
+- The handlebars template must result in a JSON object that adheres to Teams's specifications for JSON payloads.  
+  If the JSON syntax is somehow invaid the Teams API will return errors and no messages sent. JSON can be pretty sensitive to details, there should for example not be any trailing commas in properly formatted JSON objects.
+
+Some useful links to Teams' documentation:
+
+[Sending messages to connectors and webhooks](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/connectors-using): Covers how to use Teams webhooks to sent richly formatted messages to Teams.  
+[Message card playground](https://messagecardplayground.azurewebsites.net): Experiment with different card layouts etc in an online sandbox environment.  
 
 ## How it works
 

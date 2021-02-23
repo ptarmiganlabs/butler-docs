@@ -8,12 +8,15 @@ description: >
 
 ## Scheduled vs manual app reloads
 
-It might not be obvious at first, but there are several kinds of reloads in Qlik Sense Enterprise:
+It might not be obvious at first, but there are several kinds of reloads in Qlik Sense Enterprise on Windows:
 
 1. **Reloads started from QMC.** These are usually created and managed in the QMC. Quite often they are also combined into reload chains. The common thing about these reloads is that they - under the hood - are managed by Sense's scheduling service.
-2. **Manual reloads started from script edit.** When developing apps in the standard Sense client/script editor you usually reload the apps from there. This does trigger an app reload, but not via the Sense scheduling service.
+2. **Manual reloads started from the script editor.** When developing apps in the standard Sense client/script editor you usually reload the apps from there. This does trigger an app reload, but not via the Sense scheduling service. Instead the reload is done directly in the engine service.
 
-The reload failure notifications described here work by looking at log entries written by the scheduling service. When that service writes information to the logs about a failed reload, your logging appender will detect it and send an email, and/or send a UDP message to Butler - who will forward the message to Teams and/or Slack.
+The reload failure notifications described here work by looking at log entries written by the scheduling service. When that service writes information to the logs about a failed reload, your logging appender will detect it and send a UDP message to Butler - who will forward the message to all the notification destinations configured in the config file.
+
+It's also possible to have the log appender send emails, without going through Butler.
+It works perfectly fine, but the emails will be very basic when it comes to formatting and you will not get any of the features offered by Butler (last few lines of the reload script log included in the email, customizable email subjects etc).
 
 ## Alert emails
 
@@ -22,7 +25,8 @@ Butler can send two kinds of alert emails:
 - When a scheduled reload task fails.
 - When a running reload task is stopped.
 
-Alert emails can be formatted using HTML, use CSS styling, emojis etc. There's no reason an alert email can't look good.
+Alert emails can be formatted using HTML, use CSS styling, emojis etc.  
+There's no reason an alert email can't look good!
 
 Alert emails viewed on a mobile phone give direct insight into what has happened:
 
@@ -43,6 +47,19 @@ Qlik Sense Enterprise on Windows uses the log4net logging framework to create lo
 The goal of Butler's alert emails is to address these limitations and offer a flexible foundation not only for emails, but for all kinds of alerts.
 
 If you want to explore what's possible using just the features offered by log4net, Christof Schwarz has a [good post](https://www.linkedin.com/pulse/qlik-sense-task-email-notifications-so-easy-christof-schwarz/?trackingId=X8MEGEmppfSvdukFRbnLwQ%3D%3D) on sending basic notification emails when scheduled reloads fail, with links to [Levi Turners great examples](https://github.com/levi-turner/getting_notified_from_qliksense).
+
+## Alert emails to app owners
+
+Qlik Sense can be configured in many ways. In some companies all apps are owned by a central service account.  
+Other companies set the developer as app owner also for published apps.
+
+In the latter case it might be relevant to send the app owner a notification email when a reload task fails or is aborted. That way the developer is immediately made aware of the issue and can act on it as needed.
+
+This feature assumes the app owner's user account (in the Sense user directory) has an email address associated with it. When syncing users from Active Directory the users' emails are often brought along into Sense, but there is no guarantee for this.
+
+*If* an email address is available for a Sense user, the QMC user section can look like this:
+
+![alt text](./qlik_sense_user_email_address_1.png "Email address available for Qlik Sense user")
 
 ## How it works
 
@@ -69,7 +86,7 @@ While not obvious at first, there are different kinds of reloads taking place in
 The log appenders that drive Butler's alerts rely on the Scheduler logs - not the engine logs.  
 This is an intentional design decision.
 
-It is certainly possible to add log appenders also for engine logs and that way get notified when *any* reload fail. The question is whether that's an interesting use case. In most cases sys admins aren't very interested if reloads that fail during app development - they only care about failures caused by apps in production - i.e. apps driven by the Sense Scheduler. Thus, Butler currently doesn't deal with reload failures reported from the Sense engine.
+It is certainly possible to add log appenders also for engine logs and that way get notified when *any* reload fail. The question is whether that's an interesting use case. In most cases sys admins aren't very interested in reloads that fail during app development - they only care about failures caused by apps in production - i.e. app reload tasks managed by the Sense Scheduler. Thus, Butler currently doesn't deal with reload failures reported from the Sense engine.
 
 ## References
 

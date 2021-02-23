@@ -21,62 +21,53 @@ Green light, someone opens a Sense app. Red light, someone closes a Sense app.
 ## Session start/stop, connection open/close
 
 {{% alert title="Remember" color="primary" %}}
-The text below assumes the log appenders have been correctly set up for user activity notifications.
+The text below assumes the [log appenders have been set up](/docs/getting-started/setup/user-events/) for user activity notifications.
 
 Make extra sure the log appender XML file contains the correct IP/port info specified in Butler's UDP server config settings. 
 {{% /alert %}}
 
-Butler supports the following user activity events:
+The user events log appender that's included with Butler ([GitHub link](https://github.com/ptarmiganlabs/butler/blob/master/docs/log4net_user-audit-event/LocalLogConfig.xml)) captures the following events:
 
-- **Session start**: When a user logs into Sense and do not have Sense open in any other window or tab in the browser.
-- **Session end**: When a user has not been active for a while, and the session timeout is reached.
-- **Connection open**: When a user open a new app, or do a browser refresh of a Sense app
-- **Connection close**: When a user closes a browser window or tab, in which a Sense app was open
+- **Session start**: When a user logs into Sense and does not have an already active Sense session open in some other browser tab or window.
+- **Session end**: When a user has not been active for a while and the session timeout is reached, or when the user logs out.
+- **Connection open**: When a user opens a new app or does a browser refresh of a Sense app.
+- **Connection close**: When a user does a browser refresh of a Sense app or closes a browser window or tab in which a Sense app was open.
 
-The response time is usually quite good, typically Butler gets the notifiction from Sense within a second of the actual event taking place.
+The response time is usually quite good, typically Butler gets the notifiction from Sense within a few seconds of the actual event taking place.
 
 The information sent to Butler is
 
-- Server name where the log message originated
-- What command is associated with the message (session start/stop, connection open/close)
-- What Sense user directory the associated user belongs to
+- Server name where the log message originated.
+- What command is associated with the message (session start/stop, connection open/close).
+- What Sense user directory the associated user belongs to.
 - The username of the associated user.
 
-Butler will then use this information and take either of several possible actions depending on which event was received:
+Butler will then use this information and take either of several possible actions depending on which event was received and settings in Butler's config file.
 
-### Session start
+### Sample Slack and Teams messages
 
-The following actions are taken
+Messages sent to Slack and Teams can look like this:
 
-1. Posts the event data to Slack, using the Butler.slackConfig.loginNotificationChannel configuration setting.
+![alt text](/img/user-events-slack-1.png "User activity events in Slack")  
 
-2. Publish a message to MQTT, in the topic defined in the Butler.mqttConfig.sessionStartTopic configuration setting.
+![alt text](/img/user-events-teams-1.png "User activity events in Teams")  
 
-### Session stop
+## Enabling Slack, Teams and MQTT messages
 
-The following actions are taken
+The message destinations can be indidually enabled or disabled.
 
-1. Posts the event data to Slack, using the Butler.slackConfig.loginNotificationChannel configuration setting.
+- To enable Slack messages, `Butler.slackNotification.enable` and `Butler.slackNotification.userSessionEvents.enable` should both be `true`.
+- To enable Teams messages, `Butler.teamsNotification.enable` and `Butler.teamsNotification.userSessionEvents.enable` should both be `true`.
+- To enable MQTT messages, `Butler.mqttConfig.enable` should be `true`.
 
-2. Publish a message to MQTT, in the topic defined in the Butler.mqttConfig.sessionStopTopic configuration setting.
+For Slack and Teams, all messages received from the log appender will be forwarded to the respective destination (assuming the destination is enabled). This means you can modify the appender XML files so that Butler received more/fewer/other messages.
 
-### Connection open
+The MQTT message is a bit different as it looks at the "command" field in the UDP message and then publish a MQTT message on topic that depends on which command was received:
 
-The following actions are taken
-
-1. Posts the event data to Slack, using the Butler.slackConfig.loginNotificationChannel configuration setting.
-
-2. Publish a message to MQTT, in the topic defined in the Butler.mqttConfig.connectionOpenTopic configuration setting.
-
-### Connection close
-
-The following actions are taken
-
-1. Posts the event data to Slack, using the Butler.slackConfig.loginNotificationChannel configuration setting.
-
-2. Publish a message to MQTT, in the topic defined in the Butler.mqttConfig.connectionCloseTopic configuration setting.
-
-Examples of what the Slack messages will look like can be found on the [UDP client page](/docs/concepts/udp).
+- "Session start" events will be published to the topic defined in the `Butler.mqttConfig.sessionStartTopic` config setting.
+- "Session stop" events will be published to the topic defined in the `Butler.mqttConfig.sessionStopTopic` config setting.
+- "Connection open" events will be published to the topic defined in the `Butler.mqttConfig.connectionOpenTopic` config setting.
+- "Connection close" events will be published to the topic defined in the `Butler.mqttConfig.connectionCloseTopic` config setting.
 
 ## References
 

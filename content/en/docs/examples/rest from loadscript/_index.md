@@ -7,9 +7,6 @@ description: >
   Examples on how to call Butler's REST API from the Qlik Sense (or QlikView) load script.
 ---
 
-
-
-
 While it is quite possible to call the Butler REST endpoints directly from a LOAD...FROM statement, it is usually more convenient to use the subroutine wrappers that are available as .qvs files in the sense_script folder in the Butler repository.
 
 Before doing any calls to Butler, we should initialize things. Failing to do so might lead to errors and unpredictable responses from the Butler APIs.  
@@ -45,7 +42,7 @@ This will result in the following Slack entries:
     CALL ButlerInit;
     CALL StartTask('abcd1234-5678-abcd-1234-abcd1234abcd');     // Parameter should be ID of the task that is to be started
 
-### Post a message to an MQTT topic 
+### Post a message to an MQTT topic
 
     $(Must_Include=[lib://Butler scripts/butler_init.qvs]);
     $(Must_Include=[lib://Butler scripts/post_to_slack.qvs]);
@@ -77,7 +74,7 @@ This will result in the following Slack entries:
     FROM JSON (wrap on) "root";
 
     Apps:
-    LOAD	
+    LOAD
         [id] 	AS [App id],
         [name] 	AS [App name]
     RESIDENT RestConnectorMasterTable;
@@ -97,13 +94,12 @@ To dynamically control which app is serialized you can use the "with connection"
 
     RestConnectorMasterTable:
     SQL SELECT 
-	"loadScript",
+    "loadScript",
     ...
     FROM JSON (wrap on) "root" PK "__KEY_root"
     WITH CONNECTION (
     QUERY "guid" "$(vAppId)");
     ...
-
 
 Here is what the Sense data model can look like for a Sense app:
 
