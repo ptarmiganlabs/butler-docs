@@ -25,7 +25,7 @@ Butler can send two kinds of alert messages as outgoing webhooks:
 Outgoing webhooks is a concept where Butler will do a GET, POST or PUT HTTP call to a specific URL when a task fails or is aborted/stopped.  
 The use case is to interface with currently unkown third party systems in a generic way.
 
-As the call will include information about the failed/aborted task, the typical [and arguably most correct) way of doing this would be via a PUT call.
+As the call will include information about the failed/aborted task, the typical (and arguably most correct) way of doing this would be via a PUT call.
 
 But some systems only handle GET calls - and Butler should still be able to notify them using webhooks.  
 The chosen solution is to offer full flexibility for outgoing webhooks and support both GET, PUT and POST calls.  

@@ -32,6 +32,7 @@ Alerts can be sent to these destinations. Each destination can be individually e
 | Email    | ✅ | ✅ | ✅ | ✅ | Basic emails can be sent using a [log appender](/docs/getting-started/setup/reload-alerts/#sending-basic-alert-emails-from-log4net). |
 | Slack    | ✅ | ✅ | ✅ | ✅ |  |
 | MS Teams | ✅ | ✅ | ✅ | ✅ |  |
+| Outgoing webhook | ✅ | ✅ | - | - | Formatting is not relevant for webhooks |
 | MQTT     | ✅ | ✅ | - | - | Formatting is not relevant for MQTT messages |
 
 ## How it works

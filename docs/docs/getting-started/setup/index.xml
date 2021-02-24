@@ -243,6 +243,14 @@ Do note though that Butler expects the configuration properties below to exist i
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td&gt;Outgoing webhook&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-&lt;/td&gt;
+&lt;td&gt;Formatting is not relevant for webhooks&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td&gt;MQTT&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
