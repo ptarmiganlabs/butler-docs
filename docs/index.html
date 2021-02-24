@@ -174,7 +174,7 @@ if (!doNotTrack) {
           <div class="pt-3 lead">
             <div class="mx-auto">
 	<p class="lead mt-5" style="font-size: 120%" ">
-		Advanced task scheduling, task chaining with parameters, key-value store, start tasks, customisable alerts when they fail, extract app metadata, post to Slack/Teams and more.<br><br>
+		Great looking alerts to Slack, Teams or email when reloads fail, advanced task scheduling, task chaining with parameters, key-value store, start reload tasks from any system, extract app metadata, post to Slack/Teams and more.<br><br>
 	</p>
 	<a class="btn btn-lg btn-primary mr-3 mb-4" href="/docs/">
 		Documentation <i class="fas fa-arrow-alt-circle-right ml-2"></i>
@@ -250,7 +250,7 @@ if (!doNotTrack) {
   <h4 class="h3">Start tasks via REST API or MQTT</h4>
   <p class="mb-0"><p>Data delays - no thanks!<br>
 Start reload tasks from within app load scripts or from upstream source systems that feed Sense with data</p>
-<p><a href="/docs/reference/rest-api/">Read more&hellip;</a></p>
+<p><a href="/docs/examples/start-task-from-rest/">Read more&hellip;</a></p>
 </p>
 </div>
 <div class="col-lg-4 mb-5 mb-lg-0 text-center ">
@@ -258,11 +258,22 @@ Start reload tasks from within app load scripts or from upstream source systems 
     <i class="fas fa-envelope"></i>
   </div>
   <h4 class="h3">Task failure notifications</h4>
-  <p class="mb-0"><p>Who should be the first to know that a reload has failed? You or your users?<br>
+  <p class="mb-0"><p>Who should be the first to know that a reload has failed?<br>
+You or your users?<br>
 Who was it that stopped that important 3-hour reload 5 minutes before it was done?</p>
 <p>Get notified when tasks fail or are stopped, with notifications sent to Slack, Microsoft Teams or email.<br>
-Emails support full HTML formatting and 40+ template fields in both email subject and body.</p>
+Full support for HTML/Markdown formatting and 40+ template fields.</p>
 <p><a href="/docs/concepts/alert-emails/">Read more&hellip;</a></p>
+</p>
+</div>
+<div class="col-lg-4 mb-5 mb-lg-0 text-center ">
+  <div class="mb-4 h1">
+    <i class="fas fa-redo"></i>
+  </div>
+  <h4 class="h3">Partial app reloads</h4>
+  <p class="mb-0"><p>Trigger full or partial app reloads using Butler&rsquo;s REST API.</p>
+<p>Useful when dealing with reload chains that only should update a subset of an app&rsquo;s data.</p>
+<p><a href="/docs/examples/sense-demo-apps/partial-loads/">Read more&hellip;</a></p>
 </p>
 </div>
 <div class="col-lg-4 mb-5 mb-lg-0 text-center ">
@@ -282,7 +293,7 @@ Great for backup purposes!</p>
   <h4 class="h3">Keep your users in the know</h4>
   <p class="mb-0"><p>Tired of being asked &ldquo;when is new data available&rdquo;?</p>
 <p>Automatically inform your users via Slack or Teams when new data is available.</p>
-<p><a href="/docs/reference/rest-api/">Read more&hellip;</a></p>
+<p>[Read more&hellip;](/docs/examples/sense-demo-apps/post-to-slack/</p>
 </p>
 </div>
 <div class="col-lg-4 mb-5 mb-lg-0 text-center ">
@@ -326,8 +337,11 @@ Great for backup purposes!</p>
   <div class="mb-4 h1">
     <i class="fas fa-lightbulb"></i>
   </div>
-  <h4 class="h3">Latest release: 4.3</h4>
-  <p class="mb-0"><p>More and better examples and config instructions.</p>
+  <h4 class="h3">Latest release: 5.0</h4>
+  <p class="mb-0"><ul>
+<li>Great looking reload failure alerts to Slack and Teams.</li>
+<li>Start full or partial reloads of Sense apps, without involving reload tasks.</li>
+</ul>
 <p>Available on <a href="https://github.com/ptarmiganlabs/butler/releases">GitHub</a>.</p>
 </p>
 </div>

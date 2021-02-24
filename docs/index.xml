@@ -14,6 +14,36 @@
     
     
     <item>
+      <title>Blog: v5.0.0: Reload alerting deluxe</title>
+      <link>/blog/releases/v5.0.0/</link>
+      <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/releases/v5.0.0/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;be-the-first-to-know&#34;&gt;Be the first to know&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s say you are responsible for a Qlik Sense Enterprise environment, or that you are a developer of Sense apps.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s also (unlikely as it is, but still..😃) say that app reloads fail from time to time. For whatever reason.&lt;/p&gt;
+&lt;p&gt;In the past the following has often happened:&lt;/p&gt;
+&lt;p&gt;End users are the first to detect that something is wrong. Data is missing or incorrect.&lt;br&gt;
+Not ideal - you as admin/developer should be the first to know that something has gone wrong.&lt;/p&gt;
+&lt;p&gt;Butler has always included basic notification mechanisms for failed reload tasks, but with version 5.0 things are taken to a new level.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;In fact, this latest Butler version probably offers some of the most powerful and flexible reload alerting features ever - anywhere. And it&amp;rsquo;s free.&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Reload task failure alerts can be sent as email, to Slack or Teams, as outgoing webhooks or as MQTT messages.&lt;/li&gt;
+&lt;li&gt;Email, Slack and Teams alerts can make use of any layout and formatting options available on those platforms.&lt;/li&gt;
+&lt;li&gt;If basic alerts are preferred, all that&amp;rsquo;s needed is changing a single line in Butler&amp;rsquo;s config file.&lt;/li&gt;
+&lt;li&gt;Lots of other new and refined features too, including support for doing partial and full app reloads without going through a reload task. Can be used both via REST API and from the load script.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All in all - this is a major Butler release that holds the potential to make life easier for lots of QSEoW admins and developers.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/changelog.md&#34;&gt;changelog&lt;/a&gt; has all the details.&lt;/p&gt;
+&lt;p&gt;Butler releases are &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/releases&#34;&gt;available on GitHub&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Blog: File operations examples and better setup instructions</title>
       <link>/blog/news/20210203-1/</link>
       <pubDate>Wed, 03 Feb 2021 00:00:00 +0000</pubDate>

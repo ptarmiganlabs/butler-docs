@@ -140,19 +140,22 @@ Cron has been the standard scheduler for decades in most Linux systems, it&amp;r
         
         
         &lt;h2 id=&#34;scheduled-vs-manual-app-reloads&#34;&gt;Scheduled vs manual app reloads&lt;/h2&gt;
-&lt;p&gt;It might not be obvious at first, but there are several kinds of reloads in Qlik Sense Enterprise:&lt;/p&gt;
+&lt;p&gt;It might not be obvious at first, but there are several kinds of reloads in Qlik Sense Enterprise on Windows:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Reloads started from QMC.&lt;/strong&gt; These are usually created and managed in the QMC. Quite often they are also combined into reload chains. The common thing about these reloads is that they - under the hood - are managed by Sense&amp;rsquo;s scheduling service.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Manual reloads started from script edit.&lt;/strong&gt; When developing apps in the standard Sense client/script editor you usually reload the apps from there. This does trigger an app reload, but not via the Sense scheduling service.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Manual reloads started from the script editor.&lt;/strong&gt; When developing apps in the standard Sense client/script editor you usually reload the apps from there. This does trigger an app reload, but not via the Sense scheduling service. Instead the reload is done directly in the engine service.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;The reload failure notifications described here work by looking at log entries written by the scheduling service. When that service writes information to the logs about a failed reload, your logging appender will detect it and send an email, and/or send a UDP message to Butler - who will forward the message to Teams and/or Slack.&lt;/p&gt;
+&lt;p&gt;The reload failure notifications described here work by looking at log entries written by the scheduling service. When that service writes information to the logs about a failed reload, your logging appender will detect it and send a UDP message to Butler - who will forward the message to all the notification destinations configured in the config file.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s also possible to have the log appender send emails, without going through Butler.
+It works perfectly fine, but the emails will be very basic when it comes to formatting and you will not get any of the features offered by Butler (last few lines of the reload script log included in the email, customizable email subjects etc).&lt;/p&gt;
 &lt;h2 id=&#34;alert-emails&#34;&gt;Alert emails&lt;/h2&gt;
 &lt;p&gt;Butler can send two kinds of alert emails:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;When a scheduled reload task fails.&lt;/li&gt;
 &lt;li&gt;When a running reload task is stopped.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Alert emails can be formatted using HTML, use CSS styling, emojis etc. There&amp;rsquo;s no reason an alert email can&amp;rsquo;t look good.&lt;/p&gt;
+&lt;p&gt;Alert emails can be formatted using HTML, use CSS styling, emojis etc.&lt;br&gt;
+There&amp;rsquo;s no reason an alert email can&amp;rsquo;t look good!&lt;/p&gt;
 &lt;p&gt;Alert emails viewed on a mobile phone give direct insight into what has happened:&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -203,6 +206,13 @@ Cron has been the standard scheduler for decades in most Linux systems, it&amp;r
 &lt;p&gt;Qlik Sense Enterprise on Windows uses the log4net logging framework to create log files. Log4net is quite flexible and can - among other things - send emails when events such as reload failures occur. There is however little flexibility when it comes to layout and contents of those emails. They are text only (no formatting, tables, different fonts, colors etc) and the email subjects cannot contain any dynamic fields (for example the name of the failed reload task).&lt;/p&gt;
 &lt;p&gt;The goal of Butler&amp;rsquo;s alert emails is to address these limitations and offer a flexible foundation not only for emails, but for all kinds of alerts.&lt;/p&gt;
 &lt;p&gt;If you want to explore what&amp;rsquo;s possible using just the features offered by log4net, Christof Schwarz has a &lt;a href=&#34;https://www.linkedin.com/pulse/qlik-sense-task-email-notifications-so-easy-christof-schwarz/?trackingId=X8MEGEmppfSvdukFRbnLwQ%3D%3D&#34;&gt;good post&lt;/a&gt; on sending basic notification emails when scheduled reloads fail, with links to &lt;a href=&#34;https://github.com/levi-turner/getting_notified_from_qliksense&#34;&gt;Levi Turners great examples&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;alert-emails-to-app-owners&#34;&gt;Alert emails to app owners&lt;/h2&gt;
+&lt;p&gt;Qlik Sense can be configured in many ways. In some companies all apps are owned by a central service account.&lt;br&gt;
+Other companies set the developer as app owner also for published apps.&lt;/p&gt;
+&lt;p&gt;In the latter case it might be relevant to send the app owner a notification email when a reload task fails or is aborted. That way the developer is immediately made aware of the issue and can act on it as needed.&lt;/p&gt;
+&lt;p&gt;This feature assumes the app owner&amp;rsquo;s user account (in the Sense user directory) has an email address associated with it. When syncing users from Active Directory the users&#39; emails are often brought along into Sense, but there is no guarantee for this.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;If&lt;/em&gt; an email address is available for a Sense user, the QMC user section can look like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./qlik_sense_user_email_address_1.png&#34; alt=&#34;alt text&#34; title=&#34;Email address available for Qlik Sense user&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;how-it-works&#34;&gt;How it works&lt;/h2&gt;
 &lt;p&gt;Butler uses a templating engine called &lt;a href=&#34;https://handlebarsjs.com/guide/&#34;&gt;Handlebars&lt;/a&gt;. It is used when sending all kinds of alert emails supported by Butler.&lt;/p&gt;
 &lt;p&gt;Slack, MS Teams and MQTT messages are currently not using the templating engine - this is however likely to change in coming Butler versions. Feel free to &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/issues&#34;&gt;add (or +1) a request on GitHub&lt;/a&gt; if this is of interest to you!&lt;/p&gt;
@@ -222,7 +232,7 @@ Cron has been the standard scheduler for decades in most Linux systems, it&amp;r
 &lt;/ul&gt;
 &lt;p&gt;The log appenders that drive Butler&amp;rsquo;s alerts rely on the Scheduler logs - not the engine logs.&lt;br&gt;
 This is an intentional design decision.&lt;/p&gt;
-&lt;p&gt;It is certainly possible to add log appenders also for engine logs and that way get notified when &lt;em&gt;any&lt;/em&gt; reload fail. The question is whether that&amp;rsquo;s an interesting use case. In most cases sys admins aren&amp;rsquo;t very interested if reloads that fail during app development - they only care about failures caused by apps in production - i.e. apps driven by the Sense Scheduler. Thus, Butler currently doesn&amp;rsquo;t deal with reload failures reported from the Sense engine.&lt;/p&gt;
+&lt;p&gt;It is certainly possible to add log appenders also for engine logs and that way get notified when &lt;em&gt;any&lt;/em&gt; reload fail. The question is whether that&amp;rsquo;s an interesting use case. In most cases sys admins aren&amp;rsquo;t very interested in reloads that fail during app development - they only care about failures caused by apps in production - i.e. app reload tasks managed by the Sense Scheduler. Thus, Butler currently doesn&amp;rsquo;t deal with reload failures reported from the Sense engine.&lt;/p&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -234,39 +244,54 @@ This is an intentional design decision.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;These links describe how emails can be sent from the log4net logging framework itself, directly to the recipient. Butler includes sameple XML files for this use case too, but Butler takes things further by using the data in the Sense logs to pull in more data around the failed or stopped reload.&lt;/p&gt;
 &lt;p&gt;In other words - Butler&amp;rsquo;s alert emails are significantly more flexible and contain information (such as script logs) that are not availble using purely log4net.&lt;/p&gt;
+&lt;h2 id=&#34;seeing-is-believing&#34;&gt;Seeing is believing&lt;/h2&gt;
+&lt;p&gt;The video below is available at &lt;a href=&#34;https://www.youtube.com/channel/UCpQblhippq-KfWkXEEYFHTQ&#34;&gt;Ptarmigan Labs&#39; YouTube channel&lt;/a&gt; and also in the &lt;a href=&#34;https://www.youtube.com/playlist?list=PLUuyY5OOOsz3XX5YT2QEwa7dzaBT1kOCP&#34;&gt;Butler playlist&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+        &lt;iframe src=&#34;https://www.youtube.com/embed/PxYGtCmpu4o?enablejsapi=1&#34;
+                 allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
 
       </description>
     </item>
     
     <item>
       <title>Docs: Alerts via Slack and Microsoft Teams</title>
-      <link>/docs/concepts/alerts-slack/</link>
+      <link>/docs/concepts/alerts-slack-teams/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/concepts/alerts-slack/</guid>
+      <guid>/docs/concepts/alerts-slack-teams/</guid>
       <description>
         
         
-        &lt;h2 id=&#34;microsoft-teams-notifications&#34;&gt;Microsoft Teams notifications&lt;/h2&gt;
-&lt;p&gt;A reload failure notification in Team looks like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;reload-failure-notification-teams-1.png&#34; alt=&#34;alt text&#34; title=&#34;Failed reload notification in Microsoft Teams&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Requirements:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Log appenders being correctly set up on the Sense servers where failed reloads should be caught.&lt;/li&gt;
-&lt;li&gt;A running Butler instance with the UDP server enabled (&lt;code&gt;Butler.udpServerConfig.enable&lt;/code&gt; setting in Butler config file). Make sure the UDP IP and port in the XML file and Butler&amp;rsquo;s config matches!&lt;/li&gt;
-&lt;li&gt;MS Teams notifications must be enabled in the &lt;code&gt;Butler.teamsConfig.enable&lt;/code&gt; property in the config file.&lt;/li&gt;
-&lt;li&gt;An incoming webhook defined in MS Teams. These are created per channel in Teams, so make sure to create it in the channel where notifications should appear. The &lt;code&gt;Butler.teamsConfig.taskFailureWebhookURL&lt;/code&gt; should be set to the URL you get from Teams.&lt;/li&gt;
-&lt;/ol&gt;
+        &lt;h2 id=&#34;teams-slack-and-email-notifications&#34;&gt;Teams, Slack and email notifications&lt;/h2&gt;
+&lt;p&gt;Microsoft Teams, Slack and email are all notification &lt;em&gt;&lt;strong&gt;destinations&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Alert messages/notifications come in two variants: &amp;ldquo;basic&amp;rdquo; and &amp;ldquo;formatted&amp;rdquo;.&lt;/p&gt;
+&lt;h3 id=&#34;formatted-messages&#34;&gt;Formatted messages&lt;/h3&gt;
+&lt;p&gt;These messages take full advantage of the formatting available in each notification destination.&lt;/p&gt;
+&lt;p&gt;Slack has its own way for creating messages with rich layout and formatting - as does Teams and email.&lt;/p&gt;
+&lt;p&gt;Formatted messages are created using template files.&lt;br&gt;
+Each notification destination has its own set of template files. It&amp;rsquo;s therefore possible to take advantage of each destination&amp;rsquo;s specific features when it comes to formatting the messages sent by Butler.&lt;/p&gt;
+&lt;p&gt;Message templates can include &amp;ldquo;template fields&amp;rdquo;. These are placeholders that are replaced with actual event values before the message is sent.&lt;/p&gt;
+&lt;p&gt;The GitHub repository includes fully functional template files for all destinations.&lt;/p&gt;
+&lt;h3 id=&#34;basic-messages&#34;&gt;Basic messages&lt;/h3&gt;
+&lt;p&gt;Basic message formats are available for all notification destinations.&lt;/p&gt;
+&lt;p&gt;This message type is useful if you only want a short, basic notification that a task failed or was aborted. The basic formats are pre-defined and are thus easy to set up.&lt;/p&gt;
+&lt;h2 id=&#34;microsoft-teams-notifications&#34;&gt;Microsoft Teams notifications&lt;/h2&gt;
+&lt;p&gt;Basic and formatted reload task failure notifications can look like this in Teams:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/failed-reload-teams-basic_1.png&#34; alt=&#34;alt text&#34; title=&#34;Basic failed reload notification in Microsoft Teams&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/failed-reload-teams-formatted_1.png&#34; alt=&#34;alt text&#34; title=&#34;Formatted failed reload notification in Microsoft Teams&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The configuration needed for setting this up is described &lt;a href=&#34;/docs/getting-started/setup/reload-alerts/alert-teams/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;slack-notifications&#34;&gt;Slack notifications&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;reload-failure-notification-slack-1.png&#34; alt=&#34;alt text&#34; title=&#34;Failed reload notification in Slack&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Requirements:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Log appenders being correctly set up on the Sense servers where failed reloads should be caught.&lt;/li&gt;
-&lt;li&gt;A running Butler instance with the UDP server enabled (&lt;code&gt;Butler.udpServerConfig.enable&lt;/code&gt; setting in Butler config file). Make sure the UDP IP and port in the XML file and Butler&amp;rsquo;s config match!&lt;/li&gt;
-&lt;li&gt;Slack notifications must be enabled in the &lt;code&gt;Butler.slackConfig.enable&lt;/code&gt; property in the config file.&lt;/li&gt;
-&lt;li&gt;An incoming webhook defined in Slack. While these are associated with a specific Slack channel, you can overrise the channel when posting messages. The &lt;code&gt;Butler.slackConfig.webhookURL&lt;/code&gt; should be set to the URL you get from Teams.&lt;/li&gt;
-&lt;li&gt;The name of the Slack channel to which notifications should be sent.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;Basic and formatted reload task failure notifications can look like this in Teams:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/failed-reload-slack-basic_1.png&#34; alt=&#34;alt text&#34; title=&#34;Basic failed reload notification in Microsoft Teams&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/failed-reload-slack-formatted_1.png&#34; alt=&#34;alt text&#34; title=&#34;Formatted failed reload notification in Microsoft Teams&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The configuration needed for setting this up is described &lt;a href=&#34;/docs/getting-started/setup/reload-alerts/alert-slack/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;seeing-is-believing&#34;&gt;Seeing is believing&lt;/h2&gt;
+&lt;p&gt;The video below is available at &lt;a href=&#34;https://www.youtube.com/channel/UCpQblhippq-KfWkXEEYFHTQ&#34;&gt;Ptarmigan Labs&#39; YouTube channel&lt;/a&gt; and also in the &lt;a href=&#34;https://www.youtube.com/playlist?list=PLUuyY5OOOsz3XX5YT2QEwa7dzaBT1kOCP&#34;&gt;Butler playlist&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+        &lt;iframe src=&#34;https://www.youtube.com/embed/PxYGtCmpu4o?enablejsapi=1&#34;
+                 allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
 
       </description>
     </item>
@@ -325,68 +350,46 @@ These subs are found in &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/
 
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Remember&lt;/h4&gt;
-&lt;p&gt;The text below assumes the log appenders have been correctly set up for user activity notifications.&lt;/p&gt;
+&lt;p&gt;The text below assumes the &lt;a href=&#34;/docs/getting-started/setup/user-events/&#34;&gt;log appenders have been set up&lt;/a&gt; for user activity notifications.&lt;/p&gt;
 &lt;p&gt;Make extra sure the log appender XML file contains the correct IP/port info specified in Butler&amp;rsquo;s UDP server config settings.&lt;/p&gt;
 
 &lt;/div&gt;
 
-&lt;p&gt;Butler supports the following user activity events:&lt;/p&gt;
+&lt;p&gt;The user events log appender that&amp;rsquo;s included with Butler (&lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/docs/log4net_user-audit-event/LocalLogConfig.xml&#34;&gt;GitHub link&lt;/a&gt;) captures the following events:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Session start&lt;/strong&gt;: When a user logs into Sense and do not have Sense open in any other window or tab in the browser.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Session end&lt;/strong&gt;: When a user has not been active for a while, and the session timeout is reached.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Connection open&lt;/strong&gt;: When a user open a new app, or do a browser refresh of a Sense app&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Connection close&lt;/strong&gt;: When a user closes a browser window or tab, in which a Sense app was open&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Session start&lt;/strong&gt;: When a user logs into Sense and does not have an already active Sense session open in some other browser tab or window.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Session end&lt;/strong&gt;: When a user has not been active for a while and the session timeout is reached, or when the user logs out.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Connection open&lt;/strong&gt;: When a user opens a new app or does a browser refresh of a Sense app.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Connection close&lt;/strong&gt;: When a user does a browser refresh of a Sense app or closes a browser window or tab in which a Sense app was open.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;The response time is usually quite good, typically Butler gets the notifiction from Sense within a second of the actual event taking place.&lt;/p&gt;
+&lt;p&gt;The response time is usually quite good, typically Butler gets the notifiction from Sense within a few seconds of the actual event taking place.&lt;/p&gt;
 &lt;p&gt;The information sent to Butler is&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Server name where the log message originated&lt;/li&gt;
-&lt;li&gt;What command is associated with the message (session start/stop, connection open/close)&lt;/li&gt;
-&lt;li&gt;What Sense user directory the associated user belongs to&lt;/li&gt;
+&lt;li&gt;Server name where the log message originated.&lt;/li&gt;
+&lt;li&gt;What command is associated with the message (session start/stop, connection open/close).&lt;/li&gt;
+&lt;li&gt;What Sense user directory the associated user belongs to.&lt;/li&gt;
 &lt;li&gt;The username of the associated user.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Butler will then use this information and take either of several possible actions depending on which event was received:&lt;/p&gt;
-&lt;h3 id=&#34;session-start&#34;&gt;Session start&lt;/h3&gt;
-&lt;p&gt;The following actions are taken&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Posts the event data to Slack, using the Butler.slackConfig.loginNotificationChannel configuration setting.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Publish a message to MQTT, in the topic defined in the Butler.mqttConfig.sessionStartTopic configuration setting.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;session-stop&#34;&gt;Session stop&lt;/h3&gt;
-&lt;p&gt;The following actions are taken&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Posts the event data to Slack, using the Butler.slackConfig.loginNotificationChannel configuration setting.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Publish a message to MQTT, in the topic defined in the Butler.mqttConfig.sessionStopTopic configuration setting.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;connection-open&#34;&gt;Connection open&lt;/h3&gt;
-&lt;p&gt;The following actions are taken&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Posts the event data to Slack, using the Butler.slackConfig.loginNotificationChannel configuration setting.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Publish a message to MQTT, in the topic defined in the Butler.mqttConfig.connectionOpenTopic configuration setting.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;connection-close&#34;&gt;Connection close&lt;/h3&gt;
-&lt;p&gt;The following actions are taken&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Posts the event data to Slack, using the Butler.slackConfig.loginNotificationChannel configuration setting.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Publish a message to MQTT, in the topic defined in the Butler.mqttConfig.connectionCloseTopic configuration setting.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Examples of what the Slack messages will look like can be found on the &lt;a href=&#34;/docs/concepts/udp&#34;&gt;UDP client page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Butler will then use this information and take either of several possible actions depending on which event was received and settings in Butler&amp;rsquo;s config file.&lt;/p&gt;
+&lt;h3 id=&#34;sample-slack-and-teams-messages&#34;&gt;Sample Slack and Teams messages&lt;/h3&gt;
+&lt;p&gt;Messages sent to Slack and Teams can look like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/user-events-slack-1.png&#34; alt=&#34;alt text&#34; title=&#34;User activity events in Slack&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/user-events-teams-1.png&#34; alt=&#34;alt text&#34; title=&#34;User activity events in Teams&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;enabling-slack-teams-and-mqtt-messages&#34;&gt;Enabling Slack, Teams and MQTT messages&lt;/h2&gt;
+&lt;p&gt;The message destinations can be indidually enabled or disabled.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;To enable Slack messages, &lt;code&gt;Butler.slackNotification.enable&lt;/code&gt; and &lt;code&gt;Butler.slackNotification.userSessionEvents.enable&lt;/code&gt; should both be &lt;code&gt;true&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;To enable Teams messages, &lt;code&gt;Butler.teamsNotification.enable&lt;/code&gt; and &lt;code&gt;Butler.teamsNotification.userSessionEvents.enable&lt;/code&gt; should both be &lt;code&gt;true&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;To enable MQTT messages, &lt;code&gt;Butler.mqttConfig.enable&lt;/code&gt; should be &lt;code&gt;true&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For Slack and Teams, all messages received from the log appender will be forwarded to the respective destination (assuming the destination is enabled). This means you can modify the appender XML files so that Butler received more/fewer/other messages.&lt;/p&gt;
+&lt;p&gt;The MQTT message is a bit different as it looks at the &amp;ldquo;command&amp;rdquo; field in the UDP message and then publish a MQTT message on topic that depends on which command was received:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;Session start&amp;rdquo; events will be published to the topic defined in the &lt;code&gt;Butler.mqttConfig.sessionStartTopic&lt;/code&gt; config setting.&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Session stop&amp;rdquo; events will be published to the topic defined in the &lt;code&gt;Butler.mqttConfig.sessionStopTopic&lt;/code&gt; config setting.&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Connection open&amp;rdquo; events will be published to the topic defined in the &lt;code&gt;Butler.mqttConfig.connectionOpenTopic&lt;/code&gt; config setting.&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Connection close&amp;rdquo; events will be published to the topic defined in the &lt;code&gt;Butler.mqttConfig.connectionCloseTopic&lt;/code&gt; config setting.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -435,13 +438,16 @@ Using Node.RED together with Qlik Sense and Butler, it is possible to interface 
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;incoming-mqtt---subscribe&#34;&gt;Incoming MQTT - subscribe&lt;/h2&gt;
-&lt;p&gt;Butler listens to all MQTT messages in the &lt;code&gt;qliksense/#&lt;/code&gt; topic tree. Which in MQTT lingo means &amp;ldquo;listen to all messages in the qliksense topic, as well as in any subtopics&amp;rdquo;.&lt;/p&gt;
-&lt;p&gt;When Butler finds such a message, it is analysed and if the topic matches any of the predefined topics with special meaning, the associated tasks are carried out.&lt;/p&gt;
+&lt;p&gt;Butler subscribes to all MQTT messages in the topic specied in the confif file property &lt;code&gt;Butler.mqttConfig.subscriptionRootTopic&lt;/code&gt;.&lt;br&gt;
+Which in MQTT lingo means &amp;ldquo;listen to all messages in the this topic, as well as in any subtopics&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;When Butler gets a message as a result of this subscription it is analysed and if the topic matches any of the predefined topics with special meaning, the associated tasks are carried out.&lt;/p&gt;
 &lt;p&gt;Topics with special meaning are:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;qliksense/start_task&lt;/code&gt;: Starts the Sense task identified by the ID sent in the message body. See the &lt;a href=&#34;/docs/examples/start-task-from-mqtt/#use-mqtt-to-start-sense-tasks&#34;&gt;Examples&lt;/a&gt; secion.&lt;/li&gt;
+&lt;li&gt;Start Sense task. The exact topic is defined in config property &lt;code&gt;Butler.mqttConfig.taskStartTopic&lt;/code&gt;.&lt;br&gt;
+Note that this topic &lt;em&gt;must&lt;/em&gt; be a subtopic to the topic specified in &lt;code&gt;Butler.mqttConfig.subscriptionRootTopic&lt;/code&gt;!&lt;br&gt;
+Starts the Sense task identified by the ID sent in the message body. More info in the &lt;a href=&#34;/docs/examples/start-task-from-mqtt/#use-mqtt-to-start-sense-tasks&#34;&gt;examples&lt;/a&gt; section.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;As Butler listens to all messages in qliksense/#, it can easily be extended with handlers for additional topics.&lt;/p&gt;
+&lt;p&gt;As Butler listens to all messages in the topic tree specified by &lt;code&gt;Butler.mqttConfig.subscriptionRootTopic&lt;/code&gt; it can easily be extended with handlers for additional topics.&lt;/p&gt;
 
       </description>
     </item>

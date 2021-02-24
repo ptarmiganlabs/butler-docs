@@ -97,3 +97,9 @@ It is certainly possible to add log appenders also for engine logs and that way 
 These links describe how emails can be sent from the log4net logging framework itself, directly to the recipient. Butler includes sameple XML files for this use case too, but Butler takes things further by using the data in the Sense logs to pull in more data around the failed or stopped reload.
 
 In other words - Butler's alert emails are significantly more flexible and contain information (such as script logs) that are not availble using purely log4net.
+
+## Seeing is believing
+
+The video below is available at [Ptarmigan Labs' YouTube channel](https://www.youtube.com/channel/UCpQblhippq-KfWkXEEYFHTQ) and also in the [Butler playlist](https://www.youtube.com/playlist?list=PLUuyY5OOOsz3XX5YT2QEwa7dzaBT1kOCP).
+
+{{< youtube id="PxYGtCmpu4o" modestbranding=true color="red">}}

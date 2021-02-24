@@ -20,8 +20,7 @@ Butler can send two kinds of alert messages via Teams:
 - When a scheduled or started from the QMC reload task fails.
 - When a scheduled or started from the QMC reload task is somehow stopped.
 
-<!-- TODO -->
-See the [Concepts section](/docs/concepts/todo/) for additional details.
+See the [Concepts section](/docs/concepts/alerts-slack-teams/) for additional details.
 
 A complete reference to the config file format is found [here](/docs/reference/config-file/).
 

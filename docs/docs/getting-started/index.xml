@@ -23,8 +23,8 @@
       <description>
         
         
-        &lt;h2 id=&#34;conceptual-overview&#34;&gt;Conceptual overview&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;butler-system-overview-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler high level system overview&#34;&gt;&lt;/p&gt;
+        &lt;h2 id=&#34;getting-started-1-2-3&#34;&gt;Getting started: 1-2-3&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;/img/butler-system-overview-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler high level system overview&#34;&gt;&lt;/p&gt;
 &lt;p&gt;The main components of Butler are outlined in the system diagram above.&lt;/p&gt;
 
 
@@ -35,6 +35,12 @@
 
 &lt;/div&gt;
 
+&lt;h3 id=&#34;1-installation&#34;&gt;1. Installation&lt;/h3&gt;
+&lt;p&gt;Follow the &lt;a href=&#34;/docs/getting-started/install&#34;&gt;installation instructions&lt;/a&gt; - they will guide through the setup process, including requirements and customisation.&lt;/p&gt;
+&lt;h3 id=&#34;2-setup&#34;&gt;2. Setup&lt;/h3&gt;
+&lt;p&gt;Once everything is installed you need to &lt;a href=&#34;./setup&#34;&gt;edit the configuration file&lt;/a&gt; to suit your specific needs.&lt;/p&gt;
+&lt;h3 id=&#34;3-try-it-out&#34;&gt;3. Try it out!&lt;/h3&gt;
+&lt;p&gt;Feel free to browse through the &lt;a href=&#34;/docs/concepts&#34;&gt;concepts&lt;/a&gt; and &lt;a href=&#34;/docs/examples&#34;&gt;examples&lt;/a&gt; to get an understanding of how to use Butler.&lt;/p&gt;
 
       </description>
     </item>
@@ -59,7 +65,8 @@
 &lt;h2 id=&#34;getting-started&#34;&gt;Getting started&lt;/h2&gt;
 &lt;p&gt;Sorry - there is no installer for Butler.&lt;br&gt;
 You will need to work a bit on the command line to set things up.&lt;/p&gt;
-&lt;p&gt;It&amp;rsquo;s not as bad as it sounds though, the instructions here should help settings things up.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s not as bad as it sounds though, the instructions here should help.&lt;br&gt;
+If you run into troubles you can always reach out via the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/discussions&#34;&gt;GitHub discussion forums&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;p&gt;Either you install a few pieces of software (most notably &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js&lt;/a&gt; and some node modules), or you run Butler in a Docker container.&lt;/p&gt;
 &lt;p&gt;Either way you also need to edit Butler&amp;rsquo;s configuration file and provide certificates exported from Qlik Sense Enterprise.&lt;/p&gt;

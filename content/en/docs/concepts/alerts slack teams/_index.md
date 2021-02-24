@@ -49,4 +49,10 @@ Basic and formatted reload task failure notifications can look like this in Team
 
 ![alt text](/img/failed-reload-slack-formatted_1.png "Formatted failed reload notification in Microsoft Teams")  
 
-The configuration needed for setting this up is described [here](/docs/getting-started/setup/reload-alerts/alert-slack/). 
+The configuration needed for setting this up is described [here](/docs/getting-started/setup/reload-alerts/alert-slack/).
+
+## Seeing is believing
+
+The video below is available at [Ptarmigan Labs' YouTube channel](https://www.youtube.com/channel/UCpQblhippq-KfWkXEEYFHTQ) and also in the [Butler playlist](https://www.youtube.com/playlist?list=PLUuyY5OOOsz3XX5YT2QEwa7dzaBT1kOCP).
+
+{{< youtube id="PxYGtCmpu4o" modestbranding=true color="red">}}

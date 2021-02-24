@@ -6,8 +6,6 @@ description: >
     Demo app showing how to post message to Slack from Qlik Sense load script.
 ---
 
-<!-- TODO -->
-
 ## Load script
 
 Assuming the [.qvs helper subs](/docs/reference/sense-helper-subs/) are used, only one line of script is needed to send a Slack message:
@@ -26,8 +24,3 @@ The Slack message looks like this:
 
 The demo app is available in the [GitHub repository](https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps).
 
-## Video showing posting to Slack demo app
-
-Available at [Ptarmigan Labs' YouTube channel](https://www.youtube.com/channel/UCpQblhippq-KfWkXEEYFHTQ) and also in the [Butler YouTube playlist](https://www.youtube.com/playlist?list=PLUuyY5OOOsz3XX5YT2QEwa7dzaBT1kOCP).
-
-{{< youtube id="" modestbranding=true color="red">}}

@@ -28,7 +28,7 @@
 &lt;p&gt;Butler uses configuration files in YAML format. The config files are stored in the &lt;code&gt;src/config&lt;/code&gt; folder.&lt;/p&gt;
 &lt;p&gt;Prior to Butler v2.1, JSON config files were used. YAML is however much more human readable than JSON, thus the config file was changed to YAML.&lt;br&gt;
 JSON config files can still be used though (just create the file in JSON syntax and suffix it with .json), but YAML is the default as of Butler v2.1.&lt;/p&gt;
-&lt;p&gt;Butler comes with a default config file called &lt;code&gt;production_template.yaml&lt;/code&gt;. Make a copy of it, then rename the copy to &lt;code&gt;default.yaml&lt;/code&gt;, &lt;code&gt;production.yaml&lt;/code&gt;, &lt;code&gt;staging.yaml&lt;/code&gt; or somthing else suitable for your specific use case.&lt;br&gt;
+&lt;p&gt;Butler comes with a default config file called &lt;code&gt;production_template.yaml&lt;/code&gt;. Make a copy of it, then rename the copy to &lt;code&gt;default.yaml&lt;/code&gt;, &lt;code&gt;production.yaml&lt;/code&gt;, &lt;code&gt;staging.yaml&lt;/code&gt; or something else suitable to your specific use case.&lt;br&gt;
 Update it as needed (see the &lt;a href=&#34;/docs/reference/config-file/&#34;&gt;config file reference page&lt;/a&gt; for details).&lt;/p&gt;
 &lt;p&gt;Trying to run Butler with the default config file (the one included in the files download from GitHub) will not work - you need to adapt it to your server environment. For example, you need to enter the IP or host name of you Sense server(s), the IP or host name where Butler is running etc.&lt;/p&gt;
 &lt;p&gt;The name of the config file matters. Butler looks for an environment variable called &amp;ldquo;NODE_ENV&amp;rdquo; and then tries to load a config file named with the value found in NODE_ENV.&lt;/p&gt;
@@ -42,12 +42,12 @@ Update it as needed (see the &lt;a href=&#34;/docs/reference/config-file/&#34;&g
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;running-several-butler-instances-in-parallel&#34;&gt;Running several Butler instances in parallel&lt;/h3&gt;
-&lt;p&gt;If you have several Sense clusters (for example DEV, TEST and PROD environments) you might want several Butler instances running.&lt;br&gt;
-You can then create config files names &lt;code&gt;butler_dev.yaml&lt;/code&gt;, &lt;code&gt;butler_test.yaml&lt;/code&gt; and &lt;code&gt;butler_prod.yaml&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If you have several Sense clusters (for example DEV, TEST and PROD environments) you might probably want several Butler instances.&lt;br&gt;
+Solution: Create several config files: &lt;code&gt;butler_dev.yaml&lt;/code&gt;, &lt;code&gt;butler_test.yaml&lt;/code&gt; and &lt;code&gt;butler_prod.yaml&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;In this scenario three instances of Butler should be started, each given a different config file by setting the NODE_ENV variable as needed when starting Butler.&lt;/p&gt;
 &lt;p&gt;Note: If running several Butler instances in parallel, you must also ensure that each one uses unique port numbers for their respective REST APIs, UDP servers etc.&lt;/p&gt;
 &lt;h3 id=&#34;setting-environment-variables&#34;&gt;Setting environment variables&lt;/h3&gt;
-&lt;p&gt;The method for setting environment variables varies between different operating systems:&lt;/p&gt;
+&lt;p&gt;The method for setting environment variables varies between operating systems:&lt;/p&gt;
 &lt;p&gt;On Windows:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;set NODE_ENV=production
 &lt;/code&gt;&lt;/pre&gt;
@@ -94,7 +94,8 @@ They must exist in the config file and be correctly set for Butler to work.
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# clientCertCA: /nodeapp/config/certificate/root.pem&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;configEngine&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;engineVersion&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;12.170.2&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Qlik Associative Engine version to use with Enigma.js. Ver 12.170.2 works with Feb 2019&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# engineVersion: 12.170.2        # Qlik Associative Engine version to use with Enigma.js. Ver 12.170.2 works with Feb 2019&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;engineVersion&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;12.612.0&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;         &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Qlik Associative Engine version to use with Enigma.js. Works with Feb 2020 and others&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;host&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;FQDN or IP of Sense server where Sense Engine is running&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;port&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;Port to connect to, usually 4747&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;useSSL&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -116,7 +117,7 @@ They must exist in the config file and be correctly set for Butler to work.
     </item>
     
     <item>
-      <title>Docs: Enadling endpoints in Butler&#39;s REST API</title>
+      <title>Docs: Enabling endpoints in Butler&#39;s REST API</title>
       <link>/docs/getting-started/setup/enable-api-endpoints/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -163,10 +164,11 @@ They must exist in the config file and be correctly set for Butler to work.
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;deleteSchedule&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;startSchedule&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;stopSchedule&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;senseAppReload&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;senseAppDump&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;senseListApps&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;senseStartTask&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;slackPostMessage&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;slackPostMessage&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; 
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;...&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;...&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -192,29 +194,88 @@ Do note though that Butler expects the configuration properties below to exist i
 
 &lt;/div&gt;
 
+&lt;h2 id=&#34;alert-types&#34;&gt;Alert types&lt;/h2&gt;
+&lt;p&gt;These alert types are available:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Reload task failure. Send alerts when reload tasks fail, no matter if they were started on schedule or manually from the QMC.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Reload task aborted. Send alerts when reload tasks are manually aborted in the QMC.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;alert-destinations&#34;&gt;Alert destinations&lt;/h2&gt;
+&lt;p&gt;Alerts can be sent to these destinations. Each destination can be individually enabled/disabled in the config file.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Destination&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;QMC task failure&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;QMC task aborted&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Flexible formatting&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Basic formatting&lt;/th&gt;
+&lt;th&gt;Comment&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Email&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;Basic emails can be sent using a &lt;a href=&#34;/docs/getting-started/setup/reload-alerts/#sending-basic-alert-emails-from-log4net&#34;&gt;log appender&lt;/a&gt;.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Slack&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MS Teams&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MQTT&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;-&lt;/td&gt;
+&lt;td&gt;Formatting is not relevant for MQTT messages&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h2 id=&#34;how-it-works&#34;&gt;How it works&lt;/h2&gt;
-&lt;p&gt;In order for Butler initiated alerts to become a reality, Butler must somehow be notified that the event of interest (for example a failed app reload) has taken place.&lt;br&gt;
+&lt;p&gt;In order for Butler initiated alerts to become a reality, Butler must somehow be notified that the event of interest (for example a failed reload task) has taken place.&lt;br&gt;
 This is achieved by adding a &lt;strong&gt;&lt;em&gt;log appender&lt;/em&gt;&lt;/strong&gt; to Qlik Sense Enterprise on Windows.&lt;/p&gt;
 &lt;p&gt;Log appenders offer a way to hook into Qlik Sense&amp;rsquo;s logging subsystem, which is called &lt;a href=&#34;https://help.qlik.com/en-US/sense-admin/September2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders-QSRollingFileAppender-Built-in-Appenders.htm&#34;&gt;log4net&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;By adding a carefully crafted .xml file in the right location on the Sense server(s), you can make Sense notify Butler by means of UDP messages when the events of interest occur. Conceptually it looks like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/butler_log4net_appenders_1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler high level system overview&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/butler-log4net-appenders-1.png&#34; alt=&#34;Butler high level system overview&#34; title=&#34;Butler high level system overview&#34;&gt;&lt;/p&gt;
 &lt;p&gt;So what happens when a scheduled reload task fails? Let&amp;rsquo;s look at the steps:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;A reload task is started by the Sense scheduler, either on a time schedule or as a result of some other task(s) finishing.&lt;/p&gt;
+&lt;p&gt;A reload task is started by the Sense scheduler, either on a time schedule, as a result of some other task(s) finishing or manually by a user in the QMC.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;When the reload&amp;rsquo;s state changes, entries are written to the scheduler log files using the log4net subsystem (which is built into Qlik Sense). If the filter defined in the log appender (= the .xml file on the Sense server) matches the log entry at hand, the associated action in the log appender will be carried out.&lt;/p&gt;
+&lt;p&gt;When the task&amp;rsquo;s state changes, entries are written to the scheduler log files using log4net (which is built into Qlik Sense). If the filter defined in the log appender (= the .xml file on the Sense server) matches the log entry at hand, the associated action in the log appender will be carried out.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Log appenders can do all kinds of things, everything from writing custom log files, sending basic emails, writing to databases and &lt;a href=&#34;https://help.qlik.com/en-US/sense-admin/November2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders-QSRollingFileAppender-Built-in-Appenders.htm&#34;&gt;much more&lt;/a&gt;. Here we&amp;rsquo;re interested in the log appender sending a UDP message from Qlik Sense to Butler.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;The log appender provided as part of Butler will make log4net send a UDP message to Butler, including various info about the reload task that just failed or was stopped.&lt;/p&gt;
+&lt;p&gt;The log appender provided as part of Butler will make log4net send a UDP message to Butler, including various info about the reload task that just failed or was stopped/aborted.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Butler will look at the incoming event and determine what its about. For example: Is the event about a reload task failure, a reload that has been aborted/stopped, end user sessions starting/stopping, connections to the Sense engine opening/closing etc.&lt;br&gt;
-This is thus a dispatcher that then sends the event to the relevant handler function within Butler.&lt;/p&gt;
+&lt;p&gt;Butler will look at the incoming event and determine what it is about.&lt;br&gt;
+For example: Is the event about a reload task failure, a reload that has been aborted/stopped, end user sessions starting/stopping, connections to the Sense engine opening/closing etc.&lt;br&gt;
+Butler thus first works as a dispatcher that as in a second step sends the event to the relevant handler function within Butler.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Response times are usually very good - Butler will typically get the UDP message within a few seconds, with alerts going out shortly thereafter. You are thus looking at close to real-time alerts.&lt;/p&gt;
@@ -232,15 +293,15 @@ Still, if you start from the sample .xml file provided in the &lt;a href=&#34;ht
 &lt;p&gt;The contents of &lt;code&gt;LocalLogConfig.xml&lt;/code&gt; will determine what events are forwarded to Butler, or what other actions will be taken by log4net. See below for examples.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Sense will eventually detect and load the new xml file, but it might take a while. Restarting the Qlik Sense Scheduler Windows service will make the changes take effect immediately.&lt;/p&gt;
+&lt;p&gt;Sense will eventually detect and load the new xml file, but it might take a while (minutes). Restarting the Qlik Sense Scheduler Windows service will make the changes take effect immediately.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img src=&#34;reload-failure-notification-win-config-1.png&#34; alt=&#34;alt text&#34; title=&#34;log4net log appender on Windows Server&#34;&gt;&lt;/p&gt;
-&lt;h3 id=&#34;forward-task-reload-events-to-butler&#34;&gt;Forward task reload events to Butler&lt;/h3&gt;
+&lt;h3 id=&#34;forwarding-task-reload-events-to-butler&#34;&gt;Forwarding task reload events to Butler&lt;/h3&gt;
 &lt;p&gt;Here&amp;rsquo;s the XML that should go into &lt;code&gt;C:\ProgramData\Qlik\Sense\Scheduler\LocalLogConfig.xml&lt;/code&gt; to enable the various kinds of Butler task reload alerts.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;The &lt;code&gt;remoteAddres&lt;/code&gt; property should be set to the host name or IP where Butler is running.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;remoteAddress&lt;/code&gt; property should be set to the host name or IP where Butler is running.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;The &lt;code&gt;remotePort&lt;/code&gt; property should match the port number specified in Butler&amp;rsquo;s config file. Note that Butler uses different ports for task related and user activity related events.&lt;/p&gt;
@@ -252,9 +313,10 @@ Still, if you start from the sample .xml file provided in the &lt;a href=&#34;ht
 &lt;p&gt;The second appender looks for &amp;ldquo;Execution State Change to Aborting&amp;rdquo; in the &lt;code&gt;System.Scheduler.Scheduler.Master.Task.TaskSession&lt;/code&gt; log stream. That log entry occurs when a user stops a running reload from the QMC&amp;rsquo;s task view, or using the Sense APIs. When the search string is found a UDP message is once again sent to 10.11.12.13:9998, but with a different messsage (as specified in the &lt;code&gt;conversionpattern&lt;/code&gt; property of the appender).&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;Here is an XML file that would forward log events as UDP messages to Butler:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;lt;?xml version=&amp;#34;1.0&amp;#34;?&amp;gt;&lt;/span&gt;
 &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
-	&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;lt;!-- Appender for detecting reload task failures. Only the last of potentially several retries is reported --&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;lt;!-- Appender for detecting reload task failures. Only the last of potentially several retries is reported --&amp;gt;&lt;/span&gt;
     &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;appender&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;TaskFailureLogger&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;type=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;log4net.Appender.UdpAppender&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
         &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;filter&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;type=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;log4net.Filter.StringMatchFilter&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
             &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;param&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;stringToMatch&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Max retries reached&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
@@ -268,7 +330,7 @@ Still, if you start from the sample .xml file provided in the &lt;a href=&#34;ht
                 &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;param&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;hostname&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
                 &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;param&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Qlik.Sense.Logging.log4net.Layout.Pattern.HostNamePatternConverter&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
              &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/converter&amp;gt;&lt;/span&gt;
-            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;param&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;conversionpattern&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;%hostname;%property{TaskName};%property{AppName};%property{User};%property{TaskId};%property{AppId};%date;%level;%property{ExecutionId};%message&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;param&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;conversionpattern&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/scheduler-reload-failed/;%hostname;%property{TaskName};%property{AppName};%property{User};%property{TaskId};%property{AppId};%date;%level;%property{ExecutionId};%message&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
         &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/layout&amp;gt;&lt;/span&gt;
     &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/appender&amp;gt;&lt;/span&gt;
 
@@ -575,9 +637,9 @@ In QlikView this was possible, but also resulted in risks and potential attack v
 &lt;/div&gt;
 
 &lt;h2 id=&#34;whats-this&#34;&gt;What&amp;rsquo;s this?&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://mqtt.org/&#34;&gt;MQTT&lt;/a&gt; is a light weight messaging protocol based on a publish-subscribe metaphore. It is widely used in the telecom and Internet of Things sectors.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://mqtt.org/&#34;&gt;MQTT&lt;/a&gt; is a light weight messaging protocol based on a publish-subscribe metaphore. It is widely for example Internet of Things and telecom sectors.&lt;/p&gt;
 &lt;p&gt;MQTT has features such as guaranteed delivery of messages, which makes it very useful for communicating between Sense and both up- and downstream source/destination systems.&lt;/p&gt;
-&lt;p&gt;Butler can be configured to forward events from Sense (reload fails, reload is aborted, user session begins/ends etc) as MQTT messages.&lt;/p&gt;
+&lt;p&gt;Butler can be configured to forward events from Sense (reload task failures, aborted reload tasks, user session start/stop etc) as MQTT messages.&lt;/p&gt;
 &lt;p&gt;Butler&amp;rsquo;s &lt;a href=&#34;/docs/reference/rest-api/&#34;&gt;REST API&lt;/a&gt; also has an endpoint that makes it possible to send MQTT messages from the Sense load script.&lt;/p&gt;
 &lt;h2 id=&#34;settings-in-main-config-file&#34;&gt;Settings in main config file&lt;/h2&gt;
 &lt;p&gt;The settings are of two kinds:&lt;/p&gt;
@@ -593,17 +655,22 @@ In QlikView this was possible, but also resulted in risks and potential attack v
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;enable&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                                     &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Should Qlik Sense events be forwarded as MQTT messages?&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;brokerHost&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;&amp;lt;FQDN or IP of MQTT server&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;brokerPort&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1883&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;taskFailureSendFull&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;taskAbortedSendFull&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;subscriptionRootTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;qliksense/#                                 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Topic that Butler will subscribe to&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;taskStartTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;qliksense/start_task                               &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Topic for incoming messages used to start Sense tasks. Should be subtopic to subscriptionRootTopic&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;taskFailureTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;qliksense/task_failure&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;taskFailureFullTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;qliksense/task_failure_full&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;taskFailureServerStatusTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;qliksense/butler/task_failure_server&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;taskAbortedTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;qliksense/task_aborted&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;taskAbortedFullTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;qliksense/task_aborted_full&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;sessionStartTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;qliksense/session/start&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;sessionStopTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;qliksense/session/stop&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;connectionOpenTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;qliksense/connection/open&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;connectionCloseTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;qliksense/connection/close&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;sessionServerStatusTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;qliksense/butler/session_server&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;activeUserCountTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;qliksense/users/active/count&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;activeUsersTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;qliksense/users/active/usernames&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;...&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;activeUsersTopic&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;qliksense/users/active/usernames  ...&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;...&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
       </description>
@@ -799,6 +866,98 @@ Its configuration is similar to that of Butler_GET, except that a message body i
 &lt;h4 class=&#34;alert-heading&#34;&gt;Remember!&lt;/h4&gt;
 As with all new data connections, Sense will change the name your new connection (adding your username as a suffix).&lt;br&gt;
 &lt;strong&gt;Use the QMC to change the name to &amp;ldquo;Butler_POST&amp;rdquo;.&lt;/strong&gt;
+&lt;/div&gt;
+
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Forwarding user activity events to Butler</title>
+      <link>/docs/getting-started/setup/user-events/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/getting-started/setup/user-events/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Optional&lt;/h4&gt;
+&lt;p&gt;These settings are optional.&lt;/p&gt;
+&lt;p&gt;If you don&amp;rsquo;t need this feature just disable it and leave the default values in the config as they are.&lt;/p&gt;
+&lt;p&gt;Do note though that Butler expects the configuration properties below to exist in the config file, but will &lt;em&gt;ignore their values&lt;/em&gt; if the related features are disabled.&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;For a more high-level discussion around log events, please see this &lt;a href=&#34;/docs/concepts/log-event-handlers/&#34;&gt;concepts page&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;adding-log-appender-xml-files-to-qlik-sense&#34;&gt;Adding log appender XML files to Qlik Sense&lt;/h2&gt;
+&lt;p&gt;The page covering how to set up task failure alerts has a section on &lt;a href=&#34;/docs/getting-started/setup/reload-alerts/&#34;&gt;how to add log appenders&lt;/a&gt;.&lt;br&gt;
+The concepts there are valid also in the context of user event handlers, the actual XML files and their location on the Sense servers differ though.&lt;/p&gt;
+&lt;p&gt;The user activity events of interest are found in the proxy service log files.&lt;br&gt;
+More specifically we&amp;rsquo;re looking for the strings &lt;code&gt;Start session for user&lt;/code&gt;, &lt;code&gt;Stop session for user&lt;/code&gt;, &lt;code&gt;connection Opened for session&lt;/code&gt;, &lt;code&gt;connection Closed for session&lt;/code&gt; in the &lt;code&gt;C:\ProgramData\Qlik\Sense\Log\Proxy\Audit\PRO2-WIN1_AuditActivity_Proxy.txt&lt;/code&gt; log file.&lt;/p&gt;
+&lt;p&gt;A sample &lt;code&gt;LocalLogConfig.xml&lt;/code&gt; file is found in the GitHub repository&amp;rsquo;s &lt;code&gt;docs/log4net_user-audit-event&lt;/code&gt; directory.&lt;br&gt;
+Edit it as needed with respect to IP/hostname and port where Butler is running.&lt;br&gt;
+If you want to change what events Butler should receive via UDP messages, this is where this should be changed.&lt;/p&gt;
+&lt;p&gt;The XML file should be saved as &lt;code&gt;C:\ProgramData\Qlik\Sense\Proxy\LocalLogConfig.xml&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The sample file included with Butler looks like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;appender&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;EventSession&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;type=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;log4net.Appender.UdpAppender&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;filter&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;type=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;log4net.Filter.StringMatchFilter&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;param&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;stringToMatch&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Start session for user&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/filter&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;filter&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;type=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;log4net.Filter.StringMatchFilter&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;param&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;stringToMatch&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Stop session for user&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/filter&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;filter&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;type=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;log4net.Filter.DenyAllFilter&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;param&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;remoteAddress&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;lt;FQDN or IP of server where Butler is running&amp;gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;param&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;remotePort&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;9997&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;param&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;encoding&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;utf-8&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;layout&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;type=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;log4net.Layout.PatternLayout&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;converter&amp;gt;&lt;/span&gt;
+                &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;param&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;hostname&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+                &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;param&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Qlik.Sense.Logging.log4net.Layout.Pattern.HostNamePatternConverter&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/converter&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;param&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;conversionpattern&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/proxy-session/;%hostname;%property{Command};%property{UserDirectory};%property{UserId};%property{Origin};%property{Context};%message&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/layout&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/appender&amp;gt;&lt;/span&gt;
+
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;appender&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;EventConnection&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;type=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;log4net.Appender.UdpAppender&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;filter&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;type=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;log4net.Filter.StringMatchFilter&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;param&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;stringToMatch&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;connection Opened for session&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/filter&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;filter&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;type=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;log4net.Filter.StringMatchFilter&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;param&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;stringToMatch&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;connection Closed for session&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/filter&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;filter&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;type=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;log4net.Filter.DenyAllFilter&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;param&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;remoteAddress&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&amp;lt;FQDN or IP of server where Butler is running&amp;gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;param&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;remotePort&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;9997&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;param&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;encoding&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;utf-8&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;layout&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;type=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;log4net.Layout.PatternLayout&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;converter&amp;gt;&lt;/span&gt;
+                &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;param&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;hostname&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+                &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;param&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Qlik.Sense.Logging.log4net.Layout.Pattern.HostNamePatternConverter&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/converter&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;param&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;conversionpattern&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;value=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/proxy-connection/;%hostname;%property{Command};%property{UserDirectory};%property{UserId};%property{Origin};%property{Context};%message&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/layout&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/appender&amp;gt;&lt;/span&gt;
+
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;logger&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;name=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;AuditActivity.Proxy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;appender-ref&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;ref=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;EventSession&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;appender-ref&lt;/span&gt; &lt;span style=&#34;color:#c4a000&#34;&gt;ref=&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;EventConnection&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/logger&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Before depoloying it to your Sense server(s) the sample file should be modified to include the IP address/host name where Butler is running.&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Remember&lt;/h4&gt;
+&lt;p&gt;The XML file must be deployed on all Sense servers.&lt;/p&gt;
+&lt;p&gt;If the XML file is not deployed to a server that users access Sense through, user events on that server will not be forwarded to Butler.&lt;/p&gt;
+
 &lt;/div&gt;
 
 

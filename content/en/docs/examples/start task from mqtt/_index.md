@@ -5,7 +5,6 @@ weight: 50
 description: >
   
 ---
-
 ## Use MQTT to start Sense tasks
 
 Butler can be configured to listen to a specific MQTT topic (specified in config file property `Butler.mqttConfig.taskStartTopic`) and use any message received in that topic as a Sense task ID, which is then started.
@@ -35,6 +34,8 @@ These config file settings must be set up before Butler will use MQTT messages t
   * Butler.mqttConfig.subscriptionRootTopic: <Root topic that Butler should subscribe to. Something like `qliksense/#`>
   * Butler.mqttConfig.taskStartTopic: <Topic used to start Sense tasks. *MUST* be a suptopic to the root topic above!>
 
-## Video showing starting tasks via both MQTT and REST API
+## Seeing is believing
 
-{{< youtube id="" modestbranding=true color="red">}}
+The video below is available at [Ptarmigan Labs' YouTube channel](https://www.youtube.com/channel/UCpQblhippq-KfWkXEEYFHTQ) and also in the [Butler playlist](https://www.youtube.com/playlist?list=PLUuyY5OOOsz3XX5YT2QEwa7dzaBT1kOCP).
+
+{{< youtube id="5m6FPRqhN14" modestbranding=true color="red">}}

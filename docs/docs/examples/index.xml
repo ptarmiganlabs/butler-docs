@@ -55,7 +55,8 @@ This means that its very easy to try out and get familiar with the various API e
 
 &lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Other tools for exploring APIs&lt;/h4&gt;
-&lt;p&gt;If the OpenAPI interface to Butler&amp;rsquo;s API feels limited, there exists lots of tools that focus soley on this task.&lt;/p&gt;
+&lt;p&gt;If the OpenAPI interface to Butler&amp;rsquo;s API feels limited, there are lots of tools dedicated to this task.&lt;br&gt;
+Two good ones are:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://paw.cloud/&#34;&gt;Paw&lt;/a&gt; is Mac only, costs a bit of money, but is very, very good. Highly recommended.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.postman.com/&#34;&gt;Postman&lt;/a&gt; is also good and cross platform.&lt;/li&gt;
@@ -608,16 +609,90 @@ It&amp;rsquo;s thus a good idea to monitor for example how much memory (RAM) too
         
         
         &lt;h2 id=&#34;use-mqtt-to-start-sense-tasks&#34;&gt;Use MQTT to start Sense tasks&lt;/h2&gt;
-&lt;p&gt;Butler is configured to listen to a specific MQTT topic, qliksense/start_task, and use any message received in that topic as a Sense task ID, which is then started.&lt;/p&gt;
+&lt;p&gt;Butler can be configured to listen to a specific MQTT topic (specified in config file property &lt;code&gt;Butler.mqttConfig.taskStartTopic&lt;/code&gt;) and use any message received in that topic as a Sense task ID, which is then started.&lt;/p&gt;
 &lt;p&gt;For example:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;A Sense app, used by end users, relies on data in a MS SQL Server database.&lt;/li&gt;
-&lt;li&gt;The data in the datbase can be updated at any time.&lt;/li&gt;
+&lt;li&gt;A Sense app, used by end users, relies on data in a source system that talks MQTT (there are &lt;em&gt;lots&lt;/em&gt; of MQTT libraries available, covering most operating systems).&lt;/li&gt;
+&lt;li&gt;The data in the source system can be updated at any time.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;In order to update the Sense app with data, the most common approach is to schedule reloads of the Qlik Sense app at certain intervals, i.e. polling the database.&lt;/p&gt;
-&lt;p&gt;But if the database instead posts a MQTT message on the qliksense/start_task topic when new data is available, the database will trigger the Sense app&amp;rsquo;s reload.&lt;/p&gt;
-&lt;p&gt;This way the Sense app will be updated as quickly as possible after new data is availabe in the database.&lt;/p&gt;
+&lt;p&gt;In order to update the Sense app with data the most common approach is to schedule reloads of the Qlik Sense app at certain intervals, i.e. polling the source system.&lt;/p&gt;
+&lt;p&gt;But if the source system instead posts a MQTT message on a well defined topic when new data is available, theat message will trigger the Sense app&amp;rsquo;s reload.&lt;/p&gt;
+&lt;p&gt;This way the Sense app will be updated as quickly as possible after new data is availabe in the source system.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;&lt;strong&gt;I.e. the end user will have access to more up-to-date data, compared to the polling based solution.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;requirements-for-starting-tasks-via-mqtt&#34;&gt;Requirements for starting tasks via MQTT&lt;/h2&gt;
+&lt;p&gt;These config file settings must be set up before Butler will use MQTT messages to start tasks:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Connection to MQTT broker (=server):
+&lt;ul&gt;
+&lt;li&gt;Butler.mqttConfig.enable: true&lt;/li&gt;
+&lt;li&gt;Butler.mqttConfig.brokerHost: &lt;IP or host name of MQTT broker&gt;&lt;/li&gt;
+&lt;li&gt;Butler.mqttConfig.brokerPort: &lt;Port where MQTT broker is listening&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;MQTT topics that Butler should subscribe to
+&lt;ul&gt;
+&lt;li&gt;Butler.mqttConfig.subscriptionRootTopic: &amp;lt;Root topic that Butler should subscribe to. Something like &lt;code&gt;qliksense/#&lt;/code&gt;&amp;gt;&lt;/li&gt;
+&lt;li&gt;Butler.mqttConfig.taskStartTopic: &amp;lt;Topic used to start Sense tasks. &lt;em&gt;MUST&lt;/em&gt; be a suptopic to the root topic above!&amp;gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;seeing-is-believing&#34;&gt;Seeing is believing&lt;/h2&gt;
+&lt;p&gt;The video below is available at &lt;a href=&#34;https://www.youtube.com/channel/UCpQblhippq-KfWkXEEYFHTQ&#34;&gt;Ptarmigan Labs&#39; YouTube channel&lt;/a&gt; and also in the &lt;a href=&#34;https://www.youtube.com/playlist?list=PLUuyY5OOOsz3XX5YT2QEwa7dzaBT1kOCP&#34;&gt;Butler playlist&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+        &lt;iframe src=&#34;https://www.youtube.com/embed/5m6FPRqhN14?enablejsapi=1&#34;
+                 allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Start Sense tasks using REST API</title>
+      <link>/docs/examples/start-task-from-rest/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/examples/start-task-from-rest/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;use-butlers-rest-api-to-start-sense-tasks&#34;&gt;Use Butler&amp;rsquo;s REST API to start Sense tasks&lt;/h2&gt;
+&lt;p&gt;If the Butler config file is properly set up it&amp;rsquo;s possible to start any Sense task by doing a PUT HTTP call to /v4/reloadtask/{taskId}/start endpoint.&lt;/p&gt;
+&lt;p&gt;A great use case is to have upstream systems that feed Qlik Sense with data trigger a Sense task when new data is available.&lt;br&gt;
+That way Sense doesn&amp;rsquo;t have to poll for new data, with less system resources used in both upstream system and in Sense.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;AND&lt;/strong&gt;&lt;/em&gt; users get the new data as quickly as possible!&lt;/p&gt;
+&lt;h3 id=&#34;helper-functions-available-in-qvs-file&#34;&gt;Helper functions available in .qvs file&lt;/h3&gt;
+&lt;p&gt;If you what to start reload tasks from the Sense load script that is easy.&lt;/p&gt;
+&lt;p&gt;Just include the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/docs/sense_script/butler_subs.qvs&#34;&gt;butler_subs.qvs&lt;/a&gt; file from the GitHub release package and you get (among many other things) a helper function that&amp;rsquo;s called &lt;code&gt;StartTask&lt;/code&gt;. It takes a single &lt;code&gt;taskId&lt;/code&gt; parameter,  which means that starting a reload task from an app&amp;rsquo;s load script is as simple as&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Call StartTask(&amp;lt;TaskId&amp;gt;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The general Butler 5.0 demo app &lt;code&gt;Butler 5.0 - demo app (many APIs!).qvf&lt;/code&gt; (&lt;a href=&#34;https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps&#34;&gt;link&lt;/a&gt;) contains such a demo (and many others).&lt;/p&gt;
+&lt;h2 id=&#34;requirements-for-starting-tasks-via-rest-api&#34;&gt;Requirements for starting tasks via REST API&lt;/h2&gt;
+&lt;p&gt;These config file settings must be set up before Butler can use the REST API to start tasks:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Connection to Qlik Sense:
+&lt;ul&gt;
+&lt;li&gt;Butler.configQRS.*&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Configure REST server itself:
+&lt;ul&gt;
+&lt;li&gt;Butler.restServerConfig.enable: true&lt;/li&gt;
+&lt;li&gt;Butler.restServerConfig.serverHost: &amp;lt;IP or hostname where Butler&amp;rsquo;s REST server is running&amp;gt;&lt;/li&gt;
+&lt;li&gt;Butler.restServerConfig.serverPort: &lt;Port where Butler is exposing its REST server&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Enable the start task API endpoint
+&lt;ul&gt;
+&lt;li&gt;Butler.restServerEndpointsEnable.senseStartTask: true&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;seeing-is-believing&#34;&gt;Seeing is believing&lt;/h2&gt;
+&lt;p&gt;The video below is available at &lt;a href=&#34;https://www.youtube.com/channel/UCpQblhippq-KfWkXEEYFHTQ&#34;&gt;Ptarmigan Labs&#39; YouTube channel&lt;/a&gt; and also in the &lt;a href=&#34;https://www.youtube.com/playlist?list=PLUuyY5OOOsz3XX5YT2QEwa7dzaBT1kOCP&#34;&gt;Butler playlist&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+        &lt;iframe src=&#34;https://www.youtube.com/embed/5m6FPRqhN14?enablejsapi=1&#34;
+                 allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
 
       </description>
     </item>
@@ -723,6 +798,19 @@ end sub
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Note how the HTTP operation is set using the X-HTTP-Method-Override HTTP header.&lt;/p&gt;
 &lt;p&gt;This is a way to work around a limitation of Qlik&amp;rsquo;s REST connector, as it only supports GET and POST operations. The extra HTTP header tells Butler what kind of HTTP operation should &lt;em&gt;really&lt;/em&gt; be carried out.&lt;/p&gt;
 
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Sense apps that explain and highlight various Butler features</title>
+      <link>/docs/examples/sense-demo-apps/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/examples/sense-demo-apps/</guid>
+      <description>
+        
+        
+        
       </description>
     </item>
     

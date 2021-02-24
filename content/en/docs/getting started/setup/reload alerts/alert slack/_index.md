@@ -17,11 +17,10 @@ Do note though that Butler expects the configuration properties below to exist i
 
 Butler can send two kinds of alert messages via Slack:
 
-- When a scheduled or started from the QMC reload task fails.
-- When a scheduled or started from the QMC reload task is somehow stopped.
+- When a scheduled, or started from the QMC reload task fails.
+- When a scheduled, or started from the QMC reload task is somehow stopped.
 
-<!-- TODO -->
-See the [Concepts section](/docs/concepts/todo/) for additional details.
+See the [Concepts section](/docs/concepts/alerts-slack-teams/) for additional details.
 
 A complete reference to the config file format is found [here](/docs/reference/config-file/).
 

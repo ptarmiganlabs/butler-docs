@@ -3,28 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/docs/getting-started/install/natively/</loc>
-    <lastmod>2021-01-29T18:27:15+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/docs/about/</loc>
-    <lastmod>2020-10-19T22:41:44+02:00</lastmod>
+    <lastmod>2021-02-23T09:13:26+01:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/about/butler/</loc>
-    <lastmod>2020-11-16T14:06:11+01:00</lastmod>
+    <lastmod>2021-02-16T09:36:29+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/examples/sense-demo-apps/butler-5.0-demo-app/</loc>
+    <lastmod>2021-02-23T09:13:26+01:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/reference/config-file/</loc>
-    <lastmod>2020-11-16T14:06:11+01:00</lastmod>
+    <lastmod>2021-02-23T09:13:26+01:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/getting-started/setup/reload-alerts/alert-emails/</loc>
-    <lastmod>2020-11-17T06:03:28+01:00</lastmod>
+    <lastmod>2021-02-23T09:13:26+01:00</lastmod>
   </url>
   
   <url>
@@ -34,47 +34,52 @@
   
   <url>
     <loc>/docs/examples/openapi-docs/</loc>
-    <lastmod>2020-11-16T14:06:11+01:00</lastmod>
+    <lastmod>2021-02-12T11:30:41+01:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/getting-started/overview/</loc>
-    <lastmod>2020-11-16T14:06:11+01:00</lastmod>
+    <lastmod>2021-02-16T09:36:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/about/use-cases/retired/</loc>
-    <lastmod>2020-11-16T14:06:11+01:00</lastmod>
+    <lastmod>2021-02-16T09:36:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/getting-started/setup/which-config-file/</loc>
-    <lastmod>2020-11-16T14:06:11+01:00</lastmod>
+    <lastmod>2021-02-16T09:36:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/getting-started/install/choose-platform/</loc>
-    <lastmod>2020-10-21T08:41:58+02:00</lastmod>
+    <lastmod>2021-02-16T09:36:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/</loc>
-    <lastmod>2020-11-16T14:06:11+01:00</lastmod>
+    <lastmod>2021-02-16T09:36:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/getting-started/</loc>
-    <lastmod>2020-10-21T08:41:58+02:00</lastmod>
+    <lastmod>2021-02-16T09:36:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/getting-started/install/</loc>
-    <lastmod>2020-10-21T08:41:58+02:00</lastmod>
+    <lastmod>2021-02-16T09:36:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>/blog/news/</loc>
     <lastmod>2020-10-19T22:41:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/examples/sense-demo-apps/partial-loads/</loc>
+    <lastmod>2021-02-23T09:13:26+01:00</lastmod>
   </url>
   
   <url>
@@ -84,7 +89,7 @@
   
   <url>
     <loc>/docs/reference/rest-api/</loc>
-    <lastmod>2020-11-16T14:06:11+01:00</lastmod>
+    <lastmod>2021-02-23T09:13:26+01:00</lastmod>
   </url>
   
   <url>
@@ -94,12 +99,12 @@
   
   <url>
     <loc>/docs/getting-started/setup/qlik-sense-server-settings/</loc>
-    <lastmod>2020-11-16T14:06:11+01:00</lastmod>
+    <lastmod>2021-02-16T09:36:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/getting-started/setup/reload-alerts/alert-slack/</loc>
-    <lastmod>2020-11-17T06:03:28+01:00</lastmod>
+    <lastmod>2021-02-23T09:13:26+01:00</lastmod>
   </url>
   
   <url>
@@ -114,12 +119,12 @@
   
   <url>
     <loc>/docs/concepts/alert-emails/</loc>
-    <lastmod>2020-11-17T06:03:28+01:00</lastmod>
+    <lastmod>2021-02-23T09:13:26+01:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/getting-started/setup/enable-api-endpoints/</loc>
-    <lastmod>2020-11-16T14:06:11+01:00</lastmod>
+    <lastmod>2021-02-16T09:36:29+01:00</lastmod>
   </url>
   
   <url>
@@ -129,12 +134,21 @@
   
   <url>
     <loc>/docs/getting-started/install/docker/</loc>
-    <lastmod>2020-11-16T14:06:11+01:00</lastmod>
+    <lastmod>2021-02-16T09:36:29+01:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/getting-started/setup/reload-alerts/alert-teams/</loc>
-    <lastmod>2020-11-17T06:03:28+01:00</lastmod>
+    <lastmod>2021-02-23T09:13:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/getting-started/install/native/</loc>
+    <lastmod>2021-02-16T09:36:29+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/examples/sense-demo-apps/post-to-slack/</loc>
   </url>
   
   <url>
@@ -154,12 +168,11 @@
   
   <url>
     <loc>/docs/about/use-cases/</loc>
-    <lastmod>2020-11-16T14:06:11+01:00</lastmod>
+    <lastmod>2021-02-16T09:36:29+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/docs/concepts/alerts-slack/</loc>
-    <lastmod>2020-11-16T14:06:11+01:00</lastmod>
+    <loc>/docs/concepts/alerts-slack-teams/</loc>
   </url>
   
   <url>
@@ -189,37 +202,47 @@
   
   <url>
     <loc>/docs/getting-started/setup/reload-alerts/alert-mqtt/</loc>
-    <lastmod>2020-11-16T14:06:11+01:00</lastmod>
+    <lastmod>2021-02-16T09:36:29+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/docs/getting-started/install/nodejs/</loc>
-    <lastmod>2021-01-29T18:27:15+01:00</lastmod>
+    <loc>/docs/examples/sense-demo-apps/publish-to-mqtt/</loc>
+    <lastmod>2021-02-23T09:13:26+01:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/concepts/log-event-handlers/</loc>
-    <lastmod>2020-11-16T14:06:11+01:00</lastmod>
+    <lastmod>2021-02-23T09:13:26+01:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/reference/alert-template-fields/</loc>
-    <lastmod>2020-11-16T14:06:11+01:00</lastmod>
+    <lastmod>2021-02-23T09:13:26+01:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/concepts/mqtt/</loc>
-    <lastmod>2021-01-29T18:27:15+01:00</lastmod>
+    <lastmod>2021-02-23T09:13:26+01:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/examples/start-task-from-mqtt/</loc>
-    <lastmod>2020-11-17T06:03:28+01:00</lastmod>
+    <lastmod>2021-02-23T09:13:26+01:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/about/versioning/</loc>
     <lastmod>2020-10-19T22:41:44+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/getting-started/setup/reload-alerts/alert-webhook-out/</loc>
+    <lastmod>2021-02-23T09:13:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/examples/start-task-from-rest/</loc>
+    <lastmod>2021-02-23T09:13:26+01:00</lastmod>
   </url>
   
   <url>
@@ -232,13 +255,23 @@
   </url>
   
   <url>
+    <loc>/docs/reference/sense-helper-subs/</loc>
+    <lastmod>2021-02-23T09:13:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/examples/sense-demo-apps/</loc>
+    <lastmod>2021-02-23T09:13:26+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/docs/reference/</loc>
     <lastmod>2020-10-21T08:41:58+02:00</lastmod>
   </url>
   
   <url>
     <loc>/docs/getting-started/setup/reload-alerts/</loc>
-    <lastmod>2020-11-16T14:06:11+01:00</lastmod>
+    <lastmod>2021-02-16T09:36:29+01:00</lastmod>
   </url>
   
   <url>
@@ -268,7 +301,7 @@
   
   <url>
     <loc>/docs/getting-started/setup/mqtt/</loc>
-    <lastmod>2020-11-16T14:06:11+01:00</lastmod>
+    <lastmod>2021-02-23T09:13:26+01:00</lastmod>
   </url>
   
   <url>
@@ -299,6 +332,16 @@
   <url>
     <loc>/docs/getting-started/setup/data-connections/</loc>
     <lastmod>2021-02-03T12:56:22+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/docs/getting-started/setup/user-events/</loc>
+    <lastmod>2021-02-23T09:13:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/releases/v5.0.0/</loc>
+    <lastmod>2021-02-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -368,7 +411,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2021-01-20T07:06:17+01:00</lastmod>
+    <lastmod>2021-02-16T09:36:29+01:00</lastmod>
   </url>
   
   <url>
