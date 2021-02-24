@@ -30,7 +30,7 @@
 <meta itemprop="description" content="How to install Butler as a Docker container.
 ">
 <meta itemprop="dateModified" content="2021-02-16T09:36:29+01:00" />
-<meta itemprop="wordCount" content="1097">
+<meta itemprop="wordCount" content="1124">
 
 
 
@@ -1659,8 +1659,8 @@ if (!doNotTrack) {
 </table>
 <h2 id="installation-steps">Installation steps</h2>
 <p>The following steps give some guidance on how to get Butler running on Docker.<br>
-Here Mac OS has been used, things will look different on Linux and Windows.</p>
-<!-- TODO: update Docker install instructions -->
+Here Mac OS was used, things will look different on Linux and Windows.</p>
+<p>Note: While the console logs below refer to an older version of Butler&rsquo;s Docker image, the steps involved are the same also for current/most recent version of Butler.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">proton:~ goran$ mkdir /Users/goran/butler
 proton:~ goran$ <span style="color:#204a87">cd</span> /Users/goran/butler
 proton:butler goran$ mkdir -p config/certificate
@@ -1687,7 +1687,7 @@ services:
     container_name: butler
     restart: always
     ports:
-      - <span style="color:#4e9a06">&#34;8080:8080&#34;</span>     <span style="color:#8f5902;font-style:italic"># REST API available on port 8180 to services outside the container</span>
+      - <span style="color:#4e9a06">&#34;8080:8080&#34;</span>     <span style="color:#8f5902;font-style:italic"># REST API available on port 8080 to services outside the container</span>
       - <span style="color:#4e9a06">&#34;9997:9997&#34;</span>     <span style="color:#8f5902;font-style:italic"># UDP port for session connection events</span>
       - <span style="color:#4e9a06">&#34;9998:9998&#34;</span>     <span style="color:#8f5902;font-style:italic"># UDP port for task failure events</span>
     volumes:

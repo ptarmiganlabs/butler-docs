@@ -19,7 +19,12 @@ Qlik Sense Enterprise on Windows | *Mandatory.* Butler is developed with Qlik Se
 Node.js | *Mandatory.* Butler is written in Node - which is thus a firm requirement.
 MQTT broker | *Optional.* MQTT is used for both in- and out-bound pub-sub messaging. Butler assumes a working MQTT broker is available, the IP of which is defined in the Butler config file. Mosquitto is a nice open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/... instance is enough, if you want a dedicated MQTT server. If you don't care about the pubsub features of Butler, you don't need a MQTT broker. In this case you can disable the MQTT features in the config YAML file.
 | [InfluxDB](https://www.influxdata.com/time-series-platform/) | *Optional.* A database for realtime information, used to store metrics around Butler's own memory usage over time (if this feature is enabled). |
+
 ## Installation steps
+
+The steps below outline the steps needed to install Butler as a native Node.js application on for example Windows Server.
+
+Additional information is found on the [Day 2 operations](/docs/getting-started/operations/) page.
 
 * **Install node.js**  
     Butler has been developed and tested using the 64 bit version of [Node.js](https://nodejs.org/en/download/). The most recent LTS (Long Term Support) version is usually a good choice.

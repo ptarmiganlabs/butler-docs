@@ -18,8 +18,11 @@ description: >
 ## Installation steps
 
 The following steps give some guidance on how to get Butler running on Docker.  
-Here Mac OS has been used, things will look different on Linux and Windows.
-<!-- TODO: update Docker install instructions -->
+Here Mac OS was used, things will look different on Linux and Windows.
+
+Note: While the console logs below refer to an older version of Butler's Docker image, the steps involved are the same also for current/most recent version of Butler.
+
+
 ```bash
 proton:~ goran$ mkdir /Users/goran/butler
 proton:~ goran$ cd /Users/goran/butler
@@ -47,7 +50,7 @@ services:
     container_name: butler
     restart: always
     ports:
-      - "8080:8080"     # REST API available on port 8180 to services outside the container
+      - "8080:8080"     # REST API available on port 8080 to services outside the container
       - "9997:9997"     # UDP port for session connection events
       - "9998:9998"     # UDP port for task failure events
     volumes:
