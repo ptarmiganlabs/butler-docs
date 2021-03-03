@@ -14,6 +14,46 @@
     
     
     <item>
+      <title>Blog: v5.1.0: Sharing is caring</title>
+      <link>/blog/releases/v5.1.0/</link>
+      <pubDate>Wed, 03 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/releases/v5.1.0/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;sharing-is-caring&#34;&gt;Sharing is caring&lt;/h2&gt;
+&lt;p&gt;The main change in in this release is the addition of telemetry.&lt;/p&gt;
+&lt;p&gt;Yup - starting with 5.1 Butler will call home.
+At least if you let it.&lt;/p&gt;
+&lt;p&gt;So&amp;hellip; the question is then&amp;hellip; how does it work and should you allow it?&lt;/p&gt;
+&lt;h3 id=&#34;how&#34;&gt;How&lt;/h3&gt;
+&lt;p&gt;Software that reports back to some home base can be a bad thing, but it can also be a very good thing.&lt;br&gt;
+In the case of Butler &lt;strong&gt;only anonymized information is included in telemetry messages&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Ptarmigan Labs just won&amp;rsquo;t know which telemetry data came from what Qlik Sense servers.&lt;/p&gt;
+&lt;p&gt;Is this &lt;em&gt;really&lt;/em&gt; true?&lt;br&gt;
+Yup. Not even the IP addresses of the server sending the telemetry data is kept.&lt;/p&gt;
+&lt;p&gt;The process is basically this:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A telemetry message arrives from somewhere. The message itself contains no information that can identify the sender, nor does it contain any sensitive data.&lt;/li&gt;
+&lt;li&gt;The message&amp;rsquo;s content is stored in a database. Nothing else.&lt;/li&gt;
+&lt;li&gt;You can request your data to be deleted in the future, if need be. But only if you tell Ptarmigan Labs which data is yours - as they have no way of knowing this themselves.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A full description of what data is included in telemetry messages is found &lt;a href=&#34;/docs/about/telemetry/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;why&#34;&gt;Why&lt;/h3&gt;
+&lt;p&gt;Good question.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s pretty simple really: If the Butler developers know which features are used most and on what OSs and types of hardware/VMs etc Butler runs, they can do a much better job when it comes to refining those popular features and supporting the most commonly used platforms.&lt;br&gt;
+That&amp;rsquo;s it - telemetry is 100% about making future Butler versions better.&lt;/p&gt;
+&lt;p&gt;On the other hand: If you turn off telemetry the Butler developers will be in the dark as to what features are actually used and on what kinds of operating systems and computers.&lt;/p&gt;
+&lt;p&gt;Telemetry is a way to make future Butler versions as good and relevant as possible - and it&amp;rsquo;s up to YOU whether it happens or not.&lt;/p&gt;
+&lt;h2 id=&#34;go-get-it&#34;&gt;Go get it!&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/changelog.md&#34;&gt;changelog&lt;/a&gt; has all the details.&lt;/p&gt;
+&lt;p&gt;Butler releases are &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/releases&#34;&gt;available on GitHub&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Blog: v5.0.0: Reload alerting deluxe</title>
       <link>/blog/releases/v5.0.0/</link>
       <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>

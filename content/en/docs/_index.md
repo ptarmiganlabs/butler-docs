@@ -9,6 +9,19 @@ weight: 20
 
 
 {{% pageinfo %}}
+
+### What's new in version 5.1
+
+* First version of **telemetry** added to Butler ([#142](https://github.com/ptarmiganlabs/butler/issues/142)). More info [here](/docs/about/telemetry).
+
+* Fixed bug [#143](https://github.com/ptarmiganlabs/butler/issues/143).
+
+* Show high level system info when starting Butler ([#140](https://github.com/ptarmiganlabs/butler/issues/140)).
+
+* Don't waste memory when MQTT is not used: Fixed [#139](https://github.com/ptarmiganlabs/butler/issues/139).
+
+* Refined the documentation, fixed typos and updated dependencies. The usual stuff that comes with every release.
+
 ### What's new in version 5.0
 
 * **Greatly improved failed reload notifications** for both **MS Teams** and **Slack**.  
