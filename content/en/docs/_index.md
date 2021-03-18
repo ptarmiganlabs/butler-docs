@@ -10,6 +10,11 @@ weight: 20
 
 {{% pageinfo %}}
 
+### What's new in version 5.2
+
+* It's now possible to include zero or more (i.e. optional) key-value pairs when starting QSEoW reload tasks using the [/v4/reloadtask/{taskId}/start](https://butler.ptarmiganlabs.com/docs/examples/openapi-docs/) REST endpoint.  
+  There are also helper subs available in the demo app included in the GitHub repository - as well as in the online docs at butler.ptarmiganlabs.com. ([#147](https://github.com/ptarmiganlabs/butler/issues/147), [#148](https://github.com/ptarmiganlabs/butler/issues/148))
+
 ### What's new in version 5.1
 
 * First version of **telemetry** added to Butler ([#142](https://github.com/ptarmiganlabs/butler/issues/142)). More info [here](/docs/about/telemetry).

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.80.0" />
+<meta name="generator" content="Hugo 0.81.0" />
 
 <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
@@ -29,16 +29,15 @@ When it comes to Sense, it&#39;s very doable but not entirely easy to call REST 
 This page describes those subs.
 " />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="/docs/reference/sense-helper-subs/" />
-<meta property="og:site_name" content="Butler" />
+<meta property="og:url" content="/docs/reference/sense-helper-subs/" /><meta property="og:site_name" content="Butler" />
+
 <meta itemprop="name" content="Helper subs that make it easy to use Butler APIs">
 <meta itemprop="description" content="Butler exposes a REST API that can be called from many different systems and tools, just not Qlik Sense itself.
   
 When it comes to Sense, it&#39;s very doable but not entirely easy to call REST APIs from an app&#39;s load script.   Butler comes with a set of subs/functions that wrap the API calls and make it a lot easier and cleaner to call Butler APIs from load scripts.
   
 This page describes those subs.
-">
-<meta name="twitter:card" content="summary"/>
+"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Helper subs that make it easy to use Butler APIs"/>
 <meta name="twitter:description" content="Butler exposes a REST API that can be called from many different systems and tools, just not Qlik Sense itself.
   
@@ -64,8 +63,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.607e17efa2cb4f053739e249eda18e30662654601ff4383fe7b7049bf16de706.css" as="style">
-<link href="/scss/main.min.607e17efa2cb4f053739e249eda18e30662654601ff4383fe7b7049bf16de706.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.b033d0e74bccdacdcd7917bd6a6418eb51c46c390ed080060c775f4575130ce9.css" as="style">
+<link href="/scss/main.min.b033d0e74bccdacdcd7917bd6a6418eb51c46c390ed080060c775f4575130ce9.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -1668,7 +1667,7 @@ if (!doNotTrack) {
 	
 	<h2 id="currently-available-helper-subs">Currently available helper subs</h2>
 <p>These sub() are available in the the file <code>butler_subs.qvs</code> in the <a href="https://github.com/ptarmiganlabs/butler/blob/master/docs/sense_script/butler_subs.qvs">GitHub repo</a>.</p>
-<p>They are also part of the demo app <strong>Butler 5.0 demo app</strong>, which is also available in the <a href="https://github.com/ptarmiganlabs/butler/blob/master/docs/sense_apps/Butler%205.0%20demo%20app.qvf">GitHub repo</a>.</p>
+<p>They are also part of the demo app <strong>Butler 5.2 demo app</strong>, which is also available in the <a href="https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps">GitHub repo</a>.</p>
 <table>
 <thead>
 <tr>
@@ -1696,6 +1695,10 @@ if (!doNotTrack) {
 <tr>
 <td>StartTask</td>
 <td>Start a reload task. Task ID is used to identify which task should be started. Useful for starting reload tasks when certain conditions are met during an app reload.</td>
+</tr>
+<tr>
+<td>StartTask_KeyValue</td>
+<td>Same as above, but a key-value pair can also be included via the extra parameters. This KV pair is saved in Butler&rsquo;s KV store (assuming it&rsquo;s enabled). Any Sense app (or other system) can then query the KV store for these parameters. It&rsquo;s thus an easy but effective way of passing arbitrary parameters to Sense tasks (or rather to the associated app&rsquo;s load scripts).</td>
 </tr>
 <tr>
 <td>CopyFile</td>
@@ -2098,7 +2101,7 @@ if (!doNotTrack) {
 
 
 
-<script src="/js/main.min.29b0315468c00226fa6f4556a9cebc0ac4fe1ce1457a01b22c0a06b329877383.js" integrity="sha256-KbAxVGjAAib6b0VWqc68CsT&#43;HOFFegGyLAoGsymHc4M=" crossorigin="anonymous"></script>
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
 
 
 

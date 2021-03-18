@@ -14,6 +14,7 @@ That way Sense doesn't have to poll for new data, with less system resources use
 
 ***AND*** users get the new data as quickly as possible!
 
+
 ### Helper functions available in .qvs file
 
 If you what to start reload tasks from the Sense load script that is easy.
@@ -23,6 +24,26 @@ Just include the [butler_subs.qvs](https://github.com/ptarmiganlabs/butler/blob/
     Call StartTask(<TaskId>)
 
 The general Butler 5.0 demo app `Butler 5.0 - demo app (many APIs!).qvf` ([link](https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps)) contains such a demo (and many others).
+
+### Need to pass along parameters to a task? There's a Sub for that!
+
+Sometimes you need to send parameters to a reload task (or rather to the load script of the app associated with the task).  
+This can be done by using the `StartTask_KeyValue` helper function/Sub.
+
+That Sub takes a taskId as parameter (similarly to its `StartTask` sibling), but it also takes parameters for a full key-value pair:
+
+    Call StartTask_KeyValue('fbf645f0-0c92-40a4-af9a-6e3eb1d3c35c', 'MyNamespace', 'An important key', 'The value', 3000)
+
+The parameters are
+
+* The namespace to store the key-value pair in (required).
+* The key (required).
+* The value (required).
+* An time-to-live valud in milliseconds (optional). When the ttl times out the key-value pair is automatically deleted.
+
+Documentation about Butler's key-value store is available [here](/docs/concepts/key-value/).
+
+An example showing how task chaining with parameters can be done using key-values is found [here](/docs/examples/reload-chaining/).
 
 ## Requirements for starting tasks via REST API
 

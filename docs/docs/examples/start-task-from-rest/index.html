@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.80.0" />
+<meta name="generator" content="Hugo 0.81.0" />
 
 <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
@@ -24,11 +24,10 @@
 <title>Start Sense tasks using REST API | Butler</title><meta property="og:title" content="Start Sense tasks using REST API" />
 <meta property="og:description" content="Butler adds features and services to Qlik Sense Enterprise on Windows, making it easier to develop for and operate QSEoW." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="/docs/examples/start-task-from-rest/" />
-<meta property="og:site_name" content="Butler" />
+<meta property="og:url" content="/docs/examples/start-task-from-rest/" /><meta property="og:site_name" content="Butler" />
+
 <meta itemprop="name" content="Start Sense tasks using REST API">
-<meta itemprop="description" content="Butler adds features and services to Qlik Sense Enterprise on Windows, making it easier to develop for and operate QSEoW.">
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="Butler adds features and services to Qlik Sense Enterprise on Windows, making it easier to develop for and operate QSEoW."><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Start Sense tasks using REST API"/>
 <meta name="twitter:description" content="Butler adds features and services to Qlik Sense Enterprise on Windows, making it easier to develop for and operate QSEoW."/>
 
@@ -49,8 +48,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.607e17efa2cb4f053739e249eda18e30662654601ff4383fe7b7049bf16de706.css" as="style">
-<link href="/scss/main.min.607e17efa2cb4f053739e249eda18e30662654601ff4383fe7b7049bf16de706.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.b033d0e74bccdacdcd7917bd6a6418eb51c46c390ed080060c775f4575130ce9.css" as="style">
+<link href="/scss/main.min.b033d0e74bccdacdcd7917bd6a6418eb51c46c390ed080060c775f4575130ce9.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -1600,6 +1599,7 @@ if (!doNotTrack) {
     <li><a href="#use-butlers-rest-api-to-start-sense-tasks">Use Butler&rsquo;s REST API to start Sense tasks</a>
       <ul>
         <li><a href="#helper-functions-available-in-qvs-file">Helper functions available in .qvs file</a></li>
+        <li><a href="#need-to-pass-along-parameters-to-a-task-theres-a-sub-for-that">Need to pass along parameters to a task? There&rsquo;s a Sub for that!</a></li>
       </ul>
     </li>
     <li><a href="#requirements-for-starting-tasks-via-rest-api">Requirements for starting tasks via REST API</a></li>
@@ -1664,6 +1664,21 @@ That way Sense doesn&rsquo;t have to poll for new data, with less system resourc
 <pre><code>Call StartTask(&lt;TaskId&gt;)
 </code></pre>
 <p>The general Butler 5.0 demo app <code>Butler 5.0 - demo app (many APIs!).qvf</code> (<a href="https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps">link</a>) contains such a demo (and many others).</p>
+<h3 id="need-to-pass-along-parameters-to-a-task-theres-a-sub-for-that">Need to pass along parameters to a task? There&rsquo;s a Sub for that!</h3>
+<p>Sometimes you need to send parameters to a reload task (or rather to the load script of the app associated with the task).<br>
+This can be done by using the <code>StartTask_KeyValue</code> helper function/Sub.</p>
+<p>That Sub takes a taskId as parameter (similarly to its <code>StartTask</code> sibling), but it also takes parameters for a full key-value pair:</p>
+<pre><code>Call StartTask_KeyValue('fbf645f0-0c92-40a4-af9a-6e3eb1d3c35c', 'MyNamespace', 'An important key', 'The value', 3000)
+</code></pre>
+<p>The parameters are</p>
+<ul>
+<li>The namespace to store the key-value pair in (required).</li>
+<li>The key (required).</li>
+<li>The value (required).</li>
+<li>An time-to-live valud in milliseconds (optional). When the ttl times out the key-value pair is automatically deleted.</li>
+</ul>
+<p>Documentation about Butler&rsquo;s key-value store is available <a href="/docs/concepts/key-value/">here</a>.</p>
+<p>An example showing how task chaining with parameters can be done using key-values is found <a href="/docs/examples/reload-chaining/">here</a>.</p>
 <h2 id="requirements-for-starting-tasks-via-rest-api">Requirements for starting tasks via REST API</h2>
 <p>These config file settings must be set up before Butler can use the REST API to start tasks:</p>
 <ul>
@@ -1998,7 +2013,7 @@ That way Sense doesn&rsquo;t have to poll for new data, with less system resourc
 
 
 
-<script src="/js/main.min.29b0315468c00226fa6f4556a9cebc0ac4fe1ce1457a01b22c0a06b329877383.js" integrity="sha256-KbAxVGjAAib6b0VWqc68CsT&#43;HOFFegGyLAoGsymHc4M=" crossorigin="anonymous"></script>
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
 
 
 
