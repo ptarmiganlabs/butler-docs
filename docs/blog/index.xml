@@ -15,6 +15,26 @@
     
     
     <item>
+      <title>Blog: v5.3.0: Key-value refinement</title>
+      <link>/blog/releases/v5.3.0/</link>
+      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/releases/v5.3.0/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;key-value-refinement&#34;&gt;Key-value refinement&lt;/h2&gt;
+&lt;p&gt;Small release, this.&lt;/p&gt;
+&lt;p&gt;After using the key-value (KV) store over a few months it became obvious that iterating over keys in namespaces was useful and important. But not possible given the APIs exposed by Butler.&lt;/p&gt;
+&lt;p&gt;So we added a new one. Given a KV namespace it simply returns the keys in it.&lt;/p&gt;
+&lt;h2 id=&#34;bug-fixes&#34;&gt;Bug fixes&lt;/h2&gt;
+&lt;p&gt;We&amp;rsquo;re always looking out for less than optimal solutions in Butler and try to fix them when we get a chance.
+A few of those in this relelase too.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Blog: v5.1.0: Sharing is caring</title>
       <link>/blog/releases/v5.1.0/</link>
       <pubDate>Wed, 03 Mar 2021 00:00:00 +0000</pubDate>

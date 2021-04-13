@@ -46,6 +46,15 @@ For example
 * **Use app IDs as namespace names**
   If you need to keep state between successive reloads of a particular app, you can use the app ID as namespace. That way it will be very clear which a specific KV pair belongs to.
 
+* **Keep track of what users should be notified after an app reload is complete**
+  Let's say you have a button in an app that when clicked kicks of a reload of the app (or some other app).
+  Let's also assume several users might be interested in triggering a refresh of this dataset.
+
+  By pushing each user's username to a KV namespace when they request the data refresh (by clicking that button in the app), it's possible to notify them using Teams, Slack, email etc as the last step of the app's reload script (i.e. when the app
+  ist just about done refreshing the data).
+
+  The effect is a solution where users can request a data refresh and be notified when the new data is available.
+
 * **Keeping state in visualisation extensions**
   Extensions are built using Javascript, and they can thus also make use of the KV store.
 

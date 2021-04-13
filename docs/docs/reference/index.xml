@@ -432,7 +432,7 @@
 &lt;script&gt;
 window.onload = function() {
   const ui = SwaggerUIBundle({
-    url: &#34;/openapi/butler_5-2_openapi.json&#34;,
+    url: &#34;/openapi/butler_5-3_openapi.json&#34;,
     dom_id: &#39;#ohpen_swagger_ui&#39;,
     presets: [
       SwaggerUIBundle.presets.apis,
@@ -1019,6 +1019,10 @@ This is simply how Sense works - the template fields just forward the informatio
 &lt;tr&gt;
 &lt;td&gt;GetKeyValueNamespaces&lt;/td&gt;
 &lt;td&gt;Get all namespaces.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;GetKeyValueNamespaces&lt;/td&gt;
+&lt;td&gt;Get all keys in a specifi namespace.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;PostToMQTT&lt;/td&gt;

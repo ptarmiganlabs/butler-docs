@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.81.0" />
+<meta name="generator" content="Hugo 0.82.0" />
 
 <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 
@@ -51,8 +51,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.b033d0e74bccdacdcd7917bd6a6418eb51c46c390ed080060c775f4575130ce9.css" as="style">
-<link href="/scss/main.min.b033d0e74bccdacdcd7917bd6a6418eb51c46c390ed080060c775f4575130ce9.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.c248771fed4aa0c1846bd56a4f2758b94f7858027d5469d345046cfe9d97e171.css" as="style">
+<link href="/scss/main.min.c248771fed4aa0c1846bd56a4f2758b94f7858027d5469d345046cfe9d97e171.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -1686,6 +1686,14 @@ The TTL feature is useful to keep things tidy. If you know for sure that your KV
 <li>
 <p><strong>Use app IDs as namespace names</strong>
 If you need to keep state between successive reloads of a particular app, you can use the app ID as namespace. That way it will be very clear which a specific KV pair belongs to.</p>
+</li>
+<li>
+<p><strong>Keep track of what users should be notified after an app reload is complete</strong>
+Let&rsquo;s say you have a button in an app that when clicked kicks of a reload of the app (or some other app).
+Let&rsquo;s also assume several users might be interested in triggering a refresh of this dataset.</p>
+<p>By pushing each user&rsquo;s username to a KV namespace when they request the data refresh (by clicking that button in the app), it&rsquo;s possible to notify them using Teams, Slack, email etc as the last step of the app&rsquo;s reload script (i.e. when the app
+ist just about done refreshing the data).</p>
+<p>The effect is a solution where users can request a data refresh and be notified when the new data is available.</p>
 </li>
 <li>
 <p><strong>Keeping state in visualisation extensions</strong>

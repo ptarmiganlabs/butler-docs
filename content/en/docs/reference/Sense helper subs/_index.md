@@ -37,6 +37,7 @@ They are also part of the demo app **Butler 5.2 demo app**, which is also availa
 | ExistsKeyValue | Tests if a KV pair exists in a namespace.  |
 | DeleteKeyValueNamespace | Delete a namespace and all KV pairs in it. |
 | GetKeyValueNamespaces | Get all namespaces. |
+| GetKeyValueNamespaces | Get all keys in a specifi namespace. |
 | PostToMQTT | Post a message to a MQTT topic. |
 | PostToSlack | Post a basic message to Slack. |
 

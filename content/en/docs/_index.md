@@ -10,6 +10,12 @@ weight: 20
 
 {{% pageinfo %}}
 
+### What's new in version 5.3
+
+* Added a new API endpoint for listing all keys in a [key-value](http://localhost:1313/docs/concepts/key-value/) namespace.  [#150](https://github.com/ptarmiganlabs/butler/issues/150).
+
+* Fixed a bug where Butler would not start properly if there were empty config sections in the YAML config file. Butler is now more tolerant against slightly incorrectly formatted config files. [#152](https://github.com/ptarmiganlabs/butler/issues/152).
+
 ### What's new in version 5.2
 
 * It's now possible to include zero or more (i.e. optional) key-value pairs when starting QSEoW reload tasks using the [/v4/reloadtask/{taskId}/start](https://butler.ptarmiganlabs.com/docs/examples/openapi-docs/) REST endpoint.  

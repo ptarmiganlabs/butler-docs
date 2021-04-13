@@ -14,4 +14,4 @@ The "Try it out" feature of the API documentation below does not work when acces
 The same feature is however also available from Butler itself, see [this page](/docs/examples/openapi-docs#openapi-documentation-built-into-butler).
 {{% /alert %}}
 
-{{< swaggerui src="/openapi/butler_5-2_openapi.json" >}}
+{{< swaggerui src="/openapi/butler_5-3_openapi.json" >}}

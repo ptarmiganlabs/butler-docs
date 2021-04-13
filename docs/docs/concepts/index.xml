@@ -60,6 +60,14 @@ The TTL feature is useful to keep things tidy. If you know for sure that your KV
 If you need to keep state between successive reloads of a particular app, you can use the app ID as namespace. That way it will be very clear which a specific KV pair belongs to.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Keep track of what users should be notified after an app reload is complete&lt;/strong&gt;
+Let&amp;rsquo;s say you have a button in an app that when clicked kicks of a reload of the app (or some other app).
+Let&amp;rsquo;s also assume several users might be interested in triggering a refresh of this dataset.&lt;/p&gt;
+&lt;p&gt;By pushing each user&amp;rsquo;s username to a KV namespace when they request the data refresh (by clicking that button in the app), it&amp;rsquo;s possible to notify them using Teams, Slack, email etc as the last step of the app&amp;rsquo;s reload script (i.e. when the app
+ist just about done refreshing the data).&lt;/p&gt;
+&lt;p&gt;The effect is a solution where users can request a data refresh and be notified when the new data is available.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Keeping state in visualisation extensions&lt;/strong&gt;
 Extensions are built using Javascript, and they can thus also make use of the KV store.&lt;/p&gt;
 &lt;p&gt;There might be times when several extension instances in an app need to keep in sync or share some state - a KV store might be useful there.&lt;br&gt;
