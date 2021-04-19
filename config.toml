@@ -1,7 +1,8 @@
 baseURL = "/"
 languageCode = "en-us"
 title = "Butler"
-theme = ["docsy"]
+theme = [ "docsy", "hugo-notice", "hugo-dynamic-tabs"]
+
 description = "Butler adds features and services to Qlik Sense Enterprise on Windows, making it easier to develop for and operate QSEoW."
 Paginate = 20
 
