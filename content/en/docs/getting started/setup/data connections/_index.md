@@ -3,21 +3,45 @@ title: "Creating Sense data connections"
 linkTitle: "Sense data connections"
 weight: 230
 description: >
-  If you intend to call Butler's REST API from the load script of Sense apps, you must create a couple of data connections first.
+  If you intend to call Butler's REST API from the load script of Sense apps, you must create a few data connections first.
+
+  A couple of them are mandatory, one is optional.
 ---
 
-{{% alert title="Mandatory" color="primary" %}}
-These settings are mandatory if you plan to use Butler's REST API from the load scripts of Sense apps.
-{{% /alert %}}
 
-Two data connections must be created: Butler_GET and Butler_POST.
+Two mandatory data connections must be created: `Butler_GET` and `Butler_POST`.
 
 The latter is used both for POST calls and also PUT, DELETE and other HTTP operations.  
 The `X-HTTP-Method-Override` HTTP header is used with the Butler_POST data connection to tell Butler which HTTP operation should be used.
 
 This is a way to work around a limitation of Qlik's REST connector, as it only supports GET and POST operations.
 
+One data connection is optional: `URL encode table`  
+It is used to [URL encode strings](https://www.w3schools.com/tags/ref_urlencode.ASP), which is useful when passing strings to Butler's REST API (or other APIs!).
+
+## URL encode table
+
+{{% alert title="Optional" color="primary" %}}
+Creating this data connection is optional.
+
+That said, if you plan to use the Slack, Teams, email, or webhook connectivity features of Butler, you should create this data connection. 
+{{% /alert %}}
+
+This is a basic "web file" connector pointing to `http://www.w3schools.com/tags/ref_urlencode.asp`:
+
+![Creating the URL encode table data connection](url_encore-1.png "Creating the URL encode table data connection")  
+
+{{% alert title="Remember!" color="warning" %}}
+As with all new data connections, Sense will change the name your new connection (adding your username as a suffix).  
+**Use the QMC to change the name to "URL encode table".**
+{{% /alert %}}
+
 ## Butler_GET
+
+{{% alert title="Mandatory" color="primary" %}}
+These settings are mandatory if you plan to use Butler's REST API from the load scripts of Sense apps.
+{{% /alert %}}
+
 
 With Butler running, create a new REST data connection called "Butler_GET".  
 It's URL should point to Butler's host/port.
@@ -30,7 +54,7 @@ Using the `/v4/butlerping` endpoint is an easy way to do this (assuming that end
 No special settings are needed - just make sure the REST connector finds Butler as it should.  
 The actual URL of the data connection will be modified on the fly every time you call the Butler APIs, it's thus not really important which URL is entered during the setup phase. But the `/v4/butlerping` endpoint is a conveneint way to check that the data connection works.
 
-Test the connection:
+Test the connection before creating it:
 
 ![Testing the Butler_GET data connection](butler_get-2.png "Testing the Butler_GET data connection")  
 
@@ -41,16 +65,39 @@ As with all new data connections, Sense will change the name your new connection
 
 ## Butler_POST
 
+{{% alert title="Mandatory" color="primary" %}}
+These settings are mandatory if you plan to use Butler's REST API from the load scripts of Sense apps.
+{{% /alert %}}
+
 The data connection used for POST, PUT, DELETE and all other HTTP operations beyond GET should be named "Butler_POST".  
-Its configuration is similar to that of Butler_GET, except that a message body is also needed for the POST to work. 
+Its configuration is similar to that of Butler_GET, except that a message body is also needed for the POST to work.
 
-Assuming Butler's [key-value store is enabled](/docs/getting-started/setup/key-value-store) in the main config file, the following should work:
+Assuming Butler's [key-value store is enabled](/docs/getting-started/setup/key-value-store) in the main config file, you can create a dummy key-value pair using a POST command with the following payload.
 
-![Creating the Butler_POST data connection](butler_post-1.png "Creating the Butler_POST data connection")  
+The effect is that the data connection is created and can be used for future POST/PUT/DELETE operations against Butler's API.  
+The fact that is was created against the key-value store doesn't matter, the data conncetion details will be replaced each time it is used.
 
-... and test the connection...
+```json
+{
+  "key": "abc",
+  "value": "123",
+  "ttl": "5000"
+}
+```
 
-![Testing the Butler_POST data connection](butler_post-3.png "Testing the Butler_POST data connection")  
+![Creating the Butler_POST data connection 1](butler_post-1.png "Creating the Butler_POST data connection 1")  
+
+<hr>
+
+![Creating the Butler_POST data connection 2](butler_post-2.png "Creating the Butler_POST data connection 2")  
+
+<hr>
+
+![Creating the Butler_POST data connection 3](butler_post-2.png "Creating the Butler_POST data connection 3")  
+
+... and test the connection before creting it.
+
+![Testing the Butler_POST data connection](butler_post_connection-test-succeeded-1.png "Testing the Butler_POST data connection")  
 
 {{% alert title="Remember!" color="warning" %}}
 As with all new data connections, Sense will change the name your new connection (adding your username as a suffix).  
