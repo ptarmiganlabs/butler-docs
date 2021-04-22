@@ -22,16 +22,19 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>Creating Sense data connections | Butler</title><meta property="og:title" content="Creating Sense data connections" />
-<meta property="og:description" content="If you intend to call Butler&#39;s REST API from the load script of Sense apps, you must create a couple of data connections first.
+<meta property="og:description" content="If you intend to call Butler&#39;s REST API from the load script of Sense apps, you must create a few data connections first.
+A couple of them are mandatory, one is optional.
 " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/docs/getting-started/setup/data-connections/" /><meta property="og:site_name" content="Butler" />
 
 <meta itemprop="name" content="Creating Sense data connections">
-<meta itemprop="description" content="If you intend to call Butler&#39;s REST API from the load script of Sense apps, you must create a couple of data connections first.
+<meta itemprop="description" content="If you intend to call Butler&#39;s REST API from the load script of Sense apps, you must create a few data connections first.
+A couple of them are mandatory, one is optional.
 "><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Creating Sense data connections"/>
-<meta name="twitter:description" content="If you intend to call Butler&#39;s REST API from the load script of Sense apps, you must create a couple of data connections first.
+<meta name="twitter:description" content="If you intend to call Butler&#39;s REST API from the load script of Sense apps, you must create a few data connections first.
+A couple of them are mandatory, one is optional.
 "/>
 
 
@@ -51,8 +54,8 @@ if (!doNotTrack) {
 
 
 
-<link rel="preload" href="/scss/main.min.c248771fed4aa0c1846bd56a4f2758b94f7858027d5469d345046cfe9d97e171.css" as="style">
-<link href="/scss/main.min.c248771fed4aa0c1846bd56a4f2758b94f7858027d5469d345046cfe9d97e171.css" rel="stylesheet" integrity="">
+<link rel="preload" href="/scss/main.min.691abf8ef5c908a173495dc2a5dceb08c17ceea418296d2e6f7430fe27ee8ee6.css" as="style">
+<link href="/scss/main.min.691abf8ef5c908a173495dc2a5dceb08c17ceea418296d2e6f7430fe27ee8ee6.css" rel="stylesheet" integrity="">
 
 
 <script
@@ -1597,6 +1600,14 @@ if (!doNotTrack) {
 
 
 
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#url-encode-table">URL encode table</a></li>
+    <li><a href="#butler_get">Butler_GET</a></li>
+    <li><a href="#butler_post">Butler_POST</a></li>
+  </ul>
+</nav>
+
 
 
           </div>
@@ -1651,20 +1662,43 @@ if (!doNotTrack) {
             
 <div class="td-content">
 	<h1>Creating Sense data connections</h1>
-        <div class="lead">If you intend to call Butler&rsquo;s REST API from the load script of Sense apps, you must create a couple of data connections first.</div>
+        <div class="lead">If you intend to call Butler&rsquo;s REST API from the load script of Sense apps, you must create a few data connections first.
+A couple of them are mandatory, one is optional.</div>
 	
-	
+	<p>Two mandatory data connections must be created: <code>Butler_GET</code> and <code>Butler_POST</code>.</p>
+<p>The latter is used both for POST calls and also PUT, DELETE and other HTTP operations.<br>
+The <code>X-HTTP-Method-Override</code> HTTP header is used with the Butler_POST data connection to tell Butler which HTTP operation should be used.</p>
+<p>This is a way to work around a limitation of Qlik&rsquo;s REST connector, as it only supports GET and POST operations.</p>
+<p>One data connection is optional: <code>URL encode table</code><br>
+It is used to <a href="https://www.w3schools.com/tags/ref_urlencode.ASP">URL encode strings</a>, which is useful when passing strings to Butler&rsquo;s REST API (or other APIs!).</p>
+<h2 id="url-encode-table">URL encode table</h2>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Optional</h4>
+<p>Creating this data connection is optional.</p>
+<p>That said, if you plan to use the Slack, Teams, email, or webhook connectivity features of Butler, you should create this data connection.</p>
+
+</div>
+
+<p>This is a basic &ldquo;web file&rdquo; connector pointing to <code>http://www.w3schools.com/tags/ref_urlencode.asp</code>:</p>
+<p><img src="url_encore-1.png" alt="Creating the URL encode table data connection" title="Creating the URL encode table data connection"></p>
+
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Remember!</h4>
+As with all new data connections, Sense will change the name your new connection (adding your username as a suffix).<br>
+<strong>Use the QMC to change the name to &ldquo;URL encode table&rdquo;.</strong>
+</div>
+
+<h2 id="butler_get">Butler_GET</h2>
+
 
 <div class="alert alert-primary" role="alert">
 <h4 class="alert-heading">Mandatory</h4>
 These settings are mandatory if you plan to use Butler&rsquo;s REST API from the load scripts of Sense apps.
 </div>
 
-<p>Two data connections must be created: Butler_GET and Butler_POST.</p>
-<p>The latter is used both for POST calls and also PUT, DELETE and other HTTP operations.<br>
-The <code>X-HTTP-Method-Override</code> HTTP header is used with the Butler_POST data connection to tell Butler which HTTP operation should be used.</p>
-<p>This is a way to work around a limitation of Qlik&rsquo;s REST connector, as it only supports GET and POST operations.</p>
-<h2 id="butler_get">Butler_GET</h2>
 <p>With Butler running, create a new REST data connection called &ldquo;Butler_GET&rdquo;.<br>
 It&rsquo;s URL should point to Butler&rsquo;s host/port.</p>
 <p>When createing REST data connections it&rsquo;s always a good idea to verify they work.<br>
@@ -1672,7 +1706,7 @@ Using the <code>/v4/butlerping</code> endpoint is an easy way to do this (assumi
 <p><img src="butler_get-1.png" alt="Creating the Butler_GET data connection" title="Creating the Butler_GET data connection"></p>
 <p>No special settings are needed - just make sure the REST connector finds Butler as it should.<br>
 The actual URL of the data connection will be modified on the fly every time you call the Butler APIs, it&rsquo;s thus not really important which URL is entered during the setup phase. But the <code>/v4/butlerping</code> endpoint is a conveneint way to check that the data connection works.</p>
-<p>Test the connection:</p>
+<p>Test the connection before creating it:</p>
 <p><img src="butler_get-2.png" alt="Testing the Butler_GET data connection" title="Testing the Butler_GET data connection"></p>
 
 
@@ -1683,12 +1717,30 @@ As with all new data connections, Sense will change the name your new connection
 </div>
 
 <h2 id="butler_post">Butler_POST</h2>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Mandatory</h4>
+These settings are mandatory if you plan to use Butler&rsquo;s REST API from the load scripts of Sense apps.
+</div>
+
 <p>The data connection used for POST, PUT, DELETE and all other HTTP operations beyond GET should be named &ldquo;Butler_POST&rdquo;.<br>
 Its configuration is similar to that of Butler_GET, except that a message body is also needed for the POST to work.</p>
-<p>Assuming Butler&rsquo;s <a href="/docs/getting-started/setup/key-value-store">key-value store is enabled</a> in the main config file, the following should work:</p>
-<p><img src="butler_post-1.png" alt="Creating the Butler_POST data connection" title="Creating the Butler_POST data connection"></p>
-<p>&hellip; and test the connection&hellip;</p>
-<p><img src="butler_post-3.png" alt="Testing the Butler_POST data connection" title="Testing the Butler_POST data connection"></p>
+<p>Assuming Butler&rsquo;s <a href="/docs/getting-started/setup/key-value-store">key-value store is enabled</a> in the main config file, you can create a dummy key-value pair using a POST command with the following payload.</p>
+<p>The effect is that the data connection is created and can be used for future POST/PUT/DELETE operations against Butler&rsquo;s API.<br>
+The fact that is was created against the key-value store doesn&rsquo;t matter, the data conncetion details will be replaced each time it is used.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#000;font-weight:bold">{</span>
+  <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;abc&#34;</span><span style="color:#000;font-weight:bold">,</span>
+  <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;123&#34;</span><span style="color:#000;font-weight:bold">,</span>
+  <span style="color:#204a87;font-weight:bold">&#34;ttl&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;5000&#34;</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><p><img src="butler_post-1.png" alt="Creating the Butler_POST data connection 1" title="Creating the Butler_POST data connection 1"></p>
+<hr>
+<p><img src="butler_post-2.png" alt="Creating the Butler_POST data connection 2" title="Creating the Butler_POST data connection 2"></p>
+<hr>
+<p><img src="butler_post-2.png" alt="Creating the Butler_POST data connection 3" title="Creating the Butler_POST data connection 3"></p>
+<p>&hellip; and test the connection before creting it.</p>
+<p><img src="butler_post_connection-test-succeeded-1.png" alt="Testing the Butler_POST data connection" title="Testing the Butler_POST data connection"></p>
 
 
 <div class="alert alert-warning" role="alert">
@@ -1906,7 +1958,7 @@ As with all new data connections, Sense will change the name your new connection
 		<br />
 	
 	
-	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-02-03: <a  href="https://github.com/ptarmiganlabs/butler-docs/commit/f7690630580a13af7e9ac74601942f2616c304fc">Added page in News section (f769063)</a>
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-04-22: <a  href="https://github.com/ptarmiganlabs/butler-docs/commit/c105eb7c23c3cfe4d98b4d6d316a786db6614d1e">First commit (c105eb7)</a>
 </div>
 </div>
 

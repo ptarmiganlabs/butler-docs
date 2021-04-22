@@ -832,18 +832,40 @@ You will rarely if ever need to know how much memory Butler used a month ago&amp
       <description>
         
         
-        
+        &lt;p&gt;Two mandatory data connections must be created: &lt;code&gt;Butler_GET&lt;/code&gt; and &lt;code&gt;Butler_POST&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The latter is used both for POST calls and also PUT, DELETE and other HTTP operations.&lt;br&gt;
+The &lt;code&gt;X-HTTP-Method-Override&lt;/code&gt; HTTP header is used with the Butler_POST data connection to tell Butler which HTTP operation should be used.&lt;/p&gt;
+&lt;p&gt;This is a way to work around a limitation of Qlik&amp;rsquo;s REST connector, as it only supports GET and POST operations.&lt;/p&gt;
+&lt;p&gt;One data connection is optional: &lt;code&gt;URL encode table&lt;/code&gt;&lt;br&gt;
+It is used to &lt;a href=&#34;https://www.w3schools.com/tags/ref_urlencode.ASP&#34;&gt;URL encode strings&lt;/a&gt;, which is useful when passing strings to Butler&amp;rsquo;s REST API (or other APIs!).&lt;/p&gt;
+&lt;h2 id=&#34;url-encode-table&#34;&gt;URL encode table&lt;/h2&gt;
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Optional&lt;/h4&gt;
+&lt;p&gt;Creating this data connection is optional.&lt;/p&gt;
+&lt;p&gt;That said, if you plan to use the Slack, Teams, email, or webhook connectivity features of Butler, you should create this data connection.&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;This is a basic &amp;ldquo;web file&amp;rdquo; connector pointing to &lt;code&gt;http://www.w3schools.com/tags/ref_urlencode.asp&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;url_encore-1.png&#34; alt=&#34;Creating the URL encode table data connection&#34; title=&#34;Creating the URL encode table data connection&#34;&gt;&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Remember!&lt;/h4&gt;
+As with all new data connections, Sense will change the name your new connection (adding your username as a suffix).&lt;br&gt;
+&lt;strong&gt;Use the QMC to change the name to &amp;ldquo;URL encode table&amp;rdquo;.&lt;/strong&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&#34;butler_get&#34;&gt;Butler_GET&lt;/h2&gt;
+
 
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Mandatory&lt;/h4&gt;
 These settings are mandatory if you plan to use Butler&amp;rsquo;s REST API from the load scripts of Sense apps.
 &lt;/div&gt;
 
-&lt;p&gt;Two data connections must be created: Butler_GET and Butler_POST.&lt;/p&gt;
-&lt;p&gt;The latter is used both for POST calls and also PUT, DELETE and other HTTP operations.&lt;br&gt;
-The &lt;code&gt;X-HTTP-Method-Override&lt;/code&gt; HTTP header is used with the Butler_POST data connection to tell Butler which HTTP operation should be used.&lt;/p&gt;
-&lt;p&gt;This is a way to work around a limitation of Qlik&amp;rsquo;s REST connector, as it only supports GET and POST operations.&lt;/p&gt;
-&lt;h2 id=&#34;butler_get&#34;&gt;Butler_GET&lt;/h2&gt;
 &lt;p&gt;With Butler running, create a new REST data connection called &amp;ldquo;Butler_GET&amp;rdquo;.&lt;br&gt;
 It&amp;rsquo;s URL should point to Butler&amp;rsquo;s host/port.&lt;/p&gt;
 &lt;p&gt;When createing REST data connections it&amp;rsquo;s always a good idea to verify they work.&lt;br&gt;
@@ -851,7 +873,7 @@ Using the &lt;code&gt;/v4/butlerping&lt;/code&gt; endpoint is an easy way to do 
 &lt;p&gt;&lt;img src=&#34;butler_get-1.png&#34; alt=&#34;Creating the Butler_GET data connection&#34; title=&#34;Creating the Butler_GET data connection&#34;&gt;&lt;/p&gt;
 &lt;p&gt;No special settings are needed - just make sure the REST connector finds Butler as it should.&lt;br&gt;
 The actual URL of the data connection will be modified on the fly every time you call the Butler APIs, it&amp;rsquo;s thus not really important which URL is entered during the setup phase. But the &lt;code&gt;/v4/butlerping&lt;/code&gt; endpoint is a conveneint way to check that the data connection works.&lt;/p&gt;
-&lt;p&gt;Test the connection:&lt;/p&gt;
+&lt;p&gt;Test the connection before creating it:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;butler_get-2.png&#34; alt=&#34;Testing the Butler_GET data connection&#34; title=&#34;Testing the Butler_GET data connection&#34;&gt;&lt;/p&gt;
 
 
@@ -862,12 +884,30 @@ As with all new data connections, Sense will change the name your new connection
 &lt;/div&gt;
 
 &lt;h2 id=&#34;butler_post&#34;&gt;Butler_POST&lt;/h2&gt;
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Mandatory&lt;/h4&gt;
+These settings are mandatory if you plan to use Butler&amp;rsquo;s REST API from the load scripts of Sense apps.
+&lt;/div&gt;
+
 &lt;p&gt;The data connection used for POST, PUT, DELETE and all other HTTP operations beyond GET should be named &amp;ldquo;Butler_POST&amp;rdquo;.&lt;br&gt;
 Its configuration is similar to that of Butler_GET, except that a message body is also needed for the POST to work.&lt;/p&gt;
-&lt;p&gt;Assuming Butler&amp;rsquo;s &lt;a href=&#34;/docs/getting-started/setup/key-value-store&#34;&gt;key-value store is enabled&lt;/a&gt; in the main config file, the following should work:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;butler_post-1.png&#34; alt=&#34;Creating the Butler_POST data connection&#34; title=&#34;Creating the Butler_POST data connection&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&amp;hellip; and test the connection&amp;hellip;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;butler_post-3.png&#34; alt=&#34;Testing the Butler_POST data connection&#34; title=&#34;Testing the Butler_POST data connection&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Assuming Butler&amp;rsquo;s &lt;a href=&#34;/docs/getting-started/setup/key-value-store&#34;&gt;key-value store is enabled&lt;/a&gt; in the main config file, you can create a dummy key-value pair using a POST command with the following payload.&lt;/p&gt;
+&lt;p&gt;The effect is that the data connection is created and can be used for future POST/PUT/DELETE operations against Butler&amp;rsquo;s API.&lt;br&gt;
+The fact that is was created against the key-value store doesn&amp;rsquo;t matter, the data conncetion details will be replaced each time it is used.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;key&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;abc&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;value&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;123&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;ttl&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5000&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;butler_post-1.png&#34; alt=&#34;Creating the Butler_POST data connection 1&#34; title=&#34;Creating the Butler_POST data connection 1&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;butler_post-2.png&#34; alt=&#34;Creating the Butler_POST data connection 2&#34; title=&#34;Creating the Butler_POST data connection 2&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;butler_post-2.png&#34; alt=&#34;Creating the Butler_POST data connection 3&#34; title=&#34;Creating the Butler_POST data connection 3&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&amp;hellip; and test the connection before creting it.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;butler_post_connection-test-succeeded-1.png&#34; alt=&#34;Testing the Butler_POST data connection&#34; title=&#34;Testing the Butler_POST data connection&#34;&gt;&lt;/p&gt;
 
 
 &lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
