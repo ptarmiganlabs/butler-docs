@@ -10,6 +10,14 @@ weight: 20
 
 {{% pageinfo %}}
 
+### What's new in version 5.4
+
+* Fixed bug occuring when the start-task API was called with an empty PUT body. [#157](https://github.com/ptarmiganlabs/butler/issues/157)
+
+* [Improved documentation](/docs/getting-started/setup/data-connections/) around the Sense data connections that Butler needs. [#160](https://github.com/ptarmiganlabs/butler/issues/160), [#156](https://github.com/ptarmiganlabs/butler/issues/156).
+
+* Clarified that [Butler requires InfluxDB 1.x](/docs/getting-started/install/). InfluxDB 2.x is great, but bring breaking features wrt Butler. [#159](https://github.com/ptarmiganlabs/butler/issues/159).
+
 ### What's new in version 5.3
 
 * Added a new API endpoint for listing all keys in a [key-value](http://localhost:1313/docs/concepts/key-value/) namespace.  [#150](https://github.com/ptarmiganlabs/butler/issues/150).
