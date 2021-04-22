@@ -1,0 +1,1989 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.82.0" />
+
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+<link rel="alternate" type="application/rss&#43;xml" href="/docs/getting-started/setup/telemetry/index.xml">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Configuring telemetry | Butler</title><meta property="og:title" content="Configuring telemetry" />
+<meta property="og:description" content="Butler adds features and services to Qlik Sense Enterprise on Windows, making it easier to develop for and operate QSEoW." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/docs/getting-started/setup/telemetry/" /><meta property="og:site_name" content="Butler" />
+
+<meta itemprop="name" content="Configuring telemetry">
+<meta itemprop="description" content="Butler adds features and services to Qlik Sense Enterprise on Windows, making it easier to develop for and operate QSEoW."><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Configuring telemetry"/>
+<meta name="twitter:description" content="Butler adds features and services to Qlik Sense Enterprise on Windows, making it easier to develop for and operate QSEoW."/>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-58487795-5', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+<link rel="preload" href="/scss/main.min.c248771fed4aa0c1846bd56a4f2758b94f7858027d5469d345046cfe9d97e171.css" as="style">
+<link href="/scss/main.min.c248771fed4aa0c1846bd56a4f2758b94f7858027d5469d345046cfe9d97e171.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">Butler</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/about/butler/" ><span>What is Butler?</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/" ><span>Documentation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/blog" ><span>News</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="https://ptarmiganlabs.com" target="_blank" ><span>Blog</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/about/butler-family" ><span>The Butler family</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/about" ><span>About</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  
+  <nav class="collapse td-sidebar-nav" id="td-section-nav">
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docs">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/about/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">About</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsabout">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutbutler" href="/docs/about/butler/">Butler</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutbutler-family" href="/docs/about/butler-family/">The Butler family</a>
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/about/use-cases/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Use cases</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsaboutuse-cases">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutuse-casesretired" href="/docs/about/use-cases/retired/">Retired use cases</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutversioning" href="/docs/about/versioning/">Versions</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutcontributing" href="/docs/about/contributing/">Contribution guidelines</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsabouttelemetry" href="/docs/about/telemetry/">Telemetry</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Getting started</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docsgetting-started">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Overview</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedoverview">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/install/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Installing Butler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedinstall">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstallchoose-platform" href="/docs/getting-started/install/choose-platform/">Choose a platform</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstalldocker" href="/docs/getting-started/install/docker/">Docker</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstallnative" href="/docs/getting-started/install/native/">Native app</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Setup</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docsgetting-startedsetup">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/which-config-file/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Which config file?</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupwhich-config-file">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/qlik-sense-server-settings/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Sense server settings</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupqlik-sense-server-settings">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/enable-api-endpoints/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">API endpoints</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupenable-api-endpoints">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/reload-alerts/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Reload alerts</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupreload-alerts">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/reload-alerts/alert-emails/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Email</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupreload-alertsalert-emails">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/reload-alerts/alert-slack/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Slack</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupreload-alertsalert-slack">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/reload-alerts/alert-teams/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">MS Teams</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupreload-alertsalert-teams">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/reload-alerts/alert-mqtt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">MQTT</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupreload-alertsalert-mqtt">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/reload-alerts/alert-webhook-out/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Webhook</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupreload-alertsalert-webhook-out">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/scheduler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Scheduler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupscheduler">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/key-value-store/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Key-value store</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupkey-value-store">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/file-system-access/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">File system access</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupfile-system-access">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/mqtt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">MQTT</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupmqtt">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/heartbeats/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Heartbeats</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupheartbeats">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/uptime-monitor/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Uptime monitor</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupuptime-monitor">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/docker-health-check/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Docker healthcheck</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupdocker-health-check">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/data-connections/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Sense data connections</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupdata-connections">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/user-events/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">User activity events</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupuser-events">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/telemetry/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Telemetry</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docsgetting-startedsetuptelemetry">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/operations/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Day 2 operations</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedoperations">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Concepts</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconcepts">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/key-value/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Key-value store</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptskey-value">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/scheduler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Scheduler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsscheduler">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/alert-emails/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Alert emails</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsalert-emails">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/alerts-slack-teams/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Alerts via Slack/Teams</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsalerts-slack-teams">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/file-system-access/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Copy/move/delete files</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsfile-system-access">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/log-event-handlers/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Session events</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptslog-event-handlers">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/mqtt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">MQTT integration</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsmqtt">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/udp/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">UDP client</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsudp">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/real-time-metrics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Real-time metrics</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsreal-time-metrics">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Examples</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamples">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/openapi-docs/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">OpenAPI/Swagger</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesopenapi-docs">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/scheduling/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Task scheduling</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesscheduling">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/reload-chaining/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Reload chaining</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesreload-chaining">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/influxdb-metrics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Monitoring Butler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesinfluxdb-metrics">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/start-task-from-mqtt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">MQTT starting Sense tasks</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesstart-task-from-mqtt">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/start-task-from-rest/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">REST starting Sense tasks</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesstart-task-from-rest">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/file-copy-move-delete/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">File system operations</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesfile-copy-move-delete">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/sense-demo-apps/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Sense demo apps</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplessense-demo-apps">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/sense-demo-apps/butler-5.0-demo-app/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Butler 5.0 API demo</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplessense-demo-appsbutler-50-demo-app">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/sense-demo-apps/partial-loads/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Partial loads</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplessense-demo-appspartial-loads">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/sense-demo-apps/post-to-slack/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Post to Slack</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplessense-demo-appspost-to-slack">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/sense-demo-apps/publish-to-mqtt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Publish to MQTT</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplessense-demo-appspublish-to-mqtt">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Reference docs</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreference">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/config-file/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Config file syntax</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferenceconfig-file">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/rest-api/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">REST API</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencerest-api">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/scheduler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Scheduler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencescheduler">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/key-value/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Key-value store</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencekey-value">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/alert-template-fields/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Alert template fields</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencealert-template-fields">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/sense-helper-subs/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Sense helper subs</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencesense-helper-subs">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/security/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Security considerations</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docssecurity">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/legal-stuff/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Legal stuff</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslegal-stuff">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+            
+
+
+
+
+
+
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+
+
+
+
+
+<a href="https://github.com/ptarmiganlabs/butler-docs/edit/master/content/en/docs/getting%20started/setup/telemetry/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/ptarmiganlabs/butler-docs/issues/new?title=Configuring%20telemetry" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+
+
+<a href="https://github.com/ptarmiganlabs/butler/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+
+</div>
+
+
+
+
+
+
+
+
+          </div>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/docs/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/docs/getting-started/">Getting started</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/docs/getting-started/setup/">Setup</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/docs/getting-started/setup/telemetry/">Telemetry</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>Configuring telemetry</h1>
+        
+	
+	
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Optional</h4>
+<p>These settings are optional.</p>
+<p>If you don&rsquo;t do anything telemetry is turned on by default.</p>
+
+</div>
+
+<h2 id="whats-this">What&rsquo;s this?</h2>
+<p>A description of Butler&rsquo;s telemetry feature is available <a href="/docs/about/telemetry/">here</a>.</p>
+<h2 id="settings-in-main-config-file">Settings in main config file</h2>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#000">---</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">Butler</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Logging configuration</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">anonTelemetry</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">     </span><span style="color:#8f5902;font-style:italic"># Can Butler send anonymous data about what computer it is running on? </span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">                          </span><span style="color:#8f5902;font-style:italic"># More info on whata data is collected: https://butler.ptarmiganlabs.com/docs/about/telemetry/</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">                          </span><span style="color:#8f5902;font-style:italic"># Please consider leaving this at true - it really helps future development of Butler!</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></code></pre></div><p>Setting <code>anonTelemetry</code> to true enables telemetry, setting it to false disables telemetry.</p>
+
+        <div class="section-index">
+    
+    
+    
+    
+    <hr class="panel-line">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</div>
+
+	
+		<style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="feedback--answer feedback--answer-yes">Yes</button>
+<button class="feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it! Please <a href="https://github.com/ptarmiganlabs/butler/issues/new/choose">tell us how we can improve</a>.
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that. Please <a href="https://github.com/ptarmiganlabs/butler/issues/new/choose">tell us how we can improve</a>.
+</p>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+		<br />
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-03-03: <a  href="https://github.com/ptarmiganlabs/butler-docs/commit/c7414a863fa2a37e9cc51b23baf6590e4eff1cb7">5.1.0 (c7414a8)</a>
+</div>
+</div>
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="SenseOps mailing list" aria-label="SenseOps mailing list">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.subscribepage.com/g3c1f1">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Discussion forums on GitHub" aria-label="Discussion forums on GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/ptarmiganlabs/butler/discussions">
+      <i class="fa fa-comments"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Ptarmigan Labs on Twitter" aria-label="Ptarmigan Labs on Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ptarmiganlabs">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/gorsan/">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/ptarmiganlabs/butler">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Bug reports &amp; Feature requests" aria-label="Bug reports &amp; Feature requests">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/ptarmiganlabs/butler/issues/new/choose">
+      <i class="fa fa-bug"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Get in touch with Ptarmigan Labs" aria-label="Get in touch with Ptarmigan Labs">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="mailto://info@ptarmiganlabs.com">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 Ptarmigan Labs AB All Rights Reserved</small>
+        
+	
+		<p class="mt-2"><a href="/docs/about/">About</a></p>
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

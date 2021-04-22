@@ -1,0 +1,370 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler – Butler</title>
+    <link>/</link>
+    <description>Recent content on Butler</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+      
+    
+    
+    <item>
+      <title>Blog: v5.3.0: Key-value refinement</title>
+      <link>/blog/releases/v5.3.0/</link>
+      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/releases/v5.3.0/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;key-value-refinement&#34;&gt;Key-value refinement&lt;/h2&gt;
+&lt;p&gt;Small release, this.&lt;/p&gt;
+&lt;p&gt;After using the key-value (KV) store over a few months it became obvious that iterating over keys in namespaces was useful and important. But not possible given the APIs exposed by Butler.&lt;/p&gt;
+&lt;p&gt;So we added a new one. Given a KV namespace it simply returns the keys in it.&lt;/p&gt;
+&lt;h2 id=&#34;bug-fixes&#34;&gt;Bug fixes&lt;/h2&gt;
+&lt;p&gt;We&amp;rsquo;re always looking out for less than optimal solutions in Butler and try to fix them when we get a chance.
+A few of those in this relelase too.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: v5.1.0: Sharing is caring</title>
+      <link>/blog/releases/v5.1.0/</link>
+      <pubDate>Wed, 03 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/releases/v5.1.0/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;sharing-is-caring&#34;&gt;Sharing is caring&lt;/h2&gt;
+&lt;p&gt;The main change in in this release is the addition of telemetry.&lt;/p&gt;
+&lt;p&gt;Yup - starting with 5.1 Butler will call home.
+At least if you let it.&lt;/p&gt;
+&lt;p&gt;So&amp;hellip; the question is then&amp;hellip; how does it work and should you allow it?&lt;/p&gt;
+&lt;h3 id=&#34;how&#34;&gt;How&lt;/h3&gt;
+&lt;p&gt;Software that reports back to some home base can be a bad thing, but it can also be a very good thing.&lt;br&gt;
+In the case of Butler &lt;strong&gt;only anonymized information is included in telemetry messages&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Ptarmigan Labs just won&amp;rsquo;t know which telemetry data came from what Qlik Sense servers.&lt;/p&gt;
+&lt;p&gt;Is this &lt;em&gt;really&lt;/em&gt; true?&lt;br&gt;
+Yup. Not even the IP addresses of the server sending the telemetry data is kept.&lt;/p&gt;
+&lt;p&gt;The process is basically this:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;A telemetry message arrives from somewhere. The message itself contains no information that can identify the sender, nor does it contain any sensitive data.&lt;/li&gt;
+&lt;li&gt;The message&amp;rsquo;s content is stored in a database. Nothing else.&lt;/li&gt;
+&lt;li&gt;You can request your data to be deleted in the future, if need be. But only if you tell Ptarmigan Labs which data is yours - as they have no way of knowing this themselves.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A full description of what data is included in telemetry messages is found &lt;a href=&#34;/docs/about/telemetry/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;why&#34;&gt;Why&lt;/h3&gt;
+&lt;p&gt;Good question.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s pretty simple really: If the Butler developers know which features are used most and on what OSs and types of hardware/VMs etc Butler runs, they can do a much better job when it comes to refining those popular features and supporting the most commonly used platforms.&lt;br&gt;
+That&amp;rsquo;s it - telemetry is 100% about making future Butler versions better.&lt;/p&gt;
+&lt;p&gt;On the other hand: If you turn off telemetry the Butler developers will be in the dark as to what features are actually used and on what kinds of operating systems and computers.&lt;/p&gt;
+&lt;p&gt;Telemetry is a way to make future Butler versions as good and relevant as possible - and it&amp;rsquo;s up to YOU whether it happens or not.&lt;/p&gt;
+&lt;h2 id=&#34;go-get-it&#34;&gt;Go get it!&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/changelog.md&#34;&gt;changelog&lt;/a&gt; has all the details.&lt;/p&gt;
+&lt;p&gt;Butler releases are &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/releases&#34;&gt;available on GitHub&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: v5.0.0: Reload alerting deluxe</title>
+      <link>/blog/releases/v5.0.0/</link>
+      <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/releases/v5.0.0/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;be-the-first-to-know&#34;&gt;Be the first to know&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s say you are responsible for a Qlik Sense Enterprise environment, or that you are a developer of Sense apps.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s also (unlikely as it is, but still..😃) say that app reloads fail from time to time. For whatever reason.&lt;/p&gt;
+&lt;p&gt;In the past the following has often happened:&lt;/p&gt;
+&lt;p&gt;End users are the first to detect that something is wrong. Data is missing or incorrect.&lt;br&gt;
+Not ideal - you as admin/developer should be the first to know that something has gone wrong.&lt;/p&gt;
+&lt;p&gt;Butler has always included basic notification mechanisms for failed reload tasks, but with version 5.0 things are taken to a new level.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;In fact, this latest Butler version probably offers some of the most powerful and flexible reload alerting features ever - anywhere. And it&amp;rsquo;s free.&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Reload task failure alerts can be sent as email, to Slack or Teams, as outgoing webhooks or as MQTT messages.&lt;/li&gt;
+&lt;li&gt;Email, Slack and Teams alerts can make use of any layout and formatting options available on those platforms.&lt;/li&gt;
+&lt;li&gt;If basic alerts are preferred, all that&amp;rsquo;s needed is changing a single line in Butler&amp;rsquo;s config file.&lt;/li&gt;
+&lt;li&gt;Lots of other new and refined features too, including support for doing partial and full app reloads without going through a reload task. Can be used both via REST API and from the load script.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All in all - this is a major Butler release that holds the potential to make life easier for lots of QSEoW admins and developers.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/changelog.md&#34;&gt;changelog&lt;/a&gt; has all the details.&lt;/p&gt;
+&lt;p&gt;Butler releases are &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/releases&#34;&gt;available on GitHub&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: File operations examples and better setup instructions</title>
+      <link>/blog/news/20210203-1/</link>
+      <pubDate>Wed, 03 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/news/20210203-1/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Nothing really major, but it should make the process of getting started with Butler a bit easier:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Added &lt;a href=&#34;/docs/getting-started/setup/data-connections/&#34;&gt;instructions&lt;/a&gt; for creating the Sense data connections needed to use Butler.&lt;/li&gt;
+&lt;li&gt;Added &lt;a href=&#34;/docs/examples/file-copy-move-delete/&#34;&gt;examples&lt;/a&gt; showing how file copy/move/delete operations can be done from Sense load scripts using Butler&amp;rsquo;s APIs.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: v4.3.0: Bug fixes, improved documentation</title>
+      <link>/blog/releases/v4.3.0/</link>
+      <pubDate>Wed, 03 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/releases/v4.3.0/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;great-features-are-useless-if-no-one-uses-them&#34;&gt;Great features are useless if no one uses them&lt;/h2&gt;
+&lt;p&gt;The previous couple of Butler releases included new features (in the form of REST API endpoints) for among other things copying/moving/deleting files in a controlled way.&lt;/p&gt;
+&lt;p&gt;The problem was that there were no examples showing how to use those new features.&lt;br&gt;
+That is fixed in this release, together with a general cleanup of this documentation site, a few bug fixes (&lt;a href=&#34;https://github.com/ptarmiganlabs/butler/issues/114&#34;&gt;this one&lt;/a&gt; was a bit nasty..) and minor improvements and tweaks in Butler itself.&lt;/p&gt;
+&lt;p&gt;Please see the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/changelog.md&#34;&gt;changelog&lt;/a&gt; for more information.&lt;/p&gt;
+&lt;p&gt;Butler releases are &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/releases&#34;&gt;available on GitHub&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: v4.2.0: Failed reloads? Notify me!</title>
+      <link>/blog/releases/v4.2.0/</link>
+      <pubDate>Sat, 07 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/releases/v4.2.0/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;strong&gt;Advanced email notifications for failed and aborted reloads&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Email notifications are still very much alive and used in many companies.&lt;/p&gt;
+&lt;p&gt;Historically it&amp;rsquo;s been difficult or impossible to get good email notifications from Qlik Sense Enterprise on Windows - that feature simply isn&amp;rsquo;t part of the standard product.&lt;br&gt;
+Some commercial offerings have emerged lately (=Qlik&amp;rsquo;s own Qlik Alerting product), but no good open source has been available - until now.&lt;/p&gt;
+&lt;p&gt;Butler version 4.2 uses the proven concept of log appenders to capture log events from Qlik Sense.&lt;br&gt;
+But Butler goes way beyond staic alert emails with limited possibilities for customisation:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Alert emails be sent &lt;strong&gt;when scheduled reloads fail&lt;/strong&gt; or &lt;strong&gt;when running reloads are stopped&lt;/strong&gt; from the QMC or via Sense APIs.&lt;/li&gt;
+&lt;li&gt;Email bodies and subjects can be freely &lt;strong&gt;customised&lt;/strong&gt; using the &lt;a href=&#34;https://handlebarsjs.com/&#34;&gt;Handlebars&lt;/a&gt; templating engine.&lt;/li&gt;
+&lt;li&gt;More than 40 templating fields are available across both email subjects and bodies (but please don&amp;rsquo;t put full script logs in the email subject&amp;hellip;🤪).&lt;/li&gt;
+&lt;li&gt;Customisable rate limits prevent email spamming as a result of frequently scheduled, failing reloads.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A bonus feature is that alerts for stopped reloads can be sent not only as emails, but also over Slack, Teams and MQTT.&lt;/p&gt;
+&lt;p&gt;All in all this makes Butler a very powerful tool for anyone invovled in running a QSEoW environment, no matter if it has a few dozen or thousands of users.&lt;/p&gt;
+&lt;p&gt;Please see the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/changelog.md&#34;&gt;changelog&lt;/a&gt; for more information.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: v4.1.1: Fixing broken start Sense task API endpoint</title>
+      <link>/blog/releases/v4.1.1/</link>
+      <pubDate>Wed, 28 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/releases/v4.1.1/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;strong&gt;Fixing broken start Sense task API endpoint&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Oops. The API endpoint for starting Sense tasks was incorrectly documented, as noted in &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/issues/89&#34;&gt;#89&lt;/a&gt;.
+Fixed in version 4.1.1.&lt;/p&gt;
+&lt;p&gt;Please see the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/changelog.md&#34;&gt;changelog&lt;/a&gt; for more information.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: v4.1.2: Sense demo app can now start reloads</title>
+      <link>/blog/releases/v4.1.2/</link>
+      <pubDate>Wed, 28 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/releases/v4.1.2/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;strong&gt;Sense demo app can now start reloads&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The included Sense demo app now correctly uses the Butler API endpoint used to start reload tasks.&lt;/p&gt;
+&lt;p&gt;Please see the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/changelog.md&#34;&gt;changelog&lt;/a&gt; for more information.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: v4.1.0: File copying &#43; Qlik Sense = Useful</title>
+      <link>/blog/releases/v4.1.0/</link>
+      <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/releases/v4.1.0/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;strong&gt;File copying via Butler&amp;rsquo;s REST API&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This is a small release that just adds a single endpoint to Butler&amp;rsquo;s REST API: Copying files.&lt;/p&gt;
+&lt;p&gt;This is done in the same way as the moving files feature that was added in v4.0:&lt;/p&gt;
+&lt;p&gt;In the config file you define pairs of approved source/destination directories, between which file copying is allowed.
+This way the security risk is greatly reduced, and file copying can become an integral part of Qlik Sense load scripts&#39; logic.&lt;/p&gt;
+&lt;p&gt;Please see the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/changelog.md&#34;&gt;changelog&lt;/a&gt; for more information.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: Material added to Butler doc site</title>
+      <link>/blog/news/20201021-1/</link>
+      <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/news/20201021-1/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Version 4 of Butler is a major release, and the doc site isn&amp;rsquo;t quite as complete as it should.
+Over coming weeks we&amp;rsquo;ll add more tutorials, reference documents etc.&lt;/p&gt;
+&lt;p&gt;The current update adds the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A &lt;a href=&#34;/docs/getting-started/overview/#conceptual-overview&#34;&gt;system overview diagram&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;More comprehensive description of &lt;a href=&#34;/docs/about/use-cases/&#34;&gt;use cases&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Description of how the &lt;a href=&#34;/docs/getting-started/operations/#monitoring-butler&#34;&gt;data (optionally) stored in InfluxDB&lt;/a&gt; can be used in &lt;a href=&#34;/docs/getting-started/operations/&#34;&gt;day 2 operations&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Various typos fixed.&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: v4.0.0: A SenseOps reboot</title>
+      <link>/blog/releases/v4.0.0/</link>
+      <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/releases/v4.0.0/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;strong&gt;Task scheduling for Qlik Sense, key-value store, reload failure alerts to MS Teams and more&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Butler was due for a major overhaul and it has finally arrived.&lt;/p&gt;
+&lt;p&gt;This release adds a bunch of new features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A reload task scheduler. Think Cron for Qlik Sense tasks. Need to run a reload every 15 minutes between 8 am and 10 am on the 4th day of every 3rd month? No problem!&lt;/li&gt;
+&lt;li&gt;A key-value store. A what, you may say?
+It&amp;rsquo;s really simple, really.
+Sense apps can store key-value pairs in Butler 4.0, using its REST API. Think of it as a way to stash away something you might need later.
+&amp;hellip;which opens up all sorts of possibilities - such as unlimited parameter passing between tasks in reload chains. Like QlikView&amp;rsquo;s task chaining, but better.
+Oh you can set ttl (time-to-live) for KV pairs too, to make them auto-delete when the ttl expires. Handy.&lt;/li&gt;
+&lt;li&gt;Sending notifications for task failures to MS Teams, in addition to Slack and email.&lt;/li&gt;
+&lt;li&gt;Swagger API docs included in Butler itself.
+Start Butler and you get a full Swagger interface through which you get both API docs and a way to test the Butler REST API on your own server. Very cool.&lt;/li&gt;
+&lt;li&gt;Uptime and memory usage monitoring of Butler itself. Might seem like a detail, but is very important if you&amp;rsquo;re responsible for the ongoing operation of tools and microservices like Butler.&lt;/li&gt;
+&lt;li&gt;A revised REST API for interacting with Butler.&lt;/li&gt;
+&lt;li&gt;&amp;hellip; and more.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;There are also some breaking changes, most notably around the REST API. Some changes in the main config file too. While breaking changes are unfortunate, they were considered necessary in order to make Butler&amp;rsquo;s REST API better align with common best practices for such APIs.&lt;/p&gt;
+&lt;p&gt;Please see the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/changelog.md&#34;&gt;changelog&lt;/a&gt; for more information.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: v3.1.0: An armful of heart beats</title>
+      <link>/blog/releases/v3.1.0/</link>
+      <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/releases/v3.1.0/</guid>
+      <description>
+        
+        
+        &lt;p&gt;&lt;strong&gt;Our trusted Butler has turned 4 - quite an age in the world of fast-moving DevOps tools!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Over time it&amp;rsquo;s become clear that some features are more useful than others, which is not really surprising of course.&lt;br&gt;
+Some of Butler&amp;rsquo;s features are on the other hand &lt;em&gt;very&lt;/em&gt; useful - for example starting reloads or dumping app metadata to JSON via REST calls.&lt;/p&gt;
+&lt;p&gt;The trusted old Butler is thus very much alive and as of version 5.5.0 it&amp;rsquo;s available as Arm and Arm64 Docker images, in addition to the already supported amd64 (equals regular x86 computers, more or less) architecture.&lt;/p&gt;
+&lt;p&gt;And - the Butler can now be configured to send heart beats to a monitoring tool, to monitor and make sure that Butler itself is alive and well.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;What does that mean in regular English?&lt;/strong&gt;&lt;br&gt;
+You can now run Butler on more cost effective AWS EC2 Arm instances, or even a Raspberry Pi - or a Kubernetes cluster of Pis - just because it&amp;rsquo;s possible and gives you some tech respect.&lt;/p&gt;
+&lt;p&gt;And that you can monitor the Butler itself.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Respect.&lt;/em&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: New documentation site for Butler</title>
+      <link>/blog/news/20191129-1/</link>
+      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/news/20191129-1/</guid>
+      <description>
+        
+        
+        
+        <![CDATA[<img src="/blog/news/20191129-1/featured-florian-klauer-mk7D-4UCfmg-unsplash_hu3d03a01dcc18bc5be0e67db3d8d209a6_8529867_640x0_resize_q75_catmullrom.jpg" width="640" height="939"/>]]>
+        
+        
+
+
+
+
+
+
+&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 610px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/blog/news/20191129-1/featured-florian-klauer-mk7D-4UCfmg-unsplash_hu3d03a01dcc18bc5be0e67db3d8d209a6_8529867_600x300_fill_q75_catmullrom_smart1.jpg&#34; width=&#34;600&#34; height=&#34;300&#34;&gt;
+	
+	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt;
+New docs, blog and news coming to Butler.
+&lt;small class=&#34;text-muted&#34;&gt;&lt;br/&gt;Photo: Florian Klauer on Unsplash&lt;/small&gt;&lt;/p&gt;
+	&lt;/div&gt;
+	
+&lt;/div&gt;
+&lt;p&gt;The old doc site was ok, but a few years old and pretty outdated when it came to examples in particular. It was also kind of difficult to maintain, resulting in - no surpise - few updates over the years.&lt;/p&gt;
+&lt;p&gt;Butler joins its sibling &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34;&gt;Butler SOS&lt;/a&gt;, with both tools now having their own, dedicated doc sites based on the great &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; tool, using the &lt;a href=&#34;https://www.docsy.dev/&#34;&gt;Docsy&lt;/a&gt; template.&lt;/p&gt;
+&lt;p&gt;The new site has plenty of room for structured growth, allowing us to add examples, tutorials etc in a good way.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s also easy for anyone to provide feedback - just click the &amp;ldquo;Create issue&amp;rdquo; link in the upper right corner of each page, and are taken straight to the issues section on GitHub. Easy!&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: v3.0.1: Docker health check is now... healthy.</title>
+      <link>/blog/releases/v3.0.1/</link>
+      <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/releases/v3.0.1/</guid>
+      <description>
+        
+        
+        &lt;p&gt;A small bug found its way into v3.0.0. Nothing affecting the core functions of Butler, but as it &lt;em&gt;does&lt;/em&gt; support Docker health checks, those should work..&lt;/p&gt;
+&lt;p&gt;Which is now the case.&lt;/p&gt;
+&lt;p&gt;No features added, just that bug fix and some minor upgrades to the software components used in Butler.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Blog: v3.0.0: Enable some REST API endpoints, disable others.</title>
+      <link>/blog/releases/v3.0.0/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/releases/v3.0.0/</guid>
+      <description>
+        
+        
+        &lt;p&gt;As Butler offers a set of rather different API endpoints, there might be cases where you only need some of those features.&lt;/p&gt;
+&lt;p&gt;In the spirit of security you might then want to enable only the endpoints you actually need.&lt;br&gt;
+Butler 3.0 adds exactly this feature.&lt;/p&gt;
+&lt;p&gt;Configuration is easy. Just enable/disable the individual REST API endpoints in Butler&amp;rsquo;s configuration file, and you&amp;rsquo;re done. Done!&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

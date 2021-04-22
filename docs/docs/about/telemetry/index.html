@@ -1,0 +1,2031 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.82.0" />
+
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Telemetry | Butler</title><meta property="og:title" content="Telemetry" />
+<meta property="og:description" content="What&#39;s telemetry and why is it important?
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docs/about/telemetry/" /><meta property="article:section" content="docs" />
+
+<meta property="article:modified_time" content="2021-03-03T17:14:37&#43;01:00" /><meta property="og:site_name" content="Butler" />
+
+<meta itemprop="name" content="Telemetry">
+<meta itemprop="description" content="What&#39;s telemetry and why is it important?
+">
+<meta itemprop="dateModified" content="2021-03-03T17:14:37&#43;01:00" />
+<meta itemprop="wordCount" content="1249">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Telemetry"/>
+<meta name="twitter:description" content="What&#39;s telemetry and why is it important?
+"/>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-58487795-5', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+<link rel="preload" href="/scss/main.min.c248771fed4aa0c1846bd56a4f2758b94f7858027d5469d345046cfe9d97e171.css" as="style">
+<link href="/scss/main.min.c248771fed4aa0c1846bd56a4f2758b94f7858027d5469d345046cfe9d97e171.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">Butler</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/about/butler/" ><span>What is Butler?</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/" ><span>Documentation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/blog" ><span>News</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="https://ptarmiganlabs.com" target="_blank" ><span>Blog</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/about/butler-family" ><span>The Butler family</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/about" ><span>About</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  
+  <nav class="collapse td-sidebar-nav" id="td-section-nav">
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docs">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/about/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">About</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docsabout">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutbutler" href="/docs/about/butler/">Butler</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutbutler-family" href="/docs/about/butler-family/">The Butler family</a>
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/about/use-cases/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Use cases</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsaboutuse-cases">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutuse-casesretired" href="/docs/about/use-cases/retired/">Retired use cases</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutversioning" href="/docs/about/versioning/">Versions</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutcontributing" href="/docs/about/contributing/">Contribution guidelines</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-docsabouttelemetry" href="/docs/about/telemetry/">Telemetry</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Getting started</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-started">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Overview</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedoverview">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/install/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Installing Butler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedinstall">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstallchoose-platform" href="/docs/getting-started/install/choose-platform/">Choose a platform</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstalldocker" href="/docs/getting-started/install/docker/">Docker</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstallnative" href="/docs/getting-started/install/native/">Native app</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Setup</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetup">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/which-config-file/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Which config file?</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupwhich-config-file">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/qlik-sense-server-settings/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Sense server settings</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupqlik-sense-server-settings">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/enable-api-endpoints/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">API endpoints</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupenable-api-endpoints">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/reload-alerts/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Reload alerts</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupreload-alerts">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/reload-alerts/alert-emails/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Email</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupreload-alertsalert-emails">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/reload-alerts/alert-slack/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Slack</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupreload-alertsalert-slack">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/reload-alerts/alert-teams/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">MS Teams</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupreload-alertsalert-teams">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/reload-alerts/alert-mqtt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">MQTT</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupreload-alertsalert-mqtt">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/reload-alerts/alert-webhook-out/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Webhook</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupreload-alertsalert-webhook-out">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/scheduler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Scheduler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupscheduler">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/key-value-store/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Key-value store</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupkey-value-store">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/file-system-access/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">File system access</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupfile-system-access">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/mqtt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">MQTT</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupmqtt">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/heartbeats/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Heartbeats</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupheartbeats">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/uptime-monitor/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Uptime monitor</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupuptime-monitor">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/docker-health-check/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Docker healthcheck</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupdocker-health-check">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/data-connections/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Sense data connections</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupdata-connections">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/user-events/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">User activity events</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupuser-events">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/telemetry/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Telemetry</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetuptelemetry">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/operations/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Day 2 operations</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedoperations">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Concepts</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconcepts">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/key-value/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Key-value store</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptskey-value">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/scheduler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Scheduler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsscheduler">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/alert-emails/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Alert emails</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsalert-emails">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/alerts-slack-teams/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Alerts via Slack/Teams</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsalerts-slack-teams">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/file-system-access/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Copy/move/delete files</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsfile-system-access">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/log-event-handlers/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Session events</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptslog-event-handlers">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/mqtt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">MQTT integration</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsmqtt">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/udp/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">UDP client</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsudp">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/real-time-metrics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Real-time metrics</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsreal-time-metrics">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Examples</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamples">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/openapi-docs/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">OpenAPI/Swagger</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesopenapi-docs">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/scheduling/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Task scheduling</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesscheduling">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/reload-chaining/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Reload chaining</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesreload-chaining">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/influxdb-metrics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Monitoring Butler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesinfluxdb-metrics">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/start-task-from-mqtt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">MQTT starting Sense tasks</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesstart-task-from-mqtt">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/start-task-from-rest/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">REST starting Sense tasks</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesstart-task-from-rest">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/file-copy-move-delete/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">File system operations</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesfile-copy-move-delete">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/sense-demo-apps/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Sense demo apps</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplessense-demo-apps">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/sense-demo-apps/butler-5.0-demo-app/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Butler 5.0 API demo</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplessense-demo-appsbutler-50-demo-app">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/sense-demo-apps/partial-loads/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Partial loads</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplessense-demo-appspartial-loads">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/sense-demo-apps/post-to-slack/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Post to Slack</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplessense-demo-appspost-to-slack">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/sense-demo-apps/publish-to-mqtt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Publish to MQTT</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplessense-demo-appspublish-to-mqtt">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Reference docs</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreference">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/config-file/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Config file syntax</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferenceconfig-file">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/rest-api/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">REST API</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencerest-api">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/scheduler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Scheduler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencescheduler">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/key-value/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Key-value store</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencekey-value">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/alert-template-fields/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Alert template fields</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencealert-template-fields">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/sense-helper-subs/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Sense helper subs</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencesense-helper-subs">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/security/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Security considerations</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docssecurity">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/legal-stuff/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Legal stuff</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslegal-stuff">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+            
+
+
+
+
+
+
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+
+
+
+
+
+<a href="https://github.com/ptarmiganlabs/butler-docs/edit/master/content/en/docs/about/telemetry.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/ptarmiganlabs/butler-docs/issues/new?title=Telemetry" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+
+
+<a href="https://github.com/ptarmiganlabs/butler/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+
+</div>
+
+
+
+
+
+
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#whats-telemetry">What&rsquo;s telemetry</a></li>
+    <li><a href="#why-telemetry-in-butler">Why telemetry in Butler</a>
+      <ul>
+        <li><a href="#configuring-butlers-telemetry">Configuring Butler&rsquo;s telemetry</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-details">The details</a>
+      <ul>
+        <li><a href="#where-is-telemetry-data-sent">Where is telemetry data sent</a></li>
+        <li><a href="#deleting-telemetry-data">Deleting telemetry data</a></li>
+        <li><a href="#field-level-description-of-telemetry-data">Field level description of telemetry data</a></li>
+      </ul>
+    </li>
+    <li><a href="#telemetry-faq">Telemetry FAQ</a></li>
+  </ul>
+</nav>
+
+
+
+          </div>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/docs/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/docs/about/">About</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/docs/about/telemetry/">Telemetry</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>Telemetry</h1>
+    <div class="lead">What&rsquo;s telemetry and why is it important?</div>
+	       
+	
+
+<div class="pageinfo pageinfo-primary">
+<p>Sharing telemetry data from Butler is optional.<br>
+You can use all Butler features without sharing telemetry data.</p>
+<p>That said, if you find the Butler tool useful you are <strong>strongly encouraged</strong> to leave Butler&rsquo;s telemetry feature turned on.<br>
+Having access to this data greatly helps the Butler developers when they design new features, fix bugs etc.</p>
+<p>The Butler developers care about you - sharing telemetry data is your way of showing you care about them.</p>
+<p>Sharing is caring!</p>
+
+</div>
+
+<h2 id="whats-telemetry">What&rsquo;s telemetry</h2>
+<p>From <a href="https://en.wikipedia.org/wiki/Telemetry">Wikipedia</a>:</p>
+<p><em>Telemetry is the in situ collection of measurements or other data at remote points and their automatic transmission to receiving equipment (telecommunication) for monitoring.</em></p>
+<p>In the context of software tools (including Butler) telemetry is often used to describe the process of sending information about the tool itself to some monitoring system.</p>
+<h2 id="why-telemetry-in-butler">Why telemetry in Butler</h2>
+<p>This is a very, very good question.</p>
+<p>For many years there was no telemetry at all in Butler.</p>
+<p>Development of new features were driven mainly by what features were needed at the time.<br>
+Or the fact that Qlik released some new feature in Sense and Butler was a way to test that new feature from the perspective of the Sense APIs.</p>
+<p>That&rsquo;s all good but today Butler is a rather significant tool with features spanning quite different areas (alerting, task scheduling, key-value store and more).</p>
+<p>This multitude of features is also one of the core reasons for adding telemetry to Butler:</p>
+
+
+<div class="pageinfo pageinfo-info">
+<ul>
+<li>Which Butler APIs and features are actually used out there?</li>
+<li>Which operating systems, Node.js versions and hardware platforms is Butler running on?</li>
+</ul>
+
+</div>
+
+<p>Without this information the Butler developers will keep working in the dark, not really knowing where to focus their efforts.</p>
+<p>On the other hand - <strong>with</strong> access to telemetry data a lot of possibilities open up for the Butler developers:</p>
+<ul>
+<li>If telemetry shows that no one uses a particular feature, maybe that feature should be scheduled for deprecation?</li>
+<li>The opposite of the previous: If lots of users use a specific Butler feature, then that feature is a candidate for future focus and development.</li>
+<li>Telemetry will show if lots of users run Butler on old Node.js versions. Knowing this its possible to set a migration schedule for what Node.js versions are supported - avoiding hard errors when some old Node.js version is no longer supported by Butler.</li>
+<li>Same thing for understanding what operating systems Butler runs (and should be supported) on.</li>
+</ul>
+<h3 id="configuring-butlers-telemetry">Configuring Butler&rsquo;s telemetry</h3>
+<p>Instructions <a href="/docs/getting-started/setup/telemetry/">here</a>.</p>
+<h2 id="the-details">The details</h2>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">What's shared</h4>
+<p>The telemetry data includes the following:</p>
+<ol>
+<li><strong>Information about what API endpoints are enabled in the Butler config file.</strong><br>
+<em>Why: This tells the Butler developers which features are used and which aren&rsquo;t. This is critical information when it comes to planning where to focus future development efforts.</em></li>
+<li><strong>Information about what features are enabled and which are disabled.</strong><br>
+<em>Why: Same as above. Knowing which features are used (and are thus important) allows the Butler developers to better plan future work.</em></li>
+<li><strong>Information about Butler&rsquo;s execution environment</strong> (operating system, hardware architecture, Node.js version etc).<br>
+<em>Why: Ideally the Butler developers want to use as modern versions of Node.js as possible. But if telemetry shows that lots os Butler instances use old Node.js versions or run on some (yet) untested/unverified Linux version - then maybe those older Node.js/Linux versions must be supported for yet some time.</em></li>
+</ol>
+
+</div>
+
+
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">What's not shared</h4>
+<p>The telemetry data will never include:</p>
+<ol>
+<li>Data that can identify your Sense environment or the server on which Butler runs. This includes IP/MAC addresses or other network information, server names, Docker container metadata or similar.</li>
+<li>Any actual data sent via Butler APIs.</li>
+<li>Qlik Sense or other certificates in any shape or form.</li>
+</ol>
+
+</div>
+
+<h3 id="where-is-telemetry-data-sent">Where is telemetry data sent</h3>
+<p>The telemetry data is sent to an Azure server and then stored in a database operated by <a href="https://ptarmiganlabs.com">Ptarmigan Labs</a> (which is the company sponsoring the Butler project).</p>
+<h3 id="deleting-telemetry-data">Deleting telemetry data</h3>
+<p>Even though no-one (not even Ptarmigan Labs who runs the telemetry database!) has any way of ever connecting the data sent by <em>your</em> Butler instance to <em>you</em> (it&rsquo;s all anonymized, remember?), there can be cases where telemetry data must be deleted.</p>
+<p>The <a href="/docs/legal-stuff/#telemetry-data">legal page</a> has more information about this.</p>
+<h3 id="field-level-description-of-telemetry-data">Field level description of telemetry data</h3>
+<p>A telemetry message from Butler contains the information below.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#000;font-weight:bold">{</span>
+  <span style="color:#204a87;font-weight:bold">&#34;ts&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;2021-03-03T11:13:55.862Z&#34;</span><span style="color:#000;font-weight:bold">,</span>
+  <span style="color:#204a87;font-weight:bold">&#34;data&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">&#34;service&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;butler&#34;</span><span style="color:#000;font-weight:bold">,</span>
+    <span style="color:#204a87;font-weight:bold">&#34;serviceVersion&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;5.1.0&#34;</span><span style="color:#000;font-weight:bold">,</span>
+    <span style="color:#204a87;font-weight:bold">&#34;system&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+      <span style="color:#204a87;font-weight:bold">&#34;id&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;93f47268f534da58f7fd50b279e19581a6437b2e3e000c0c5455b1155f515be2&#34;</span><span style="color:#000;font-weight:bold">,</span>
+      <span style="color:#204a87;font-weight:bold">&#34;arch&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;x64&#34;</span><span style="color:#000;font-weight:bold">,</span>
+      <span style="color:#204a87;font-weight:bold">&#34;platform&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;darwin&#34;</span><span style="color:#000;font-weight:bold">,</span>
+      <span style="color:#204a87;font-weight:bold">&#34;release&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;11.2.1&#34;</span><span style="color:#000;font-weight:bold">,</span>
+      <span style="color:#204a87;font-weight:bold">&#34;distro&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;macOS&#34;</span><span style="color:#000;font-weight:bold">,</span>
+      <span style="color:#204a87;font-weight:bold">&#34;codename&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;macOS Big Sur&#34;</span><span style="color:#000;font-weight:bold">,</span>
+      <span style="color:#204a87;font-weight:bold">&#34;virtual&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+      <span style="color:#204a87;font-weight:bold">&#34;nodeVersion&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;v14.15.4&#34;</span>
+    <span style="color:#000;font-weight:bold">},</span>
+    <span style="color:#204a87;font-weight:bold">&#34;enabledFeatures&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+      <span style="color:#204a87;font-weight:bold">&#34;api&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">&#34;activeUserCount&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;activeUsers&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;apiListEnbledEndpoints&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;base62ToBase16&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;base16ToBase62&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;butlerping&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;createDir&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;createDirQVD&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;fileDelete&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;fileMove&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;fileCopy&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;keyValueStore&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;mqttPublishMessage&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;scheduler&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+          <span style="color:#204a87;font-weight:bold">&#34;createNewSchedule&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+          <span style="color:#204a87;font-weight:bold">&#34;getSchedule&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+          <span style="color:#204a87;font-weight:bold">&#34;getScheduleStatusAll&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+          <span style="color:#204a87;font-weight:bold">&#34;updateSchedule&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+          <span style="color:#204a87;font-weight:bold">&#34;deleteSchedule&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+          <span style="color:#204a87;font-weight:bold">&#34;startSchedule&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+          <span style="color:#204a87;font-weight:bold">&#34;stopSchedule&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span>
+        <span style="color:#000;font-weight:bold">},</span>
+        <span style="color:#204a87;font-weight:bold">&#34;senseAppReload&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;senseAppDump&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;senseListApps&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;senseStartTask&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;slackPostMessage&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span>
+      <span style="color:#000;font-weight:bold">},</span>
+      <span style="color:#204a87;font-weight:bold">&#34;feature&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">&#34;heartbeat&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;dockerHealthCheck&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;uptimeMonitor&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;uptimeMonitor_storeInInfluxdb&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;teamsNotification&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;teamsNotification_reloadTaskFailure&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;teamsNotification_reloadTaskAborted&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;slackNotification&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;slackNotification_reloadTaskFailure&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;slackNotification_reloadTaskAborted&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;emailNotification&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;emailNotification_reloadTaskFailure&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;emailNotification_reloadTaskAborted&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;webhookNotification&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;webhookNotification_reloadTaskFailure&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;webhookNotification_reloadTaskAborted&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;scheduler&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;mqtt&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#204a87;font-weight:bold">&#34;userActivityLogging&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span>
+      <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#000;font-weight:bold">}</span>
+  <span style="color:#000;font-weight:bold">}</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><h4 id="creating-an-anonymous-id-field">Creating an anonymous ID field</h4>
+<p>The <code>id</code> field deserves a bit more explanation.</p>
+<p>It&rsquo;s purpose is to uniquely identify the Butler instance - nothing else.<br>
+If Butler is stopped and started agagin the same ID should be generated.</p>
+<p>Some sensitive information is used to create the ID, but as the ID is anonymized before sent as part of the telemetry data, <em>no sensitive information leaves your servers</em>.</p>
+<p>The ID field is created as follows:</p>
+<ol>
+<li>
+<p>Combine the following information to a single string</p>
+<ol>
+<li>MAC address of default network interface</li>
+<li>IPv4 address of default network interface</li>
+<li>IP or FQDN of Sense server where repository service is running</li>
+<li>System unique ID as reported by the OS. Not all OSs support this though, which is why field 1-3 above are also needed to get a unique ID.</li>
+</ol>
+</li>
+<li>
+<p>Run the created string through a <a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function">one-way hashing/message digest function</a>.
+Butler uses Node.js' own <a href="https://nodejs.org/docs/latest-v15.x/api/crypto.html">Crypto</a> library to create a <a href="https://en.wikipedia.org/wiki/SHA-2">SHA-256</a> hash, using the default network interface&rsquo;s MAC address as salt.<br>
+Security is increased due to the fact that the salt never leaves the server where Butler is running.</p>
+<p>The bottom line is that it&rsquo;s impossible to reverse the process and get your the IP, host name etc used in step 1 above.<br>
+Then again - this is cryptografy and things change.<br>
+But if you trust the certificates securing Sense itself, then the ID anonymization in Butler should be ok too.</p>
+</li>
+<li>
+<p>The result is a string that uniquely identifies the Butler instance at hand, without giving away any sensitive data about the system where Butler is running.</p>
+</li>
+</ol>
+<p>See below for an example of what the <code>id</code> field looks like.<br>
+The <code>id</code> field is shown during Butler startup.</p>
+<h2 id="telemetry-faq">Telemetry FAQ</h2>
+<ol>
+<li>
+<p><strong><em>What data is included in the telemetry messages?</em></strong><br>
+See above for details.<br>
+In general the telemetry includes information about which Butler API endpoints and features are enabled vs disabled.<br>
+A unique, anonymized ID is included too, it&rsquo;s unique to each Butler instance and is used soley to distinguish between different Butler instances.<br>
+Finally some information about Butler&rsquo;s execution environment is included. Things like operating system, Node.js version used etc.</p>
+</li>
+<li>
+<p><strong><em>Can my Sense environment be identified via telemetry data?</em></strong><br>
+Short answer: No.<br>
+Longer answer: No information about your Sense environment is sent as part of telemetry. No IP addresses or server names, no IDs of Sense apps/tasks/etc, no information about what actual data passed through Butler&rsquo;s APIs, or any other data that can be linked to your Sense environment is included in the telemetry data.</p>
+</li>
+</ol>
+
+	
+		<style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="feedback--answer feedback--answer-yes">Yes</button>
+<button class="feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it! Please <a href="https://github.com/ptarmiganlabs/butler/issues/new/choose">tell us how we can improve</a>.
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that. Please <a href="https://github.com/ptarmiganlabs/butler/issues/new/choose">tell us how we can improve</a>.
+</p>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+		<br />
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-03-03: <a  href="https://github.com/ptarmiganlabs/butler-docs/commit/c7414a863fa2a37e9cc51b23baf6590e4eff1cb7">5.1.0 (c7414a8)</a>
+</div>
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="SenseOps mailing list" aria-label="SenseOps mailing list">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.subscribepage.com/g3c1f1">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Discussion forums on GitHub" aria-label="Discussion forums on GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/ptarmiganlabs/butler/discussions">
+      <i class="fa fa-comments"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Ptarmigan Labs on Twitter" aria-label="Ptarmigan Labs on Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ptarmiganlabs">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/gorsan/">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/ptarmiganlabs/butler">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Bug reports &amp; Feature requests" aria-label="Bug reports &amp; Feature requests">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/ptarmiganlabs/butler/issues/new/choose">
+      <i class="fa fa-bug"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Get in touch with Ptarmigan Labs" aria-label="Get in touch with Ptarmigan Labs">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="mailto://info@ptarmiganlabs.com">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 Ptarmigan Labs AB All Rights Reserved</small>
+        
+	
+		<p class="mt-2"><a href="/docs/about/">About</a></p>
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,2253 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.82.0" />
+
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+
+<link rel="alternate" type="application/rss&#43;xml" href="/docs/getting-started/setup/reload-alerts/index.xml">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Reload related alerts | Butler</title><meta property="og:title" content="Reload related alerts" />
+<meta property="og:description" content="Butler offers a lot of flexibility when it comes to alerts when reloads fail or are aborted.  
+Learn how to set up the desired features, the alert layout, formatting and more.
+" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/docs/getting-started/setup/reload-alerts/" /><meta property="og:site_name" content="Butler" />
+
+<meta itemprop="name" content="Reload related alerts">
+<meta itemprop="description" content="Butler offers a lot of flexibility when it comes to alerts when reloads fail or are aborted.  
+Learn how to set up the desired features, the alert layout, formatting and more.
+"><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Reload related alerts"/>
+<meta name="twitter:description" content="Butler offers a lot of flexibility when it comes to alerts when reloads fail or are aborted.  
+Learn how to set up the desired features, the alert layout, formatting and more.
+"/>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-58487795-5', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+<link rel="preload" href="/scss/main.min.c248771fed4aa0c1846bd56a4f2758b94f7858027d5469d345046cfe9d97e171.css" as="style">
+<link href="/scss/main.min.c248771fed4aa0c1846bd56a4f2758b94f7858027d5469d345046cfe9d97e171.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+
+
+
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">Butler</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/about/butler/" ><span>What is Butler?</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/" ><span>Documentation</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/blog" ><span>News</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="https://ptarmiganlabs.com" target="_blank" ><span>Blog</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/about/butler-family" ><span>The Butler family</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="/docs/about" ><span>About</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <div id="content-mobile">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  </div>
+  <div id="content-desktop"></div>
+  
+  <nav class="collapse td-sidebar-nav" id="td-section-nav">
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Documentation</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docs">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/about/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">About</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsabout">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutbutler" href="/docs/about/butler/">Butler</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutbutler-family" href="/docs/about/butler-family/">The Butler family</a>
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/about/use-cases/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Use cases</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsaboutuse-cases">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutuse-casesretired" href="/docs/about/use-cases/retired/">Retired use cases</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutversioning" href="/docs/about/versioning/">Versions</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsaboutcontributing" href="/docs/about/contributing/">Contribution guidelines</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsabouttelemetry" href="/docs/about/telemetry/">Telemetry</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Getting started</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docsgetting-started">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/overview/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Overview</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedoverview">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/install/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Installing Butler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedinstall">
+      
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstallchoose-platform" href="/docs/getting-started/install/choose-platform/">Choose a platform</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstalldocker" href="/docs/getting-started/install/docker/">Docker</a>
+      
+      
+      
+      
+      
+      <a class="td-sidebar-link td-sidebar-link__page " id="m-docsgetting-startedinstallnative" href="/docs/getting-started/install/native/">Native app</a>
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">Setup</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docsgetting-startedsetup">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/which-config-file/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Which config file?</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupwhich-config-file">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/qlik-sense-server-settings/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Sense server settings</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupqlik-sense-server-settings">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/enable-api-endpoints/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">API endpoints</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupenable-api-endpoints">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/reload-alerts/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">Reload alerts</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="docsgetting-startedsetupreload-alerts">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/reload-alerts/alert-emails/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Email</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupreload-alertsalert-emails">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/reload-alerts/alert-slack/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Slack</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupreload-alertsalert-slack">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/reload-alerts/alert-teams/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">MS Teams</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupreload-alertsalert-teams">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/reload-alerts/alert-mqtt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">MQTT</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupreload-alertsalert-mqtt">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/reload-alerts/alert-webhook-out/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Webhook</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupreload-alertsalert-webhook-out">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/scheduler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Scheduler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupscheduler">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/key-value-store/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Key-value store</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupkey-value-store">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/file-system-access/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">File system access</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupfile-system-access">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/mqtt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">MQTT</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupmqtt">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/heartbeats/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Heartbeats</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupheartbeats">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/uptime-monitor/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Uptime monitor</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupuptime-monitor">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/docker-health-check/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Docker healthcheck</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupdocker-health-check">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/data-connections/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Sense data connections</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupdata-connections">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/user-events/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">User activity events</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetupuser-events">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/setup/telemetry/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Telemetry</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedsetuptelemetry">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/getting-started/operations/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Day 2 operations</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsgetting-startedoperations">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Concepts</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconcepts">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/key-value/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Key-value store</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptskey-value">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/scheduler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Scheduler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsscheduler">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/alert-emails/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Alert emails</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsalert-emails">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/alerts-slack-teams/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Alerts via Slack/Teams</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsalerts-slack-teams">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/file-system-access/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Copy/move/delete files</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsfile-system-access">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/log-event-handlers/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Session events</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptslog-event-handlers">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/mqtt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">MQTT integration</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsmqtt">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/udp/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">UDP client</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsudp">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/concepts/real-time-metrics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Real-time metrics</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsconceptsreal-time-metrics">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Examples</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamples">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/openapi-docs/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">OpenAPI/Swagger</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesopenapi-docs">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/scheduling/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Task scheduling</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesscheduling">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/reload-chaining/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Reload chaining</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesreload-chaining">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/influxdb-metrics/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Monitoring Butler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesinfluxdb-metrics">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/start-task-from-mqtt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">MQTT starting Sense tasks</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesstart-task-from-mqtt">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/start-task-from-rest/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">REST starting Sense tasks</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesstart-task-from-rest">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/file-copy-move-delete/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">File system operations</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplesfile-copy-move-delete">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/sense-demo-apps/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Sense demo apps</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplessense-demo-apps">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/sense-demo-apps/butler-5.0-demo-app/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Butler 5.0 API demo</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplessense-demo-appsbutler-50-demo-app">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/sense-demo-apps/partial-loads/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Partial loads</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplessense-demo-appspartial-loads">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/sense-demo-apps/post-to-slack/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Post to Slack</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplessense-demo-appspost-to-slack">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/examples/sense-demo-apps/publish-to-mqtt/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Publish to MQTT</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsexamplessense-demo-appspublish-to-mqtt">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Reference docs</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreference">
+      
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/config-file/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Config file syntax</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferenceconfig-file">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/rest-api/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">REST API</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencerest-api">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/scheduler/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Scheduler</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencescheduler">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/key-value/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Key-value store</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencekey-value">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/alert-template-fields/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Alert template fields</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencealert-template-fields">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/reference/sense-helper-subs/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Sense helper subs</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docsreferencesense-helper-subs">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/security/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Security considerations</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docssecurity">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+      
+      
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/docs/legal-stuff/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">Legal stuff</a>
+  </li>
+  <ul>
+    <li class="collapse " id="docslegal-stuff">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+            
+
+
+
+
+
+
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+
+
+
+
+
+<a href="https://github.com/ptarmiganlabs/butler-docs/edit/master/content/en/docs/getting%20started/setup/reload%20alerts/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+<a href="https://github.com/ptarmiganlabs/butler-docs/issues/new?title=Reload%20related%20alerts" target="_blank"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+
+
+<a href="https://github.com/ptarmiganlabs/butler/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+
+</div>
+
+
+
+
+
+
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#alert-types">Alert types</a></li>
+    <li><a href="#alert-destinations">Alert destinations</a></li>
+    <li><a href="#how-it-works">How it works</a></li>
+    <li><a href="#adding-a-log-appender">Adding a log appender</a>
+      <ul>
+        <li><a href="#forwarding-task-reload-events-to-butler">Forwarding task reload events to Butler</a></li>
+        <li><a href="#sending-basic-alert-emails-from-log4net">Sending basic alert emails from log4net</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+          </div>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/docs/">Documentation</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/docs/getting-started/">Getting started</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/docs/getting-started/setup/">Setup</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/docs/getting-started/setup/reload-alerts/">Reload alerts</a>
+</li>
+
+	</ol>
+</nav	>
+
+            
+<div class="td-content">
+	<h1>Reload related alerts</h1>
+        <div class="lead">Butler offers a lot of flexibility when it comes to alerts when reloads fail or are aborted.<br>
+Learn how to set up the desired features, the alert layout, formatting and more.</div>
+	
+	
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Optional</h4>
+<p>Reload alerts are an optional Butler feature.</p>
+<p>If alerts are not of interest, the default values in the config file can be left as they are.
+Do note though that Butler expects the configuration properties below to exist in the config file, but will <em>ignore their values</em> if the related features are disabled.</p>
+
+</div>
+
+<h2 id="alert-types">Alert types</h2>
+<p>These alert types are available:</p>
+<ul>
+<li>
+<p>Reload task failure. Send alerts when reload tasks fail, no matter if they were started on schedule or manually from the QMC.</p>
+</li>
+<li>
+<p>Reload task aborted. Send alerts when reload tasks are manually aborted in the QMC.</p>
+</li>
+</ul>
+<h2 id="alert-destinations">Alert destinations</h2>
+<p>Alerts can be sent to these destinations. Each destination can be individually enabled/disabled in the config file.</p>
+<table>
+<thead>
+<tr>
+<th>Destination</th>
+<th style="text-align:center">QMC task failure</th>
+<th style="text-align:center">QMC task aborted</th>
+<th style="text-align:center">Flexible formatting</th>
+<th style="text-align:center">Basic formatting</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Email</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td>Basic emails can be sent using a <a href="/docs/getting-started/setup/reload-alerts/#sending-basic-alert-emails-from-log4net">log appender</a>.</td>
+</tr>
+<tr>
+<td>Slack</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td></td>
+</tr>
+<tr>
+<td>MS Teams</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td></td>
+</tr>
+<tr>
+<td>Outgoing webhook</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td>Formatting is not relevant for webhooks</td>
+</tr>
+<tr>
+<td>MQTT</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td>Formatting is not relevant for MQTT messages</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-it-works">How it works</h2>
+<p>In order for Butler initiated alerts to become a reality, Butler must somehow be notified that the event of interest (for example a failed reload task) has taken place.<br>
+This is achieved by adding a <strong><em>log appender</em></strong> to Qlik Sense Enterprise on Windows.</p>
+<p>Log appenders offer a way to hook into Qlik Sense&rsquo;s logging subsystem, which is called <a href="https://help.qlik.com/en-US/sense-admin/September2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders-QSRollingFileAppender-Built-in-Appenders.htm">log4net</a>.</p>
+<p>By adding a carefully crafted .xml file in the right location on the Sense server(s), you can make Sense notify Butler by means of UDP messages when the events of interest occur. Conceptually it looks like this:</p>
+<p><img src="/img/butler-log4net-appenders-1.png" alt="Butler high level system overview" title="Butler high level system overview"></p>
+<p>So what happens when a scheduled reload task fails? Let&rsquo;s look at the steps:</p>
+<ol>
+<li>
+<p>A reload task is started by the Sense scheduler, either on a time schedule, as a result of some other task(s) finishing or manually by a user in the QMC.</p>
+</li>
+<li>
+<p>When the task&rsquo;s state changes, entries are written to the scheduler log files using log4net (which is built into Qlik Sense). If the filter defined in the log appender (= the .xml file on the Sense server) matches the log entry at hand, the associated action in the log appender will be carried out.</p>
+</li>
+<li>
+<p>Log appenders can do all kinds of things, everything from writing custom log files, sending basic emails, writing to databases and <a href="https://help.qlik.com/en-US/sense-admin/November2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders-QSRollingFileAppender-Built-in-Appenders.htm">much more</a>. Here we&rsquo;re interested in the log appender sending a UDP message from Qlik Sense to Butler.</p>
+</li>
+<li>
+<p>The log appender provided as part of Butler will make log4net send a UDP message to Butler, including various info about the reload task that just failed or was stopped/aborted.</p>
+</li>
+<li>
+<p>Butler will look at the incoming event and determine what it is about.<br>
+For example: Is the event about a reload task failure, a reload that has been aborted/stopped, end user sessions starting/stopping, connections to the Sense engine opening/closing etc.<br>
+Butler thus first works as a dispatcher that as in a second step sends the event to the relevant handler function within Butler.</p>
+</li>
+</ol>
+<p>Response times are usually very good - Butler will typically get the UDP message within a few seconds, with alerts going out shortly thereafter. You are thus looking at close to real-time alerts.</p>
+<h2 id="adding-a-log-appender">Adding a log appender</h2>
+<p>This is possibly the trickiest part to get right when it comes to setting up log4net based alerts.<br>
+Still, if you start from the sample .xml file provided in the <a href="https://github.com/ptarmiganlabs/butler/tree/master/docs/log4net_task-failed">Butler repository on GitHub</a> it&rsquo;s not too hard.</p>
+<p>The steps are:</p>
+<ol>
+<li>
+<p>In this case you want to be notified when certain events occur in the <em>scheduler</em> log files.</p>
+<p>This is important: Qlik Sense Enterprise on Windows consists of many different subsystems (engine, proxy, scheduler, printing etc) - here you&rsquo;re interested in log events from the <em>scheduler</em> subsystem.</p>
+<p>Add a file <code>LocalLogConfig.xml</code> in the <code>C:\ProgramData\Qlik\Sense\Scheduler</code> folder on the Sense server whose scheduler you want to get events from. If you have multiple Sense servers with schedulers running on them, the .xml file should be deployed on each server (assuming you want events from all the servers).</p>
+</li>
+<li>
+<p>The contents of <code>LocalLogConfig.xml</code> will determine what events are forwarded to Butler, or what other actions will be taken by log4net. See below for examples.</p>
+</li>
+<li>
+<p>Sense will eventually detect and load the new xml file, but it might take a while (minutes). Restarting the Qlik Sense Scheduler Windows service will make the changes take effect immediately.</p>
+</li>
+</ol>
+<p><img src="reload-failure-notification-win-config-1.png" alt="alt text" title="log4net log appender on Windows Server"></p>
+<h3 id="forwarding-task-reload-events-to-butler">Forwarding task reload events to Butler</h3>
+<p>Here&rsquo;s the XML that should go into <code>C:\ProgramData\Qlik\Sense\Scheduler\LocalLogConfig.xml</code> to enable the various kinds of Butler task reload alerts.</p>
+<ul>
+<li>
+<p>The <code>remoteAddress</code> property should be set to the host name or IP where Butler is running.</p>
+</li>
+<li>
+<p>The <code>remotePort</code> property should match the port number specified in Butler&rsquo;s config file. Note that Butler uses different ports for task related and user activity related events.</p>
+</li>
+<li>
+<p>The first appender looks for the text &ldquo;Max retries reached&rdquo; in the <code>System.Scheduler.Scheduler.Master.Task.TaskSession</code> log stream. That log entry will be created when a reload task has failed and also carried out all its retries. Once the search string is found a UDP message will be sent to port 9998 on IP 10.11.12.13.</p>
+</li>
+<li>
+<p>The second appender looks for &ldquo;Execution State Change to Aborting&rdquo; in the <code>System.Scheduler.Scheduler.Master.Task.TaskSession</code> log stream. That log entry occurs when a user stops a running reload from the QMC&rsquo;s task view, or using the Sense APIs. When the search string is found a UDP message is once again sent to 10.11.12.13:9998, but with a different messsage (as specified in the <code>conversionpattern</code> property of the appender).</p>
+</li>
+</ul>
+<p>Here is an XML file that would forward log events as UDP messages to Butler:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#8f5902;font-style:italic">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+<span style="color:#204a87;font-weight:bold">&lt;configuration&gt;</span>
+    <span style="color:#8f5902;font-style:italic">&lt;!-- Appender for detecting reload task failures. Only the last of potentially several retries is reported --&gt;</span>
+    <span style="color:#204a87;font-weight:bold">&lt;appender</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;TaskFailureLogger&#34;</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Appender.UdpAppender&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;filter</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Filter.StringMatchFilter&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
+            <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;stringToMatch&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;Max retries reached&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;/filter&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;filter</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Filter.DenyAllFilter&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;remoteAddress&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;10.11.12.13&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;remotePort&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;9998&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;encoding&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;utf-8&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;layout</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Layout.PatternLayout&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
+            <span style="color:#204a87;font-weight:bold">&lt;converter&gt;</span>
+                <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;name&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;hostname&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+                <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;type&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;Qlik.Sense.Logging.log4net.Layout.Pattern.HostNamePatternConverter&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+             <span style="color:#204a87;font-weight:bold">&lt;/converter&gt;</span>
+            <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;conversionpattern&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;/scheduler-reload-failed/;%hostname;%property{TaskName};%property{AppName};%property{User};%property{TaskId};%property{AppId};%date;%level;%property{ExecutionId};%message&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;/layout&gt;</span>
+    <span style="color:#204a87;font-weight:bold">&lt;/appender&gt;</span>
+
+    <span style="color:#8f5902;font-style:italic">&lt;!-- Appender for detecting aborted reloads --&gt;</span>
+    <span style="color:#204a87;font-weight:bold">&lt;appender</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;AbortedReloadTaskLogger&#34;</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Appender.UdpAppender&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;filter</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Filter.StringMatchFilter&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
+            <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;stringToMatch&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;Execution State Change to Aborting&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;/filter&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;filter</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Filter.DenyAllFilter&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;remoteAddress&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;10.11.12.13&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;remotePort&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;9998&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;encoding&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;utf-8&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;layout</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Layout.PatternLayout&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
+            <span style="color:#204a87;font-weight:bold">&lt;converter&gt;</span>
+                <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;name&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;hostname&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+                <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;type&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;Qlik.Sense.Logging.log4net.Layout.Pattern.HostNamePatternConverter&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+             <span style="color:#204a87;font-weight:bold">&lt;/converter&gt;</span>
+            <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;conversionpattern&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;/scheduler-reload-aborted/;%hostname;%property{TaskName};%property{AppName};%property{User};%property{TaskId};%property{AppId};%date;%level;%property{ExecutionId};%message&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;/layout&gt;</span>
+    <span style="color:#204a87;font-weight:bold">&lt;/appender&gt;</span>
+
+    <span style="color:#8f5902;font-style:italic">&lt;!-- Send message to Butler on task failure --&gt;</span>
+    <span style="color:#8f5902;font-style:italic">&lt;!-- Send message to Butler on task abort --&gt;</span>
+    <span style="color:#204a87;font-weight:bold">&lt;logger</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;System.Scheduler.Scheduler.Master.Task.TaskSession&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;appender-ref</span> <span style="color:#c4a000">ref=</span><span style="color:#4e9a06">&#34;TaskFailureLogger&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;appender-ref</span> <span style="color:#c4a000">ref=</span><span style="color:#4e9a06">&#34;AbortedReloadTaskLogger&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+    <span style="color:#204a87;font-weight:bold">&lt;/logger&gt;</span>
+
+<span style="color:#204a87;font-weight:bold">&lt;/configuration&gt;</span>
+</code></pre></div><p>The above configuration is enough to support all task reload alerts currently supported by Butler.</p>
+<h3 id="sending-basic-alert-emails-from-log4net">Sending basic alert emails from log4net</h3>
+<p>If you are happy with the more basic/limited reload-failed alert emails provided by log4net, you can add a SMTP appender like this (the example below is for sending emails using Google GMail, customise as needed):</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#8f5902;font-style:italic">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+<span style="color:#204a87;font-weight:bold">&lt;configuration&gt;</span>
+    <span style="color:#8f5902;font-style:italic">&lt;!-- Mail appender--&gt;</span>
+    <span style="color:#204a87;font-weight:bold">&lt;appender</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;MailAppender&#34;</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Appender.SmtpAppender&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;filter</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Filter.StringMatchFilter&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
+            <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;stringToMatch&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;Message from ReloadProvider&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;/filter&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;filter</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Filter.DenyAllFilter&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;evaluator</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Core.LevelEvaluator&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
+            <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;threshold&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;ERROR&#34;</span><span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;/evaluator&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;to&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;&lt;email address to send failed task notification emails to&gt;&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;from&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;&lt;sender email address used in notification emails&gt;&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;subject&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;Qlik Sense failed task (server &lt;servername&gt;)&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;smtpHost&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;smtp.gmail.com&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;port&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;587&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;EnableSsl&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;true&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;Authentication&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;Basic&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;username&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;&lt;Gmail username&gt;&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;password&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;&lt;Gmail password&gt;&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;bufferSize&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;0&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span> <span style="color:#8f5902;font-style:italic">&lt;!-- Set this to 0 to make sure an email is sent on every error --&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;lossy&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;true&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;layout</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Layout.PatternLayout&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
+            <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;conversionPattern&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;%newline%date %-5level %newline%property{TaskName}%newline%property{AppName}%newline%message%newline%newline%newline&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;/layout&gt;</span>
+    <span style="color:#204a87;font-weight:bold">&lt;/appender&gt;</span>
+
+    <span style="color:#8f5902;font-style:italic">&lt;!--Send mail on task failure--&gt;</span>
+    <span style="color:#204a87;font-weight:bold">&lt;logger</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;System.Scheduler.Scheduler.Slave.Tasks.ReloadTask&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
+        <span style="color:#204a87;font-weight:bold">&lt;appender-ref</span> <span style="color:#c4a000">ref=</span><span style="color:#4e9a06">&#34;MailAppender&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
+    <span style="color:#204a87;font-weight:bold">&lt;/logger&gt;</span>
+<span style="color:#204a87;font-weight:bold">&lt;/configuration&gt;</span>
+</code></pre></div><h3 id="references">References</h3>
+<ul>
+<li>
+<p><a href="https://help.qlik.com/en-US/sense-admin/September2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders.htm">Qlik&rsquo;s documenation</a> around log appenders and how to hook into the Sense logs is somewhat brief, but does provide a starting point if you want to dive deeper into this topic.</p>
+</li>
+<li>
+<p>The main <a href="https://logging.apache.org/log4net/">log4net documentation</a> (log4net is the logging framework used by Qlik Sense Enterprise) can also be useful.</p>
+</li>
+</ul>
+<p>These links describe how emails can be sent from the log4net logging framework itself, directly to the recipient. Butler includes sameple XML files for this use case too, but Butler takes things further by using the data in the Sense logs to pull in more data around the failed or stopped reload.</p>
+<p>In other words - Butler&rsquo;s alert emails are significantly more flexible and contain information (such as script logs) that are not availble using purely log4net.</p>
+
+        <div class="section-index">
+    
+    
+    
+    
+    <hr class="panel-line">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <div class="entry">
+                    <h5>
+                        <a href="/docs/getting-started/setup/reload-alerts/alert-emails/">Reload alerts sent as emails</a>
+                    </h5>
+                    <p>Description of the various kinds of alert emails Butler can send.</p>
+                </div>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <div class="entry">
+                    <h5>
+                        <a href="/docs/getting-started/setup/reload-alerts/alert-slack/">Reload alerts via Slack</a>
+                    </h5>
+                    <p>Description of how reload alerts can be sent as Slack messages.</p>
+                </div>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <div class="entry">
+                    <h5>
+                        <a href="/docs/getting-started/setup/reload-alerts/alert-teams/">Reload alerts via Microsoft Teams</a>
+                    </h5>
+                    <p>Description of how reload alerts can be sent as Microsoft Teams messages.</p>
+                </div>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <div class="entry">
+                    <h5>
+                        <a href="/docs/getting-started/setup/reload-alerts/alert-mqtt/">Reload alerts via MQTT</a>
+                    </h5>
+                    <p>Description of how reload alerts can be sent as MQTT messages.</p>
+                </div>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+                <div class="entry">
+                    <h5>
+                        <a href="/docs/getting-started/setup/reload-alerts/alert-webhook-out/">Reload alerts via outgoing webhooks</a>
+                    </h5>
+                    <p>Description of how reload alerts can be sent via outgoing webhooks.</p>
+                </div>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    
+</div>
+
+	
+		<style>
+  .feedback--answer {
+    display: inline-block;
+  }
+  .feedback--answer-no {
+    margin-left: 1em;
+  }
+  .feedback--response {
+    display: none;
+    margin-top: 1em;
+  }
+  .feedback--response__visible {
+    display: block;
+  }
+</style>
+<h2 class="feedback--title">Feedback</h2>
+<p class="feedback--question">Was this page helpful?</p>
+<button class="feedback--answer feedback--answer-yes">Yes</button>
+<button class="feedback--answer feedback--answer-no">No</button>
+<p class="feedback--response feedback--response-yes">
+  Glad to hear it! Please <a href="https://github.com/ptarmiganlabs/butler/issues/new/choose">tell us how we can improve</a>.
+</p>
+<p class="feedback--response feedback--response-no">
+  Sorry to hear that. Please <a href="https://github.com/ptarmiganlabs/butler/issues/new/choose">tell us how we can improve</a>.
+</p>
+<script>
+  const yesButton = document.querySelector('.feedback--answer-yes');
+  const noButton = document.querySelector('.feedback--answer-no');
+  const yesResponse = document.querySelector('.feedback--response-yes');
+  const noResponse = document.querySelector('.feedback--response-no');
+  const disableButtons = () => {
+    yesButton.disabled = true;
+    noButton.disabled = true;
+  };
+  const sendFeedback = (value) => {
+    if (typeof ga !== 'function') return;
+    const args = {
+      command: 'send',
+      hitType: 'event',
+      category: 'Helpful',
+      action: 'click',
+      label: window.location.pathname,
+      value: value
+    };
+    ga(args.command, args.hitType, args.category, args.action, args.label, args.value);
+  };
+  yesButton.addEventListener('click', () => {
+    yesResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(1);
+  });
+  noButton.addEventListener('click', () => {
+    noResponse.classList.add('feedback--response__visible');
+    disableButtons();
+    sendFeedback(0);
+  });
+</script>
+
+		<br />
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">Last modified 2021-02-24: <a  href="https://github.com/ptarmiganlabs/butler-docs/commit/0b121c470381d96286fa467f3dcc1c68ba7f29e6">Fixed  typos (0b121c4)</a>
+</div>
+</div>
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="SenseOps mailing list" aria-label="SenseOps mailing list">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.subscribepage.com/g3c1f1">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Discussion forums on GitHub" aria-label="Discussion forums on GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/ptarmiganlabs/butler/discussions">
+      <i class="fa fa-comments"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Ptarmigan Labs on Twitter" aria-label="Ptarmigan Labs on Twitter">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://twitter.com/ptarmiganlabs">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/gorsan/">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/ptarmiganlabs/butler">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Bug reports &amp; Feature requests" aria-label="Bug reports &amp; Feature requests">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="https://github.com/ptarmiganlabs/butler/issues/new/choose">
+      <i class="fa fa-bug"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Get in touch with Ptarmigan Labs" aria-label="Get in touch with Ptarmigan Labs">
+    <a class="text-white" target="_blank" rel="noopener noreferrer" href="mailto://info@ptarmiganlabs.com">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2021 Ptarmigan Labs AB All Rights Reserved</small>
+        
+	
+		<p class="mt-2"><a href="/docs/about/">About</a></p>
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+<script src="/js/main.min.5c74b870c6953931a705f390a49c7e4c0a842ec5c83b24354758dd674343ed0d.js" integrity="sha256-XHS4cMaVOTGnBfOQpJx&#43;TAqELsXIOyQ1R1jdZ0ND7Q0=" crossorigin="anonymous"></script>
+
+
+
+
+  </body>
+</html>

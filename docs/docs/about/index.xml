@@ -1,0 +1,429 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler – About</title>
+    <link>/docs/about/</link>
+    <description>Recent content in About on Butler</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/docs/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Butler</title>
+      <link>/docs/about/butler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/about/butler/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The Butler project is all about adding useful features to Qlik Sense Enterprise.&lt;br&gt;
+Some of the features can be used from Sense load scripts, other features provide integration with 3rd party systems.&lt;/p&gt;
+&lt;p&gt;The goal is to integrate battle-proven concepts and best-of-breed open-source tools into Butler and thus make them available to developers of Sense apps or those responsible for running Sense clusters.&lt;br&gt;
+In some cases it might be possible to use these tools from within Sense also without Butler - in those cases Butler simply tries to make things easier, lowering the barriers to get started and get things done.&lt;/p&gt;
+&lt;p&gt;There is also a clear goal that Butler should be very configurable. In practice this means that features can be turned on/off as needed, improving security and lowering memory usage.&lt;/p&gt;
+&lt;p&gt;Butler is written in &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js&lt;/a&gt; and runs on most modern operating systems.&lt;/p&gt;
+&lt;p&gt;You can run Butler on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).&lt;/p&gt;
+&lt;p&gt;Butler is a member of a group of tools collectively referred to as the &amp;ldquo;Butler family&amp;rdquo;, more info is available &lt;a href=&#34;/docs/about/butler-family&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This picture might be useful to understand what Butler does and how it fits into the larger system map around Qlik Sense:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/butler-system-overview-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler high level system overview&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: The Butler family</title>
+      <link>/docs/about/butler-family/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/about/butler-family/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Butler started out with a very specific need to start Sense reloads from outside systems.&lt;br&gt;
+Over the years a couple of projects have spun off from Butler (for example Butler SOS), and still other projects have been created to solve specific challenges around developing Sense apps (for example the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-app-duplicator&#34;&gt;Butler App Duplicator&lt;/a&gt;) or simplifying day 2 operations ([&lt;a href=&#34;https://www.infoworld.com/article/3442754/why-de-risking-day-2-operations-is-a-smart-business-strategy.html&#34;&gt;1&lt;/a&gt;], [&lt;a href=&#34;https://dzone.com/articles/defining-day-2-operations&#34;&gt;2&lt;/a&gt;]) in the form of &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34;&gt;Butler SOS&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;All members of the Butler family are available on &lt;a href=&#34;https://github.com/ptarmiganlabs&#34;&gt;Ptarmigan Labs&#39; GitHub page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Projects with production grade release status are (as of this writing):&lt;/p&gt;
+&lt;h3 id=&#34;butler&#34;&gt;Butler&lt;/h3&gt;
+&lt;p&gt;The original Butler. Offers various utilities that make it easier to develop Sense apps, as well as simplifying day 2 operations.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https:/butler.ptarmiganlabs.com&#34;&gt;butler.ptarmiganlabs.com&lt;/a&gt;. (This site!)&lt;/p&gt;
+&lt;h3 id=&#34;butler-sos&#34;&gt;Butler SOS&lt;/h3&gt;
+&lt;p&gt;Real-time operational metrics for Qlik Sense. A must-have if you are responsible for a Sense environment with more than a dozen or so users. Butler SOS makes it possible to detect and alert on issues as they happen, rather than in retrospect much later.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34;&gt;butler-sos.ptarmiganlabs.com&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;butler-cw&#34;&gt;Butler CW&lt;/h3&gt;
+&lt;p&gt;Butler Cache Warmer. Cache warming is the process of proactively forcing Sense apps to be loaded into RAM, so they are readily available when users open them. Once again - if your Sense environment serve more than a dozen users, you should consider a cache warming tool.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-cw&#34;&gt;github.com/ptarmiganlabs/butler-cw&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;butler-app-duplicator&#34;&gt;Butler App Duplicator&lt;/h3&gt;
+&lt;p&gt;No matter if you are a single developer creating Sense apps, or have lots of developers doing this, having app templates is a good idea:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lowered barrier of entry for new Sense developers.&lt;/li&gt;
+&lt;li&gt;Productivity boost when developing Sense apps.&lt;/li&gt;
+&lt;li&gt;Encouraging a common coding standard across all apps.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-app-duplicator&#34;&gt;github.com/ptarmiganlabs/butler-app-duplicator&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;butler-spyglass&#34;&gt;Butler Spyglass&lt;/h3&gt;
+&lt;p&gt;This tool is mainly of interest if you have lots of QVDs and apps, but when that&amp;rsquo;s the case it&amp;rsquo;s of paramount importance to understand what apps use which QVDs. In other words what data lineage looks like.&lt;/p&gt;
+&lt;p&gt;Butler Spyglass also extracts full load scripts for all Sense apps, creating a historical record of all load scripts for all Sense apps.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-spyglass&#34;&gt;github.com/ptarmiganlabs/butler-spyglass&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;butler-notifier&#34;&gt;Butler Notifier&lt;/h3&gt;
+&lt;p&gt;This tool makes it easy to tap into the Qlik Sense notification API. From there you can get all kinds of notifications, including task reload failures and changes in session state (user login/logout etc).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-notifier&#34;&gt;github.com/ptarmiganlabs/butler-notifier&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;butler-icon-uploader&#34;&gt;Butler Icon Uploader&lt;/h3&gt;
+&lt;p&gt;Visual looks is important when it comes to analytics, and this holds true also for Sense apps.
+The Butler Icon Uploader makes it easy to upload icon libraries (for example Font Awesome) to Qlik Sense Enterprise.&lt;br&gt;
+With such icons available it is then easy for app developers to use professional quality sheet and app icons in their Sense apps.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-icon-upload&#34;&gt;github.com/ptarmiganlabs/butler-icon-upload&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Use cases</title>
+      <link>/docs/about/use-cases/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/about/use-cases/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;instant-notifications-when-reload-tasks-fail-or-are-stopped&#34;&gt;Instant notifications when reload tasks fail or are stopped&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Information about failing tasks&lt;/strong&gt; can be sent as emails, to Microsoft Teams, Slack, as MQTT messages or outgoing webhooks.&lt;/p&gt;
+&lt;p&gt;Email, Slack and MS Teams notifications all use a templating concept where HTML/Markdown template files describe what the alert message should look like. Before the alert is sent the template is populated with actual data from the failed reload task.&lt;/p&gt;
+&lt;p&gt;Both subject and body of email can use the template fields.&lt;/p&gt;
+&lt;p&gt;For both Slack and Teams there are options to use more flexible/configurable alert formats and more basic pre-configured alerts.&lt;/p&gt;
+&lt;p&gt;The result is a very poweful tool for QSEoW sysadmins, who get real-time insight into what&amp;rsquo;s happening with respect to task execution.&lt;/p&gt;
+&lt;p&gt;More info &lt;a href=&#34;docs/getting-started/setup/reload-alerts/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;start-reload-tasks-from-load-script-or-from-upstream-systems&#34;&gt;Start reload tasks from load script or from upstream systems&lt;/h2&gt;
+&lt;p&gt;Trigger Sense reload tasks from a reload script: This makes it possible to start different Sense tasks based on what data has been read from a database, what time of day it is etc.&lt;br&gt;
+Starting a task from the reload script is as easy as &lt;code&gt;Call StartTask(&#39;fbf645f0-0c92-40a4-af9a-6e3eb1d3c35c&#39;)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Trigger Sense reloads from external systems: When new data is available in a source database, that database can trigger a reload in Sense, and the data is loaded from the database into Sense. This way delays caused by Sense polling for data are minimized and data arrives at end users as quickly as possible.&lt;/p&gt;
+&lt;p&gt;Starting reload tasks using REST API is described &lt;a href=&#34;/docs/examples/start-task-from-rest/&#34;&gt;here&lt;/a&gt;.&lt;br&gt;
+Using MQTT messages to achieve this is described &lt;a href=&#34;/docs/examples/start-task-from-mqtt/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;start-any-reload-task-from-within-any-qlik-sense-or-web-app&#34;&gt;Start any reload task from within any Qlik Sense or web app&lt;/h2&gt;
+&lt;p&gt;Some HTML and Javascript magic is also needed, but given Butler&amp;rsquo;s start-task API it&amp;rsquo;s pretty easy to set up a button in a Sense app (or any web app!) to start any Sense reload task.&lt;/p&gt;
+&lt;p&gt;This can for example be used to allow end users to start an Extract-Transform when they (the user) need refreshed data.&lt;/p&gt;
+&lt;p&gt;More info &lt;a href=&#34;/docs/examples/start-task-from-rest/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;trigger-fullpartial-app-reloads-from-load-script-or-upstream-systems&#34;&gt;Trigger full/partial app reloads from load script or upstream systems&lt;/h2&gt;
+&lt;p&gt;Sometimes you just want to reload an app without also having to create a reload task.&lt;br&gt;
+When it comes to partial app reloads it&amp;rsquo;s not even possible to do these from a Sense reload task.&lt;/p&gt;
+&lt;p&gt;Butler&amp;rsquo;s API makes prvovides a solution: Just pass in an app ID to reload together with task IDs of the tasks that should be started when the app is done reloading (different tasks can be started depending on app reload success or failure).&lt;/p&gt;
+&lt;p&gt;The partial reload feature is of special interest as it can be used to trigger faster  incremental execution of of Extract-Transform reload chains. Great for keeping data in Sense apps updated during the course of a day!&lt;/p&gt;
+&lt;p&gt;More info &lt;a href=&#34;/docs/examples/sense-demo-apps/partial-loads/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;flexible-scheduling-of-app-reloads-in-qlik-sense-enterprise-on-windows&#34;&gt;Flexible scheduling of app reloads in Qlik Sense Enterprise on Windows&lt;/h2&gt;
+&lt;p&gt;Using the scheduler built into Qlik Sense you can&amp;rsquo;t for example create schedules that are limited to a parts of a day.&lt;br&gt;
+This is a pretty common scenario though - you want to reload an app hourly from say 3 am to 3 pm.&lt;/p&gt;
+&lt;p&gt;You &lt;em&gt;can&lt;/em&gt; set this up in Sense, but it involves creating &lt;em&gt;a lot&lt;/em&gt; of triggers for the reload task, which becomes a nightmare to maintain.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/docs/concepts/scheduler&#34;&gt;Butler&amp;rsquo;s task scheduler&lt;/a&gt; is built on Cron, which has been used in Linux for decades. Battle proven and very flexible.&lt;/p&gt;
+&lt;h2 id=&#34;passing-parameters-between-reload-tasks&#34;&gt;Passing parameters between reload tasks&lt;/h2&gt;
+&lt;p&gt;This has always been hard both in QlikView and Sense.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/docs/concepts/key-value/&#34;&gt;Butler&amp;rsquo;s key-value store&lt;/a&gt; makes it much easier to pass values from one app to the next in a reload chain.&lt;/p&gt;
+&lt;h2 id=&#34;storing-state-across-several-apps&#34;&gt;Storing state across several apps&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;/docs/concepts/key-value/&#34;&gt;key-value store&lt;/a&gt; can also be used to keep state in general across several apps or parts of a Qlik Sense environment.&lt;/p&gt;
+&lt;p&gt;Maybe a Development cluster needs to share information in real time with the Test and Production clusters?&lt;br&gt;
+Easily solved using Butler&amp;rsquo;s key-value store.&lt;/p&gt;
+&lt;p&gt;A demo showing parameter passing between apps is found &lt;a href=&#34;/docs/examples/reload-chaining/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;time-to-live-ttl-for-key-value-pairs&#34;&gt;Time-to-live (TTL) for key-value pairs&lt;/h3&gt;
+&lt;p&gt;Key-value pairs can optionally be set up with a time-to-live (ttl) parameter. If ttl is set, the KV pair will auto-delete when the ttl expires.&lt;/p&gt;
+&lt;p&gt;The key-value store is described &lt;a href=&#34;/docs/concepts/key-value/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;make-new-data-reach-end-users-as-quickly-as-possible&#34;&gt;Make new data reach end users as quickly as possible&lt;/h2&gt;
+&lt;p&gt;See above. Have the upstream data source initiate Sense app reloads, either via Butler&amp;rsquo;s REST API or via MQTT messages sent to Butler.&lt;/p&gt;
+&lt;h2 id=&#34;using-mqtt-to-notify-downstream-systems-that-sense-is-done-processing-data&#34;&gt;Using MQTT to notify downstream systems that Sense is done processing data&lt;/h2&gt;
+&lt;p&gt;Use Butler&amp;rsquo;s API endpoints for MQTT handling to send and receive MQTT publish-subscribe messages.&lt;br&gt;
+MQTT (and the pubsub concept in general) is a great way for systems to communicate reliably with each other.&lt;/p&gt;
+&lt;p&gt;A demo app is available, showing how MQTT messages can be sent from Sense load scripts. More info &lt;a href=&#34;/docs/examples/sense-demo-apps/publish-to-mqtt/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;create-directories-copymovedelete-files&#34;&gt;Create directories, copy/move/delete files&lt;/h2&gt;
+&lt;p&gt;In &amp;ldquo;standard mode&amp;rdquo; apps reloading in Qlik Sense Enterprise on Windows can&amp;rsquo;t access the file system of the Sense servers. This is a good thing because it adds a lot of security.&lt;/p&gt;
+&lt;p&gt;From time to time you need to delete temp QVDs though, or copy or move data files from one directory to another.&lt;/p&gt;
+&lt;p&gt;Butler has REST API endpoints for these use cases, but as those endpoints are locked down to only work on specific, configurable directiories they don&amp;rsquo;t result in the same security issues as seen in for example QlikView or Sense running in legacy mode.&lt;/p&gt;
+&lt;p&gt;More info &lt;a href=&#34;/docs/examples/file-copy-move-delete/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;extract-metadata-for-apps&#34;&gt;Extract metadata for apps&lt;/h2&gt;
+&lt;p&gt;Exporting apps as JSON can be very useful for backup purposes. Doing regular snapshots of all apps in a Sense cluster is a fast and space-effective way of keeping point-in-time backups.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;http://localhost:1313/docs/reference/rest-api/&#34;&gt;REST API documentation&lt;/a&gt; has full docs for the &lt;code&gt;/v4/app/{appId}/dump&lt;/code&gt; endpoint.&lt;/p&gt;
+&lt;h2 id=&#34;post-messages-to-slack&#34;&gt;Post messages to Slack&lt;/h2&gt;
+&lt;p&gt;Slack messages can include full formatting (web links, text formatting etc), as well as &amp;ldquo;poking&amp;rdquo; users.&lt;br&gt;
+I.e. notifying specific Slack users that they have a new message.&lt;/p&gt;
+&lt;p&gt;Can for example be used to notify user(s) that an app has reloaded with new data, or that some error condition has occured.&lt;/p&gt;
+&lt;p&gt;More info &lt;a href=&#34;docs/examples/sense-demo-apps/post-to-slack/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Versions</title>
+      <link>/docs/about/versioning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/about/versioning/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;In the spirit of not copying information to several places, the version history is kept as annotations of each release on the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/releases&#34;&gt;GitHub release page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Version numbers include up to 3 levels, for example version 4.6.2 (which is a fictitious version):&lt;/p&gt;
+&lt;p&gt;4 is the &lt;strong&gt;major&lt;/strong&gt; version. It is increased when Butler has added major new features, or in other ways changed in major ways. If following this principle, breaking changes should always result in a bumped major version.&lt;/p&gt;
+&lt;p&gt;6 is the &lt;strong&gt;minor&lt;/strong&gt; version. This indicates a smaller update, when one or a few minor features have been added.&lt;/p&gt;
+&lt;p&gt;2 is the &lt;strong&gt;patch&lt;/strong&gt; level. When individual bugs are fixed, these are released with an increased patch level.&lt;/p&gt;
+&lt;p&gt;Note 1: Major and minor updates usually include bug fixes too.&lt;br&gt;
+Note 2: If a version of 5.2 is mentioned, this implicitly means 5.2.0.&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&#34;documentation-updates&#34;&gt;Documentation updates&lt;/h2&gt;
+&lt;p&gt;Starting with Butler version 4.0, this documentation site will offer both latest and earlier site versions.&lt;/p&gt;
+&lt;p&gt;Select which doc site to view in drop-down list in the upper right corner of the page.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Contribution guidelines</title>
+      <link>/docs/about/contributing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/about/contributing/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;Butler is an open source project, using the &lt;a href=&#34;https://choosealicense.com/licenses/mit/&#34;&gt;MIT license&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This means that all source code, documentation etc is available as-is, at no cost.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;It however also means that anyone interested can - and is encouraged to - contribute to the project!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Butler is developed in &lt;a href=&#34;https://nodejs.org&#34;&gt;Node.js&lt;/a&gt;, with support from various &lt;a href=&#34;https://www.npmjs.com/&#34;&gt;NPM&lt;/a&gt; modules.&lt;/p&gt;
+&lt;p&gt;We use &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; to format and generate this documentation site, the &lt;a href=&#34;https://github.com/google/docsy&#34;&gt;Docsy&lt;/a&gt; theme for styling and site structure.&lt;br&gt;
+Hugo is an open-source static site generator that provides us with templates, content organisation in a standard directory structure, and a website generation engine. You write the pages in Markdown (or HTML if you want), and Hugo wraps them up into a website.&lt;/p&gt;
+&lt;p&gt;All submissions, including submissions by project members, require review. We use GitHub pull requests for this purpose. Consult &lt;a href=&#34;https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/about-pull-requests&#34;&gt;GitHub Help&lt;/a&gt; for more information on using pull requests.&lt;/p&gt;
+&lt;h2 id=&#34;creating-an-issue&#34;&gt;Creating an issue&lt;/h2&gt;
+&lt;p&gt;If you&amp;rsquo;ve found a problem - or have a feature suggestion - with Butler itself or the documentation, but you&amp;rsquo;re not sure how to fix it yourself, please create an issue in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/issues/new&#34;&gt;Butler repo&lt;/a&gt;. You can also create an issue about a specific doc page by clicking the &lt;strong&gt;Create Issue&lt;/strong&gt; button in the top right hand corner of the page.&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Security/Disclosure&lt;/h4&gt;
+If you discover a serious bug with Butler that may pose a security problem, please disclose it confidentially to &lt;a href=&#34;mailto:security@ptarmiganlabs.com&#34;&gt;security@ptarmiganlabs.com&lt;/a&gt; first, so that it can be assessed and hopefully fixed prior to being exploited. Please do not raise GitHub issues for security-related doubts or problems.
+&lt;/div&gt;
+
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Telemetry</title>
+      <link>/docs/about/telemetry/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/about/telemetry/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;Sharing telemetry data from Butler is optional.&lt;br&gt;
+You can use all Butler features without sharing telemetry data.&lt;/p&gt;
+&lt;p&gt;That said, if you find the Butler tool useful you are &lt;strong&gt;strongly encouraged&lt;/strong&gt; to leave Butler&amp;rsquo;s telemetry feature turned on.&lt;br&gt;
+Having access to this data greatly helps the Butler developers when they design new features, fix bugs etc.&lt;/p&gt;
+&lt;p&gt;The Butler developers care about you - sharing telemetry data is your way of showing you care about them.&lt;/p&gt;
+&lt;p&gt;Sharing is caring!&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&#34;whats-telemetry&#34;&gt;What&amp;rsquo;s telemetry&lt;/h2&gt;
+&lt;p&gt;From &lt;a href=&#34;https://en.wikipedia.org/wiki/Telemetry&#34;&gt;Wikipedia&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Telemetry is the in situ collection of measurements or other data at remote points and their automatic transmission to receiving equipment (telecommunication) for monitoring.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In the context of software tools (including Butler) telemetry is often used to describe the process of sending information about the tool itself to some monitoring system.&lt;/p&gt;
+&lt;h2 id=&#34;why-telemetry-in-butler&#34;&gt;Why telemetry in Butler&lt;/h2&gt;
+&lt;p&gt;This is a very, very good question.&lt;/p&gt;
+&lt;p&gt;For many years there was no telemetry at all in Butler.&lt;/p&gt;
+&lt;p&gt;Development of new features were driven mainly by what features were needed at the time.&lt;br&gt;
+Or the fact that Qlik released some new feature in Sense and Butler was a way to test that new feature from the perspective of the Sense APIs.&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s all good but today Butler is a rather significant tool with features spanning quite different areas (alerting, task scheduling, key-value store and more).&lt;/p&gt;
+&lt;p&gt;This multitude of features is also one of the core reasons for adding telemetry to Butler:&lt;/p&gt;
+
+
+&lt;div class=&#34;pageinfo pageinfo-info&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;Which Butler APIs and features are actually used out there?&lt;/li&gt;
+&lt;li&gt;Which operating systems, Node.js versions and hardware platforms is Butler running on?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Without this information the Butler developers will keep working in the dark, not really knowing where to focus their efforts.&lt;/p&gt;
+&lt;p&gt;On the other hand - &lt;strong&gt;with&lt;/strong&gt; access to telemetry data a lot of possibilities open up for the Butler developers:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If telemetry shows that no one uses a particular feature, maybe that feature should be scheduled for deprecation?&lt;/li&gt;
+&lt;li&gt;The opposite of the previous: If lots of users use a specific Butler feature, then that feature is a candidate for future focus and development.&lt;/li&gt;
+&lt;li&gt;Telemetry will show if lots of users run Butler on old Node.js versions. Knowing this its possible to set a migration schedule for what Node.js versions are supported - avoiding hard errors when some old Node.js version is no longer supported by Butler.&lt;/li&gt;
+&lt;li&gt;Same thing for understanding what operating systems Butler runs (and should be supported) on.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;configuring-butlers-telemetry&#34;&gt;Configuring Butler&amp;rsquo;s telemetry&lt;/h3&gt;
+&lt;p&gt;Instructions &lt;a href=&#34;/docs/getting-started/setup/telemetry/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;the-details&#34;&gt;The details&lt;/h2&gt;
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;What&#39;s shared&lt;/h4&gt;
+&lt;p&gt;The telemetry data includes the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Information about what API endpoints are enabled in the Butler config file.&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;Why: This tells the Butler developers which features are used and which aren&amp;rsquo;t. This is critical information when it comes to planning where to focus future development efforts.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Information about what features are enabled and which are disabled.&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;Why: Same as above. Knowing which features are used (and are thus important) allows the Butler developers to better plan future work.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Information about Butler&amp;rsquo;s execution environment&lt;/strong&gt; (operating system, hardware architecture, Node.js version etc).&lt;br&gt;
+&lt;em&gt;Why: Ideally the Butler developers want to use as modern versions of Node.js as possible. But if telemetry shows that lots os Butler instances use old Node.js versions or run on some (yet) untested/unverified Linux version - then maybe those older Node.js/Linux versions must be supported for yet some time.&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;/div&gt;
+
+
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;What&#39;s not shared&lt;/h4&gt;
+&lt;p&gt;The telemetry data will never include:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Data that can identify your Sense environment or the server on which Butler runs. This includes IP/MAC addresses or other network information, server names, Docker container metadata or similar.&lt;/li&gt;
+&lt;li&gt;Any actual data sent via Butler APIs.&lt;/li&gt;
+&lt;li&gt;Qlik Sense or other certificates in any shape or form.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;/div&gt;
+
+&lt;h3 id=&#34;where-is-telemetry-data-sent&#34;&gt;Where is telemetry data sent&lt;/h3&gt;
+&lt;p&gt;The telemetry data is sent to an Azure server and then stored in a database operated by &lt;a href=&#34;https://ptarmiganlabs.com&#34;&gt;Ptarmigan Labs&lt;/a&gt; (which is the company sponsoring the Butler project).&lt;/p&gt;
+&lt;h3 id=&#34;deleting-telemetry-data&#34;&gt;Deleting telemetry data&lt;/h3&gt;
+&lt;p&gt;Even though no-one (not even Ptarmigan Labs who runs the telemetry database!) has any way of ever connecting the data sent by &lt;em&gt;your&lt;/em&gt; Butler instance to &lt;em&gt;you&lt;/em&gt; (it&amp;rsquo;s all anonymized, remember?), there can be cases where telemetry data must be deleted.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;/docs/legal-stuff/#telemetry-data&#34;&gt;legal page&lt;/a&gt; has more information about this.&lt;/p&gt;
+&lt;h3 id=&#34;field-level-description-of-telemetry-data&#34;&gt;Field level description of telemetry data&lt;/h3&gt;
+&lt;p&gt;A telemetry message from Butler contains the information below.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;ts&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;2021-03-03T11:13:55.862Z&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;data&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;service&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;butler&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;serviceVersion&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5.1.0&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;system&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;93f47268f534da58f7fd50b279e19581a6437b2e3e000c0c5455b1155f515be2&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;arch&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;x64&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;platform&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;darwin&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;release&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;11.2.1&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;distro&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;macOS&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;codename&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;macOS Big Sur&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;virtual&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;nodeVersion&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;v14.15.4&amp;#34;&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;enabledFeatures&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;api&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;activeUserCount&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;activeUsers&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;apiListEnbledEndpoints&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;base62ToBase16&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;base16ToBase62&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;butlerping&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;createDir&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;createDirQVD&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;fileDelete&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;fileMove&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;fileCopy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;keyValueStore&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;mqttPublishMessage&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;scheduler&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+          &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;createNewSchedule&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+          &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;getSchedule&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+          &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;getScheduleStatusAll&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+          &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;updateSchedule&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+          &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;deleteSchedule&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+          &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;startSchedule&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+          &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;stopSchedule&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;senseAppReload&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;senseAppDump&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;senseListApps&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;senseStartTask&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;slackPostMessage&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;
+      &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;feature&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;heartbeat&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;dockerHealthCheck&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;uptimeMonitor&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;uptimeMonitor_storeInInfluxdb&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;teamsNotification&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;teamsNotification_reloadTaskFailure&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;teamsNotification_reloadTaskAborted&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;slackNotification&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;slackNotification_reloadTaskFailure&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;slackNotification_reloadTaskAborted&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;emailNotification&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;emailNotification_reloadTaskFailure&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;emailNotification_reloadTaskAborted&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;webhookNotification&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;webhookNotification_reloadTaskFailure&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;webhookNotification_reloadTaskAborted&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;scheduler&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;mqtt&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;userActivityLogging&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;
+      &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;creating-an-anonymous-id-field&#34;&gt;Creating an anonymous ID field&lt;/h4&gt;
+&lt;p&gt;The &lt;code&gt;id&lt;/code&gt; field deserves a bit more explanation.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s purpose is to uniquely identify the Butler instance - nothing else.&lt;br&gt;
+If Butler is stopped and started agagin the same ID should be generated.&lt;/p&gt;
+&lt;p&gt;Some sensitive information is used to create the ID, but as the ID is anonymized before sent as part of the telemetry data, &lt;em&gt;no sensitive information leaves your servers&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The ID field is created as follows:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Combine the following information to a single string&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;MAC address of default network interface&lt;/li&gt;
+&lt;li&gt;IPv4 address of default network interface&lt;/li&gt;
+&lt;li&gt;IP or FQDN of Sense server where repository service is running&lt;/li&gt;
+&lt;li&gt;System unique ID as reported by the OS. Not all OSs support this though, which is why field 1-3 above are also needed to get a unique ID.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the created string through a &lt;a href=&#34;https://en.wikipedia.org/wiki/Cryptographic_hash_function&#34;&gt;one-way hashing/message digest function&lt;/a&gt;.
+Butler uses Node.js&#39; own &lt;a href=&#34;https://nodejs.org/docs/latest-v15.x/api/crypto.html&#34;&gt;Crypto&lt;/a&gt; library to create a &lt;a href=&#34;https://en.wikipedia.org/wiki/SHA-2&#34;&gt;SHA-256&lt;/a&gt; hash, using the default network interface&amp;rsquo;s MAC address as salt.&lt;br&gt;
+Security is increased due to the fact that the salt never leaves the server where Butler is running.&lt;/p&gt;
+&lt;p&gt;The bottom line is that it&amp;rsquo;s impossible to reverse the process and get your the IP, host name etc used in step 1 above.&lt;br&gt;
+Then again - this is cryptografy and things change.&lt;br&gt;
+But if you trust the certificates securing Sense itself, then the ID anonymization in Butler should be ok too.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The result is a string that uniquely identifies the Butler instance at hand, without giving away any sensitive data about the system where Butler is running.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;See below for an example of what the &lt;code&gt;id&lt;/code&gt; field looks like.&lt;br&gt;
+The &lt;code&gt;id&lt;/code&gt; field is shown during Butler startup.&lt;/p&gt;
+&lt;h2 id=&#34;telemetry-faq&#34;&gt;Telemetry FAQ&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;What data is included in the telemetry messages?&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;
+See above for details.&lt;br&gt;
+In general the telemetry includes information about which Butler API endpoints and features are enabled vs disabled.&lt;br&gt;
+A unique, anonymized ID is included too, it&amp;rsquo;s unique to each Butler instance and is used soley to distinguish between different Butler instances.&lt;br&gt;
+Finally some information about Butler&amp;rsquo;s execution environment is included. Things like operating system, Node.js version used etc.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Can my Sense environment be identified via telemetry data?&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;
+Short answer: No.&lt;br&gt;
+Longer answer: No information about your Sense environment is sent as part of telemetry. No IP addresses or server names, no IDs of Sense apps/tasks/etc, no information about what actual data passed through Butler&amp;rsquo;s APIs, or any other data that can be linked to your Sense environment is included in the telemetry data.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

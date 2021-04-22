@@ -1,0 +1,18 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler – Configuring file system access via REST API</title>
+    <link>/docs/getting-started/setup/file-system-access/</link>
+    <description>Recent content in Configuring file system access via REST API on Butler</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/docs/getting-started/setup/file-system-access/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+  </channel>
+</rss>

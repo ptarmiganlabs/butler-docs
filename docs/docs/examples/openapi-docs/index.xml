@@ -1,0 +1,18 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler – Swagger UI: Try out the Butler API using the API docs</title>
+    <link>/docs/examples/openapi-docs/</link>
+    <description>Recent content in Swagger UI: Try out the Butler API using the API docs on Butler</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/docs/examples/openapi-docs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+  </channel>
+</rss>

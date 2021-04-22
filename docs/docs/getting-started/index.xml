@@ -1,0 +1,163 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler – Getting started</title>
+    <link>/docs/getting-started/</link>
+    <description>Recent content in Getting started on Butler</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/docs/getting-started/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Overview</title>
+      <link>/docs/getting-started/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/getting-started/overview/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;getting-started-1-2-3&#34;&gt;Getting started: 1-2-3&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;/img/butler-system-overview-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler high level system overview&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The main components of Butler are outlined in the system diagram above.&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Remember!&lt;/h4&gt;
+&lt;p&gt;Individual parts of Butler can be enabled/disabled in the main &lt;a href=&#34;/docs/reference/config-file/&#34;&gt;config file&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;re unsure what each REST API endpoint does, the &lt;a href=&#34;/docs/reference/rest-api/&#34;&gt;API docs&lt;/a&gt; is the place to check.&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h3 id=&#34;1-installation&#34;&gt;1. Installation&lt;/h3&gt;
+&lt;p&gt;Follow the &lt;a href=&#34;/docs/getting-started/install&#34;&gt;installation instructions&lt;/a&gt; - they will guide through the setup process, including requirements and customisation.&lt;/p&gt;
+&lt;h3 id=&#34;2-setup&#34;&gt;2. Setup&lt;/h3&gt;
+&lt;p&gt;Once everything is installed you need to &lt;a href=&#34;./setup&#34;&gt;edit the configuration file&lt;/a&gt; to suit your specific needs.&lt;/p&gt;
+&lt;h3 id=&#34;3-try-it-out&#34;&gt;3. Try it out!&lt;/h3&gt;
+&lt;p&gt;Feel free to browse through the &lt;a href=&#34;/docs/concepts&#34;&gt;concepts&lt;/a&gt; and &lt;a href=&#34;/docs/examples&#34;&gt;examples&lt;/a&gt; to get an understanding of how to use Butler.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Installing Butler</title>
+      <link>/docs/getting-started/install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/getting-started/install/</guid>
+      <description>
+        
+        
+        &lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Warning&lt;/p&gt;&lt;p&gt;Butler was developed with InfluxDB version 1.x in mind.&lt;/p&gt;
+&lt;p&gt;InfluxDB is currently available in version 2.x and while this version brings lots of new goodies, it&amp;rsquo;s not out-of-the-box compatible with Butler.&lt;br&gt;
+For that reason you should use the latest 1.x version of InfluxDB, which at the time of this writing is 1.8.4.&lt;/p&gt;
+&lt;p&gt;If you do not intend to use any InfluxDB-dependend features of Butler you can simply disregard this warning.&lt;/p&gt;
+&lt;p&gt;In due time Butler will be updated to support InfluxDB 2.x too.&lt;/p&gt;&lt;/div&gt;
+
+
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;Given the cross platform nature of Node.js (which is the language Butler is written in), Butler can run on lots of different hardware platforms and operating systems.&lt;/p&gt;
+&lt;p&gt;It is therefore difficult to give detailed installation instructions for each possible installation scenario. This site thus tries explain how to get started with Butler in some of the most common scenarios.&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&#34;getting-started&#34;&gt;Getting started&lt;/h2&gt;
+&lt;p&gt;Sorry - there is no installer for Butler.&lt;br&gt;
+You will need to work a bit on the command line to set things up.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s not as bad as it sounds though, the instructions here should help.&lt;br&gt;
+If you run into troubles you can always reach out via the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/discussions&#34;&gt;GitHub discussion forums&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;p&gt;Either you install a few pieces of software (most notably &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js&lt;/a&gt; and some node modules), or you run Butler in a Docker container.&lt;/p&gt;
+&lt;p&gt;Either way you also need to edit Butler&amp;rsquo;s configuration file and provide certificates exported from Qlik Sense Enterprise.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Setup</title>
+      <link>/docs/getting-started/setup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/getting-started/setup/</guid>
+      <description>
+        
+        
+        &lt;!-- 
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;This is a placeholder page that shows you how to use this template site.&lt;/p&gt;
+
+&lt;/div&gt;
+ --&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Day 2 operations</title>
+      <link>/docs/getting-started/operations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/getting-started/operations/</guid>
+      <description>
+        
+        
+        &lt;!-- 
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;This is a placeholder page that shows you how to use this template site.&lt;/p&gt;
+
+&lt;/div&gt;
+ --&gt;
+&lt;h2 id=&#34;running-butler&#34;&gt;Running Butler&lt;/h2&gt;
+&lt;p&gt;How to start and keep Butler running varies depending on whether you are using Docker or a native Node.js approach.&lt;/p&gt;
+&lt;h3 id=&#34;running-under-docker&#34;&gt;Running under Docker&lt;/h3&gt;
+&lt;p&gt;Starting Butler is easy.&lt;br&gt;
+First configure the &lt;code&gt;docker-compose.yml&lt;/code&gt; file as needed, then start the Docker container in interactive mode (with output sent to the screen). This is useful to ensure everything works as intended when first setting up Butler.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker-compose up
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Once Butler has been verified to work as intended, hit &lt;code&gt;ctrl-c&lt;/code&gt; to stop it.&lt;br&gt;
+Then start Butler in deameon (background) mode:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker-compose up -d
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;From here on the Docker enviromment will make sure Butler is always running, including restarting it if it for some reason stops.&lt;/p&gt;
+&lt;h3 id=&#34;running-as-native-nodejs-app&#34;&gt;Running as native Node.js app&lt;/h3&gt;
+&lt;p&gt;Starting Butler as a Node.js task is easy too:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;d:
+cd \node\butler\src
+node butler.js
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It is of course also possible to put those commands in a command file (.bat on Windows, .sh etc on other platforms) file and execute that file instead.&lt;/p&gt;
+&lt;h4 id=&#34;windows-services--process-monitors&#34;&gt;Windows services &amp;amp; process monitors&lt;/h4&gt;
+&lt;p&gt;As Butler is the kind of service that (probably) should always be running on a server, it makes sense using a Node.js process monitor to keep it alive (if running Butler as a Docker container you get this for free).&lt;/p&gt;
+&lt;p&gt;On Windows you can use the excellent &lt;a href=&#34;https://nssm.cc/&#34;&gt;Nssm&lt;/a&gt; tool to make Butler run as a Windows Service, with all the benefits that follow (can be monitored using operations tools, automatic restarts etc).&lt;/p&gt;
+&lt;p&gt;If running Butler as a Node.js app on Linux, &lt;a href=&#34;https://github.com/Unitech/pm2&#34;&gt;PM2&lt;/a&gt; and &lt;a href=&#34;https://github.com/foreverjs/forever&#34;&gt;Forever&lt;/a&gt; are two process monitors that both have been successfully tested with Butler.&lt;/p&gt;
+&lt;p&gt;One caveat with these is that it can be hard to start them (and thus Butler) when a Windows server is rebooted.
+PM2 can be used to solve this challenge in a nice way, more info in &lt;a href=&#34;https://ptarmiganlabs.com/blog/2017/07/12/monitoring-auto-starting-node-js-services-windows-server&#34;&gt;this blog post&lt;/a&gt;. On the other hand - just using Nssm is probably the easiest option for Windows.&lt;/p&gt;
+&lt;h3 id=&#34;monitoring-butler&#34;&gt;Monitoring Butler&lt;/h3&gt;
+&lt;p&gt;Once Butler is running it&amp;rsquo;s a good idea to also monitor it. Otherwise you stand the risk of not getting notified if Butler for some reason misbehaves.&lt;/p&gt;
+&lt;p&gt;Butler will log data on its memory usage to InfluxDB if&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The config file&amp;rsquo;s &lt;code&gt;Butler.uptimeMonitor.enable&lt;/code&gt; and &lt;code&gt;Butler.uptimeMonitor.storeInInfluxdb.enable&lt;/code&gt; properties are both set to &lt;code&gt;true&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;The remaining InfluxDB properties of the config file are correctly configured.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Assuming everything is correctly set up, you can then create a Grafana dashboard showing Butler&amp;rsquo;s memory use over time.
+You can also set up alerts in Grafana if so desired, with notifications going to most IM tools and email.&lt;/p&gt;
+&lt;p&gt;A Grafana dashboard can look like this. Note that one of the available metrics (&lt;code&gt;external&lt;/code&gt;) is not used in this particular dashboard. It&amp;rsquo;s still logged to InfluxDB though.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;butler-memory-usage-grafana-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler memory usage in Grafana dashboard&#34;&gt;&lt;/p&gt;
+&lt;p&gt;There is a &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/tree/master/docs/grafana&#34;&gt;sample Grafana dashboard&lt;/a&gt; in Butler&amp;rsquo;s GitHub repo.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

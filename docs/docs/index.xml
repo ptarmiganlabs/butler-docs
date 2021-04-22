@@ -1,0 +1,682 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler – Documentation</title>
+    <link>/docs/</link>
+    <description>Recent content in Documentation on Butler</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/docs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Butler</title>
+      <link>/docs/about/butler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/about/butler/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The Butler project is all about adding useful features to Qlik Sense Enterprise.&lt;br&gt;
+Some of the features can be used from Sense load scripts, other features provide integration with 3rd party systems.&lt;/p&gt;
+&lt;p&gt;The goal is to integrate battle-proven concepts and best-of-breed open-source tools into Butler and thus make them available to developers of Sense apps or those responsible for running Sense clusters.&lt;br&gt;
+In some cases it might be possible to use these tools from within Sense also without Butler - in those cases Butler simply tries to make things easier, lowering the barriers to get started and get things done.&lt;/p&gt;
+&lt;p&gt;There is also a clear goal that Butler should be very configurable. In practice this means that features can be turned on/off as needed, improving security and lowering memory usage.&lt;/p&gt;
+&lt;p&gt;Butler is written in &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js&lt;/a&gt; and runs on most modern operating systems.&lt;/p&gt;
+&lt;p&gt;You can run Butler on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).&lt;/p&gt;
+&lt;p&gt;Butler is a member of a group of tools collectively referred to as the &amp;ldquo;Butler family&amp;rdquo;, more info is available &lt;a href=&#34;/docs/about/butler-family&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This picture might be useful to understand what Butler does and how it fits into the larger system map around Qlik Sense:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/butler-system-overview-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler high level system overview&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Retired use cases</title>
+      <link>/docs/about/use-cases/retired/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/about/use-cases/retired/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Some features age with grace, others don&amp;rsquo;t.&lt;br&gt;
+Here&amp;rsquo;s a list of features that are candidates for removal from Butler, or that have already been removed.&lt;/p&gt;
+&lt;h2 id=&#34;candidates-for-removal-in-coming-versions&#34;&gt;Candidates for removal in coming versions&lt;/h2&gt;
+&lt;h3 id=&#34;real-time-metrics-around-active-users&#34;&gt;Real-time metrics around active users&lt;/h3&gt;
+&lt;p&gt;While a good idea in theory, Butler just wasn&amp;rsquo;t the vehicle for this.&lt;/p&gt;
+&lt;p&gt;The way Butler approached this was to have Sense&amp;rsquo;s log4net logging framework send UDP messages to Butler when users logged in/out or sessions started/ended. This certainly works (quite well in fact!), but it also has inherent issues.&lt;br&gt;
+For example, when Butler was started it wouldn&amp;rsquo;t capture currently active users or sessions - it was only after some event captured in the logs that Butler would update it&amp;rsquo;s internal counters. This meant that it would take some time (sometimes quite long) until the metrics were even approaching the real number of users using Sense.&lt;/p&gt;
+&lt;p&gt;There was also the risk of Butler missing UDP messages and not registering the associated log event.&lt;/p&gt;
+&lt;p&gt;The affected API endpoints are:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/docs/reference/rest-api/&#34;&gt;/v4/activeusercount&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;/docs/reference/rest-api/&#34;&gt;/v4/activeusers&lt;/a&gt;&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Tip: Butler SOS&lt;/h4&gt;
+&lt;p&gt;The shortcomings above lead to the creation of the Butler SOS project, which has over the years evolved into a very comprehensive open source tool for professional grade, real-time monitoring of Qlik Sense.&lt;/p&gt;
+&lt;p&gt;More information available at &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34;&gt;butler-sos.ptarmiganlabs.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;/div&gt;
+
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Choose a platform</title>
+      <link>/docs/getting-started/install/choose-platform/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/getting-started/install/choose-platform/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The short answer is: Almost anywhere.&lt;br&gt;
+As long as &lt;a href=&#34;https://nodejs.org/&#34;&gt;Node.js&lt;/a&gt; is available on the platform there is a good chance Butler will run there.&lt;/p&gt;
+&lt;p&gt;Butler has been successfully used on Windows Server, Windows 10, various Linux distributions, in Docker, Kubernetes, on Mac OS and even on Raspberry Pis. And a Raspberry Pi based Kubernetes cluster.&lt;/p&gt;
+&lt;p&gt;Your platform options typically fall into two categories:&lt;/p&gt;
+&lt;h2 id=&#34;butler-in-a-container-docker-and-kubernetes&#34;&gt;Butler in a container: Docker and Kubernetes&lt;/h2&gt;
+&lt;p&gt;If you have access to or can set up a &lt;strong&gt;container runtime environment&lt;/strong&gt;, this is by far the preferred way of running Butler.&lt;/p&gt;
+&lt;p&gt;Installation is less error prone compared to installing Butler as a native Node.js app, you get all the benefits from the Docker ecosystem (monitoring of running containers etc), and upgrades to future Butler versions become trivial.&lt;/p&gt;
+&lt;p&gt;If you have access to a &lt;strong&gt;Kubernetes&lt;/strong&gt; cluster, that is usually an even better option than Docker. Kubernetes can be daunting when first approached, but will give you superb reliability, failover and restarts if a server goes down or becomes unresponsive etc. All major cloud providers (Microsoft Azure, Google, Amazon etc) offer Kubernetes services.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://k3s.io/&#34;&gt;Rancher&amp;rsquo;s K3s&lt;/a&gt; is a very good way to get started with self hosted Kubnernetes. Fully featured, well supported and a vibrant developer community.&lt;/p&gt;
+&lt;h2 id=&#34;butler-as-a-native-app-windows-linux-mac-os&#34;&gt;Butler as a native app: Windows, Linux, Mac OS&lt;/h2&gt;
+&lt;p&gt;This option means you will first install Node.js on your server of choice, then Butler and it&amp;rsquo;s dependencies.&lt;/p&gt;
+&lt;p&gt;It works perfectly well and might for many be the easiest way to get started, as you for sure already have a Windows Server for running Qlik Sense Enterprise.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: The Butler family</title>
+      <link>/docs/about/butler-family/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/about/butler-family/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Butler started out with a very specific need to start Sense reloads from outside systems.&lt;br&gt;
+Over the years a couple of projects have spun off from Butler (for example Butler SOS), and still other projects have been created to solve specific challenges around developing Sense apps (for example the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-app-duplicator&#34;&gt;Butler App Duplicator&lt;/a&gt;) or simplifying day 2 operations ([&lt;a href=&#34;https://www.infoworld.com/article/3442754/why-de-risking-day-2-operations-is-a-smart-business-strategy.html&#34;&gt;1&lt;/a&gt;], [&lt;a href=&#34;https://dzone.com/articles/defining-day-2-operations&#34;&gt;2&lt;/a&gt;]) in the form of &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34;&gt;Butler SOS&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;All members of the Butler family are available on &lt;a href=&#34;https://github.com/ptarmiganlabs&#34;&gt;Ptarmigan Labs&#39; GitHub page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Projects with production grade release status are (as of this writing):&lt;/p&gt;
+&lt;h3 id=&#34;butler&#34;&gt;Butler&lt;/h3&gt;
+&lt;p&gt;The original Butler. Offers various utilities that make it easier to develop Sense apps, as well as simplifying day 2 operations.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https:/butler.ptarmiganlabs.com&#34;&gt;butler.ptarmiganlabs.com&lt;/a&gt;. (This site!)&lt;/p&gt;
+&lt;h3 id=&#34;butler-sos&#34;&gt;Butler SOS&lt;/h3&gt;
+&lt;p&gt;Real-time operational metrics for Qlik Sense. A must-have if you are responsible for a Sense environment with more than a dozen or so users. Butler SOS makes it possible to detect and alert on issues as they happen, rather than in retrospect much later.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34;&gt;butler-sos.ptarmiganlabs.com&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;butler-cw&#34;&gt;Butler CW&lt;/h3&gt;
+&lt;p&gt;Butler Cache Warmer. Cache warming is the process of proactively forcing Sense apps to be loaded into RAM, so they are readily available when users open them. Once again - if your Sense environment serve more than a dozen users, you should consider a cache warming tool.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-cw&#34;&gt;github.com/ptarmiganlabs/butler-cw&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;butler-app-duplicator&#34;&gt;Butler App Duplicator&lt;/h3&gt;
+&lt;p&gt;No matter if you are a single developer creating Sense apps, or have lots of developers doing this, having app templates is a good idea:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lowered barrier of entry for new Sense developers.&lt;/li&gt;
+&lt;li&gt;Productivity boost when developing Sense apps.&lt;/li&gt;
+&lt;li&gt;Encouraging a common coding standard across all apps.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-app-duplicator&#34;&gt;github.com/ptarmiganlabs/butler-app-duplicator&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;butler-spyglass&#34;&gt;Butler Spyglass&lt;/h3&gt;
+&lt;p&gt;This tool is mainly of interest if you have lots of QVDs and apps, but when that&amp;rsquo;s the case it&amp;rsquo;s of paramount importance to understand what apps use which QVDs. In other words what data lineage looks like.&lt;/p&gt;
+&lt;p&gt;Butler Spyglass also extracts full load scripts for all Sense apps, creating a historical record of all load scripts for all Sense apps.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-spyglass&#34;&gt;github.com/ptarmiganlabs/butler-spyglass&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;butler-notifier&#34;&gt;Butler Notifier&lt;/h3&gt;
+&lt;p&gt;This tool makes it easy to tap into the Qlik Sense notification API. From there you can get all kinds of notifications, including task reload failures and changes in session state (user login/logout etc).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-notifier&#34;&gt;github.com/ptarmiganlabs/butler-notifier&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;butler-icon-uploader&#34;&gt;Butler Icon Uploader&lt;/h3&gt;
+&lt;p&gt;Visual looks is important when it comes to analytics, and this holds true also for Sense apps.
+The Butler Icon Uploader makes it easy to upload icon libraries (for example Font Awesome) to Qlik Sense Enterprise.&lt;br&gt;
+With such icons available it is then easy for app developers to use professional quality sheet and app icons in their Sense apps.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-icon-upload&#34;&gt;github.com/ptarmiganlabs/butler-icon-upload&lt;/a&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Running Butler in Docker</title>
+      <link>/docs/getting-started/install/docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/getting-started/install/docker/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;What&lt;/th&gt;
+&lt;th&gt;Comment&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Qlik Sense Enterprise on Windows&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; Butler is developed with Qlik Sense Enterprise on Windows (QSEoW) in mind. &lt;br&gt;While some Butler features might also work with Sense Desktop or Sense cloud, you are on your own there.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Docker&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; A Docker runtime environment on any supported platform.&lt;br&gt;This means you can run Butler on any platform where Docker is available, including Linux, Mac OS, Windows and most cloud providers. It is very doable to run Butler under Kubernetes too, if so desired.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MQTT broker&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; MQTT is used for both in- and out-bound pub-sub messaging. Butler assumes a working MQTT broker is available, the IP of which is defined in the Butler config file. &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; is a nice open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&amp;hellip; instance is enough, if you want a dedicated MQTT server. If you don&amp;rsquo;t care about the pubsub features of Butler, you don&amp;rsquo;t need a MQTT broker. In this case you can disable the MQTT features in Butler&amp;rsquo;s config file.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.influxdata.com/time-series-platform/&#34;&gt;InfluxDB&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; A database for realtime information, used to store metrics around Butler&amp;rsquo;s own memory usage over time (if this feature is enabled).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;installation-steps&#34;&gt;Installation steps&lt;/h2&gt;
+&lt;p&gt;The following steps give some guidance on how to get Butler running on Docker.&lt;br&gt;
+Here Mac OS was used, things will look different on Linux and Windows.&lt;/p&gt;
+&lt;p&gt;Note: While the console logs below refer to an older version of Butler&amp;rsquo;s Docker image, the steps involved are the same also for current/most recent version of Butler.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:~ goran$ mkdir /Users/goran/butler
+proton:~ goran$ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; /Users/goran/butler
+proton:butler goran$ mkdir -p config/certificate
+proton:butler goran$
+proton:butler goran$ wget https://raw.githubusercontent.com/ptarmiganlabs/butler/master/src/docker-compose.yml
+--2019-11-18 22:47:02--  https://raw.githubusercontent.com/ptarmiganlabs/butler/master/src/docker-compose.yml
+Resolving raw.githubusercontent.com &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;raw.githubusercontent.com&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;... 151.101.84.133
+Connecting to raw.githubusercontent.com &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;raw.githubusercontent.com&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;151.101.84.133&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;:443... connected.
+HTTP request sent, awaiting response... &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;200&lt;/span&gt; OK
+Length: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;618&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;text/plain&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+Saving to: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;docker-compose.yml&amp;#39;&lt;/span&gt;
+
+docker-compose.yml                         100%&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[========================================================================================&lt;/span&gt;&amp;gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;618&lt;/span&gt;  --.-KB/s    in 0s
+
+2019-11-18 22:47:03 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;10.7 MB/s&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;docker-compose.yml&amp;#39;&lt;/span&gt; saved &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;618/618&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+
+
+proton:butler goran$ cat docker-compose.yml
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# docker-compose.yml&lt;/span&gt;
+version: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;3.3&amp;#39;&lt;/span&gt;
+services:
+  butler:
+    image: ptarmiganlabs/butler:3.0.0
+    container_name: butler
+    restart: always
+    ports:
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;8080:8080&amp;#34;&lt;/span&gt;     &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# REST API available on port 8080 to services outside the container&lt;/span&gt;
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;9997:9997&amp;#34;&lt;/span&gt;     &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# UDP port for session connection events&lt;/span&gt;
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;9998:9998&amp;#34;&lt;/span&gt;     &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# UDP port for task failure events&lt;/span&gt;
+    volumes:
+      &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Make config file accessible outside of container&lt;/span&gt;
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./config:/nodeapp/config&amp;#34;&lt;/span&gt;
+    environment:
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;NODE_ENV=production&amp;#34;&lt;/span&gt;
+    logging:
+      driver: json-file
+      options:
+        max-file: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5&amp;#34;&lt;/span&gt;
+        max-size: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5m&amp;#34;&lt;/span&gt;
+proton:butler goran$
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;At this point you should&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Export certificates from the Qlik Sense QMC. Export a full set of certificates in PEM format, no psasword on the certificates.&lt;/li&gt;
+&lt;li&gt;Copy the certificates to the ./config/certificate directory.&lt;/li&gt;
+&lt;li&gt;Copy the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/src/config/production_template.yaml&#34;&gt;template config file&lt;/a&gt; from the GitHub repository to the ./config directory, modify it as needed based on your system(s) and which Butler features you want enabled, and rename it to for example &lt;code&gt;production.yaml&lt;/code&gt;.&lt;br&gt;
+You can name the config file anything, but its name has to match the NODE_ENV environment variable, as set it the &lt;code&gt;docker-compose.yml&lt;/code&gt; file.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Optional.&lt;/em&gt; Copy the template schedule file to the location specified in Butler&amp;rsquo;s config file. This is only needed if you manually want to add schedules. If using the API to create schedules, there is no need to first manually create a schedules file (the schedule file will be created by Butler in this case).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;When done, you should see something like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:butler goran$ &lt;span style=&#34;color:#204a87&#34;&gt;pwd&lt;/span&gt;
+/Users/goran/butler
+proton:butler goran$ ls -la
+total &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8&lt;/span&gt;
+drwxr-xr-x   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 .
+drwxr-xr-x+ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;59&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1888&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:24 ..
+drwxr-xr-x   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 config
+-rw-r--r--   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;565&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:25 docker-compose.yml
+proton:butler goran$
+proton:butler goran$ ls -la config/
+total &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8&lt;/span&gt;
+drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 .
+drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 ..
+drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;192&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 certificate
+-rw-r--r--  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1861&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 production.yaml
+proton:butler goran$
+proton:butler goran$ ls -la config/certificate/
+total &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;32&lt;/span&gt;
+drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;192&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 .
+drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 ..
+-rw-r--r--@ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1166&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 client.pem
+-rw-r--r--@ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1702&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 client_key.pem
+-rw-r--r--@ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1192&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 root.pem
+proton:butler goran$
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;At this point everything is ready and you can start the Butler container using docker-compose:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:butler goran$ docker-compose up
+Creating network &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;butler_default&amp;#34;&lt;/span&gt; with the default driver
+Pulling butler &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;ptarmiganlabs/butler:3.0.0&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;...
+3.0.0: Pulling from ptarmiganlabs/butler
+9a0b0ce99936: Already exists
+db3b6004c61a: Already exists
+f8f075920295: Already exists
+6ef14aff1139: Already exists
+0bbd8b48260f: Already exists
+524be717efb1: Already exists
+da330b3729a7: Already exists
+2c9863d012f5: Already exists
+06cd084e76f0: Already exists
+2c5533f377d0: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+307c3aa5e73e: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+10617d6f19b9: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+ad221e369f17: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+b1f6c19b1af6: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+Digest: sha256:b3c17c93c1779d62e21db5f3f7691f524ab0c21d8b0814cab41a66e814702a17
+Status: Downloaded newer image &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; ptarmiganlabs/butler:3.0.0
+Creating butler ... &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;done&lt;/span&gt;
+Attaching to butler
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.630Z info: --------------------------------------
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.634Z info: Starting Butler
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.635Z info: Log level is: debug
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.636Z info: App version is: 3.0.0
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.637Z info: --------------------------------------
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.638Z debug: Client cert: /nodeapp/config/certificate/client.pem
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.639Z debug: Client cert key: /nodeapp/config/certificate/client_key.pem
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.639Z debug: CA cert: /nodeapp/config/certificate/root.pem
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.673Z debug: Registering REST endpoint /v2/activeUserCount
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.676Z debug: Registering REST endpoint /v2/activeUsers
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.679Z debug: Registering REST endpoint /v2/slackPostMessage
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.680Z debug: Registering REST endpoint /v2/createDir
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.681Z debug: Registering REST endpoint /v2/createDirQVD
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.681Z debug: Registering REST endpoint /v2/mqttPublishMessage
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.682Z debug: Registering REST endpoint /v2/senseStartTask
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.683Z debug: Registering REST endpoint /v2/senseAppDump
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.684Z debug: Registering REST endpoint /v2/senseListApps
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.684Z debug: Registering REST endpoint /v2/butlerping
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.685Z debug: Registering REST endpoint /v2/base62ToBase16
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.686Z debug: Registering REST endpoint /v2/base16ToBase62
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.687Z debug: Server &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; UDP server: butler
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.688Z debug: REST server host: butler
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.688Z debug: REST server port: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8080&lt;/span&gt;
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.696Z info: UDP server listening on 172.21.0.2:9998
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.699Z info: REST server listening on http://172.21.0.2:8080
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.700Z info: UDP server listening on 172.21.0.2:9997
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;What you see on your screen will depend on which Butler version you are using and what features are enabled.
+In the example above &lt;em&gt;all&lt;/em&gt; Butler features are enabled.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s make sure things are working by opening a new terminal window and from there requesting a list of all apps on the server:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:~ goran$
+proton:~ goran$ curl &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://localhost:8180/v2/senseListApps&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;492a1bca-1c41-4a01-9104-543a2334c465&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;2018 sales targets&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5b243cb2-8d00-44c9-b865-08b00a0af18b&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;App 1&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
+...
+...
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;181d101f-986c-49c5-a457-d351058c05b4&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Template app 1 DEV&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}]&lt;/span&gt;
+proton:~ goran$
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Nice, looking good.&lt;/p&gt;
+&lt;p&gt;In the terminal where you ran docker-compose, you will see a new line saying that a app list was retrieved:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;butler           &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2018-09-26T14:40:32.740Z - debug: Server &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; UDP server: localhost
+butler           &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2018-09-26T14:40:32.746Z - info: REST server listening on http://&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;::&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;:8080
+butler           &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2018-09-26T14:40:32.748Z - info: UDP server listening on 127.0.0.1:9997
+butler           &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2018-09-26T14:40:32.750Z - info: UDP server listening on 127.0.0.1:9998
+butler           &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2018-09-26T14:43:05.381Z - info: Getting list of all apps
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Running Butler as a native Node.js application</title>
+      <link>/docs/getting-started/install/native/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/getting-started/install/native/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;selecting-an-os&#34;&gt;Selecting an OS&lt;/h2&gt;
+&lt;p&gt;While Qlik Sense Enterprise is a Windows only system, Butler should be able to run on any OS where Node.js is available.&lt;br&gt;
+Butler has been succesfully used - during development and production - on Windows, Linux (Debian and Ubuntu tested) and mac OS.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;What&lt;/th&gt;
+&lt;th&gt;Comment&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Qlik Sense Enterprise on Windows&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; Butler is developed with Qlik Sense Enterprise on Windows (QSEoW) in mind. &lt;br&gt;While some Butler features might also work with Sense Desktop or Sense cloud, you are on your own there.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Node.js&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; Butler is written in Node - which is thus a firm requirement.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MQTT broker&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; MQTT is used for both in- and out-bound pub-sub messaging. Butler assumes a working MQTT broker is available, the IP of which is defined in the Butler config file. Mosquitto is a nice open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&amp;hellip; instance is enough, if you want a dedicated MQTT server. If you don&amp;rsquo;t care about the pubsub features of Butler, you don&amp;rsquo;t need a MQTT broker. In this case you can disable the MQTT features in the config YAML file.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.influxdata.com/time-series-platform/&#34;&gt;InfluxDB&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; A database for realtime information, used to store metrics around Butler&amp;rsquo;s own memory usage over time (if this feature is enabled).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;installation-steps&#34;&gt;Installation steps&lt;/h2&gt;
+&lt;p&gt;The steps below outline the steps needed to install Butler as a native Node.js application on for example Windows Server.&lt;/p&gt;
+&lt;p&gt;Additional information is found on the &lt;a href=&#34;/docs/getting-started/operations/&#34;&gt;Day 2 operations&lt;/a&gt; page.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Install node.js&lt;/strong&gt;&lt;br&gt;
+Butler has been developed and tested using the 64 bit version of &lt;a href=&#34;https://nodejs.org/en/download/&#34;&gt;Node.js&lt;/a&gt;. The most recent LTS (Long Term Support) version is usually a good choice.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Decide where to install Butler&lt;/strong&gt;&lt;br&gt;
+It is usually a good starting point to run Butler on the Sense server. If there are more than one server in the Sense cluster, Butler can be placed on the reload server (as the /createDir endpoint then can be used to create folders in which QVD and other files can be stored).&lt;/p&gt;
+&lt;p&gt;On the other hand, you might want to keep the Sense servers as clean as possible (with respect to software running on them). If that is a priority you should install Butler on some other server.&lt;/p&gt;
+&lt;p&gt;The bottom line is that Butler can run on any server, as long as there is network connectivity to the Sense server(s).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Download Butler&lt;/strong&gt;&lt;br&gt;
+Download the repository zip from the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/releases&#34;&gt;releases page&lt;/a&gt; file or clone the Butler repository using your git tool of choice. Both options achieve the same thing, i.e. a directory such as d:\node\butler, which is then Butler&amp;rsquo;s root directory.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Install node dependencies&lt;/strong&gt;&lt;br&gt;
+From a Windows command prompt (assuming the Butler ZIP file/repository was saved to d:\node\butler):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  d:
+  cd \node\butler\src
+  npm install  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This will download and install all Node.js modules used by Butler.&lt;br&gt;
+On some OSs you&amp;rsquo;ll get some warnings during the installation - they are usually harmless. Try to run Butler even if you got some warnings, chances are good that things will work just fine. This is common on especially Windows Server and is a result of some Butler dependencies being primarily developed on Linux rather than Windows.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;MQTT message broker&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Several of Butler&amp;rsquo;s features use &lt;a href=&#34;https://mqtt.org/&#34;&gt;MQTT&lt;/a&gt; for sending and receiving messages.&lt;br&gt;
+MQTT is a standardised messaging protocol, and it should be possible to use &lt;a href=&#34;https://github.com/mqtt/mqtt.org/wiki/software?id=software&#34;&gt;any broker following the MQTT standard&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Butler has been developed and tested using &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; running on mac OS and Debian Linux - both work flawlessly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Versions</title>
+      <link>/docs/about/versioning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/about/versioning/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;In the spirit of not copying information to several places, the version history is kept as annotations of each release on the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/releases&#34;&gt;GitHub release page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Version numbers include up to 3 levels, for example version 4.6.2 (which is a fictitious version):&lt;/p&gt;
+&lt;p&gt;4 is the &lt;strong&gt;major&lt;/strong&gt; version. It is increased when Butler has added major new features, or in other ways changed in major ways. If following this principle, breaking changes should always result in a bumped major version.&lt;/p&gt;
+&lt;p&gt;6 is the &lt;strong&gt;minor&lt;/strong&gt; version. This indicates a smaller update, when one or a few minor features have been added.&lt;/p&gt;
+&lt;p&gt;2 is the &lt;strong&gt;patch&lt;/strong&gt; level. When individual bugs are fixed, these are released with an increased patch level.&lt;/p&gt;
+&lt;p&gt;Note 1: Major and minor updates usually include bug fixes too.&lt;br&gt;
+Note 2: If a version of 5.2 is mentioned, this implicitly means 5.2.0.&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&#34;documentation-updates&#34;&gt;Documentation updates&lt;/h2&gt;
+&lt;p&gt;Starting with Butler version 4.0, this documentation site will offer both latest and earlier site versions.&lt;/p&gt;
+&lt;p&gt;Select which doc site to view in drop-down list in the upper right corner of the page.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Contribution guidelines</title>
+      <link>/docs/about/contributing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/about/contributing/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;Butler is an open source project, using the &lt;a href=&#34;https://choosealicense.com/licenses/mit/&#34;&gt;MIT license&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This means that all source code, documentation etc is available as-is, at no cost.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;It however also means that anyone interested can - and is encouraged to - contribute to the project!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Butler is developed in &lt;a href=&#34;https://nodejs.org&#34;&gt;Node.js&lt;/a&gt;, with support from various &lt;a href=&#34;https://www.npmjs.com/&#34;&gt;NPM&lt;/a&gt; modules.&lt;/p&gt;
+&lt;p&gt;We use &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; to format and generate this documentation site, the &lt;a href=&#34;https://github.com/google/docsy&#34;&gt;Docsy&lt;/a&gt; theme for styling and site structure.&lt;br&gt;
+Hugo is an open-source static site generator that provides us with templates, content organisation in a standard directory structure, and a website generation engine. You write the pages in Markdown (or HTML if you want), and Hugo wraps them up into a website.&lt;/p&gt;
+&lt;p&gt;All submissions, including submissions by project members, require review. We use GitHub pull requests for this purpose. Consult &lt;a href=&#34;https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/about-pull-requests&#34;&gt;GitHub Help&lt;/a&gt; for more information on using pull requests.&lt;/p&gt;
+&lt;h2 id=&#34;creating-an-issue&#34;&gt;Creating an issue&lt;/h2&gt;
+&lt;p&gt;If you&amp;rsquo;ve found a problem - or have a feature suggestion - with Butler itself or the documentation, but you&amp;rsquo;re not sure how to fix it yourself, please create an issue in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/issues/new&#34;&gt;Butler repo&lt;/a&gt;. You can also create an issue about a specific doc page by clicking the &lt;strong&gt;Create Issue&lt;/strong&gt; button in the top right hand corner of the page.&lt;/p&gt;
+
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Security/Disclosure&lt;/h4&gt;
+If you discover a serious bug with Butler that may pose a security problem, please disclose it confidentially to &lt;a href=&#34;mailto:security@ptarmiganlabs.com&#34;&gt;security@ptarmiganlabs.com&lt;/a&gt; first, so that it can be assessed and hopefully fixed prior to being exploited. Please do not raise GitHub issues for security-related doubts or problems.
+&lt;/div&gt;
+
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Telemetry</title>
+      <link>/docs/about/telemetry/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/about/telemetry/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;Sharing telemetry data from Butler is optional.&lt;br&gt;
+You can use all Butler features without sharing telemetry data.&lt;/p&gt;
+&lt;p&gt;That said, if you find the Butler tool useful you are &lt;strong&gt;strongly encouraged&lt;/strong&gt; to leave Butler&amp;rsquo;s telemetry feature turned on.&lt;br&gt;
+Having access to this data greatly helps the Butler developers when they design new features, fix bugs etc.&lt;/p&gt;
+&lt;p&gt;The Butler developers care about you - sharing telemetry data is your way of showing you care about them.&lt;/p&gt;
+&lt;p&gt;Sharing is caring!&lt;/p&gt;
+
+&lt;/div&gt;
+
+&lt;h2 id=&#34;whats-telemetry&#34;&gt;What&amp;rsquo;s telemetry&lt;/h2&gt;
+&lt;p&gt;From &lt;a href=&#34;https://en.wikipedia.org/wiki/Telemetry&#34;&gt;Wikipedia&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Telemetry is the in situ collection of measurements or other data at remote points and their automatic transmission to receiving equipment (telecommunication) for monitoring.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In the context of software tools (including Butler) telemetry is often used to describe the process of sending information about the tool itself to some monitoring system.&lt;/p&gt;
+&lt;h2 id=&#34;why-telemetry-in-butler&#34;&gt;Why telemetry in Butler&lt;/h2&gt;
+&lt;p&gt;This is a very, very good question.&lt;/p&gt;
+&lt;p&gt;For many years there was no telemetry at all in Butler.&lt;/p&gt;
+&lt;p&gt;Development of new features were driven mainly by what features were needed at the time.&lt;br&gt;
+Or the fact that Qlik released some new feature in Sense and Butler was a way to test that new feature from the perspective of the Sense APIs.&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s all good but today Butler is a rather significant tool with features spanning quite different areas (alerting, task scheduling, key-value store and more).&lt;/p&gt;
+&lt;p&gt;This multitude of features is also one of the core reasons for adding telemetry to Butler:&lt;/p&gt;
+
+
+&lt;div class=&#34;pageinfo pageinfo-info&#34;&gt;
+&lt;ul&gt;
+&lt;li&gt;Which Butler APIs and features are actually used out there?&lt;/li&gt;
+&lt;li&gt;Which operating systems, Node.js versions and hardware platforms is Butler running on?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;Without this information the Butler developers will keep working in the dark, not really knowing where to focus their efforts.&lt;/p&gt;
+&lt;p&gt;On the other hand - &lt;strong&gt;with&lt;/strong&gt; access to telemetry data a lot of possibilities open up for the Butler developers:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If telemetry shows that no one uses a particular feature, maybe that feature should be scheduled for deprecation?&lt;/li&gt;
+&lt;li&gt;The opposite of the previous: If lots of users use a specific Butler feature, then that feature is a candidate for future focus and development.&lt;/li&gt;
+&lt;li&gt;Telemetry will show if lots of users run Butler on old Node.js versions. Knowing this its possible to set a migration schedule for what Node.js versions are supported - avoiding hard errors when some old Node.js version is no longer supported by Butler.&lt;/li&gt;
+&lt;li&gt;Same thing for understanding what operating systems Butler runs (and should be supported) on.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;configuring-butlers-telemetry&#34;&gt;Configuring Butler&amp;rsquo;s telemetry&lt;/h3&gt;
+&lt;p&gt;Instructions &lt;a href=&#34;/docs/getting-started/setup/telemetry/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;the-details&#34;&gt;The details&lt;/h2&gt;
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;What&#39;s shared&lt;/h4&gt;
+&lt;p&gt;The telemetry data includes the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Information about what API endpoints are enabled in the Butler config file.&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;Why: This tells the Butler developers which features are used and which aren&amp;rsquo;t. This is critical information when it comes to planning where to focus future development efforts.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Information about what features are enabled and which are disabled.&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;Why: Same as above. Knowing which features are used (and are thus important) allows the Butler developers to better plan future work.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Information about Butler&amp;rsquo;s execution environment&lt;/strong&gt; (operating system, hardware architecture, Node.js version etc).&lt;br&gt;
+&lt;em&gt;Why: Ideally the Butler developers want to use as modern versions of Node.js as possible. But if telemetry shows that lots os Butler instances use old Node.js versions or run on some (yet) untested/unverified Linux version - then maybe those older Node.js/Linux versions must be supported for yet some time.&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;/div&gt;
+
+
+
+&lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;What&#39;s not shared&lt;/h4&gt;
+&lt;p&gt;The telemetry data will never include:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Data that can identify your Sense environment or the server on which Butler runs. This includes IP/MAC addresses or other network information, server names, Docker container metadata or similar.&lt;/li&gt;
+&lt;li&gt;Any actual data sent via Butler APIs.&lt;/li&gt;
+&lt;li&gt;Qlik Sense or other certificates in any shape or form.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;/div&gt;
+
+&lt;h3 id=&#34;where-is-telemetry-data-sent&#34;&gt;Where is telemetry data sent&lt;/h3&gt;
+&lt;p&gt;The telemetry data is sent to an Azure server and then stored in a database operated by &lt;a href=&#34;https://ptarmiganlabs.com&#34;&gt;Ptarmigan Labs&lt;/a&gt; (which is the company sponsoring the Butler project).&lt;/p&gt;
+&lt;h3 id=&#34;deleting-telemetry-data&#34;&gt;Deleting telemetry data&lt;/h3&gt;
+&lt;p&gt;Even though no-one (not even Ptarmigan Labs who runs the telemetry database!) has any way of ever connecting the data sent by &lt;em&gt;your&lt;/em&gt; Butler instance to &lt;em&gt;you&lt;/em&gt; (it&amp;rsquo;s all anonymized, remember?), there can be cases where telemetry data must be deleted.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;/docs/legal-stuff/#telemetry-data&#34;&gt;legal page&lt;/a&gt; has more information about this.&lt;/p&gt;
+&lt;h3 id=&#34;field-level-description-of-telemetry-data&#34;&gt;Field level description of telemetry data&lt;/h3&gt;
+&lt;p&gt;A telemetry message from Butler contains the information below.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;ts&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;2021-03-03T11:13:55.862Z&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+  &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;data&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;service&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;butler&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;serviceVersion&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5.1.0&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;system&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;93f47268f534da58f7fd50b279e19581a6437b2e3e000c0c5455b1155f515be2&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;arch&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;x64&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;platform&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;darwin&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;release&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;11.2.1&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;distro&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;macOS&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;codename&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;macOS Big Sur&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;virtual&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;nodeVersion&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;v14.15.4&amp;#34;&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;enabledFeatures&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;api&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;activeUserCount&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;activeUsers&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;apiListEnbledEndpoints&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;base62ToBase16&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;base16ToBase62&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;butlerping&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;createDir&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;createDirQVD&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;fileDelete&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;fileMove&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;fileCopy&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;keyValueStore&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;mqttPublishMessage&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;scheduler&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+          &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;createNewSchedule&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+          &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;getSchedule&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+          &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;getScheduleStatusAll&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+          &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;updateSchedule&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+          &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;deleteSchedule&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+          &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;startSchedule&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+          &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;stopSchedule&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;senseAppReload&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;senseAppDump&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;senseListApps&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;senseStartTask&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;slackPostMessage&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;
+      &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;},&lt;/span&gt;
+      &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;feature&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;heartbeat&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;dockerHealthCheck&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;uptimeMonitor&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;uptimeMonitor_storeInInfluxdb&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;teamsNotification&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;teamsNotification_reloadTaskFailure&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;teamsNotification_reloadTaskAborted&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;slackNotification&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;slackNotification_reloadTaskFailure&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;slackNotification_reloadTaskAborted&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;emailNotification&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;emailNotification_reloadTaskFailure&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;emailNotification_reloadTaskAborted&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;webhookNotification&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;webhookNotification_reloadTaskFailure&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;webhookNotification_reloadTaskAborted&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;scheduler&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;mqtt&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;userActivityLogging&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;false&lt;/span&gt;
+      &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+  &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;creating-an-anonymous-id-field&#34;&gt;Creating an anonymous ID field&lt;/h4&gt;
+&lt;p&gt;The &lt;code&gt;id&lt;/code&gt; field deserves a bit more explanation.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s purpose is to uniquely identify the Butler instance - nothing else.&lt;br&gt;
+If Butler is stopped and started agagin the same ID should be generated.&lt;/p&gt;
+&lt;p&gt;Some sensitive information is used to create the ID, but as the ID is anonymized before sent as part of the telemetry data, &lt;em&gt;no sensitive information leaves your servers&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The ID field is created as follows:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Combine the following information to a single string&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;MAC address of default network interface&lt;/li&gt;
+&lt;li&gt;IPv4 address of default network interface&lt;/li&gt;
+&lt;li&gt;IP or FQDN of Sense server where repository service is running&lt;/li&gt;
+&lt;li&gt;System unique ID as reported by the OS. Not all OSs support this though, which is why field 1-3 above are also needed to get a unique ID.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the created string through a &lt;a href=&#34;https://en.wikipedia.org/wiki/Cryptographic_hash_function&#34;&gt;one-way hashing/message digest function&lt;/a&gt;.
+Butler uses Node.js&#39; own &lt;a href=&#34;https://nodejs.org/docs/latest-v15.x/api/crypto.html&#34;&gt;Crypto&lt;/a&gt; library to create a &lt;a href=&#34;https://en.wikipedia.org/wiki/SHA-2&#34;&gt;SHA-256&lt;/a&gt; hash, using the default network interface&amp;rsquo;s MAC address as salt.&lt;br&gt;
+Security is increased due to the fact that the salt never leaves the server where Butler is running.&lt;/p&gt;
+&lt;p&gt;The bottom line is that it&amp;rsquo;s impossible to reverse the process and get your the IP, host name etc used in step 1 above.&lt;br&gt;
+Then again - this is cryptografy and things change.&lt;br&gt;
+But if you trust the certificates securing Sense itself, then the ID anonymization in Butler should be ok too.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The result is a string that uniquely identifies the Butler instance at hand, without giving away any sensitive data about the system where Butler is running.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;See below for an example of what the &lt;code&gt;id&lt;/code&gt; field looks like.&lt;br&gt;
+The &lt;code&gt;id&lt;/code&gt; field is shown during Butler startup.&lt;/p&gt;
+&lt;h2 id=&#34;telemetry-faq&#34;&gt;Telemetry FAQ&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;What data is included in the telemetry messages?&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;
+See above for details.&lt;br&gt;
+In general the telemetry includes information about which Butler API endpoints and features are enabled vs disabled.&lt;br&gt;
+A unique, anonymized ID is included too, it&amp;rsquo;s unique to each Butler instance and is used soley to distinguish between different Butler instances.&lt;br&gt;
+Finally some information about Butler&amp;rsquo;s execution environment is included. Things like operating system, Node.js version used etc.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Can my Sense environment be identified via telemetry data?&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;
+Short answer: No.&lt;br&gt;
+Longer answer: No information about your Sense environment is sent as part of telemetry. No IP addresses or server names, no IDs of Sense apps/tasks/etc, no information about what actual data passed through Butler&amp;rsquo;s APIs, or any other data that can be linked to your Sense environment is included in the telemetry data.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

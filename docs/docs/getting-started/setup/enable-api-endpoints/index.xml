@@ -1,0 +1,18 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler – Enabling endpoints in Butler&#39;s REST API</title>
+    <link>/docs/getting-started/setup/enable-api-endpoints/</link>
+    <description>Recent content in Enabling endpoints in Butler&#39;s REST API on Butler</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/docs/getting-started/setup/enable-api-endpoints/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+  </channel>
+</rss>

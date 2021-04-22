@@ -1,0 +1,309 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler – Installing Butler</title>
+    <link>/docs/getting-started/install/</link>
+    <description>Recent content in Installing Butler on Butler</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/docs/getting-started/install/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Choose a platform</title>
+      <link>/docs/getting-started/install/choose-platform/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/getting-started/install/choose-platform/</guid>
+      <description>
+        
+        
+        &lt;p&gt;The short answer is: Almost anywhere.&lt;br&gt;
+As long as &lt;a href=&#34;https://nodejs.org/&#34;&gt;Node.js&lt;/a&gt; is available on the platform there is a good chance Butler will run there.&lt;/p&gt;
+&lt;p&gt;Butler has been successfully used on Windows Server, Windows 10, various Linux distributions, in Docker, Kubernetes, on Mac OS and even on Raspberry Pis. And a Raspberry Pi based Kubernetes cluster.&lt;/p&gt;
+&lt;p&gt;Your platform options typically fall into two categories:&lt;/p&gt;
+&lt;h2 id=&#34;butler-in-a-container-docker-and-kubernetes&#34;&gt;Butler in a container: Docker and Kubernetes&lt;/h2&gt;
+&lt;p&gt;If you have access to or can set up a &lt;strong&gt;container runtime environment&lt;/strong&gt;, this is by far the preferred way of running Butler.&lt;/p&gt;
+&lt;p&gt;Installation is less error prone compared to installing Butler as a native Node.js app, you get all the benefits from the Docker ecosystem (monitoring of running containers etc), and upgrades to future Butler versions become trivial.&lt;/p&gt;
+&lt;p&gt;If you have access to a &lt;strong&gt;Kubernetes&lt;/strong&gt; cluster, that is usually an even better option than Docker. Kubernetes can be daunting when first approached, but will give you superb reliability, failover and restarts if a server goes down or becomes unresponsive etc. All major cloud providers (Microsoft Azure, Google, Amazon etc) offer Kubernetes services.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://k3s.io/&#34;&gt;Rancher&amp;rsquo;s K3s&lt;/a&gt; is a very good way to get started with self hosted Kubnernetes. Fully featured, well supported and a vibrant developer community.&lt;/p&gt;
+&lt;h2 id=&#34;butler-as-a-native-app-windows-linux-mac-os&#34;&gt;Butler as a native app: Windows, Linux, Mac OS&lt;/h2&gt;
+&lt;p&gt;This option means you will first install Node.js on your server of choice, then Butler and it&amp;rsquo;s dependencies.&lt;/p&gt;
+&lt;p&gt;It works perfectly well and might for many be the easiest way to get started, as you for sure already have a Windows Server for running Qlik Sense Enterprise.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Running Butler in Docker</title>
+      <link>/docs/getting-started/install/docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/getting-started/install/docker/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;What&lt;/th&gt;
+&lt;th&gt;Comment&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Qlik Sense Enterprise on Windows&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; Butler is developed with Qlik Sense Enterprise on Windows (QSEoW) in mind. &lt;br&gt;While some Butler features might also work with Sense Desktop or Sense cloud, you are on your own there.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Docker&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; A Docker runtime environment on any supported platform.&lt;br&gt;This means you can run Butler on any platform where Docker is available, including Linux, Mac OS, Windows and most cloud providers. It is very doable to run Butler under Kubernetes too, if so desired.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MQTT broker&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; MQTT is used for both in- and out-bound pub-sub messaging. Butler assumes a working MQTT broker is available, the IP of which is defined in the Butler config file. &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; is a nice open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&amp;hellip; instance is enough, if you want a dedicated MQTT server. If you don&amp;rsquo;t care about the pubsub features of Butler, you don&amp;rsquo;t need a MQTT broker. In this case you can disable the MQTT features in Butler&amp;rsquo;s config file.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.influxdata.com/time-series-platform/&#34;&gt;InfluxDB&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; A database for realtime information, used to store metrics around Butler&amp;rsquo;s own memory usage over time (if this feature is enabled).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;installation-steps&#34;&gt;Installation steps&lt;/h2&gt;
+&lt;p&gt;The following steps give some guidance on how to get Butler running on Docker.&lt;br&gt;
+Here Mac OS was used, things will look different on Linux and Windows.&lt;/p&gt;
+&lt;p&gt;Note: While the console logs below refer to an older version of Butler&amp;rsquo;s Docker image, the steps involved are the same also for current/most recent version of Butler.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:~ goran$ mkdir /Users/goran/butler
+proton:~ goran$ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; /Users/goran/butler
+proton:butler goran$ mkdir -p config/certificate
+proton:butler goran$
+proton:butler goran$ wget https://raw.githubusercontent.com/ptarmiganlabs/butler/master/src/docker-compose.yml
+--2019-11-18 22:47:02--  https://raw.githubusercontent.com/ptarmiganlabs/butler/master/src/docker-compose.yml
+Resolving raw.githubusercontent.com &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;raw.githubusercontent.com&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;... 151.101.84.133
+Connecting to raw.githubusercontent.com &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;raw.githubusercontent.com&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;151.101.84.133&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;:443... connected.
+HTTP request sent, awaiting response... &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;200&lt;/span&gt; OK
+Length: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;618&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;text/plain&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+Saving to: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;docker-compose.yml&amp;#39;&lt;/span&gt;
+
+docker-compose.yml                         100%&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[========================================================================================&lt;/span&gt;&amp;gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;618&lt;/span&gt;  --.-KB/s    in 0s
+
+2019-11-18 22:47:03 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;10.7 MB/s&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;docker-compose.yml&amp;#39;&lt;/span&gt; saved &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;618/618&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+
+
+proton:butler goran$ cat docker-compose.yml
+&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# docker-compose.yml&lt;/span&gt;
+version: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;3.3&amp;#39;&lt;/span&gt;
+services:
+  butler:
+    image: ptarmiganlabs/butler:3.0.0
+    container_name: butler
+    restart: always
+    ports:
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;8080:8080&amp;#34;&lt;/span&gt;     &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# REST API available on port 8080 to services outside the container&lt;/span&gt;
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;9997:9997&amp;#34;&lt;/span&gt;     &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# UDP port for session connection events&lt;/span&gt;
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;9998:9998&amp;#34;&lt;/span&gt;     &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# UDP port for task failure events&lt;/span&gt;
+    volumes:
+      &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Make config file accessible outside of container&lt;/span&gt;
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./config:/nodeapp/config&amp;#34;&lt;/span&gt;
+    environment:
+      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;NODE_ENV=production&amp;#34;&lt;/span&gt;
+    logging:
+      driver: json-file
+      options:
+        max-file: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5&amp;#34;&lt;/span&gt;
+        max-size: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5m&amp;#34;&lt;/span&gt;
+proton:butler goran$
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;At this point you should&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Export certificates from the Qlik Sense QMC. Export a full set of certificates in PEM format, no psasword on the certificates.&lt;/li&gt;
+&lt;li&gt;Copy the certificates to the ./config/certificate directory.&lt;/li&gt;
+&lt;li&gt;Copy the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/src/config/production_template.yaml&#34;&gt;template config file&lt;/a&gt; from the GitHub repository to the ./config directory, modify it as needed based on your system(s) and which Butler features you want enabled, and rename it to for example &lt;code&gt;production.yaml&lt;/code&gt;.&lt;br&gt;
+You can name the config file anything, but its name has to match the NODE_ENV environment variable, as set it the &lt;code&gt;docker-compose.yml&lt;/code&gt; file.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Optional.&lt;/em&gt; Copy the template schedule file to the location specified in Butler&amp;rsquo;s config file. This is only needed if you manually want to add schedules. If using the API to create schedules, there is no need to first manually create a schedules file (the schedule file will be created by Butler in this case).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;When done, you should see something like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:butler goran$ &lt;span style=&#34;color:#204a87&#34;&gt;pwd&lt;/span&gt;
+/Users/goran/butler
+proton:butler goran$ ls -la
+total &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8&lt;/span&gt;
+drwxr-xr-x   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 .
+drwxr-xr-x+ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;59&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1888&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:24 ..
+drwxr-xr-x   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 config
+-rw-r--r--   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;565&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:25 docker-compose.yml
+proton:butler goran$
+proton:butler goran$ ls -la config/
+total &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8&lt;/span&gt;
+drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 .
+drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 ..
+drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;192&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 certificate
+-rw-r--r--  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1861&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 production.yaml
+proton:butler goran$
+proton:butler goran$ ls -la config/certificate/
+total &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;32&lt;/span&gt;
+drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;192&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 .
+drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 ..
+-rw-r--r--@ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1166&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 client.pem
+-rw-r--r--@ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1702&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 client_key.pem
+-rw-r--r--@ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1192&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 root.pem
+proton:butler goran$
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;At this point everything is ready and you can start the Butler container using docker-compose:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:butler goran$ docker-compose up
+Creating network &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;butler_default&amp;#34;&lt;/span&gt; with the default driver
+Pulling butler &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;ptarmiganlabs/butler:3.0.0&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;...
+3.0.0: Pulling from ptarmiganlabs/butler
+9a0b0ce99936: Already exists
+db3b6004c61a: Already exists
+f8f075920295: Already exists
+6ef14aff1139: Already exists
+0bbd8b48260f: Already exists
+524be717efb1: Already exists
+da330b3729a7: Already exists
+2c9863d012f5: Already exists
+06cd084e76f0: Already exists
+2c5533f377d0: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+307c3aa5e73e: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+10617d6f19b9: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+ad221e369f17: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+b1f6c19b1af6: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+Digest: sha256:b3c17c93c1779d62e21db5f3f7691f524ab0c21d8b0814cab41a66e814702a17
+Status: Downloaded newer image &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; ptarmiganlabs/butler:3.0.0
+Creating butler ... &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;done&lt;/span&gt;
+Attaching to butler
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.630Z info: --------------------------------------
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.634Z info: Starting Butler
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.635Z info: Log level is: debug
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.636Z info: App version is: 3.0.0
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.637Z info: --------------------------------------
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.638Z debug: Client cert: /nodeapp/config/certificate/client.pem
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.639Z debug: Client cert key: /nodeapp/config/certificate/client_key.pem
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.639Z debug: CA cert: /nodeapp/config/certificate/root.pem
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.673Z debug: Registering REST endpoint /v2/activeUserCount
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.676Z debug: Registering REST endpoint /v2/activeUsers
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.679Z debug: Registering REST endpoint /v2/slackPostMessage
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.680Z debug: Registering REST endpoint /v2/createDir
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.681Z debug: Registering REST endpoint /v2/createDirQVD
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.681Z debug: Registering REST endpoint /v2/mqttPublishMessage
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.682Z debug: Registering REST endpoint /v2/senseStartTask
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.683Z debug: Registering REST endpoint /v2/senseAppDump
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.684Z debug: Registering REST endpoint /v2/senseListApps
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.684Z debug: Registering REST endpoint /v2/butlerping
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.685Z debug: Registering REST endpoint /v2/base62ToBase16
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.686Z debug: Registering REST endpoint /v2/base16ToBase62
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.687Z debug: Server &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; UDP server: butler
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.688Z debug: REST server host: butler
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.688Z debug: REST server port: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8080&lt;/span&gt;
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.696Z info: UDP server listening on 172.21.0.2:9998
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.699Z info: REST server listening on http://172.21.0.2:8080
+butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2019-11-18T21:51:17.700Z info: UDP server listening on 172.21.0.2:9997
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;What you see on your screen will depend on which Butler version you are using and what features are enabled.
+In the example above &lt;em&gt;all&lt;/em&gt; Butler features are enabled.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s make sure things are working by opening a new terminal window and from there requesting a list of all apps on the server:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:~ goran$
+proton:~ goran$ curl &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://localhost:8180/v2/senseListApps&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;492a1bca-1c41-4a01-9104-543a2334c465&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;2018 sales targets&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5b243cb2-8d00-44c9-b865-08b00a0af18b&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;App 1&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
+...
+...
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;181d101f-986c-49c5-a457-d351058c05b4&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Template app 1 DEV&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}]&lt;/span&gt;
+proton:~ goran$
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Nice, looking good.&lt;/p&gt;
+&lt;p&gt;In the terminal where you ran docker-compose, you will see a new line saying that a app list was retrieved:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;butler           &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2018-09-26T14:40:32.740Z - debug: Server &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; UDP server: localhost
+butler           &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2018-09-26T14:40:32.746Z - info: REST server listening on http://&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;::&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;:8080
+butler           &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2018-09-26T14:40:32.748Z - info: UDP server listening on 127.0.0.1:9997
+butler           &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2018-09-26T14:40:32.750Z - info: UDP server listening on 127.0.0.1:9998
+butler           &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2018-09-26T14:43:05.381Z - info: Getting list of all apps
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Running Butler as a native Node.js application</title>
+      <link>/docs/getting-started/install/native/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/getting-started/install/native/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;selecting-an-os&#34;&gt;Selecting an OS&lt;/h2&gt;
+&lt;p&gt;While Qlik Sense Enterprise is a Windows only system, Butler should be able to run on any OS where Node.js is available.&lt;br&gt;
+Butler has been succesfully used - during development and production - on Windows, Linux (Debian and Ubuntu tested) and mac OS.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;What&lt;/th&gt;
+&lt;th&gt;Comment&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Qlik Sense Enterprise on Windows&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; Butler is developed with Qlik Sense Enterprise on Windows (QSEoW) in mind. &lt;br&gt;While some Butler features might also work with Sense Desktop or Sense cloud, you are on your own there.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Node.js&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; Butler is written in Node - which is thus a firm requirement.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MQTT broker&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; MQTT is used for both in- and out-bound pub-sub messaging. Butler assumes a working MQTT broker is available, the IP of which is defined in the Butler config file. Mosquitto is a nice open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&amp;hellip; instance is enough, if you want a dedicated MQTT server. If you don&amp;rsquo;t care about the pubsub features of Butler, you don&amp;rsquo;t need a MQTT broker. In this case you can disable the MQTT features in the config YAML file.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.influxdata.com/time-series-platform/&#34;&gt;InfluxDB&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; A database for realtime information, used to store metrics around Butler&amp;rsquo;s own memory usage over time (if this feature is enabled).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;installation-steps&#34;&gt;Installation steps&lt;/h2&gt;
+&lt;p&gt;The steps below outline the steps needed to install Butler as a native Node.js application on for example Windows Server.&lt;/p&gt;
+&lt;p&gt;Additional information is found on the &lt;a href=&#34;/docs/getting-started/operations/&#34;&gt;Day 2 operations&lt;/a&gt; page.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Install node.js&lt;/strong&gt;&lt;br&gt;
+Butler has been developed and tested using the 64 bit version of &lt;a href=&#34;https://nodejs.org/en/download/&#34;&gt;Node.js&lt;/a&gt;. The most recent LTS (Long Term Support) version is usually a good choice.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Decide where to install Butler&lt;/strong&gt;&lt;br&gt;
+It is usually a good starting point to run Butler on the Sense server. If there are more than one server in the Sense cluster, Butler can be placed on the reload server (as the /createDir endpoint then can be used to create folders in which QVD and other files can be stored).&lt;/p&gt;
+&lt;p&gt;On the other hand, you might want to keep the Sense servers as clean as possible (with respect to software running on them). If that is a priority you should install Butler on some other server.&lt;/p&gt;
+&lt;p&gt;The bottom line is that Butler can run on any server, as long as there is network connectivity to the Sense server(s).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Download Butler&lt;/strong&gt;&lt;br&gt;
+Download the repository zip from the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/releases&#34;&gt;releases page&lt;/a&gt; file or clone the Butler repository using your git tool of choice. Both options achieve the same thing, i.e. a directory such as d:\node\butler, which is then Butler&amp;rsquo;s root directory.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Install node dependencies&lt;/strong&gt;&lt;br&gt;
+From a Windows command prompt (assuming the Butler ZIP file/repository was saved to d:\node\butler):&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  d:
+  cd \node\butler\src
+  npm install  
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This will download and install all Node.js modules used by Butler.&lt;br&gt;
+On some OSs you&amp;rsquo;ll get some warnings during the installation - they are usually harmless. Try to run Butler even if you got some warnings, chances are good that things will work just fine. This is common on especially Windows Server and is a result of some Butler dependencies being primarily developed on Linux rather than Windows.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;MQTT message broker&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Several of Butler&amp;rsquo;s features use &lt;a href=&#34;https://mqtt.org/&#34;&gt;MQTT&lt;/a&gt; for sending and receiving messages.&lt;br&gt;
+MQTT is a standardised messaging protocol, and it should be possible to use &lt;a href=&#34;https://github.com/mqtt/mqtt.org/wiki/software?id=software&#34;&gt;any broker following the MQTT standard&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Butler has been developed and tested using &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; running on mac OS and Debian Linux - both work flawlessly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
