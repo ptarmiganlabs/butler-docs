@@ -1,6 +1,6 @@
 {
-  "name": "butler-docs-new",
-  "version": "1.0.0",
+  "name": "butler-docs",
+  "version": "5.4.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/google/docsy-example.git"
+    "url": "git+https://github.com/ptarmiganlabs/butler-docs.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/google/docsy-example/issues"
+    "url": "https://github.com/ptarmiganlabs/butler-docs/issues"
   },
-  "homepage": "https://github.com/google/docsy-example#readme",
+  "homepage": "https://github.com/ptarmiganlabs/butler-docs#readme",
   "devDependencies": {
     "autoprefixer": "^10.2.5",
     "postcss": "^8.2.12",
