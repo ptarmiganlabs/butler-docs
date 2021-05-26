@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/ptarmiganlabs/butler-docs#readme",
   "devDependencies": {
-    "autoprefixer": "10.2.5",
+    "autoprefixer": "10.2.6",
     "postcss": "8.2.13",
     "postcss-cli": "8.3.1"
   }
