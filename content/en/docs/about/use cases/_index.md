@@ -57,7 +57,7 @@ More info [here](/docs/examples/start-task-from-rest/).
 Using tags and/or custom properties to identify what tasks should be started can be easier than having to know the tasks IDs.
 This both makes it easier for 3rd party systems to start Qlik Sense tasks and easier for Sense admins to manage which tasks should be startable by 3rd party systems.
 
-More info TODO
+More info in [Concepts](/docs/concepts/start-sense-tasks/) and [Examples](/docs/examples/start-task/) sections.
 
 ## Trigger full/partial app reloads from load script or upstream systems
 

@@ -38,52 +38,6 @@ In some cases it might be possible to use these tools from within Sense also wit
     </item>
     
     <item>
-      <title>Docs: The Butler family</title>
-      <link>/docs/about/butler-family/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/docs/about/butler-family/</guid>
-      <description>
-        
-        
-        &lt;p&gt;Butler started out with a very specific need to start Sense reloads from outside systems.&lt;br&gt;
-Over the years a couple of projects have spun off from Butler (for example Butler SOS), and still other projects have been created to solve specific challenges around developing Sense apps (for example the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler-app-duplicator&#34;&gt;Butler App Duplicator&lt;/a&gt;) or simplifying day 2 operations ([&lt;a href=&#34;https://www.infoworld.com/article/3442754/why-de-risking-day-2-operations-is-a-smart-business-strategy.html&#34;&gt;1&lt;/a&gt;], [&lt;a href=&#34;https://dzone.com/articles/defining-day-2-operations&#34;&gt;2&lt;/a&gt;]) in the form of &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34;&gt;Butler SOS&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;All members of the Butler family are available on &lt;a href=&#34;https://github.com/ptarmiganlabs&#34;&gt;Ptarmigan Labs&#39; GitHub page&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Projects with production grade release status are (as of this writing):&lt;/p&gt;
-&lt;h3 id=&#34;butler&#34;&gt;Butler&lt;/h3&gt;
-&lt;p&gt;The original Butler. Offers various utilities that make it easier to develop Sense apps, as well as simplifying day 2 operations.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https:/butler.ptarmiganlabs.com&#34;&gt;butler.ptarmiganlabs.com&lt;/a&gt;. (This site!)&lt;/p&gt;
-&lt;h3 id=&#34;butler-sos&#34;&gt;Butler SOS&lt;/h3&gt;
-&lt;p&gt;Real-time operational metrics for Qlik Sense. A must-have if you are responsible for a Sense environment with more than a dozen or so users. Butler SOS makes it possible to detect and alert on issues as they happen, rather than in retrospect much later.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34;&gt;butler-sos.ptarmiganlabs.com&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id=&#34;butler-cw&#34;&gt;Butler CW&lt;/h3&gt;
-&lt;p&gt;Butler Cache Warmer. Cache warming is the process of proactively forcing Sense apps to be loaded into RAM, so they are readily available when users open them. Once again - if your Sense environment serve more than a dozen users, you should consider a cache warming tool.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-cw&#34;&gt;github.com/ptarmiganlabs/butler-cw&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id=&#34;butler-app-duplicator&#34;&gt;Butler App Duplicator&lt;/h3&gt;
-&lt;p&gt;No matter if you are a single developer creating Sense apps, or have lots of developers doing this, having app templates is a good idea:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Lowered barrier of entry for new Sense developers.&lt;/li&gt;
-&lt;li&gt;Productivity boost when developing Sense apps.&lt;/li&gt;
-&lt;li&gt;Encouraging a common coding standard across all apps.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-app-duplicator&#34;&gt;github.com/ptarmiganlabs/butler-app-duplicator&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;butler-spyglass&#34;&gt;Butler Spyglass&lt;/h3&gt;
-&lt;p&gt;This tool is mainly of interest if you have lots of QVDs and apps, but when that&amp;rsquo;s the case it&amp;rsquo;s of paramount importance to understand what apps use which QVDs. In other words what data lineage looks like.&lt;/p&gt;
-&lt;p&gt;Butler Spyglass also extracts full load scripts for all Sense apps, creating a historical record of all load scripts for all Sense apps.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-spyglass&#34;&gt;github.com/ptarmiganlabs/butler-spyglass&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;butler-notifier&#34;&gt;Butler Notifier&lt;/h3&gt;
-&lt;p&gt;This tool makes it easy to tap into the Qlik Sense notification API. From there you can get all kinds of notifications, including task reload failures and changes in session state (user login/logout etc).&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-notifier&#34;&gt;github.com/ptarmiganlabs/butler-notifier&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;butler-icon-uploader&#34;&gt;Butler Icon Uploader&lt;/h3&gt;
-&lt;p&gt;Visual looks is important when it comes to analytics, and this holds true also for Sense apps.
-The Butler Icon Uploader makes it easy to upload icon libraries (for example Font Awesome) to Qlik Sense Enterprise.&lt;br&gt;
-With such icons available it is then easy for app developers to use professional quality sheet and app icons in their Sense apps.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-icon-upload&#34;&gt;github.com/ptarmiganlabs/butler-icon-upload&lt;/a&gt;&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
       <title>Docs: Use cases</title>
       <link>/docs/about/use-cases/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -92,7 +46,26 @@ With such icons available it is then easy for app developers to use professional
       <description>
         
         
-        &lt;h2 id=&#34;instant-notifications-when-reload-tasks-fail-or-are-stopped&#34;&gt;Instant notifications when reload tasks fail or are stopped&lt;/h2&gt;
+        &lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#instant-notifications-when-reload-tasks-fail-or-are-stopped&#34;&gt;Instant notifications when reload tasks fail or are stopped&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#start-reload-tasks-from-load-script-or-from-upstream-systems&#34;&gt;Start reload tasks from load script or from upstream systems&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#start-any-reload-task-from-within-any-qlik-sense-or-web-app&#34;&gt;Start any reload task from within any Qlik Sense or web app&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#start-reload-tasks-via-rest-api-based-on-task-tags-or-custom-properties&#34;&gt;Start reload tasks via REST API based on task tags or custom properties&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#trigger-fullpartial-app-reloads-from-load-script-or-upstream-systems&#34;&gt;Trigger full/partial app reloads from load script or upstream systems&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#flexible-scheduling-of-app-reloads-in-qlik-sense-enterprise-on-windows&#34;&gt;Flexible scheduling of app reloads in Qlik Sense Enterprise on Windows&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#passing-parameters-between-reload-tasks&#34;&gt;Passing parameters between reload tasks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#storing-state-across-several-apps&#34;&gt;Storing state across several apps&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#time-to-live-ttl-for-key-value-pairs&#34;&gt;Time-to-live (TTL) for key-value pairs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#make-new-data-reach-end-users-as-quickly-as-possible&#34;&gt;Make new data reach end users as quickly as possible&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#using-mqtt-to-notify-downstream-systems-that-sense-is-done-processing-data&#34;&gt;Using MQTT to notify downstream systems that Sense is done processing data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#create-directories-copymovedelete-files&#34;&gt;Create directories, copy/move/delete files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#extract-metadata-for-apps&#34;&gt;Extract metadata for apps&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#post-messages-to-slack&#34;&gt;Post messages to Slack&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;instant-notifications-when-reload-tasks-fail-or-are-stopped&#34;&gt;Instant notifications when reload tasks fail or are stopped&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Information about failing tasks&lt;/strong&gt; can be sent as emails, to Microsoft Teams, Slack, as MQTT messages or outgoing webhooks.&lt;/p&gt;
 &lt;p&gt;Email, Slack and MS Teams notifications all use a templating concept where HTML/Markdown template files describe what the alert message should look like. Before the alert is sent the template is populated with actual data from the failed reload task.&lt;/p&gt;
 &lt;p&gt;Both subject and body of email can use the template fields.&lt;/p&gt;
@@ -109,6 +82,10 @@ Using MQTT messages to achieve this is described &lt;a href=&#34;/docs/examples/
 &lt;p&gt;Some HTML and Javascript magic is also needed, but given Butler&amp;rsquo;s start-task API it&amp;rsquo;s pretty easy to set up a button in a Sense app (or any web app!) to start any Sense reload task.&lt;/p&gt;
 &lt;p&gt;This can for example be used to allow end users to start an Extract-Transform when they (the user) need refreshed data.&lt;/p&gt;
 &lt;p&gt;More info &lt;a href=&#34;/docs/examples/start-task-from-rest/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;start-reload-tasks-via-rest-api-based-on-task-tags-or-custom-properties&#34;&gt;Start reload tasks via REST API based on task tags or custom properties&lt;/h2&gt;
+&lt;p&gt;Using tags and/or custom properties to identify what tasks should be started can be easier than having to know the tasks IDs.
+This both makes it easier for 3rd party systems to start Qlik Sense tasks and easier for Sense admins to manage which tasks should be startable by 3rd party systems.&lt;/p&gt;
+&lt;p&gt;More info in &lt;a href=&#34;/docs/concepts/start-sense-tasks/&#34;&gt;Concepts&lt;/a&gt; and &lt;a href=&#34;/docs/examples/start-task/&#34;&gt;Examples&lt;/a&gt; sections.&lt;/p&gt;
 &lt;h2 id=&#34;trigger-fullpartial-app-reloads-from-load-script-or-upstream-systems&#34;&gt;Trigger full/partial app reloads from load script or upstream systems&lt;/h2&gt;
 &lt;p&gt;Sometimes you just want to reload an app without also having to create a reload task.&lt;br&gt;
 When it comes to partial app reloads it&amp;rsquo;s not even possible to do these from a Sense reload task.&lt;/p&gt;
@@ -150,6 +127,60 @@ MQTT (and the pubsub concept in general) is a great way for systems to communica
 I.e. notifying specific Slack users that they have a new message.&lt;/p&gt;
 &lt;p&gt;Can for example be used to notify user(s) that an app has reloaded with new data, or that some error condition has occured.&lt;/p&gt;
 &lt;p&gt;More info &lt;a href=&#34;docs/examples/sense-demo-apps/post-to-slack/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: The Butler family</title>
+      <link>/docs/about/butler-family/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/about/butler-family/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Butler started out with a very specific need to start Sense reloads from outside systems.&lt;br&gt;
+Over the years a few projects (for example Butler SOS, which simplifies day 2 operations ([&lt;a href=&#34;https://www.infoworld.com/article/3442754/why-de-risking-day-2-operations-is-a-smart-business-strategy.html&#34;&gt;1&lt;/a&gt;], [&lt;a href=&#34;https://dzone.com/articles/defining-day-2-operations&#34;&gt;2&lt;/a&gt;]) have spun off from the original Butler project, and still other projects have been created from scratch to solve specific challenges around developing Sense apps and running Qlik Sense server environments.&lt;/p&gt;
+&lt;p&gt;All members of the Butler family are available on &lt;a href=&#34;https://github.com/ptarmiganlabs&#34;&gt;Ptarmigan Labs&#39; GitHub page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Projects with production grade release status are (as of this writing):&lt;/p&gt;
+&lt;h3 id=&#34;butler&#34;&gt;Butler&lt;/h3&gt;
+&lt;p&gt;The original Butler. Offers various utilities that make it easier to develop Sense apps, as well as simplifying day 2 operations.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https:/butler.ptarmiganlabs.com&#34;&gt;butler.ptarmiganlabs.com&lt;/a&gt;. (This site!)&lt;/p&gt;
+&lt;h3 id=&#34;butler-sos&#34;&gt;Butler SOS&lt;/h3&gt;
+&lt;p&gt;Real-time operational metrics for Qlik Sense. A must-have if you are responsible for a Sense environment with more than a dozen or so users.&lt;/p&gt;
+&lt;p&gt;Butler SOS makes it possible to detect and alert on issues as they happen, rather than in retrospect much later.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34;&gt;butler-sos.ptarmiganlabs.com&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;butler-sheet-icons&#34;&gt;Butler Sheet Icons&lt;/h3&gt;
+&lt;p&gt;Automates the creation of sheet icons for Qlik Sense Enterprise on Windows (QSEoW) applications.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s a cross platform command line tool which given the correct Sense credentials will take screen shots of all sheets in a Sense app (or all apps on a Sense server!), then create thumbnail versions of those screenshots.&lt;br&gt;
+Finally those thumbnails will be set as sheet icons.&lt;/p&gt;
+&lt;p&gt;No more manual screenshot taking, resizing images, navigating hundreds of sheets in dozens of apps.&lt;br&gt;
+Start Butler Sheet Icons instead and go get a nice &lt;a href=&#34;https://www.swedishfood.com/fika&#34;&gt;fika&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-sheet-icons&#34;&gt;https://github.com/ptarmiganlabs/butler-sheet-icons&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;butler-cw&#34;&gt;Butler CW&lt;/h3&gt;
+&lt;p&gt;Butler Cache Warmer. Cache warming is the process of proactively forcing Sense apps to be loaded into RAM, so they are readily available when users open them.&lt;br&gt;
+Using Butler CW is an easy way to make your end users&#39; experience of Sense a little better.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-cw&#34;&gt;github.com/ptarmiganlabs/butler-cw&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;butler-app-duplicator&#34;&gt;Butler App Duplicator&lt;/h3&gt;
+&lt;p&gt;No matter if you are a single developer creating Sense apps, or have lots of developers doing this, having app templates is a good idea:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lowered barrier of entry for new Sense developers.&lt;/li&gt;
+&lt;li&gt;Productivity boost when developing Sense apps.&lt;/li&gt;
+&lt;li&gt;Encouraging a common coding standard across all apps.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-app-duplicator&#34;&gt;github.com/ptarmiganlabs/butler-app-duplicator&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;butler-spyglass&#34;&gt;Butler Spyglass&lt;/h3&gt;
+&lt;p&gt;This tool is mainly of interest if you have lots of QVDs and apps, but when that&amp;rsquo;s the case it&amp;rsquo;s of paramount importance to understand what apps use which QVDs. In other words what data lineage looks like.&lt;/p&gt;
+&lt;p&gt;Butler Spyglass also extracts full load scripts for all Sense apps, creating a historical record of all load scripts for all Sense apps.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-spyglass&#34;&gt;github.com/ptarmiganlabs/butler-spyglass&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;butler-notifier&#34;&gt;Butler Notifier&lt;/h3&gt;
+&lt;p&gt;This tool makes it easy to tap into the Qlik Sense notification API. From there you can get all kinds of notifications, including task reload failures and changes in session state (user login/logout etc).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-notifier&#34;&gt;github.com/ptarmiganlabs/butler-notifier&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;butler-icon-uploader&#34;&gt;Butler Icon Uploader&lt;/h3&gt;
+&lt;p&gt;Visual looks is important when it comes to analytics, and this holds true also for Sense apps.&lt;/p&gt;
+&lt;p&gt;The Butler Icon Uploader makes it easy to upload icon libraries (for example Font Awesome) to Qlik Sense Enterprise. With such icons available it is then easy for app developers to use professional quality sheet and app icons in their Sense apps.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/ptarmiganlabs/butler-icon-upload&#34;&gt;github.com/ptarmiganlabs/butler-icon-upload&lt;/a&gt;&lt;/p&gt;
 
       </description>
     </item>
@@ -211,7 +242,9 @@ Hugo is an open-source static site generator that provides us with templates, co
 
 &lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Security/Disclosure&lt;/h4&gt;
-If you discover a serious bug with Butler that may pose a security problem, please disclose it confidentially to &lt;a href=&#34;mailto:security@ptarmiganlabs.com&#34;&gt;security@ptarmiganlabs.com&lt;/a&gt; first, so that it can be assessed and hopefully fixed prior to being exploited. Please do not raise GitHub issues for security-related doubts or problems.
+
+    If you discover a serious bug with Butler that may pose a security problem, please disclose it confidentially to &lt;a href=&#34;mailto:security@ptarmiganlabs.com&#34;&gt;security@ptarmiganlabs.com&lt;/a&gt; first, so that it can be assessed and hopefully fixed prior to being exploited. Please do not raise GitHub issues for security-related doubts or problems.
+
 &lt;/div&gt;
 
 
@@ -275,7 +308,8 @@ Or the fact that Qlik released some new feature in Sense and Butler was a way to
 
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;What&#39;s shared&lt;/h4&gt;
-&lt;p&gt;The telemetry data includes the following:&lt;/p&gt;
+
+    &lt;p&gt;The telemetry data includes the following:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Information about what API endpoints are enabled in the Butler config file.&lt;/strong&gt;&lt;br&gt;
 &lt;em&gt;Why: This tells the Butler developers which features are used and which aren&amp;rsquo;t. This is critical information when it comes to planning where to focus future development efforts.&lt;/em&gt;&lt;/li&gt;
@@ -285,18 +319,21 @@ Or the fact that Qlik released some new feature in Sense and Butler was a way to
 &lt;em&gt;Why: Ideally the Butler developers want to use as modern versions of Node.js as possible. But if telemetry shows that lots os Butler instances use old Node.js versions or run on some (yet) untested/unverified Linux version - then maybe those older Node.js/Linux versions must be supported for yet some time.&lt;/em&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
+
 &lt;/div&gt;
 
 
 
 &lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;What&#39;s not shared&lt;/h4&gt;
-&lt;p&gt;The telemetry data will never include:&lt;/p&gt;
+
+    &lt;p&gt;The telemetry data will never include:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Data that can identify your Sense environment or the server on which Butler runs. This includes IP/MAC addresses or other network information, server names, Docker container metadata or similar.&lt;/li&gt;
 &lt;li&gt;Any actual data sent via Butler APIs.&lt;/li&gt;
 &lt;li&gt;Qlik Sense or other certificates in any shape or form.&lt;/li&gt;
 &lt;/ol&gt;
+
 
 &lt;/div&gt;
 
@@ -307,7 +344,7 @@ Or the fact that Qlik released some new feature in Sense and Butler was a way to
 &lt;p&gt;The &lt;a href=&#34;/docs/legal-stuff/#telemetry-data&#34;&gt;legal page&lt;/a&gt; has more information about this.&lt;/p&gt;
 &lt;h3 id=&#34;field-level-description-of-telemetry-data&#34;&gt;Field level description of telemetry data&lt;/h3&gt;
 &lt;p&gt;A telemetry message from Butler contains the information below.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
   &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;ts&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;2021-03-03T11:13:55.862Z&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;
   &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;data&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
     &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;&amp;#34;service&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;butler&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt;

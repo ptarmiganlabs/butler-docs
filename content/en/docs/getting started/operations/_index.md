@@ -12,12 +12,10 @@ This is a placeholder page that shows you how to use this template site.
 
 ## Running Butler
 
-How to start and keep Butler running varies depending on whether you are using Docker or a native Node.js approach.
+How to start Butler varies depending on whether you are using Docker or a native Node.js approach.
 
-{{< tabs tabTotal="2" tabID="1" tabName1="Docker" tabName2="Native Node.js" >}}
-{{< tab tabNum="1" >}}
-
-Starting Butler using Docker is easy.  
+{{< tabpane >}}
+{{< tab header="Docker" >}}
 
 First configure the `docker-compose.yml` file as needed, then start the Docker container in interactive mode (with output sent to the screen).  
 This is useful to ensure everything works as intended when first setting up Butler SOS.
@@ -32,8 +30,8 @@ Then start Butler in deameon (background) mode:
 From here on the Docker enviromment will make sure Butler is always running, including restarting it if it for some reason stops.
 
 {{< /tab >}}
-{{< tab tabNum="2" >}}
-<br>
+{{< tab header="Native Node.js" >}}
+
 Starting Butler as a Node.js on Windows could look like this:  
 
     d:
@@ -41,6 +39,9 @@ Starting Butler as a Node.js on Windows could look like this:
     node butler.js
 
 It is of course also possible to put those commands in a command file (.bat on Windows, .sh etc on other platforms) file and execute that file instead.
+
+{{< /tab >}}
+{{< /tabpane >}}
 
 #### Windows services & process monitors
 
@@ -52,9 +53,6 @@ If running Butler as a Node.js app on Linux, [PM2](https://github.com/Unitech/pm
 
 One caveat with these is that it can be hard to start them (and thus Butler) when a Windows server is rebooted.
 PM2 can be used to solve this challenge in a nice way, more info in [this blog post](https://ptarmiganlabs.com/blog/2017/07/12/monitoring-auto-starting-node-js-services-windows-server). On the other hand - just using Nssm is probably the easiest option for Windows.
-
-{{< /tab >}}
-{{< /tabs >}}
 
 ### Monitoring Butler
 

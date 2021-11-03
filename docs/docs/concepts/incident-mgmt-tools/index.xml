@@ -1,0 +1,144 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler – Incident management tools</title>
+    <link>/docs/concepts/incident-mgmt-tools/</link>
+    <description>Recent content in Incident management tools on Butler</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	  <atom:link href="/docs/concepts/incident-mgmt-tools/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Signl4</title>
+      <link>/docs/concepts/incident-mgmt-tools/signl4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/concepts/incident-mgmt-tools/signl4/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Signl4 offers both an online SaaS service and a mobile app.&lt;/p&gt;
+&lt;p&gt;The concept looks like this:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Alerts (for example an important Sense app fails reloading) are sent to Signl4 using their APIs.&lt;br&gt;
+Using their API an incident is created.&lt;br&gt;
+Butler integrates with these APIs, creating a seamless, almost instantaneous handling of incidents.&lt;/li&gt;
+&lt;li&gt;The incident is assigned to whoever is on duty at that time. This person (or group of people in larger organisations) will be notified via their Signl4 mobile apps.&lt;/li&gt;
+&lt;li&gt;The person on duty can acknowledge that an incident is being looked into and eventually also that the incident has been resolved.&lt;/li&gt;
+&lt;li&gt;If no-one acknowledge the incidient within a configurable time the incident can be escalated.&lt;/li&gt;
+&lt;li&gt;&amp;hellip; and much more.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The &lt;a href=&#34;/docs/getting-started/setup/incident-mgmt-tools/signl4/&#34;&gt;Getting started section&lt;/a&gt; has hands-on instructions for setting up Butler to work with Signl4.&lt;/p&gt;
+&lt;h2 id=&#34;example-qlik-sense-and-signl4-on-android&#34;&gt;Example: Qlik Sense and Signl4 on Android&lt;/h2&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+        &lt;iframe src=&#34;https://www.youtube.com/embed/iC_zbgczvFY?enablejsapi=1&#34;
+                 allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;p&gt;Below are screen shots from an Android phone in which the Signl4 mobile app is installed.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;
+
+
+
+
+
+
+&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 370px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/signl4/signl4-1_hu502bbcd9147e0361bdddf0aa3faaafbc_162998_360x0_resize_q75_catmullrom.jpg&#34; width=&#34;360&#34; height=&#34;792&#34;&gt;
+	
+	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt; Signl4 message on Android lock screen. &lt;/p&gt;
+	&lt;/div&gt;
+	
+&lt;/div&gt;&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+
+&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 370px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/signl4/signl4-2_hu18d79376c456c286601acabdf019b347_136457_360x0_resize_q75_catmullrom.jpg&#34; width=&#34;360&#34; height=&#34;792&#34;&gt;
+	
+	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt; Signl4 message on Android lock screen. &lt;/p&gt;
+	&lt;/div&gt;
+	
+&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+
+
+
+
+
+
+&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 370px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/signl4/signl4-3_hue02c839b75ab4615bab0e8b36a646528_194639_360x0_resize_q75_catmullrom.jpg&#34; width=&#34;360&#34; height=&#34;792&#34;&gt;
+	
+	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt; Overview of incidents. &lt;/p&gt;
+	&lt;/div&gt;
+	
+&lt;/div&gt;&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+
+&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 370px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/signl4/signl4-4_hud28b089d7f22295ea3f275d5a8057818_263046_360x0_resize_q75_catmullrom.jpg&#34; width=&#34;360&#34; height=&#34;792&#34;&gt;
+	
+	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt; List of incidents during past 24 hours. &lt;/p&gt;
+	&lt;/div&gt;
+	
+&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+
+
+
+
+
+
+&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 370px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/signl4/signl4-5_hu43379b6a402b5a8ae5311cc78fccbe5a_143540_360x0_resize_q75_catmullrom.jpg&#34; width=&#34;360&#34; height=&#34;792&#34;&gt;
+	
+	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt; Incident details. &lt;/p&gt;
+	&lt;/div&gt;
+	
+&lt;/div&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

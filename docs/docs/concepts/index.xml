@@ -36,7 +36,9 @@
 
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Remember&lt;/h4&gt;
-Both key and value are strings in Butler&amp;rsquo;s KV store. You must thus make sure to convert your data to strings before creating or updating a KV pair.
+
+    Both key and value are strings in Butler&amp;rsquo;s KV store. You must thus make sure to convert your data to strings before creating or updating a KV pair.
+
 &lt;/div&gt;
 
 &lt;p&gt;There is also an optional, per KV-pair Time To Live (TTL) feature. If used it will auto-delete the KV pair when a certain time has passed from the KV-pair&amp;rsquo;s last update.&lt;/p&gt;
@@ -182,7 +184,7 @@ There&amp;rsquo;s no reason an alert email can&amp;rsquo;t look good!&lt;/p&gt;
 
 
 &lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 283px&#34;&gt;
-	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/alert-emails/reload-fail-alert-email-mobile-1_hu4db7033860926d00b760f31fa6e519f7_495784_600x600_fit_catmullrom_2.png&#34; width=&#34;273&#34; height=&#34;600&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/alert-emails/reload-fail-alert-email-mobile-1_hu4db7033860926d00b760f31fa6e519f7_495784_600x600_fit_catmullrom_3.png&#34; width=&#34;273&#34; height=&#34;600&#34;&gt;
 	
 	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt;Failed reload alert email on mobile home screen.&lt;/p&gt;
@@ -197,7 +199,7 @@ There&amp;rsquo;s no reason an alert email can&amp;rsquo;t look good!&lt;/p&gt;
 
 
 &lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 283px&#34;&gt;
-	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/alert-emails/reload-fail-alert-email-mobile-2_hu00edd26148aa6620913d66039b3ac1b8_473599_600x600_fit_catmullrom_2.png&#34; width=&#34;273&#34; height=&#34;600&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/alert-emails/reload-fail-alert-email-mobile-2_hu00edd26148aa6620913d66039b3ac1b8_473599_600x600_fit_catmullrom_3.png&#34; width=&#34;273&#34; height=&#34;600&#34;&gt;
 	
 	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt;Failed reload alert email viewed on mobile.&lt;/p&gt;
@@ -305,6 +307,85 @@ Each notification destination has its own set of template files. It&amp;rsquo;s 
     </item>
     
     <item>
+      <title>Docs: Starting Sense tasks in style</title>
+      <link>/docs/concepts/start-sense-tasks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/concepts/start-sense-tasks/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;whats-wrong-with-starting-tasks-from-the-qmc&#34;&gt;What&amp;rsquo;s wrong with starting tasks from the QMC?&lt;/h2&gt;
+&lt;p&gt;Nothing really. At least not if starting tasks is considerd a manual activity.&lt;/p&gt;
+&lt;p&gt;There are also scenarios that benefit from automation.&lt;br&gt;
+Consider a Sense environment that gets its data from some source system, for example a financial ERP system.:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sense could poll that source system for data ever so often - or the source system could start the needed tasks when new data is available.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Or simply: Notifications are usually (always?) a better solution than polling for new data.&lt;/p&gt;
+&lt;p&gt;The good news is that Butler includes solid support for starting Sense tasks from 3rd party systems.&lt;/p&gt;
+&lt;p&gt;Below the concept is described on a high level.&lt;br&gt;
+Actual examples are available &lt;a href=&#34;/docs/examples/start-task-from-rest/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;start-tasks-by-ids-tags-and-custom-properties&#34;&gt;Start tasks by IDs, tags and custom properties&lt;/h2&gt;
+&lt;p&gt;Butler&amp;rsquo;s &lt;code&gt;/v4/reloadtask/&amp;lt;taskid&amp;gt;/start&lt;/code&gt; API endpoint is used to start tasks.&lt;br&gt;
+For historical reasons there are two variants: POST and PUT. Both do the exactly the same though.&lt;/p&gt;
+&lt;p&gt;The general idea of this API is&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;One&lt;/strong&gt; task should be started. The task is &lt;strong&gt;identified by its task ID&lt;/strong&gt;.&lt;br&gt;
+Done using just a properly formatted URL. This is usually the most common scenario.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;More than one&lt;/strong&gt; task should be started. The tasks are &lt;strong&gt;identified by their IDs&lt;/strong&gt;.&lt;br&gt;
+The first task can be specified in the URL and the rest in an array in the call&amp;rsquo;s body.&lt;br&gt;
+Or all task IDs can be specified in the call&amp;rsquo;s body.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;One or more tasks&lt;/strong&gt; should be started. The tasks are &lt;strong&gt;identified by tags&lt;/strong&gt; set in the QMC.&lt;br&gt;
+The tags are specified in the call&amp;rsquo;s body.&lt;br&gt;
+All tasks having the tags included in the call will be started.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;One or more tasks&lt;/strong&gt; should be started. The tasks are &lt;strong&gt;identified by custom property values&lt;/strong&gt; set in the QMC.&lt;br&gt;
+Same principle as for tags, but using custom properties instead.&lt;br&gt;
+All tasks having the custom property/value combinations in the call will be started.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Remember&lt;/h4&gt;
+
+    &lt;p&gt;Task IDs are permanent for a specific task, but if tasks are re-created they will get new task IDs.&lt;/p&gt;
+&lt;p&gt;By specifying tasks using tags and/or custom properties instead, the outside systems that need to start tasks don&amp;rsquo;t have to deal with task IDs that may change.&lt;/p&gt;
+&lt;p&gt;Lower risk for issues and less maintenance thus.&lt;/p&gt;
+
+
+&lt;/div&gt;
+
+&lt;h3 id=&#34;start-tasks-by-id&#34;&gt;Start tasks by ID&lt;/h3&gt;
+&lt;p&gt;While this may be the most obvious way to control what task(s) should be started, it requires the caller to know the exact ID of the task of interest.&lt;br&gt;
+If the task for some reason is re-created its ID will change.&lt;/p&gt;
+&lt;p&gt;Still, there are certainly cases where task IDs are relevant and the easiest option to use and set up.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;start-tasks-using-taskid-1.png&#34; alt=&#34;alt text&#34; title=&#34;Finding task IDs in the QMC&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;start-tasks-by-tags&#34;&gt;Start tasks by tags&lt;/h3&gt;
+&lt;p&gt;Given the example below, &lt;strong&gt;a single call&lt;/strong&gt; to Butlers API could start all four of the tasks tagged &lt;code&gt;Butler 5.0 demo&lt;/code&gt;.&lt;br&gt;
+Or the three tasks tagged &lt;code&gt;startTask1&lt;/code&gt;.&lt;br&gt;
+Or all of those tasks, if both tags were passed to the Butler API.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;start-tasks-using-tag-1.png&#34; alt=&#34;alt text&#34; title=&#34;Finding tags in the QMC&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;start-tasks-by-custom-properties&#34;&gt;Start tasks by custom properties&lt;/h3&gt;
+&lt;p&gt;Using custom properties to identify which tasks to start works similarly to how tags are used (see above).&lt;br&gt;
+The main difference is that the caller must know the name of the custom property and at least one of the possible values for that custom property, in order to start the associated task.&lt;/p&gt;
+&lt;p&gt;In the example below, calling the Butler API with parameters &lt;code&gt;taskGroup=tasks2&lt;/code&gt; would result in all tasks having the &lt;code&gt;taskGroup&lt;/code&gt; custom property set to &lt;code&gt;tasks2&lt;/code&gt; to be started.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;start-tasks-using-cp-1.png&#34; alt=&#34;alt text&#34; title=&#34;Finding a task&#39;s custom property values in the QMC&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Incident management tools</title>
+      <link>/docs/concepts/incident-mgmt-tools/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/concepts/incident-mgmt-tools/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: File system access: copy/move/delete files</title>
       <link>/docs/concepts/file-system-access/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -316,9 +397,9 @@ Each notification destination has its own set of template files. It&amp;rsquo;s 
         &lt;h2 id=&#34;unrestricted-file-system-access-is-a-security-risk&#34;&gt;Unrestricted file system access is a security risk&lt;/h2&gt;
 &lt;p&gt;Qlik Sense locked down things quite a bit compared to its QlikView predecessor:&lt;/p&gt;
 &lt;p&gt;In QlikView your app scripts could do almost anything with any file on the server&amp;rsquo;s disks as long as the QlikView service account had access to the file.&lt;br&gt;
-This was not ideal from a security perspective and Qlik Sense therefore introduced the concept of &lt;a href=&#34;https://help.qlik.com/en-US/sense/November2020/Subsystems/Hub/Content/Sense_Hub/LoadData/connect-data-sources-data-load-editor.htm&#34;&gt;folder data connetions&lt;/a&gt; and in general much stricter &lt;a href=&#34;https://help.qlik.com/en-US/sense/November2020/Subsystems/Hub/Content/Sense_Hub/LoadData/file-system-access-restriction.htm&#34;&gt;file system access restrictions&lt;/a&gt;.&lt;/p&gt;
+This was not ideal from a security perspective and Qlik Sense therefore introduced the concept of &lt;a href=&#34;https://help.qlik.com/en-US/sense/August2021/Subsystems/Hub/Content/Sense_Hub/LoadData/connect-data-sources-data-load-editor.htm&#34;&gt;folder data connetions&lt;/a&gt; and in general much stricter &lt;a href=&#34;https://help.qlik.com/en-US/sense/August2021/Subsystems/Hub/Content/Sense_Hub/LoadData/file-system-access-restriction.htm&#34;&gt;file system access restrictions&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;With this change Qlik Sense had a much better position with respect to security, as access to files was now boxed by the folder data connection the access used (by means of lib:// statements).&lt;br&gt;
-It&amp;rsquo;s also possible to &lt;a href=&#34;https://help.qlik.com/en-US/sense/November2020/Subsystems/Hub/Content/Sense_Hub/Scripting/SystemVariables/Include.htm&#34;&gt;include .qvs script files&lt;/a&gt; via the same mechanism.&lt;/p&gt;
+It&amp;rsquo;s also possible to &lt;a href=&#34;https://help.qlik.com/en-US/sense/August2021/Subsystems/Hub/Content/Sense_Hub/Scripting/SystemVariables/Include.htm&#34;&gt;include .qvs script files&lt;/a&gt; via the same mechanism.&lt;/p&gt;
 &lt;p&gt;The problem now is that it&amp;rsquo;s no longer possible to do file level operations on individual or groups of files.&lt;br&gt;
 No more deleting, copying or moving of files from within the load script.&lt;/p&gt;
 &lt;p&gt;Now - there is a per-server setting that disables this new &amp;ldquo;standard mode&amp;rdquo; and reverts back to what&amp;rsquo;s known as &amp;ldquo;legacy mode&amp;rdquo;, which is essentially how QlikView worked (and still works). But then the Sense environment is once again vulerable to badly written or even malicious Sensse apps.&lt;/p&gt;
@@ -327,86 +408,11 @@ No more deleting, copying or moving of files from within the load script.&lt;/p&
 &lt;p&gt;For example, you might have a QVD folder at &lt;code&gt;e:\data\qvd\sales\temp&lt;/code&gt;.&lt;br&gt;
 You also need to remove old QVDs from that folder.&lt;/p&gt;
 &lt;p&gt;This could be done with scheduled BAT/CMD files or PowerShell scripts, but it might be better/more flexible/easier to maintain to drive this cleanup from the load script of a Sense app.&lt;/p&gt;
-&lt;p&gt;The solution: Add &lt;code&gt;e:\data\qvd\sales\temp&lt;/code&gt; to Butler&amp;rsquo;s list of folders in which files can be deleted, then call Butler&amp;rsquo;s &lt;code&gt;/v4/filedelete&lt;/code&gt; &lt;a href=&#34;docs/reference/rest-api/&#34;&gt;API endpoint&lt;/a&gt; from within your app&amp;rsquo;s load script. Done!&lt;/p&gt;
+&lt;p&gt;The solution: Add &lt;code&gt;e:\data\qvd\sales\temp&lt;/code&gt; to Butler&amp;rsquo;s list of folders in which files can be deleted, then call Butler&amp;rsquo;s &lt;code&gt;/v4/filedelete&lt;/code&gt; &lt;a href=&#34;/docs/reference/rest-api/&#34;&gt;API endpoint&lt;/a&gt; from within your app&amp;rsquo;s load script. Done!&lt;/p&gt;
 &lt;h2 id=&#34;convenience-subs&#34;&gt;Convenience subs&lt;/h2&gt;
 &lt;p&gt;Butler includes a set of Subs that make it easy to use the file copy/move/delete APIs.&lt;br&gt;
 These subs are found in &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/docs/sense_script/butler_subs.qvs&#34;&gt;this .qvs file&lt;/a&gt; as well as embedded in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps&#34;&gt;Butler demo app&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The &lt;a href=&#34;/docs/examples&#34;&gt;examples section&lt;/a&gt; shows how to use these subs - or call the Butler APIs directly.&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Session and other user activity events</title>
-      <link>/docs/concepts/log-event-handlers/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/docs/concepts/log-event-handlers/</guid>
-      <description>
-        
-        
-        &lt;p&gt;The features described on this page use the same concept as email notifications on reload failures, i.e. UDP messages sent from Sense to Butler when certain log events occur.&lt;/p&gt;
-&lt;p&gt;A slightly silly - but fun - use of these events is to blink a light when when users open apps, log into Sense etc.&lt;/p&gt;
-&lt;p&gt;Here is a &lt;a href=&#34;https://ptarmiganlabs.com/blog/2017/05/01/let-there-be-blinky-light/&#34;&gt;blog post&lt;/a&gt; describing this, with a video showing what it looks like.&lt;/p&gt;
-&lt;p&gt;Green light, someone opens a Sense app. Red light, someone closes a Sense app.&lt;/p&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-        &lt;iframe src=&#34;https://www.youtube.com/embed/T_IxQYdoqJA?enablejsapi=1&#34;
-                 allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;h2 id=&#34;session-startstop-connection-openclose&#34;&gt;Session start/stop, connection open/close&lt;/h2&gt;
-
-
-&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
-&lt;h4 class=&#34;alert-heading&#34;&gt;Remember&lt;/h4&gt;
-&lt;p&gt;The text below assumes the &lt;a href=&#34;/docs/getting-started/setup/user-events/&#34;&gt;log appenders have been set up&lt;/a&gt; for user activity notifications.&lt;/p&gt;
-&lt;p&gt;Make extra sure the log appender XML file contains the correct IP/port info specified in Butler&amp;rsquo;s UDP server config settings.&lt;/p&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;The user events log appender that&amp;rsquo;s included with Butler (&lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/docs/log4net_user-audit-event/LocalLogConfig.xml&#34;&gt;GitHub link&lt;/a&gt;) captures the following events:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Session start&lt;/strong&gt;: When a user logs into Sense and does not have an already active Sense session open in some other browser tab or window.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Session end&lt;/strong&gt;: When a user has not been active for a while and the session timeout is reached, or when the user logs out.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Connection open&lt;/strong&gt;: When a user opens a new app or does a browser refresh of a Sense app.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Connection close&lt;/strong&gt;: When a user does a browser refresh of a Sense app or closes a browser window or tab in which a Sense app was open.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The response time is usually quite good, typically Butler gets the notifiction from Sense within a few seconds of the actual event taking place.&lt;/p&gt;
-&lt;p&gt;The information sent to Butler is&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Server name where the log message originated.&lt;/li&gt;
-&lt;li&gt;What command is associated with the message (session start/stop, connection open/close).&lt;/li&gt;
-&lt;li&gt;What Sense user directory the associated user belongs to.&lt;/li&gt;
-&lt;li&gt;The username of the associated user.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Butler will then use this information and take either of several possible actions depending on which event was received and settings in Butler&amp;rsquo;s config file.&lt;/p&gt;
-&lt;h3 id=&#34;sample-slack-and-teams-messages&#34;&gt;Sample Slack and Teams messages&lt;/h3&gt;
-&lt;p&gt;Messages sent to Slack and Teams can look like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/user-events-slack-1.png&#34; alt=&#34;alt text&#34; title=&#34;User activity events in Slack&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/user-events-teams-1.png&#34; alt=&#34;alt text&#34; title=&#34;User activity events in Teams&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;enabling-slack-teams-and-mqtt-messages&#34;&gt;Enabling Slack, Teams and MQTT messages&lt;/h2&gt;
-&lt;p&gt;The message destinations can be indidually enabled or disabled.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;To enable Slack messages, &lt;code&gt;Butler.slackNotification.enable&lt;/code&gt; and &lt;code&gt;Butler.slackNotification.userSessionEvents.enable&lt;/code&gt; should both be &lt;code&gt;true&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;To enable Teams messages, &lt;code&gt;Butler.teamsNotification.enable&lt;/code&gt; and &lt;code&gt;Butler.teamsNotification.userSessionEvents.enable&lt;/code&gt; should both be &lt;code&gt;true&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;To enable MQTT messages, &lt;code&gt;Butler.mqttConfig.enable&lt;/code&gt; should be &lt;code&gt;true&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;For Slack and Teams, all messages received from the log appender will be forwarded to the respective destination (assuming the destination is enabled). This means you can modify the appender XML files so that Butler received more/fewer/other messages.&lt;/p&gt;
-&lt;p&gt;The MQTT message is a bit different as it looks at the &amp;ldquo;command&amp;rdquo; field in the UDP message and then publish a MQTT message on topic that depends on which command was received:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&amp;ldquo;Session start&amp;rdquo; events will be published to the topic defined in the &lt;code&gt;Butler.mqttConfig.sessionStartTopic&lt;/code&gt; config setting.&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;Session stop&amp;rdquo; events will be published to the topic defined in the &lt;code&gt;Butler.mqttConfig.sessionStopTopic&lt;/code&gt; config setting.&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;Connection open&amp;rdquo; events will be published to the topic defined in the &lt;code&gt;Butler.mqttConfig.connectionOpenTopic&lt;/code&gt; config setting.&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;Connection close&amp;rdquo; events will be published to the topic defined in the &lt;code&gt;Butler.mqttConfig.connectionCloseTopic&lt;/code&gt; config setting.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://help.qlik.com/en-US/sense-admin/September2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders.htm&#34;&gt;Qlik&amp;rsquo;s documenation&lt;/a&gt; around log appenders and how to hook into the Sense logs is somewhat brief, but does provide a starting point if you want to dive deeper into this topic.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;The main &lt;a href=&#34;https://logging.apache.org/log4net/&#34;&gt;log4net documentation&lt;/a&gt; (log4net is the logging framework used by Qlik Sense Enterprise) can also be useful.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 
       </description>
     </item>
@@ -489,17 +495,6 @@ Options:
 Missing required arguments: i, p
 $
 &lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&#34;testing-the-session-startstop-connection-openclose-udp-server&#34;&gt;Testing the session start/stop, connection open/close UDP server&lt;/h2&gt;
-&lt;p&gt;Sending a message to Butler looks like this (with a fake IP address):&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ node udp_client.js --ip 1.2.3.4 -p 9997 -m &amp;quot;Abc;123;456;test&amp;quot;
-UDP message sent to 1.2.3.4:9997, 16 bytes.
-$   
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Butler will receive the message, parse it, and&lt;br&gt;
-a) send a message to a Slack channel (customizable in the &lt;a href=&#34;/docs/reference/config-file/&#34;&gt;Butler config file&lt;/a&gt;), and&lt;br&gt;
-b) publish a MQTT message to the topic specified in, again, the Butler config file.&lt;/p&gt;
-&lt;p&gt;The output to Slack looks like this (the default use of port 9997 is to handle audit events, i.e. users starting/ending sessions etc):&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;slack_audit_event_test_1.jpg&#34; alt=&#34;alt text&#34; title=&#34;Slack audit event test&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;testing-the-failed-task-udp-server&#34;&gt;Testing the failed task UDP server&lt;/h2&gt;
 &lt;p&gt;Sending a message to port 9998 will test the UDP server responsible for handling task failure messages:&lt;/p&gt;
 &lt;p&gt;Sending a message to Butler looks like this (with a fake IP address):&lt;/p&gt;
@@ -525,34 +520,17 @@ $
         
 
 &lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
-&lt;h4 class=&#34;alert-heading&#34;&gt;Note&lt;/h4&gt;
-&lt;p&gt;Looking for info on number of active Sense users, what apps are loaded into the Sense engine or what warnings and errors are logged by Sense?&lt;/p&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Deprecated feature&lt;/h4&gt;
+
+    &lt;p&gt;Looking for info on number of active Sense users, what apps are loaded into the Sense engine or what warnings and errors are logged by Sense?&lt;/p&gt;
 &lt;p&gt;If yes, you are probably looking for &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34;&gt;Butler SOS&lt;/a&gt;, another open source project in the &lt;a href=&#34;https://github.com/ptarmiganlabs&#34;&gt;Butler family of tools&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The metrics offered by Butler (this tool) are rather basic and has some inherit design issue that have been adressed in Butler SOS.&lt;/p&gt;
 &lt;p&gt;That said, there certainly are cases where Butler&amp;rsquo;s metrics will work fine.&lt;br&gt;
 Take a look at both tools and then decide which suits your needs best. The most common scenario is actually to use both tools: Butler for it&amp;rsquo;s REST API and MQTT integration, and Butler SOS for enterprise grade operational monitoring of Qlik Sense Enterprise.&lt;/p&gt;
 
+
 &lt;/div&gt;
 
-&lt;h2 id=&#34;real-time-data-on-active-user-sessions&#34;&gt;Real time data on active user sessions&lt;/h2&gt;
-&lt;p&gt;Butler listens to session start/end messages from Sense&amp;rsquo;s log4net logging framework, and keeps records of both how many and which users currently have active sessions.&lt;br&gt;
-Ideal would be if the Sense APIs would provide a list of currently active users, that us however currently not available.
-For that reason Butler&amp;rsquo;s tactic is to listen to log events to determine when users start and end sessions.&lt;/p&gt;
-&lt;p&gt;There is however a downside to this approach.&lt;/p&gt;
-&lt;p&gt;When Butler is first started, it will not know what sessions are currently active. Instead, it will collect that inforamation as time passes.&lt;br&gt;
-This means that the active user count, as well as what specific users are active, might be incorrect when Butler is first started.&lt;br&gt;
-The data will then become more and more exact as users end their sessions, and later restart them (Butler will then capture the session restart, and update its data structures accordingly).&lt;/p&gt;
-&lt;p&gt;If there are demands for enterprise grade monitoring of a Qlik Sense environment, the &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com/&#34;&gt;Butler SOS&lt;/a&gt; tool focuses exclusively on this and might be worth looking into.&lt;/p&gt;
-&lt;h2 id=&#34;active-users-data-as-mqtt-messages&#34;&gt;Active users data as MQTT messages&lt;/h2&gt;
-&lt;p&gt;Butler publishes a set of MQTT messages relating to active sessions.&lt;br&gt;
-Whenever a session starts or ends, two MQT messages will be sent:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;The new number for number of active user sessions is posted to the MQTT topic defined by the config entry Butler.mqttConfig.activeUserCountTopic&lt;/li&gt;
-&lt;li&gt;A string array with usernames of all users with active sessions is posted to MQTT topic defined by Butler.mqttConfig.activeUsersTopic&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Making this data available as MQTT messages, it can then be used in real-time dashboards or for alerting purposes.&lt;br&gt;
-For example, using &lt;a href=&#34;https://github.com/node-red/node-red-dashboard&#34;&gt;Node-RED&amp;rsquo;s dashboard module&lt;/a&gt;, it is trivial to create a real-time updating dashboard like this one (showing data for the last few days):&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;active_user_sessions.png&#34; alt=&#34;alt text&#34; title=&#34;Active user sessions&#34;&gt;&lt;/p&gt;
 
       </description>
     </item>

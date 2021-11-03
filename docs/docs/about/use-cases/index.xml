@@ -38,8 +38,10 @@ For example, when Butler was started it wouldn&amp;rsquo;t capture currently act
 
 &lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Tip: Butler SOS&lt;/h4&gt;
-&lt;p&gt;The shortcomings above lead to the creation of the Butler SOS project, which has over the years evolved into a very comprehensive open source tool for professional grade, real-time monitoring of Qlik Sense.&lt;/p&gt;
+
+    &lt;p&gt;The shortcomings above lead to the creation of the Butler SOS project, which has over the years evolved into a very comprehensive open source tool for professional grade, real-time monitoring of Qlik Sense.&lt;/p&gt;
 &lt;p&gt;More information available at &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34;&gt;butler-sos.ptarmiganlabs.com&lt;/a&gt;.&lt;/p&gt;
+
 
 &lt;/div&gt;
 

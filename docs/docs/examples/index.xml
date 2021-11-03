@@ -24,17 +24,21 @@
         
         
         &lt;p&gt;Below are some examples of how Butler&amp;rsquo;s built-in Swagger docs can be used to test-drive the Butler API.&lt;/p&gt;
+&lt;p&gt;Note: Some of the videos below were created with older Butler versions.&lt;br&gt;
+Details may have changed (for example what API parameters are available), the general concepts remain the same though.&lt;/p&gt;
 &lt;h2 id=&#34;openapi-documentation-built-into-butler&#34;&gt;OpenAPI documentation built into Butler&lt;/h2&gt;
 &lt;p&gt;The complete documentation for Butler&amp;rsquo;s REST API is built into Butler itself.
 This means that its very easy to try out and get familiar with the various API endpoints, without having to create Sense apps for everything you want to try out.&lt;/p&gt;
 &lt;p&gt;If Butler&amp;rsquo;s config file contains the settings below, the API will be available at http:192.168.1.168:8080.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;...&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;...&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;restServerConfig&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;enable&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;serverHost&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;192.168.1.168&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;serverPort&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8080&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;...&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In addition to the API endpoints, the API documentation will be available at http://192.168.1.168:8080/docs/swagger. Looks like this:&lt;/p&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In addition to the API endpoints, the API documentation will be available at &lt;a href=&#34;http://192.168.1.168:8080/documentation&#34;&gt;http://192.168.1.168:8080/documentation&lt;/a&gt;.&lt;br&gt;
+The beauty of the Swagger docs is that you can also test drive the API itself. If you have Butler running it&amp;rsquo;s thus super easy to test the various REST API endpoints.&lt;/p&gt;
+&lt;p&gt;The API doc page looks like this:&lt;/p&gt;
 
 
 
@@ -42,8 +46,8 @@ This means that its very easy to try out and get familiar with the various API e
 
 
 
-&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 610px&#34;&gt;
-	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/examples/openapi-docs/openapi-1_hu991cdd886075f51c174b43d04ec8fd5f_405156_600x650_fill_catmullrom_smart1_2.png&#34; width=&#34;600&#34; height=&#34;650&#34;&gt;
+&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 812px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/examples/openapi-docs/openapi-latest-1_hua3038860b6359b9abb1d81d9ee348589_397677_0x650_resize_catmullrom_3.png&#34; width=&#34;802&#34; height=&#34;650&#34;&gt;
 	
 	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt;
@@ -55,12 +59,14 @@ This means that its very easy to try out and get familiar with the various API e
 
 &lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Other tools for exploring APIs&lt;/h4&gt;
-&lt;p&gt;If the OpenAPI interface to Butler&amp;rsquo;s API feels limited, there are lots of tools dedicated to this task.&lt;br&gt;
+
+    &lt;p&gt;If the OpenAPI interface to Butler&amp;rsquo;s API feels limited, there are lots of tools dedicated to this task.&lt;br&gt;
 Two good ones are:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://paw.cloud/&#34;&gt;Paw&lt;/a&gt; is Mac only, costs a bit of money, but is very, very good. Highly recommended.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.postman.com/&#34;&gt;Postman&lt;/a&gt; is also good and cross platform.&lt;/li&gt;
 &lt;/ul&gt;
+
 
 &lt;/div&gt;
 
@@ -114,77 +120,63 @@ One of them fires every 30 seconds and this is also visible in the Butler logs:&
         &lt;p&gt;There are many ways to call REST APIs. In this page curl is used, but the same tests can be done using &lt;a href=&#34;https://paw.cloud/&#34;&gt;Paw&lt;/a&gt;, &lt;a href=&#34;https://www.postman.com/&#34;&gt;Postman&lt;/a&gt; and by using the &lt;a href=&#34;https://help.qlik.com/en-US/connectors/Subsystems/REST_connector_help/Content/Connectors_REST/REST-connector.htm&#34;&gt;REST connector&lt;/a&gt; from within Qlik Sense load scripts.&lt;/p&gt;
 &lt;p&gt;All the examples assume Butler is exposing it&amp;rsquo;s API on 192.168.1.168:8080.&lt;/p&gt;
 &lt;h2 id=&#34;list-all-defined-schedules&#34;&gt;List all defined schedules&lt;/h2&gt;
-&lt;p&gt;Looks like there currently are three schedules:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/schedules&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; json_pp
+&lt;p&gt;Looks like there is currently one schedule:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/schedules&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; json_pp
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;856&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;856&lt;/span&gt;    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   167k      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; --:--:-- --:--:-- --:--:--  167k
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;306&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;306&lt;/span&gt;    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16498&lt;/span&gt;      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; --:--:-- --:--:-- --:--:-- &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;20400&lt;/span&gt;
 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;cronSchedule&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;*/30 * * * * *&amp;#34;&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;task-1&amp;#34;&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;lastKnownState&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;started&amp;#34;&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Every 30 sec&amp;#34;&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;qlikSenseTaskId&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;0fe447a9-ba1f-44a9-ac23-68c3a1d88d8b&amp;#34;&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;startupState&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;started&amp;#34;&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tags&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
-         &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Sales&amp;#34;&lt;/span&gt;,
-         &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;abc 123 åäö&amp;#34;&lt;/span&gt;,
-         &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Transform&amp;#34;&lt;/span&gt;
-      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;timezone&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Europe/Stockholm&amp;#34;&lt;/span&gt;
-   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
-   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;cronSchedule&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;0 */2 * * *&amp;#34;&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;task-2&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;created&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;2021-10-08T07:24:38.373Z&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;cronSchedule&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;* */2 * * *&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;3702cec1-b6c8-463e-bda3-58d6a94dd9ac&amp;#34;&lt;/span&gt;,
       &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;lastKnownState&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;started&amp;#34;&lt;/span&gt;,
       &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Every 2 hours&amp;#34;&lt;/span&gt;,
       &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;qlikSenseTaskId&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;0fe447a9-ba1f-44a9-ac23-68c3a1d88d8b&amp;#34;&lt;/span&gt;,
       &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;startupState&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;started&amp;#34;&lt;/span&gt;,
       &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tags&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
-         &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Finance&amp;#34;&lt;/span&gt;,
-         &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Extract&amp;#34;&lt;/span&gt;
+         &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tag 3&amp;#34;&lt;/span&gt;,
+         &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;abc 123 åäö&amp;#34;&lt;/span&gt;
       &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;,
       &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;timezone&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Europe/London&amp;#34;&lt;/span&gt;
-   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
-   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;cronSchedule&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;0-30/5 6-18 * * 1-5&amp;#34;&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Manually-added-schedule-1&amp;#34;&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;lastKnownState&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;started&amp;#34;&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Every 5th minute from 0 through 30 past every hour from 6 through 18 on every day-of-week from Monday through Friday&amp;#34;&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;qlikSenseTaskId&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;0fe447a9-ba1f-44a9-ac23-68c3a1d88d8b&amp;#34;&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;startupState&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;started&amp;#34;&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tags&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
-         &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;finance ETL&amp;#34;&lt;/span&gt;,
-         &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;weekdays&amp;#34;&lt;/span&gt;
-      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;timezone&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Europe/Paris&amp;#34;&lt;/span&gt;
    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
 ➜  ~
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;get-a-specific-schedule&#34;&gt;Get a specific schedule&lt;/h2&gt;
-&lt;p&gt;Let&amp;rsquo;s take a look at the schedule with id &amp;ldquo;Manually-added-schedule-1&amp;rdquo;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/schedules?id=Manually-added-schedule-1&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; json_pp
+&lt;p&gt;Let&amp;rsquo;s try to get a schedule that doesn&amp;rsquo;t exist:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/schedules?id=Manually-added-schedule-1&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; json_pp
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;366&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;366&lt;/span&gt;    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;   178k      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; --:--:-- --:--:-- --:--:--  178k
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;117&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;117&lt;/span&gt;    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;14563&lt;/span&gt;      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; --:--:-- --:--:-- --:--:-- &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;29250&lt;/span&gt;
 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;cronSchedule&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;0-30/5 6-18 * * 1-5&amp;#34;&lt;/span&gt;,
-   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Manually-added-schedule-1&amp;#34;&lt;/span&gt;,
+   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;error&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Bad Request&amp;#34;&lt;/span&gt;,
+   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;message&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;REST SCHEDULER: Schedule ID Manually-added-schedule-1 not found.&amp;#34;&lt;/span&gt;,
+   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;statusCode&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;400&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+➜  ~
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here&amp;rsquo;s a schedule that &lt;em&gt;does&lt;/em&gt; exist (as per the API call above):&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/schedules?id=3702cec1-b6c8-463e-bda3-58d6a94dd9ac&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; json_pp
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;354&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;354&lt;/span&gt;    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;50499&lt;/span&gt;      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; --:--:-- --:--:-- --:--:--  115k
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;created&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;2021-10-08T07:24:38.373Z&amp;#34;&lt;/span&gt;,
+   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;cronSchedule&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;* */2 * * *&amp;#34;&lt;/span&gt;,
+   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;3702cec1-b6c8-463e-bda3-58d6a94dd9ac&amp;#34;&lt;/span&gt;,
    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;lastKnownState&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;started&amp;#34;&lt;/span&gt;,
-   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Every 5th minute from 0 through 30 past every hour from 6 through 18 on every day-of-week from Monday through Friday&amp;#34;&lt;/span&gt;,
+   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Every 2 hours&amp;#34;&lt;/span&gt;,
    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;qlikSenseTaskId&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;0fe447a9-ba1f-44a9-ac23-68c3a1d88d8b&amp;#34;&lt;/span&gt;,
    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;startupState&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;started&amp;#34;&lt;/span&gt;,
    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tags&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;finance ETL&amp;#34;&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;weekdays&amp;#34;&lt;/span&gt;
+      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tag 3&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;abc 123 åäö&amp;#34;&lt;/span&gt;
    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;,
-   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;timezone&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Europe/Paris&amp;#34;&lt;/span&gt;
+   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;timezone&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Europe/London&amp;#34;&lt;/span&gt;
 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
 ➜  ~
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;add-new-schedule&#34;&gt;Add new schedule&lt;/h2&gt;
 &lt;p&gt;Note how we get back information about the newly created schedule. It&amp;rsquo;s the same data that was sent to the API method, with the addition of schedule id, created timestamp and last known state.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl -X &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;POST&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/schedules&amp;#34;&lt;/span&gt; -H &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;Content-Type: application/json&amp;#39;&lt;/span&gt; -d &lt;span style=&#34;color:#4e9a06&#34;&gt;$&amp;#39;{
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl -X &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;POST&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/schedules&amp;#34;&lt;/span&gt; -H &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;Content-Type: application/json&amp;#39;&lt;/span&gt; -d &lt;span style=&#34;color:#4e9a06&#34;&gt;$&amp;#39;{
 &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  &amp;#34;timezone&amp;#34;: &amp;#34;Europe/Stockholm&amp;#34;,
 &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  &amp;#34;tags&amp;#34;: [
 &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;tag 1&amp;#34;,
@@ -197,11 +189,11 @@ One of them fires every 30 seconds and this is also visible in the Butler logs:&
 &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;}&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; json_pp
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;544&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;307&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;237&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;23615&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;18230&lt;/span&gt; --:--:-- --:--:-- --:--:-- &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;41846&lt;/span&gt;
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;544&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;307&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;237&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;21470&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;16574&lt;/span&gt; --:--:-- --:--:-- --:--:-- &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;49454&lt;/span&gt;
 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;created&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;2020-10-16T15:23:36.957Z&amp;#34;&lt;/span&gt;,
+   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;created&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;2021-10-27T05:15:28.580Z&amp;#34;&lt;/span&gt;,
    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;cronSchedule&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;*/5 * * * * *&amp;#34;&lt;/span&gt;,
-   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fb9b16f1-e2cf-4291-8036-24ef90efa300&amp;#34;&lt;/span&gt;,
+   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;b028d0a2-7116-41bf-b15a-4f01bd126464&amp;#34;&lt;/span&gt;,
    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;lastKnownState&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;started&amp;#34;&lt;/span&gt;,
    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Every 5 sec&amp;#34;&lt;/span&gt;,
    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;qlikSenseTaskId&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;0fe447a9-ba1f-44a9-ac23-68c3a1d88d8b&amp;#34;&lt;/span&gt;,
@@ -217,29 +209,14 @@ One of them fires every 30 seconds and this is also visible in the Butler logs:&
 &lt;p&gt;&lt;img src=&#34;butler-logs-new-schedule-1.png&#34; alt=&#34;alt text&#34; title=&#34;New schedule fires every 5 seconds&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;starting-and-stopping-a-schedule&#34;&gt;Starting and stopping a schedule&lt;/h2&gt;
 &lt;p&gt;Let&amp;rsquo;s stop the schedule we just created:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl -X &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;PUT&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/schedules/fb9b16f1-e2cf-4291-8036-24ef90efa300/stop&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; json_pp
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl -X &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;PUT&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/schedules/b028d0a2-7116-41bf-b15a-4f01bd126464/stop&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; json_pp
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;309&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;309&lt;/span&gt;    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;61800&lt;/span&gt;      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; --:--:-- --:--:-- --:--:-- &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;61800&lt;/span&gt;
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
-   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;created&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;2020-10-16T15:23:36.957Z&amp;#34;&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;cronSchedule&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;*/5 * * * * *&amp;#34;&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fb9b16f1-e2cf-4291-8036-24ef90efa300&amp;#34;&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;lastKnownState&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;stopped&amp;#34;&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Every 5 sec&amp;#34;&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;qlikSenseTaskId&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;0fe447a9-ba1f-44a9-ac23-68c3a1d88d8b&amp;#34;&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;startupState&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;started&amp;#34;&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tags&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
-         &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tag 1&amp;#34;&lt;/span&gt;,
-         &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;abc 123 åäö&amp;#34;&lt;/span&gt;
-      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;,
-      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;timezone&amp;#34;&lt;/span&gt; : &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Europe/Stockholm&amp;#34;&lt;/span&gt;
-   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;246&lt;/span&gt;      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; --:--:-- --:--:-- --:--:--   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;500&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{}&lt;/span&gt;
 ➜  ~
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If we get info about this schedule, it should have &lt;code&gt;lastKnownState&lt;/code&gt;=stopped&amp;hellip; Let&amp;rsquo;s verify.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/schedules?id=fb9b16f1-e2cf-4291-8036-24ef90efa300&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; json_pp
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/schedules?id=fb9b16f1-e2cf-4291-8036-24ef90efa300&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; json_pp
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;307&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;307&lt;/span&gt;    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;    99k      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; --:--:-- --:--:-- --:--:--   99k
@@ -260,7 +237,7 @@ One of them fires every 30 seconds and this is also visible in the Butler logs:&
 ➜  ~
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Great!&lt;/p&gt;
 &lt;p&gt;As a final step, let&amp;rsquo;s start the schedule again, as well as verifying it was successfully started:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl -X &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;PUT&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/schedules/fb9b16f1-e2cf-4291-8036-24ef90efa300/start&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; json_pp
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl -X &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;PUT&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/schedules/fb9b16f1-e2cf-4291-8036-24ef90efa300/start&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; json_pp
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
 &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;309&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;100&lt;/span&gt;   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;309&lt;/span&gt;    &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;77250&lt;/span&gt;      &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt; --:--:-- --:--:-- --:--:-- &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;77250&lt;/span&gt;
@@ -360,7 +337,7 @@ This is done in the script, by adding an extra http header in the call to Butler
 &lt;p&gt;The app has three script sections, each is shown below.&lt;/p&gt;
 &lt;h4 id=&#34;script-section-1-init&#34;&gt;Script section 1: Init&lt;/h4&gt;
 &lt;p&gt;The interesting parts here are the two variables towards the end. These tell the rest of the script where Butler is running.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;SET ThousandSep=&#39;,&#39;;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SET ThousandSep=&#39;,&#39;;
 SET DecimalSep=&#39;.&#39;;
 SET MoneyThousandSep=&#39;,&#39;;
 SET MoneyDecimalSep=&#39;.&#39;;
@@ -386,7 +363,7 @@ let vButlerHost = &#39;192.168.1.168&#39;;
 let vButlerPort = &#39;8080&#39;;
 &lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;script-section-2-sub-definitions&#34;&gt;Script section 2: Sub definitions&lt;/h4&gt;
 &lt;p&gt;Here we define two subs: One to get a bit more friendly looking trace messages, and one that encapsulates the code needed to store key-value pairs in Butler.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;// ------------------------------------------------------------
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// ------------------------------------------------------------
 // ** Time stamped trace messages **
 //
 // Get nice trace lines in the reload log by calling the line with 
@@ -444,7 +421,7 @@ sub AddKeyValue(vNamespace, vKey, vValue, vTimeToLive)
 end sub
 &lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;script-section-3-write-parameters-to-kv-store&#34;&gt;Script section 3: Write parameters to KV store&lt;/h4&gt;
 &lt;p&gt;Finally, the code needed to actually store the parameter in Butler is just a few lines:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;// Create key-value pair in Butler&#39;s key-value store. 
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// Create key-value pair in Butler&#39;s key-value store. 
 
 Call NiceTrace(&#39;---------------------------&#39;)
 Call NiceTrace(&#39;Writing parameter to Butler key-value store. No time-to-live (ttl).&#39;)
@@ -455,7 +432,7 @@ Call NiceTrace(&#39;Namespace=&amp;quot;Reload chain parameter demo&amp;quot;, K
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;app-2&#34;&gt;App 2&lt;/h3&gt;
 &lt;h4 id=&#34;script-section-1-init-1&#34;&gt;Script section 1: Init&lt;/h4&gt;
 &lt;p&gt;Set host and port where Butler is running. Exactly the same script as in App 1.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;SET ThousandSep=&#39;,&#39;;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;SET ThousandSep=&#39;,&#39;;
 SET DecimalSep=&#39;.&#39;;
 SET MoneyThousandSep=&#39;,&#39;;
 SET MoneyDecimalSep=&#39;.&#39;;
@@ -481,7 +458,7 @@ let vButlerHost = &#39;192.168.1.168&#39;;
 let vButlerPort = &#39;8080&#39;;
 &lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;script-section-2-sub-definitions-1&#34;&gt;Script section 2: Sub definitions&lt;/h4&gt;
 &lt;p&gt;Here we define a NiceTrace sub, and a sub for retrieving key-value pairs from Butler.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;// ------------------------------------------------------------
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// ------------------------------------------------------------
 // ** Time stamped trace messages **
 //
 // Get nice trace lines in the reload log by calling the line with
@@ -527,7 +504,7 @@ sub GetKeyValue(vNamespace, vKey, vResultVarName)
 end sub
 &lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;script-section-3-read-parameter-from-kv-store&#34;&gt;Script section 3: Read parameter from KV store&lt;/h4&gt;
 &lt;p&gt;Again, the code needed to interact with the key-value API is pretty compact:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;// Define variable to store the retrieved parameter in
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// Define variable to store the retrieved parameter in
 let vParam1=&#39;&#39;;
 
 Call NiceTrace(&#39;---------------------------&#39;)
@@ -560,7 +537,7 @@ It&amp;rsquo;s thus a good idea to monitor for example how much memory (RAM) too
 &lt;h2 id=&#34;enable-butlers-uptime-monitor&#34;&gt;Enable Butler&amp;rsquo;s uptime monitor&lt;/h2&gt;
 &lt;p&gt;Both he uptime monitor and the logging to InfluxDB must be enabled. Note that there are two settings for this. If your InfluxDB uses authentication you&amp;rsquo;ll need to enable this too in Butler&amp;rsquo;s config file.&lt;/p&gt;
 &lt;p&gt;A snippet from a real-life Butler config file could look like this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Uptime monitor&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Uptime monitor&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;uptimeMonitor&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;enable&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;                    &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Should uptime messages be written to the console and log files?&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;frequency&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;every 15 seconds    &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# https://bunkat.github.io/later/parsers.html&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -600,115 +577,15 @@ It&amp;rsquo;s thus a good idea to monitor for example how much memory (RAM) too
     </item>
     
     <item>
-      <title>Docs: Start Sense tasks using MQTT</title>
-      <link>/docs/examples/start-task-from-mqtt/</link>
+      <title>Docs: Start Sense tasks using Butler APIs</title>
+      <link>/docs/examples/start-task/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/examples/start-task-from-mqtt/</guid>
+      <guid>/docs/examples/start-task/</guid>
       <description>
         
         
-        &lt;h2 id=&#34;use-mqtt-to-start-sense-tasks&#34;&gt;Use MQTT to start Sense tasks&lt;/h2&gt;
-&lt;p&gt;Butler can be configured to listen to a specific MQTT topic (specified in config file property &lt;code&gt;Butler.mqttConfig.taskStartTopic&lt;/code&gt;) and use any message received in that topic as a Sense task ID, which is then started.&lt;/p&gt;
-&lt;p&gt;For example:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;A Sense app, used by end users, relies on data in a source system that talks MQTT (there are &lt;em&gt;lots&lt;/em&gt; of MQTT libraries available, covering most operating systems).&lt;/li&gt;
-&lt;li&gt;The data in the source system can be updated at any time.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;In order to update the Sense app with data the most common approach is to schedule reloads of the Qlik Sense app at certain intervals, i.e. polling the source system.&lt;/p&gt;
-&lt;p&gt;But if the source system instead posts a MQTT message on a well defined topic when new data is available, theat message will trigger the Sense app&amp;rsquo;s reload.&lt;/p&gt;
-&lt;p&gt;This way the Sense app will be updated as quickly as possible after new data is availabe in the source system.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;I.e. the end user will have access to more up-to-date data, compared to the polling based solution.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;requirements-for-starting-tasks-via-mqtt&#34;&gt;Requirements for starting tasks via MQTT&lt;/h2&gt;
-&lt;p&gt;These config file settings must be set up before Butler will use MQTT messages to start tasks:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Connection to MQTT broker (=server):
-&lt;ul&gt;
-&lt;li&gt;Butler.mqttConfig.enable: true&lt;/li&gt;
-&lt;li&gt;Butler.mqttConfig.brokerHost: &lt;IP or host name of MQTT broker&gt;&lt;/li&gt;
-&lt;li&gt;Butler.mqttConfig.brokerPort: &lt;Port where MQTT broker is listening&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;MQTT topics that Butler should subscribe to
-&lt;ul&gt;
-&lt;li&gt;Butler.mqttConfig.subscriptionRootTopic: &amp;lt;Root topic that Butler should subscribe to. Something like &lt;code&gt;qliksense/#&lt;/code&gt;&amp;gt;&lt;/li&gt;
-&lt;li&gt;Butler.mqttConfig.taskStartTopic: &amp;lt;Topic used to start Sense tasks. &lt;em&gt;MUST&lt;/em&gt; be a suptopic to the root topic above!&amp;gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;seeing-is-believing&#34;&gt;Seeing is believing&lt;/h2&gt;
-&lt;p&gt;The video below is available at &lt;a href=&#34;https://www.youtube.com/channel/UCpQblhippq-KfWkXEEYFHTQ&#34;&gt;Ptarmigan Labs&#39; YouTube channel&lt;/a&gt; and also in the &lt;a href=&#34;https://www.youtube.com/playlist?list=PLUuyY5OOOsz3XX5YT2QEwa7dzaBT1kOCP&#34;&gt;Butler playlist&lt;/a&gt;.&lt;/p&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-        &lt;iframe src=&#34;https://www.youtube.com/embed/5m6FPRqhN14?enablejsapi=1&#34;
-                 allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Start Sense tasks using REST API</title>
-      <link>/docs/examples/start-task-from-rest/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/docs/examples/start-task-from-rest/</guid>
-      <description>
         
-        
-        &lt;h2 id=&#34;use-butlers-rest-api-to-start-sense-tasks&#34;&gt;Use Butler&amp;rsquo;s REST API to start Sense tasks&lt;/h2&gt;
-&lt;p&gt;If the Butler config file is properly set up it&amp;rsquo;s possible to start any Sense task by doing a PUT HTTP call to /v4/reloadtask/{taskId}/start endpoint.&lt;/p&gt;
-&lt;p&gt;A great use case is to have upstream systems that feed Qlik Sense with data trigger a Sense task when new data is available.&lt;br&gt;
-That way Sense doesn&amp;rsquo;t have to poll for new data, with less system resources used in both upstream system and in Sense.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;AND&lt;/strong&gt;&lt;/em&gt; users get the new data as quickly as possible!&lt;/p&gt;
-&lt;h3 id=&#34;helper-functions-available-in-qvs-file&#34;&gt;Helper functions available in .qvs file&lt;/h3&gt;
-&lt;p&gt;If you what to start reload tasks from the Sense load script that is easy.&lt;/p&gt;
-&lt;p&gt;Just include the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/docs/sense_script/butler_subs.qvs&#34;&gt;butler_subs.qvs&lt;/a&gt; file from the GitHub release package and you get (among many other things) a helper function that&amp;rsquo;s called &lt;code&gt;StartTask&lt;/code&gt;. It takes a single &lt;code&gt;taskId&lt;/code&gt; parameter,  which means that starting a reload task from an app&amp;rsquo;s load script is as simple as&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Call StartTask(&amp;lt;TaskId&amp;gt;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The general Butler 5.0 demo app &lt;code&gt;Butler 5.0 - demo app (many APIs!).qvf&lt;/code&gt; (&lt;a href=&#34;https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps&#34;&gt;link&lt;/a&gt;) contains such a demo (and many others).&lt;/p&gt;
-&lt;h3 id=&#34;need-to-pass-along-parameters-to-a-task-theres-a-sub-for-that&#34;&gt;Need to pass along parameters to a task? There&amp;rsquo;s a Sub for that!&lt;/h3&gt;
-&lt;p&gt;Sometimes you need to send parameters to a reload task (or rather to the load script of the app associated with the task).&lt;br&gt;
-This can be done by using the &lt;code&gt;StartTask_KeyValue&lt;/code&gt; helper function/Sub.&lt;/p&gt;
-&lt;p&gt;That Sub takes a taskId as parameter (similarly to its &lt;code&gt;StartTask&lt;/code&gt; sibling), but it also takes parameters for a full key-value pair:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Call StartTask_KeyValue(&#39;fbf645f0-0c92-40a4-af9a-6e3eb1d3c35c&#39;, &#39;MyNamespace&#39;, &#39;An important key&#39;, &#39;The value&#39;, 3000)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The parameters are&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;The namespace to store the key-value pair in (required).&lt;/li&gt;
-&lt;li&gt;The key (required).&lt;/li&gt;
-&lt;li&gt;The value (required).&lt;/li&gt;
-&lt;li&gt;An time-to-live valud in milliseconds (optional). When the ttl times out the key-value pair is automatically deleted.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Documentation about Butler&amp;rsquo;s key-value store is available &lt;a href=&#34;/docs/concepts/key-value/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;An example showing how task chaining with parameters can be done using key-values is found &lt;a href=&#34;/docs/examples/reload-chaining/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;requirements-for-starting-tasks-via-rest-api&#34;&gt;Requirements for starting tasks via REST API&lt;/h2&gt;
-&lt;p&gt;These config file settings must be set up before Butler can use the REST API to start tasks:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Connection to Qlik Sense:
-&lt;ul&gt;
-&lt;li&gt;Butler.configQRS.*&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Configure REST server itself:
-&lt;ul&gt;
-&lt;li&gt;Butler.restServerConfig.enable: true&lt;/li&gt;
-&lt;li&gt;Butler.restServerConfig.serverHost: &amp;lt;IP or hostname where Butler&amp;rsquo;s REST server is running&amp;gt;&lt;/li&gt;
-&lt;li&gt;Butler.restServerConfig.serverPort: &lt;Port where Butler is exposing its REST server&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Enable the start task API endpoint
-&lt;ul&gt;
-&lt;li&gt;Butler.restServerEndpointsEnable.senseStartTask: true&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;seeing-is-believing&#34;&gt;Seeing is believing&lt;/h2&gt;
-&lt;p&gt;The video below is available at &lt;a href=&#34;https://www.youtube.com/channel/UCpQblhippq-KfWkXEEYFHTQ&#34;&gt;Ptarmigan Labs&#39; YouTube channel&lt;/a&gt; and also in the &lt;a href=&#34;https://www.youtube.com/playlist?list=PLUuyY5OOOsz3XX5YT2QEwa7dzaBT1kOCP&#34;&gt;Butler playlist&lt;/a&gt;.&lt;/p&gt;
-&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
-        &lt;iframe src=&#34;https://www.youtube.com/embed/5m6FPRqhN14?enablejsapi=1&#34;
-                 allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-
       </description>
     </item>
     
@@ -735,7 +612,7 @@ Make sure the account Butler runs under has the appropriate access to those dire
 &lt;h3 id=&#34;2-add-approved-directories-to-butler-config-file&#34;&gt;2. Add approved directories to Butler config file&lt;/h3&gt;
 &lt;p&gt;The general idea is for each file system operation (copy, move and delete) you can specify in which (or between which) directories that operation should be allowed.&lt;/p&gt;
 &lt;p&gt;For example, let&amp;rsquo;s assume Butler&amp;rsquo;s config file includes this settings (note how both Linux and Windows style paths are supported):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;fileCopyApprovedDirectories&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;fileCopyApprovedDirectories&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;fromDirectory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;/data1/qvd&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;toDirectory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;/data2/qvd_archive&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;- &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;fromDirectory&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;e:\data3\qvd&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -762,7 +639,7 @@ Make sure the account Butler runs under has the appropriate access to those dire
 &lt;p&gt;Described &lt;a href=&#34;/docs/getting-started/setup/data-connections/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;4-call-the-butler-apis-or-use-convenience-subs&#34;&gt;4. Call the Butler APIs or use convenience subs&lt;/h3&gt;
 &lt;p&gt;Using the provided subs is easy:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;// Where is Butler running?
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// Where is Butler running?
 let vButlerHost = &#39;10.11.12.13&#39;;
 let vButlerPort = 8080;
 
@@ -779,7 +656,7 @@ Call MoveFile(&#39;/data7/qvd/a.txt&#39;, &#39;/data8/qvd_archive/a.txt&#39;, &#
 Call MoveFile(&#39;e:\data9\qvd\a.txt&#39;, &#39;e:\data10\qvd_archive\a.txt&#39;, &#39;true&#39;)
 
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If you prefer to call the REST API directly, the DeleteFile sub might provide some inspiration:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;// ------------------------------------------------------------
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// ------------------------------------------------------------
 // ** Delete file **
 //
 // Files can only be deleted in folders (and subfolders of) directories that 

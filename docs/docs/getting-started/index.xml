@@ -30,8 +30,10 @@
 
 &lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Remember!&lt;/h4&gt;
-&lt;p&gt;Individual parts of Butler can be enabled/disabled in the main &lt;a href=&#34;/docs/reference/config-file/&#34;&gt;config file&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;p&gt;Individual parts of Butler can be enabled/disabled in the main &lt;a href=&#34;/docs/reference/config-file/&#34;&gt;config file&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;If you&amp;rsquo;re unsure what each REST API endpoint does, the &lt;a href=&#34;/docs/reference/rest-api/&#34;&gt;API docs&lt;/a&gt; is the place to check.&lt;/p&gt;
+
 
 &lt;/div&gt;
 
@@ -119,24 +121,76 @@ If you run into troubles you can always reach out via the &lt;a href=&#34;https:
 &lt;/div&gt;
  --&gt;
 &lt;h2 id=&#34;running-butler&#34;&gt;Running Butler&lt;/h2&gt;
-&lt;p&gt;How to start and keep Butler running varies depending on whether you are using Docker or a native Node.js approach.&lt;/p&gt;
-&lt;h3 id=&#34;running-under-docker&#34;&gt;Running under Docker&lt;/h3&gt;
-&lt;p&gt;Starting Butler is easy.&lt;br&gt;
-First configure the &lt;code&gt;docker-compose.yml&lt;/code&gt; file as needed, then start the Docker container in interactive mode (with output sent to the screen). This is useful to ensure everything works as intended when first setting up Butler.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;docker-compose up
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Once Butler has been verified to work as intended, hit &lt;code&gt;ctrl-c&lt;/code&gt; to stop it.&lt;br&gt;
-Then start Butler in deameon (background) mode:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;docker-compose up -d
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;From here on the Docker enviromment will make sure Butler is always running, including restarting it if it for some reason stops.&lt;/p&gt;
-&lt;h3 id=&#34;running-as-native-nodejs-app&#34;&gt;Running as native Node.js app&lt;/h3&gt;
-&lt;p&gt;Starting Butler as a Node.js task is easy too:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;d:
-cd \node\butler\src
-node butler.js
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;It is of course also possible to put those commands in a command file (.bat on Windows, .sh etc on other platforms) file and execute that file instead.&lt;/p&gt;
+&lt;p&gt;How to start Butler varies depending on whether you are using Docker or a native Node.js approach.&lt;/p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-1&#34; role=&#34;tablist&#34;&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link active tab-Docker&#34;
+        id=&#34;tabs-1-0-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-1-0&#34; role=&#34;tab&#34; onclick=&#34;handleClick(&amp;#34;Docker&amp;#34;);&#34;
+        aria-controls=&#34;tabs-1-0&#34; aria-selected=&#34;true&#34;&gt;
+        Docker
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
+      &lt;a class=&#34;nav-link tab-Native-Node.js&#34;
+        id=&#34;tabs-1-1-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-1-1&#34; role=&#34;tab&#34; onclick=&#34;handleClick(&amp;#34;Native-Node.js&amp;#34;);&#34;
+        aria-controls=&#34;tabs-1-1&#34; aria-selected=&#34;false&#34;&gt;
+        Native Node.js
+      &lt;/a&gt;
+    &lt;/li&gt;&lt;/ul&gt;
+
+
+&lt;div class=&#34;tab-content&#34; id=&#34;tabs-1-content&#34;&gt;&lt;div class=&#34;tab-pane fade show active&#34;
+        id=&#34;tabs-1-0&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-1-0-tab&#34;&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-en&#34; data-lang=&#34;en&#34;&gt;First configure the `docker-compose.yml` file as needed, then start the Docker container in interactive mode (with output sent to the screen).  
+This is useful to ensure everything works as intended when first setting up Butler SOS.
+
+    docker-compose up
+
+Once Butler has been verified to work as intended, hit `ctrl-c` to stop it.  
+Then start Butler in deameon (background) mode:
+
+    docker-compose up -d
+
+From here on the Docker enviromment will make sure Butler is always running, including restarting it if it for some reason stops.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  &lt;div class=&#34;tab-pane fade&#34;
+        id=&#34;tabs-1-1&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-1-1-tab&#34;&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-en&#34; data-lang=&#34;en&#34;&gt;Starting Butler as a Node.js on Windows could look like this:  
+
+    d:
+    cd \node\butler\src
+    node butler.js
+
+It is of course also possible to put those commands in a command file (.bat on Windows, .sh etc on other platforms) file and execute that file instead.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  
+&lt;/div&gt;
+
 &lt;h4 id=&#34;windows-services--process-monitors&#34;&gt;Windows services &amp;amp; process monitors&lt;/h4&gt;
 &lt;p&gt;As Butler is the kind of service that (probably) should always be running on a server, it makes sense using a Node.js process monitor to keep it alive (if running Butler as a Docker container you get this for free).&lt;/p&gt;
 &lt;p&gt;On Windows you can use the excellent &lt;a href=&#34;https://nssm.cc/&#34;&gt;Nssm&lt;/a&gt; tool to make Butler run as a Windows Service, with all the benefits that follow (can be monitored using operations tools, automatic restarts etc).&lt;/p&gt;
