@@ -23,6 +23,7 @@ weight: 20
 
 *Features*
 
+* Graduate Signl4 (incident mgmt tool) integration from beta to released.
 * Add API endpoint to get low-level scheduler status. [#269](https://github.com/ptarmiganlabs/butler/issues/269)
 * Add API for starting/stopping all schedules. [#261](https://github.com/ptarmiganlabs/butler/issues/261)
 * Add CI test cases for all API endpoints. [#271](https://github.com/ptarmiganlabs/butler/issues/271)
