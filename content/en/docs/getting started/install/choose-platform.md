@@ -28,3 +28,5 @@ If you have access to a **Kubernetes** cluster, that is usually an even better o
 This option means you will first install Node.js on your server of choice, then Butler and it's dependencies.
 
 It works perfectly well and might for many be the easiest way to get started, as you for sure already have a Windows Server for running Qlik Sense Enterprise.
+
+You can use tools like [NSSM](https://nssm.cc) to turn the Butler Node.js app into a Windows servers, or a tool like [PM2](https://pm2.keymetrics.io) to watch over Butler on Linux-ish platforms.

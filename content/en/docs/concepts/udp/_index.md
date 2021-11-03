@@ -28,22 +28,6 @@ Run the app to show its help text (in this case the UDP client is executed on a 
     Missing required arguments: i, p
     $
 
-## Testing the session start/stop, connection open/close UDP server
-
-Sending a message to Butler looks like this (with a fake IP address):
-
-    $ node udp_client.js --ip 1.2.3.4 -p 9997 -m "Abc;123;456;test"
-    UDP message sent to 1.2.3.4:9997, 16 bytes.
-    $   
-
-Butler will receive the message, parse it, and  
-a) send a message to a Slack channel (customizable in the [Butler config file](/docs/reference/config-file/)), and  
-b) publish a MQTT message to the topic specified in, again, the Butler config file.
-
-The output to Slack looks like this (the default use of port 9997 is to handle audit events, i.e. users starting/ending sessions etc):  
-
-![alt text](slack_audit_event_test_1.jpg "Slack audit event test")
-
 ## Testing the failed task UDP server
 
 Sending a message to port 9998 will test the UDP server responsible for handling task failure messages:

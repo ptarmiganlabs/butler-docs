@@ -24,8 +24,11 @@ They are also part of the demo app **Butler 5.2 demo app**, which is also availa
 | ButlerInit | Initializes some data structures used by Butler. Right now there isn't much done in this sub, but this may change in future versions. |
 | GetEnabledButlerAPIEndpoints | Gets a list of which Butler API endpoints are enabled. |
 | ReloadSenseApp | Does a full or partial app reload in the engine. No reload tasks are involved in the actual reload, but when the reload is done different reload tasks can be started depending on whether the reload was successful or not. |
-| StartTask | Start a reload task. Task ID is used to identify which task should be started. Useful for starting reload tasks when certain conditions are met during an app reload. |
+| StartTask_TaskId | TODO Start a reload task. Task ID is used to identify which task should be started. Tasks can also be started based on what tags and/or custom properties they have set. <br>Useful for starting reload tasks when certain conditions are met during an app reload. |
+| StartTask_Tag | TODO Start a reload task. Task ID is used to identify which task should be started. Additional tasks can also be started based on what tags they have set. |
+| StartTask_CustomProperty | TODO Start a reload task. Task ID is used to identify which task should be started. Additional tasks can also be started based on what custom property values they have set. |
 | StartTask_KeyValue | Same as above, but a key-value pair can also be included via the extra parameters. This KV pair is saved in Butler's KV store (assuming it's enabled). Any Sense app (or other system) can then query the KV store for these parameters. It's thus an easy but effective way of passing arbitrary parameters to Sense tasks (or rather to the associated app's load scripts). |
+| StartTask | TODO Start a reload task. Combination of the previous, with full freedom to use any number of task IDs, tags and custom properties to specify what tasks should be started. Any number of key-value pairs can be passed along as parameters.  |
 | CopyFile | Copy a file or directory in a file system that's accessible to Butler and also approved in the config file. |
 | MoveFile | Move a file or directory in a file system that's accessible to Butler and also approved in the config file. |
 | DeleteFile | Delete a file in a file system that's accessible to Butler and also approved in the config file. |

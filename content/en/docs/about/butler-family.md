@@ -5,7 +5,7 @@ weight: 20
 ---
 
 Butler started out with a very specific need to start Sense reloads from outside systems.  
-Over the years a couple of projects have spun off from Butler (for example Butler SOS), and still other projects have been created to solve specific challenges around developing Sense apps (for example the [Butler App Duplicator](https://github.com/ptarmiganlabs/butler-app-duplicator)) or simplifying day 2 operations ([[1](https://www.infoworld.com/article/3442754/why-de-risking-day-2-operations-is-a-smart-business-strategy.html)], [[2](https://dzone.com/articles/defining-day-2-operations)]) in the form of [Butler SOS](https://butler-sos.ptarmiganlabs.com).
+Over the years a few projects (for example Butler SOS, which simplifies day 2 operations ([[1](https://www.infoworld.com/article/3442754/why-de-risking-day-2-operations-is-a-smart-business-strategy.html)], [[2](https://dzone.com/articles/defining-day-2-operations)]) have spun off from the original Butler project, and still other projects have been created from scratch to solve specific challenges around developing Sense apps and running Qlik Sense server environments.
 
 All members of the Butler family are available on [Ptarmigan Labs' GitHub page](https://github.com/ptarmiganlabs).
 
@@ -19,15 +19,30 @@ The original Butler. Offers various utilities that make it easier to develop Sen
 
 ### Butler SOS
 
-Real-time operational metrics for Qlik Sense. A must-have if you are responsible for a Sense environment with more than a dozen or so users. Butler SOS makes it possible to detect and alert on issues as they happen, rather than in retrospect much later.
+Real-time operational metrics for Qlik Sense. A must-have if you are responsible for a Sense environment with more than a dozen or so users.
 
-[butler-sos.ptarmiganlabs.com](https://butler-sos.ptarmiganlabs.com).
+Butler SOS makes it possible to detect and alert on issues as they happen, rather than in retrospect much later.
+
+[butler-sos.ptarmiganlabs.com](https://butler-sos.ptarmiganlabs.com)
+
+### Butler Sheet Icons
+
+Automates the creation of sheet icons for Qlik Sense Enterprise on Windows (QSEoW) applications.
+
+It's a cross platform command line tool which given the correct Sense credentials will take screen shots of all sheets in a Sense app (or all apps on a Sense server!), then create thumbnail versions of those screenshots.  
+Finally those thumbnails will be set as sheet icons.  
+
+No more manual screenshot taking, resizing images, navigating hundreds of sheets in dozens of apps.  
+Start Butler Sheet Icons instead and go get a nice [fika](https://www.swedishfood.com/fika).
+
+[https://github.com/ptarmiganlabs/butler-sheet-icons](https://github.com/ptarmiganlabs/butler-sheet-icons)
 
 ### Butler CW
 
-Butler Cache Warmer. Cache warming is the process of proactively forcing Sense apps to be loaded into RAM, so they are readily available when users open them. Once again - if your Sense environment serve more than a dozen users, you should consider a cache warming tool.
+Butler Cache Warmer. Cache warming is the process of proactively forcing Sense apps to be loaded into RAM, so they are readily available when users open them.  
+Using Butler CW is an easy way to make your end users' experience of Sense a little better.
 
-[github.com/ptarmiganlabs/butler-cw](https://github.com/ptarmiganlabs/butler-cw).
+[github.com/ptarmiganlabs/butler-cw](https://github.com/ptarmiganlabs/butler-cw)
 
 ### Butler App Duplicator
 
@@ -56,7 +71,7 @@ This tool makes it easy to tap into the Qlik Sense notification API. From there 
 ### Butler Icon Uploader
 
 Visual looks is important when it comes to analytics, and this holds true also for Sense apps.
-The Butler Icon Uploader makes it easy to upload icon libraries (for example Font Awesome) to Qlik Sense Enterprise.  
-With such icons available it is then easy for app developers to use professional quality sheet and app icons in their Sense apps.
+
+The Butler Icon Uploader makes it easy to upload icon libraries (for example Font Awesome) to Qlik Sense Enterprise. With such icons available it is then easy for app developers to use professional quality sheet and app icons in their Sense apps.
 
 [github.com/ptarmiganlabs/butler-icon-upload](https://github.com/ptarmiganlabs/butler-icon-upload)

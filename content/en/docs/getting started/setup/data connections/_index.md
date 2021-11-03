@@ -8,7 +8,6 @@ description: >
   A couple of them are mandatory, one is optional.
 ---
 
-
 Two mandatory data connections must be created: `Butler_GET` and `Butler_POST`.
 
 The latter is used both for POST calls and also PUT, DELETE and other HTTP operations.  
@@ -42,21 +41,25 @@ As with all new data connections, Sense will change the name your new connection
 These settings are mandatory if you plan to use Butler's REST API from the load scripts of Sense apps.
 {{% /alert %}}
 
-
 With Butler running, create a new REST data connection called "Butler_GET".  
 It's URL should point to Butler's host/port.
 
 When createing REST data connections it's always a good idea to verify they work.  
 Using the `/v4/butlerping` endpoint is an easy way to do this (assuming that endpoint is enabled in Butler's config file):
 
-![Creating the Butler_GET data connection](butler_get-1.png "Creating the Butler_GET data connection")  
+Creating the data connection can look like this:
+
+|   |   |
+|:-:|:-:|
+| ![Creating the Butler_GET data connection](butler_get-1.png "Creating the Butler_GET data connection") | ![Creating the Butler_GET data connection](butler_get-2.png "Creating the Butler_GET data connection") |
+| ![Creating the Butler_GET data connection](butler_get-3.png "Creating the Butler_GET data connection") | ![Creating the Butler_GET data connection](butler_get-4.png "Creating the Butler_GET data connection") |
 
 No special settings are needed - just make sure the REST connector finds Butler as it should.  
 The actual URL of the data connection will be modified on the fly every time you call the Butler APIs, it's thus not really important which URL is entered during the setup phase. But the `/v4/butlerping` endpoint is a conveneint way to check that the data connection works.
 
 Test the connection before creating it:
 
-![Testing the Butler_GET data connection](butler_get-2.png "Testing the Butler_GET data connection")  
+![Testing the Butler_GET data connection](butler_get_connection-test-succeeded-1.png "Testing the Butler_GET data connection")  
 
 {{% alert title="Remember!" color="warning" %}}
 As with all new data connections, Sense will change the name your new connection (adding your username as a suffix).  
@@ -85,15 +88,12 @@ The fact that is was created against the key-value store doesn't matter, the dat
 }
 ```
 
-![Creating the Butler_POST data connection 1](butler_post-1.png "Creating the Butler_POST data connection 1")  
+Creating the data connection can look like this:
 
-<hr>
-
-![Creating the Butler_POST data connection 2](butler_post-2.png "Creating the Butler_POST data connection 2")  
-
-<hr>
-
-![Creating the Butler_POST data connection 3](butler_post-2.png "Creating the Butler_POST data connection 3")  
+|   |   |
+|:-:|:-:|
+| ![Creating the Butler_POST data connection](butler_post-1.png "Creating the Butler_POST data connection") | ![Creating the Butler_POST data connection](butler_post-2.png "Creating the Butler_POST data connection") |
+| ![Creating the Butler_POST data connection](butler_post-3.png "Creating the Butler_POST data connection") | ![Creating the Butler_POST data connection](butler_post-4.png "Creating the Butler_POST data connection") |
 
 ... and test the connection before creting it.
 

@@ -23,8 +23,8 @@ Butler:
 
   # Logging configuration
   logLevel: info          # Log level. Possible log levels are silly, debug, verbose, info, warn, error
-  fileLogging: false       # true/false to enable/disable logging to disk file
-  logDirectory: log      # Directory where log files are stored (no trailing / )
+  fileLogging: false      # true/false to enable/disable logging to disk file
+  logDirectory: log       # Directory where log files are stored (no trailing / )
   anonTelemetry: true     # Can Butler send anonymous telemetry data? 
                           # More info on whata data is collected: https://butler.ptarmiganlabs.com/docs/about/telemetry/
                           # Please consider leaving this at true - it really helps future development of Butler!
@@ -72,14 +72,6 @@ Butler:
   # Settings for notifications and messages sent to MS Teams
   teamsNotification:
     enable: false
-    userSessionEvents:
-      enable: false
-      webhookURL: <web hook URL from MS Teams>
-      excludeUser:
-        - directory: <Sense user directory>
-          userId: <userId>
-        - directory: <Sense user directory>
-          userId: <userId>
     reloadTaskFailure:
       enable: false
       webhookURL: <web hook URL from MS Teams>
@@ -105,17 +97,6 @@ Butler:
     restMessage:
       enable: false
       webhookURL: <web hook URL from Slack>
-    userSessionEvents:
-      enable: false
-      webhookURL: <web hook URL from Slack>
-      channel: sense-user-activity    # Slack channel to which user activity data is sent
-      fromUser: Qlik Sense
-      iconEmoji: ':thumbsup:'
-      excludeUser:
-        - directory: <Sense user directory>
-          userId: <userId>
-        - directory: <Sense user directory>
-          userId: <userId>
     reloadTaskFailure:
       enable: false
       webhookURL: <web hook URL from Slack>
@@ -217,6 +198,24 @@ Butler:
         user: <Username, email address etc>
         password: <your-secret-password>
 
+  # Incident management tools integration
+  # Used to trigger incidents in these tools when task reloads fail or are aborted.
+  incidentTool:
+    signl4:
+      enable: false               # Enable/disable Signl4 integration as a whole
+      url: https://connect.signl4.com/webhook/abcde12345
+      reloadTaskFailure:
+        enable: false             # Enable/disable reload failed handling in Signl4
+        rateLimit: 15             # Min seconds between emails for a given taskID. Defaults to 5 minutes
+        serviceName: Qlik Sense   # Signl4 "service name" to use
+        severity: 1               # Signl4 severity level for failed reloads
+      reloadTaskAborted:
+        enable: false             # Enable/disable reload aborted handling in Signl4
+        rateLimit: 15             # Min seconds between emails for a given taskID. Defaults to 5 minutes
+        serviceName: Qlik Sense   # Signl4 "service name" to use
+        severity: 10              # Signl4 severity level for aborted reloads
+
+
   # Settings for notifications and messages sent using outgoing webhooks
   webhookNotification:
     enable: false
@@ -268,24 +267,17 @@ Butler:
     taskFailureServerStatusTopic: qliksense/butler/task_failure_server
     taskAbortedTopic: qliksense/task_aborted
     taskAbortedFullTopic: qliksense/task_aborted_full
-    sessionStartTopic: qliksense/session/start
-    sessionStopTopic: qliksense/session/stop
-    connectionOpenTopic: qliksense/connection/open
-    connectionCloseTopic: qliksense/connection/close
-    sessionServerStatusTopic: qliksense/butler/session_server
-    activeUserCountTopic: qliksense/users/active/count
-    activeUsersTopic: qliksense/users/active/usernames
 
   udpServerConfig:
-    enable: false                                     # Should the UDP server responsible for receving task failure and session events be started?
+    enable: false                                     # Should the UDP server responsible for receving task failure/aborted events be started?
     serverHost: <FQDN or IP (or localhost) of server where Butler is running>
-    portSessionConnectionEvents: 9997
     portTaskFailure: 9998
 
   restServerConfig:
     enable: false                                     # Should Butler's REST API be started? Must be true if *any* API endpoints are to be used.
-    serverHost: <FQDN or IP (or localhost) of server where Butler is running>
-    serverPort: 8080
+    serverHost: <FQDN or IP (or localhost) of server where Butler is running>   # Use 0.0.0.0 to listen on all network interfaces (e.g. when running in Docker!).
+    serverPort: 8080                                  # Port where Butler's REST is available. Any free port on the server where Butler is running can bse used.
+    backgroundServerPort: 8081                        # Port used internally by Butle's REST API. Any free port on the server where Butler is running can bse used.
 
   # List of directories between which file copying via the REST API can be done.
   # Butler will try to clean up messy paths like this one, which resolves to /Users/goran/butler-test-dir1
@@ -316,8 +308,6 @@ Butler:
   
   # Enable/disable individual REST API endpoints. Set config item below to true to enable that endpoint.
   restServerEndpointsEnable:
-    activeUserCount: false
-    activeUsers: false
     apiListEnbledEndpoints: false
     base62ToBase16: false
     base16ToBase62: false
@@ -361,23 +351,22 @@ Butler:
     useSSL: true
     headers:
       X-Qlik-User: UserDirectory=Internal;UserId=sa_repository
-    rejectUnauthorized: false
+    rejectUnauthorized: false       # Set to false to ignore warnings/errors caused by Qlik Sense's self-signed certificates.
+                                    # Set to true if the Qlik Sense root CA is available on the computer where Butler SOS is running.
 
   configQRS:
     authentication: certificates
     host: <FQDN or IP of Sense server where QRS is running>
     useSSL: true
     port: 4242
-    headerKey: X-Qlik-User
-    headerValue: UserDirectory=Internal; UserId=sa_repository
+    headerKey: X-Qlik-User                                      # Header used to identify what user connection to QRS is made as
+    headerValue: UserDirectory=Internal; UserId=sa_repository   # What user connection to QRS is made as
+    rejectUnauthorized: false       # Set to false to ignore warnings/errors caused by Qlik Sense's self-signed certificates.
+                                    # Set to true if the Qlik Sense root CA is available on the computer where Butler SOS is running.
 
   configDirectories:
     # enableirectoryCreation: false
     qvdPath: <Path to folder under which QVDs are stored>
-
-  gitHub:
-    host: api.github.com
-    pathPrefix: ''
 ```
 
 ### Comments

@@ -20,7 +20,7 @@ Put differently: Butler's scheduler is great for kicking off the first step if r
 | Tasks should run only some days of the month/wek (ex 1st day of the month or on Wednesdays and Fridays). | Yes | Yes |
 | Tasks should run only between certain hours during the day (e.g. every 5 minutes during the first 30 minutes of each hour, between 08.00 and 18.00). | Yes, with lots of manual work | Yes |
 | Tasks can be chained together, with one task starting when the previous has finished.  | Yes | - |
-| Tasks definitions can be stored in Git and managed by a DevOps workflow. | Yes, with lots of work. | Yes, out of the box |
+| Task definitions can be stored in Git and managed by a DevOps workflow. | Yes, with lots of work. | Yes, out of the box |
 
 ### Schedules
 

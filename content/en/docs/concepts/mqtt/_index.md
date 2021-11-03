@@ -1,7 +1,7 @@
 ---
 title: "MQTT integration"
 linkTitle: "MQTT integration"
-weight: 50
+weight: 150
 description: >
   Details about how Qlik Sense can use Butler to send pub-sub messages using MQTT.
 ---

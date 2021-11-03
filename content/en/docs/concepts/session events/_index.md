@@ -1,7 +1,8 @@
 ---
 title: 'Session and other user activity events'
 linkTitle: 'Session events'
-weight: 40
+weight: 140
+draft: true
 description: >
     Somewhat of a nieche use case, but still interesting:  
     

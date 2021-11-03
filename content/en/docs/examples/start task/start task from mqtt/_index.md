@@ -1,7 +1,7 @@
 ---
 title: "Start Sense tasks using MQTT"
-linkTitle: "MQTT starting Sense tasks"
-weight: 50
+linkTitle: "MQTT"
+weight: 20
 description: >
   
 ---

@@ -17,7 +17,7 @@ What | Comment
 ---- | -------
 Qlik Sense Enterprise on Windows | *Mandatory.* Butler is developed with Qlik Sense Enterprise on Windows (QSEoW) in mind. <br>While some Butler features might also work with Sense Desktop or Sense cloud, you are on your own there.
 Node.js | *Mandatory.* Butler is written in Node - which is thus a firm requirement.
-MQTT broker | *Optional.* MQTT is used for both in- and out-bound pub-sub messaging. Butler assumes a working MQTT broker is available, the IP of which is defined in the Butler config file. Mosquitto is a nice open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/... instance is enough, if you want a dedicated MQTT server. If you don't care about the pubsub features of Butler, you don't need a MQTT broker. In this case you can disable the MQTT features in the config YAML file.
+MQTT broker | *Optional.* MQTT is used for both in- and out-bound pub-sub messaging. Butler assumes a working MQTT broker is available, the IP of which is defined in the Butler config file. [Mosquitto](https://mosquitto.org/) is a great open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/... instance is enough, if you want a dedicated MQTT server. If you don't care about the pubsub features of Butler, you don't need a MQTT broker. In this case you can disable the MQTT features in the config YAML file.
 | [InfluxDB](https://www.influxdata.com/time-series-platform/) | *Optional.* A database for realtime information, used to store metrics around Butler's own memory usage over time (if this feature is enabled). |
 
 ## Installation steps
@@ -37,7 +37,10 @@ Additional information is found on the [Day 2 operations](/docs/getting-started/
     The bottom line is that Butler can run on any server, as long as there is network connectivity to the Sense server(s).  
 
 * **Download Butler**  
-    Download the repository zip from the [releases page](https://github.com/ptarmiganlabs/butler/releases) file or clone the Butler repository using your git tool of choice. Both options achieve the same thing, i.e. a directory such as d:\node\butler, which is then Butler's root directory.  
+    Download the repository zip from the [releases page](https://github.com/ptarmiganlabs/butler/releases).
+
+    Do not just clone the Butler repository as that will give you the latest development version, which may not yet be fully tested and packaged.  
+    The exception is of course if you want to contribute to Butler development - then forking and cloning the repository is the right thing to do.
 
 * **Install node dependencies**  
     From a Windows command prompt (assuming the Butler ZIP file/repository was saved to d:\\node\\butler):  

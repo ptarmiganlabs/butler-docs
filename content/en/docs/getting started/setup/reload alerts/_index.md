@@ -48,19 +48,19 @@ By adding a carefully crafted .xml file in the right location on the Sense serve
 
 So what happens when a scheduled reload task fails? Let's look at the steps:
 
-1. A reload task is started by the Sense scheduler, either on a time schedule, as a result of some other task(s) finishing or manually by a user in the QMC.
+1. A reload task is started by the Sense scheduler, either on a time schedule, as a result of some other task(s) finishing or manually by a user in the QMC or from the Hub.
 
-2. When the task's state changes, entries are written to the scheduler log files using log4net (which is built into Qlik Sense). If the filter defined in the log appender (= the .xml file on the Sense server) matches the log entry at hand, the associated action in the log appender will be carried out.
+2. When the task's state changes, entries are written to the Sense scheduler's log files using log4net (which is built into Qlik Sense). If the filter defined in the log appender (= the .xml file on the Sense server) matches the log entry at hand, the associated action in the log appender will be carried out.
 
 3. Log appenders can do all kinds of things, everything from writing custom log files, sending basic emails, writing to databases and [much more](https://help.qlik.com/en-US/sense-admin/November2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders-QSRollingFileAppender-Built-in-Appenders.htm). Here we're interested in the log appender sending a UDP message from Qlik Sense to Butler.
 
 4. The log appender provided as part of Butler will make log4net send a UDP message to Butler, including various info about the reload task that just failed or was stopped/aborted.
 
 5. Butler will look at the incoming event and determine what it is about.  
-   For example: Is the event about a reload task failure, a reload that has been aborted/stopped, end user sessions starting/stopping, connections to the Sense engine opening/closing etc.  
-   Butler thus first works as a dispatcher that as in a second step sends the event to the relevant handler function within Butler.
+   For example: Is the event about a reload task failure, a reload that has been aborted/stopped, or something else?  
+   Butler thus first works as a dispatcher. In a second, after the initial dispatch, the event is sent to the relevant handler function within Butler.
 
-Response times are usually very good - Butler will typically get the UDP message within a few seconds, with alerts going out shortly thereafter. You are thus looking at close to real-time alerts.
+Response times are usually very good - Butler will typically get the UDP message within a few seconds, with alerts going out shortly thereafter.
 
 ## Adding a log appender
 
@@ -71,7 +71,7 @@ The steps are:
 
 1. In this case you want to be notified when certain events occur in the *scheduler* log files.  
 
-   This is important: Qlik Sense Enterprise on Windows consists of many different subsystems (engine, proxy, scheduler, printing etc) - here you're interested in log events from the *scheduler* subsystem. 
+   This is important: Qlik Sense Enterprise on Windows consists of many different subsystems (engine, proxy, scheduler, printing etc) - here you're interested in log events from the *scheduler* subsystem.
 
    Add a file `LocalLogConfig.xml` in the `C:\ProgramData\Qlik\Sense\Scheduler` folder on the Sense server whose scheduler you want to get events from. If you have multiple Sense servers with schedulers running on them, the .xml file should be deployed on each server (assuming you want events from all the servers).
 

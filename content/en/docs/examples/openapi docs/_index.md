@@ -10,6 +10,9 @@ description: >
 
 Below are some examples of how Butler's built-in Swagger docs can be used to test-drive the Butler API.
 
+Note: Some of the videos below were created with older Butler versions.  
+Details may have changed (for example what API parameters are available), the general concepts remain the same though.
+
 ## OpenAPI documentation built into Butler
 
 The complete documentation for Butler's REST API is built into Butler itself.
@@ -26,9 +29,12 @@ If Butler's config file contains the settings below, the API will be available a
   ...
   ```
 
-In addition to the API endpoints, the API documentation will be available at http://192.168.1.168:8080/docs/swagger. Looks like this:
+In addition to the API endpoints, the API documentation will be available at [http://192.168.1.168:8080/documentation](http://192.168.1.168:8080/documentation).  
+The beauty of the Swagger docs is that you can also test drive the API itself. If you have Butler running it's thus super easy to test the various REST API endpoints.
 
-{{< imgproc openapi-1 Fill "600x650" >}}
+The API doc page looks like this:
+
+{{< imgproc openapi-latest-1 Resize "x650" >}}
 {{< /imgproc >}}
 
 {{% alert title="Other tools for exploring APIs" color="info" %}}

@@ -50,7 +50,7 @@ The schedule file contains an array of zero or more schedule entries.
 * The `id` property must be unique. If a schedule is created using the API, the schedule id will be a GUID - but any unique string can be used.
 * `startupState` determines whether the schedule will be started or remain stopped when Butler starts.
 * `lastKnownState` is the the schedule's last known state (running/stopped) known to Butler at the time when the schedule file was written to disk.
-* `tags` are purely are way to categorise schedules. Not used by Butler in any way.
+* `tags` are purely are way to categorise schedules. Not used by Butler in any way, nor are they related to Qlik Sense tags in any way.
 
 A 6 postition schedule that starts a task every 30 seconds can look like this:
 

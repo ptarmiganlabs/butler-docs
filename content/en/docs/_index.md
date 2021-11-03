@@ -9,19 +9,71 @@ weight: 20
 
 
 {{% pageinfo %}}
+### What's new in version 7.0
+
+**⚠️ Breaking changes**
+
+* Make property names returned from reloadtask call consistent. [#279](https://github.com/ptarmiganlabs/butler/issues/279)
+* Incorrect return code when creating schedule. [#277](https://github.com/ptarmiganlabs/butler/issues/277)
+* Remove session/connection monitoring feature. These features have been moved to the [Butler SOS](https://butler-sos.ptarmiganlabs.com) tool. [#254](https://github.com/ptarmiganlabs/butler/issues/254)
+* Return 201 + appId in body, to better align with REST API best practices. [#267](https://github.com/ptarmiganlabs/butler/issues/267)
+* Return 201 vs 200 after creating KV entry, to better align with REST API best practices. [#264](https://github.com/ptarmiganlabs/butler/issues/264)
+
+**Other changes**
+
+*Features*
+
+* Add API endpoint to get low-level scheduler status. [#269](https://github.com/ptarmiganlabs/butler/issues/269)
+* Add API for starting/stopping all schedules. [#261](https://github.com/ptarmiganlabs/butler/issues/261)
+* Add CI test cases for all API endpoints. [#271](https://github.com/ptarmiganlabs/butler/issues/271)
+
+*Bug fixes*
+
+* Consistent re-write of remoteIp in http response. [#256](https://github.com/ptarmiganlabs/butler/issues/256)
+* Consistent return body when starting task. [#266](https://github.com/ptarmiganlabs/butler/issues/266)
+* Correct error msg when getting app owner. [#181](https://github.com/ptarmiganlabs/butler/issues/181)
+* Docker healthcheck working again. [#255](https://github.com/ptarmiganlabs/butler/issues/255)
+* File copy/move APIs now respect options `preserveTimestamp` and `overwrite`. #[263](https://github.com/ptarmiganlabs/butler/issues/263)
+* Return proper JSON from successful API calls. Refactoring the API code in v6.0 introduced a bug, causing empty responses from successful calls to some API endpoints. [#260](https://github.com/ptarmiganlabs/butler/issues/260)
+* Sort API endpoints in docs alphabetically. [#268](https://github.com/ptarmiganlabs/butler/issues/268)
+
+*Other*
+
+* Various documentation updates
+* Updated dependencies to latest versions to keep Butler safe and secure
+* Applied consistent source code formatting across the entire project
+
+### What's new in version 6.1
+
+* Fixed too verbose logging of calls to the REST API. [#240](https://github.com/ptarmiganlabs/butler/issues/240)
+* Add POST variant of start task API endpoint. [#185](https://github.com/ptarmiganlabs/butler/issues/185)
+* Start multiple tasks with a single API call. [#183](https://github.com/ptarmiganlabs/butler/issues/183)
+* Start all tasks that have a certain Qlik Sense task set. [#243](https://github.com/ptarmiganlabs/butler/issues/243)
+* Start all tasks that have a certain Qlik Sense custom property set to a specific value. [#244](https://github.com/ptarmiganlabs/butler/issues/244)
+* Fix bug that caused starting tasks to fail in previous version of Butler. [#241](https://github.com/ptarmiganlabs/butler/issues/241)
+* Change logging so that the IP of the client calling the REST API is logged, instead of the IP of the host where Butler is running. [#242](https://github.com/ptarmiganlabs/butler/issues/242)
+* Update dependencies.
+
+### What's new in version 6.0
+
+* **⚠️ Breaking change:** Changed http response codes for some REST API endpoints, where those were not following general best practices. [#210](https://github.com/ptarmiganlabs/butler/issues/210), [#216](https://github.com/ptarmiganlabs/butler/issues/216)
+* **⚠️ Breaking change:** Fixed bug where MQTT message parameters were taken from URL instead of from the body of the API call. [#217](https://github.com/ptarmiganlabs/butler/issues/217)
+* Total re-write of the entire REST API. [#208](https://github.com/ptarmiganlabs/butler/issues/208), [#211](https://github.com/ptarmiganlabs/butler/issues/211), [#213](https://github.com/ptarmiganlabs/butler/issues/213)
+* Add Butler version number in response from ping endpoint. [#209](https://github.com/ptarmiganlabs/butler/issues/209)
+* New, more flexible, reliable and scalable process (using GitHub Actions) for building Docker images. [#77](https://github.com/ptarmiganlabs/butler/issues/77), [#187](https://github.com/ptarmiganlabs/butler/issues/187)
+* Include more info in error messages from the REST API. [#224](https://github.com/ptarmiganlabs/butler/issues/224)
+* Make validation of Qlik Sense certificates optional. [#192](https://github.com/ptarmiganlabs/butler/issues/192)
+* Fixed bug where key-value namespace wasn't properly deleted even when instructed to do this via REST API. [#222](https://github.com/ptarmiganlabs/butler/issues/222)
 
 ### What's new in version 5.4
 
 * Fixed bug occuring when the start-task API was called with an empty PUT body. [#157](https://github.com/ptarmiganlabs/butler/issues/157)
-
 * [Improved documentation](/docs/getting-started/setup/data-connections/) around the Sense data connections that Butler needs. [#160](https://github.com/ptarmiganlabs/butler/issues/160), [#156](https://github.com/ptarmiganlabs/butler/issues/156).
-
 * Clarified that [Butler requires InfluxDB 1.x](/docs/getting-started/install/). InfluxDB 2.x is great, but bring breaking features wrt Butler. [#159](https://github.com/ptarmiganlabs/butler/issues/159).
 
 ### What's new in version 5.3
 
 * Added a new API endpoint for listing all keys in a [key-value](http://localhost:1313/docs/concepts/key-value/) namespace.  [#150](https://github.com/ptarmiganlabs/butler/issues/150).
-
 * Fixed a bug where Butler would not start properly if there were empty config sections in the YAML config file. Butler is now more tolerant against slightly incorrectly formatted config files. [#152](https://github.com/ptarmiganlabs/butler/issues/152).
 
 ### What's new in version 5.2
@@ -32,13 +84,9 @@ weight: 20
 ### What's new in version 5.1
 
 * First version of **telemetry** added to Butler ([#142](https://github.com/ptarmiganlabs/butler/issues/142)). More info [here](/docs/about/telemetry).
-
 * Fixed bug [#143](https://github.com/ptarmiganlabs/butler/issues/143).
-
 * Show high level system info when starting Butler ([#140](https://github.com/ptarmiganlabs/butler/issues/140)).
-
 * Don't waste memory when MQTT is not used: Fixed [#139](https://github.com/ptarmiganlabs/butler/issues/139).
-
 * Refined the documentation, fixed typos and updated dependencies. The usual stuff that comes with every release.
 
 ### What's new in version 5.0
@@ -47,11 +95,8 @@ weight: 20
   Task failure alerts for these channels now use the same advanced templating solution that's already available for Butler's email notifications. This is in many ways a milestone as it brings a new level of reload alerts to Qlik Sense Enterprise.  
   The downside is that the Slack and Teams settings in Butler's config file have been changed in a breaking way - **make sure to update the config file** as needed when upgrading Butler.  
   Due to the breaking nature of the config file changes, the version number was [bumped to 5.0 rather than 4.4](/docs/about/versioning/).
-
 * Added a **new API endpoint for doing app reloads**. Both full and partial reloads are supported. When the app has reloaded, a one or more reload tasks can be started based on whether the app reload completed successfully or not.
-
 * Added new API endpoints for **listing all apps** in the Sense server, as well as **extracting metadata for a specific app**. Those features have been available in Butler for many years, they just get a couple of new endpoints that better align with Butler's current API naming standard.
-
 * Refined **user session monitoring**. The previous XML appender file provided by Butler was too generous and passed on too many user activity events to Butler. The new appender files provide a tighter/more relevant filtering and only returns session start/stop events to Butler (from which this info can be sent to Slack or MS Teams).
 
 ### What's new in version 4.3

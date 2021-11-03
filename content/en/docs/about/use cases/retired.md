@@ -1,7 +1,7 @@
 +++ 
 title = "Retired use cases" 
 description = "Things that Butler used to do, but don't really care for any more..." 
-weight = 10
+weight = 30
 +++
 
 Some features age with grace, others don't.  

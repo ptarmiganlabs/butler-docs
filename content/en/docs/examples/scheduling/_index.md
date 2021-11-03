@@ -12,53 +12,27 @@ All the examples assume Butler is exposing it's API on 192.168.1.168:8080.
 
 ## List all defined schedules
 
-Looks like there currently are three schedules:
+Looks like there is currently one schedule:
 
 ```bash
 ➜  ~ curl "http://192.168.1.168:8080/v4/schedules" | json_pp
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   856  100   856    0     0   167k      0 --:--:-- --:--:-- --:--:--  167k
+100   306  100   306    0     0  16498      0 --:--:-- --:--:-- --:--:-- 20400
 [
    {
-      "cronSchedule" : "*/30 * * * * *",
-      "id" : "task-1",
-      "lastKnownState" : "started",
-      "name" : "Every 30 sec",
-      "qlikSenseTaskId" : "0fe447a9-ba1f-44a9-ac23-68c3a1d88d8b",
-      "startupState" : "started",
-      "tags" : [
-         "Sales",
-         "abc 123 åäö",
-         "Transform"
-      ],
-      "timezone" : "Europe/Stockholm"
-   },
-   {
-      "cronSchedule" : "0 */2 * * *",
-      "id" : "task-2",
+      "created" : "2021-10-08T07:24:38.373Z",
+      "cronSchedule" : "* */2 * * *",
+      "id" : "3702cec1-b6c8-463e-bda3-58d6a94dd9ac",
       "lastKnownState" : "started",
       "name" : "Every 2 hours",
       "qlikSenseTaskId" : "0fe447a9-ba1f-44a9-ac23-68c3a1d88d8b",
       "startupState" : "started",
       "tags" : [
-         "Finance",
-         "Extract"
+         "tag 3",
+         "abc 123 åäö"
       ],
       "timezone" : "Europe/London"
-   },
-   {
-      "cronSchedule" : "0-30/5 6-18 * * 1-5",
-      "id" : "Manually-added-schedule-1",
-      "lastKnownState" : "started",
-      "name" : "Every 5th minute from 0 through 30 past every hour from 6 through 18 on every day-of-week from Monday through Friday",
-      "qlikSenseTaskId" : "0fe447a9-ba1f-44a9-ac23-68c3a1d88d8b",
-      "startupState" : "started",
-      "tags" : [
-         "finance ETL",
-         "weekdays"
-      ],
-      "timezone" : "Europe/Paris"
    }
 ]
 ➜  ~
@@ -66,25 +40,41 @@ Looks like there currently are three schedules:
 
 ## Get a specific schedule
 
-Let's take a look at the schedule with id "Manually-added-schedule-1":
+Let's try to get a schedule that doesn't exist:
 
 ```bash
 ➜  ~ curl "http://192.168.1.168:8080/v4/schedules?id=Manually-added-schedule-1" | json_pp
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   366  100   366    0     0   178k      0 --:--:-- --:--:-- --:--:--  178k
+100   117  100   117    0     0  14563      0 --:--:-- --:--:-- --:--:-- 29250
 {
-   "cronSchedule" : "0-30/5 6-18 * * 1-5",
-   "id" : "Manually-added-schedule-1",
+   "error" : "Bad Request",
+   "message" : "REST SCHEDULER: Schedule ID Manually-added-schedule-1 not found.",
+   "statusCode" : 400
+}
+➜  ~
+```
+
+Here's a schedule that *does* exist (as per the API call above):
+
+```bash
+➜  ~ curl "http://192.168.1.168:8080/v4/schedules?id=3702cec1-b6c8-463e-bda3-58d6a94dd9ac" | json_pp
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   354  100   354    0     0  50499      0 --:--:-- --:--:-- --:--:--  115k
+{
+   "created" : "2021-10-08T07:24:38.373Z",
+   "cronSchedule" : "* */2 * * *",
+   "id" : "3702cec1-b6c8-463e-bda3-58d6a94dd9ac",
    "lastKnownState" : "started",
-   "name" : "Every 5th minute from 0 through 30 past every hour from 6 through 18 on every day-of-week from Monday through Friday",
+   "name" : "Every 2 hours",
    "qlikSenseTaskId" : "0fe447a9-ba1f-44a9-ac23-68c3a1d88d8b",
    "startupState" : "started",
    "tags" : [
-      "finance ETL",
-      "weekdays"
+      "tag 3",
+      "abc 123 åäö"
    ],
-   "timezone" : "Europe/Paris"
+   "timezone" : "Europe/London"
 }
 ➜  ~
 ```
@@ -107,11 +97,11 @@ Note how we get back information about the newly created schedule. It's the same
 }' | json_pp
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   544  100   307  100   237  23615  18230 --:--:-- --:--:-- --:--:-- 41846
+100   544  100   307  100   237  21470  16574 --:--:-- --:--:-- --:--:-- 49454
 {
-   "created" : "2020-10-16T15:23:36.957Z",
+   "created" : "2021-10-27T05:15:28.580Z",
    "cronSchedule" : "*/5 * * * * *",
-   "id" : "fb9b16f1-e2cf-4291-8036-24ef90efa300",
+   "id" : "b028d0a2-7116-41bf-b15a-4f01bd126464",
    "lastKnownState" : "started",
    "name" : "Every 5 sec",
    "qlikSenseTaskId" : "0fe447a9-ba1f-44a9-ac23-68c3a1d88d8b",
@@ -134,26 +124,11 @@ Looking in the Butler logs we see that the every-5-seconds schedule with an ID e
 Let's stop the schedule we just created:
 
 ```bash
-➜  ~ curl -X "PUT" "http://192.168.1.168:8080/v4/schedules/fb9b16f1-e2cf-4291-8036-24ef90efa300/stop" | json_pp
+➜  ~ curl -X "PUT" "http://192.168.1.168:8080/v4/schedules/b028d0a2-7116-41bf-b15a-4f01bd126464/stop" | json_pp
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   309  100   309    0     0  61800      0 --:--:-- --:--:-- --:--:-- 61800
-[
-   {
-      "created" : "2020-10-16T15:23:36.957Z",
-      "cronSchedule" : "*/5 * * * * *",
-      "id" : "fb9b16f1-e2cf-4291-8036-24ef90efa300",
-      "lastKnownState" : "stopped",
-      "name" : "Every 5 sec",
-      "qlikSenseTaskId" : "0fe447a9-ba1f-44a9-ac23-68c3a1d88d8b",
-      "startupState" : "started",
-      "tags" : [
-         "tag 1",
-         "abc 123 åäö"
-      ],
-      "timezone" : "Europe/Stockholm"
-   }
-]
+100     2  100     2    0     0    246      0 --:--:-- --:--:-- --:--:--   500
+{}
 ➜  ~
 ```
 

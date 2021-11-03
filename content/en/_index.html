@@ -7,18 +7,18 @@ linkTitle = "Butler"
 {{< blocks/cover title="Butler: Adding superpowers to Qlik Sense" image_anchor="center" height="full" color="dark" >}}
 <div class="mx-auto">
 	<p class="lead mt-5" style="font-size: 120%" ">
-		Great looking alerts to Slack, Teams or email when reloads fail, advanced task scheduling, task chaining with parameters, key-value store, start reload tasks from any system, extract app metadata, post to Slack/Teams and more.<br><br>
+		Great looking alerts to Slack, Teams or email when reloads fail, advanced task scheduling, task chaining with parameters, key-value store, start reload tasks from any system, extract app metadata, post to Slack/Teams, MQTT integration and more.<br><br>
 	</p>
 	<p style="font-size: 120%" ">
 		Open source of course.<br><br>
 	</p>
-	<p class="lead mt-5" style="font-size: 120%" ">
+	<!-- <p class="lead mt-5" style="font-size: 120%" ">
 		Interested in beta testing (no cost) the new SIGNL4 integration for mobile reload alerts?<br>
 		Let us know via info -at- ptarmiganlabs -dot- com.
 			<div class="mx-auto w-50">
 				{{< youtube id="iC_zbgczvFY" modestbranding=true color="red">}}
 			</div>
-		</p>
+		</p> -->
 	<a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< relref "/docs" >}}">
 		Documentation <i class="fas fa-arrow-alt-circle-right ml-2"></i>
 	</a>
@@ -76,6 +76,8 @@ Data delays - no thanks!
 Start reload tasks from within app load scripts or from upstream source systems that feed Sense with data.
 
 Need parameters too? No problem - just add zero or more key-value pairs and they will be available to any Sense app!
+
+Or maybe start all tasks having a certain tag or custom property set? Part of the [REST API](/docs/reference/rest-api/).
 
 [Read more...](/docs/examples/start-task-from-rest/) 
 {{% /blocks/feature %}}
@@ -142,8 +144,10 @@ Run Butler on Windows server, Linux, Docker, Kubernetes or Mac OS.
 
 {{< blocks/section color="dark">}}
 
-{{% blocks/feature icon="fa-lightbulb" title="Latest release: 5.4" %}}
-Bug fixes + doc updates.
+{{% blocks/feature icon="fa-lightbulb" title="Latest release: 7.0" %}}
+Refactor the entire REST API. Better, faster, scalable!  
+Start tasks based on their custom properties and tags.
+
 
 Available on [GitHub](https://github.com/ptarmiganlabs/butler/releases).
 {{% /blocks/feature %}}

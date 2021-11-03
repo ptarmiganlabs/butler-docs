@@ -1,7 +1,7 @@
 ---
 title: "Alerts via Slack and Microsoft Teams"
 linkTitle: "Alerts via Slack/Teams"
-weight: 35
+weight: 40
 description: >
   Sending alerts to IM services like Slack and Microsoft Teams can be a great way to quickly notify people about urgent issues.
 ---

@@ -1,8 +1,24 @@
 +++ 
 title = "Use cases" 
 description = "How can Butler be used?"
-weight = 30
+weight = 10
 +++
+
+
+- [Instant notifications when reload tasks fail or are stopped](#instant-notifications-when-reload-tasks-fail-or-are-stopped)
+- [Start reload tasks from load script or from upstream systems](#start-reload-tasks-from-load-script-or-from-upstream-systems)
+- [Start any reload task from within any Qlik Sense or web app](#start-any-reload-task-from-within-any-qlik-sense-or-web-app)
+- [Start reload tasks via REST API based on task tags or custom properties](#start-reload-tasks-via-rest-api-based-on-task-tags-or-custom-properties)
+- [Trigger full/partial app reloads from load script or upstream systems](#trigger-fullpartial-app-reloads-from-load-script-or-upstream-systems)
+- [Flexible scheduling of app reloads in Qlik Sense Enterprise on Windows](#flexible-scheduling-of-app-reloads-in-qlik-sense-enterprise-on-windows)
+- [Passing parameters between reload tasks](#passing-parameters-between-reload-tasks)
+- [Storing state across several apps](#storing-state-across-several-apps)
+  - [Time-to-live (TTL) for key-value pairs](#time-to-live-ttl-for-key-value-pairs)
+- [Make new data reach end users as quickly as possible](#make-new-data-reach-end-users-as-quickly-as-possible)
+- [Using MQTT to notify downstream systems that Sense is done processing data](#using-mqtt-to-notify-downstream-systems-that-sense-is-done-processing-data)
+- [Create directories, copy/move/delete files](#create-directories-copymovedelete-files)
+- [Extract metadata for apps](#extract-metadata-for-apps)
+- [Post messages to Slack](#post-messages-to-slack)
 
 ## Instant notifications when reload tasks fail or are stopped
 
@@ -35,6 +51,13 @@ Some HTML and Javascript magic is also needed, but given Butler's start-task API
 This can for example be used to allow end users to start an Extract-Transform when they (the user) need refreshed data.
 
 More info [here](/docs/examples/start-task-from-rest/).
+
+## Start reload tasks via REST API based on task tags or custom properties
+
+Using tags and/or custom properties to identify what tasks should be started can be easier than having to know the tasks IDs.
+This both makes it easier for 3rd party systems to start Qlik Sense tasks and easier for Sense admins to manage which tasks should be startable by 3rd party systems.
+
+More info TODO
 
 ## Trigger full/partial app reloads from load script or upstream systems
 

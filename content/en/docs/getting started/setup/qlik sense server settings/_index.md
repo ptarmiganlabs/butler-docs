@@ -47,8 +47,10 @@ Butler:
     host: <FQDN or IP of Sense server where QRS is running>
     useSSL: true
     port: 4242
-    headerKey: X-Qlik-User
-    headerValue: UserDirectory=Internal; UserId=sa_repository
+    headerKey: X-Qlik-User                                      # Header used to identify what user connection to QRS is made as
+    headerValue: UserDirectory=Internal; UserId=sa_repository   # What user connection to QRS is made as
+    rejectUnauthorized: false       # Set to false to ignore warnings/errors caused by Qlik Sense's self-signed certificates.
+                                    # Set to true if the Qlik Sense root CA is available on the computer where Butler SOS is running.
   ...
   ...
 ```

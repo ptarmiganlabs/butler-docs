@@ -16,7 +16,7 @@ If you don't need this feature just disable it and leave the default values in t
 Do note though that Butler expects the configuration properties below to exist in the config file, but will *ignore their values* if the related features are disabled.
 {{% /alert %}}
 
-Note: Sending health check messages is only meaningful when running Butler as a Docker container.
+Note: Enabling these health check messages is only meaningful when running Butler as a Docker container.
 
 ## Settings in main config file
 
