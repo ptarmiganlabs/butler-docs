@@ -35,6 +35,8 @@ Finally those thumbnails will be set as sheet icons.
 No more manual screenshot taking, resizing images, navigating hundreds of sheets in dozens of apps.  
 Start Butler Sheet Icons instead and go get a nice [fika](https://www.swedishfood.com/fika).
 
+The tool can be used stand-along or as part of an automated release process.
+
 [https://github.com/ptarmiganlabs/butler-sheet-icons](https://github.com/ptarmiganlabs/butler-sheet-icons)
 
 ### Butler CW
