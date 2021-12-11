@@ -30,7 +30,7 @@ You also need to remove old QVDs from that folder.
 
 This could be done with scheduled BAT/CMD files or PowerShell scripts, but it might be better/more flexible/easier to maintain to drive this cleanup from the load script of a Sense app.
 
-The solution: Add `e:\data\qvd\sales\temp` to Butler's list of folders in which files can be deleted, then call Butler's `/v4/filedelete` [API endpoint](/docs/reference/rest-api/) from within your app's load script. Done!
+The solution: Add `e:\data\qvd\sales\temp` to Butler's list of folders in which files can be deleted, then call Butler's `/v4/filedelete` [API endpoint](/docs/reference/rest-api/?operationsSorter=alpha) from within your app's load script. Done!
 
 ## Convenience subs
 

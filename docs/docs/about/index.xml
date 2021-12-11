@@ -121,7 +121,7 @@ MQTT (and the pubsub concept in general) is a great way for systems to communica
 &lt;p&gt;More info &lt;a href=&#34;/docs/examples/file-copy-move-delete/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;extract-metadata-for-apps&#34;&gt;Extract metadata for apps&lt;/h2&gt;
 &lt;p&gt;Exporting apps as JSON can be very useful for backup purposes. Doing regular snapshots of all apps in a Sense cluster is a fast and space-effective way of keeping point-in-time backups.&lt;/p&gt;
-&lt;p&gt;The &lt;a href=&#34;http://localhost:1313/docs/reference/rest-api/&#34;&gt;REST API documentation&lt;/a&gt; has full docs for the &lt;code&gt;/v4/app/{appId}/dump&lt;/code&gt; endpoint.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;http://localhost:1313/docs/reference/rest-api/?operationsSorter=alpha&#34;&gt;REST API documentation&lt;/a&gt; has full docs for the &lt;code&gt;/v4/app/{appId}/dump&lt;/code&gt; endpoint.&lt;/p&gt;
 &lt;h2 id=&#34;post-messages-to-slack&#34;&gt;Post messages to Slack&lt;/h2&gt;
 &lt;p&gt;Slack messages can include full formatting (web links, text formatting etc), as well as &amp;ldquo;poking&amp;rdquo; users.&lt;br&gt;
 I.e. notifying specific Slack users that they have a new message.&lt;/p&gt;

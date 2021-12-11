@@ -548,7 +548,7 @@ Still, if you start from the sample .xml file provided in the &lt;a href=&#34;ht
 &lt;h2 id=&#34;how-it-works&#34;&gt;How it works&lt;/h2&gt;
 &lt;p&gt;The data in the key-value store is &lt;em&gt;not&lt;/em&gt; persisted to disk, which means that key-value data will be lost if Butler is restarted.&lt;br&gt;
 This behaviour could possibly be changed if there is a need, please open a &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/issues&#34;&gt;GitHub ticket&lt;/a&gt; if key-value persistence is of interest.&lt;/p&gt;
-&lt;p&gt;Key-value data is manipulated using Butler&amp;rsquo;s &lt;a href=&#34;/docs/reference/rest-api/&#34;&gt;REST API&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Key-value data is manipulated using Butler&amp;rsquo;s &lt;a href=&#34;/docs/reference/rest-api/?operationsSorter=alpha&#34;&gt;REST API&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The &lt;a href=&#34;/docs/reference/key-value/&#34;&gt;Reference docs&lt;/a&gt; section has more information about the key-value store.&lt;/p&gt;
 &lt;h2 id=&#34;settings-in-main-config-file&#34;&gt;Settings in main config file&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;color:#000&#34;&gt;---&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -675,7 +675,7 @@ In QlikView this was possible, but also resulted in risks and potential attack v
 &lt;p&gt;&lt;a href=&#34;https://mqtt.org/&#34;&gt;MQTT&lt;/a&gt; is a light weight messaging protocol based on a publish-subscribe metaphore. It is widely for example Internet of Things and telecom sectors.&lt;/p&gt;
 &lt;p&gt;MQTT has features such as guaranteed delivery of messages, which makes it very useful for communicating between Sense and both up- and downstream source/destination systems.&lt;/p&gt;
 &lt;p&gt;Butler can be configured to forward events from Sense (reload task failures, aborted reload tasks, user session start/stop etc) as MQTT messages.&lt;/p&gt;
-&lt;p&gt;Butler&amp;rsquo;s &lt;a href=&#34;/docs/reference/rest-api/&#34;&gt;REST API&lt;/a&gt; also has an endpoint that makes it possible to send MQTT messages from the Sense load script.&lt;/p&gt;
+&lt;p&gt;Butler&amp;rsquo;s &lt;a href=&#34;/docs/reference/rest-api/?operationsSorter=alpha&#34;&gt;REST API&lt;/a&gt; also has an endpoint that makes it possible to send MQTT messages from the Sense load script.&lt;/p&gt;
 &lt;h2 id=&#34;settings-in-main-config-file&#34;&gt;Settings in main config file&lt;/h2&gt;
 &lt;p&gt;The settings are of two kinds:&lt;/p&gt;
 &lt;ol&gt;

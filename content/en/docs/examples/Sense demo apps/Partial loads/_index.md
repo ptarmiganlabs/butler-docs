@@ -14,7 +14,7 @@ description: >
 
 ## Partial reload API
 
-The full API documentation is available in the [Reference section](/docs/reference/rest-api/), here we're interested in the PUT `/v4/app/{appId}/reload` endpoint.
+The full API documentation is available in the [Reference section](/docs/reference/rest-api/?operationsSorter=alpha), here we're interested in the PUT `/v4/app/{appId}/reload` endpoint.
 
 ## Demo apps for partial reloads
 

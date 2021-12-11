@@ -32,7 +32,7 @@
 &lt;h4 class=&#34;alert-heading&#34;&gt;Remember!&lt;/h4&gt;
 
     &lt;p&gt;Individual parts of Butler can be enabled/disabled in the main &lt;a href=&#34;/docs/reference/config-file/&#34;&gt;config file&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;If you&amp;rsquo;re unsure what each REST API endpoint does, the &lt;a href=&#34;/docs/reference/rest-api/&#34;&gt;API docs&lt;/a&gt; is the place to check.&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;re unsure what each REST API endpoint does, the &lt;a href=&#34;/docs/reference/rest-api/?operationsSorter=alpha&#34;&gt;API docs&lt;/a&gt; is the place to check.&lt;/p&gt;
 
 
 &lt;/div&gt;

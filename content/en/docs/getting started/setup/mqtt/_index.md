@@ -22,7 +22,7 @@ MQTT has features such as guaranteed delivery of messages, which makes it very u
 
 Butler can be configured to forward events from Sense (reload task failures, aborted reload tasks, user session start/stop etc) as MQTT messages.
 
-Butler's [REST API](/docs/reference/rest-api/) also has an endpoint that makes it possible to send MQTT messages from the Sense load script.
+Butler's [REST API](/docs/reference/rest-api/?operationsSorter=alpha) also has an endpoint that makes it possible to send MQTT messages from the Sense load script.
 
 ## Settings in main config file
 
