@@ -444,7 +444,9 @@ if (!doNotTrack) {
       presets: [
         SwaggerUIBundle.presets.apis,
         SwaggerUIStandalonePreset
-      ]
+      ],
+      deepLinking: true,
+      operationsSorter: 'alpha'
     });
     window.ui = ui;
   };

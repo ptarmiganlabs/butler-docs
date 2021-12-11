@@ -428,7 +428,9 @@
       presets: [
         SwaggerUIBundle.presets.apis,
         SwaggerUIStandalonePreset
-      ]
+      ],
+      deepLinking: true,
+      operationsSorter: &#39;alpha&#39;
     });
     window.ui = ui;
   };
