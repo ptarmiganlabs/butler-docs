@@ -430,7 +430,9 @@
         SwaggerUIStandalonePreset
       ],
       deepLinking: true,
-      operationsSorter: &#39;alpha&#39;
+      operationsSorter: &#39;alpha&#39;,
+      tagsSorter: &#39;alpha&#39;,
+      docExpansion: &#39;list&#39;,
     });
     window.ui = ui;
   };
