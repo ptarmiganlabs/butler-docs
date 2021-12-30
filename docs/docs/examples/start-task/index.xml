@@ -92,17 +92,21 @@ There are many tools that can be used to call REST APIs.
         &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskName&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Reload task of App1&amp;#34;&lt;/span&gt;
       &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
     &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;,
-    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;invalid&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;invalid&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;denied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksTag&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
-  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCP&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksTagDenied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCP&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCPDenied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
 ➜  ~
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The response tells us:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;One task was started.&lt;/li&gt;
 &lt;li&gt;No task IDs were invalid.&lt;/li&gt;
-&lt;li&gt;No tasks were started using tags or custom properties.&lt;/li&gt;
+&lt;li&gt;No task IDs were denied based on task filtering.&lt;/li&gt;
+&lt;li&gt;No tasks were started or denied using tags or custom properties.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;start-a-single-task-using-an-invalid-task-id&#34;&gt;Start a single task using an invalid task ID&lt;/h3&gt;
 &lt;p&gt;The task ID &lt;code&gt;abc123&lt;/code&gt; is invalid. This will be detected and reported in the response:&lt;/p&gt;
@@ -114,15 +118,18 @@ There are many tools that can be used to call REST APIs.
       &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
         &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;abc123&amp;#34;&lt;/span&gt;
       &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;,
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;denied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksTag&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
-  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCP&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksTagDenied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCP&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCPDenied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
 ➜  ~
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;start-multiple-tasks-using-valid-task-ids&#34;&gt;Start multiple tasks using valid task IDs&lt;/h3&gt;
 &lt;p&gt;In this example all task IDs are valid. One of them is passed in the URL and the other two in the message body.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl -X &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;PUT&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/reloadtask/e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e/start&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl -X &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;PUT&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/reloadtask/-/start&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
 &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     -H &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;Content-Type: application/json; charset=utf-8&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
 &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     -d &lt;span style=&#34;color:#4e9a06&#34;&gt;$&amp;#39;[
 &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  {
@@ -142,10 +149,6 @@ There are many tools that can be used to call REST APIs.
   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
     &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;started&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
       &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-        &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e&amp;#34;&lt;/span&gt;,
-        &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskName&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Reload task of App1&amp;#34;&lt;/span&gt;
-      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
-      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
         &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;7552d9fc-d1bb-4975-9a38-18357de531ea&amp;#34;&lt;/span&gt;,
         &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskName&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Reload task of App2&amp;#34;&lt;/span&gt;
       &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
@@ -154,19 +157,24 @@ There are many tools that can be used to call REST APIs.
         &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskName&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Reload task of App3&amp;#34;&lt;/span&gt;
       &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
     &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;,
-    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;invalid&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;invalid&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;denied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksTag&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
-  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCP&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksTagDenied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCP&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCPDenied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
 ➜  ~
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The response tells us:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;All three tasks were started.&lt;/li&gt;
+&lt;li&gt;The magic task ID &amp;ldquo;-&amp;rdquo; will be ignored.&lt;/li&gt;
+&lt;li&gt;Two tasks, specified in the request body, were started.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;start-multiple-tasks-using-task-ids-all-task-ids-must-exist&#34;&gt;Start multiple tasks using task IDs, all task IDs must exist&lt;/h3&gt;
-&lt;p&gt;Here two task IDs are valid and one is invalid.&lt;br&gt;
-As &lt;code&gt;allTaskIdsMustExist=true&lt;/code&gt; we expect that no task is started.&lt;/p&gt;
+&lt;h3 id=&#34;start-multiple-tasks-using-task-ids-all-task-ids-must-exist-task-filtering-on&#34;&gt;Start multiple tasks using task IDs, all task IDs must exist, task filtering ON&lt;/h3&gt;
+&lt;p&gt;Here two task IDs are valid and on the list of approved task IDs. One task ID is invalid (too short).&lt;br&gt;
+As &lt;code&gt;allTaskIdsMustExist=true&lt;/code&gt; we expect that no task is started (&lt;em&gt;all&lt;/em&gt; task IDs must exist for &lt;em&gt;any&lt;/em&gt; task to be started based on task ID!).
+Task filtering is turned on in the config file&amp;rsquo;s &lt;code&gt;Butler.startTaskFilter.enable&lt;/code&gt; entry.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl -X &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;PUT&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/reloadtask/e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e/start?allTaskIdsMustExist=true&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
 &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     -H &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;Content-Type: application/json; charset=utf-8&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
 &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     -d &lt;span style=&#34;color:#4e9a06&#34;&gt;$&amp;#39;[
@@ -190,25 +198,149 @@ As &lt;code&gt;allTaskIdsMustExist=true&lt;/code&gt; we expect that no task is s
       &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
         &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fb0f317d-da91-4b86-aafa-0174ae1e8c8&amp;#34;&lt;/span&gt;
       &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;,
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;denied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
+      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e&amp;#34;&lt;/span&gt;
+      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
+      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;7552d9fc-d1bb-4975-9a38-18357de531ea&amp;#34;&lt;/span&gt;
+      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
     &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksTag&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
-  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCP&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksTagDenied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCP&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCPDenied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
 ➜  ~
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The response tells us:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;No tasks were started based on task IDs.&lt;/li&gt;
-&lt;li&gt;The invalid task is returned in the response.&lt;/li&gt;
+&lt;li&gt;One invalid (too short!) task is returned in the response.&lt;/li&gt;
+&lt;li&gt;As there was one or more invalid task IDs, the two valid and approved task IDs were not started.
+Their task IDs are returned in the denied array in the response.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;start-multiple-tasks-using-task-ids-all-task-ids-must-exist-task-filtering-off&#34;&gt;Start multiple tasks using task IDs, all task IDs must exist, task filtering OFF&lt;/h3&gt;
+&lt;p&gt;Here two task IDs are valid and on the list of approved task IDs. One task ID is invalid (too short).&lt;br&gt;
+As &lt;code&gt;allTaskIdsMustExist=true&lt;/code&gt; we expect that no task is started (&lt;em&gt;all&lt;/em&gt; task IDs must exist for &lt;em&gt;any&lt;/em&gt; task to be started based on task ID!).
+Task filtering is turned off in the config file&amp;rsquo;s &lt;code&gt;Butler.startTaskFilter.enable&lt;/code&gt; entry.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl -X &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;PUT&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/reloadtask/e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e/start?allTaskIdsMustExist=true&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     -H &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;Content-Type: application/json; charset=utf-8&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     -d &lt;span style=&#34;color:#4e9a06&#34;&gt;$&amp;#39;[
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  {
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;type&amp;#34;: &amp;#34;starttaskid&amp;#34;,
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;payload&amp;#34;: {
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;      &amp;#34;taskId&amp;#34;: &amp;#34;7552d9fc-d1bb-4975-9a38-18357de531ea&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    }
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  },
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  {
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;type&amp;#34;: &amp;#34;starttaskid&amp;#34;,
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;payload&amp;#34;: {
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;      &amp;#34;taskId&amp;#34;: &amp;#34;fb0f317d-da91-4b86-aafa-0174ae1e8c8&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    }
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  }
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;]&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;started&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;invalid&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
+      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fb0f317d-da91-4b86-aafa-0174ae1e8c8&amp;#34;&lt;/span&gt;
+      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;,
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;denied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
+      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e&amp;#34;&lt;/span&gt;
+      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
+      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;7552d9fc-d1bb-4975-9a38-18357de531ea&amp;#34;&lt;/span&gt;
+      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksTag&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksTagDenied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCP&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCPDenied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+➜  ~
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The response and its message is the same as in the previous example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;No tasks were started based on task IDs.&lt;/li&gt;
+&lt;li&gt;One invalid (too short!) task is returned in the response.&lt;/li&gt;
+&lt;li&gt;As there was one or more invalid task IDs, the two valid and approved task IDs were not started.
+Their task IDs are returned in the denied array in the response.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;start-multiple-tasks-using-task-ids-task-filtering-on&#34;&gt;Start multiple tasks using task IDs, task filtering ON&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Two task IDs are valid and on the list of approved task IDs.&lt;/li&gt;
+&lt;li&gt;One task ID is valid but not on list of approved task IDs.&lt;/li&gt;
+&lt;li&gt;One task ID is invalid (too short).&lt;/li&gt;
+&lt;li&gt;Task filtering is turned on in the config file&amp;rsquo;s &lt;code&gt;Butler.startTaskFilter.enable&lt;/code&gt; entry.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl -X &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;PUT&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/reloadtask/e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e/start&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     -H &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;Content-Type: application/json; charset=utf-8&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     -d &lt;span style=&#34;color:#4e9a06&#34;&gt;$&amp;#39;[
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  {
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;type&amp;#34;: &amp;#34;starttaskid&amp;#34;,
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;payload&amp;#34;: {
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;      &amp;#34;taskId&amp;#34;: &amp;#34;7552d9fc-d1bb-4975-9a38-18357de531ea&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    }
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  },
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  {
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;type&amp;#34;: &amp;#34;starttaskid&amp;#34;,
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;payload&amp;#34;: {
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;      &amp;#34;taskId&amp;#34;: &amp;#34;fb0f317d-da91-4b86-aafa-0174ae1e8c8&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    }
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  },
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  {
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;type&amp;#34;: &amp;#34;starttaskid&amp;#34;,
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;payload&amp;#34;: {
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;      &amp;#34;taskId&amp;#34;: &amp;#34;8b4fe424-d90c-493f-a61d-0ce91cd485c9&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    }
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  }
+&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;]&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;started&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
+      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e&amp;#34;&lt;/span&gt;,
+        &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskName&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Reload task of App1&amp;#34;&lt;/span&gt;
+      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
+      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;7552d9fc-d1bb-4975-9a38-18357de531ea&amp;#34;&lt;/span&gt;,
+        &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskName&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Reload task of App2&amp;#34;&lt;/span&gt;
+      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;,
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;invalid&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
+      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fb0f317d-da91-4b86-aafa-0174ae1e8c8&amp;#34;&lt;/span&gt;
+      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;,
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;denied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
+      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;8b4fe424-d90c-493f-a61d-0ce91cd485c9&amp;#34;&lt;/span&gt;
+      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksTag&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksTagDenied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCP&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCPDenied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+➜  ~
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The response tells us:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Two tasks were started, as their task IDs were approved in the config file.&lt;/li&gt;
+&lt;li&gt;One task ID was invalid (too short!).&lt;/li&gt;
+&lt;li&gt;One task ID had a valid format but was not on the list of approved task IDs.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;start-tasks-using-tags&#34;&gt;Start tasks using tags&lt;/h3&gt;
 &lt;p&gt;The underlying Qlik Sense system has two tags associated with tasks: &lt;code&gt;startTask1&lt;/code&gt; and &lt;code&gt;startTask2&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;The QMC shows which tasks have these tags set:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;qmc-tasks-with-tags-1.png&#34; alt=&#34;Qlik Sense QMC tasks with tags&#34; title=&#34;Tasks with tags starting with &#39;start&#39;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Starting the three tasks tagged with &lt;code&gt;starttask1&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl -X &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;PUT&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/reloadtask/-/start&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     -H &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;Content-Type: application/json; charset=utf-8&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     -d &lt;span style=&#34;color:#4e9a06&#34;&gt;$&amp;#39;[
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl -X &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;PUT&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/reloadtask/-/start&amp;#34;&lt;/span&gt; -H &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;Content-Type: application/json; charset=utf-8&amp;#39;&lt;/span&gt; -d &lt;span style=&#34;color:#4e9a06&#34;&gt;$&amp;#39;[
 &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  {
 &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;type&amp;#34;: &amp;#34;starttasktag&amp;#34;,
 &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;payload&amp;#34;: {
@@ -219,11 +351,8 @@ As &lt;code&gt;allTaskIdsMustExist=true&lt;/code&gt; we expect that no task is s
 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
     &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;started&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
-    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;invalid&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
-      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-        &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;-&amp;#34;&lt;/span&gt;
-      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;invalid&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;denied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksTag&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
     &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
@@ -239,8 +368,10 @@ As &lt;code&gt;allTaskIdsMustExist=true&lt;/code&gt; we expect that no task is s
       &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskName&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Reload task of App3&amp;#34;&lt;/span&gt;
     &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;,
-  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCP&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;%
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksTagDenied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCP&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCPDenied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
 ➜  ~
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The response tells us:&lt;/p&gt;
 &lt;ul&gt;
@@ -272,13 +403,11 @@ As &lt;code&gt;allTaskIdsMustExist=true&lt;/code&gt; we expect that no task is s
 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
     &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;started&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
-    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;invalid&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
-      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-        &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;-&amp;#34;&lt;/span&gt;
-      &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;invalid&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;denied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksTag&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksTagDenied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCP&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
     &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
       &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e&amp;#34;&lt;/span&gt;,
@@ -296,8 +425,9 @@ As &lt;code&gt;allTaskIdsMustExist=true&lt;/code&gt; we expect that no task is s
       &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;7552d9fc-d1bb-4975-9a38-18357de531ea&amp;#34;&lt;/span&gt;,
       &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskName&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Reload task of App2&amp;#34;&lt;/span&gt;
     &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;%
+  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCPDenied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
+&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
 ➜  ~
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The response tells us:&lt;/p&gt;
 &lt;ul&gt;
@@ -314,9 +444,8 @@ This is supported by Butler as follows:&lt;/p&gt;
 &lt;/ol&gt;
 &lt;p&gt;Here a single task, identified by its ID in the URL, is started.&lt;br&gt;
 Two key-value pairs are passed along as parameters to the app. One has a TimeToLive of 10 seconds, the other has no TTL (=it will not be automatically deleted).&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl -X &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;PUT&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/reloadtask/fbf645f0-0c92-40a4-af9a-6e3eb1d3c35c/start&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     -H &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;Content-Type: application/json; charset=utf-8&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     -d &lt;span style=&#34;color:#4e9a06&#34;&gt;$&amp;#39;[
+&lt;p&gt;Task filtering is off, i.e. any task can be started using this API.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl -X &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;PUT&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/reloadtask/fbf645f0-0c92-40a4-af9a-6e3eb1d3c35c/start&amp;#34;&lt;/span&gt; -H &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;Content-Type: application/json; charset=utf-8&amp;#39;&lt;/span&gt; -d &lt;span style=&#34;color:#4e9a06&#34;&gt;$&amp;#39;[
 &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  {
 &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;type&amp;#34;: &amp;#34;keyvaluestore&amp;#34;,
 &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;payload&amp;#34;: {
@@ -343,74 +472,70 @@ Two key-value pairs are passed along as parameters to the app. One has a TimeToL
         &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskName&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Reload Operations Monitor&amp;#34;&lt;/span&gt;
       &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
     &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;,
-    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;invalid&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;invalid&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;denied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksTag&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
-  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCP&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksTagDenied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCP&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCPDenied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
 ➜  ~
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;a-bit-of-everything&#34;&gt;A bit of everything&lt;/h3&gt;
 &lt;p&gt;Combining all of the above can look like this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl -X &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;PUT&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/reloadtask/e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e/start?allTaskIdsMustExist=true&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     -H &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;Content-Type: application/json; charset=utf-8&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;\
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&lt;/span&gt;     -d &lt;span style=&#34;color:#4e9a06&#34;&gt;$&amp;#39;[
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  {
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;type&amp;#34;: &amp;#34;starttaskid&amp;#34;,
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;payload&amp;#34;: {
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;      &amp;#34;taskId&amp;#34;: &amp;#34;7552d9fc-d1bb-4975-9a38-18357de531ea&amp;#34;
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    }
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  },
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  {
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;type&amp;#34;: &amp;#34;starttaskid&amp;#34;,
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;payload&amp;#34;: {
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;      &amp;#34;taskId&amp;#34;: &amp;#34;fb0f317d-da91-4b86-aafa-0174ae1e8c8f&amp;#34;
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    }
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  },
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  {
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;type&amp;#34;: &amp;#34;starttasktag&amp;#34;,
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;payload&amp;#34;: {
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;      &amp;#34;tag&amp;#34;: &amp;#34;startTask1&amp;#34;
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    }
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  },
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  {
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;type&amp;#34;: &amp;#34;starttasktag&amp;#34;,
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;payload&amp;#34;: {
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;      &amp;#34;tag&amp;#34;: &amp;#34;startTask2&amp;#34;
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    }
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  },
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  {
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;type&amp;#34;: &amp;#34;starttaskcustomproperty&amp;#34;,
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;payload&amp;#34;: {
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;      &amp;#34;customPropertyName&amp;#34;: &amp;#34;taskGroup&amp;#34;,
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;      &amp;#34;customPropertyValue&amp;#34;: &amp;#34;tasks1&amp;#34;
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    }
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  },
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  {
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;type&amp;#34;: &amp;#34;starttaskcustomproperty&amp;#34;,
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;payload&amp;#34;: {
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;      &amp;#34;customPropertyName&amp;#34;: &amp;#34;taskGroup&amp;#34;,
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;      &amp;#34;customPropertyValue&amp;#34;: &amp;#34;tasks2&amp;#34;
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    }
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  },
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  {
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;type&amp;#34;: &amp;#34;keyvaluestore&amp;#34;,
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;payload&amp;#34;: {
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;      &amp;#34;value&amp;#34;: &amp;#34;TheValue&amp;#34;,
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;      &amp;#34;namespace&amp;#34;: &amp;#34;MyFineNamespace&amp;#34;,
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;      &amp;#34;key&amp;#34;: &amp;#34;AnImportantKey&amp;#34;,
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;      &amp;#34;ttl&amp;#34;: 10000
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    }
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  },
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  {
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;type&amp;#34;: &amp;#34;keyvaluestore&amp;#34;,
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    &amp;#34;payload&amp;#34;: {
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;      &amp;#34;namespace&amp;#34;: &amp;#34;MyFineNamespace&amp;#34;,
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;      &amp;#34;key&amp;#34;: &amp;#34;Foo&amp;#34;,
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;      &amp;#34;value&amp;#34;: &amp;#34;Bar&amp;#34;
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;    }
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;  }
-&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;]&amp;#39;&lt;/span&gt;
-
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;➜  ~ curl -X &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;PUT&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://192.168.1.168:8080/v4/reloadtask/e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e/start?allTaskIdsMustExist=true&amp;#34;&lt;/span&gt; -H &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;Content-Type: application/json; charset=utf-8&amp;#39;&lt;/span&gt; -d $&lt;span style=&#34;color:#a40000&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
+  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;starttaskid&amp;#34;&lt;/span&gt;,
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;payload&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;7552d9fc-d1bb-4975-9a38-18357de531ea&amp;#34;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
+  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;starttaskid&amp;#34;&lt;/span&gt;,
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;payload&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fb0f317d-da91-4b86-aafa-0174ae1e8c8f&amp;#34;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
+  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;starttasktag&amp;#34;&lt;/span&gt;,
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;payload&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tag&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;startTask1&amp;#34;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
+  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;starttasktag&amp;#34;&lt;/span&gt;,
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;payload&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tag&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;startTask2&amp;#34;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
+  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;starttaskcustomproperty&amp;#34;&lt;/span&gt;,
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;payload&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;customPropertyName&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskGroup&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;customPropertyValue&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasks1&amp;#34;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
+  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;starttaskcustomproperty&amp;#34;&lt;/span&gt;,
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;payload&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;customPropertyName&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskGroup&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;customPropertyValue&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasks2&amp;#34;&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
+  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;keyvaluestore&amp;#34;&lt;/span&gt;,
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;payload&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;value&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;TheValue&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;namespace&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;MyFineNamespace&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;key&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;AnImportantKey&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;ttl&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;10000&lt;/span&gt;
+    &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
+  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;keyvaluestore&amp;#34;&lt;/span&gt;,
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;payload&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;namespace&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;MyFineNamespace&amp;#34;&lt;/span&gt;,
+      &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;key&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Foo&amp;#34;&lt;/span&gt;,                                                                                                                                                                                               &amp;lt;....
 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
     &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;started&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
@@ -427,7 +552,8 @@ Two key-value pairs are passed along as parameters to the app. One has a TimeToL
         &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskName&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Reload task of App3&amp;#34;&lt;/span&gt;
       &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
     &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;,
-    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;invalid&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;invalid&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
+    &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;denied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksTag&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
     &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
@@ -447,6 +573,7 @@ Two key-value pairs are passed along as parameters to the app. One has a TimeToL
       &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskName&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Reload task of App3&amp;#34;&lt;/span&gt;
     &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
   &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksTagDenied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;,
   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCP&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
     &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
       &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e&amp;#34;&lt;/span&gt;,
@@ -464,7 +591,8 @@ Two key-value pairs are passed along as parameters to the app. One has a TimeToL
       &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskId&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;7552d9fc-d1bb-4975-9a38-18357de531ea&amp;#34;&lt;/span&gt;,
       &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;taskName&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Reload task of App2&amp;#34;&lt;/span&gt;
     &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+  &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;,
+  &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;tasksCPDenied&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[]&lt;/span&gt;
 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
 ➜  ~
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;

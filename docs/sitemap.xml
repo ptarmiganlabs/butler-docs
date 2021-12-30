@@ -170,6 +170,8 @@
     <loc>/docs/about/telemetry/</loc>
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
   </url><url>
+    <loc>/docs/reference/test-cases/</loc>
+  </url><url>
     <loc>/docs/examples/sense-demo-apps/</loc>
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
   </url><url>
@@ -226,6 +228,8 @@
   </url><url>
     <loc>/docs/getting-started/setup/user-events/</loc>
     <lastmod>2021-11-03T14:09:22+01:00</lastmod>
+  </url><url>
+    <loc>/docs/getting-started/setup/task-filter/</loc>
   </url><url>
     <loc>/docs/getting-started/setup/telemetry/</loc>
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>

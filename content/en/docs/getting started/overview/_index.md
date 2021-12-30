@@ -12,7 +12,7 @@ description: >
 
 ## Getting started: 1-2-3
 
-![alt text](/img/butler-system-overview-1.png "Butler high level system overview")  
+![Butler high level system overview](/img/butler-system-overview-1.png "Butler high level system overview")  
 
 The main components of Butler are outlined in the system diagram above.
 

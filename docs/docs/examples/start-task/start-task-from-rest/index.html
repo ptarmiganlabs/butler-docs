@@ -60,7 +60,7 @@ if (!doNotTrack) {
       
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
         <a class="navbar-brand" href="/">
-		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">Butler</span>
+		<span class="navbar-logo"></span><span class="font-weight-bold ">Butler</span>
 	</a>
 	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
 		<ul class="navbar-nav mt-2 mt-lg-0">
@@ -240,6 +240,8 @@ if (!doNotTrack) {
   <a href="/docs/getting-started/setup/data-connections/" title="Creating Sense data connections" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupdata-connections"><span class="">Sense data connections</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupuser-events-li">
   <a href="/docs/getting-started/setup/user-events/" title="Forwarding user activity events to Butler" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupuser-events"><span class="">User activity events</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetuptask-filter-li">
+  <a href="/docs/getting-started/setup/task-filter/" title="Control which tasks can be started via Butler&#39;s API" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetuptask-filter"><span class="">Task filter</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetuptelemetry-li">
   <a href="/docs/getting-started/setup/telemetry/" title="Configuring telemetry" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetuptelemetry"><span class="">Telemetry</span></a>
 </li>
@@ -332,6 +334,8 @@ if (!doNotTrack) {
   <a href="/docs/reference/alert-template-fields/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fields"><span class="">Alert template fields</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencesense-helper-subs-li">
   <a href="/docs/reference/sense-helper-subs/" title="Helper subs that make it easy to use Butler APIs" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencesense-helper-subs"><span class="">Sense helper subs</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencetest-cases-li">
+  <a href="/docs/reference/test-cases/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencetest-cases"><span class="">Test cases</span></a>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docssecurity-li">
@@ -369,7 +373,9 @@ if (!doNotTrack) {
         <li><a href="#start-a-single-task-using-task-id">Start a single task using task ID</a></li>
         <li><a href="#start-a-single-task-using-an-invalid-task-id">Start a single task using an invalid task ID</a></li>
         <li><a href="#start-multiple-tasks-using-valid-task-ids">Start multiple tasks using valid task IDs</a></li>
-        <li><a href="#start-multiple-tasks-using-task-ids-all-task-ids-must-exist">Start multiple tasks using task IDs, all task IDs must exist</a></li>
+        <li><a href="#start-multiple-tasks-using-task-ids-all-task-ids-must-exist-task-filtering-on">Start multiple tasks using task IDs, all task IDs must exist, task filtering ON</a></li>
+        <li><a href="#start-multiple-tasks-using-task-ids-all-task-ids-must-exist-task-filtering-off">Start multiple tasks using task IDs, all task IDs must exist, task filtering OFF</a></li>
+        <li><a href="#start-multiple-tasks-using-task-ids-task-filtering-on">Start multiple tasks using task IDs, task filtering ON</a></li>
         <li><a href="#start-tasks-using-tags">Start tasks using tags</a></li>
         <li><a href="#start-tasks-using-custom-properties">Start tasks using custom properties</a></li>
         <li><a href="#sending-parameters-to-apps">Sending parameters to apps</a></li>
@@ -407,7 +413,7 @@ if (!doNotTrack) {
   
 
             <nav aria-label="breadcrumb" class="td-breadcrumbs">
-  <ol class="breadcrumb spb-1">
+  <ol class="breadcrumb">
   <li class="breadcrumb-item">
     <a href="/docs/">Documentation</a>
   </li>
@@ -510,17 +516,21 @@ There are many tools that can be used to call REST APIs.
         <span style="color:#4e9a06">&#34;taskName&#34;</span>: <span style="color:#4e9a06">&#34;Reload task of App1&#34;</span>
       <span style="color:#ce5c00;font-weight:bold">}</span>
     <span style="color:#ce5c00;font-weight:bold">]</span>,
-    <span style="color:#4e9a06">&#34;invalid&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
+    <span style="color:#4e9a06">&#34;invalid&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+    <span style="color:#4e9a06">&#34;denied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
   <span style="color:#ce5c00;font-weight:bold">}</span>,
   <span style="color:#4e9a06">&#34;tasksTag&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
-  <span style="color:#4e9a06">&#34;tasksCP&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
+  <span style="color:#4e9a06">&#34;tasksTagDenied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+  <span style="color:#4e9a06">&#34;tasksCP&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+  <span style="color:#4e9a06">&#34;tasksCPDenied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
 <span style="color:#ce5c00;font-weight:bold">}</span>
 ➜  ~
 </code></pre></div><p>The response tells us:</p>
 <ul>
 <li>One task was started.</li>
 <li>No task IDs were invalid.</li>
-<li>No tasks were started using tags or custom properties.</li>
+<li>No task IDs were denied based on task filtering.</li>
+<li>No tasks were started or denied using tags or custom properties.</li>
 </ul>
 <h3 id="start-a-single-task-using-an-invalid-task-id">Start a single task using an invalid task ID</h3>
 <p>The task ID <code>abc123</code> is invalid. This will be detected and reported in the response:</p>
@@ -532,15 +542,18 @@ There are many tools that can be used to call REST APIs.
       <span style="color:#ce5c00;font-weight:bold">{</span>
         <span style="color:#4e9a06">&#34;taskId&#34;</span>: <span style="color:#4e9a06">&#34;abc123&#34;</span>
       <span style="color:#ce5c00;font-weight:bold">}</span>
-    <span style="color:#ce5c00;font-weight:bold">]</span>
+    <span style="color:#ce5c00;font-weight:bold">]</span>,
+    <span style="color:#4e9a06">&#34;denied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
   <span style="color:#ce5c00;font-weight:bold">}</span>,
   <span style="color:#4e9a06">&#34;tasksTag&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
-  <span style="color:#4e9a06">&#34;tasksCP&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
+  <span style="color:#4e9a06">&#34;tasksTagDenied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+  <span style="color:#4e9a06">&#34;tasksCP&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+  <span style="color:#4e9a06">&#34;tasksCPDenied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
 <span style="color:#ce5c00;font-weight:bold">}</span>
 ➜  ~
 </code></pre></div><h3 id="start-multiple-tasks-using-valid-task-ids">Start multiple tasks using valid task IDs</h3>
 <p>In this example all task IDs are valid. One of them is passed in the URL and the other two in the message body.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ curl -X <span style="color:#4e9a06">&#34;PUT&#34;</span> <span style="color:#4e9a06">&#34;http://192.168.1.168:8080/v4/reloadtask/e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e/start&#34;</span> <span style="color:#4e9a06">\
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ curl -X <span style="color:#4e9a06">&#34;PUT&#34;</span> <span style="color:#4e9a06">&#34;http://192.168.1.168:8080/v4/reloadtask/-/start&#34;</span> <span style="color:#4e9a06">\
 </span><span style="color:#4e9a06"></span>     -H <span style="color:#4e9a06">&#39;Content-Type: application/json; charset=utf-8&#39;</span> <span style="color:#4e9a06">\
 </span><span style="color:#4e9a06"></span>     -d <span style="color:#4e9a06">$&#39;[
 </span><span style="color:#4e9a06">  {
@@ -560,10 +573,6 @@ There are many tools that can be used to call REST APIs.
   <span style="color:#4e9a06">&#34;tasksId&#34;</span>: <span style="color:#ce5c00;font-weight:bold">{</span>
     <span style="color:#4e9a06">&#34;started&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[</span>
       <span style="color:#ce5c00;font-weight:bold">{</span>
-        <span style="color:#4e9a06">&#34;taskId&#34;</span>: <span style="color:#4e9a06">&#34;e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e&#34;</span>,
-        <span style="color:#4e9a06">&#34;taskName&#34;</span>: <span style="color:#4e9a06">&#34;Reload task of App1&#34;</span>
-      <span style="color:#ce5c00;font-weight:bold">}</span>,
-      <span style="color:#ce5c00;font-weight:bold">{</span>
         <span style="color:#4e9a06">&#34;taskId&#34;</span>: <span style="color:#4e9a06">&#34;7552d9fc-d1bb-4975-9a38-18357de531ea&#34;</span>,
         <span style="color:#4e9a06">&#34;taskName&#34;</span>: <span style="color:#4e9a06">&#34;Reload task of App2&#34;</span>
       <span style="color:#ce5c00;font-weight:bold">}</span>,
@@ -572,19 +581,24 @@ There are many tools that can be used to call REST APIs.
         <span style="color:#4e9a06">&#34;taskName&#34;</span>: <span style="color:#4e9a06">&#34;Reload task of App3&#34;</span>
       <span style="color:#ce5c00;font-weight:bold">}</span>
     <span style="color:#ce5c00;font-weight:bold">]</span>,
-    <span style="color:#4e9a06">&#34;invalid&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
+    <span style="color:#4e9a06">&#34;invalid&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+    <span style="color:#4e9a06">&#34;denied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
   <span style="color:#ce5c00;font-weight:bold">}</span>,
   <span style="color:#4e9a06">&#34;tasksTag&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
-  <span style="color:#4e9a06">&#34;tasksCP&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
+  <span style="color:#4e9a06">&#34;tasksTagDenied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+  <span style="color:#4e9a06">&#34;tasksCP&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+  <span style="color:#4e9a06">&#34;tasksCPDenied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
 <span style="color:#ce5c00;font-weight:bold">}</span>
 ➜  ~
 </code></pre></div><p>The response tells us:</p>
 <ul>
-<li>All three tasks were started.</li>
+<li>The magic task ID &ldquo;-&rdquo; will be ignored.</li>
+<li>Two tasks, specified in the request body, were started.</li>
 </ul>
-<h3 id="start-multiple-tasks-using-task-ids-all-task-ids-must-exist">Start multiple tasks using task IDs, all task IDs must exist</h3>
-<p>Here two task IDs are valid and one is invalid.<br>
-As <code>allTaskIdsMustExist=true</code> we expect that no task is started.</p>
+<h3 id="start-multiple-tasks-using-task-ids-all-task-ids-must-exist-task-filtering-on">Start multiple tasks using task IDs, all task IDs must exist, task filtering ON</h3>
+<p>Here two task IDs are valid and on the list of approved task IDs. One task ID is invalid (too short).<br>
+As <code>allTaskIdsMustExist=true</code> we expect that no task is started (<em>all</em> task IDs must exist for <em>any</em> task to be started based on task ID!).
+Task filtering is turned on in the config file&rsquo;s <code>Butler.startTaskFilter.enable</code> entry.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ curl -X <span style="color:#4e9a06">&#34;PUT&#34;</span> <span style="color:#4e9a06">&#34;http://192.168.1.168:8080/v4/reloadtask/e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e/start?allTaskIdsMustExist=true&#34;</span> <span style="color:#4e9a06">\
 </span><span style="color:#4e9a06"></span>     -H <span style="color:#4e9a06">&#39;Content-Type: application/json; charset=utf-8&#39;</span> <span style="color:#4e9a06">\
 </span><span style="color:#4e9a06"></span>     -d <span style="color:#4e9a06">$&#39;[
@@ -608,25 +622,149 @@ As <code>allTaskIdsMustExist=true</code> we expect that no task is started.</p>
       <span style="color:#ce5c00;font-weight:bold">{</span>
         <span style="color:#4e9a06">&#34;taskId&#34;</span>: <span style="color:#4e9a06">&#34;fb0f317d-da91-4b86-aafa-0174ae1e8c8&#34;</span>
       <span style="color:#ce5c00;font-weight:bold">}</span>
+    <span style="color:#ce5c00;font-weight:bold">]</span>,
+    <span style="color:#4e9a06">&#34;denied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[</span>
+      <span style="color:#ce5c00;font-weight:bold">{</span>
+        <span style="color:#4e9a06">&#34;taskId&#34;</span>: <span style="color:#4e9a06">&#34;e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e&#34;</span>
+      <span style="color:#ce5c00;font-weight:bold">}</span>,
+      <span style="color:#ce5c00;font-weight:bold">{</span>
+        <span style="color:#4e9a06">&#34;taskId&#34;</span>: <span style="color:#4e9a06">&#34;7552d9fc-d1bb-4975-9a38-18357de531ea&#34;</span>
+      <span style="color:#ce5c00;font-weight:bold">}</span>
     <span style="color:#ce5c00;font-weight:bold">]</span>
   <span style="color:#ce5c00;font-weight:bold">}</span>,
   <span style="color:#4e9a06">&#34;tasksTag&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
-  <span style="color:#4e9a06">&#34;tasksCP&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
+  <span style="color:#4e9a06">&#34;tasksTagDenied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+  <span style="color:#4e9a06">&#34;tasksCP&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+  <span style="color:#4e9a06">&#34;tasksCPDenied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
 <span style="color:#ce5c00;font-weight:bold">}</span>
 ➜  ~
 </code></pre></div><p>The response tells us:</p>
 <ul>
 <li>No tasks were started based on task IDs.</li>
-<li>The invalid task is returned in the response.</li>
+<li>One invalid (too short!) task is returned in the response.</li>
+<li>As there was one or more invalid task IDs, the two valid and approved task IDs were not started.
+Their task IDs are returned in the denied array in the response.</li>
+</ul>
+<h3 id="start-multiple-tasks-using-task-ids-all-task-ids-must-exist-task-filtering-off">Start multiple tasks using task IDs, all task IDs must exist, task filtering OFF</h3>
+<p>Here two task IDs are valid and on the list of approved task IDs. One task ID is invalid (too short).<br>
+As <code>allTaskIdsMustExist=true</code> we expect that no task is started (<em>all</em> task IDs must exist for <em>any</em> task to be started based on task ID!).
+Task filtering is turned off in the config file&rsquo;s <code>Butler.startTaskFilter.enable</code> entry.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ curl -X <span style="color:#4e9a06">&#34;PUT&#34;</span> <span style="color:#4e9a06">&#34;http://192.168.1.168:8080/v4/reloadtask/e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e/start?allTaskIdsMustExist=true&#34;</span> <span style="color:#4e9a06">\
+</span><span style="color:#4e9a06"></span>     -H <span style="color:#4e9a06">&#39;Content-Type: application/json; charset=utf-8&#39;</span> <span style="color:#4e9a06">\
+</span><span style="color:#4e9a06"></span>     -d <span style="color:#4e9a06">$&#39;[
+</span><span style="color:#4e9a06">  {
+</span><span style="color:#4e9a06">    &#34;type&#34;: &#34;starttaskid&#34;,
+</span><span style="color:#4e9a06">    &#34;payload&#34;: {
+</span><span style="color:#4e9a06">      &#34;taskId&#34;: &#34;7552d9fc-d1bb-4975-9a38-18357de531ea&#34;
+</span><span style="color:#4e9a06">    }
+</span><span style="color:#4e9a06">  },
+</span><span style="color:#4e9a06">  {
+</span><span style="color:#4e9a06">    &#34;type&#34;: &#34;starttaskid&#34;,
+</span><span style="color:#4e9a06">    &#34;payload&#34;: {
+</span><span style="color:#4e9a06">      &#34;taskId&#34;: &#34;fb0f317d-da91-4b86-aafa-0174ae1e8c8&#34;
+</span><span style="color:#4e9a06">    }
+</span><span style="color:#4e9a06">  }
+</span><span style="color:#4e9a06">]&#39;</span>
+<span style="color:#ce5c00;font-weight:bold">{</span>
+  <span style="color:#4e9a06">&#34;tasksId&#34;</span>: <span style="color:#ce5c00;font-weight:bold">{</span>
+    <span style="color:#4e9a06">&#34;started&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+    <span style="color:#4e9a06">&#34;invalid&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[</span>
+      <span style="color:#ce5c00;font-weight:bold">{</span>
+        <span style="color:#4e9a06">&#34;taskId&#34;</span>: <span style="color:#4e9a06">&#34;fb0f317d-da91-4b86-aafa-0174ae1e8c8&#34;</span>
+      <span style="color:#ce5c00;font-weight:bold">}</span>
+    <span style="color:#ce5c00;font-weight:bold">]</span>,
+    <span style="color:#4e9a06">&#34;denied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[</span>
+      <span style="color:#ce5c00;font-weight:bold">{</span>
+        <span style="color:#4e9a06">&#34;taskId&#34;</span>: <span style="color:#4e9a06">&#34;e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e&#34;</span>
+      <span style="color:#ce5c00;font-weight:bold">}</span>,
+      <span style="color:#ce5c00;font-weight:bold">{</span>
+        <span style="color:#4e9a06">&#34;taskId&#34;</span>: <span style="color:#4e9a06">&#34;7552d9fc-d1bb-4975-9a38-18357de531ea&#34;</span>
+      <span style="color:#ce5c00;font-weight:bold">}</span>
+    <span style="color:#ce5c00;font-weight:bold">]</span>
+  <span style="color:#ce5c00;font-weight:bold">}</span>,
+  <span style="color:#4e9a06">&#34;tasksTag&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+  <span style="color:#4e9a06">&#34;tasksTagDenied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+  <span style="color:#4e9a06">&#34;tasksCP&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+  <span style="color:#4e9a06">&#34;tasksCPDenied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
+<span style="color:#ce5c00;font-weight:bold">}</span>
+➜  ~
+</code></pre></div><p>The response and its message is the same as in the previous example:</p>
+<ul>
+<li>No tasks were started based on task IDs.</li>
+<li>One invalid (too short!) task is returned in the response.</li>
+<li>As there was one or more invalid task IDs, the two valid and approved task IDs were not started.
+Their task IDs are returned in the denied array in the response.</li>
+</ul>
+<h3 id="start-multiple-tasks-using-task-ids-task-filtering-on">Start multiple tasks using task IDs, task filtering ON</h3>
+<ul>
+<li>Two task IDs are valid and on the list of approved task IDs.</li>
+<li>One task ID is valid but not on list of approved task IDs.</li>
+<li>One task ID is invalid (too short).</li>
+<li>Task filtering is turned on in the config file&rsquo;s <code>Butler.startTaskFilter.enable</code> entry.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ curl -X <span style="color:#4e9a06">&#34;PUT&#34;</span> <span style="color:#4e9a06">&#34;http://192.168.1.168:8080/v4/reloadtask/e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e/start&#34;</span> <span style="color:#4e9a06">\
+</span><span style="color:#4e9a06"></span>     -H <span style="color:#4e9a06">&#39;Content-Type: application/json; charset=utf-8&#39;</span> <span style="color:#4e9a06">\
+</span><span style="color:#4e9a06"></span>     -d <span style="color:#4e9a06">$&#39;[
+</span><span style="color:#4e9a06">  {
+</span><span style="color:#4e9a06">    &#34;type&#34;: &#34;starttaskid&#34;,
+</span><span style="color:#4e9a06">    &#34;payload&#34;: {
+</span><span style="color:#4e9a06">      &#34;taskId&#34;: &#34;7552d9fc-d1bb-4975-9a38-18357de531ea&#34;
+</span><span style="color:#4e9a06">    }
+</span><span style="color:#4e9a06">  },
+</span><span style="color:#4e9a06">  {
+</span><span style="color:#4e9a06">    &#34;type&#34;: &#34;starttaskid&#34;,
+</span><span style="color:#4e9a06">    &#34;payload&#34;: {
+</span><span style="color:#4e9a06">      &#34;taskId&#34;: &#34;fb0f317d-da91-4b86-aafa-0174ae1e8c8&#34;
+</span><span style="color:#4e9a06">    }
+</span><span style="color:#4e9a06">  },
+</span><span style="color:#4e9a06">  {
+</span><span style="color:#4e9a06">    &#34;type&#34;: &#34;starttaskid&#34;,
+</span><span style="color:#4e9a06">    &#34;payload&#34;: {
+</span><span style="color:#4e9a06">      &#34;taskId&#34;: &#34;8b4fe424-d90c-493f-a61d-0ce91cd485c9&#34;
+</span><span style="color:#4e9a06">    }
+</span><span style="color:#4e9a06">  }
+</span><span style="color:#4e9a06">]&#39;</span>
+<span style="color:#ce5c00;font-weight:bold">{</span>
+  <span style="color:#4e9a06">&#34;tasksId&#34;</span>: <span style="color:#ce5c00;font-weight:bold">{</span>
+    <span style="color:#4e9a06">&#34;started&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[</span>
+      <span style="color:#ce5c00;font-weight:bold">{</span>
+        <span style="color:#4e9a06">&#34;taskId&#34;</span>: <span style="color:#4e9a06">&#34;e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e&#34;</span>,
+        <span style="color:#4e9a06">&#34;taskName&#34;</span>: <span style="color:#4e9a06">&#34;Reload task of App1&#34;</span>
+      <span style="color:#ce5c00;font-weight:bold">}</span>,
+      <span style="color:#ce5c00;font-weight:bold">{</span>
+        <span style="color:#4e9a06">&#34;taskId&#34;</span>: <span style="color:#4e9a06">&#34;7552d9fc-d1bb-4975-9a38-18357de531ea&#34;</span>,
+        <span style="color:#4e9a06">&#34;taskName&#34;</span>: <span style="color:#4e9a06">&#34;Reload task of App2&#34;</span>
+      <span style="color:#ce5c00;font-weight:bold">}</span>
+    <span style="color:#ce5c00;font-weight:bold">]</span>,
+    <span style="color:#4e9a06">&#34;invalid&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[</span>
+      <span style="color:#ce5c00;font-weight:bold">{</span>
+        <span style="color:#4e9a06">&#34;taskId&#34;</span>: <span style="color:#4e9a06">&#34;fb0f317d-da91-4b86-aafa-0174ae1e8c8&#34;</span>
+      <span style="color:#ce5c00;font-weight:bold">}</span>
+    <span style="color:#ce5c00;font-weight:bold">]</span>,
+    <span style="color:#4e9a06">&#34;denied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[</span>
+      <span style="color:#ce5c00;font-weight:bold">{</span>
+        <span style="color:#4e9a06">&#34;taskId&#34;</span>: <span style="color:#4e9a06">&#34;8b4fe424-d90c-493f-a61d-0ce91cd485c9&#34;</span>
+      <span style="color:#ce5c00;font-weight:bold">}</span>
+    <span style="color:#ce5c00;font-weight:bold">]</span>
+  <span style="color:#ce5c00;font-weight:bold">}</span>,
+  <span style="color:#4e9a06">&#34;tasksTag&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+  <span style="color:#4e9a06">&#34;tasksTagDenied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+  <span style="color:#4e9a06">&#34;tasksCP&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+  <span style="color:#4e9a06">&#34;tasksCPDenied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
+<span style="color:#ce5c00;font-weight:bold">}</span>
+➜  ~
+</code></pre></div><p>The response tells us:</p>
+<ul>
+<li>Two tasks were started, as their task IDs were approved in the config file.</li>
+<li>One task ID was invalid (too short!).</li>
+<li>One task ID had a valid format but was not on the list of approved task IDs.</li>
 </ul>
 <h3 id="start-tasks-using-tags">Start tasks using tags</h3>
 <p>The underlying Qlik Sense system has two tags associated with tasks: <code>startTask1</code> and <code>startTask2</code>.</p>
 <p>The QMC shows which tasks have these tags set:</p>
 <p><img src="qmc-tasks-with-tags-1.png" alt="Qlik Sense QMC tasks with tags" title="Tasks with tags starting with 'start'"></p>
 <p>Starting the three tasks tagged with <code>starttask1</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ curl -X <span style="color:#4e9a06">&#34;PUT&#34;</span> <span style="color:#4e9a06">&#34;http://192.168.1.168:8080/v4/reloadtask/-/start&#34;</span> <span style="color:#4e9a06">\
-</span><span style="color:#4e9a06"></span>     -H <span style="color:#4e9a06">&#39;Content-Type: application/json; charset=utf-8&#39;</span> <span style="color:#4e9a06">\
-</span><span style="color:#4e9a06"></span>     -d <span style="color:#4e9a06">$&#39;[
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ curl -X <span style="color:#4e9a06">&#34;PUT&#34;</span> <span style="color:#4e9a06">&#34;http://192.168.1.168:8080/v4/reloadtask/-/start&#34;</span> -H <span style="color:#4e9a06">&#39;Content-Type: application/json; charset=utf-8&#39;</span> -d <span style="color:#4e9a06">$&#39;[
 </span><span style="color:#4e9a06">  {
 </span><span style="color:#4e9a06">    &#34;type&#34;: &#34;starttasktag&#34;,
 </span><span style="color:#4e9a06">    &#34;payload&#34;: {
@@ -637,11 +775,8 @@ As <code>allTaskIdsMustExist=true</code> we expect that no task is started.</p>
 <span style="color:#ce5c00;font-weight:bold">{</span>
   <span style="color:#4e9a06">&#34;tasksId&#34;</span>: <span style="color:#ce5c00;font-weight:bold">{</span>
     <span style="color:#4e9a06">&#34;started&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
-    <span style="color:#4e9a06">&#34;invalid&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[</span>
-      <span style="color:#ce5c00;font-weight:bold">{</span>
-        <span style="color:#4e9a06">&#34;taskId&#34;</span>: <span style="color:#4e9a06">&#34;-&#34;</span>
-      <span style="color:#ce5c00;font-weight:bold">}</span>
-    <span style="color:#ce5c00;font-weight:bold">]</span>
+    <span style="color:#4e9a06">&#34;invalid&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+    <span style="color:#4e9a06">&#34;denied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
   <span style="color:#ce5c00;font-weight:bold">}</span>,
   <span style="color:#4e9a06">&#34;tasksTag&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[</span>
     <span style="color:#ce5c00;font-weight:bold">{</span>
@@ -657,8 +792,10 @@ As <code>allTaskIdsMustExist=true</code> we expect that no task is started.</p>
       <span style="color:#4e9a06">&#34;taskName&#34;</span>: <span style="color:#4e9a06">&#34;Reload task of App3&#34;</span>
     <span style="color:#ce5c00;font-weight:bold">}</span>
   <span style="color:#ce5c00;font-weight:bold">]</span>,
-  <span style="color:#4e9a06">&#34;tasksCP&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
-<span style="color:#ce5c00;font-weight:bold">}</span>%
+  <span style="color:#4e9a06">&#34;tasksTagDenied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+  <span style="color:#4e9a06">&#34;tasksCP&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+  <span style="color:#4e9a06">&#34;tasksCPDenied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
+<span style="color:#ce5c00;font-weight:bold">}</span>
 ➜  ~
 </code></pre></div><p>The response tells us:</p>
 <ul>
@@ -690,13 +827,11 @@ As <code>allTaskIdsMustExist=true</code> we expect that no task is started.</p>
 <span style="color:#ce5c00;font-weight:bold">{</span>
   <span style="color:#4e9a06">&#34;tasksId&#34;</span>: <span style="color:#ce5c00;font-weight:bold">{</span>
     <span style="color:#4e9a06">&#34;started&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
-    <span style="color:#4e9a06">&#34;invalid&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[</span>
-      <span style="color:#ce5c00;font-weight:bold">{</span>
-        <span style="color:#4e9a06">&#34;taskId&#34;</span>: <span style="color:#4e9a06">&#34;-&#34;</span>
-      <span style="color:#ce5c00;font-weight:bold">}</span>
-    <span style="color:#ce5c00;font-weight:bold">]</span>
+    <span style="color:#4e9a06">&#34;invalid&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+    <span style="color:#4e9a06">&#34;denied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
   <span style="color:#ce5c00;font-weight:bold">}</span>,
   <span style="color:#4e9a06">&#34;tasksTag&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+  <span style="color:#4e9a06">&#34;tasksTagDenied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
   <span style="color:#4e9a06">&#34;tasksCP&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[</span>
     <span style="color:#ce5c00;font-weight:bold">{</span>
       <span style="color:#4e9a06">&#34;taskId&#34;</span>: <span style="color:#4e9a06">&#34;e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e&#34;</span>,
@@ -714,8 +849,9 @@ As <code>allTaskIdsMustExist=true</code> we expect that no task is started.</p>
       <span style="color:#4e9a06">&#34;taskId&#34;</span>: <span style="color:#4e9a06">&#34;7552d9fc-d1bb-4975-9a38-18357de531ea&#34;</span>,
       <span style="color:#4e9a06">&#34;taskName&#34;</span>: <span style="color:#4e9a06">&#34;Reload task of App2&#34;</span>
     <span style="color:#ce5c00;font-weight:bold">}</span>
-  <span style="color:#ce5c00;font-weight:bold">]</span>
-<span style="color:#ce5c00;font-weight:bold">}</span>%
+  <span style="color:#ce5c00;font-weight:bold">]</span>,
+  <span style="color:#4e9a06">&#34;tasksCPDenied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
+<span style="color:#ce5c00;font-weight:bold">}</span>
 ➜  ~
 </code></pre></div><p>The response tells us:</p>
 <ul>
@@ -732,9 +868,8 @@ This is supported by Butler as follows:</p>
 </ol>
 <p>Here a single task, identified by its ID in the URL, is started.<br>
 Two key-value pairs are passed along as parameters to the app. One has a TimeToLive of 10 seconds, the other has no TTL (=it will not be automatically deleted).</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ curl -X <span style="color:#4e9a06">&#34;PUT&#34;</span> <span style="color:#4e9a06">&#34;http://192.168.1.168:8080/v4/reloadtask/fbf645f0-0c92-40a4-af9a-6e3eb1d3c35c/start&#34;</span> <span style="color:#4e9a06">\
-</span><span style="color:#4e9a06"></span>     -H <span style="color:#4e9a06">&#39;Content-Type: application/json; charset=utf-8&#39;</span> <span style="color:#4e9a06">\
-</span><span style="color:#4e9a06"></span>     -d <span style="color:#4e9a06">$&#39;[
+<p>Task filtering is off, i.e. any task can be started using this API.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ curl -X <span style="color:#4e9a06">&#34;PUT&#34;</span> <span style="color:#4e9a06">&#34;http://192.168.1.168:8080/v4/reloadtask/fbf645f0-0c92-40a4-af9a-6e3eb1d3c35c/start&#34;</span> -H <span style="color:#4e9a06">&#39;Content-Type: application/json; charset=utf-8&#39;</span> -d <span style="color:#4e9a06">$&#39;[
 </span><span style="color:#4e9a06">  {
 </span><span style="color:#4e9a06">    &#34;type&#34;: &#34;keyvaluestore&#34;,
 </span><span style="color:#4e9a06">    &#34;payload&#34;: {
@@ -761,74 +896,70 @@ Two key-value pairs are passed along as parameters to the app. One has a TimeToL
         <span style="color:#4e9a06">&#34;taskName&#34;</span>: <span style="color:#4e9a06">&#34;Reload Operations Monitor&#34;</span>
       <span style="color:#ce5c00;font-weight:bold">}</span>
     <span style="color:#ce5c00;font-weight:bold">]</span>,
-    <span style="color:#4e9a06">&#34;invalid&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
+    <span style="color:#4e9a06">&#34;invalid&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+    <span style="color:#4e9a06">&#34;denied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
   <span style="color:#ce5c00;font-weight:bold">}</span>,
   <span style="color:#4e9a06">&#34;tasksTag&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
-  <span style="color:#4e9a06">&#34;tasksCP&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
+  <span style="color:#4e9a06">&#34;tasksTagDenied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+  <span style="color:#4e9a06">&#34;tasksCP&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+  <span style="color:#4e9a06">&#34;tasksCPDenied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
 <span style="color:#ce5c00;font-weight:bold">}</span>
 ➜  ~
 </code></pre></div><h3 id="a-bit-of-everything">A bit of everything</h3>
 <p>Combining all of the above can look like this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ curl -X <span style="color:#4e9a06">&#34;PUT&#34;</span> <span style="color:#4e9a06">&#34;http://192.168.1.168:8080/v4/reloadtask/e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e/start?allTaskIdsMustExist=true&#34;</span> <span style="color:#4e9a06">\
-</span><span style="color:#4e9a06"></span>     -H <span style="color:#4e9a06">&#39;Content-Type: application/json; charset=utf-8&#39;</span> <span style="color:#4e9a06">\
-</span><span style="color:#4e9a06"></span>     -d <span style="color:#4e9a06">$&#39;[
-</span><span style="color:#4e9a06">  {
-</span><span style="color:#4e9a06">    &#34;type&#34;: &#34;starttaskid&#34;,
-</span><span style="color:#4e9a06">    &#34;payload&#34;: {
-</span><span style="color:#4e9a06">      &#34;taskId&#34;: &#34;7552d9fc-d1bb-4975-9a38-18357de531ea&#34;
-</span><span style="color:#4e9a06">    }
-</span><span style="color:#4e9a06">  },
-</span><span style="color:#4e9a06">  {
-</span><span style="color:#4e9a06">    &#34;type&#34;: &#34;starttaskid&#34;,
-</span><span style="color:#4e9a06">    &#34;payload&#34;: {
-</span><span style="color:#4e9a06">      &#34;taskId&#34;: &#34;fb0f317d-da91-4b86-aafa-0174ae1e8c8f&#34;
-</span><span style="color:#4e9a06">    }
-</span><span style="color:#4e9a06">  },
-</span><span style="color:#4e9a06">  {
-</span><span style="color:#4e9a06">    &#34;type&#34;: &#34;starttasktag&#34;,
-</span><span style="color:#4e9a06">    &#34;payload&#34;: {
-</span><span style="color:#4e9a06">      &#34;tag&#34;: &#34;startTask1&#34;
-</span><span style="color:#4e9a06">    }
-</span><span style="color:#4e9a06">  },
-</span><span style="color:#4e9a06">  {
-</span><span style="color:#4e9a06">    &#34;type&#34;: &#34;starttasktag&#34;,
-</span><span style="color:#4e9a06">    &#34;payload&#34;: {
-</span><span style="color:#4e9a06">      &#34;tag&#34;: &#34;startTask2&#34;
-</span><span style="color:#4e9a06">    }
-</span><span style="color:#4e9a06">  },
-</span><span style="color:#4e9a06">  {
-</span><span style="color:#4e9a06">    &#34;type&#34;: &#34;starttaskcustomproperty&#34;,
-</span><span style="color:#4e9a06">    &#34;payload&#34;: {
-</span><span style="color:#4e9a06">      &#34;customPropertyName&#34;: &#34;taskGroup&#34;,
-</span><span style="color:#4e9a06">      &#34;customPropertyValue&#34;: &#34;tasks1&#34;
-</span><span style="color:#4e9a06">    }
-</span><span style="color:#4e9a06">  },
-</span><span style="color:#4e9a06">  {
-</span><span style="color:#4e9a06">    &#34;type&#34;: &#34;starttaskcustomproperty&#34;,
-</span><span style="color:#4e9a06">    &#34;payload&#34;: {
-</span><span style="color:#4e9a06">      &#34;customPropertyName&#34;: &#34;taskGroup&#34;,
-</span><span style="color:#4e9a06">      &#34;customPropertyValue&#34;: &#34;tasks2&#34;
-</span><span style="color:#4e9a06">    }
-</span><span style="color:#4e9a06">  },
-</span><span style="color:#4e9a06">  {
-</span><span style="color:#4e9a06">    &#34;type&#34;: &#34;keyvaluestore&#34;,
-</span><span style="color:#4e9a06">    &#34;payload&#34;: {
-</span><span style="color:#4e9a06">      &#34;value&#34;: &#34;TheValue&#34;,
-</span><span style="color:#4e9a06">      &#34;namespace&#34;: &#34;MyFineNamespace&#34;,
-</span><span style="color:#4e9a06">      &#34;key&#34;: &#34;AnImportantKey&#34;,
-</span><span style="color:#4e9a06">      &#34;ttl&#34;: 10000
-</span><span style="color:#4e9a06">    }
-</span><span style="color:#4e9a06">  },
-</span><span style="color:#4e9a06">  {
-</span><span style="color:#4e9a06">    &#34;type&#34;: &#34;keyvaluestore&#34;,
-</span><span style="color:#4e9a06">    &#34;payload&#34;: {
-</span><span style="color:#4e9a06">      &#34;namespace&#34;: &#34;MyFineNamespace&#34;,
-</span><span style="color:#4e9a06">      &#34;key&#34;: &#34;Foo&#34;,
-</span><span style="color:#4e9a06">      &#34;value&#34;: &#34;Bar&#34;
-</span><span style="color:#4e9a06">    }
-</span><span style="color:#4e9a06">  }
-</span><span style="color:#4e9a06">]&#39;</span>
-
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ curl -X <span style="color:#4e9a06">&#34;PUT&#34;</span> <span style="color:#4e9a06">&#34;http://192.168.1.168:8080/v4/reloadtask/e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e/start?allTaskIdsMustExist=true&#34;</span> -H <span style="color:#4e9a06">&#39;Content-Type: application/json; charset=utf-8&#39;</span> -d $<span style="color:#a40000">&#39;</span><span style="color:#ce5c00;font-weight:bold">[</span>
+  <span style="color:#ce5c00;font-weight:bold">{</span>
+    <span style="color:#4e9a06">&#34;type&#34;</span>: <span style="color:#4e9a06">&#34;starttaskid&#34;</span>,
+    <span style="color:#4e9a06">&#34;payload&#34;</span>: <span style="color:#ce5c00;font-weight:bold">{</span>
+      <span style="color:#4e9a06">&#34;taskId&#34;</span>: <span style="color:#4e9a06">&#34;7552d9fc-d1bb-4975-9a38-18357de531ea&#34;</span>
+    <span style="color:#ce5c00;font-weight:bold">}</span>
+  <span style="color:#ce5c00;font-weight:bold">}</span>,
+  <span style="color:#ce5c00;font-weight:bold">{</span>
+    <span style="color:#4e9a06">&#34;type&#34;</span>: <span style="color:#4e9a06">&#34;starttaskid&#34;</span>,
+    <span style="color:#4e9a06">&#34;payload&#34;</span>: <span style="color:#ce5c00;font-weight:bold">{</span>
+      <span style="color:#4e9a06">&#34;taskId&#34;</span>: <span style="color:#4e9a06">&#34;fb0f317d-da91-4b86-aafa-0174ae1e8c8f&#34;</span>
+    <span style="color:#ce5c00;font-weight:bold">}</span>
+  <span style="color:#ce5c00;font-weight:bold">}</span>,
+  <span style="color:#ce5c00;font-weight:bold">{</span>
+    <span style="color:#4e9a06">&#34;type&#34;</span>: <span style="color:#4e9a06">&#34;starttasktag&#34;</span>,
+    <span style="color:#4e9a06">&#34;payload&#34;</span>: <span style="color:#ce5c00;font-weight:bold">{</span>
+      <span style="color:#4e9a06">&#34;tag&#34;</span>: <span style="color:#4e9a06">&#34;startTask1&#34;</span>
+    <span style="color:#ce5c00;font-weight:bold">}</span>
+  <span style="color:#ce5c00;font-weight:bold">}</span>,
+  <span style="color:#ce5c00;font-weight:bold">{</span>
+    <span style="color:#4e9a06">&#34;type&#34;</span>: <span style="color:#4e9a06">&#34;starttasktag&#34;</span>,
+    <span style="color:#4e9a06">&#34;payload&#34;</span>: <span style="color:#ce5c00;font-weight:bold">{</span>
+      <span style="color:#4e9a06">&#34;tag&#34;</span>: <span style="color:#4e9a06">&#34;startTask2&#34;</span>
+    <span style="color:#ce5c00;font-weight:bold">}</span>
+  <span style="color:#ce5c00;font-weight:bold">}</span>,
+  <span style="color:#ce5c00;font-weight:bold">{</span>
+    <span style="color:#4e9a06">&#34;type&#34;</span>: <span style="color:#4e9a06">&#34;starttaskcustomproperty&#34;</span>,
+    <span style="color:#4e9a06">&#34;payload&#34;</span>: <span style="color:#ce5c00;font-weight:bold">{</span>
+      <span style="color:#4e9a06">&#34;customPropertyName&#34;</span>: <span style="color:#4e9a06">&#34;taskGroup&#34;</span>,
+      <span style="color:#4e9a06">&#34;customPropertyValue&#34;</span>: <span style="color:#4e9a06">&#34;tasks1&#34;</span>
+    <span style="color:#ce5c00;font-weight:bold">}</span>
+  <span style="color:#ce5c00;font-weight:bold">}</span>,
+  <span style="color:#ce5c00;font-weight:bold">{</span>
+    <span style="color:#4e9a06">&#34;type&#34;</span>: <span style="color:#4e9a06">&#34;starttaskcustomproperty&#34;</span>,
+    <span style="color:#4e9a06">&#34;payload&#34;</span>: <span style="color:#ce5c00;font-weight:bold">{</span>
+      <span style="color:#4e9a06">&#34;customPropertyName&#34;</span>: <span style="color:#4e9a06">&#34;taskGroup&#34;</span>,
+      <span style="color:#4e9a06">&#34;customPropertyValue&#34;</span>: <span style="color:#4e9a06">&#34;tasks2&#34;</span>
+    <span style="color:#ce5c00;font-weight:bold">}</span>
+  <span style="color:#ce5c00;font-weight:bold">}</span>,
+  <span style="color:#ce5c00;font-weight:bold">{</span>
+    <span style="color:#4e9a06">&#34;type&#34;</span>: <span style="color:#4e9a06">&#34;keyvaluestore&#34;</span>,
+    <span style="color:#4e9a06">&#34;payload&#34;</span>: <span style="color:#ce5c00;font-weight:bold">{</span>
+      <span style="color:#4e9a06">&#34;value&#34;</span>: <span style="color:#4e9a06">&#34;TheValue&#34;</span>,
+      <span style="color:#4e9a06">&#34;namespace&#34;</span>: <span style="color:#4e9a06">&#34;MyFineNamespace&#34;</span>,
+      <span style="color:#4e9a06">&#34;key&#34;</span>: <span style="color:#4e9a06">&#34;AnImportantKey&#34;</span>,
+      <span style="color:#4e9a06">&#34;ttl&#34;</span>: <span style="color:#0000cf;font-weight:bold">10000</span>
+    <span style="color:#ce5c00;font-weight:bold">}</span>
+  <span style="color:#ce5c00;font-weight:bold">}</span>,
+  <span style="color:#ce5c00;font-weight:bold">{</span>
+    <span style="color:#4e9a06">&#34;type&#34;</span>: <span style="color:#4e9a06">&#34;keyvaluestore&#34;</span>,
+    <span style="color:#4e9a06">&#34;payload&#34;</span>: <span style="color:#ce5c00;font-weight:bold">{</span>
+      <span style="color:#4e9a06">&#34;namespace&#34;</span>: <span style="color:#4e9a06">&#34;MyFineNamespace&#34;</span>,
+      <span style="color:#4e9a06">&#34;key&#34;</span>: <span style="color:#4e9a06">&#34;Foo&#34;</span>,                                                                                                                                                                                               &lt;....
 <span style="color:#ce5c00;font-weight:bold">{</span>
   <span style="color:#4e9a06">&#34;tasksId&#34;</span>: <span style="color:#ce5c00;font-weight:bold">{</span>
     <span style="color:#4e9a06">&#34;started&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[</span>
@@ -845,7 +976,8 @@ Two key-value pairs are passed along as parameters to the app. One has a TimeToL
         <span style="color:#4e9a06">&#34;taskName&#34;</span>: <span style="color:#4e9a06">&#34;Reload task of App3&#34;</span>
       <span style="color:#ce5c00;font-weight:bold">}</span>
     <span style="color:#ce5c00;font-weight:bold">]</span>,
-    <span style="color:#4e9a06">&#34;invalid&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
+    <span style="color:#4e9a06">&#34;invalid&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
+    <span style="color:#4e9a06">&#34;denied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
   <span style="color:#ce5c00;font-weight:bold">}</span>,
   <span style="color:#4e9a06">&#34;tasksTag&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[</span>
     <span style="color:#ce5c00;font-weight:bold">{</span>
@@ -865,6 +997,7 @@ Two key-value pairs are passed along as parameters to the app. One has a TimeToL
       <span style="color:#4e9a06">&#34;taskName&#34;</span>: <span style="color:#4e9a06">&#34;Reload task of App3&#34;</span>
     <span style="color:#ce5c00;font-weight:bold">}</span>
   <span style="color:#ce5c00;font-weight:bold">]</span>,
+  <span style="color:#4e9a06">&#34;tasksTagDenied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>,
   <span style="color:#4e9a06">&#34;tasksCP&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[</span>
     <span style="color:#ce5c00;font-weight:bold">{</span>
       <span style="color:#4e9a06">&#34;taskId&#34;</span>: <span style="color:#4e9a06">&#34;e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e&#34;</span>,
@@ -882,7 +1015,8 @@ Two key-value pairs are passed along as parameters to the app. One has a TimeToL
       <span style="color:#4e9a06">&#34;taskId&#34;</span>: <span style="color:#4e9a06">&#34;7552d9fc-d1bb-4975-9a38-18357de531ea&#34;</span>,
       <span style="color:#4e9a06">&#34;taskName&#34;</span>: <span style="color:#4e9a06">&#34;Reload task of App2&#34;</span>
     <span style="color:#ce5c00;font-weight:bold">}</span>
-  <span style="color:#ce5c00;font-weight:bold">]</span>
+  <span style="color:#ce5c00;font-weight:bold">]</span>,
+  <span style="color:#4e9a06">&#34;tasksCPDenied&#34;</span>: <span style="color:#ce5c00;font-weight:bold">[]</span>
 <span style="color:#ce5c00;font-weight:bold">}</span>
 ➜  ~
 </code></pre></div>
@@ -1055,8 +1189,8 @@ Two key-value pairs are passed along as parameters to the app. One has a TimeToL
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
     integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
     crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
-    integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
     crossorigin="anonymous"></script>
 
 

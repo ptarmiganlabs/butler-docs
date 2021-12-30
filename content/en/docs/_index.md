@@ -9,6 +9,31 @@ weight: 20
 
 
 {{% pageinfo %}}
+### What's new in version 7.1
+
+*Features*
+
+* Add control of what tasks can be started via Butler's REST API. Also known as "task filtering". [#284](https://github.com/ptarmiganlabs/butler/issues/284)
+* api: Verify that task IDs are valid (both that they are valid guids and that they exist in Sense) before trying to start the associated tasks. [#319](https://github.com/ptarmiganlabs/butler/issues/319)
+* Refactor API for starting tasks. Add magic task guid "-" that can be used as URL parameter when all task IDs (and other parameters) are passed in via the message body. [#326](https://github.com/ptarmiganlabs/butler/issues/326)
+* Show URL to API docs/Swagger page on Butler startup. [#317](https://github.com/ptarmiganlabs/butler/issues/317)
+
+*Bug fixes*
+
+* api: API calls with http "Expect" header no longer fails. [#322](https://github.com/ptarmiganlabs/butler/issues/322)
+* Increase timeout in API test cases from 5 to 15 seconds. This gets rid of occasional timeouts in the test suite. [#329](https://github.com/ptarmiganlabs/butler/issues/329)
+* Use correct return body format in API docs. [#330](https://github.com/ptarmiganlabs/butler/issues/330)
+* Use correct return body format in scheduler API docs. [#331](https://github.com/ptarmiganlabs/butler/issues/331)
+
+*Other*
+
+* Various documentation updates, both relating to new features and typos in previous docs. [#332](https://github.com/ptarmiganlabs/butler/issues/332), [#335](https://github.com/ptarmiganlabs/butler/issues/335)
+* Updated dependencies to latest versions to keep Butler safe and secure.
+* Document all test cases. [#328](https://github.com/ptarmiganlabs/butler/issues/328)
+* Add test cases for Expect: 100-continue header. [#323](https://github.com/ptarmiganlabs/butler/issues/323)
+* Add test cases for start task API. [#320](https://github.com/ptarmiganlabs/butler/issues/320)
+* Replace deprecated later library with @breejs/later. [#280](https://github.com/ptarmiganlabs/butler/issues/280)
+
 ### What's new in version 7.0
 
 **⚠️ Breaking changes**

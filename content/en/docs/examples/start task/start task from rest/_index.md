@@ -70,10 +70,13 @@ Using a `PUT` call to start task with ID `e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e`:
         "taskName": "Reload task of App1"
       }
     ],
-    "invalid": []
+    "invalid": [],
+    "denied": []
   },
   "tasksTag": [],
-  "tasksCP": []
+  "tasksTagDenied": [],
+  "tasksCP": [],
+  "tasksCPDenied": []
 }
 ➜  ~
 ```
@@ -82,7 +85,8 @@ The response tells us:
 
 * One task was started.
 * No task IDs were invalid.
-* No tasks were started using tags or custom properties.
+* No task IDs were denied based on task filtering.
+* No tasks were started or denied using tags or custom properties.
 
 ### Start a single task using an invalid task ID
 
@@ -97,10 +101,13 @@ The task ID `abc123` is invalid. This will be detected and reported in the respo
       {
         "taskId": "abc123"
       }
-    ]
+    ],
+    "denied": []
   },
   "tasksTag": [],
-  "tasksCP": []
+  "tasksTagDenied": [],
+  "tasksCP": [],
+  "tasksCPDenied": []
 }
 ➜  ~
 ```
@@ -110,7 +117,7 @@ The task ID `abc123` is invalid. This will be detected and reported in the respo
 In this example all task IDs are valid. One of them is passed in the URL and the other two in the message body.
 
 ```bash
-➜  ~ curl -X "PUT" "http://192.168.1.168:8080/v4/reloadtask/e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e/start" \
+➜  ~ curl -X "PUT" "http://192.168.1.168:8080/v4/reloadtask/-/start" \
      -H 'Content-Type: application/json; charset=utf-8' \
      -d $'[
   {
@@ -130,10 +137,6 @@ In this example all task IDs are valid. One of them is passed in the URL and the
   "tasksId": {
     "started": [
       {
-        "taskId": "e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e",
-        "taskName": "Reload task of App1"
-      },
-      {
         "taskId": "7552d9fc-d1bb-4975-9a38-18357de531ea",
         "taskName": "Reload task of App2"
       },
@@ -142,22 +145,27 @@ In this example all task IDs are valid. One of them is passed in the URL and the
         "taskName": "Reload task of App3"
       }
     ],
-    "invalid": []
+    "invalid": [],
+    "denied": []
   },
   "tasksTag": [],
-  "tasksCP": []
+  "tasksTagDenied": [],
+  "tasksCP": [],
+  "tasksCPDenied": []
 }
 ➜  ~
 ```
 
 The response tells us:
 
-* All three tasks were started.
+* The magic task ID "-" will be ignored.
+* Two tasks, specified in the request body, were started.
 
-### Start multiple tasks using task IDs, all task IDs must exist
+### Start multiple tasks using task IDs, all task IDs must exist, task filtering ON
 
-Here two task IDs are valid and one is invalid.  
-As `allTaskIdsMustExist=true` we expect that no task is started.
+Here two task IDs are valid and on the list of approved task IDs. One task ID is invalid (too short).  
+As `allTaskIdsMustExist=true` we expect that no task is started (*all* task IDs must exist for *any* task to be started based on task ID!).
+Task filtering is turned on in the config file's `Butler.startTaskFilter.enable` entry.
 
 ```bash
 ➜  ~ curl -X "PUT" "http://192.168.1.168:8080/v4/reloadtask/e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e/start?allTaskIdsMustExist=true" \
@@ -183,10 +191,20 @@ As `allTaskIdsMustExist=true` we expect that no task is started.
       {
         "taskId": "fb0f317d-da91-4b86-aafa-0174ae1e8c8"
       }
+    ],
+    "denied": [
+      {
+        "taskId": "e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e"
+      },
+      {
+        "taskId": "7552d9fc-d1bb-4975-9a38-18357de531ea"
+      }
     ]
   },
   "tasksTag": [],
-  "tasksCP": []
+  "tasksTagDenied": [],
+  "tasksCP": [],
+  "tasksCPDenied": []
 }
 ➜  ~
 ```
@@ -194,7 +212,131 @@ As `allTaskIdsMustExist=true` we expect that no task is started.
 The response tells us:
 
 * No tasks were started based on task IDs.
-* The invalid task is returned in the response.
+* One invalid (too short!) task is returned in the response.
+* As there was one or more invalid task IDs, the two valid and approved task IDs were not started.
+  Their task IDs are returned in the denied array in the response.
+
+### Start multiple tasks using task IDs, all task IDs must exist, task filtering OFF
+
+Here two task IDs are valid and on the list of approved task IDs. One task ID is invalid (too short).  
+As `allTaskIdsMustExist=true` we expect that no task is started (*all* task IDs must exist for *any* task to be started based on task ID!).
+Task filtering is turned off in the config file's `Butler.startTaskFilter.enable` entry.
+
+```bash
+➜  ~ curl -X "PUT" "http://192.168.1.168:8080/v4/reloadtask/e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e/start?allTaskIdsMustExist=true" \
+     -H 'Content-Type: application/json; charset=utf-8' \
+     -d $'[
+  {
+    "type": "starttaskid",
+    "payload": {
+      "taskId": "7552d9fc-d1bb-4975-9a38-18357de531ea"
+    }
+  },
+  {
+    "type": "starttaskid",
+    "payload": {
+      "taskId": "fb0f317d-da91-4b86-aafa-0174ae1e8c8"
+    }
+  }
+]'
+{
+  "tasksId": {
+    "started": [],
+    "invalid": [
+      {
+        "taskId": "fb0f317d-da91-4b86-aafa-0174ae1e8c8"
+      }
+    ],
+    "denied": [
+      {
+        "taskId": "e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e"
+      },
+      {
+        "taskId": "7552d9fc-d1bb-4975-9a38-18357de531ea"
+      }
+    ]
+  },
+  "tasksTag": [],
+  "tasksTagDenied": [],
+  "tasksCP": [],
+  "tasksCPDenied": []
+}
+➜  ~
+```
+
+The response and its message is the same as in the previous example:
+
+* No tasks were started based on task IDs.
+* One invalid (too short!) task is returned in the response.
+* As there was one or more invalid task IDs, the two valid and approved task IDs were not started.
+  Their task IDs are returned in the denied array in the response.
+
+### Start multiple tasks using task IDs, task filtering ON
+
+* Two task IDs are valid and on the list of approved task IDs.
+* One task ID is valid but not on list of approved task IDs.
+* One task ID is invalid (too short).
+* Task filtering is turned on in the config file's `Butler.startTaskFilter.enable` entry.
+
+```bash
+➜  ~ curl -X "PUT" "http://192.168.1.168:8080/v4/reloadtask/e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e/start" \
+     -H 'Content-Type: application/json; charset=utf-8' \
+     -d $'[
+  {
+    "type": "starttaskid",
+    "payload": {
+      "taskId": "7552d9fc-d1bb-4975-9a38-18357de531ea"
+    }
+  },
+  {
+    "type": "starttaskid",
+    "payload": {
+      "taskId": "fb0f317d-da91-4b86-aafa-0174ae1e8c8"
+    }
+  },
+  {
+    "type": "starttaskid",
+    "payload": {
+      "taskId": "8b4fe424-d90c-493f-a61d-0ce91cd485c9"
+    }
+  }
+]'
+{
+  "tasksId": {
+    "started": [
+      {
+        "taskId": "e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e",
+        "taskName": "Reload task of App1"
+      },
+      {
+        "taskId": "7552d9fc-d1bb-4975-9a38-18357de531ea",
+        "taskName": "Reload task of App2"
+      }
+    ],
+    "invalid": [
+      {
+        "taskId": "fb0f317d-da91-4b86-aafa-0174ae1e8c8"
+      }
+    ],
+    "denied": [
+      {
+        "taskId": "8b4fe424-d90c-493f-a61d-0ce91cd485c9"
+      }
+    ]
+  },
+  "tasksTag": [],
+  "tasksTagDenied": [],
+  "tasksCP": [],
+  "tasksCPDenied": []
+}
+➜  ~
+```
+
+The response tells us:
+
+* Two tasks were started, as their task IDs were approved in the config file.
+* One task ID was invalid (too short!).
+* One task ID had a valid format but was not on the list of approved task IDs.
 
 ### Start tasks using tags
 
@@ -207,9 +349,7 @@ The QMC shows which tasks have these tags set:
 Starting the three tasks tagged with `starttask1`:
 
 ```bash
-➜  ~ curl -X "PUT" "http://192.168.1.168:8080/v4/reloadtask/-/start" \
-     -H 'Content-Type: application/json; charset=utf-8' \
-     -d $'[
+➜  ~ curl -X "PUT" "http://192.168.1.168:8080/v4/reloadtask/-/start" -H 'Content-Type: application/json; charset=utf-8' -d $'[
   {
     "type": "starttasktag",
     "payload": {
@@ -220,11 +360,8 @@ Starting the three tasks tagged with `starttask1`:
 {
   "tasksId": {
     "started": [],
-    "invalid": [
-      {
-        "taskId": "-"
-      }
-    ]
+    "invalid": [],
+    "denied": []
   },
   "tasksTag": [
     {
@@ -240,15 +377,17 @@ Starting the three tasks tagged with `starttask1`:
       "taskName": "Reload task of App3"
     }
   ],
-  "tasksCP": []
-}%
+  "tasksTagDenied": [],
+  "tasksCP": [],
+  "tasksCPDenied": []
+}
 ➜  ~
 ```
 
 The response tells us:
 
 * Three tasks were started because they had a tag matching the one specified in the call to the API.
-* One invalid task ID was specified. This is the one in the URL - if needed it's ok to provide a dummy task ID, as done here. 
+* One invalid task ID was specified. This is the one in the URL - if needed it's ok to provide a dummy task ID, as done here.
 
 ### Start tasks using custom properties
 
@@ -280,13 +419,11 @@ Here's a call that will start all tasks that have the custom property `taskGroup
 {
   "tasksId": {
     "started": [],
-    "invalid": [
-      {
-        "taskId": "-"
-      }
-    ]
+    "invalid": [],
+    "denied": []
   },
   "tasksTag": [],
+  "tasksTagDenied": [],
   "tasksCP": [
     {
       "taskId": "e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e",
@@ -304,8 +441,9 @@ Here's a call that will start all tasks that have the custom property `taskGroup
       "taskId": "7552d9fc-d1bb-4975-9a38-18357de531ea",
       "taskName": "Reload task of App2"
     }
-  ]
-}%
+  ],
+  "tasksCPDenied": []
+}
 ➜  ~
 ```
 
@@ -326,10 +464,10 @@ This is supported by Butler as follows:
 Here a single task, identified by its ID in the URL, is started.  
 Two key-value pairs are passed along as parameters to the app. One has a TimeToLive of 10 seconds, the other has no TTL (=it will not be automatically deleted).
 
+Task filtering is off, i.e. any task can be started using this API.
+
 ```bash
-➜  ~ curl -X "PUT" "http://192.168.1.168:8080/v4/reloadtask/fbf645f0-0c92-40a4-af9a-6e3eb1d3c35c/start" \
-     -H 'Content-Type: application/json; charset=utf-8' \
-     -d $'[
+➜  ~ curl -X "PUT" "http://192.168.1.168:8080/v4/reloadtask/fbf645f0-0c92-40a4-af9a-6e3eb1d3c35c/start" -H 'Content-Type: application/json; charset=utf-8' -d $'[
   {
     "type": "keyvaluestore",
     "payload": {
@@ -356,10 +494,13 @@ Two key-value pairs are passed along as parameters to the app. One has a TimeToL
         "taskName": "Reload Operations Monitor"
       }
     ],
-    "invalid": []
+    "invalid": [],
+    "denied": []
   },
   "tasksTag": [],
-  "tasksCP": []
+  "tasksTagDenied": [],
+  "tasksCP": [],
+  "tasksCPDenied": []
 }
 ➜  ~
 ```
@@ -369,9 +510,7 @@ Two key-value pairs are passed along as parameters to the app. One has a TimeToL
 Combining all of the above can look like this:
 
 ```bash
-➜  ~ curl -X "PUT" "http://192.168.1.168:8080/v4/reloadtask/e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e/start?allTaskIdsMustExist=true" \
-     -H 'Content-Type: application/json; charset=utf-8' \
-     -d $'[
+➜  ~ curl -X "PUT" "http://192.168.1.168:8080/v4/reloadtask/e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e/start?allTaskIdsMustExist=true" -H 'Content-Type: application/json; charset=utf-8' -d $'[
   {
     "type": "starttaskid",
     "payload": {
@@ -423,12 +562,7 @@ Combining all of the above can look like this:
     "type": "keyvaluestore",
     "payload": {
       "namespace": "MyFineNamespace",
-      "key": "Foo",
-      "value": "Bar"
-    }
-  }
-]'
-
+      "key": "Foo",                                                                                                                                                                                               <....
 {
   "tasksId": {
     "started": [
@@ -445,7 +579,8 @@ Combining all of the above can look like this:
         "taskName": "Reload task of App3"
       }
     ],
-    "invalid": []
+    "invalid": [],
+    "denied": []
   },
   "tasksTag": [
     {
@@ -465,6 +600,7 @@ Combining all of the above can look like this:
       "taskName": "Reload task of App3"
     }
   ],
+  "tasksTagDenied": [],
   "tasksCP": [
     {
       "taskId": "e3b27f50-b1c0-4879-88fc-c7cdd9c1cf3e",
@@ -482,7 +618,8 @@ Combining all of the above can look like this:
       "taskId": "7552d9fc-d1bb-4975-9a38-18357de531ea",
       "taskName": "Reload task of App2"
     }
-  ]
+  ],
+  "tasksCPDenied": []
 }
 ➜  ~
 ```
