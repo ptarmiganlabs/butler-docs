@@ -25,35 +25,41 @@ Described [here](https://butler.ptarmiganlabs.com/docs/getting-started/setup/).
 
 ### 2. Add approved directories to Butler config file
 
-The general idea is for each file system operation (copy, move and delete) you can specify in which (or between which) directories that operation should be allowed.
+The general idea is:  
+For each file system operation (copy, move and delete) you can specify in which (or between which) directories that operation should be allowed.
 
-For example, let's assume Butler's config file includes this settings (note how both Linux and Windows style paths are supported):
+This is straight forward, but because Butler can run on different operating systems AND access file shares hosted by various OSs, things can get a bit complicated.
+
+A few examples show how to deal with some common scenarios:
 
 ```yaml
   fileCopyApprovedDirectories:
-    - fromDirectory: /data1/qvd
+    - fromDirectory: /data1/qvd           # Butler running on Linux, with either a local directory in /data1, or a remote fileshare mounted into /data1
       toDirectory: /data2/qvd_archive
-    - fromDirectory: e:\data3\qvd
+    - fromDirectory: e:\data3\qvd         # Butler running on Windows Server, accessing files/directories in the local file system
       toDirectory: e:\data4\qvd_archive
-    - fromDirectory: e:\data5\qvd
-      toDirectory: e:\data6\qvd_archive
+    - fromDirectory: //server1.my.domain/fileshare1/data1   # Butler running on Windows server, accessing a SMB file share (which can be on a Windows or Linux server)
+      toDirectory: //server1.my.domain/fileshare1/data2     # In UNC notation this path would be \\server1.my.domain\fileshare1\data2
 
   fileMoveApprovedDirectories:
     - fromDirectory: /data7/qvd
       toDirectory: /data8/qvd_archive
     - fromDirectory: e:\data9\qvd
       toDirectory: e:\data10\qvd_archive
+    - fromDirectory: //server2.my.domain/data1/qvd
+      toDirectory: //server2.my.domain/data1/qvd_archive
 
   fileDeleteApprovedDirectories:
     - /data1/qvd_archive
     - e:\data1\qvd_archive
+    - //server3.my.domain/data1/qvd_archive     # UNC would be \\server3.my.domain\data1\qvd_archive
 ```
 
 This configuration (for example) means:
 
 - Copying can be done from `e:\data3\qvd` to `e:\data4\qvd_archive`, but *not* from `e:\data3\qvd` to `e:\data6\qvd_archive`
 - Moving files can be done from `/data7/qvd` to `/data8/qvd_archive`, but *not* from `/data7/qvd` to `e:\data9\qvd`
-- Files can be deleted in the directories `/data1/qvd_archive` and `e:\data1\qvd_archive`.
+- Files can be deleted in the directories `/data1/qvd_archive`, `e:\data1\qvd_archive` and (using UNC notation) `\\server3.my.domain\data1\qvd_archive`.
 
 ### 3. Create Sense data connections used to call Butler's REST API
 
@@ -61,16 +67,17 @@ Described [here](/docs/getting-started/setup/data-connections/).
 
 ### 4. Call the Butler APIs or use convenience subs
 
-Using the provided subs is easy:
+Once you know what file path format to use (see above), using the helper subs is pretty easy:
 
 ```
 // Where is Butler running?
-let vButlerHost = '10.11.12.13';
+let vButlerHost = 'http://10.11.12.13';
 let vButlerPort = 8080;
 
 // Delete files
 Call DeleteFile('/data1/qvd_archive/a.txt')
 Call DeleteFile('e:\data1\qvd_archive\a.txt')
+Call DeleteFile('//server3.my.domain/data1/qvd_archive\a.txt')
 
 // Copy files with options overwrite-if-exists=true and keep-source-timestamp=true
 Call CopyFile('/data1/qvd/a.txt', '/data2/qvd_archive/a.txt', 'true', 'true')
@@ -104,16 +111,16 @@ sub DeleteFile(vFile)
 
     RestConnectorMasterTable:
     SQL SELECT 
-    	"vFile"
+        "vFile"
     FROM JSON (wrap on) "root"
     WITH CONNECTION (
-    Url "http://$(vButlerHost):$(vButlerPort)/v4/filedelete",
+    Url "$(vButlerHost):$(vButlerPort)/v4/filedelete",
     BODY "$(vRequestBody)",
     HTTPHEADER "X-HTTP-Method-Override" "DELETE"
     );
 
     set vFile=;
-
+    set vRequestBody=;
     DROP TABLE RestConnectorMasterTable;
 end sub
 ```

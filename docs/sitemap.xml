@@ -12,7 +12,7 @@
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
   </url><url>
     <loc>/docs/reference/config-file/</loc>
-    <lastmod>2021-12-11T17:45:07+01:00</lastmod>
+    <lastmod>2021-12-30T22:29:10+01:00</lastmod>
   </url><url>
     <loc>/docs/getting-started/setup/reload-alerts/alert-emails/</loc>
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
@@ -24,10 +24,10 @@
     <lastmod>2021-12-11T17:45:07+01:00</lastmod>
   </url><url>
     <loc>/docs/getting-started/overview/</loc>
-    <lastmod>2021-12-11T19:29:14+01:00</lastmod>
+    <lastmod>2021-12-30T22:29:10+01:00</lastmod>
   </url><url>
     <loc>/docs/examples/start-task/start-task-from-rest/</loc>
-    <lastmod>2021-11-03T14:09:22+01:00</lastmod>
+    <lastmod>2021-12-30T22:29:10+01:00</lastmod>
   </url><url>
     <loc>/docs/concepts/incident-mgmt-tools/signl4/</loc>
     <lastmod>2021-11-03T14:09:22+01:00</lastmod>
@@ -45,7 +45,7 @@
     <lastmod>2021-11-03T14:09:22+01:00</lastmod>
   </url><url>
     <loc>/docs/</loc>
-    <lastmod>2021-11-03T16:07:32+01:00</lastmod>
+    <lastmod>2021-12-30T22:29:10+01:00</lastmod>
   </url><url>
     <loc>/docs/getting-started/</loc>
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
@@ -171,6 +171,7 @@
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
   </url><url>
     <loc>/docs/reference/test-cases/</loc>
+    <lastmod>2021-12-30T22:29:10+01:00</lastmod>
   </url><url>
     <loc>/docs/examples/sense-demo-apps/</loc>
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
@@ -230,6 +231,7 @@
     <lastmod>2021-11-03T14:09:22+01:00</lastmod>
   </url><url>
     <loc>/docs/getting-started/setup/task-filter/</loc>
+    <lastmod>2021-12-30T22:29:10+01:00</lastmod>
   </url><url>
     <loc>/docs/getting-started/setup/telemetry/</loc>
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
