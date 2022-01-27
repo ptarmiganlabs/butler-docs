@@ -28,7 +28,8 @@ Described [here](https://butler.ptarmiganlabs.com/docs/getting-started/setup/).
 The general idea is:  
 For each file system operation (copy, move and delete) you can specify in which (or between which) directories that operation should be allowed.
 
-This is straight forward, but because Butler can run on different operating systems AND access file shares hosted by various OSs, things can get a bit complicated.
+This is straight forward, but because Butler can run on different operating systems AND access file shares hosted by various OSs, things can get a bit complicated.  
+In most cases the paths to use are the expected ones, but when it comes to UNC paths they need to use forward slash "/" rather than back ditto "\\".
 
 A few examples show how to deal with some common scenarios:
 

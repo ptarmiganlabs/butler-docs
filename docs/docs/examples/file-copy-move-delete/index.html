@@ -463,7 +463,8 @@ Make sure the account Butler runs under has the appropriate access to those dire
 <h3 id="2-add-approved-directories-to-butler-config-file">2. Add approved directories to Butler config file</h3>
 <p>The general idea is:<br>
 For each file system operation (copy, move and delete) you can specify in which (or between which) directories that operation should be allowed.</p>
-<p>This is straight forward, but because Butler can run on different operating systems AND access file shares hosted by various OSs, things can get a bit complicated.</p>
+<p>This is straight forward, but because Butler can run on different operating systems AND access file shares hosted by various OSs, things can get a bit complicated.<br>
+In most cases the paths to use are the expected ones, but when it comes to UNC paths they need to use forward slash &ldquo;/&rdquo; rather than back ditto &ldquo;\&rdquo;.</p>
 <p>A few examples show how to deal with some common scenarios:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">fileCopyApprovedDirectories</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">fromDirectory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/data1/qvd          </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Butler running on Linux, with either a local directory in /data1, or a remote fileshare mounted into /data1</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -624,7 +625,7 @@ end sub
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified 2021-04-22: <a href="https://github.com/ptarmiganlabs/butler-docs/commit/c105eb7c23c3cfe4d98b4d6d316a786db6614d1e">First commit (c105eb7)</a>
+  Last modified 2022-01-26: <a href="https://github.com/ptarmiganlabs/butler-docs/commit/f8f5f53543317a702840c94591537c33f5b743cc">Fixes incorrect example for deleting files using Butler API (f8f5f53)</a>
 </div>
 
 </div>
