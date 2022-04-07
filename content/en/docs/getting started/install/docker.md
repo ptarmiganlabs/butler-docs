@@ -1,7 +1,7 @@
 ---
 title: "Running Butler in Docker"
 linkTitle: "Docker"
-weight: 30
+weight: 20
 description: >
   How to install Butler as a Docker container.
 ---

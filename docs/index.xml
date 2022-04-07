@@ -214,7 +214,7 @@ Fixed in version 4.1.1.&lt;/p&gt;
 &lt;p&gt;This is a small release that just adds a single endpoint to Butler&amp;rsquo;s REST API: Copying files.&lt;/p&gt;
 &lt;p&gt;This is done in the same way as the moving files feature that was added in v4.0:&lt;/p&gt;
 &lt;p&gt;In the config file you define pairs of approved source/destination directories, between which file copying is allowed.
-This way the security risk is greatly reduced, and file copying can become an integral part of Qlik Sense load scripts&#39; logic.&lt;/p&gt;
+This way the security risk is greatly reduced, and file copying can become an integral part of Qlik Sense load scripts&amp;rsquo; logic.&lt;/p&gt;
 &lt;p&gt;Please see the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/changelog.md&#34;&gt;changelog&lt;/a&gt; for more information.&lt;/p&gt;
 
       </description>

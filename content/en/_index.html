@@ -10,6 +10,7 @@ linkTitle = "Butler"
 		Great looking alerts to Slack, Teams or email when reloads fail, advanced task scheduling, task chaining with parameters, key-value store, start reload tasks from any system, extract app metadata, post to Slack/Teams, MQTT integration and more.<br><br>
 	</p>
 	<p style="font-size: 120%" ">
+		No installation needed. Just download, configure and run.<br>
 		Open source of course.<br><br>
 	</p>
 	<!-- <p class="lead mt-5" style="font-size: 120%" ">
@@ -94,6 +95,14 @@ Full support for HTML/Markdown formatting and 40+ template fields.
 [Read more...](/docs/concepts/alert-emails/) 
 {{% /blocks/feature %}}
 
+{{% blocks/feature icon="fa-archive" title="Save logs from failed reloads" %}}
+Finding the complete logs from failed reloads can be a pain.
+
+Butler can save these for you, sorted by date.  
+Finding what caused a reload to fail is now easier than ever!
+
+[Read more...](/docs/concepts/failed-reload-logs/) 
+{{% /blocks/feature %}}
 
 {{% blocks/feature icon="fa-redo" title="Partial app reloads" %}}
 Trigger full or partial app reloads using Butler's REST API.
@@ -132,6 +141,8 @@ Butler can save data about its own memory usage for inclusion in operational mon
 {{% blocks/feature icon="fa-server" title="Runs anywhere" %}}
 Run Butler on Windows server, Linux, Docker, Kubernetes or Mac OS.
 
+Standalone binaries - no installation needed. Download, configure and run.
+
 [Read more...](/docs/getting-started/) 
 {{% /blocks/feature %}}
 
@@ -144,9 +155,10 @@ Run Butler on Windows server, Linux, Docker, Kubernetes or Mac OS.
 
 {{< blocks/section color="dark">}}
 
-{{% blocks/feature icon="fa-lightbulb" title="Latest release: 7.0" %}}
-Refactor the entire REST API. Better, faster, scalable!  
-Start tasks based on their custom properties and tags.
+{{% blocks/feature icon="fa-lightbulb" title="Latest release: 7.2" %}}
+Stand-alone binaries - no need to install Node.js any more.  
+Keep an easy to access copy of script logs for failed reloads.  
+...and a bunch of bug fixes.
 
 
 Available on [GitHub](https://github.com/ptarmiganlabs/butler/releases).

@@ -9,6 +9,24 @@ weight: 20
 
 
 {{% pageinfo %}}
+
+### What's new in version 7.2
+
+*Features*
+
+* Create stand-alone binaries to make it easier to get started with Butler. No need to install Node.js any more, just download Butler, configure it and run. [#383](https://github.com/ptarmiganlabs/butler/issues/383)
+* Make a few important config options available as command line parameters. Specifically, the config file to use and the log level can be specified via command line options `--configfile` and `--loglevel`, respectively. [#381](https://github.com/ptarmiganlabs/butler/issues/381)
+* Store full reload logs for failed reload tasks to disk, for easier analysis at later time. [#94](https://github.com/ptarmiganlabs/butler/issues/94)
+
+*Bug fixes*
+
+* Better error checking when calling Qlik Sense APIs. [#386](https://github.com/ptarmiganlabs/butler/issues/386)
+* Clean up Docker image and release ZIP files. [#361](https://github.com/ptarmiganlabs/butler/issues/361)
+* Better handling of long script logs in notifications sent to MS Teams. [#389](https://github.com/ptarmiganlabs/butler/issues/389)
+* Better handling of long script logs in notifications sent to Slack. [#388](https://github.com/ptarmiganlabs/butler/issues/388)
+
+*Other*
+
 ### What's new in version 7.1
 
 *Features*

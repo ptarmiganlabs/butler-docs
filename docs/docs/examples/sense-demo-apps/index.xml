@@ -51,7 +51,7 @@ It doesn&amp;rsquo;t have much of a user interface (it just shows what API endpo
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src=&#34;butler-demo-partial-reload-1.png&#34; alt=&#34;alt text&#34; title=&#34;Partial app reloads using Butler.&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;video-showing-how-to-use-demo-apps&#34;&gt;Video showing how to use demo apps&lt;/h2&gt;
-&lt;p&gt;Available at &lt;a href=&#34;https://www.youtube.com/channel/UCpQblhippq-KfWkXEEYFHTQ&#34;&gt;Ptarmigan Labs&#39; YouTube channel&lt;/a&gt; and also in the &lt;a href=&#34;https://www.youtube.com/playlist?list=PLUuyY5OOOsz3XX5YT2QEwa7dzaBT1kOCP&#34;&gt;Butler YouTube playlist&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Available at &lt;a href=&#34;https://www.youtube.com/channel/UCpQblhippq-KfWkXEEYFHTQ&#34;&gt;Ptarmigan Labs&amp;rsquo; YouTube channel&lt;/a&gt; and also in the &lt;a href=&#34;https://www.youtube.com/playlist?list=PLUuyY5OOOsz3XX5YT2QEwa7dzaBT1kOCP&#34;&gt;Butler YouTube playlist&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
         &lt;iframe src=&#34;https://www.youtube.com/embed/0xh10ErPy6c?enablejsapi=1&#34;
                  allowfullscreen&gt;&lt;/iframe&gt;
@@ -112,7 +112,7 @@ Call PostToMQTT(&#39;butler/5.0/demo-reloading/status&#39;, &#39;reload done&#39
 &lt;p&gt;&lt;img src=&#34;/img/butler-publish-mqtt-message-1.png&#34; alt=&#34;alt text&#34; title=&#34;MQTT messages created from Qlik Sense load script.&#34;&gt;&lt;/p&gt;
 &lt;p&gt;The demo app is available in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;seeing-is-believing&#34;&gt;Seeing is believing&lt;/h2&gt;
-&lt;p&gt;The video below is available at &lt;a href=&#34;https://www.youtube.com/channel/UCpQblhippq-KfWkXEEYFHTQ&#34;&gt;Ptarmigan Labs&#39; YouTube channel&lt;/a&gt; and also in the &lt;a href=&#34;https://www.youtube.com/playlist?list=PLUuyY5OOOsz3XX5YT2QEwa7dzaBT1kOCP&#34;&gt;Butler playlist&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The video below is available at &lt;a href=&#34;https://www.youtube.com/channel/UCpQblhippq-KfWkXEEYFHTQ&#34;&gt;Ptarmigan Labs&amp;rsquo; YouTube channel&lt;/a&gt; and also in the &lt;a href=&#34;https://www.youtube.com/playlist?list=PLUuyY5OOOsz3XX5YT2QEwa7dzaBT1kOCP&#34;&gt;Butler playlist&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
         &lt;iframe src=&#34;https://www.youtube.com/embed/GtOojhW5HsA?enablejsapi=1&#34;
                  allowfullscreen&gt;&lt;/iframe&gt;

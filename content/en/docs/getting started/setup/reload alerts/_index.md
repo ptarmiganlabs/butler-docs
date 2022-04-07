@@ -62,6 +62,10 @@ So what happens when a scheduled reload task fails? Let's look at the steps:
 
 Response times are usually very good - Butler will typically get the UDP message within a few seconds, with alerts going out shortly thereafter.
 
+{{< notice warning >}}
+The log appenders that catch failed and aborted reloads in the Qlik Sense engine and scheduler must be set up on all Qlik Sense servers where reloads are happening for this feature to work.
+{{< /notice >}}
+
 ## Adding a log appender
 
 This is possibly the trickiest part to get right when it comes to setting up log4net based alerts.  

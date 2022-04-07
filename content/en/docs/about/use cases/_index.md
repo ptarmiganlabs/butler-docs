@@ -6,6 +6,7 @@ weight = 10
 
 
 - [Instant notifications when reload tasks fail or are stopped](#instant-notifications-when-reload-tasks-fail-or-are-stopped)
+- [Save a copy of the complete reload log for all failed reload tasks](#save-a-copy-of-the-complete-reload-log-for-all-failed-reload-tasks)
 - [Start reload tasks from load script or from upstream systems](#start-reload-tasks-from-load-script-or-from-upstream-systems)
 - [Start any reload task from within any Qlik Sense or web app](#start-any-reload-task-from-within-any-qlik-sense-or-web-app)
 - [Start reload tasks via REST API based on task tags or custom properties](#start-reload-tasks-via-rest-api-based-on-task-tags-or-custom-properties)
@@ -33,6 +34,25 @@ For both Slack and Teams there are options to use more flexible/configurable ale
 The result is a very poweful tool for QSEoW sysadmins, who get real-time insight into what's happening with respect to task execution.
 
 More info [here](docs/getting-started/setup/reload-alerts/).
+
+## Save a copy of the complete reload log for all failed reload tasks
+
+Let's say a scheduled reload task fails.
+
+This can happen due to lots of reasons, from uncontrollable events that are impossible to predict to bugs in the script of a Sense app.
+
+No matter what the cause is, as a Sense administrator you probably want to investigate the script reload logs.
+
+Butler can send notifications (Slack, Teams, email, webhooks, ...) when reloads fail.  
+These notifications can include the last 20-30-40 lines of the script log and this usually gives a good idea of what caused the reload to fail.
+
+But what if you want to look at the *complete* reload log of that failed app reload?
+
+So far you would have to dig into the log directory on the Sense server, find that specific reload log among potentially thousands of other log files. Not very effective.
+
+As of version 7.2 Butler can store a copy of the complete reload log in a directory that you specify.  
+The log files are stored in separate directories, one for each date.  
+This makes it easy to find the log file you are interested in.
 
 ## Start reload tasks from load script or from upstream systems
 

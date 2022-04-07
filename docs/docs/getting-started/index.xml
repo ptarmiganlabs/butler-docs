@@ -61,7 +61,7 @@
 &lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Warning&lt;/p&gt;&lt;p&gt;Butler was developed with InfluxDB version 1.x in mind.&lt;/p&gt;
 &lt;p&gt;InfluxDB is currently available in version 2.x and while this version brings lots of new goodies, it&amp;rsquo;s not out-of-the-box compatible with Butler.&lt;br&gt;
 For that reason you should use the latest 1.x version of InfluxDB, which at the time of this writing is 1.8.4.&lt;/p&gt;
-&lt;p&gt;If you do not intend to use any InfluxDB-dependend features of Butler you can simply disregard this warning.&lt;/p&gt;
+&lt;p&gt;If you do not intend to use any InfluxDB related features of Butler you can simply disregard this warning.&lt;/p&gt;
 &lt;p&gt;In due time Butler will be updated to support InfluxDB 2.x too.&lt;/p&gt;&lt;/div&gt;
 
 
@@ -69,17 +69,31 @@ For that reason you should use the latest 1.x version of InfluxDB, which at the 
 &lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
 &lt;p&gt;Given the cross platform nature of Node.js (which is the language Butler is written in), Butler can run on lots of different hardware platforms and operating systems.&lt;/p&gt;
 &lt;p&gt;It is therefore difficult to give detailed installation instructions for each possible installation scenario. This site thus tries explain how to get started with Butler in some of the most common scenarios.&lt;/p&gt;
+&lt;p&gt;Pre-built binaries are available for Windows, macOS and Linux. When using these there is no need to install Node.js, as the Node.js runtime is bundled into the various binaries.&lt;br&gt;
+Using these binaries is the easiest - and thus recommended - way of using Butler.&lt;br&gt;
+Unless you want to use Docker, which is also a great option.&lt;/p&gt;
 
 &lt;/div&gt;
 
 &lt;h2 id=&#34;getting-started&#34;&gt;Getting started&lt;/h2&gt;
-&lt;p&gt;Sorry - there is no installer for Butler.&lt;br&gt;
-You will need to work a bit on the command line to set things up.&lt;/p&gt;
-&lt;p&gt;It&amp;rsquo;s not as bad as it sounds though, the instructions here should help.&lt;br&gt;
-If you run into troubles you can always reach out via the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/discussions&#34;&gt;GitHub discussion forums&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
-&lt;p&gt;Either you install a few pieces of software (most notably &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js&lt;/a&gt; and some node modules), or you run Butler in a Docker container.&lt;/p&gt;
-&lt;p&gt;Either way you also need to edit Butler&amp;rsquo;s configuration file and provide certificates exported from Qlik Sense Enterprise.&lt;/p&gt;
+&lt;p&gt;Sorry - there is no installer for Butler.&lt;/p&gt;
+&lt;p&gt;The pre-built binaries for Windows, macOS, Linux and Docker simply work as-is when combined with a properly set up configuration file.&lt;/p&gt;
+&lt;p&gt;If you still want to run Butler as Node.js app you will first need to set up Node.js.&lt;br&gt;
+This isn&amp;rsquo;t really that difficult, but still another step that has to be carried out.&lt;/p&gt;
+&lt;p&gt;The instructions on the pages below should provide good guidance, if you still run into troubles you can always reach out via the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/discussions&#34;&gt;GitHub discussion forums&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;whats-required-to-use-butler&#34;&gt;What&amp;rsquo;s required to use Butler&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;A Butler executable of some kind. This would be one of the following
+&lt;ul&gt;
+&lt;li&gt;A stand-alone binary for the operating system you plan to use&lt;/li&gt;
+&lt;li&gt;A Docker image from which a Butler container can be created.&lt;br&gt;
+If you have a Docker or Kubernetes environment this is a great option.&lt;/li&gt;
+&lt;li&gt;The Butler source code plus &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js&lt;/a&gt; installed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;A Butler config file adapted to your specific Qlik Sense environment&lt;/li&gt;
+&lt;li&gt;Certificates exported from Qlik Sense Enterprise.&lt;/li&gt;
+&lt;/ul&gt;
 
       </description>
     </item>
@@ -121,85 +135,10 @@ If you run into troubles you can always reach out via the &lt;a href=&#34;https:
 &lt;/div&gt;
  --&gt;
 &lt;h2 id=&#34;running-butler&#34;&gt;Running Butler&lt;/h2&gt;
-&lt;p&gt;How to start Butler varies depending on whether you are using Docker or a native Node.js approach.&lt;/p&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-&lt;ul class=&#34;nav nav-tabs&#34; id=&#34;tabs-1&#34; role=&#34;tablist&#34;&gt;&lt;li class=&#34;nav-item&#34;&gt;
-      &lt;a class=&#34;nav-link active tab-Docker&#34;
-        id=&#34;tabs-1-0-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-1-0&#34; role=&#34;tab&#34; onclick=&#34;handleClick(&amp;#34;Docker&amp;#34;);&#34;
-        aria-controls=&#34;tabs-1-0&#34; aria-selected=&#34;true&#34;&gt;
-        Docker
-      &lt;/a&gt;
-    &lt;/li&gt;&lt;li class=&#34;nav-item&#34;&gt;
-      &lt;a class=&#34;nav-link tab-Native-Node.js&#34;
-        id=&#34;tabs-1-1-tab&#34; data-toggle=&#34;tab&#34; href=&#34;#tabs-1-1&#34; role=&#34;tab&#34; onclick=&#34;handleClick(&amp;#34;Native-Node.js&amp;#34;);&#34;
-        aria-controls=&#34;tabs-1-1&#34; aria-selected=&#34;false&#34;&gt;
-        Native Node.js
-      &lt;/a&gt;
-    &lt;/li&gt;&lt;/ul&gt;
-
-
-&lt;div class=&#34;tab-content&#34; id=&#34;tabs-1-content&#34;&gt;&lt;div class=&#34;tab-pane fade show active&#34;
-        id=&#34;tabs-1-0&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-1-0-tab&#34;&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-en&#34; data-lang=&#34;en&#34;&gt;First configure the `docker-compose.yml` file as needed, then start the Docker container in interactive mode (with output sent to the screen).  
-This is useful to ensure everything works as intended when first setting up Butler SOS.
-
-    docker-compose up
-
-Once Butler has been verified to work as intended, hit `ctrl-c` to stop it.  
-Then start Butler in deameon (background) mode:
-
-    docker-compose up -d
-
-From here on the Docker enviromment will make sure Butler is always running, including restarting it if it for some reason stops.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-  &lt;div class=&#34;tab-pane fade&#34;
-        id=&#34;tabs-1-1&#34; role=&#34;tabpanel&#34; aria-labelled-by=&#34;tabs-1-1-tab&#34;&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-en&#34; data-lang=&#34;en&#34;&gt;Starting Butler as a Node.js on Windows could look like this:  
-
-    d:
-    cd \node\butler\src
-    node butler.js
-
-It is of course also possible to put those commands in a command file (.bat on Windows, .sh etc on other platforms) file and execute that file instead.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-  
-&lt;/div&gt;
-
-&lt;h4 id=&#34;windows-services--process-monitors&#34;&gt;Windows services &amp;amp; process monitors&lt;/h4&gt;
-&lt;p&gt;As Butler is the kind of service that (probably) should always be running on a server, it makes sense using a Node.js process monitor to keep it alive (if running Butler as a Docker container you get this for free).&lt;/p&gt;
-&lt;p&gt;On Windows you can use the excellent &lt;a href=&#34;https://nssm.cc/&#34;&gt;Nssm&lt;/a&gt; tool to make Butler run as a Windows Service, with all the benefits that follow (can be monitored using operations tools, automatic restarts etc).&lt;/p&gt;
-&lt;p&gt;If running Butler as a Node.js app on Linux, &lt;a href=&#34;https://github.com/Unitech/pm2&#34;&gt;PM2&lt;/a&gt; and &lt;a href=&#34;https://github.com/foreverjs/forever&#34;&gt;Forever&lt;/a&gt; are two process monitors that both have been successfully tested with Butler.&lt;/p&gt;
-&lt;p&gt;One caveat with these is that it can be hard to start them (and thus Butler) when a Windows server is rebooted.
-PM2 can be used to solve this challenge in a nice way, more info in &lt;a href=&#34;https://ptarmiganlabs.com/blog/2017/07/12/monitoring-auto-starting-node-js-services-windows-server&#34;&gt;this blog post&lt;/a&gt;. On the other hand - just using Nssm is probably the easiest option for Windows.&lt;/p&gt;
+&lt;p&gt;How to start Butler varies depending on whether you run it as a standalone app, as a Docker container or as a Node.js app.&lt;/p&gt;
 &lt;h3 id=&#34;monitoring-butler&#34;&gt;Monitoring Butler&lt;/h3&gt;
 &lt;p&gt;Once Butler is running it&amp;rsquo;s a good idea to also monitor it. Otherwise you stand the risk of not getting notified if Butler for some reason misbehaves.&lt;/p&gt;
-&lt;p&gt;Butler will log data on its memory usage to InfluxDB if&lt;/p&gt;
+&lt;p&gt;Butler will log its own memory usage to InfluxDB if&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;The config file&amp;rsquo;s &lt;code&gt;Butler.uptimeMonitor.enable&lt;/code&gt; and &lt;code&gt;Butler.uptimeMonitor.storeInInfluxdb.enable&lt;/code&gt; properties are both set to &lt;code&gt;true&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;The remaining InfluxDB properties of the config file are correctly configured.&lt;/li&gt;

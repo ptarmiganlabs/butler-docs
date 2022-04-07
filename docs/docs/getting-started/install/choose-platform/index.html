@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.92.0" />
+<meta name="generator" content="Hugo 0.96.0" />
 <meta name="robots" content="index, follow">
 
 
@@ -18,10 +18,10 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Choose a platform | Butler</title>
+<title>Decide how to run Butler | Butler</title>
 <meta name="description" content="On what platforms does Butler run?
 ">
-<meta property="og:title" content="Choose a platform" />
+<meta property="og:title" content="Decide how to run Butler" />
 <meta property="og:description" content="On what platforms does Butler run?
 " />
 <meta property="og:type" content="article" />
@@ -29,13 +29,13 @@
 
 <meta property="article:modified_time" content="2021-11-03T14:09:22+01:00" /><meta property="og:site_name" content="Butler" />
 
-<meta itemprop="name" content="Choose a platform">
+<meta itemprop="name" content="Decide how to run Butler">
 <meta itemprop="description" content="On what platforms does Butler run?
 ">
 <meta itemprop="dateModified" content="2021-11-03T14:09:22+01:00" />
-<meta itemprop="wordCount" content="290">
+<meta itemprop="wordCount" content="372">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Choose a platform"/>
+<meta name="twitter:title" content="Decide how to run Butler"/>
 <meta name="twitter:description" content="On what platforms does Butler run?
 "/>
 
@@ -191,11 +191,13 @@ if (!doNotTrack) {
   <a href="/docs/getting-started/install/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedinstall"><span class="">Installing Butler</span></a>
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsgetting-startedinstallchoose-platform-li">
-  <a href="/docs/getting-started/install/choose-platform/" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id="m-docsgetting-startedinstallchoose-platform"><span class="td-sidebar-nav-active-item">Choose a platform</span></a>
+  <a href="/docs/getting-started/install/choose-platform/" title="Decide how to run Butler" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id="m-docsgetting-startedinstallchoose-platform"><span class="td-sidebar-nav-active-item">Time to decide</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedinstallnative-li">
+  <a href="/docs/getting-started/install/native/" title="Running Butler as a native, pre-built application" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsgetting-startedinstallnative"><span class="">Native app</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedinstalldocker-li">
   <a href="/docs/getting-started/install/docker/" title="Running Butler in Docker" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsgetting-startedinstalldocker"><span class="">Docker</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedinstallnative-li">
-  <a href="/docs/getting-started/install/native/" title="Running Butler as a native Node.js application" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsgetting-startedinstallnative"><span class="">Native app</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedinstallnodejs-li">
+  <a href="/docs/getting-started/install/nodejs/" title="Running Butler as a Node.js application" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsgetting-startedinstallnodejs"><span class="">Node.js app</span></a>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgetting-startedsetup-li">
@@ -222,6 +224,8 @@ if (!doNotTrack) {
   <a href="/docs/getting-started/setup/reload-alerts/alert-webhook-out/" title="Reload alerts via outgoing webhooks" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-webhook-out"><span class="">Webhook</span></a>
 </li>
   </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-script-logs-li">
+  <a href="/docs/getting-started/setup/reload-script-logs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-script-logs"><span class="">Reload script logs</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupscheduler-li">
   <a href="/docs/getting-started/setup/scheduler/" title="Configuring the Butler scheduler" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupscheduler"><span class="">Scheduler</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupkey-value-store-li">
@@ -253,8 +257,17 @@ if (!doNotTrack) {
   <a href="/docs/getting-started/setup/telemetry/" title="Configuring telemetry" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetuptelemetry"><span class="">Telemetry</span></a>
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedoperations-li">
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgetting-startedoperations-li">
   <a href="/docs/getting-started/operations/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedoperations"><span class="">Day 2 operations</span></a>
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedoperationsstandalone-li">
+  <a href="/docs/getting-started/operations/standalone/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsgetting-startedoperationsstandalone"><span class="">Standalone app</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedoperationsdocker-li">
+  <a href="/docs/getting-started/operations/docker/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsgetting-startedoperationsdocker"><span class="">Docker</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedoperationsnodejs-li">
+  <a href="/docs/getting-started/operations/nodejs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsgetting-startedoperationsnodejs"><span class="">Node.js app</span></a>
+</li>
+  </ul>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconcepts-li">
@@ -268,6 +281,8 @@ if (!doNotTrack) {
   <a href="/docs/concepts/alert-emails/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsalert-emails"><span class="">Alert emails</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsalerts-slack-teams-li">
   <a href="/docs/concepts/alerts-slack-teams/" title="Alerts via Slack and Microsoft Teams" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsalerts-slack-teams"><span class="">Alerts via Slack/Teams</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsfailed-reload-logs-li">
+  <a href="/docs/concepts/failed-reload-logs/" title="Storing script logs of failed reloads to disk" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reload-logs"><span class="">Failed reload logs</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsstart-sense-tasks-li">
   <a href="/docs/concepts/start-sense-tasks/" title="Starting Sense tasks in style" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsstart-sense-tasks"><span class="">Start Sense tasks</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsconceptsincident-mgmt-tools-li">
@@ -363,7 +378,7 @@ if (!doNotTrack) {
 <a href="https://github.com/ptarmiganlabs/butler-docs/tree/master/content/en/docs/getting%20started/install/choose-platform.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
   <a href="https://github.com/ptarmiganlabs/butler-docs/edit/master/content/en/docs/getting%20started/install/choose-platform.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
   <a href="https://github.com/ptarmiganlabs/butler-docs/new/master/content/en/docs/getting%20started/install/choose-platform.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-  <a href="https://github.com/ptarmiganlabs/butler-docs/issues/new?title=Choose%20a%20platform" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+  <a href="https://github.com/ptarmiganlabs/butler-docs/issues/new?title=Decide%20how%20to%20run%20Butler" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
   <a href="https://github.com/ptarmiganlabs/butler/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
   
 </div>
@@ -373,8 +388,9 @@ if (!doNotTrack) {
 
 <div class="td-toc"><nav id="TableOfContents">
   <ul>
+    <li><a href="#butler-as-a-stand-alone-executable">Butler as a stand-alone executable</a></li>
     <li><a href="#butler-in-a-container-docker-and-kubernetes">Butler in a container: Docker and Kubernetes</a></li>
-    <li><a href="#butler-as-a-native-app-windows-linux-mac-os">Butler as a native app: Windows, Linux, Mac OS</a></li>
+    <li><a href="#butler-as-a-nodejs-application">Butler as a Node.js application</a></li>
   </ul>
 </nav></div>
 
@@ -417,13 +433,13 @@ if (!doNotTrack) {
     <a href="/docs/getting-started/install/">Installing Butler</a>
   </li>
   <li class="breadcrumb-item active" aria-current="page">
-    <a href="/docs/getting-started/install/choose-platform/">Choose a platform</a>
+    <a href="/docs/getting-started/install/choose-platform/">Time to decide</a>
   </li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>Choose a platform</h1>
+	<h1>Decide how to run Butler</h1>
 	<div class="lead">On what platforms does Butler run?</div>
 	<header class="article-meta">
 		
@@ -440,19 +456,26 @@ if (!doNotTrack) {
 		
 		
 	</header>    
-	<p>The short answer is: Almost anywhere.<br>
-As long as <a href="https://nodejs.org/">Node.js</a> is available on the platform there is a good chance Butler will run there.</p>
-<p>Butler has been successfully used on Windows Server, Windows 10, various Linux distributions, in Docker, Kubernetes, on Mac OS and even on Raspberry Pis. And a Raspberry Pi based Kubernetes cluster.</p>
-<p>Your platform options typically fall into two categories:</p>
+	<p>The short answer is: Almost anywhere.</p>
+<p>The pre-built binaries for Windows, macOS, Linux and Docker should cater for most use cases.</p>
+<p>If you have some other, more exotic platform or operating system you want to run Butler on that&rsquo;s probably possible too.<br>
+Butler is built on Node.js and as long as <a href="https://nodejs.org/">Node.js</a> is available on the platform/operating system of your choice there is a good chance Butler will run there.</p>
+<p>Butler has been successfully used on Windows Server, Windows 10, various Linux distributions, in Docker, Kubernetes, on Mac OS and even on Raspberry Pis. And a <a href="https://medium.com/ptarmigan-labs/butler-devops-tools-for-qlik-sense-running-on-raspberry-pi-based-kubernetes-cluster-6301c57b0ce7">Raspberry Pi based Kubernetes cluster</a>.</p>
+<p>Your platform options thus typically fall into three categories:</p>
+<h2 id="butler-as-a-stand-alone-executable">Butler as a stand-alone executable</h2>
+<p>Here you will be using the pre-built Butler binaries (Windows, Linux, Mac OS) that are available as of Butler 7.2.</p>
+<p>When using third party tools these binaries can be started as services.<br>
+For example, on Windows the free <a href="https://nssm.cc">NSSM</a> tool is a great way to run Butler as a Windows service.<br>
+Another good tool is <a href="https://pm2.keymetrics.io">PM2</a> which works well on Linux-ish platforms.</p>
+<p>The Butler stand-alone executables are available on the <a href="https://github.com/ptarmiganlabs/butler/releases">GitHub releases page</a>.</p>
 <h2 id="butler-in-a-container-docker-and-kubernetes">Butler in a container: Docker and Kubernetes</h2>
-<p>If you have access to or can set up a <strong>container runtime environment</strong>, this is by far the preferred way of running Butler.</p>
+<p>If you have access to or can set up a <strong>container runtime environment</strong>, this is a great way to running Butler.</p>
 <p>Installation is less error prone compared to installing Butler as a native Node.js app, you get all the benefits from the Docker ecosystem (monitoring of running containers etc), and upgrades to future Butler versions become trivial.</p>
 <p>If you have access to a <strong>Kubernetes</strong> cluster, that is usually an even better option than Docker. Kubernetes can be daunting when first approached, but will give you superb reliability, failover and restarts if a server goes down or becomes unresponsive etc. All major cloud providers (Microsoft Azure, Google, Amazon etc) offer Kubernetes services.</p>
 <p><a href="https://k3s.io/">Rancher&rsquo;s K3s</a> is a very good way to get started with self hosted Kubnernetes. Fully featured, well supported and a vibrant developer community.</p>
-<h2 id="butler-as-a-native-app-windows-linux-mac-os">Butler as a native app: Windows, Linux, Mac OS</h2>
+<h2 id="butler-as-a-nodejs-application">Butler as a Node.js application</h2>
 <p>This option means you will first install Node.js on your server of choice, then Butler and it&rsquo;s dependencies.</p>
-<p>It works perfectly well and might for many be the easiest way to get started, as you for sure already have a Windows Server for running Qlik Sense Enterprise.</p>
-<p>You can use tools like <a href="https://nssm.cc">NSSM</a> to turn the Butler Node.js app into a Windows servers, or a tool like <a href="https://pm2.keymetrics.io">PM2</a> to watch over Butler on Linux-ish platforms.</p>
+<p>It works perfectly well but is the most demanding when it comes to amount of work needed to get started.</p>
 
 	
 		<style>
@@ -639,7 +662,7 @@ As long as <a href="https://nodejs.org/">Node.js</a> is available on the platfor
 
 
 
-<script src="/js/main.min.7380160122c24d59789a168af05fcec445fe4e5f2069dd9f3a0c991f10269ae0.js" integrity="sha256-c4AWASLCTVl4mhaK8F/OxEX&#43;Tl8gad2fOgyZHxAmmuA=" crossorigin="anonymous"></script>
+<script src="/js/main.min.1a2e43037d7eeb7eb548659ffab8adc920ddeef68063a09913f04392dd3c1f19.js" integrity="sha256-Gi5DA31&#43;6361SGWf&#43;ritySDd7vaAY6CZE/BDkt08Hxk=" crossorigin="anonymous"></script>
 
 
 

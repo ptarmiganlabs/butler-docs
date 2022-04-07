@@ -15,7 +15,7 @@ It might not be obvious at first, but there are several kinds of reloads in Qlik
 
 The reload failure notifications described here work by looking at log entries written by the scheduling service. When that service writes information to the logs about a failed reload, your logging appender will detect it and send a UDP message to Butler - who will forward the message to all the notification destinations configured in the config file.
 
-It's also possible to have the log appender send emails, without going through Butler.
+It's also possible to have the log appender send emails without using Butler.
 It works perfectly fine, but the emails will be very basic when it comes to formatting and you will not get any of the features offered by Butler (last few lines of the reload script log included in the email, customizable email subjects etc).
 
 ## Alert emails
@@ -46,7 +46,7 @@ Qlik Sense Enterprise on Windows uses the log4net logging framework to create lo
 
 The goal of Butler's alert emails is to address these limitations and offer a flexible foundation not only for emails, but for all kinds of alerts.
 
-If you want to explore what's possible using just the features offered by log4net, Christof Schwarz has a [good post](https://www.linkedin.com/pulse/qlik-sense-task-email-notifications-so-easy-christof-schwarz/?trackingId=X8MEGEmppfSvdukFRbnLwQ%3D%3D) on sending basic notification emails when scheduled reloads fail, with links to [Levi Turners great examples](https://github.com/levi-turner/getting_notified_from_qliksense).
+If you want to explore what's possible using just the features offered by log4net, Christof Schwarz has a [good post](https://www.linkedin.com/pulse/qlik-sense-task-email-notifications-so-easy-christof-schwarz/?trackingId=X8MEGEmppfSvdukFRbnLwQ%3D%3D) on sending basic notification emails when scheduled reloads fail, with links to [Levi Turner's great examples](https://github.com/levi-turner/getting_notified_from_qliksense).
 
 ## Alert emails to app owners
 
@@ -67,7 +67,7 @@ Butler uses a templating engine called [Handlebars](https://handlebarsjs.com/gui
 
 Slack, MS Teams and MQTT messages are currently not using the templating engine - this is however likely to change in coming Butler versions. Feel free to [add (or +1) a request on GitHub](https://github.com/ptarmiganlabs/butler/issues) if this is of interest to you!
 
-![alt text](/img/butler_log4net_appenders_1.png "Butler high level system overview")  
+![alt text](/img/butler-log4net-appenders-1.png "Butler high level system overview")  
 
 ### Template fields
 

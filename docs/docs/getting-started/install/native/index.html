@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.92.0" />
+<meta name="generator" content="Hugo 0.96.0" />
 <meta name="robots" content="index, follow">
 
 
@@ -18,25 +18,25 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Running Butler as a native Node.js application | Butler</title>
-<meta name="description" content="How to install Butler as a Node.js application.
+<title>Running Butler as a native, pre-built application | Butler</title>
+<meta name="description" content="How to install the pre-built, stand alone Butler applications.
 ">
-<meta property="og:title" content="Running Butler as a native Node.js application" />
-<meta property="og:description" content="How to install Butler as a Node.js application.
+<meta property="og:title" content="Running Butler as a native, pre-built application" />
+<meta property="og:description" content="How to install the pre-built, stand alone Butler applications.
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/docs/getting-started/install/native/" /><meta property="article:section" content="docs" />
 
 <meta property="article:modified_time" content="2021-11-03T14:09:22+01:00" /><meta property="og:site_name" content="Butler" />
 
-<meta itemprop="name" content="Running Butler as a native Node.js application">
-<meta itemprop="description" content="How to install Butler as a Node.js application.
+<meta itemprop="name" content="Running Butler as a native, pre-built application">
+<meta itemprop="description" content="How to install the pre-built, stand alone Butler applications.
 ">
 <meta itemprop="dateModified" content="2021-11-03T14:09:22+01:00" />
-<meta itemprop="wordCount" content="594">
+<meta itemprop="wordCount" content="549">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Running Butler as a native Node.js application"/>
-<meta name="twitter:description" content="How to install Butler as a Node.js application.
+<meta name="twitter:title" content="Running Butler as a native, pre-built application"/>
+<meta name="twitter:description" content="How to install the pre-built, stand alone Butler applications.
 "/>
 
 
@@ -191,11 +191,13 @@ if (!doNotTrack) {
   <a href="/docs/getting-started/install/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedinstall"><span class="">Installing Butler</span></a>
   <ul class="ul-3 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedinstallchoose-platform-li">
-  <a href="/docs/getting-started/install/choose-platform/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsgetting-startedinstallchoose-platform"><span class="">Choose a platform</span></a>
+  <a href="/docs/getting-started/install/choose-platform/" title="Decide how to run Butler" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsgetting-startedinstallchoose-platform"><span class="">Time to decide</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsgetting-startedinstallnative-li">
+  <a href="/docs/getting-started/install/native/" title="Running Butler as a native, pre-built application" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id="m-docsgetting-startedinstallnative"><span class="td-sidebar-nav-active-item">Native app</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedinstalldocker-li">
   <a href="/docs/getting-started/install/docker/" title="Running Butler in Docker" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsgetting-startedinstalldocker"><span class="">Docker</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsgetting-startedinstallnative-li">
-  <a href="/docs/getting-started/install/native/" title="Running Butler as a native Node.js application" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id="m-docsgetting-startedinstallnative"><span class="td-sidebar-nav-active-item">Native app</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedinstallnodejs-li">
+  <a href="/docs/getting-started/install/nodejs/" title="Running Butler as a Node.js application" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsgetting-startedinstallnodejs"><span class="">Node.js app</span></a>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgetting-startedsetup-li">
@@ -222,6 +224,8 @@ if (!doNotTrack) {
   <a href="/docs/getting-started/setup/reload-alerts/alert-webhook-out/" title="Reload alerts via outgoing webhooks" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-webhook-out"><span class="">Webhook</span></a>
 </li>
   </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-script-logs-li">
+  <a href="/docs/getting-started/setup/reload-script-logs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-script-logs"><span class="">Reload script logs</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupscheduler-li">
   <a href="/docs/getting-started/setup/scheduler/" title="Configuring the Butler scheduler" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupscheduler"><span class="">Scheduler</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupkey-value-store-li">
@@ -253,8 +257,17 @@ if (!doNotTrack) {
   <a href="/docs/getting-started/setup/telemetry/" title="Configuring telemetry" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetuptelemetry"><span class="">Telemetry</span></a>
 </li>
   </ul>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedoperations-li">
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgetting-startedoperations-li">
   <a href="/docs/getting-started/operations/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedoperations"><span class="">Day 2 operations</span></a>
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedoperationsstandalone-li">
+  <a href="/docs/getting-started/operations/standalone/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsgetting-startedoperationsstandalone"><span class="">Standalone app</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedoperationsdocker-li">
+  <a href="/docs/getting-started/operations/docker/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsgetting-startedoperationsdocker"><span class="">Docker</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedoperationsnodejs-li">
+  <a href="/docs/getting-started/operations/nodejs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsgetting-startedoperationsnodejs"><span class="">Node.js app</span></a>
+</li>
+  </ul>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconcepts-li">
@@ -268,6 +281,8 @@ if (!doNotTrack) {
   <a href="/docs/concepts/alert-emails/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsalert-emails"><span class="">Alert emails</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsalerts-slack-teams-li">
   <a href="/docs/concepts/alerts-slack-teams/" title="Alerts via Slack and Microsoft Teams" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsalerts-slack-teams"><span class="">Alerts via Slack/Teams</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsfailed-reload-logs-li">
+  <a href="/docs/concepts/failed-reload-logs/" title="Storing script logs of failed reloads to disk" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reload-logs"><span class="">Failed reload logs</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsstart-sense-tasks-li">
   <a href="/docs/concepts/start-sense-tasks/" title="Starting Sense tasks in style" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsstart-sense-tasks"><span class="">Start Sense tasks</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsconceptsincident-mgmt-tools-li">
@@ -363,7 +378,7 @@ if (!doNotTrack) {
 <a href="https://github.com/ptarmiganlabs/butler-docs/tree/master/content/en/docs/getting%20started/install/native.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
   <a href="https://github.com/ptarmiganlabs/butler-docs/edit/master/content/en/docs/getting%20started/install/native.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
   <a href="https://github.com/ptarmiganlabs/butler-docs/new/master/content/en/docs/getting%20started/install/native.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-  <a href="https://github.com/ptarmiganlabs/butler-docs/issues/new?title=Running%20Butler%20as%20a%20native%20Node.js%20application" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+  <a href="https://github.com/ptarmiganlabs/butler-docs/issues/new?title=Running%20Butler%20as%20a%20native,%20pre-built%20application" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
   <a href="https://github.com/ptarmiganlabs/butler/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
   
 </div>
@@ -373,7 +388,7 @@ if (!doNotTrack) {
 
 <div class="td-toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#selecting-an-os">Selecting an OS</a></li>
+    <li><a href="#downloading-the-app">Downloading the app</a></li>
     <li><a href="#prerequisites">Prerequisites</a></li>
     <li><a href="#installation-steps">Installation steps</a></li>
   </ul>
@@ -424,8 +439,8 @@ if (!doNotTrack) {
 </nav>
             
 <div class="td-content">
-	<h1>Running Butler as a native Node.js application</h1>
-	<div class="lead">How to install Butler as a Node.js application.</div>
+	<h1>Running Butler as a native, pre-built application</h1>
+	<div class="lead">How to install the pre-built, stand alone Butler applications.</div>
 	<header class="article-meta">
 		
 		
@@ -441,9 +456,9 @@ if (!doNotTrack) {
 		
 		
 	</header>    
-	<h2 id="selecting-an-os">Selecting an OS</h2>
-<p>While Qlik Sense Enterprise is a Windows only system, Butler should be able to run on any OS where Node.js is available.<br>
-Butler has been succesfully used - during development and production - on Windows, Linux (Debian and Ubuntu tested) and mac OS.</p>
+	<h2 id="downloading-the-app">Downloading the app</h2>
+<p>Download Butler for your preferred operating systym.</p>
+<p>Latest version is available on <a href="https://github.com/ptarmiganlabs/butler/releases/latest">GitHub</a>.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <table>
 <thead>
@@ -455,11 +470,7 @@ Butler has been succesfully used - during development and production - on Window
 <tbody>
 <tr>
 <td>Qlik Sense Enterprise on Windows</td>
-<td><em>Mandatory.</em> Butler is developed with Qlik Sense Enterprise on Windows (QSEoW) in mind. <br>While some Butler features might also work with Sense Desktop or Sense cloud, you are on your own there.</td>
-</tr>
-<tr>
-<td>Node.js</td>
-<td><em>Mandatory.</em> Butler is written in Node - which is thus a firm requirement.</td>
+<td><em>Mandatory.</em> Butler is developed with client-managed Qlik Sense Enterprise on Windows (QSEoW) in mind. <br>While some Butler features might also work with Sense Desktop or Sense cloud, you are on your own there.</td>
 </tr>
 <tr>
 <td>MQTT broker</td>
@@ -472,40 +483,39 @@ Butler has been succesfully used - during development and production - on Window
 </tbody>
 </table>
 <h2 id="installation-steps">Installation steps</h2>
+<p>There is no installation needed for the stand-alone Butler executables.</p>
 <p>The steps below outline the steps needed to install Butler as a native Node.js application on for example Windows Server.</p>
 <p>Additional information is found on the <a href="/docs/getting-started/operations/">Day 2 operations</a> page.</p>
 <ul>
-<li>
-<p><strong>Install node.js</strong><br>
-Butler has been developed and tested using the 64 bit version of <a href="https://nodejs.org/en/download/">Node.js</a>. The most recent LTS (Long Term Support) version is usually a good choice.</p>
-</li>
 <li>
 <p><strong>Decide where to install Butler</strong><br>
 It is usually a good starting point to run Butler on the Sense server. If there are more than one server in the Sense cluster, Butler can be placed on the reload server (as the /createDir endpoint then can be used to create folders in which QVD and other files can be stored).</p>
 <p>On the other hand, you might want to keep the Sense servers as clean as possible (with respect to software running on them). If that is a priority you should install Butler on some other server.</p>
 <p>The bottom line is that Butler can run on any server, as long as there is network connectivity to the Sense server(s).</p>
+<p>It&rsquo;s usually a good idea to keep 3rd party tools installed in the same directory tree, to maintenance as easy as possible.<br>
+A good place for Butler could be <code>c:\tools\butler</code> on Windows, for example.</p>
 </li>
 <li>
 <p><strong>Download Butler</strong><br>
-Download the repository zip from the <a href="https://github.com/ptarmiganlabs/butler/releases">releases page</a>.</p>
-<p>Do not just clone the Butler repository as that will give you the latest development version, which may not yet be fully tested and packaged.<br>
-The exception is of course if you want to contribute to Butler development - then forking and cloning the repository is the right thing to do.</p>
+Download the latest version from the <a href="https://github.com/ptarmiganlabs/butler/releases/latest">releases page</a>.<br>
+Make sure to get the binary file for your preferred operating system.</p>
+<p>Unzip the downloaded file, then copy or move the butler binary to the desired directory (e.g. <code>c:\tools\butler</code>) and that&rsquo;s it.</p>
 </li>
-<li>
-<p><strong>Install node dependencies</strong><br>
-From a Windows command prompt (assuming the Butler ZIP file/repository was saved to d:\node\butler):</p>
-<pre><code>  d:
-  cd \node\butler\src
-  npm install  
-</code></pre>
-<p>This will download and install all Node.js modules used by Butler.<br>
-On some OSs you&rsquo;ll get some warnings during the installation - they are usually harmless. Try to run Butler even if you got some warnings, chances are good that things will work just fine. This is common on especially Windows Server and is a result of some Butler dependencies being primarily developed on Linux rather than Windows.</p>
-</li>
+</ul>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice tip" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#tip-notice"></use></svg></span>Tip</p><p>On Windows you should &ldquo;unblock&rdquo; the ZIP file before extracting the Butler binary from it.<br>
+This is basically a way to tell Windows that the ZIP is safe even though it was downloaded from Internet.</p>
+<p>Right click on the ZIP file, then select <code>Properties</code>.<br>
+If there is an &ldquo;Unblock&rdquo; check box in the lower right part of the properties window you should click that box and hit OK.<br>
+Then unpack the ZIP file.</p></div>
+
+<ul>
 <li>
 <p><strong>MQTT message broker</strong></p>
 <p>Several of Butler&rsquo;s features use <a href="https://mqtt.org/">MQTT</a> for sending and receiving messages.<br>
-MQTT is a standardised messaging protocol, and it should be possible to use <a href="https://github.com/mqtt/mqtt.org/wiki/software?id=software">any broker following the MQTT standard</a>.</p>
-<p>Butler has been developed and tested using <a href="https://mosquitto.org/">Mosquitto</a> running on mac OS and Debian Linux - both work flawlessly.</p>
+MQTT is a standardised messaging protocol and it should be possible to use <a href="https://github.com/mqtt/mqtt.org/wiki/software?id=software">any broker following the MQTT standard</a>.</p>
+<p>Butler has been developed and tested using <a href="https://mosquitto.org/">Mosquitto</a> running on mac OS, Debian Linux and Docker - all work flawlessly.</p>
 </li>
 </ul>
 
@@ -694,7 +704,7 @@ MQTT is a standardised messaging protocol, and it should be possible to use <a h
 
 
 
-<script src="/js/main.min.7380160122c24d59789a168af05fcec445fe4e5f2069dd9f3a0c991f10269ae0.js" integrity="sha256-c4AWASLCTVl4mhaK8F/OxEX&#43;Tl8gad2fOgyZHxAmmuA=" crossorigin="anonymous"></script>
+<script src="/js/main.min.1a2e43037d7eeb7eb548659ffab8adc920ddeef68063a09913f04392dd3c1f19.js" integrity="sha256-Gi5DA31&#43;6361SGWf&#43;ritySDd7vaAY6CZE/BDkt08Hxk=" crossorigin="anonymous"></script>
 
 
 

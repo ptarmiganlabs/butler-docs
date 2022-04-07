@@ -15,7 +15,7 @@
     
     
     <item>
-      <title>Docs: Choose a platform</title>
+      <title>Docs: Decide how to run Butler</title>
       <link>/docs/getting-started/install/choose-platform/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -23,19 +23,101 @@
       <description>
         
         
-        &lt;p&gt;The short answer is: Almost anywhere.&lt;br&gt;
-As long as &lt;a href=&#34;https://nodejs.org/&#34;&gt;Node.js&lt;/a&gt; is available on the platform there is a good chance Butler will run there.&lt;/p&gt;
-&lt;p&gt;Butler has been successfully used on Windows Server, Windows 10, various Linux distributions, in Docker, Kubernetes, on Mac OS and even on Raspberry Pis. And a Raspberry Pi based Kubernetes cluster.&lt;/p&gt;
-&lt;p&gt;Your platform options typically fall into two categories:&lt;/p&gt;
+        &lt;p&gt;The short answer is: Almost anywhere.&lt;/p&gt;
+&lt;p&gt;The pre-built binaries for Windows, macOS, Linux and Docker should cater for most use cases.&lt;/p&gt;
+&lt;p&gt;If you have some other, more exotic platform or operating system you want to run Butler on that&amp;rsquo;s probably possible too.&lt;br&gt;
+Butler is built on Node.js and as long as &lt;a href=&#34;https://nodejs.org/&#34;&gt;Node.js&lt;/a&gt; is available on the platform/operating system of your choice there is a good chance Butler will run there.&lt;/p&gt;
+&lt;p&gt;Butler has been successfully used on Windows Server, Windows 10, various Linux distributions, in Docker, Kubernetes, on Mac OS and even on Raspberry Pis. And a &lt;a href=&#34;https://medium.com/ptarmigan-labs/butler-devops-tools-for-qlik-sense-running-on-raspberry-pi-based-kubernetes-cluster-6301c57b0ce7&#34;&gt;Raspberry Pi based Kubernetes cluster&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Your platform options thus typically fall into three categories:&lt;/p&gt;
+&lt;h2 id=&#34;butler-as-a-stand-alone-executable&#34;&gt;Butler as a stand-alone executable&lt;/h2&gt;
+&lt;p&gt;Here you will be using the pre-built Butler binaries (Windows, Linux, Mac OS) that are available as of Butler 7.2.&lt;/p&gt;
+&lt;p&gt;When using third party tools these binaries can be started as services.&lt;br&gt;
+For example, on Windows the free &lt;a href=&#34;https://nssm.cc&#34;&gt;NSSM&lt;/a&gt; tool is a great way to run Butler as a Windows service.&lt;br&gt;
+Another good tool is &lt;a href=&#34;https://pm2.keymetrics.io&#34;&gt;PM2&lt;/a&gt; which works well on Linux-ish platforms.&lt;/p&gt;
+&lt;p&gt;The Butler stand-alone executables are available on the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/releases&#34;&gt;GitHub releases page&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;butler-in-a-container-docker-and-kubernetes&#34;&gt;Butler in a container: Docker and Kubernetes&lt;/h2&gt;
-&lt;p&gt;If you have access to or can set up a &lt;strong&gt;container runtime environment&lt;/strong&gt;, this is by far the preferred way of running Butler.&lt;/p&gt;
+&lt;p&gt;If you have access to or can set up a &lt;strong&gt;container runtime environment&lt;/strong&gt;, this is a great way to running Butler.&lt;/p&gt;
 &lt;p&gt;Installation is less error prone compared to installing Butler as a native Node.js app, you get all the benefits from the Docker ecosystem (monitoring of running containers etc), and upgrades to future Butler versions become trivial.&lt;/p&gt;
 &lt;p&gt;If you have access to a &lt;strong&gt;Kubernetes&lt;/strong&gt; cluster, that is usually an even better option than Docker. Kubernetes can be daunting when first approached, but will give you superb reliability, failover and restarts if a server goes down or becomes unresponsive etc. All major cloud providers (Microsoft Azure, Google, Amazon etc) offer Kubernetes services.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://k3s.io/&#34;&gt;Rancher&amp;rsquo;s K3s&lt;/a&gt; is a very good way to get started with self hosted Kubnernetes. Fully featured, well supported and a vibrant developer community.&lt;/p&gt;
-&lt;h2 id=&#34;butler-as-a-native-app-windows-linux-mac-os&#34;&gt;Butler as a native app: Windows, Linux, Mac OS&lt;/h2&gt;
+&lt;h2 id=&#34;butler-as-a-nodejs-application&#34;&gt;Butler as a Node.js application&lt;/h2&gt;
 &lt;p&gt;This option means you will first install Node.js on your server of choice, then Butler and it&amp;rsquo;s dependencies.&lt;/p&gt;
-&lt;p&gt;It works perfectly well and might for many be the easiest way to get started, as you for sure already have a Windows Server for running Qlik Sense Enterprise.&lt;/p&gt;
-&lt;p&gt;You can use tools like &lt;a href=&#34;https://nssm.cc&#34;&gt;NSSM&lt;/a&gt; to turn the Butler Node.js app into a Windows servers, or a tool like &lt;a href=&#34;https://pm2.keymetrics.io&#34;&gt;PM2&lt;/a&gt; to watch over Butler on Linux-ish platforms.&lt;/p&gt;
+&lt;p&gt;It works perfectly well but is the most demanding when it comes to amount of work needed to get started.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Running Butler as a native, pre-built application</title>
+      <link>/docs/getting-started/install/native/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/getting-started/install/native/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;downloading-the-app&#34;&gt;Downloading the app&lt;/h2&gt;
+&lt;p&gt;Download Butler for your preferred operating systym.&lt;/p&gt;
+&lt;p&gt;Latest version is available on &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/releases/latest&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;What&lt;/th&gt;
+&lt;th&gt;Comment&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Qlik Sense Enterprise on Windows&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; Butler is developed with client-managed Qlik Sense Enterprise on Windows (QSEoW) in mind. &lt;br&gt;While some Butler features might also work with Sense Desktop or Sense cloud, you are on your own there.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MQTT broker&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; MQTT is used for both in- and out-bound pub-sub messaging. Butler assumes a working MQTT broker is available, the IP of which is defined in the Butler config file. &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; is a great open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&amp;hellip; instance is enough, if you want a dedicated MQTT server. If you don&amp;rsquo;t care about the pubsub features of Butler, you don&amp;rsquo;t need a MQTT broker. In this case you can disable the MQTT features in the config YAML file.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.influxdata.com/time-series-platform/&#34;&gt;InfluxDB&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; A database for realtime information, used to store metrics around Butler&amp;rsquo;s own memory usage over time (if this feature is enabled).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;installation-steps&#34;&gt;Installation steps&lt;/h2&gt;
+&lt;p&gt;There is no installation needed for the stand-alone Butler executables.&lt;/p&gt;
+&lt;p&gt;The steps below outline the steps needed to install Butler as a native Node.js application on for example Windows Server.&lt;/p&gt;
+&lt;p&gt;Additional information is found on the &lt;a href=&#34;/docs/getting-started/operations/&#34;&gt;Day 2 operations&lt;/a&gt; page.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Decide where to install Butler&lt;/strong&gt;&lt;br&gt;
+It is usually a good starting point to run Butler on the Sense server. If there are more than one server in the Sense cluster, Butler can be placed on the reload server (as the /createDir endpoint then can be used to create folders in which QVD and other files can be stored).&lt;/p&gt;
+&lt;p&gt;On the other hand, you might want to keep the Sense servers as clean as possible (with respect to software running on them). If that is a priority you should install Butler on some other server.&lt;/p&gt;
+&lt;p&gt;The bottom line is that Butler can run on any server, as long as there is network connectivity to the Sense server(s).&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s usually a good idea to keep 3rd party tools installed in the same directory tree, to maintenance as easy as possible.&lt;br&gt;
+A good place for Butler could be &lt;code&gt;c:\tools\butler&lt;/code&gt; on Windows, for example.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Download Butler&lt;/strong&gt;&lt;br&gt;
+Download the latest version from the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/releases/latest&#34;&gt;releases page&lt;/a&gt;.&lt;br&gt;
+Make sure to get the binary file for your preferred operating system.&lt;/p&gt;
+&lt;p&gt;Unzip the downloaded file, then copy or move the butler binary to the desired directory (e.g. &lt;code&gt;c:\tools\butler&lt;/code&gt;) and that&amp;rsquo;s it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice tip&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Tip&lt;/p&gt;&lt;p&gt;On Windows you should &amp;ldquo;unblock&amp;rdquo; the ZIP file before extracting the Butler binary from it.&lt;br&gt;
+This is basically a way to tell Windows that the ZIP is safe even though it was downloaded from Internet.&lt;/p&gt;
+&lt;p&gt;Right click on the ZIP file, then select &lt;code&gt;Properties&lt;/code&gt;.&lt;br&gt;
+If there is an &amp;ldquo;Unblock&amp;rdquo; check box in the lower right part of the properties window you should click that box and hit OK.&lt;br&gt;
+Then unpack the ZIP file.&lt;/p&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;MQTT message broker&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Several of Butler&amp;rsquo;s features use &lt;a href=&#34;https://mqtt.org/&#34;&gt;MQTT&lt;/a&gt; for sending and receiving messages.&lt;br&gt;
+MQTT is a standardised messaging protocol and it should be possible to use &lt;a href=&#34;https://github.com/mqtt/mqtt.org/wiki/software?id=software&#34;&gt;any broker following the MQTT standard&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Butler has been developed and tested using &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; running on mac OS, Debian Linux and Docker - all work flawlessly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 
       </description>
     </item>
@@ -80,48 +162,47 @@ As long as &lt;a href=&#34;https://nodejs.org/&#34;&gt;Node.js&lt;/a&gt; is avai
 &lt;p&gt;The following steps give some guidance on how to get Butler running on Docker.&lt;br&gt;
 Here Mac OS was used, things will look different on Linux and Windows.&lt;/p&gt;
 &lt;p&gt;Note: While the console logs below refer to an older version of Butler&amp;rsquo;s Docker image, the steps involved are the same also for current/most recent version of Butler.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:~ goran$ mkdir /Users/goran/butler
-proton:~ goran$ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; /Users/goran/butler
-proton:butler goran$ mkdir -p config/certificate
-proton:butler goran$
-proton:butler goran$ wget https://raw.githubusercontent.com/ptarmiganlabs/butler/master/src/docker-compose.yaml
---2021-10-25 17:07:23--  https://raw.githubusercontent.com/ptarmiganlabs/butler/master/src/docker-compose.yaml
-Resolving raw.githubusercontent.com &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;raw.githubusercontent.com&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
-Connecting to raw.githubusercontent.com &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;raw.githubusercontent.com&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;185.199.108.133&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;:443... connected.
-HTTP request sent, awaiting response... &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;200&lt;/span&gt; OK
-Length: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;660&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;text/plain&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
-Saving to: ‘docker-compose.yaml’
-
-docker-compose.yaml 100%&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[=====================================================================================================================================&lt;/span&gt;&amp;gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;660&lt;/span&gt;  --.-KB/s    in 0s
-
-2021-10-25 17:07:23 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;42.0 MB/s&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; - ‘docker-compose.yaml’ saved &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;660/660&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
-
-
-proton:butler goran$ cat docker-compose.yaml
-&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# docker-compose.yml&lt;/span&gt;
-version: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;3.3&amp;#39;&lt;/span&gt;
-services:
-  butler:
-    image: ptarmiganlabs/butler:6.1.0
-    container_name: butler
-    restart: always
-    ports:
-      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;8080:8080&amp;#34;&lt;/span&gt;       &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# REST API available on port 8180 to services outside the container&lt;/span&gt;
-      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;9998:9998/udp&amp;#34;&lt;/span&gt;   &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# UDP port for task failure events&lt;/span&gt;
-    volumes:
-      &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Make config file accessible outside of container&lt;/span&gt;
-      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./config:/nodeapp/config&amp;#34;&lt;/span&gt;
-      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./log:/nodeapp/log&amp;#34;&lt;/span&gt;
-    environment:
-      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;NODE_ENV=production&amp;#34;&lt;/span&gt;
-    logging:
-      driver: json-file
-      options:
-        max-file: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5&amp;#34;&lt;/span&gt;
-        max-size: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5m&amp;#34;&lt;/span&gt;
-proton:butler goran$
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;At this point you should&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;proton:~ goran$ mkdir /Users/goran/butler
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;proton:~ goran$ &lt;span style=&#34;color:#204a87&#34;&gt;cd&lt;/span&gt; /Users/goran/butler
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;proton:butler goran$ mkdir -p config/certificate
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;proton:butler goran$
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;proton:butler goran$ wget https://raw.githubusercontent.com/ptarmiganlabs/butler/master/src/docker-compose.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;--2021-10-25 17:07:23--  https://raw.githubusercontent.com/ptarmiganlabs/butler/master/src/docker-compose.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Resolving raw.githubusercontent.com &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;raw.githubusercontent.com&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Connecting to raw.githubusercontent.com &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;raw.githubusercontent.com&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;185.199.108.133&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;:443... connected.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;HTTP request sent, awaiting response... &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;200&lt;/span&gt; OK
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Length: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;660&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;text/plain&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Saving to: ‘docker-compose.yaml’
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker-compose.yaml 100%&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[=====================================================================================================================================&lt;/span&gt;&amp;gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;     &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;660&lt;/span&gt;  --.-KB/s    in 0s
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2021-10-25 17:07:23 &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;42.0 MB/s&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt; - ‘docker-compose.yaml’ saved &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;660/660&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;proton:butler goran$ cat docker-compose.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# docker-compose.yml&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;version: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#39;3.3&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;services:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  butler:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    image: ptarmiganlabs/butler:6.1.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    container_name: butler
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    restart: always
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ports:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;8080:8080&amp;#34;&lt;/span&gt;       &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# REST API available on port 8180 to services outside the container&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;9998:9998/udp&amp;#34;&lt;/span&gt;   &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# UDP port for task failure events&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    volumes:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;# Make config file accessible outside of container&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./config:/nodeapp/config&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;./log:/nodeapp/log&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    environment:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;NODE_ENV=production&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    logging:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      driver: json-file
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      options:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        max-file: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        max-size: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5m&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;proton:butler goran$
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;At this point you should&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Export certificates from the Qlik Sense QMC. Export a full set of certificates in PEM format, no psasword on the certificates.&lt;/li&gt;
 &lt;li&gt;Copy the certificates to the &lt;code&gt;./config/certificate&lt;/code&gt; directory.&lt;/li&gt;
@@ -130,171 +211,168 @@ You can name the config file anything, but its name has to match the NODE_ENV en
 &lt;li&gt;&lt;em&gt;Optional.&lt;/em&gt; Copy the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/src/config/schedule_template.yaml&#34;&gt;template schedule file&lt;/a&gt; to the location specified in Butler&amp;rsquo;s config file. This is only needed if you manually want to add schedules. If using the API to create schedules, there is no need to first manually create a schedules file (the schedule file will be created by Butler in this case).&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;When done, you should see something like this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:butler goran$ &lt;span style=&#34;color:#204a87&#34;&gt;pwd&lt;/span&gt;
-/Users/goran/butler
-proton:butler goran$ ls -la
-total &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8&lt;/span&gt;
-drwxr-xr-x   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 .
-drwxr-xr-x+ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;59&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1888&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:24 ..
-drwxr-xr-x   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 config
--rw-r--r--   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;565&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:25 docker-compose.yml
-proton:butler goran$
-proton:butler goran$ ls -la config/
-total &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8&lt;/span&gt;
-drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 .
-drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 ..
-drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;192&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 certificate
--rw-r--r--  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1861&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 production.yaml
-proton:butler goran$
-proton:butler goran$ ls -la config/certificate/
-total &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;32&lt;/span&gt;
-drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;192&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 .
-drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 ..
--rw-r--r--@ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1166&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 client.pem
--rw-r--r--@ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1702&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 client_key.pem
--rw-r--r--@ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1192&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 root.pem
-proton:butler goran$
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;At this point everything is ready and you can start the Butler container using docker-compose:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:butler goran$ docker-compose up
-Creating network &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;butler_default&amp;#34;&lt;/span&gt; with the default driver
-Pulling butler &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;ptarmiganlabs/butler:6.1.0&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;...
-6.1.0: Pulling from ptarmiganlabs/butler
-7d63c13d9b9b: Already exists
-bb262aff53d8: Already exists
-24467fa1084c: Already exists
-d318401bbcfd: Already exists
-fef5c41ac380: Already exists
-da4caec0e1fa: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
-d69466c67eaa: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
-ad6e84e85ade: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
-56b17f947d30: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
-9aa9ea345c5a: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
-Digest: sha256:046989e7d440b1fde2db6abfb2cc5eab740b82559ef392c32287ba188bae6235
-Status: Downloaded newer image &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; ptarmiganlabs/butler:6.1.0
-Creating butler ... &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;done&lt;/span&gt;
-Attaching to butler
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.739Z info: Adding normalized fileCopy directories &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fromDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir1&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;toDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir2&amp;#34;&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.739Z info: Adding normalized fileCopy directories &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fromDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir2&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;toDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir1&amp;#34;&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.740Z info: Adding normalized fileCopy directories &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fromDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir1/abc&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;toDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir1&amp;#34;&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.741Z info: Adding normalized fileCopy directories &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fromDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/from/some/directory2&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;toDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/to/some/directory2&amp;#34;&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.742Z info: Adding normalized fileMove directories &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fromDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir1&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;toDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir2&amp;#34;&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.743Z info: Adding normalized fileMove directories &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fromDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir2&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;toDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir1&amp;#34;&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.744Z info: Adding normalized fileMove directories &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fromDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir1/abc&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;toDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir1&amp;#34;&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.745Z info: Adding normalized fileMove directories &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fromDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir2/abc-dest&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;toDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir1&amp;#34;&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.745Z info: Adding normalized fileDelete directory /Users/goran/butler-test-dir1
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.746Z info: Adding normalized fileDelete directory /Users/goran/butler-test-dir1
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.747Z info: Adding normalized fileDelete directory /Users/goran/butler-test-dir2/abc-dest
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.747Z info: Enabled API endpoints: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;activeUserCount&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;activeUsers&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;apiListEnbledEndpoints&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;base62ToBase16&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;base16ToBase62&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;butlerping&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;createDir&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;createDirQVD&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fileDelete&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fileMove&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fileCopy&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;keyValueStore&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;mqttPublishMessage&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;createNewSchedule&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;getSchedule&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;getScheduleStatusAll&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;updateSchedule&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;deleteSchedule&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;startSchedule&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;stopSchedule&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;senseAppReload&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;senseAppDump&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;senseListApps&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;senseStartTask&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;slackPostMessage&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;getBookmarkList&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;applyBookmark&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;getSessions&amp;#34;&lt;/span&gt;,
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;deleteSession&amp;#34;&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.265Z info: CONFIG: Influxdb enabled: &lt;span style=&#34;color:#204a87&#34;&gt;false&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.265Z info: CONFIG: Influxdb host IP: 192.168.100.20
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.265Z info: CONFIG: Influxdb host port: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8086&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.265Z info: CONFIG: Influxdb db name: butler
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.567Z info: --------------------------------------
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.567Z info: Starting Butler
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.568Z info: Log level      : verbose
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.568Z info: App version    : 6.1.0
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.568Z info: Instance ID    : b6292735c80987393c5cf1a5c685e8548b46e6385b940789e2599936e20d5080
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.568Z info:
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.569Z info: Node version   : v16.11.1
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.569Z info: Architecture   : x64
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.569Z info: Platform       : linux
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.569Z info: Release        : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;11&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.570Z info: Distro         : Debian GNU/Linux
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.570Z info: Codename       : bullseye
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.570Z info: Virtual        : &lt;span style=&#34;color:#204a87&#34;&gt;false&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.570Z info: Processors     : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.570Z info: Physical cores : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.571Z info: Cores          : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.571Z info: Docker arch.   : undefined
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.571Z info: Total memory   : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6233116672&lt;/span&gt;
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.571Z info: --------------------------------------
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.571Z info: Client cert: /nodeapp/config/certificate/client.pem
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.571Z info: Client cert key: /nodeapp/config/certificate/client_key.pem
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.572Z info: CA cert: /nodeapp/config/certificate/root.pem
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.584Z info: MAIN: Didn&lt;span style=&#34;color:#a40000&#34;&gt;&amp;#39;&lt;/span&gt;t load schedules from file
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.627Z info: MAIN: REST server listening on http://0.0.0.0:8080
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.633Z info: MAIN: Started Docker healthcheck server on port 12398.
-butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:46.029Z info: /v4/senselistapps called from 192.168.176.1
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;What you see on your screen will depend on which Butler version you are using and what features are enabled.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;proton:butler goran$ &lt;span style=&#34;color:#204a87&#34;&gt;pwd&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/Users/goran/butler
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;proton:butler goran$ ls -la
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;total &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 .
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x+ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;59&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1888&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:24 ..
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 config
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-rw-r--r--   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;565&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:25 docker-compose.yml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;proton:butler goran$
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;proton:butler goran$ ls -la config/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;total &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 .
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 ..
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;192&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 certificate
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-rw-r--r--  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1861&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 production.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;proton:butler goran$
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;proton:butler goran$ ls -la config/certificate/
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;total &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;32&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;192&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 .
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt; goran  staff   &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;128&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 ..
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-rw-r--r--@ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1166&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 client.pem
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-rw-r--r--@ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1702&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 client_key.pem
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-rw-r--r--@ &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; goran  staff  &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1192&lt;/span&gt; Sep &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;26&lt;/span&gt; 16:36 root.pem
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;proton:butler goran$
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;At this point everything is ready and you can start the Butler container using docker-compose:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;proton:butler goran$ docker-compose up
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Creating network &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;butler_default&amp;#34;&lt;/span&gt; with the default driver
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Pulling butler &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;ptarmiganlabs/butler:6.1.0&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;6.1.0: Pulling from ptarmiganlabs/butler
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;7d63c13d9b9b: Already exists
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;bb262aff53d8: Already exists
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;24467fa1084c: Already exists
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;d318401bbcfd: Already exists
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;fef5c41ac380: Already exists
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;da4caec0e1fa: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;d69466c67eaa: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ad6e84e85ade: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;56b17f947d30: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;9aa9ea345c5a: Pull &lt;span style=&#34;color:#204a87&#34;&gt;complete&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Digest: sha256:046989e7d440b1fde2db6abfb2cc5eab740b82559ef392c32287ba188bae6235
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Status: Downloaded newer image &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; ptarmiganlabs/butler:6.1.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Creating butler ... &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Attaching to butler
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.739Z info: Adding normalized fileCopy directories &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fromDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir1&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;toDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir2&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.739Z info: Adding normalized fileCopy directories &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fromDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir2&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;toDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir1&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.740Z info: Adding normalized fileCopy directories &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fromDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir1/abc&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;toDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir1&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.741Z info: Adding normalized fileCopy directories &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fromDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/from/some/directory2&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;toDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/to/some/directory2&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.742Z info: Adding normalized fileMove directories &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fromDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir1&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;toDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir2&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.743Z info: Adding normalized fileMove directories &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fromDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir2&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;toDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir1&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.744Z info: Adding normalized fileMove directories &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fromDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir1/abc&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;toDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir1&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.745Z info: Adding normalized fileMove directories &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fromDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir2/abc-dest&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;toDir&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;/Users/goran/butler-test-dir1&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.745Z info: Adding normalized fileDelete directory /Users/goran/butler-test-dir1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.746Z info: Adding normalized fileDelete directory /Users/goran/butler-test-dir1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.747Z info: Adding normalized fileDelete directory /Users/goran/butler-test-dir2/abc-dest
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T16:35:31.747Z info: Enabled API endpoints: &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;activeUserCount&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;activeUsers&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;apiListEnbledEndpoints&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;base62ToBase16&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;base16ToBase62&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;butlerping&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;createDir&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;createDirQVD&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fileDelete&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fileMove&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;fileCopy&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;keyValueStore&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;mqttPublishMessage&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;createNewSchedule&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;getSchedule&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;getScheduleStatusAll&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;updateSchedule&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;deleteSchedule&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;startSchedule&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;stopSchedule&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;senseAppReload&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;senseAppDump&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;senseListApps&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;senseStartTask&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;slackPostMessage&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;getBookmarkList&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;applyBookmark&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;getSessions&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt;   &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;deleteSession&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.265Z info: CONFIG: Influxdb enabled: &lt;span style=&#34;color:#204a87&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.265Z info: CONFIG: Influxdb host IP: 192.168.100.20
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.265Z info: CONFIG: Influxdb host port: &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;8086&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.265Z info: CONFIG: Influxdb db name: butler
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.567Z info: --------------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.567Z info: Starting Butler
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.568Z info: Log level      : verbose
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.568Z info: App version    : 6.1.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.568Z info: Instance ID    : b6292735c80987393c5cf1a5c685e8548b46e6385b940789e2599936e20d5080
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.568Z info:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.569Z info: Node version   : v16.11.1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.569Z info: Architecture   : x64
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.569Z info: Platform       : linux
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.569Z info: Release        : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;11&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.570Z info: Distro         : Debian GNU/Linux
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.570Z info: Codename       : bullseye
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.570Z info: Virtual        : &lt;span style=&#34;color:#204a87&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.570Z info: Processors     : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.570Z info: Physical cores : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.571Z info: Cores          : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.571Z info: Docker arch.   : undefined
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.571Z info: Total memory   : &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;6233116672&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.571Z info: --------------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.571Z info: Client cert: /nodeapp/config/certificate/client.pem
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.571Z info: Client cert key: /nodeapp/config/certificate/client_key.pem
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.572Z info: CA cert: /nodeapp/config/certificate/root.pem
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.584Z info: MAIN: Didn&lt;span style=&#34;color:#a40000&#34;&gt;&amp;#39;&lt;/span&gt;t load schedules from file
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.627Z info: MAIN: REST server listening on http://0.0.0.0:8080
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:41.633Z info: MAIN: Started Docker healthcheck server on port 12398.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:06:46.029Z info: /v4/senselistapps called from 192.168.176.1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;What you see on your screen will depend on which Butler version you are using and what features are enabled.&lt;/p&gt;
 &lt;p&gt;Let&amp;rsquo;s make sure things are working by opening a new terminal window and from there requesting a list of all apps on the server:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;proton:~ goran$
-proton:~ goran$ curl &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://localhost:8080/v4/senselistapps&amp;#34;&lt;/span&gt;
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;492a1bca-1c41-4a01-9104-543a2334c465&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;2018 sales targets&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5b243cb2-8d00-44c9-b865-08b00a0af18b&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;App 1&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
-...
-...
-&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;181d101f-986c-49c5-a457-d351058c05b4&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Template app 1 DEV&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}]&lt;/span&gt;
-proton:~ goran$
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Nice, looking good.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;proton:~ goran$
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;proton:~ goran$ curl &lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;http://localhost:8080/v4/senselistapps&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;[{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;492a1bca-1c41-4a01-9104-543a2334c465&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;2018 sales targets&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;5b243cb2-8d00-44c9-b865-08b00a0af18b&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;App 1&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;181d101f-986c-49c5-a457-d351058c05b4&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;:&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;Template app 1 DEV&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;}]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;proton:~ goran$
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Nice, looking good.&lt;/p&gt;
 &lt;p&gt;In the terminal where you ran docker-compose, you will see a new line saying that a app list was retrieved:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:20:50.356Z info: /v4/senselistapps called from 192.168.176.1
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;butler    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;|&lt;/span&gt; 2021-10-25T19:20:50.356Z info: /v4/senselistapps called from 192.168.176.1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
       </description>
     </item>
     
     <item>
-      <title>Docs: Running Butler as a native Node.js application</title>
-      <link>/docs/getting-started/install/native/</link>
+      <title>Docs: Running Butler as a Node.js application</title>
+      <link>/docs/getting-started/install/nodejs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/install/native/</guid>
+      <guid>/docs/getting-started/install/nodejs/</guid>
       <description>
         
         
@@ -361,8 +439,8 @@ On some OSs you&amp;rsquo;ll get some warnings during the installation - they ar
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;MQTT message broker&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Several of Butler&amp;rsquo;s features use &lt;a href=&#34;https://mqtt.org/&#34;&gt;MQTT&lt;/a&gt; for sending and receiving messages.&lt;br&gt;
-MQTT is a standardised messaging protocol, and it should be possible to use &lt;a href=&#34;https://github.com/mqtt/mqtt.org/wiki/software?id=software&#34;&gt;any broker following the MQTT standard&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Butler has been developed and tested using &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; running on mac OS and Debian Linux - both work flawlessly.&lt;/p&gt;
+MQTT is a standardised messaging protocol and it should be possible to use &lt;a href=&#34;https://github.com/mqtt/mqtt.org/wiki/software?id=software&#34;&gt;any broker following the MQTT standard&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Butler has been developed and tested using &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; running on mac OS, Debian Linux and Docker - all work flawlessly.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 
