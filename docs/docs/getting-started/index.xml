@@ -58,7 +58,8 @@
         
         &lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
 &lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice warning&#34; &gt;
-&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Warning&lt;/p&gt;&lt;p&gt;Butler was developed with InfluxDB version 1.x in mind.&lt;/p&gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Warning&lt;/p&gt;&lt;p&gt;Butler was developed with InfluxDB version 1.x in mind.&lt;br&gt;
+If you intend to use Butler together with InfluxDB you need to be aware of the following:&lt;/p&gt;
 &lt;p&gt;InfluxDB is currently available in version 2.x and while this version brings lots of new goodies, it&amp;rsquo;s not out-of-the-box compatible with Butler.&lt;br&gt;
 For that reason you should use the latest 1.x version of InfluxDB, which at the time of this writing is 1.8.4.&lt;/p&gt;
 &lt;p&gt;If you do not intend to use any InfluxDB related features of Butler you can simply disregard this warning.&lt;/p&gt;
@@ -69,9 +70,9 @@ For that reason you should use the latest 1.x version of InfluxDB, which at the 
 &lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
 &lt;p&gt;Given the cross platform nature of Node.js (which is the language Butler is written in), Butler can run on lots of different hardware platforms and operating systems.&lt;/p&gt;
 &lt;p&gt;It is therefore difficult to give detailed installation instructions for each possible installation scenario. This site thus tries explain how to get started with Butler in some of the most common scenarios.&lt;/p&gt;
-&lt;p&gt;Pre-built binaries are available for Windows, macOS and Linux. When using these there is no need to install Node.js, as the Node.js runtime is bundled into the various binaries.&lt;br&gt;
-Using these binaries is the easiest - and thus recommended - way of using Butler.&lt;br&gt;
-Unless you want to use Docker, which is also a great option.&lt;/p&gt;
+&lt;p&gt;Pre-built binaries are available for Windows, macOS and Linux. When using these there is no need to install Node.js, as the Node.js runtime is bundled into the various binaries.&lt;/p&gt;
+&lt;p&gt;Using these binaries is the easiest - and thus recommended - way of using Butler.&lt;br&gt;
+&amp;hellip;unless you want to use Docker, which is also a great option.&lt;/p&gt;
 
 &lt;/div&gt;
 
@@ -137,6 +138,7 @@ If you have a Docker or Kubernetes environment this is a great option.&lt;/li&gt
 &lt;h2 id=&#34;running-butler&#34;&gt;Running Butler&lt;/h2&gt;
 &lt;p&gt;How to start Butler varies depending on whether you run it as a standalone app, as a Docker container or as a Node.js app.&lt;/p&gt;
 &lt;h3 id=&#34;monitoring-butler&#34;&gt;Monitoring Butler&lt;/h3&gt;
+&lt;!-- TODO --&gt;
 &lt;p&gt;Once Butler is running it&amp;rsquo;s a good idea to also monitor it. Otherwise you stand the risk of not getting notified if Butler for some reason misbehaves.&lt;/p&gt;
 &lt;p&gt;Butler will log its own memory usage to InfluxDB if&lt;/p&gt;
 &lt;ol&gt;
@@ -148,6 +150,72 @@ You can also set up alerts in Grafana if so desired, with notifications going to
 &lt;p&gt;A Grafana dashboard can look like this. Note that one of the available metrics (&lt;code&gt;external&lt;/code&gt;) is not used in this particular dashboard. It&amp;rsquo;s still logged to InfluxDB though.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;butler-memory-usage-grafana-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler memory usage in Grafana dashboard&#34;&gt;&lt;/p&gt;
 &lt;p&gt;There is a &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/tree/master/docs/grafana&#34;&gt;sample Grafana dashboard&lt;/a&gt; in Butler&amp;rsquo;s GitHub repo.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Upgrade</title>
+      <link>/docs/getting-started/upgrade/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/getting-started/upgrade/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;the-upgrade-process&#34;&gt;The upgrade process&lt;/h2&gt;
+&lt;p&gt;Butler is entirely driven by its configuration files, with the &lt;a href=&#34;https://github.com/mountaindude/butler/blob/master/src/config/production_template.yaml&#34;&gt;main YAML config file&lt;/a&gt; being the most important one.&lt;br&gt;
+There are other config files too, containing for example scheduling information.&lt;/p&gt;
+&lt;p&gt;Different kind of upgrades usually result in different levels on modifications needed in the main config file.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;Small&amp;rdquo; Butler upgrades mean moving from one patch verison to another, without changing the feature version.&lt;br&gt;
+Example: Upgrading from 7.3.0 &amp;gt; 7.3.4.&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Medium&amp;rdquo; upgrades involves moving from one minor version to another, without changing the major version.
+Example: Upgrading from 7.2.3 &amp;gt; 7.3.0&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Major&amp;rdquo; upgrades is when you move to a new major version.
+Example: 7.4.2 &amp;gt; 8.0.0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The versioning scheme used in Butler is described &lt;a href=&#34;/docs/about/versioning/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice warning&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Warning&lt;/p&gt;&lt;p&gt;You should always upgrade to the latest available version.&lt;br&gt;
+That version has the latest features, bug fixes and security patches.&lt;/p&gt;
+&lt;p&gt;Upgrading to an older version - or a pre-release version - means a higher risk for security concerns, not yet fully tested features etc.&lt;/p&gt;&lt;/div&gt;
+
+&lt;h3 id=&#34;minor-upgrades&#34;&gt;Minor upgrades&lt;/h3&gt;
+&lt;p&gt;This scenario rarely require any changes to Butler&amp;rsquo;s configuration.&lt;br&gt;
+The new release includes bug fixes, security patches, minor updates to documentation etc - but no new features.&lt;/p&gt;
+&lt;p&gt;In theory there should never be any updates needed to the config files when doing a minor upgrade.&lt;/p&gt;
+&lt;h3 id=&#34;medium-upgrades&#34;&gt;Medium upgrades&lt;/h3&gt;
+&lt;p&gt;This scenario means that new features are added to Butler.&lt;br&gt;
+Usually there are also various bug fixes included.&lt;/p&gt;
+&lt;p&gt;Most new features need to be configured somehow, meaning that medium upgrades usually require modification to the config files.&lt;br&gt;
+By far the most common is that it&amp;rsquo;s the main config that needs to be modified, but a new scheduler related feature could for example mean that the scheduler config file must be modified too.&lt;/p&gt;
+&lt;p&gt;The changes needed to the config files are usually additive in nature, i.e. some settings must be added to the config file, but the existing settings and general structure of the file remain the same.&lt;/p&gt;
+&lt;h3 id=&#34;major-upgrades&#34;&gt;Major upgrades&lt;/h3&gt;
+&lt;p&gt;This scneario involves breaking changes of some kind.&lt;br&gt;
+These almost certainly require changes to the config files, sometimes even significant ones in the sense that the structure of the config file &lt;em&gt;may&lt;/em&gt; have changed.&lt;/p&gt;
+&lt;h2 id=&#34;upgrade-checklist&#34;&gt;Upgrade checklist&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Look at the &lt;a href=&#34;/docs&#34;&gt;release notes&lt;/a&gt; to get a general feeling for what is new and what has changed.&lt;br&gt;
+Those are the areas tha may require changes in the config file.&lt;/li&gt;
+&lt;li&gt;Compare your existing main config file with the &lt;a href=&#34;https://github.com/mountaindude/butler/blob/master/src/config/production_template.yaml&#34;&gt;template config file&lt;/a&gt; available on GitHub.&lt;br&gt;
+This comparison is a manual process and can be a bit tedious, but knowing your config file is really needed in order to make full and correct use of Butler.&lt;/li&gt;
+&lt;li&gt;The result of the comparison will show you what parts of the config file are new (for medium-sized upgrades) and which parts have changed in a significant way (for major upgrades).&lt;/li&gt;
+&lt;li&gt;Get the binaries for the new Butler version from the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/releases&#34;&gt;download page&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Start the new Butler version and let it run for a few minutes.
+&lt;ol&gt;
+&lt;li&gt;Review the console logs (or the log files) to make sure there are no warnings or errors.&lt;/li&gt;
+&lt;li&gt;If there are warnings or errors it can be helpful to start Butler with more verbose logging.&lt;br&gt;
+Adding &lt;code&gt;--log-level verbose&lt;/code&gt; or even &lt;code&gt;--log-level debug&lt;/code&gt; will give you more details on what Butler is doing and what might be causing the problems you are experiencing.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;when-things-arent-working&#34;&gt;When things aren&amp;rsquo;t working&lt;/h2&gt;
+&lt;p&gt;By far the most common problem when upgrading to a new Butler version (or doing a fresh install) is an incorrect config file.&lt;/p&gt;
+&lt;p&gt;Thus, double check your config file, then triple check it.&lt;/p&gt;
+&lt;p&gt;If things still aren&amp;rsquo;t working you can post a question in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/discussions/categories/q-a&#34;&gt;Butler forums&lt;/a&gt;.&lt;br&gt;
+By sharing your installation and upgrade challenges/issues you enable future improvements, which will benefit both yourself and others.&lt;/p&gt;
 
       </description>
     </item>

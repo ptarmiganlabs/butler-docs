@@ -8,6 +8,7 @@ description: >
 
 {{< notice warning >}}
 Butler was developed with InfluxDB version 1.x in mind.  
+If you intend to use Butler together with InfluxDB you need to be aware of the following:
 
 InfluxDB is currently available in version 2.x and while this version brings lots of new goodies, it's not out-of-the-box compatible with Butler.  
 For that reason you should use the latest 1.x version of InfluxDB, which at the time of this writing is 1.8.4.
@@ -23,8 +24,9 @@ Given the cross platform nature of Node.js (which is the language Butler is writ
 It is therefore difficult to give detailed installation instructions for each possible installation scenario. This site thus tries explain how to get started with Butler in some of the most common scenarios.
 
 Pre-built binaries are available for Windows, macOS and Linux. When using these there is no need to install Node.js, as the Node.js runtime is bundled into the various binaries.  
+
 Using these binaries is the easiest - and thus recommended - way of using Butler.  
-Unless you want to use Docker, which is also a great option.
+...unless you want to use Docker, which is also a great option.
 {{% /pageinfo %}}
 
 ## Getting started

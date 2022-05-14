@@ -6,6 +6,8 @@ weight = 10
 
 
 - [Instant notifications when reload tasks fail or are stopped](#instant-notifications-when-reload-tasks-fail-or-are-stopped)
+- [Forward failed reload events to incident management systems (New Relic, Signl4)](#forward-failed-reload-events-to-incident-management-systems-new-relic-signl4)
+- [Use InfluxDB/Grafana or New Relic to track Butler memory usage](#use-influxdbgrafana-or-new-relic-to-track-butler-memory-usage)
 - [Save a copy of the complete reload log for all failed reload tasks](#save-a-copy-of-the-complete-reload-log-for-all-failed-reload-tasks)
 - [Start reload tasks from load script or from upstream systems](#start-reload-tasks-from-load-script-or-from-upstream-systems)
 - [Start any reload task from within any Qlik Sense or web app](#start-any-reload-task-from-within-any-qlik-sense-or-web-app)
@@ -19,7 +21,7 @@ weight = 10
 - [Using MQTT to notify downstream systems that Sense is done processing data](#using-mqtt-to-notify-downstream-systems-that-sense-is-done-processing-data)
 - [Create directories, copy/move/delete files](#create-directories-copymovedelete-files)
 - [Extract metadata for apps](#extract-metadata-for-apps)
-- [Post messages to Slack](#post-messages-to-slack)
+- [Easily post messages to Slack](#easily-post-messages-to-slack)
 
 ## Instant notifications when reload tasks fail or are stopped
 
@@ -34,6 +36,23 @@ For both Slack and Teams there are options to use more flexible/configurable ale
 The result is a very poweful tool for QSEoW sysadmins, who get real-time insight into what's happening with respect to task execution.
 
 More info [here](docs/getting-started/setup/reload-alerts/).
+
+## Forward failed reload events to incident management systems (New Relic, Signl4)
+
+Butler offers advanced failed reload alerts via Slack, Teams, email and outgoing webhooks.  
+Configurable templates means you can customize emails/Teams/Slack messages.
+
+Sometimes you want a bit more structure though.  
+This is especially true when Sense is used in the enterprise, creating critical metrics and reports.
+
+Butler integrates with both [Signl4](https://www.signl4.com) and [New Relic](https://newrelic.com).  
+Both offer incident management features on both the web and via mobile clients.
+
+## Use InfluxDB/Grafana or New Relic to track Butler memory usage
+
+Butler can be configured to log its own memory usage to [InfluxDB](https://www.influxdata.com/products/), from where it can be visualised using [Grafana](https://grafana.com).
+
+If you prefer using [New Relic One](https://newrelic.com) that's possible too - sending Butler memory metrics to New Relic is super simple: Just add your New Relic credentials in the YAML config file or as command line options when starting Butler and you're set.
 
 ## Save a copy of the complete reload log for all failed reload tasks
 
@@ -147,7 +166,7 @@ Exporting apps as JSON can be very useful for backup purposes. Doing regular sna
 
 The [REST API documentation](http://localhost:1313/docs/reference/rest-api/?operationsSorter=alpha) has full docs for the `/v4/app/{appId}/dump` endpoint.
 
-## Post messages to Slack
+## Easily post messages to Slack
 
 Slack messages can include full formatting (web links, text formatting etc), as well as "poking" users.  
 I.e. notifying specific Slack users that they have a new message.

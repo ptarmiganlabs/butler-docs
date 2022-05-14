@@ -7,8 +7,54 @@ weight: 20
 #     weight: 20
 ---
 
+{{< notice tip >}}
+Upgrading from an earlier version of Butler?
+
+General guidance on how to do this is found [here](/docs/getting-started/upgrade/).
+{{< /notice >}}
 
 {{% pageinfo %}}
+
+### What's new in version 7.4
+
+*Features*
+
+* Enable/disable alert emails per reload task. [#385](https://github.com/ptarmiganlabs/butler/issues/385), [#355](https://github.com/ptarmiganlabs/butler/discussions/355)
+* Base alert email rate limits on taskId + email address combination instead of just taskId. [#424](https://github.com/ptarmiganlabs/butler/issues/424)
+* Add config setting to enable create-API-docs-mode. [#447](https://github.com/ptarmiganlabs/butler/issues/447)
+* API endpoint for sending gauge metrics to New Relic. [#440](https://github.com/ptarmiganlabs/butler/issues/440)
+
+*Bug fixes*
+
+* API docs REST endpoint doesn't work for pre-built binaries [#443](https://github.com/ptarmiganlabs/butler/issues/443)
+* Change name of New Relic event for failed and aborted reload tasks. [#418](https://github.com/ptarmiganlabs/butler/issues/418)
+* Change New Relic metric names for Butler uptime metrics. [#419](https://github.com/ptarmiganlabs/butler/issues/419)
+* Verify that Slack/Teams message template file exists before opening them. [#427](https://github.com/ptarmiganlabs/butler/issues/427)
+
+*Other*
+
+* Change Butler's log prefixes for failed reloads across all notification channels. [#425](https://github.com/ptarmiganlabs/butler/issues/425)
+* Make source code file names consistent throughout Butler. [#422](https://github.com/ptarmiganlabs/butler/issues/422)
+* Update dependencies to stay sharp and secure.
+
+### What's new in version 7.3
+
+*Features*
+
+* Send Butler memory and uptime metrics to New Relic. [#398](https://github.com/ptarmiganlabs/butler/issues/398)
+* Send failed/aborted task events to New Relic. [#400](https://github.com/ptarmiganlabs/butler/issues/400)
+* Add rate limiting to Butler's REST API. [#403](https://github.com/ptarmiganlabs/butler/issues/403)
+
+*Bug fixes*
+
+* Better parsing of Sense log files before sent to Teams/Slack. [#408](https://github.com/ptarmiganlabs/butler/issues/408)
+* Include Signl4 status in telemetry data. [#402](https://github.com/ptarmiganlabs/butler/issues/402)
+* Incorrect telemetry status (true/false) for uptime data sent to InfluxDB. [#401](https://github.com/ptarmiganlabs/butler/issues/401)
+
+*Other*
+
+* Update dependencies to stay sharp and secure.
+* Now using Node.js v18 when building Docker images.
 
 ### What's new in version 7.2
 

@@ -16,7 +16,7 @@ A default config file called `production_template.yaml` is available in the [Git
 Make a copy of it, then rename the copy `default.yaml`, `production.yaml`, `staging.yaml` or something else suitable to your specific use case.  
 Update it as needed (see the [config file reference page](/docs/reference/config-file/) for details).
 
-Trying to run Butler with the default config file (the one on GitHub) will not work - you need to adapt it to your server environment. For example, you need to enter the IP or host name of you Sense server(s), the IP or host name where Butler is running etc.
+Trying to run Butler with the default config file (the one on GitHub) will not work - you must adapt it to your server environment. For example, you need to enter the IP or host name of you Sense server(s), the IP or host name where Butler is running etc.
 
 Finally, Butler must somehow be given instructions about where to look for the config file.  
 This can be done in several ways depending on how Butler is used, see below.
@@ -33,10 +33,12 @@ Butler gives superpowers to client-managed Qlik Sense Enterprise on Windows!
 Advanced reload failure alerts, task scheduler, key-value store, file system access and much more.
 
 Options:
-  -V, --version            output the version number
-  -c, --configfile <file>  path to config file
-  -l, --loglevel <level>   log level (choices: "error", "warn", "info", "verbose", "debug", "silly")
-  -h, --help               display help for command
+  -V, --version                output the version number
+  -c, --configfile <file>      path to config file
+  -l, --loglevel <level>       log level (choices: "error", "warn", "info", "verbose", "debug", "silly")
+  --new-relic-api-key <key>    insert API key to use with New Relic
+  --new-relic-account-id <id>  New Relic account ID
+  -h, --help                   display help for command
 PS C:\tools\butler>
 ```
 

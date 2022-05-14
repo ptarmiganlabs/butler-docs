@@ -7,7 +7,7 @@ linkTitle = "Butler"
 {{< blocks/cover title="Butler: Adding superpowers to Qlik Sense" image_anchor="center" height="full" color="dark" >}}
 <div class="mx-auto">
 	<p class="lead mt-5" style="font-size: 120%" ">
-		Great looking alerts to Slack, Teams or email when reloads fail, advanced task scheduling, task chaining with parameters, key-value store, start reload tasks from any system, extract app metadata, post to Slack/Teams, MQTT integration and more.<br><br>
+		Great looking alerts to Slack, Teams or email when reloads fail, save all failed reload scripts, advanced task scheduling, task chaining with parameters, key-value store, start reload tasks from any system, extract app metadata, post to Slack/Teams, MQTT integration and more.<br><br>
 	</p>
 	<p style="font-size: 120%" ">
 		No installation needed. Just download, configure and run.<br>
@@ -146,6 +146,13 @@ Standalone binaries - no installation needed. Download, configure and run.
 [Read more...](/docs/getting-started/) 
 {{% /blocks/feature %}}
 
+{{% blocks/feature icon="fa-share-alt" title="Integrations" %}}
+Send failed reload events to dedicated tools such as New Relic and Signl4. 
+
+Butler itself can be monitored in InfluxDB/Grafana and New Relic.
+[Read more...](/docs/getting-started/) 
+{{% /blocks/feature %}}
+
 {{< /blocks/section >}}
 
 
@@ -155,11 +162,12 @@ Standalone binaries - no installation needed. Download, configure and run.
 
 {{< blocks/section color="dark">}}
 
-{{% blocks/feature icon="fa-lightbulb" title="Latest release: 7.2" %}}
-Stand-alone binaries - no need to install Node.js any more.  
-Keep an easy to access copy of script logs for failed reloads.  
-...and a bunch of bug fixes.
+{{% blocks/feature icon="fa-lightbulb" title="Latest release: 7.4" %}}
+Enable/disable failed reload alerts per task.
 
+Specifiy per-task email recipients when reloads fail.
+
+...and a bunch of bug fixes.
 
 Available on [GitHub](https://github.com/ptarmiganlabs/butler/releases).
 {{% /blocks/feature %}}

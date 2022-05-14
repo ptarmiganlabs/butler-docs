@@ -13,7 +13,7 @@ Butler is distributed under the [MIT license](https://en.wikipedia.org/wiki/MIT_
 ```
 MIT License
 
-Copyright (c) 2016-2020 Göran Sander
+Copyright (c) 2016-2022 Göran Sander
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -53,6 +53,6 @@ No detailed Google Analytics data for this site will be shared with any third pa
 
 If you at some future date decide that you want your Butler telemetry data deleted from the database operated by Ptarmigan Labs, please follow this process:
 
-1. Send your request by email to info <at> ptarmiganlabs <dot> com.
+1. Send your request by email to info -at- ptarmiganlabs -dot- com.
 2. You must include the Butler instance ID shown during Butler startup. Without this ID Ptarmigan Labs cannot delete your telemetry data.
 3. Ptarmigan Labs will confirm that your telemetry data has been deleted.

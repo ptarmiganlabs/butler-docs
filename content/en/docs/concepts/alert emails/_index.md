@@ -59,7 +59,39 @@ This feature assumes the app owner's user account (in the Sense user directory) 
 
 *If* an email address is available for a Sense user, the QMC user section can look like this:
 
-![alt text](./qlik_sense_user_email_address_1.png "Email address available for Qlik Sense user")
+![Email address available for Qlik Sense user](./qlik_sense_user_email_address_1.png "Email address available for Qlik Sense user")
+
+## Alert emails only for some tasks
+
+Sometimes there is a desire to only have email alerts for *some* tasks.  
+One example can be a Sense cluster that hosts both development and production apps, maybe separated on different servers.
+
+As of Butler 7.4.0 it is possible to control per task if an alert email should be sent when the task fails or is aborted from the QMC.
+
+Conceptually it works like this:
+
+![Switching alert emails on/off per reload task](/img/butler-alert-emails-on-off-per-task-1.png "Switching alert emails on/off per reload task")
+
+Instructions for how to configure this feature is available [here](/docs/getting-started/setup/reload-alerts/alert-emails/#send-alerts-only-for-some-tasks).
+
+Note: This feature is similar to - but independent from - the "task specific email recipients" feature below. Either feature can be enabled or disabled independently of the other in Butler's config file.
+
+## Task specific email recipients
+
+They may be cases where all alert emails should normally go to for example a Sense administrator, but *some* alerts should instead (or also) go to some other recipients.
+
+An example could be a sales related Sense app. If it fails reloading the standard alert email should go to the Sense administrator, but there should also be an alert email sent to the sales operations team, to notify them that they won't find updated numbers in the Sales app.
+
+Butler handles this scenario by using a custome propperty (its name is configurable in the Butler config file) to set alert email recipients on a per-task basis.
+
+Conceptually it works like this:
+
+![Task specific alert email recipients](/img/butler-different-recipients-alert-emails-1.png "Task specific alert email recipients")
+
+
+Instructions for how to configure this feature is available [here](/docs/getting-started/setup/reload-alerts/alert-emails/#send-alerts-to-specific-people-for-some-tasks).
+
+Note: This feature is similar to - but independent from - the "alert emails only for some tasks" feature below. Either feature can be enabled or disabled independently of the other in Butler's config file.
 
 ## How it works
 
@@ -67,7 +99,7 @@ Butler uses a templating engine called [Handlebars](https://handlebarsjs.com/gui
 
 Slack, MS Teams and MQTT messages are currently not using the templating engine - this is however likely to change in coming Butler versions. Feel free to [add (or +1) a request on GitHub](https://github.com/ptarmiganlabs/butler/issues) if this is of interest to you!
 
-![alt text](/img/butler-log4net-appenders-1.png "Butler high level system overview")  
+![Butler high level system overview](/img/butler-log4net-appenders-1.png "Butler high level system overview")  
 
 ### Template fields
 

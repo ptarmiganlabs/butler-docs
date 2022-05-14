@@ -19,6 +19,8 @@ Butler can send two kinds of alert emails:
 - When a scheduled, running reload task fails.
 - When a scheduled, running reload task is somehow stopped.
 
+Butler has a de-duplication feature that ensure each email address that has qualified for an alert email only gets ONE email per alert.
+
 See the [Concepts section](/docs/concepts/alert-emails/) for additional details and sample alert emails.
 
 ## Basic vs formatted email alerts
@@ -27,10 +29,19 @@ If you want Butler to send email alerts you must provide an email template file.
 
 For some other alert destinations (Slack and Teams) Butler offers a "basic" option. A fixed format alert is then sent by Butler.  
 The closest thing available for emails is to use the mail log appender described [here](/docs/getting-started/setup/reload-alerts/#sending-basic-alert-emails-from-log4net), but if you set up a log appender AND have Butler running, you might as well use the formatted email option as it provides **much** more flexibility than log4net's email appender.
+  
+## Rate limiting
+
+Butler has rate limiting feature to ensure alert recipients are not spammed with too many alert emails.
+
+The rate limit is configured (in seconds) in the main config file and can be set independently for reload-failed and reload-aborted emails.  
+The corresponding config settings are `Butler.emailNotification.reloadTaskFailure.rateLimit` and `Butler.emailNotification.reloadTaskAborted.rateLimit`.
+
+Rate limiting is done based on task ID + email address.
 
 ## Sending alert emails to app owners
 
-Butler can optionally send alert emails to the owners of the app that failed reloading/was aborted.
+Butler can optionally send alert emails to the owner of apps that failed reloading/were aborted.
 
 {{% alert title="Email addresses must be available" color="warning" %}}
 App owner notification email can only be sent to app owners that have an email stored in their Qlik Sense user profile.  
@@ -73,6 +84,50 @@ It works like this:
 - If `appOwnerAlert.includeOwner.includeAll` is set to `false` it's still possible to add individual app owners to the `appOwnerAlert.includeOwner.user` array.  
   Those users will then receive notification emails for apps they own.
 
+## Send alerts only for some tasks
+
+Some reload tasks may be more important than others.  
+I.e. some tasks should generate alert emails when they fail, but others not.
+
+Butler controls which tasks to send alerts for by looking at a specific Qlik Sense custom property.
+
+- If the config file setting `Butler.emailNotification.reloadTaskFailure.alertEnableByCustomProperty.enable` is set to `false`, *all* failed reload tasks will cause alert emails.
+- If that setting is `true` only some tasks will cause alert emails:
+  - If a task has the value specified in `Butler.emailNotification.reloadTaskFailure.alertEnableByCustomProperty.enabledValue` set for the custom property named as specified in `Butler.emailNotification.reloadTaskFailure.alertEnableByCustomProperty.customPropertyName`, the alert will be sent.
+  - If a task does not have that custom property *does not* set to that value, no alert will be sent for that task.
+    - A task can still cause an alert to be sent if a specific email address is specified for the task, see below for details.
+
+Some configuration is needed to make this work:
+
+1. Make changes to the config file. Specifically the three settings mentioned above needs to be reviewed and updated as needed.
+2. Create a custom property in Sense.
+   1. The name and value of the custom property must match the one in the config file, `Butler.emailNotification.reloadTaskFailure.alertEnableByCustomProperty.customPropertyName` and `Butler.emailNotification.reloadTaskFailure.alertEnableByCustomProperty.enabledValue`.
+   2. The custom property should be available on reload tasks.
+3. Set the custom property for reload tasks for which alert emails should be sent.
+
+*Aborted* reload tasks (as compared to the *failed* reload tasks described above) are handled the same way, with their own settings in the config file.
+
+In the QMC the custom property can look like this:
+
+![QMC custom property for controlling reload alerts](/img/enable-reload-alert-for-specific-task-1.png "QMC custom property for controlling reload alerts")
+
+## Send alerts to specific people, for some tasks
+
+It's possible to send alert emails to specific email addresses and control this on a per-task basis.
+
+This is achieved by using a Sense custom property that contains the email addresses alerts should be sent to, for the task in question.
+
+- These config setting control which custom properties are used to store email addresses:
+  - `Butler.emailNotification.reloadTaskFailure.alertEnableByEmailAddress.customPropertyName`
+  - `Butler.emailNotification.reloadAborted.alertEnableByEmailAddress.customPropertyName`
+
+Email specific alert recpients is independent from the feature where alerts can be switched on/off for individual tasks (see [above](/docs/getting-started/setup/reload-alerts/alert-emails/#send-alerts-only-for-some-tasks)).
+
+In other words: If an email address has been designated as recipient of alert emails, that address will always receive alert emails for *all* failed or aborted reload tasks.
+
+Having set two different (blurred out) recipients of alert emails for a reload task:
+
+![QMC custom property for sending alert emails to specific email addresses](/img/set-email-recipient-per-reload-task-1.png "QMC custom property for sending alert emails to specific email addresses")
 
 ## Settings in main config file
 

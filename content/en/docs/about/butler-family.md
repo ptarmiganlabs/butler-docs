@@ -23,6 +23,8 @@ Real-time operational metrics for Qlik Sense. A must-have if you are responsible
 
 Butler SOS makes it possible to detect and alert on issues as they happen, rather than in retrospect much later.
 
+Several storage and visualisation options available, including [InfluxDB](https://www.influxdata.com) + [Grafana](https://grafana.com), and [New Relic](https://newrelic.com).
+
 [butler-sos.ptarmiganlabs.com](https://butler-sos.ptarmiganlabs.com)
 
 ### Butler Sheet Icons

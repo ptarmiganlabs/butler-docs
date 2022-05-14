@@ -11,7 +11,7 @@ description: >
 {{% alert title="Optional" color="primary" %}}
 Storing the logs of failed reloads is an optional Butler feature.
 
-If reload lgos are not of interest, the default values in the config file can be left as they are.  
+If reload logs are not of interest, the default values in the config file can be left as they are.  
 Do note though that Butler expects the configuration properties below to exist in the config file, but will _ignore their values_ if the related features are disabled.
 {{% /alert %}}
 

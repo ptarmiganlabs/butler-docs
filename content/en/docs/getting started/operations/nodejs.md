@@ -35,10 +35,12 @@ Butler gives superpowers to client-managed Qlik Sense Enterprise on Windows!
 Advanced reload failure alerts, task scheduler, key-value store, file system access and much more.
 
 Options:
-  -V, --version            output the version number
-  -c, --configfile <file>  path to config file
-  -l, --loglevel <level>   log level (choices: "error", "warn", "info", "verbose", "debug", "silly")
-  -h, --help               display help for command
+  -V, --version                output the version number
+  -c, --configfile <file>      path to config file
+  -l, --loglevel <level>       log level (choices: "error", "warn", "info", "verbose", "debug", "silly")
+  --new-relic-api-key <key>    insert API key to use with New Relic
+  --new-relic-account-id <id>  New Relic account ID
+  -h, --help
 ```
 
 Looking at the above, it's actually possible to use the `--configfile` to specify which config file to use.  

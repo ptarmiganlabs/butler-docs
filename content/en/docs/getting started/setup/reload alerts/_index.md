@@ -23,17 +23,18 @@ These alert types are available:
 
 - Reload task aborted. Send alerts when reload tasks are manually aborted in the QMC.
 
-## Alert destinations
+## Alert destinations and options
 
-Alerts can be sent to these destinations. Each destination can be individually enabled/disabled in the config file.
+Alerts can be sent to these destinations, with different options available for each destination.  
+Each destination can be individually enabled/disabled in the config file.  
 
-| Destination | QMC task failure | QMC task aborted | Flexible formatting | Basic formatting | Comment |
-|---|:---:|:---:|:---:|:---:|---|
-| Email    | ✅ | ✅ | ✅ | ✅ | Basic emails can be sent using a [log appender](/docs/getting-started/setup/reload-alerts/#sending-basic-alert-emails-from-log4net). |
-| Slack    | ✅ | ✅ | ✅ | ✅ |  |
-| MS Teams | ✅ | ✅ | ✅ | ✅ |  |
-| Outgoing webhook | ✅ | ✅ | - | - | Formatting is not relevant for webhooks |
-| MQTT     | ✅ | ✅ | - | - | Formatting is not relevant for MQTT messages |
+| Destination | QMC task failure | QMC task aborted | Enable/disable alert per reload task | Per reload task alert recipients | Flexible formatting | Basic formatting | Comment |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|---|
+| Email    | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Basic emails can be sent using a [log appender](/docs/getting-started/setup/reload-alerts/#sending-basic-alert-emails-from-log4net). |
+| Slack    | ✅ | ✅ |  |  | ✅ | ✅ |  |
+| MS Teams | ✅ | ✅ |  |  | ✅ | ✅ |  |
+| Outgoing webhook | ✅ | ✅ |  |  | - | - | Formatting is not relevant for webhooks |
+| MQTT     | ✅ | ✅ |  |  | - | - | Formatting is not relevant for MQTT messages |
 
 ## How it works
 
@@ -58,18 +59,20 @@ So what happens when a scheduled reload task fails? Let's look at the steps:
 
 5. Butler will look at the incoming event and determine what it is about.  
    For example: Is the event about a reload task failure, a reload that has been aborted/stopped, or something else?  
-   Butler thus first works as a dispatcher. In a second, after the initial dispatch, the event is sent to the relevant handler function within Butler.
+   Butler thus first works as a dispatcher. In a second step, after the initial dispatch, the event is sent to the relevant handler function within Butler.
 
-Response times are usually very good - Butler will typically get the UDP message within a few seconds, with alerts going out shortly thereafter.
+Response times are usually very good - Butler will typically get the UDP message within a few seconds with alerts going out shortly thereafter.
 
 {{< notice warning >}}
 The log appenders that catch failed and aborted reloads in the Qlik Sense engine and scheduler must be set up on all Qlik Sense servers where reloads are happening for this feature to work.
+
+Failing to do so will result in Butler not being notified about some reload failures/aborted reloads.
 {{< /notice >}}
 
 ## Adding a log appender
 
 This is possibly the trickiest part to get right when it comes to setting up log4net based alerts.  
-Still, if you start from the sample .xml file provided in the [Butler repository on GitHub](https://github.com/ptarmiganlabs/butler/tree/master/docs/log4net_task-failed) it's not too hard.
+Still, if you start from the sample .xml file provided in the [Butler repository on GitHub](https://github.com/ptarmiganlabs/butler/blob/master/docs/log4net_task-failed/scheduler/LocalLogConfig.xml) it's not too hard.
 
 The steps are:
 

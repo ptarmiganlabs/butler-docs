@@ -23,6 +23,8 @@ It's thus a good idea to monitor for example how much memory (RAM) tools like Bu
 
 Both he uptime monitor and the logging to InfluxDB must be enabled. Note that there are two settings for this. If your InfluxDB uses authentication you'll need to enable this too in Butler's config file.
 
+If you use New Relic to monitor your uptime metrics you must define the New Relic API key etc in the Butler config file's `Butler.thirdPartyToolsCredentialsnewRelic` settings.
+
 A snippet from a real-life Butler config file could look like this:
 
 ```yaml
@@ -46,9 +48,37 @@ A snippet from a real-life Butler config file could look like this:
       retentionPolicy:
         name: 10d
         duration: 10d
+    storeNewRelic:
+      enable: true
+      # There are different URLs depending on whther you have an EU or US region New Relic account.
+      # The available URLs are listed here: https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/choose-your-data-center/
+      # As of this writing the options for the New Relic metrics API are
+      # https://insights-collector.eu01.nr-data.net/metric/v1
+      # https://metric-api.newrelic.com/metric/v1 
+      url: https://insights-collector.eu01.nr-data.net/metric/v1   # Where should uptime data be sent?
+      header:                       # Custom http headers
+        - name: X-My-Header
+          value: Header value
+      metric:
+        dynamic:
+          butlerMemoryUsage:
+            enable: true            # Should Butler's memory/RAM usage be sent to New Relic?
+          butlerUptime:
+            enable: true            # Should Butler's uptime (how long since it was started) be sent to New Relic?
+      attribute: 
+        static:                     # Static attributes/dimensions to attach to the data sent to New Relic.
+          - name: metricType
+            value: butler-uptime
+          - name: service
+            value: butler
+          - name: environment
+            value: prod
+        dynamic:
+          butlerVersion: 
+            enable: true            # Should the Butler version be included in the data sent to New Relic?
 ```
 
-When we start Butler for the first time, it will connect to InfluxDB and if needed create a new database called `butler`, together with a retention policy called `10d`:
+When starting Butler for the first time and InfluxDB is enabled, it will connect to InfluxDB and if needed create a new database called `butler`, together with a retention policy called `10d`:
 
 ![alt text](butler-new-influxdb-1.png "Starting Butler for the first time, InfluxDB database created")  
 
@@ -64,7 +94,7 @@ Use the InfluxDB command line client to connect to InfluxDB and do a manual quer
 
 Indeed, there are a few data points in InfluxDB. Butler's uptime monitor seems to be working.
 
-## InfluxDB + Grafana = 🎉📈
+## Butler + InfluxDB + Grafana = 🎉📈
 
 Let's wrap up by creating a Grafana chart showing Butler memory use over time.
 
@@ -77,3 +107,17 @@ If everything works you'll see something like this:
 ![alt text](butler-grafana-1.png "Butler memory metrics in Grafana")
 
 Looks like Butler is using ca 70 MByte here. This is pretty normal, memory usage usually stays well below 100 MByte, even when Butler has been running for days, weeks and months.
+
+## Butler + New Relic = 😎🌟
+
+While InfluxDB combined with Grafana is hard to beat when it comes to flexibility and look'n'feel of the dashboards, New Relic is outstanding when it comes to ease of setup. 
+
+New Relic is a SaaS product which means you don't have to host neither databaes nor dashboard tool yourself.  
+It's all there within New Relic.
+
+What about cost then?  
+Is New Relic expensive?
+
+Well, if you have lots of metrics, log files etc New Relic can become quite expensive as they charge you based on how much data you send to New Relic.  
+But given that Butler will send *very little* data you are unlikely to ever reach the limit of New Relic's free tier.  
+There is thus a good chance you won't even have to pay for New Relic if you only use it to monitor Butler.

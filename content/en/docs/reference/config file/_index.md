@@ -63,6 +63,42 @@ Butler:
       retentionPolicy:
         name: 10d
         duration: 10d
+    storeNewRelic:
+      enable: false
+      # There are different URLs depending on whther you have an EU or US region New Relic account.
+      # The available URLs are listed here: https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/choose-your-data-center/
+      # As of this writing the options for the New Relic metrics API are
+      # https://insights-collector.eu01.nr-data.net/metric/v1
+      # https://metric-api.newrelic.com/metric/v1 
+      url: https://insights-collector.eu01.nr-data.net/metric/v1   # Where should uptime data be sent?
+      header:                       # Custom http headers
+        - name: X-My-Header
+          value: Header value
+      metric:
+        dynamic:
+          butlerMemoryUsage:
+            enable: true            # Should Butler's memory/RAM usage be sent to New Relic?
+          butlerUptime:
+            enable: true            # Should Butler's uptime (how long since it was started) be sent to New Relic?
+      attribute: 
+        static:                     # Static attributes/dimensions to attach to the data sent to New Relic.
+          - name: metricType
+            value: butler-uptime
+          - name: service
+            value: butler
+          - name: environment
+            value: prod
+        dynamic:
+          butlerVersion: 
+            enable: true            # Should the Butler version be included in the data sent to New Relic?
+
+  # Credentials for third party systems that Butler integrate with.
+  # These can also be specified via command line parameters when starting Butler. 
+  # Command line options takes precedence over settings in this config file.
+  thirdPartyToolsCredentials:
+    newRelic: 
+      insertApiKey: <API key (with insert permissions) from New Relic> 
+      accountId: <New Relic account ID>
 
   # Store script logs of failed reloads on disk.
   # The script logs will be stored in daily directories under the specified main directory below
@@ -103,9 +139,8 @@ Butler:
   # Settings for notifications and messages sent to Slack
   slackNotification:
     enable: false
-    restMessage:
-      enable: false
-      webhookURL: <web hook URL from Slack>
+    restMessage:                      
+      webhookURL: <web hook URL from Slack>   # Webhook to use when sending basic Slack messages via Butler's REST API 
     reloadTaskFailure:
       enable: false
       webhookURL: <web hook URL from Slack>
@@ -153,6 +188,17 @@ Butler:
               userId: <userId>
             - directory: <Sense user directory>
               userId: <userId>
+      # Custom property used to control which aborted tasks will cause alert emails to be sent
+      # If this setting is true, alerts will not be sent for all tasks, but *only* for tasks with the CP set to the enabledValue.
+      # If this setting is false, alerts will be sent for all aborted reload tasks.
+      alertEnableByCustomProperty:
+        enable: true
+        customPropertyName: 'Butler_AbortedAlertEnableEmail'
+        enabledValue: 'Yes'
+      # Custom property used to say that alerts for a certain task should be sent to zero or more recipients
+      # These alerts will be sent irrespective of the alertEnableByCustomProperty.enable setting.
+      alertEnabledByEmailAddress:
+        customPropertyName: 'Butler_AbortedAlertSendToEmail'
       rateLimit: 600                                  # Min seconds between emails for a given taskID. Defaults to 5 minutes.
       headScriptLogLines: 15                          # Number of lines from start of script to include in email
       tailScriptLogLines: 15                          # Number of lines from end of script to include in email
@@ -161,7 +207,7 @@ Butler:
       bodyFileDirectory: config/email_templates       # Directory where email body template files are stored
       htmlTemplateFile: aborted-reload                # Name of email body template file to use
       fromAdress: Qlik Sense (no-reply) <qliksense-noreply@mydomain.com>
-      recipients:                                       # Array of email addresses to which the notification email will be sent
+      recipients:                                     # Array of email addresses to which the notification email will be sent
         - <Email address 1>
         - <Email address 2>
     reloadTaskFailure:
@@ -182,6 +228,17 @@ Butler:
               userId: <userId>
             - directory: <Sense user directory>
               userId: <userId>
+      # Custom property used to control which task failures will cause alert emails to be sent
+      # If this setting is true, alerts will not be sent for all tasks, but *only* for tasks with the CP set to the enabledValue.
+      # If this setting is false, alerts will be sent for all failed reload tasks.
+      alertEnableByCustomProperty:
+        enable: false
+        customPropertyName: 'Butler_FailedAlertEnableEmail'
+        enabledValue: 'Yes'
+      # Custom property used to say that alerts for a certain task should be sent to zero or more recipients
+      # These alerts will be sent irrespective of the alertEnableByCustomProperty.enable setting.
+      alertEnabledByEmailAddress:
+        customPropertyName: 'Butler_FailedAlertSendToEmail'
       rateLimit: 600                                  # Min seconds between emails for a given taskID. Defaults to 5 minutes.
       headScriptLogLines: 15                          # Number of lines from start of script to include in email
       tailScriptLogLines: 15                          # Number of lines from end of script to include in email
@@ -223,7 +280,40 @@ Butler:
         rateLimit: 15             # Min seconds between emails for a given taskID. Defaults to 5 minutes
         serviceName: Qlik Sense   # Signl4 "service name" to use
         severity: 10              # Signl4 severity level for aborted reloads
-
+    newRelic:
+      enable: true
+      # There are different URLs depending on whther you have an EU or US region New Relic account.
+      # The available URLs are listed here: https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/choose-your-data-center/
+      #
+      # Note that the URL path should *not* be included in the url setting below!
+      # As of this writing the valid options are
+      # https://insights-collector.eu01.nr-data.net
+      # https://insights-collector.newrelic.com 
+      url: https://insights-collector.eu01.nr-data.net
+      reloadTaskFailure:
+        enable: true
+        rateLimit: 15             # Min seconds between events sent to New Relic for a given taskID. Defaults to 5 minutes.
+        header:                   # Custom http headers
+          - name: X-My-Header
+            value: Header value
+        attribute:
+          static:                 # Static attributes/dimensions to attach to events sent to New Relic.
+            - name: service
+              value: butler
+            - name: environment
+              value: prod
+      reloadTaskAborted:
+        enable: true
+        rateLimit: 15             # Min seconds between events sent to New Relic for a given taskID. Defaults to 5 minutes.
+        header:                   # Custom http headers
+          - name: X-My-Header
+            value: Header value
+        attribute: 
+          static:                 # Static attributes/dimensions to attach to events sent to New Relic.
+            - name: service
+              value: butler
+            - name: environment
+              value: prod
 
   # Settings for notifications and messages sent using outgoing webhooks
   webhookNotification:
@@ -286,7 +376,7 @@ Butler:
     enable: false                                     # Should Butler's REST API be started? Must be true if *any* API endpoints are to be used.
     serverHost: <FQDN or IP (or localhost) of server where Butler is running>   # Use 0.0.0.0 to listen on all network interfaces (e.g. when running in Docker!).
     serverPort: 8080                                  # Port where Butler's REST is available. Any free port on the server where Butler is running can bse used.
-    backgroundServerPort: 8081                        # Port used internally by Butle's REST API. Any free port on the server where Butler is running can bse used.
+    backgroundServerPort: 8081                        # Port used internally by Butler's REST API. Any free port on the server where Butler is running can bse used.
 
   # List of directories between which file copying via the REST API can be done.
   # Butler will try to clean up messy paths like this one, which resolves to /Users/goran/butler-test-dir1
@@ -328,6 +418,8 @@ Butler:
     fileCopy: false
     keyValueStore: false
     mqttPublishMessage: false
+    newRelic:
+      postNewRelicMetric: true
     scheduler:
       createNewSchedule: false
       getSchedule: false
@@ -341,7 +433,23 @@ Butler:
     senseListApps: false
     senseStartTask: false
     slackPostMessage: false 
-    
+
+  restServerEndpointsConfig:
+    newRelic:
+      postNewRelictMetric:          # Setings used by post metric to New Relic API endpoint
+        # Note that the URL path should *not* be included in the url setting below!
+        # As of this writing the valid options are
+        # https://insights-collector.eu01.nr-data.net
+        # https://insights-collector.newrelic.com 
+        url: https://insights-collector.eu01.nr-data.net
+        header:                   # Custom http headers
+          - name: X-My-Header
+            value: Header value
+        attribute: 
+          static:                   # Static attributes/dimensions to attach to the metrics data sent to New Relic.
+            - name: env
+              value: prod
+
   # Controls which tasks can be started via Butler's REST API.
   # Enabling this feature gives Qlik Sense sysadmins a way to control which tasks can be started by third party systems and applications.
   # If this feature is disabled all tasks can be started via the API (assuming the start task API itself is enabled).

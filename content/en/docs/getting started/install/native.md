@@ -36,7 +36,7 @@ Additional information is found on the [Day 2 operations](/docs/getting-started/
     The bottom line is that Butler can run on any server, as long as there is network connectivity to the Sense server(s).  
 
     It's usually a good idea to keep 3rd party tools installed in the same directory tree, to maintenance as easy as possible.  
-    A good place for Butler could be `c:\tools\butler` on Windows, for example.
+    A good place for Butler could be `c:\tools\butler` or `d:\tools\butler` on Windows, for example.
 
 * **Download Butler**  
     Download the latest version from the [releases page](https://github.com/ptarmiganlabs/butler/releases/latest).  
@@ -45,12 +45,15 @@ Additional information is found on the [Day 2 operations](/docs/getting-started/
     Unzip the downloaded file, then copy or move the butler binary to the desired directory (e.g. `c:\tools\butler`) and that's it.
 
 {{< notice tip >}}
-On Windows you should "unblock" the ZIP file before extracting the Butler binary from it.  
+On Windows you must "unblock" the ZIP file before extracting the Butler binary from it.  
 This is basically a way to tell Windows that the ZIP is safe even though it was downloaded from Internet.
 
 Right click on the ZIP file, then select `Properties`.  
 If there is an "Unblock" check box in the lower right part of the properties window you should click that box and hit OK.  
 Then unpack the ZIP file.
+
+The macOS version of Butler is signed using Apple's official app signing process.  
+This means you may see a warning the first time you start Butler, but after that there should be no more warnings. 
 {{< /notice >}}
 
 

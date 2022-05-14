@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.96.0" />
+<meta name="generator" content="Hugo 0.98.0" />
 <link rel="alternate" type="application/rss&#43;xml" href="/docs/getting-started/setup/which-config-file/index.xml">
 <meta name="robots" content="index, follow">
 
@@ -231,7 +231,9 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgetting-startedsetupincident-mgmt-tools-li">
   <a href="/docs/getting-started/setup/incident-mgmt-tools/" title="Incident management tools" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupincident-mgmt-tools"><span class="">Incident management</span></a>
   <ul class="ul-4 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupincident-mgmt-toolssignl4-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupincident-mgmt-toolsnew-relic-li">
+  <a href="/docs/getting-started/setup/incident-mgmt-tools/new-relic/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupincident-mgmt-toolsnew-relic"><span class="">New Relic</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupincident-mgmt-toolssignl4-li">
   <a href="/docs/getting-started/setup/incident-mgmt-tools/signl4/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupincident-mgmt-toolssignl4"><span class="">Signl4</span></a>
 </li>
   </ul>
@@ -264,6 +266,8 @@ if (!doNotTrack) {
   <a href="/docs/getting-started/operations/nodejs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-docsgetting-startedoperationsnodejs"><span class="">Node.js app</span></a>
 </li>
   </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedupgrade-li">
+  <a href="/docs/getting-started/upgrade/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedupgrade"><span class="">Upgrade</span></a>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconcepts-li">
@@ -284,7 +288,9 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsconceptsincident-mgmt-tools-li">
   <a href="/docs/concepts/incident-mgmt-tools/" title="Incident management tools" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsincident-mgmt-tools"><span class="">Incident management</span></a>
   <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsincident-mgmt-toolssignl4-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsincident-mgmt-toolsnew-relic-li">
+  <a href="/docs/concepts/incident-mgmt-tools/new-relic/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsincident-mgmt-toolsnew-relic"><span class="">New Relic</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsincident-mgmt-toolssignl4-li">
   <a href="/docs/concepts/incident-mgmt-tools/signl4/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsincident-mgmt-toolssignl4"><span class="">Signl4</span></a>
 </li>
   </ul>
@@ -307,8 +313,8 @@ if (!doNotTrack) {
   <a href="/docs/examples/scheduling/" title="Flexible scheduling of Sense reload tasks" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesscheduling"><span class="">Task scheduling</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesreload-chaining-li">
   <a href="/docs/examples/reload-chaining/" title="Reload task chaining with parameters" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesreload-chaining"><span class="">Reload chaining</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesinfluxdb-metrics-li">
-  <a href="/docs/examples/influxdb-metrics/" title="Monitoring Butler&#39;s memory usage using Grafana" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesinfluxdb-metrics"><span class="">Monitoring Butler</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsexamplesmonitoring-butler-li">
+  <a href="/docs/examples/monitoring-butler/" title="Monitoring Butler&#39;s memory usage using Grafana" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesmonitoring-butler"><span class="">Monitoring Butler</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsexamplesstart-task-li">
   <a href="/docs/examples/start-task/" title="Start Sense tasks using Butler APIs" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsexamplesstart-task"><span class="">Starting Sense tasks</span></a>
   <ul class="ul-3 foldable">
@@ -464,7 +470,7 @@ if (!doNotTrack) {
 <p>A default config file called <code>production_template.yaml</code> is available in the <a href="https://github.com/ptarmiganlabs/butler/tree/master/src/config">GitHub repository</a>.
 Make a copy of it, then rename the copy <code>default.yaml</code>, <code>production.yaml</code>, <code>staging.yaml</code> or something else suitable to your specific use case.<br>
 Update it as needed (see the <a href="/docs/reference/config-file/">config file reference page</a> for details).</p>
-<p>Trying to run Butler with the default config file (the one on GitHub) will not work - you need to adapt it to your server environment. For example, you need to enter the IP or host name of you Sense server(s), the IP or host name where Butler is running etc.</p>
+<p>Trying to run Butler with the default config file (the one on GitHub) will not work - you must adapt it to your server environment. For example, you need to enter the IP or host name of you Sense server(s), the IP or host name where Butler is running etc.</p>
 <p>Finally, Butler must somehow be given instructions about where to look for the config file.<br>
 This can be done in several ways depending on how Butler is used, see below.</p>
 <h3 id="config-file-for-stand-alone-butler">Config file for stand-alone Butler</h3>
@@ -476,10 +482,12 @@ This can be done in several ways depending on how Butler is used, see below.</p>
 </span></span><span style="display:flex;"><span><span style="color:#000">Advanced</span> <span style="color:#000">reload</span> <span style="color:#000">failure</span> <span style="color:#000">alerts</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">task</span> <span style="color:#000">scheduler</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">key-value</span> <span style="color:#000">store</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">file</span> <span style="color:#000">system</span> <span style="color:#000">access</span> <span style="color:#000">and</span> <span style="color:#000">much</span> <span style="color:#000">more</span><span style="color:#000;font-weight:bold">.</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#000">Options</span><span style="color:#a40000">:</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000">-V</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#000">-version</span>            <span style="color:#000">output</span> <span style="color:#000">the</span> <span style="color:#000">version</span> <span style="color:#000">number</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000">-c</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#000">-configfile</span> <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000">file</span><span style="color:#000;font-weight:bold">&gt;</span>  <span style="color:#000">path</span> <span style="color:#000">to</span> <span style="color:#000">config</span> <span style="color:#000">file</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000">-l</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#000">-loglevel</span> <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000">level</span><span style="color:#000;font-weight:bold">&gt;</span>   <span style="color:#000">log</span> <span style="color:#000">level</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">choices</span><span style="color:#a40000">:</span> <span style="color:#4e9a06">&#34;error&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;warn&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;info&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;verbose&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;debug&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;silly&#34;</span><span style="color:#000;font-weight:bold">)</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#000">-h</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#000">-help</span>               <span style="color:#000">display</span> <span style="color:#000">help</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">command</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">-V</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#000">-version</span>                <span style="color:#000">output</span> <span style="color:#000">the</span> <span style="color:#000">version</span> <span style="color:#000">number</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">-c</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#000">-configfile</span> <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000">file</span><span style="color:#000;font-weight:bold">&gt;</span>      <span style="color:#000">path</span> <span style="color:#000">to</span> <span style="color:#000">config</span> <span style="color:#000">file</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">-l</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#000">-loglevel</span> <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000">level</span><span style="color:#000;font-weight:bold">&gt;</span>       <span style="color:#000">log</span> <span style="color:#000">level</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">choices</span><span style="color:#a40000">:</span> <span style="color:#4e9a06">&#34;error&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;warn&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;info&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;verbose&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;debug&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;silly&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">-</span><span style="color:#000">-new-relic-api-key</span> <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000">key</span><span style="color:#000;font-weight:bold">&gt;</span>    <span style="color:#000">insert</span> <span style="color:#000">API</span> <span style="color:#000">key</span> <span style="color:#000">to</span> <span style="color:#000">use</span> <span style="color:#000">with</span> <span style="color:#000">New</span> <span style="color:#000">Relic</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">-</span><span style="color:#000">-new-relic-account-id</span> <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000">id</span><span style="color:#000;font-weight:bold">&gt;</span>  <span style="color:#000">New</span> <span style="color:#000">Relic</span> <span style="color:#000">account</span> <span style="color:#000">ID</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">-h</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#000">-help</span>                   <span style="color:#000">display</span> <span style="color:#000">help</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">command</span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87">PS </span><span style="color:#000">C:</span><span style="color:#000;font-weight:bold">\</span><span style="color:#000">tools</span><span style="color:#000;font-weight:bold">\</span><span style="color:#000">butler</span><span style="color:#000;font-weight:bold">&gt;</span>
 </span></span></code></pre></div><p>There is an option <code>--configfile</code> (or its short version <code>-c</code>) that let us control which config file to use.<br>
 In this example there is a <code>production.yaml</code> config file in the same directory as <code>butler.exe</code>.<br>
@@ -643,7 +651,7 @@ The file name is determined by Butler (running in the container) looking at the 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified 2021-04-22: <a href="https://github.com/ptarmiganlabs/butler-docs/commit/c105eb7c23c3cfe4d98b4d6d316a786db6614d1e">First commit (c105eb7)</a>
+  Last modified 2022-04-07: <a href="https://github.com/ptarmiganlabs/butler-docs/commit/ad128148f5b88fed3ec3971a7a5bb67f8bc6bd36">7.2.0 release (ad12814)</a>
 </div>
 
 </div>
@@ -762,7 +770,7 @@ The file name is determined by Butler (running in the container) looking at the 
 
 
 
-<script src="/js/main.min.1a2e43037d7eeb7eb548659ffab8adc920ddeef68063a09913f04392dd3c1f19.js" integrity="sha256-Gi5DA31&#43;6361SGWf&#43;ritySDd7vaAY6CZE/BDkt08Hxk=" crossorigin="anonymous"></script>
+<script src="/js/main.min.68e31ec429bf4c76d0cfc803a06912682cfe4274c4cafeb4d70d00cfe3c3b618.js" integrity="sha256-aOMexCm/THbQz8gDoGkSaCz&#43;QnTEyv601w0Az&#43;PDthg=" crossorigin="anonymous"></script>
 
 
 

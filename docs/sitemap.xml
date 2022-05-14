@@ -6,19 +6,23 @@
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
   </url><url>
     <loc>/docs/about/butler/</loc>
-    <lastmod>2021-04-22T21:58:55+02:00</lastmod>
+    <lastmod>2022-04-07T10:17:58+02:00</lastmod>
   </url><url>
     <loc>/docs/examples/sense-demo-apps/butler-5.0-demo-app/</loc>
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
   </url><url>
     <loc>/docs/reference/config-file/</loc>
-    <lastmod>2021-12-30T22:29:10+01:00</lastmod>
+    <lastmod>2022-04-07T10:17:58+02:00</lastmod>
   </url><url>
     <loc>/docs/getting-started/setup/reload-alerts/alert-emails/</loc>
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
   </url><url>
     <loc>/docs/concepts/key-value/</loc>
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
+  </url><url>
+    <loc>/docs/concepts/incident-mgmt-tools/new-relic/</loc>
+  </url><url>
+    <loc>/docs/getting-started/setup/incident-mgmt-tools/new-relic/</loc>
   </url><url>
     <loc>/docs/examples/openapi-docs/</loc>
     <lastmod>2021-12-11T17:45:07+01:00</lastmod>
@@ -29,39 +33,35 @@
     <loc>/docs/examples/start-task/start-task-from-rest/</loc>
     <lastmod>2021-12-30T22:29:10+01:00</lastmod>
   </url><url>
-    <loc>/docs/concepts/incident-mgmt-tools/signl4/</loc>
-    <lastmod>2021-11-03T14:09:22+01:00</lastmod>
-  </url><url>
-    <loc>/docs/getting-started/setup/incident-mgmt-tools/signl4/</loc>
-    <lastmod>2021-11-03T14:09:22+01:00</lastmod>
-  </url><url>
     <loc>/docs/getting-started/operations/standalone/</loc>
+    <lastmod>2022-04-07T10:17:58+02:00</lastmod>
   </url><url>
     <loc>/docs/getting-started/install/choose-platform/</loc>
-    <lastmod>2021-11-03T14:09:22+01:00</lastmod>
+    <lastmod>2022-04-07T10:17:58+02:00</lastmod>
   </url><url>
     <loc>/docs/about/use-cases/</loc>
-    <lastmod>2021-12-11T19:29:14+01:00</lastmod>
+    <lastmod>2022-04-07T10:17:58+02:00</lastmod>
   </url><url>
     <loc>/docs/getting-started/setup/which-config-file/</loc>
-    <lastmod>2021-04-22T21:58:55+02:00</lastmod>
+    <lastmod>2022-04-07T10:17:58+02:00</lastmod>
   </url><url>
     <loc>/docs/getting-started/install/native/</loc>
-    <lastmod>2021-11-03T14:09:22+01:00</lastmod>
+    <lastmod>2022-04-07T10:17:58+02:00</lastmod>
   </url><url>
     <loc>/docs/getting-started/install/docker/</loc>
-    <lastmod>2021-11-03T14:09:22+01:00</lastmod>
+    <lastmod>2022-04-07T10:17:58+02:00</lastmod>
   </url><url>
     <loc>/docs/getting-started/operations/docker/</loc>
+    <lastmod>2022-04-07T10:17:58+02:00</lastmod>
   </url><url>
     <loc>/docs/</loc>
-    <lastmod>2021-12-30T22:29:10+01:00</lastmod>
+    <lastmod>2022-04-07T10:17:58+02:00</lastmod>
   </url><url>
     <loc>/docs/getting-started/</loc>
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
   </url><url>
     <loc>/docs/getting-started/install/</loc>
-    <lastmod>2021-04-22T21:58:55+02:00</lastmod>
+    <lastmod>2022-04-07T10:17:58+02:00</lastmod>
   </url><url>
     <loc>/docs/examples/start-task/start-task-from-script/</loc>
     <lastmod>2021-11-03T14:09:22+01:00</lastmod>
@@ -87,6 +87,12 @@
     <loc>/docs/getting-started/setup/qlik-sense-server-settings/</loc>
     <lastmod>2021-11-03T14:09:22+01:00</lastmod>
   </url><url>
+    <loc>/docs/concepts/incident-mgmt-tools/signl4/</loc>
+    <lastmod>2021-11-03T14:09:22+01:00</lastmod>
+  </url><url>
+    <loc>/docs/getting-started/setup/incident-mgmt-tools/signl4/</loc>
+    <lastmod>2021-11-03T14:09:22+01:00</lastmod>
+  </url><url>
     <loc>/docs/getting-started/setup/reload-alerts/alert-slack/</loc>
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
   </url><url>
@@ -94,10 +100,10 @@
     <lastmod>2021-11-03T14:09:22+01:00</lastmod>
   </url><url>
     <loc>/docs/about/butler-family/</loc>
-    <lastmod>2021-12-11T17:45:07+01:00</lastmod>
+    <lastmod>2022-04-07T10:17:58+02:00</lastmod>
   </url><url>
     <loc>/docs/concepts/alert-emails/</loc>
-    <lastmod>2021-04-22T21:58:55+02:00</lastmod>
+    <lastmod>2022-04-07T10:17:58+02:00</lastmod>
   </url><url>
     <loc>/docs/getting-started/setup/enable-api-endpoints/</loc>
     <lastmod>2021-11-03T14:09:22+01:00</lastmod>
@@ -109,8 +115,10 @@
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
   </url><url>
     <loc>/docs/getting-started/install/nodejs/</loc>
+    <lastmod>2022-04-07T10:17:58+02:00</lastmod>
   </url><url>
     <loc>/docs/getting-started/operations/nodejs/</loc>
+    <lastmod>2022-04-07T10:17:58+02:00</lastmod>
   </url><url>
     <loc>/docs/examples/sense-demo-apps/post-to-slack/</loc>
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
@@ -131,7 +139,7 @@
     <lastmod>2021-11-03T14:09:22+01:00</lastmod>
   </url><url>
     <loc>/docs/getting-started/operations/</loc>
-    <lastmod>2021-11-03T15:36:48+01:00</lastmod>
+    <lastmod>2022-04-07T10:17:58+02:00</lastmod>
   </url><url>
     <loc>/docs/examples/</loc>
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
@@ -139,8 +147,7 @@
     <loc>/docs/reference/key-value/</loc>
     <lastmod>2021-12-11T19:29:14+01:00</lastmod>
   </url><url>
-    <loc>/docs/examples/influxdb-metrics/</loc>
-    <lastmod>2021-04-22T21:58:55+02:00</lastmod>
+    <loc>/docs/examples/monitoring-butler/</loc>
   </url><url>
     <loc>/docs/getting-started/setup/reload-alerts/alert-mqtt/</loc>
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
@@ -149,6 +156,7 @@
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
   </url><url>
     <loc>/docs/concepts/failed-reload-logs/</loc>
+    <lastmod>2022-04-07T10:17:58+02:00</lastmod>
   </url><url>
     <loc>/docs/concepts/start-sense-tasks/</loc>
     <lastmod>2021-11-03T14:09:22+01:00</lastmod>
@@ -158,6 +166,8 @@
   </url><url>
     <loc>/docs/concepts/incident-mgmt-tools/</loc>
     <lastmod>2021-11-03T14:09:22+01:00</lastmod>
+  </url><url>
+    <loc>/docs/getting-started/upgrade/</loc>
   </url><url>
     <loc>/docs/about/versioning/</loc>
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
@@ -190,12 +200,13 @@
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
   </url><url>
     <loc>/docs/getting-started/setup/reload-alerts/</loc>
-    <lastmod>2021-11-03T14:09:22+01:00</lastmod>
+    <lastmod>2022-04-07T10:17:58+02:00</lastmod>
   </url><url>
     <loc>/docs/security/</loc>
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
   </url><url>
     <loc>/docs/getting-started/setup/reload-script-logs/</loc>
+    <lastmod>2022-04-07T10:17:58+02:00</lastmod>
   </url><url>
     <loc>/docs/getting-started/setup/scheduler/</loc>
     <lastmod>2021-11-03T14:09:22+01:00</lastmod>
@@ -297,7 +308,7 @@
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
   </url><url>
     <loc>/</loc>
-    <lastmod>2021-12-11T19:29:14+01:00</lastmod>
+    <lastmod>2022-04-07T10:17:58+02:00</lastmod>
   </url><url>
     <loc>/community/</loc>
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>

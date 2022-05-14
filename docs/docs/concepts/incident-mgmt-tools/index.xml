@@ -15,6 +15,108 @@
     
     
     <item>
+      <title>Docs: New Relic</title>
+      <link>/docs/concepts/incident-mgmt-tools/new-relic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/concepts/incident-mgmt-tools/new-relic/</guid>
+      <description>
+        
+        
+        &lt;p&gt;New Relic is not primarily an incident management tool, but rather a complete SaaS platform for handling metrics, logs, events and trace messages.&lt;/p&gt;
+&lt;p&gt;Their event handling however has some alert handling features built in, and these can be nicely integrated with Butler and Qlik Sense.&lt;br&gt;
+Furthermore, New Relic also integrates with several dedicated incident manamgenet tools (PagerDuty, VictorOps, OpsGenie) and also other notification channels such as Slack, Teams, email, and generic webhooks.&lt;br&gt;
+Toghether these capabilities makes New Relic a very good match to the features offered by Butler and Butler SOS.&lt;/p&gt;
+&lt;p&gt;The concept looks like this:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Alerts (for example a reload task fails in Qlik Sense) are sent to New Relic using their event API.&lt;br&gt;
+Butler integrates tightly with this API, creating a seamless, almost instantaneous forwarding of incidents.&lt;/li&gt;
+&lt;li&gt;As part of the setup process, &amp;ldquo;alert conditions&amp;rdquo; are created in New Relic. These define when New Relic alerts should be created, given the event data sent from Butler.&lt;/li&gt;
+&lt;li&gt;New Relic &amp;ldquo;alert policies&amp;rdquo; are used to group together several conditions and also associate notification channels (Slack, Teams, PagerDuty, &amp;hellip;) to each alert policy.&lt;/li&gt;
+&lt;li&gt;New Relic incidents stay in an open state until they are acknowledged, which can be doen from the web interface or from within email or Teams/Slack messages.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The &lt;a href=&#34;/docs/getting-started/setup/incident-mgmt-tools/new-relic/&#34;&gt;Getting started section&lt;/a&gt; has hands-on instructions for setting up Butler to work with New Relic.&lt;/p&gt;
+&lt;h2 id=&#34;new-relic-screen-shots&#34;&gt;New Relic screen shots&lt;/h2&gt;
+
+
+
+
+
+
+
+&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 1006px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/new-relic/new-relic-dashboard-1_hu48ad02a06a5a48454f6fc0abc1638707_603480_0x640_resize_catmullrom_3.png&#34; width=&#34;996&#34; height=&#34;640&#34;&gt;
+	
+	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt; New Relic metrics &amp; incident dashboard (light mode) &lt;/p&gt;
+	&lt;/div&gt;
+	
+&lt;/div&gt;
+
+
+
+
+
+
+
+&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 1126px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/new-relic/new-relic-alert-overview-1_huca017e540ec50ef68c261f5dbd64c672_486416_0x640_resize_catmullrom_3.png&#34; width=&#34;1116&#34; height=&#34;640&#34;&gt;
+	
+	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt; New Relic incidents overview page (dark mode) &lt;/p&gt;
+	&lt;/div&gt;
+	
+&lt;/div&gt;
+
+
+
+
+
+
+
+&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 1126px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/new-relic/new-relic-alert-conditions-1_huca017e540ec50ef68c261f5dbd64c672_449678_0x640_resize_catmullrom_3.png&#34; width=&#34;1116&#34; height=&#34;640&#34;&gt;
+	
+	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt; New Relic alert conditions (dark mode)&lt;/p&gt;
+	&lt;/div&gt;
+	
+&lt;/div&gt;
+
+
+
+
+
+
+
+&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 2131px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/new-relic/new-relic-slack-alert-1_hu03fb9c540c54344a3e0ee19f7817a5cf_219666_0x640_resize_catmullrom_3.png&#34; width=&#34;2121&#34; height=&#34;640&#34;&gt;
+	
+	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt; Basic New Relic Slack alert (dark mode) &lt;/p&gt;
+	&lt;/div&gt;
+	
+&lt;/div&gt;
+
+
+
+
+
+
+
+&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 1108px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/new-relic/new-relic-slack-alert-2_hu528289caef6e1eb03d6ff06aca8998be_407785_0x640_resize_catmullrom_3.png&#34; width=&#34;1098&#34; height=&#34;640&#34;&gt;
+	
+	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt; More comprehensive New Relic Slack alert (dark mode) &lt;/p&gt;
+	&lt;/div&gt;
+	
+&lt;/div&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: Signl4</title>
       <link>/docs/concepts/incident-mgmt-tools/signl4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

@@ -1,0 +1,39 @@
+---
+title: "New Relic"
+linkTitle: "New Relic"
+weight: 10
+description: >
+  New Relic is an enterprise grade observability solution in a SaaS package. 
+  <br>They offer a uniform approach to dealing with metrics, logs and events - including a basic but working alert management feature.
+  <br><br>
+  The service is easy to get started with and has a generous free tier that works well for testing Butler alerts.
+  <br>New Relic is a great choice as it handles both reload failure alerts for the Butler tool as well as operational metrics from [Butler SOS](https://butler-sos.ptarmiganlabs.com).
+---
+
+New Relic is not primarily an incident management tool, but rather a complete SaaS platform for handling metrics, logs, events and trace messages.
+
+Their event handling however has some alert handling features built in, and these can be nicely integrated with Butler and Qlik Sense.  
+Furthermore, New Relic also integrates with several dedicated incident manamgenet tools (PagerDuty, VictorOps, OpsGenie) and also other notification channels such as Slack, Teams, email, and generic webhooks.  
+Toghether these capabilities makes New Relic a very good match to the features offered by Butler and Butler SOS.
+
+The concept looks like this:
+
+1. Alerts (for example a reload task fails in Qlik Sense) are sent to New Relic using their event API.  
+    Butler integrates tightly with this API, creating a seamless, almost instantaneous forwarding of incidents.
+2. As part of the setup process, "alert conditions" are created in New Relic. These define when New Relic alerts should be created, given the event data sent from Butler.
+3. New Relic "alert policies" are used to group together several conditions and also associate notification channels (Slack, Teams, PagerDuty, ...) to each alert policy.
+4. New Relic incidents stay in an open state until they are acknowledged, which can be doen from the web interface or from within email or Teams/Slack messages.
+
+The [Getting started section](/docs/getting-started/setup/incident-mgmt-tools/new-relic/) has hands-on instructions for setting up Butler to work with New Relic.
+
+## New Relic screen shots
+
+{{< imgproc new-relic-dashboard-1.png Resize "x640" >}} New Relic metrics & incident dashboard (light mode) {{< /imgproc >}}
+
+{{< imgproc new-relic-alert-overview-1.png Resize "x640" >}} New Relic incidents overview page (dark mode) {{< /imgproc >}}
+
+{{< imgproc new-relic-alert-conditions-1.png Resize "x640" >}} New Relic alert conditions (dark mode){{< /imgproc >}}
+
+{{< imgproc new-relic-slack-alert-1.png Resize "x640" >}} Basic New Relic Slack alert (dark mode) {{< /imgproc >}}
+
+{{< imgproc new-relic-slack-alert-2.png Resize "x640" >}} More comprehensive New Relic Slack alert (dark mode) {{< /imgproc >}}
