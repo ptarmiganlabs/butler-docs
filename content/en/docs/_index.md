@@ -15,6 +15,13 @@ General guidance on how to do this is found [here](/docs/getting-started/upgrade
 
 {{% pageinfo %}}
 
+
+### What's new in version 7.5
+
+*Features*
+
+* Automatic cration of API docs as part of CI pipeline [#444](https://github.com/ptarmiganlabs/butler/issues/385), [#355](https://github.com/ptarmiganlabs/butler/discussions/444)
+
 ### What's new in version 7.4
 
 *Features*
