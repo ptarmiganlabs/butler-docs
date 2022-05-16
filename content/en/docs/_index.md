@@ -16,6 +16,13 @@ General guidance on how to do this is found [here](/docs/getting-started/upgrade
 {{% pageinfo %}}
 
 
+### What's new in version 7.5.1
+
+*Bug fixes*
+
+* Disable sending alerts to New Relic in sample config file [#452](https://github.com/ptarmiganlabs/butler/issues/452)
+* Disable API-generate-doc setting in sample config file [#455](https://github.com/ptarmiganlabs/butler/issues/455)
+
 ### What's new in version 7.5
 
 *Features*
