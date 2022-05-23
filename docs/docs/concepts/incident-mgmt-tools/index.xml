@@ -25,7 +25,7 @@
         
         &lt;p&gt;New Relic is not primarily an incident management tool, but rather a complete SaaS platform for handling metrics, logs, events and trace messages.&lt;/p&gt;
 &lt;p&gt;Their event handling however has some alert handling features built in, and these can be nicely integrated with Butler and Qlik Sense.&lt;br&gt;
-Furthermore, New Relic also integrates with several dedicated incident manamgenet tools (PagerDuty, VictorOps, OpsGenie) and also other notification channels such as Slack, Teams, email, and generic webhooks.&lt;br&gt;
+Furthermore, New Relic also integrates with several dedicated incident manamgenet tools (PagerDuty, VictorOps, OpsGenie and others) and also other notification channels such as Slack, Teams, email, and generic webhooks.&lt;br&gt;
 Toghether these capabilities makes New Relic a very good match to the features offered by Butler and Butler SOS.&lt;/p&gt;
 &lt;p&gt;The concept looks like this:&lt;/p&gt;
 &lt;ol&gt;

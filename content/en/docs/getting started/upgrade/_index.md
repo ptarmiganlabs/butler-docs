@@ -10,7 +10,7 @@ description: >
 
 ## The upgrade process
 
-Butler is entirely driven by its configuration files, with the [main YAML config file](https://github.com/mountaindude/butler/blob/master/src/config/production_template.yaml) being the most important one.  
+Butler is entirely driven by its configuration files, with the [main YAML config file](https://github.com/ptarmiganlabs/butler/blob/master/src/config/production_template.yaml) being the most important one.  
 There are other config files too, containing for example scheduling information.
 
 Different kind of upgrades usually result in different levels on modifications needed in the main config file.
@@ -57,7 +57,7 @@ These almost certainly require changes to the config files, sometimes even signi
 
 1. Look at the [release notes](/docs) to get a general feeling for what is new and what has changed.  
   Those are the areas tha may require changes in the config file. 
-2. Compare your existing main config file with the [template config file](https://github.com/mountaindude/butler/blob/master/src/config/production_template.yaml) available on GitHub.  
+2. Compare your existing main config file with the [template config file](https://github.com/ptarmiganlabs/butler/blob/master/src/config/production_template.yaml) available on GitHub.  
   This comparison is a manual process and can be a bit tedious, but knowing your config file is really needed in order to make full and correct use of Butler.  
 3. The result of the comparison will show you what parts of the config file are new (for medium-sized upgrades) and which parts have changed in a significant way (for major upgrades).
 4. Get the binaries for the new Butler version from the [download page](https://github.com/ptarmiganlabs/butler/releases).

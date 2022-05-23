@@ -3,10 +3,11 @@ title: "New Relic"
 linkTitle: "New Relic"
 weight: 10
 description: >
-  New Relic is an enterprise grade observability solution in a SaaS package. 
-  <br>They offer a uniform approach to dealing with metrics, logs and events - including a basic but working alert management feature.
+  New Relic is an enterprise grade observability solution in a SaaS package.
+  <br><br>They offer a uniform approach to dealing with metrics, logs and events - including a basic but working alert management feature. 
+  <br>If more advanced alert management is needed New Relic offers out-of-the-box integrations with tools like PagerDuty, ServiceNow, Jira, VictorOps and many other services.
   <br><br>
-  The service is easy to get started with and has a generous free tier that works well for testing Butler alerts.
+  The service is easy to get started with and has a generous free tier that works very well for testing Butler alerts.
   <br>New Relic is a great choice as it handles both reload failure alerts for the Butler tool as well as operational metrics from [Butler SOS](https://butler-sos.ptarmiganlabs.com).
   <br><br>
   [newrelic.com](https://newrelic.com)
@@ -29,34 +30,50 @@ Example [here](/docs/examples/newrelic/).
 
 ## How it works
 
-New Relic exposes APIs through which log events can be sent to New Relic.  
-These events are then evaluated using rules (that you create) within New Relic and when the right conditions are met New Relic alerts are created.
+New Relic exposes APIs through which data such as log entries as well as generic events and metrics can be sent to New Relic.
+
+These logs, metrics and events are stored in New Relic's databases for a configurable retention period.  
+Rules and queries against this data are used to create monitoring dashboards and notifications when reload tasks fail or are aborted.
+
+The retention period of New Relic's free tier is usually more than enough for Butler's use cases, but their paid product versions then offer even longer retention periods if/when needed.
 
 To use Butler with New Relic you must
 
-- Create a New Relic account.  The free/trial account is quite generous and will easily get you started.
+- Create a New Relic account. The free/trial account is quite generous and will easily get you started.
 - Create an API key with *insert* permissions. Please see New Relic docs how to do this.
-- Configure the Butler config file
+- Configure the Butler config file.
 
-More info about the New Relic event API that is used to send alerts can be found in [New Relic's API docs](https://docs.newrelic.com/docs/logs/log-api/introduction-log-api).
+More info about the New Relic event API that is used to send alerts can be found in [New Relic's API docs](https://docs.newrelic.com/docs/apis/intro-apis/introduction-new-relic-apis).
 
 ## Rate limiting
 
-If a reload task is set to run very frequently but fails every time, this will result in a lot of events sent to New Relic. 
+If a reload task is set to run very frequently but fails every time, this will result in a lot of log entries and events sent to New Relic.  
 With associated alerts sent (if enabled in New Relic) via their alerting feature.
 
 To handle this scenario Butler offers rate limiting for events sent to New Relic.
 
-The `Butler.incidentTool.newRelic.reloadTaskFailure.rateLimit` setting controls how often (seconds) at most reload-failed events will be sent to New Relic.
+The `Butler.incidentTool.newRelic.reloadTaskFailure.sharedSettings.rateLimit` setting controls how often (seconds) reload-failed events will be sent to New Relic, at most.
 
 A similar setting exists for aborted reloads.
 
 ## Data sent to New Relic
 
-The following data is sent to New Relic as part of failed/aborted reload events:
+Butler can be configured to send neither, either or both of two different data sets to New Relic:
 
-- Any http headers defined in the Butler config file.
-- Any static attributes/dimenions defined in the Butler config file.
+- Failed reloads can be sent to New Relic as *events*.  
+  A New Relic event has a basic set of *event attritbutes* associated with it. Examples are task name, task ID, app name and app ID.
+- Failed reloads can also be sent to New Relic as *log entries*.  
+  Log entries are more versatile than events and can contain any text in the *log message*. Butler uses the log message to pass along the last x rows (x=configurable number) from the script log to New Relic.
+  
+Aborted reloads can be configured in exactly the same way as failed reloads, described above.
+
+### New Relic events
+
+The following data is sent to New Relic as events when a reload task fails or is aborted:
+
+- All http headers defined in the Butler config file.
+- All shared, static attributes/dimensions defined in the Butler config file.
+- All event specific, static attributes/dimensions defined in the Butler config file.
 - Butler version the event originated from. This is useful to have in New Relic as it makes it possible to easily show in a dashboard what Butler version is used and whether an update is possible/needed.
 - Event related data
   - Event type. Either `qs_reloadTaskFailedEvent` or `qs_reloadTaskAbortedEvent`.
@@ -72,6 +89,22 @@ The following data is sent to New Relic as part of failed/aborted reload events:
   - Sense execution ID for this event.
   - Description of the event, as found in the Sense log files.
 
+### New Relic log entries
+
+If Butler is configured to forward failed/aborted reload tasks to New Relic as log entries, the follow info is sent to New Relic:
+
+- All information sent for events (see above), but with log specific static attributes rather than event specific ditto.
+- The various states the reload task went through before failing, including timestamps when each state started.
+- The last x lines from the reload script log. x is configurable in the `Butler.incidentTool.newRelic.reloadTaskFailure.destination.log.tailScriptLogLines` setting.
+- The host name of the Sense node where the reload took place
+- Timestamp (in several different formats) when the reload started
+- Timestamp (in several different formats) when the reload failed
+- Duration of the reload task
+- Result code of the reload task
+- Result text of the reload task
+- Total size of complete script log (number of characters).
+- Number of lines included in the reload script log sent to New Relic
+
 ## Settings in main config file
 
 ```yaml
@@ -83,40 +116,72 @@ Butler:
   # Used to trigger incidents in these tools when task reloads fail or are aborted
   incidentTool:
     newRelic:
-      enable: true
+      enable: false
+      # New Relic uses different API URLs for different kinds of data (metrics, events, logs, ...)
       # There are different URLs depending on whther you have an EU or US region New Relic account.
       # The available URLs are listed here: https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/choose-your-data-center/
-      #
-      # Note that the URL path should *not* be included in the url setting below!
-      # As of this writing the valid options are
-      # https://insights-collector.eu01.nr-data.net
-      # https://insights-collector.newrelic.com 
-      url: https://insights-collector.eu01.nr-data.net
-      reloadTaskFailure:
-        enable: true
-        rateLimit: 15             # Min seconds between events sent to New Relic for a given taskID. Defaults to 5 minutes.
-        header:                   # Custom http headers
-          - name: X-My-Header     # Example
-            value: Header value   # Example
-        attribute: 
-          static:                 # Static attributes/dimensions to attach to events sent to New Relic.
-            - name: service       # Example
-              value: butler       # Example
-            - name: environment   # Example
-              value: prod         # Example
-      reloadTaskAborted:
-        enable: true
-        rateLimit: 15             # Min seconds between events sent to New Relic for a given taskID. Defaults to 5 minutes.
-        header:                   # Custom http headers
-          - name: X-My-Header     # Example
-            value: Header value   # Example
-        attribute: 
-          static:                 # Static attributes/dimensions to attach to events sent to New Relic.
-            - name: service       # Example
-              value: butler       # Example
-            - name: environment   # Example
-              value: prod         # Example
+      url:
+        # As of this writing the valid options are
+        # https://insights-collector.eu01.nr-data.net
+        # https://insights-collector.newrelic.com 
+        event: https://insights-collector.eu01.nr-data.net
 
+        # Valid options are (1) EU/rest of world and 2) US)
+        # https://log-api.eu.newrelic.com/log/v1
+        # https://log-api.newrelic.com/log/v1 
+        log: https://log-api.eu.newrelic.com/log/v1
+      reloadTaskFailure:
+        destination:
+          event: 
+            enable: true
+            attribute: 
+              static:                 # Static attributes/dimensions to attach to events sent to New Relic.
+                - name: event-specific-attribute 1  # Example
+                  value: abc 123                    # Example
+          log:
+            enable: true
+            tailScriptLogLines: 20
+            attribute: 
+              static:                 # Static attributes/dimensions to attach to events sent to New Relic.
+                - name: log-specific-attribute 1    # Example
+                  value: def 123                    # Example
+        sharedSettings:
+          rateLimit: 15             # Min seconds between events sent to New Relic for a given taskID. Defaults to 5 minutes.
+          header:                   # Custom http headers
+            - name: X-My-Header     # Example
+              value: Header value 1 # Example
+          attribute: 
+            static:                 # Static attributes/dimensions to attach to events sent to New Relic.
+              - name: service       # Example
+                value: butler       # Example
+              - name: environment   # Example
+                value: prod         # Example
+      reloadTaskAborted:
+        destination:
+          event: 
+            enable: true
+            attribute: 
+              static:                 # Static attributes/dimensions to attach to events sent to New Relic.
+                - name: event-specific-attribute 2  # Example
+                  value: abc 123                    # Example
+          log:
+            enable: true
+            tailScriptLogLines: 20
+            attribute: 
+              static:                 # Static attributes/dimensions to attach to events sent to New Relic.
+                - name: log-specific-attribute 2    # Example
+                  value: def 123                    # Example
+        sharedSettings:
+          rateLimit: 15             # Min seconds between events sent to New Relic for a given taskID. Defaults to 5 minutes.
+          header:                   # Custom http headers
+            - name: X-My-Header     # Example
+              value: Header value 2 # Example
+          attribute: 
+            static:                 # Static attributes/dimensions to attach to events sent to New Relic.
+              - name: service       # Example
+                value: butler       # Example
+              - name: environment   # Example
+                value: prod         # Example
   ...
   ...
 ```

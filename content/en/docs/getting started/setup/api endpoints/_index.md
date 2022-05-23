@@ -15,9 +15,14 @@ They must exist in the config file and be correctly set for Butler to work.
 
 ## What's this?
 
-Butler offers a set of REST API endpoints. While these have been tested, it's always good practice to only expose the APIs really needed.
+Butler offers a set of REST API endpoints. While these endpoints are tested for stability and correct functionality as part of each release, it's always good practice to only enable the endpoints really needed.
 
 Thus, individual endpoints of Butler's API can be turned on or off in the main config file.
+
+### API endpoint related settings
+
+In some cases some extra configuration is needed to make an API endpoint function properly.  
+This information is configured in the `Butler.restServerEndpointsConfig` section in the config file.
 
 ## Settings in main config file
 
@@ -39,6 +44,8 @@ Butler:
     fileCopy: false
     keyValueStore: false
     mqttPublishMessage: false
+    newRelic:
+      postNewRelicMetric: true
     scheduler:
       createNewSchedule: false
       getSchedule: false
@@ -52,6 +59,22 @@ Butler:
     senseListApps: false
     senseStartTask: false
     slackPostMessage: false 
+
+  restServerEndpointsConfig:
+    newRelic:
+      postNewRelicMetric:          # Setings used by post metric to New Relic API endpoint
+        # Note that the URL path should *not* be included in the url setting below!
+        # As of this writing the valid options are
+        # https://insights-collector.eu01.nr-data.net
+        # https://insights-collector.newrelic.com 
+        url: https://insights-collector.eu01.nr-data.net
+        header:                   # Custom http headers
+          - name: X-My-Header
+            value: Header value
+        attribute: 
+          static:                   # Static attributes/dimensions to attach to the metrics data sent to New Relic.
+            - name: env
+              value: prod
   ...
   ...
 ```

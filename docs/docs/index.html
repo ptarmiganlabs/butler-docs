@@ -199,8 +199,8 @@ if (!doNotTrack) {
   <a href="/docs/getting-started/setup/which-config-file/" title="Which config file to use" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupwhich-config-file"><span class="">Which config file?</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupqlik-sense-server-settings-li">
   <a href="/docs/getting-started/setup/qlik-sense-server-settings/" title="Connecting to a Qlik Sense server" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupqlik-sense-server-settings"><span class="">Sense server settings</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupenable-api-endpoints-li">
-  <a href="/docs/getting-started/setup/enable-api-endpoints/" title="Enabling endpoints in Butler&#39;s REST API" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupenable-api-endpoints"><span class="">API endpoints</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupapi-endpoints-li">
+  <a href="/docs/getting-started/setup/api-endpoints/" title="Enabling endpoints in Butler&#39;s REST API" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupapi-endpoints"><span class="">API endpoints</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsgetting-startedsetupreload-alerts-li">
   <a href="/docs/getting-started/setup/reload-alerts/" title="Reload related alerts" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alerts"><span class="">Reload alerts</span></a>
   <ul class="ul-4 foldable">
@@ -445,6 +445,25 @@ if (!doNotTrack) {
 
 
 <div class="pageinfo pageinfo-primary">
+<h3 id="whats-new-in-version-801">What&rsquo;s new in version 8.0.1</h3>
+<p><em>Bug fixes</em></p>
+<ul>
+<li>Empty attribute arrays in New Relic config no longer cause errors <a href="https://github.com/ptarmiganlabs/butler/issues/464">#640</a></li>
+</ul>
+<h3 id="whats-new-in-version-800">What&rsquo;s new in version 8.0.0</h3>
+<p><strong>⚠️ Breaking changes</strong></p>
+<ul>
+<li>Forward script logs for failed and aborted reloads to New Relic.<br>
+This required a change in structure/format of Butler&rsquo;s config file <a href="https://github.com/ptarmiganlabs/butler/issues/460">#460</a></li>
+</ul>
+<p><em>Features</em></p>
+<ul>
+<li>Command line option for sending test email <a href="https://github.com/ptarmiganlabs/butler/issues/430">#430</a></li>
+</ul>
+<p><em>Bug fixes</em></p>
+<ul>
+<li>Update dependencies to stay sharp and secure.</li>
+</ul>
 <h3 id="whats-new-in-version-751">What&rsquo;s new in version 7.5.1</h3>
 <p><em>Bug fixes</em></p>
 <ul>
@@ -811,7 +830,7 @@ Don&rsquo;t hesitate to post your thoughts in the <a href="https://github.com/pt
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified 2022-05-15: <a href="https://github.com/ptarmiganlabs/butler-docs/commit/5fdbf4f101c6cfafb79d04821a85eb239cf07d96">7.5.0 (5fdbf4f)</a>
+  Last modified 2022-05-16: <a href="https://github.com/ptarmiganlabs/butler-docs/commit/44330974ccad906b0675572b87d82227736df16f">7.5.1 (4433097)</a>
 </div>
 
 </div>

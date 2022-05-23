@@ -15,6 +15,26 @@ General guidance on how to do this is found [here](/docs/getting-started/upgrade
 
 {{% pageinfo %}}
 
+### What's new in version 8.0.1
+
+*Bug fixes*
+
+* Empty attribute arrays in New Relic config no longer cause errors [#640](https://github.com/ptarmiganlabs/butler/issues/464)
+
+### What's new in version 8.0.0
+
+**⚠️ Breaking changes**
+
+* Forward script logs for failed and aborted reloads to New Relic.  
+  This required a change in structure/format of Butler's config file [#460](https://github.com/ptarmiganlabs/butler/issues/460)
+
+*Features*
+
+* Command line option for sending test email [#430](https://github.com/ptarmiganlabs/butler/issues/430)
+
+*Bug fixes*
+
+* Update dependencies to stay sharp and secure.
 
 ### What's new in version 7.5.1
 

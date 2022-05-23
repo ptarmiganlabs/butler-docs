@@ -211,8 +211,8 @@ if (!doNotTrack) {
   <a href="/docs/getting-started/setup/which-config-file/" title="Which config file to use" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupwhich-config-file"><span class="">Which config file?</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupqlik-sense-server-settings-li">
   <a href="/docs/getting-started/setup/qlik-sense-server-settings/" title="Connecting to a Qlik Sense server" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupqlik-sense-server-settings"><span class="">Sense server settings</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupenable-api-endpoints-li">
-  <a href="/docs/getting-started/setup/enable-api-endpoints/" title="Enabling endpoints in Butler&#39;s REST API" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupenable-api-endpoints"><span class="">API endpoints</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupapi-endpoints-li">
+  <a href="/docs/getting-started/setup/api-endpoints/" title="Enabling endpoints in Butler&#39;s REST API" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupapi-endpoints"><span class="">API endpoints</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsgetting-startedsetupreload-alerts-li">
   <a href="/docs/getting-started/setup/reload-alerts/" title="Reload related alerts" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alerts"><span class="">Reload alerts</span></a>
   <ul class="ul-4 foldable">
@@ -472,7 +472,7 @@ if (!doNotTrack) {
 		
 	</header>
 	<h2 id="the-upgrade-process">The upgrade process</h2>
-<p>Butler is entirely driven by its configuration files, with the <a href="https://github.com/mountaindude/butler/blob/master/src/config/production_template.yaml">main YAML config file</a> being the most important one.<br>
+<p>Butler is entirely driven by its configuration files, with the <a href="https://github.com/ptarmiganlabs/butler/blob/master/src/config/production_template.yaml">main YAML config file</a> being the most important one.<br>
 There are other config files too, containing for example scheduling information.</p>
 <p>Different kind of upgrades usually result in different levels on modifications needed in the main config file.</p>
 <ul>
@@ -507,7 +507,7 @@ These almost certainly require changes to the config files, sometimes even signi
 <ol>
 <li>Look at the <a href="/docs">release notes</a> to get a general feeling for what is new and what has changed.<br>
 Those are the areas tha may require changes in the config file.</li>
-<li>Compare your existing main config file with the <a href="https://github.com/mountaindude/butler/blob/master/src/config/production_template.yaml">template config file</a> available on GitHub.<br>
+<li>Compare your existing main config file with the <a href="https://github.com/ptarmiganlabs/butler/blob/master/src/config/production_template.yaml">template config file</a> available on GitHub.<br>
 This comparison is a manual process and can be a bit tedious, but knowing your config file is really needed in order to make full and correct use of Butler.</li>
 <li>The result of the comparison will show you what parts of the config file are new (for medium-sized upgrades) and which parts have changed in a significant way (for major upgrades).</li>
 <li>Get the binaries for the new Butler version from the <a href="https://github.com/ptarmiganlabs/butler/releases">download page</a>.</li>

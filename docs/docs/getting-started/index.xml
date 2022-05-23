@@ -164,7 +164,7 @@ You can also set up alerts in Grafana if so desired, with notifications going to
         
         
         &lt;h2 id=&#34;the-upgrade-process&#34;&gt;The upgrade process&lt;/h2&gt;
-&lt;p&gt;Butler is entirely driven by its configuration files, with the &lt;a href=&#34;https://github.com/mountaindude/butler/blob/master/src/config/production_template.yaml&#34;&gt;main YAML config file&lt;/a&gt; being the most important one.&lt;br&gt;
+&lt;p&gt;Butler is entirely driven by its configuration files, with the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/src/config/production_template.yaml&#34;&gt;main YAML config file&lt;/a&gt; being the most important one.&lt;br&gt;
 There are other config files too, containing for example scheduling information.&lt;/p&gt;
 &lt;p&gt;Different kind of upgrades usually result in different levels on modifications needed in the main config file.&lt;/p&gt;
 &lt;ul&gt;
@@ -199,7 +199,7 @@ These almost certainly require changes to the config files, sometimes even signi
 &lt;ol&gt;
 &lt;li&gt;Look at the &lt;a href=&#34;/docs&#34;&gt;release notes&lt;/a&gt; to get a general feeling for what is new and what has changed.&lt;br&gt;
 Those are the areas tha may require changes in the config file.&lt;/li&gt;
-&lt;li&gt;Compare your existing main config file with the &lt;a href=&#34;https://github.com/mountaindude/butler/blob/master/src/config/production_template.yaml&#34;&gt;template config file&lt;/a&gt; available on GitHub.&lt;br&gt;
+&lt;li&gt;Compare your existing main config file with the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/src/config/production_template.yaml&#34;&gt;template config file&lt;/a&gt; available on GitHub.&lt;br&gt;
 This comparison is a manual process and can be a bit tedious, but knowing your config file is really needed in order to make full and correct use of Butler.&lt;/li&gt;
 &lt;li&gt;The result of the comparison will show you what parts of the config file are new (for medium-sized upgrades) and which parts have changed in a significant way (for major upgrades).&lt;/li&gt;
 &lt;li&gt;Get the binaries for the new Butler version from the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/releases&#34;&gt;download page&lt;/a&gt;.&lt;/li&gt;
