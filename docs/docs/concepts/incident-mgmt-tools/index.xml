@@ -29,11 +29,13 @@ Furthermore, New Relic also integrates with several dedicated incident manamgene
 Toghether these capabilities makes New Relic a very good match to the features offered by Butler and Butler SOS.&lt;/p&gt;
 &lt;p&gt;The concept looks like this:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Alerts (for example a reload task fails in Qlik Sense) are sent to New Relic using their event API.&lt;br&gt;
-Butler integrates tightly with this API, creating a seamless, almost instantaneous forwarding of incidents.&lt;/li&gt;
+&lt;li&gt;Alerts (for example a reload task fails in Qlik Sense) are sent to New Relic using their event and log APIs.&lt;br&gt;
+Butler integrates tightly with those APIs, creating a seamless, almost instantaneous forwarding of incidents.&lt;/li&gt;
+&lt;li&gt;Metadata about the failed or aborted reload task and associate Sense app is sent to New Relic together with the last parts of the reload script log.&lt;br&gt;
+The script log can then be viewed from within New Relic&amp;rsquo;s web interface and usually provides instant insight into what caused the reload to fail.&lt;/li&gt;
 &lt;li&gt;As part of the setup process, &amp;ldquo;alert conditions&amp;rdquo; are created in New Relic. These define when New Relic alerts should be created, given the event data sent from Butler.&lt;/li&gt;
 &lt;li&gt;New Relic &amp;ldquo;alert policies&amp;rdquo; are used to group together several conditions and also associate notification channels (Slack, Teams, PagerDuty, &amp;hellip;) to each alert policy.&lt;/li&gt;
-&lt;li&gt;New Relic incidents stay in an open state until they are acknowledged, which can be doen from the web interface or from within email or Teams/Slack messages.&lt;/li&gt;
+&lt;li&gt;New Relic incidents stay in an open state until they are acknowledged, which can be done from the web interface or from within email or Teams/Slack messages.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;The &lt;a href=&#34;/docs/getting-started/setup/incident-mgmt-tools/new-relic/&#34;&gt;Getting started section&lt;/a&gt; has hands-on instructions for setting up Butler to work with New Relic.&lt;/p&gt;
 &lt;h2 id=&#34;new-relic-screen-shots&#34;&gt;New Relic screen shots&lt;/h2&gt;

@@ -732,39 +732,72 @@ if (!doNotTrack) {
 </span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">        serviceName: Qlik Sense   # Signl4 &#34;service name&#34; to use
 </span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">        severity: 10              # Signl4 severity level for aborted reloads
 </span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">    newRelic:
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">      enable: true
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">      enable: false
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">      # New Relic uses different API URLs for different kinds of data (metrics, events, logs, ...)
 </span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">      # There are different URLs depending on whther you have an EU or US region New Relic account.
 </span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">      # The available URLs are listed here: https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/choose-your-data-center/
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">      #
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">      # Note that the URL path should *not* be included in the url setting below!
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">      # As of this writing the valid options are
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">      # https://insights-collector.eu01.nr-data.net
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">      # https://insights-collector.newrelic.com 
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">      url: https://insights-collector.eu01.nr-data.net
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">      url:
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">        # As of this writing the valid options are
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">        # https://insights-collector.eu01.nr-data.net
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">        # https://insights-collector.newrelic.com 
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">        event: https://insights-collector.eu01.nr-data.net
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">        # Valid options are (1) EU/rest of world and 2) US)
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">        # https://log-api.eu.newrelic.com/log/v1
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">        # https://log-api.newrelic.com/log/v1 
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">        log: https://log-api.eu.newrelic.com/log/v1
 </span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">      reloadTaskFailure:
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">        enable: true
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">        rateLimit: 15             # Min seconds between events sent to New Relic for a given taskID. Defaults to 5 minutes.
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">        header:                   # Custom http headers
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">          - name: X-My-Header
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">            value: Header value
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">        attribute:
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">          static:                 # Static attributes/dimensions to attach to events sent to New Relic.
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">            - name: service
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">              value: butler
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">            - name: environment
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">              value: prod
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">        destination:
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">          event: 
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">            enable: true
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">            attribute: 
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">              static:                 # Static attributes/dimensions to attach to events sent to New Relic.
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">                - name: event-specific-attribute 1  # Example
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">                  value: abc 123                    # Example
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">          log:
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">            enable: true
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">            tailScriptLogLines: 20
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">            attribute: 
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">              static:                 # Static attributes/dimensions to attach to events sent to New Relic.
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">                - name: log-specific-attribute 1    # Example
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">                  value: def 123                    # Example
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">        sharedSettings:
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">          rateLimit: 15             # Min seconds between events sent to New Relic for a given taskID. Defaults to 5 minutes.
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">          header:                   # Custom http headers
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">            - name: X-My-Header     # Example
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">              value: Header value 1 # Example
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">          attribute: 
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">            static:                 # Static attributes/dimensions to attach to events sent to New Relic.
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">              - name: service       # Example
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">                value: butler       # Example
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">              - name: environment   # Example
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">                value: prod         # Example
 </span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">      reloadTaskAborted:
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">        enable: true
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">        rateLimit: 15             # Min seconds between events sent to New Relic for a given taskID. Defaults to 5 minutes.
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">        header:                   # Custom http headers
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">          - name: X-My-Header
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">            value: Header value
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">        attribute: 
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">          static:                 # Static attributes/dimensions to attach to events sent to New Relic.
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">            - name: service
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">              value: butler
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">            - name: environment
-</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">              value: prod
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">        destination:
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">          event: 
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">            enable: true
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">            attribute: 
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">              static:                 # Static attributes/dimensions to attach to events sent to New Relic.
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">                - name: event-specific-attribute 2  # Example
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">                  value: abc 123                    # Example
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">          log:
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">            enable: true
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">            tailScriptLogLines: 20
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">            attribute: 
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">              static:                 # Static attributes/dimensions to attach to events sent to New Relic.
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">                - name: log-specific-attribute 2    # Example
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">                  value: def 123                    # Example
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">        sharedSettings:
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">          rateLimit: 15             # Min seconds between events sent to New Relic for a given taskID. Defaults to 5 minutes.
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">          header:                   # Custom http headers
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">            - name: X-My-Header     # Example
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">              value: Header value 2 # Example
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">          attribute: 
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">            static:                 # Static attributes/dimensions to attach to events sent to New Relic.
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">              - name: service       # Example
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">                value: butler       # Example
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">              - name: environment   # Example
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">                value: prod         # Example
 </span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">
 </span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">  # Settings for notifications and messages sent using outgoing webhooks
 </span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">  webhookNotification:
@@ -856,6 +889,11 @@ if (!doNotTrack) {
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#000">/Users/goran/butler-test-dir1//abc//..</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#000">/Users/goran/butler-test-dir2</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># If set to true, Butler will be started with a focus on creating an API documentation file</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># All configuration relating to outbound connetions (to Sense, email servers, MQTT broker etc) will be disabled.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># NOTE: This setting should always be false (or just deleted), unless you want to regenerate the API doc files.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">restServerApiDocGenerate</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Enable/disable individual REST API endpoints. Set config item below to true to enable that endpoint.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">restServerEndpointsEnable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">apiListEnbledEndpoints</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -871,6 +909,7 @@ if (!doNotTrack) {
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">mqttPublishMessage</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">newRelic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">postNewRelicMetric</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">postNewRelicEvent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">scheduler</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">createNewSchedule</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">getSchedule</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -887,12 +926,25 @@ if (!doNotTrack) {
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">restServerEndpointsConfig</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">newRelic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">postNewRelictMetric</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#8f5902;font-style:italic"># Setings used by post metric to New Relic API endpoint</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">postNewRelicMetric</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#8f5902;font-style:italic"># Setings used by post metric to New Relic API endpoint</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#8f5902;font-style:italic"># Note that the URL path should *not* be included in the url setting below!</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#8f5902;font-style:italic"># As of this writing the valid options are</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#8f5902;font-style:italic"># https://insights-collector.eu01.nr-data.net</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#8f5902;font-style:italic"># https://insights-collector.newrelic.com </span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">url</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">https://insights-collector.eu01.nr-data.net</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">header</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                   </span><span style="color:#8f5902;font-style:italic"># Custom http headers</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">X-My-Header</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Header value</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">attribute</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">static</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                   </span><span style="color:#8f5902;font-style:italic"># Static attributes/dimensions to attach to the metrics data sent to New Relic.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">env</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">              </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">prod</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">postNewRelicEvent</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#8f5902;font-style:italic"># Setings used by post event to New Relic API endpoint</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#8f5902;font-style:italic"># Note that the URL path should *not* be included in the url setting below!</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#8f5902;font-style:italic"># As of this writing the valid options are</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#8f5902;font-style:italic"># https://insights-collector.eu01.nr-data.net</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#8f5902;font-style:italic"># https://insights-collector.newrelic.com </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">url</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">https://insights-collector.eu01.nr-data.net/</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">header</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                   </span><span style="color:#8f5902;font-style:italic"># Custom http headers</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">X-My-Header</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">Header value</span><span style="color:#f8f8f8;text-decoration:underline">

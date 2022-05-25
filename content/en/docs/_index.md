@@ -15,6 +15,17 @@ General guidance on how to do this is found [here](/docs/getting-started/upgrade
 
 {{% pageinfo %}}
 
+### What's new in version 8.1.0
+
+*Features*
+
+* API endpoint for sending events to New Relic [#441](https://github.com/ptarmiganlabs/butler/issues/441)
+
+*Bug fixes*
+
+* Incorrect New Relic API url used when posting metrics via Butler's REST API [#468](https://github.com/ptarmiganlabs/butler/issues/468)
+* No more errors when empty New Relic metrics attribute/header arrays in config file [#467](https://github.com/ptarmiganlabs/butler/issues/467)
+
 ### What's new in version 8.0.1
 
 *Bug fixes*

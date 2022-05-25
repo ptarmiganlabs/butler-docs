@@ -39,6 +39,42 @@ The corresponding config settings are `Butler.emailNotification.reloadTaskFailur
 
 Rate limiting is done based on task ID + email address.
 
+## Sending test emails to verify correct settings
+
+It can be tricky to find the correct settings to use Butler with email servers.  
+Butler itself uses a very generic email components to send emails, but corporate email servers may impose restrictions on from where/what servers emails will be accepted, encryption may be used together with non-standard network ports etc.
+
+Butler offers a command line option that when used will send a simple test email to the specified email address.  
+This makes is very easy to test if the email settings in Butler's config file are working or not.  
+When this command line option is used Butler will start normally, but also send a test email during startup.
+
+The command line option is `--test-email-address <address>`:
+
+```powershell
+PS C:\tools\butler> .\butler.exe
+Usage: butler [options]
+
+Butler gives superpowers to client-managed Qlik Sense Enterprise on Windows!
+Advanced reload failure alerts, task scheduler, key-value store, file system access and much more.
+
+Options:
+  -V, --version                   output the version number
+  -c, --configfile <file>         path to config file
+  -l, --loglevel <level>          log level (choices: "error", "warn", "info", "verbose", "debug", "silly")
+  --new-relic-api-key <key>       insert API key to use with New Relic
+  --new-relic-account-id <id>     New Relic account ID
+  --test-email-address <address>  send test email to this address. Used to verify email settings in the config file.
+  -h, --help                      display help for command
+PS C:\tools\butler>
+```
+
+If the settings in the config file's `Butler.emailNotification.smtp` section are valid and correct a command like this can be used:  
+`butler.exe -c ./config/production.yaml --test-email-address myname@somedomain.com`. Adapt config file location and email address as needed.
+
+The resulting email looks like this:
+
+{{< imgproc butler-test-email-1.png Resize "x300" >}} Test email from Butler {{< /imgproc >}}
+
 ## Sending alert emails to app owners
 
 Butler can optionally send alert emails to the owner of apps that failed reloading/were aborted.

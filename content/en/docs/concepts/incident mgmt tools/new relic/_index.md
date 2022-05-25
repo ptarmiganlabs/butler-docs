@@ -18,11 +18,13 @@ Toghether these capabilities makes New Relic a very good match to the features o
 
 The concept looks like this:
 
-1. Alerts (for example a reload task fails in Qlik Sense) are sent to New Relic using their event API.  
-    Butler integrates tightly with this API, creating a seamless, almost instantaneous forwarding of incidents.
-2. As part of the setup process, "alert conditions" are created in New Relic. These define when New Relic alerts should be created, given the event data sent from Butler.
-3. New Relic "alert policies" are used to group together several conditions and also associate notification channels (Slack, Teams, PagerDuty, ...) to each alert policy.
-4. New Relic incidents stay in an open state until they are acknowledged, which can be doen from the web interface or from within email or Teams/Slack messages.
+1. Alerts (for example a reload task fails in Qlik Sense) are sent to New Relic using their event and log APIs.  
+    Butler integrates tightly with those APIs, creating a seamless, almost instantaneous forwarding of incidents.
+2. Metadata about the failed or aborted reload task and associate Sense app is sent to New Relic together with the last parts of the reload script log.  
+   The script log can then be viewed from within New Relic's web interface and usually provides instant insight into what caused the reload to fail.
+3. As part of the setup process, "alert conditions" are created in New Relic. These define when New Relic alerts should be created, given the event data sent from Butler.
+4. New Relic "alert policies" are used to group together several conditions and also associate notification channels (Slack, Teams, PagerDuty, ...) to each alert policy.
+5. New Relic incidents stay in an open state until they are acknowledged, which can be done from the web interface or from within email or Teams/Slack messages.
 
 The [Getting started section](/docs/getting-started/setup/incident-mgmt-tools/new-relic/) has hands-on instructions for setting up Butler to work with New Relic.
 

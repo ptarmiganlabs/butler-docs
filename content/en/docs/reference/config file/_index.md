@@ -281,39 +281,72 @@ Butler:
         serviceName: Qlik Sense   # Signl4 "service name" to use
         severity: 10              # Signl4 severity level for aborted reloads
     newRelic:
-      enable: true
+      enable: false
+      # New Relic uses different API URLs for different kinds of data (metrics, events, logs, ...)
       # There are different URLs depending on whther you have an EU or US region New Relic account.
       # The available URLs are listed here: https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/choose-your-data-center/
-      #
-      # Note that the URL path should *not* be included in the url setting below!
-      # As of this writing the valid options are
-      # https://insights-collector.eu01.nr-data.net
-      # https://insights-collector.newrelic.com 
-      url: https://insights-collector.eu01.nr-data.net
+      url:
+        # As of this writing the valid options are
+        # https://insights-collector.eu01.nr-data.net
+        # https://insights-collector.newrelic.com 
+        event: https://insights-collector.eu01.nr-data.net
+
+        # Valid options are (1) EU/rest of world and 2) US)
+        # https://log-api.eu.newrelic.com/log/v1
+        # https://log-api.newrelic.com/log/v1 
+        log: https://log-api.eu.newrelic.com/log/v1
       reloadTaskFailure:
-        enable: true
-        rateLimit: 15             # Min seconds between events sent to New Relic for a given taskID. Defaults to 5 minutes.
-        header:                   # Custom http headers
-          - name: X-My-Header
-            value: Header value
-        attribute:
-          static:                 # Static attributes/dimensions to attach to events sent to New Relic.
-            - name: service
-              value: butler
-            - name: environment
-              value: prod
+        destination:
+          event: 
+            enable: true
+            attribute: 
+              static:                 # Static attributes/dimensions to attach to events sent to New Relic.
+                - name: event-specific-attribute 1  # Example
+                  value: abc 123                    # Example
+          log:
+            enable: true
+            tailScriptLogLines: 20
+            attribute: 
+              static:                 # Static attributes/dimensions to attach to events sent to New Relic.
+                - name: log-specific-attribute 1    # Example
+                  value: def 123                    # Example
+        sharedSettings:
+          rateLimit: 15             # Min seconds between events sent to New Relic for a given taskID. Defaults to 5 minutes.
+          header:                   # Custom http headers
+            - name: X-My-Header     # Example
+              value: Header value 1 # Example
+          attribute: 
+            static:                 # Static attributes/dimensions to attach to events sent to New Relic.
+              - name: service       # Example
+                value: butler       # Example
+              - name: environment   # Example
+                value: prod         # Example
       reloadTaskAborted:
-        enable: true
-        rateLimit: 15             # Min seconds between events sent to New Relic for a given taskID. Defaults to 5 minutes.
-        header:                   # Custom http headers
-          - name: X-My-Header
-            value: Header value
-        attribute: 
-          static:                 # Static attributes/dimensions to attach to events sent to New Relic.
-            - name: service
-              value: butler
-            - name: environment
-              value: prod
+        destination:
+          event: 
+            enable: true
+            attribute: 
+              static:                 # Static attributes/dimensions to attach to events sent to New Relic.
+                - name: event-specific-attribute 2  # Example
+                  value: abc 123                    # Example
+          log:
+            enable: true
+            tailScriptLogLines: 20
+            attribute: 
+              static:                 # Static attributes/dimensions to attach to events sent to New Relic.
+                - name: log-specific-attribute 2    # Example
+                  value: def 123                    # Example
+        sharedSettings:
+          rateLimit: 15             # Min seconds between events sent to New Relic for a given taskID. Defaults to 5 minutes.
+          header:                   # Custom http headers
+            - name: X-My-Header     # Example
+              value: Header value 2 # Example
+          attribute: 
+            static:                 # Static attributes/dimensions to attach to events sent to New Relic.
+              - name: service       # Example
+                value: butler       # Example
+              - name: environment   # Example
+                value: prod         # Example
 
   # Settings for notifications and messages sent using outgoing webhooks
   webhookNotification:
@@ -405,6 +438,11 @@ Butler:
     - /Users/goran/butler-test-dir1//abc//..
     - /Users/goran/butler-test-dir2
   
+  # If set to true, Butler will be started with a focus on creating an API documentation file
+  # All configuration relating to outbound connetions (to Sense, email servers, MQTT broker etc) will be disabled.
+  # NOTE: This setting should always be false (or just deleted), unless you want to regenerate the API doc files.
+  restServerApiDocGenerate: false
+
   # Enable/disable individual REST API endpoints. Set config item below to true to enable that endpoint.
   restServerEndpointsEnable:
     apiListEnbledEndpoints: false
@@ -420,6 +458,7 @@ Butler:
     mqttPublishMessage: false
     newRelic:
       postNewRelicMetric: true
+      postNewRelicEvent: true
     scheduler:
       createNewSchedule: false
       getSchedule: false
@@ -436,12 +475,25 @@ Butler:
 
   restServerEndpointsConfig:
     newRelic:
-      postNewRelictMetric:          # Setings used by post metric to New Relic API endpoint
+      postNewRelicMetric:          # Setings used by post metric to New Relic API endpoint
         # Note that the URL path should *not* be included in the url setting below!
         # As of this writing the valid options are
         # https://insights-collector.eu01.nr-data.net
         # https://insights-collector.newrelic.com 
         url: https://insights-collector.eu01.nr-data.net
+        header:                   # Custom http headers
+          - name: X-My-Header
+            value: Header value
+        attribute: 
+          static:                   # Static attributes/dimensions to attach to the metrics data sent to New Relic.
+            - name: env
+              value: prod
+      postNewRelicEvent:            # Setings used by post event to New Relic API endpoint
+        # Note that the URL path should *not* be included in the url setting below!
+        # As of this writing the valid options are
+        # https://insights-collector.eu01.nr-data.net
+        # https://insights-collector.newrelic.com 
+        url: https://insights-collector.eu01.nr-data.net/
         header:                   # Custom http headers
           - name: X-My-Header
             value: Header value

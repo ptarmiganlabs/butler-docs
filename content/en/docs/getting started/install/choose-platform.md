@@ -19,7 +19,7 @@ Your platform options thus typically fall into three categories:
 
 ## Butler as a stand-alone executable
 
-Here you will be using the pre-built Butler binaries (Windows, Linux, Mac OS) that are available as of Butler 7.2.
+Here you will be using the pre-built Butler binaries (Windows, Linux, Mac OS) that are available for Butler 7.2 and later.
 
 When using third party tools these binaries can be started as services.  
 For example, on Windows the free [NSSM](https://nssm.cc) tool is a great way to run Butler as a Windows service.  

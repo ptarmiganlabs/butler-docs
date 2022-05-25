@@ -393,6 +393,7 @@ if (!doNotTrack) {
     <li><a href="#whats-this">What&rsquo;s this?</a></li>
     <li><a href="#basic-vs-formatted-email-alerts">Basic vs formatted email alerts</a></li>
     <li><a href="#rate-limiting">Rate limiting</a></li>
+    <li><a href="#sending-test-emails-to-verify-correct-settings">Sending test emails to verify correct settings</a></li>
     <li><a href="#sending-alertemails-to-app-owners">Sending alert emails to app owners</a></li>
     <li><a href="#send-alerts-only-for-some-tasks">Send alerts only for some tasks</a></li>
     <li><a href="#send-alerts-to-specific-people-for-some-tasks">Send alerts to specific people, for some tasks</a></li>
@@ -495,6 +496,46 @@ The closest thing available for emails is to use the mail log appender described
 <p>The rate limit is configured (in seconds) in the main config file and can be set independently for reload-failed and reload-aborted emails.<br>
 The corresponding config settings are <code>Butler.emailNotification.reloadTaskFailure.rateLimit</code> and <code>Butler.emailNotification.reloadTaskAborted.rateLimit</code>.</p>
 <p>Rate limiting is done based on task ID + email address.</p>
+<h2 id="sending-test-emails-to-verify-correct-settings">Sending test emails to verify correct settings</h2>
+<p>It can be tricky to find the correct settings to use Butler with email servers.<br>
+Butler itself uses a very generic email components to send emails, but corporate email servers may impose restrictions on from where/what servers emails will be accepted, encryption may be used together with non-standard network ports etc.</p>
+<p>Butler offers a command line option that when used will send a simple test email to the specified email address.<br>
+This makes is very easy to test if the email settings in Butler&rsquo;s config file are working or not.<br>
+When this command line option is used Butler will start normally, but also send a test email during startup.</p>
+<p>The command line option is <code>--test-email-address &lt;address&gt;</code>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#204a87">PS </span><span style="color:#000">C:</span><span style="color:#000;font-weight:bold">\</span><span style="color:#000">tools</span><span style="color:#000;font-weight:bold">\</span><span style="color:#000">butler</span><span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#000;font-weight:bold">.\</span><span style="color:#000">butler</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">exe</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">Usage</span><span style="color:#a40000">:</span> <span style="color:#000">butler</span> <span style="color:#000">[options]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">Butler</span> <span style="color:#000">gives</span> <span style="color:#000">superpowers</span> <span style="color:#000">to</span> <span style="color:#204a87">client-managed</span> <span style="color:#000">Qlik</span> <span style="color:#000">Sense</span> <span style="color:#000">Enterprise</span> <span style="color:#000">on</span> <span style="color:#000">Windows</span><span style="color:#000;font-weight:bold">!</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">Advanced</span> <span style="color:#000">reload</span> <span style="color:#000">failure</span> <span style="color:#000">alerts</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">task</span> <span style="color:#000">scheduler</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87">key-value</span> <span style="color:#000">store</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">file</span> <span style="color:#000">system</span> <span style="color:#000">access</span> <span style="color:#000">and</span> <span style="color:#000">much</span> <span style="color:#000">more</span><span style="color:#000;font-weight:bold">.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">Options</span><span style="color:#a40000">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">-V</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#000">-version</span>                   <span style="color:#000">output</span> <span style="color:#000">the</span> <span style="color:#000">version</span> <span style="color:#000">number</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">-c</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#000">-configfile</span> <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000">file</span><span style="color:#000;font-weight:bold">&gt;</span>         <span style="color:#000">path</span> <span style="color:#000">to</span> <span style="color:#000">config</span> <span style="color:#000">file</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">-l</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#000">-loglevel</span> <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000">level</span><span style="color:#000;font-weight:bold">&gt;</span>          <span style="color:#000">log</span> <span style="color:#000">level</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">choices</span><span style="color:#a40000">:</span> <span style="color:#4e9a06">&#34;error&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;warn&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;info&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;verbose&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;debug&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;silly&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">-</span><span style="color:#000">-new-relic-api-key</span> <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000">key</span><span style="color:#000;font-weight:bold">&gt;</span>       <span style="color:#000">insert</span> <span style="color:#000">API</span> <span style="color:#000">key</span> <span style="color:#000">to</span> <span style="color:#000">use</span> <span style="color:#000">with</span> <span style="color:#000">New</span> <span style="color:#000">Relic</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">-</span><span style="color:#000">-new-relic-account-id</span> <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000">id</span><span style="color:#000;font-weight:bold">&gt;</span>     <span style="color:#000">New</span> <span style="color:#000">Relic</span> <span style="color:#000">account</span> <span style="color:#000">ID</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000;font-weight:bold">-</span><span style="color:#000">-test-email-address</span> <span style="color:#000;font-weight:bold">&lt;</span><span style="color:#000">address</span><span style="color:#000;font-weight:bold">&gt;</span>  <span style="color:#000">send</span> <span style="color:#000">test</span> <span style="color:#000">email</span> <span style="color:#000">to</span> <span style="color:#000">this</span> <span style="color:#000">address</span><span style="color:#000;font-weight:bold">.</span> <span style="color:#000">Used</span> <span style="color:#000">to</span> <span style="color:#000">verify</span> <span style="color:#000">email</span> <span style="color:#000">settings</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">the</span> <span style="color:#000">config</span> <span style="color:#000">file</span><span style="color:#000;font-weight:bold">.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">-h</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">-</span><span style="color:#000">-help</span>                      <span style="color:#000">display</span> <span style="color:#000">help</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">command</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87">PS </span><span style="color:#000">C:</span><span style="color:#000;font-weight:bold">\</span><span style="color:#000">tools</span><span style="color:#000;font-weight:bold">\</span><span style="color:#000">butler</span><span style="color:#000;font-weight:bold">&gt;</span>
+</span></span></code></pre></div><p>If the settings in the config file&rsquo;s <code>Butler.emailNotification.smtp</code> section are valid and correct a command like this can be used:<br>
+<code>butler.exe -c ./config/production.yaml --test-email-address myname@somedomain.com</code>. Adapt config file location and email address as needed.</p>
+<p>The resulting email looks like this:</p>
+
+
+
+
+
+
+
+<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 660px">
+	<img class="card-img-top" src="/docs/getting-started/setup/reload-alerts/alert-emails/butler-test-email-1_hu5ef723f1fce6bb5a0c4ce8f914ec8997_138160_0x300_resize_catmullrom_3.png" width="650" height="300">
+	
+	<div class="card-body px-0 pt-2 pb-0">
+		<p class="card-text"> Test email from Butler </p>
+	</div>
+	
+</div>
 <h2 id="sending-alertemails-to-app-owners">Sending alert emails to app owners</h2>
 <p>Butler can optionally send alert emails to the owner of apps that failed reloading/were aborted.</p>
 

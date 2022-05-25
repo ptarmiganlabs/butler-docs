@@ -46,6 +46,7 @@ Butler:
     mqttPublishMessage: false
     newRelic:
       postNewRelicMetric: true
+      postNewRelicEvent: true
     scheduler:
       createNewSchedule: false
       getSchedule: false
@@ -68,6 +69,19 @@ Butler:
         # https://insights-collector.eu01.nr-data.net
         # https://insights-collector.newrelic.com 
         url: https://insights-collector.eu01.nr-data.net
+        header:                   # Custom http headers
+          - name: X-My-Header
+            value: Header value
+        attribute: 
+          static:                   # Static attributes/dimensions to attach to the metrics data sent to New Relic.
+            - name: env
+              value: prod
+      postNewRelicEvent:            # Setings used by post event to New Relic API endpoint
+        # Note that the URL path should *not* be included in the url setting below!
+        # As of this writing the valid options are
+        # https://insights-collector.eu01.nr-data.net
+        # https://insights-collector.newrelic.com 
+        url: https://insights-collector.eu01.nr-data.net/
         header:                   # Custom http headers
           - name: X-My-Header
             value: Header value

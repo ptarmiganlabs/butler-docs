@@ -30,7 +30,7 @@ Butler is built on Node.js and as long as &lt;a href=&#34;https://nodejs.org/&#3
 &lt;p&gt;Butler has been successfully used on Windows Server, Windows 10, various Linux distributions, in Docker, Kubernetes, on Mac OS and even on Raspberry Pis. And a &lt;a href=&#34;https://medium.com/ptarmigan-labs/butler-devops-tools-for-qlik-sense-running-on-raspberry-pi-based-kubernetes-cluster-6301c57b0ce7&#34;&gt;Raspberry Pi based Kubernetes cluster&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Your platform options thus typically fall into three categories:&lt;/p&gt;
 &lt;h2 id=&#34;butler-as-a-stand-alone-executable&#34;&gt;Butler as a stand-alone executable&lt;/h2&gt;
-&lt;p&gt;Here you will be using the pre-built Butler binaries (Windows, Linux, Mac OS) that are available as of Butler 7.2.&lt;/p&gt;
+&lt;p&gt;Here you will be using the pre-built Butler binaries (Windows, Linux, Mac OS) that are available for Butler 7.2 and later.&lt;/p&gt;
 &lt;p&gt;When using third party tools these binaries can be started as services.&lt;br&gt;
 For example, on Windows the free &lt;a href=&#34;https://nssm.cc&#34;&gt;NSSM&lt;/a&gt; tool is a great way to run Butler as a Windows service.&lt;br&gt;
 Another good tool is &lt;a href=&#34;https://pm2.keymetrics.io&#34;&gt;PM2&lt;/a&gt; which works well on Linux-ish platforms.&lt;/p&gt;
