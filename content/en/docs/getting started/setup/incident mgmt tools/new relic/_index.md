@@ -25,8 +25,7 @@ Do note though that Butler expects the configuration properties below to exist i
 
 Reload failure/abort events can be forwarded to New Relic, where they become incidents that are tracked, (maybe) escalated and eventually (hopefully!) closed.
 
-<!-- TODO -->
-Example [here](/docs/examples/newrelic/).
+Example [here](/docs/concepts/incident-mgmt-tools/new-relic/).
 
 ## How it works
 
