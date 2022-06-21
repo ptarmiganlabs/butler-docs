@@ -3,7 +3,7 @@ title: "Overview"
 linkTitle: "Overview"
 weight: 10
 description: >
-  Butler makes it both easier to develop Qlik Sense apps and run Qlik Sense clusters.  
+  Butler makes it both easier to develop Qlik Sense apps and run client-managed Qlik Sense clusters.  
     
   This page gives you the general steps to get started with Butler.  
   

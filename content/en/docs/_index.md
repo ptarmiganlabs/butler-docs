@@ -15,6 +15,43 @@ General guidance on how to do this is found [here](/docs/getting-started/upgrade
 
 {{% pageinfo %}}
 
+### What's new in version 8.3.1
+
+*Bug Fixes*
+
+* Add missing API endpoint docs to HTML/YAML/JSON API documents [#502](https://github.com/ptarmiganlabs/butler/issues/502)
+* Fix broken macOS build
+
+### What's new in version 8.3.0
+
+NOTE: There is no macOS binary for this version.
+
+*Features*
+
+* Send Butler metrics and failed/aborted reloads as New Relic events and/or logs to zero, one or more New Relic accounts [#489](https://github.com/ptarmiganlabs/butler/issues/489)
+
+*Other*
+
+* Enforce code style across all files [#497](https://github.com/ptarmiganlabs/butler/issues/497)
+* Update dependencies
+
+### What's new in version 8.2.0
+
+*Features*
+
+* Add failed/aborted reload task and app tags as metadata for New Relic events and logs [#479](https://github.com/ptarmiganlabs/butler/issues/479)
+* Add optional "from" option when sending test email [#486](https://github.com/ptarmiganlabs/butler/issues/486)
+
+*Bug fixes*
+
+* Add better debug logging around which email addresses are used when sending alert emails [#487](https://github.com/ptarmiganlabs/butler/issues/487)
+* Back slash in script log breaks Slack and Teams messages [#485](https://github.com/ptarmiganlabs/butler/issues/485)
+* Better debug logging when posting data to New Relic
+
+*Other*
+
+* **deps:** Updated dependencies
+
 ### What's new in version 8.1.0
 
 *Features*

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.98.0" />
+<meta name="generator" content="Hugo 0.101.0" />
 <link rel="alternate" type="application/rss&#43;xml" href="/docs/getting-started/setup/uptime-monitor/index.xml">
 <meta name="robots" content="index, follow">
 
@@ -207,8 +207,8 @@ if (!doNotTrack) {
   <a href="/docs/getting-started/setup/which-config-file/" title="Which config file to use" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupwhich-config-file"><span class="">Which config file?</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupqlik-sense-server-settings-li">
   <a href="/docs/getting-started/setup/qlik-sense-server-settings/" title="Connecting to a Qlik Sense server" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupqlik-sense-server-settings"><span class="">Sense server settings</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupapi-endpoints-li">
-  <a href="/docs/getting-started/setup/api-endpoints/" title="Enabling endpoints in Butler&#39;s REST API" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupapi-endpoints"><span class="">API endpoints</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetuprest-api-li">
+  <a href="/docs/getting-started/setup/rest-api/" title="Configuring Butler&#39;s REST API" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetuprest-api"><span class="">REST API</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgetting-startedsetupreload-alerts-li">
   <a href="/docs/getting-started/setup/reload-alerts/" title="Reload related alerts" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alerts"><span class="">Reload alerts</span></a>
   <ul class="ul-4 foldable">
@@ -245,7 +245,7 @@ if (!doNotTrack) {
   <a href="/docs/getting-started/setup/mqtt/" title="Setting up MQTT messaging" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupmqtt"><span class="">MQTT</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupheartbeats-li">
   <a href="/docs/getting-started/setup/heartbeats/" title="Configuring Butler heartbeats" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupheartbeats"><span class="">Heartbeats</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsgetting-startedsetupuptime-monitor-li">
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupuptime-monitor-li">
   <a href="/docs/getting-started/setup/uptime-monitor/" title="Configuring Butler metrics &amp; monitoring" class="align-left pl-0 active td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupuptime-monitor"><span class="td-sidebar-nav-active-item">Uptime monitor</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupdocker-health-check-li">
   <a href="/docs/getting-started/setup/docker-health-check/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupdocker-health-check"><span class="">Docker healthcheck</span></a>
@@ -352,8 +352,10 @@ if (!doNotTrack) {
   <ul class="ul-2 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceconfig-file-li">
   <a href="/docs/reference/config-file/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceconfig-file"><span class="">Config file syntax</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencerest-api-li">
-  <a href="/docs/reference/rest-api/" title="REST API documentation" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencerest-api"><span class="">REST API</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencerest-api-1-li">
+  <a href="/docs/reference/rest-api-1/" title="REST API documentation" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencerest-api-1"><span class="">REST API 1</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencerest-api-2-li">
+  <a href="/docs/reference/rest-api-2/" title="REST API documentation (alternative format)" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencerest-api-2"><span class="">REST API 2</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencescheduler-li">
   <a href="/docs/reference/scheduler/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencescheduler"><span class="">Scheduler</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencekey-value-li">
@@ -538,6 +540,9 @@ That said, InfluxDB does offer more flexibility with respect to what kinds of da
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">duration</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">10d</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">storeNewRelic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">destinationAccount</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#000">First NR account</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#000">Second NR account</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># There are different URLs depending on whther you have an EU or US region New Relic account.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># The available URLs are listed here: https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/choose-your-data-center/</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># As of this writing the options for the New Relic metrics API are</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -563,7 +568,7 @@ That said, InfluxDB does offer more flexibility with respect to what kinds of da
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">prod</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">dynamic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">butlerVersion</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> 
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#8f5902;font-style:italic"># Should the Butler version be included in the data sent to New Relic?  ...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#8f5902;font-style:italic"># Should the Butler version be included in the data sent to New Relic?</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div>
         <div class="section-index">
@@ -762,7 +767,7 @@ That said, InfluxDB does offer more flexibility with respect to what kinds of da
 
 
 
-<script src="/js/main.min.68e31ec429bf4c76d0cfc803a06912682cfe4274c4cafeb4d70d00cfe3c3b618.js" integrity="sha256-aOMexCm/THbQz8gDoGkSaCz&#43;QnTEyv601w0Az&#43;PDthg=" crossorigin="anonymous"></script>
+<script src="/js/main.min.aa9f4c5dae6a98b2c46277f4c56f1673a2b000d1756ce4ffae93784cab25e6d5.js" integrity="sha256-qp9MXa5qmLLEYnf0xW8Wc6KwANF1bOT/rpN4TKsl5tU=" crossorigin="anonymous"></script>
 
 
 

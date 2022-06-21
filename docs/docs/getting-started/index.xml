@@ -70,7 +70,7 @@ For that reason you should use the latest 1.x version of InfluxDB, which at the 
 &lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
 &lt;p&gt;Given the cross platform nature of Node.js (which is the language Butler is written in), Butler can run on lots of different hardware platforms and operating systems.&lt;/p&gt;
 &lt;p&gt;It is therefore difficult to give detailed installation instructions for each possible installation scenario. This site thus tries explain how to get started with Butler in some of the most common scenarios.&lt;/p&gt;
-&lt;p&gt;Pre-built binaries are available for Windows, macOS and Linux. When using these there is no need to install Node.js, as the Node.js runtime is bundled into the various binaries.&lt;/p&gt;
+&lt;p&gt;Pre-built binaries are available for Windows and macOS. When using these there is no need to install Node.js, as the Node.js runtime is bundled into the binaries.&lt;/p&gt;
 &lt;p&gt;Using these binaries is the easiest - and thus recommended - way of using Butler.&lt;br&gt;
 &amp;hellip;unless you want to use Docker, which is also a great option.&lt;/p&gt;
 
@@ -78,9 +78,8 @@ For that reason you should use the latest 1.x version of InfluxDB, which at the 
 
 &lt;h2 id=&#34;getting-started&#34;&gt;Getting started&lt;/h2&gt;
 &lt;p&gt;Sorry - there is no installer for Butler.&lt;/p&gt;
-&lt;p&gt;The pre-built binaries for Windows, macOS, Linux and Docker simply work as-is when combined with a properly set up configuration file.&lt;/p&gt;
-&lt;p&gt;If you still want to run Butler as Node.js app you will first need to set up Node.js.&lt;br&gt;
-This isn&amp;rsquo;t really that difficult, but still another step that has to be carried out.&lt;/p&gt;
+&lt;p&gt;The pre-built binaries for Windows, macOS and Docker simply work as-is when combined with a properly set up configuration file.&lt;/p&gt;
+&lt;p&gt;If you still want to run Butler as Node.js app you will first need to install Node.js.&lt;/p&gt;
 &lt;p&gt;The instructions on the pages below should provide good guidance, if you still run into troubles you can always reach out via the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/discussions&#34;&gt;GitHub discussion forums&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;whats-required-to-use-butler&#34;&gt;What&amp;rsquo;s required to use Butler&lt;/h2&gt;
 &lt;ul&gt;
@@ -88,6 +87,7 @@ This isn&amp;rsquo;t really that difficult, but still another step that has to b
 &lt;ul&gt;
 &lt;li&gt;A stand-alone binary for the operating system you plan to use&lt;/li&gt;
 &lt;li&gt;A Docker image from which a Butler container can be created.&lt;br&gt;
+Images are available on &lt;a href=&#34;https://hub.docker.com/r/ptarmiganlabs/butler/tags&#34;&gt;Docker Hub&lt;/a&gt;.&lt;br&gt;
 If you have a Docker or Kubernetes environment this is a great option.&lt;/li&gt;
 &lt;li&gt;The Butler source code plus &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js&lt;/a&gt; installed.&lt;/li&gt;
 &lt;/ul&gt;
@@ -140,16 +140,24 @@ If you have a Docker or Kubernetes environment this is a great option.&lt;/li&gt
 &lt;h3 id=&#34;monitoring-butler&#34;&gt;Monitoring Butler&lt;/h3&gt;
 &lt;!-- TODO --&gt;
 &lt;p&gt;Once Butler is running it&amp;rsquo;s a good idea to also monitor it. Otherwise you stand the risk of not getting notified if Butler for some reason misbehaves.&lt;/p&gt;
+&lt;p&gt;But logs its own memory usage to the console and log files (if enabled), but can also send these metrics to a InfluxDB database and New Relic.&lt;/p&gt;
 &lt;p&gt;Butler will log its own memory usage to InfluxDB if&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;The config file&amp;rsquo;s &lt;code&gt;Butler.uptimeMonitor.enable&lt;/code&gt; and &lt;code&gt;Butler.uptimeMonitor.storeInInfluxdb.enable&lt;/code&gt; properties are both set to &lt;code&gt;true&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;The remaining InfluxDB properties of the config file are correctly configured.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Assuming everything is correctly set up, you can then create a Grafana dashboard showing Butler&amp;rsquo;s memory use over time.
+&lt;p&gt;Similarly, uptime metrics will be sent to New Relic if&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The config file&amp;rsquo;s &lt;code&gt;Butler.uptimeMonitor.enable&lt;/code&gt; and &lt;code&gt;Butler.uptimeMonitor.storeNewRelic.enable&lt;/code&gt; properties are both set to &lt;code&gt;true&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;The remaining New Relic properties of the config file are correctly configured.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Assuming everything is correctly set up, you can then create a Grafana dashboard showing Butler&amp;rsquo;s memory use over time, using data from InfluxDB.
 You can also set up alerts in Grafana if so desired, with notifications going to most IM tools and email.&lt;/p&gt;
 &lt;p&gt;A Grafana dashboard can look like this. Note that one of the available metrics (&lt;code&gt;external&lt;/code&gt;) is not used in this particular dashboard. It&amp;rsquo;s still logged to InfluxDB though.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;butler-memory-usage-grafana-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler memory usage in Grafana dashboard&#34;&gt;&lt;/p&gt;
 &lt;p&gt;There is a &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/tree/master/docs/grafana&#34;&gt;sample Grafana dashboard&lt;/a&gt; in Butler&amp;rsquo;s GitHub repo.&lt;/p&gt;
+&lt;p&gt;A New Relic graph covering the same information (but a different time range!) can look like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/butler-memory-usage-new-relic-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler memory usage in Grafana dashboard&#34;&gt;&lt;/p&gt;
 
       </description>
     </item>
@@ -190,7 +198,7 @@ The new release includes bug fixes, security patches, minor updates to documenta
 &lt;p&gt;This scenario means that new features are added to Butler.&lt;br&gt;
 Usually there are also various bug fixes included.&lt;/p&gt;
 &lt;p&gt;Most new features need to be configured somehow, meaning that medium upgrades usually require modification to the config files.&lt;br&gt;
-By far the most common is that it&amp;rsquo;s the main config that needs to be modified, but a new scheduler related feature could for example mean that the scheduler config file must be modified too.&lt;/p&gt;
+By far the most common is that it&amp;rsquo;s the main config file that needs to be modified, but a new scheduler related feature could for example mean that the scheduler config file must be modified too.&lt;/p&gt;
 &lt;p&gt;The changes needed to the config files are usually additive in nature, i.e. some settings must be added to the config file, but the existing settings and general structure of the file remain the same.&lt;/p&gt;
 &lt;h3 id=&#34;major-upgrades&#34;&gt;Major upgrades&lt;/h3&gt;
 &lt;p&gt;This scneario involves breaking changes of some kind.&lt;br&gt;

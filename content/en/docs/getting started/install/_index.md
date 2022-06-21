@@ -23,7 +23,7 @@ Given the cross platform nature of Node.js (which is the language Butler is writ
 
 It is therefore difficult to give detailed installation instructions for each possible installation scenario. This site thus tries explain how to get started with Butler in some of the most common scenarios.
 
-Pre-built binaries are available for Windows, macOS and Linux. When using these there is no need to install Node.js, as the Node.js runtime is bundled into the various binaries.  
+Pre-built binaries are available for Windows and macOS. When using these there is no need to install Node.js, as the Node.js runtime is bundled into the binaries.  
 
 Using these binaries is the easiest - and thus recommended - way of using Butler.  
 ...unless you want to use Docker, which is also a great option.
@@ -33,10 +33,9 @@ Using these binaries is the easiest - and thus recommended - way of using Butler
 
 Sorry - there is no installer for Butler.  
 
-The pre-built binaries for Windows, macOS, Linux and Docker simply work as-is when combined with a properly set up configuration file.
+The pre-built binaries for Windows, macOS and Docker simply work as-is when combined with a properly set up configuration file.
 
-If you still want to run Butler as Node.js app you will first need to set up Node.js.  
-This isn't really that difficult, but still another step that has to be carried out.
+If you still want to run Butler as Node.js app you will first need to install Node.js.  
 
 The instructions on the pages below should provide good guidance, if you still run into troubles you can always reach out via the [GitHub discussion forums](https://github.com/ptarmiganlabs/butler/discussions).
 
@@ -45,6 +44,7 @@ The instructions on the pages below should provide good guidance, if you still r
 * A Butler executable of some kind. This would be one of the following
   * A stand-alone binary for the operating system you plan to use
   * A Docker image from which a Butler container can be created.  
+    Images are available on [Docker Hub](https://hub.docker.com/r/ptarmiganlabs/butler/tags).  
     If you have a Docker or Kubernetes environment this is a great option.
   * The Butler source code plus [Node.js](https://nodejs.org/en/) installed.
 * A Butler config file adapted to your specific Qlik Sense environment

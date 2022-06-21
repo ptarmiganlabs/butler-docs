@@ -43,10 +43,13 @@ Butler offers advanced failed reload alerts via Slack, Teams, email and outgoing
 Configurable templates means you can customize emails/Teams/Slack messages.
 
 Sometimes you want a bit more structure though.  
-This is especially true when Sense is used in the enterprise, creating critical metrics and reports.
+This is especially true when Sense is used in the enterprise.
 
 Butler integrates with both [Signl4](https://www.signl4.com) and [New Relic](https://newrelic.com).  
 Both offer incident management features on both the web and via mobile clients.
+
+Information about failed/aborted reloads can be sent to one or more New Relic accounts.  
+Tags for the reload task and associated app is sent to New Relic as metadata for the event/log entry that's created there.
 
 ## Use InfluxDB/Grafana or New Relic to track Butler memory usage
 

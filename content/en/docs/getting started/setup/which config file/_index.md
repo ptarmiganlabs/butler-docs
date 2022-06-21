@@ -33,13 +33,17 @@ Butler gives superpowers to client-managed Qlik Sense Enterprise on Windows!
 Advanced reload failure alerts, task scheduler, key-value store, file system access and much more.
 
 Options:
-  -V, --version                   output the version number
-  -c, --configfile <file>         path to config file
-  -l, --loglevel <level>          log level (choices: "error", "warn", "info", "verbose", "debug", "silly")
-  --new-relic-api-key <key>       insert API key to use with New Relic
-  --new-relic-account-id <id>     New Relic account ID
-  --test-email-address <address>  send test email to this address. Used to verify email settings in the config file.
-  -h, --help                      display help for command
+  -V, --version                        output the version number
+  -c, --configfile <file>              path to config file
+  -l, --loglevel <level>               log level (choices: "error", "warn", "info", "verbose", "debug", "silly")
+  --new-relic-account-name  <name...>  New Relic account name. Used within Butler to differentiate between different target
+                                       New Relic accounts
+  --new-relic-api-key <key...>         insert API key to use with New Relic
+  --new-relic-account-id <id...>       New Relic account ID
+  --test-email-address <address>       send test email to this address. Used to verify email settings in the config file.
+  --test-email-from-address <address>  send test email from this address. Only relevant when SMTP server allows from address
+                                       to be set.
+  -h, --help                           display help for command
 PS C:\tools\butler>
 ```
 
@@ -54,15 +58,14 @@ PS C:\tools\butler> dir
     Directory: C:\tools\butler
 
 
-Mode                LastWriteTime         Length Name
-----                -------------         ------ ----
--a----       2022-04-06     19:04       65603605 butler.exe
--a----       2022-02-11     13:54          19728 production.yaml
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        20/06/2022     16:27       68426646 butler.exe
+-a----        20/06/2022     17:17          34762 production.yaml
 
 
 PS C:\tools\butler> .\butler.exe -c c:\tools\butler\production.yaml
-2022-04-06T17:09:53.599Z info: Adding normalized fileDelete directory c:\temp
-2022-04-06T17:09:53.600Z info: Enabled API endpoints: [
+2022-06-20T15:18:42.489Z info: Enabled API endpoints: [
   "apiListEnbledEndpoints",
   "base62ToBase16",
   "base16ToBase62",
@@ -74,6 +77,8 @@ PS C:\tools\butler> .\butler.exe -c c:\tools\butler\production.yaml
   "fileCopy",
   "keyValueStore",
   "mqttPublishMessage",
+  "postNewRelicMetric",
+  "postNewRelicEvent",
 ...
 ...
 ```
@@ -136,7 +141,7 @@ Bottom line is that the `./config/production.yaml` (relative to the location of 
 
 If you have several Sense clusters (for example DEV, TEST and PROD environments) you may want to run several Butler instances.
 
-Solution: Create several config files: `butler_dev.yaml`, `butler_test.yaml` and `butler_prod.yaml`.
+The solution is to create several config files: `butler_dev.yaml`, `butler_test.yaml` and `butler_prod.yaml`.
 
 In this scenario three instances of Butler should be started, each given a different config file via the `--configfile` command line option.
 

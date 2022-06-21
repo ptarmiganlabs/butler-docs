@@ -1,6 +1,6 @@
 ---
 title: "REST API documentation"
-linkTitle: "REST API"
+linkTitle: "REST API 1"
 type: swagger
 weight: 20
 description: >

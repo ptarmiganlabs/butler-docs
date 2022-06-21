@@ -30,7 +30,18 @@ The [Getting started section](/docs/getting-started/setup/incident-mgmt-tools/ne
 
 ## New Relic screen shots
 
+Sample New Relics dashboards are found below.
+
+Please note that some of the charts (server RAM, CPU, user sessions etc) in these dashboards use data from Butler SOS.  
+Butler provides data for failed/aborted reloads tables and charts.
+
 {{< imgproc new-relic-dashboard-1.png Resize "x640" >}} New Relic metrics & incident dashboard (light mode) {{< /imgproc >}}
+
+{{< imgproc new-relic-senseops-1.png Resize "x640" >}} New Relic metrics & incident dashboard (dark mode, different time range than previous dashboard above). {{< /imgproc >}}
+
+{{< imgproc new-relic-senseops-2.png Resize "x640" >}} Detailed information about failed reloads, including the last part of the script log, is available from within New Relic dashboards. {{< /imgproc >}}
+
+{{< imgproc new-relic-senseops-3.png Resize "x640" >}} Butler SOS metrics in a dark mode New Relic dashboard. {{< /imgproc >}}
 
 {{< imgproc new-relic-alert-overview-1.png Resize "x640" >}} New Relic incidents overview page (dark mode) {{< /imgproc >}}
 

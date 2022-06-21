@@ -39,6 +39,9 @@ The script log can then be viewed from within New Relic&amp;rsquo;s web interfac
 &lt;/ol&gt;
 &lt;p&gt;The &lt;a href=&#34;/docs/getting-started/setup/incident-mgmt-tools/new-relic/&#34;&gt;Getting started section&lt;/a&gt; has hands-on instructions for setting up Butler to work with New Relic.&lt;/p&gt;
 &lt;h2 id=&#34;new-relic-screen-shots&#34;&gt;New Relic screen shots&lt;/h2&gt;
+&lt;p&gt;Sample New Relics dashboards are found below.&lt;/p&gt;
+&lt;p&gt;Please note that some of the charts (server RAM, CPU, user sessions etc) in these dashboards use data from Butler SOS.&lt;br&gt;
+Butler provides data for failed/aborted reloads tables and charts.&lt;/p&gt;
 
 
 
@@ -51,6 +54,51 @@ The script log can then be viewed from within New Relic&amp;rsquo;s web interfac
 	
 	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt; New Relic metrics &amp; incident dashboard (light mode) &lt;/p&gt;
+	&lt;/div&gt;
+	
+&lt;/div&gt;
+
+
+
+
+
+
+
+&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 1140px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/new-relic/new-relic-senseops-1_hue5080e106e013819ec01dca063b0cec7_772873_0x640_resize_catmullrom_3.png&#34; width=&#34;1130&#34; height=&#34;640&#34;&gt;
+	
+	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt; New Relic metrics &amp; incident dashboard (dark mode, different time range than previous dashboard above). &lt;/p&gt;
+	&lt;/div&gt;
+	
+&lt;/div&gt;
+
+
+
+
+
+
+
+&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 1140px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/new-relic/new-relic-senseops-2_hu61e65e0680cce0dd7d3e3b98e131878a_961604_0x640_resize_catmullrom_3.png&#34; width=&#34;1130&#34; height=&#34;640&#34;&gt;
+	
+	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt; Detailed information about failed reloads, including the last part of the script log, is available from within New Relic dashboards. &lt;/p&gt;
+	&lt;/div&gt;
+	
+&lt;/div&gt;
+
+
+
+
+
+
+
+&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 1140px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/new-relic/new-relic-senseops-3_hue5080e106e013819ec01dca063b0cec7_855196_0x640_resize_catmullrom_3.png&#34; width=&#34;1130&#34; height=&#34;640&#34;&gt;
+	
+	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt; Butler SOS metrics in a dark mode New Relic dashboard. &lt;/p&gt;
 	&lt;/div&gt;
 	
 &lt;/div&gt;

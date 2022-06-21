@@ -65,6 +65,9 @@ Butler:
         duration: 10d
     storeNewRelic:
       enable: false
+      destinationAccount:
+        - First NR account
+        - Second NR account
       # There are different URLs depending on whther you have an EU or US region New Relic account.
       # The available URLs are listed here: https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/choose-your-data-center/
       # As of this writing the options for the New Relic metrics API are
@@ -96,9 +99,13 @@ Butler:
   # These can also be specified via command line parameters when starting Butler. 
   # Command line options takes precedence over settings in this config file.
   thirdPartyToolsCredentials:
-    newRelic: 
-      insertApiKey: <API key (with insert permissions) from New Relic> 
-      accountId: <New Relic account ID>
+    newRelic:         # Array of New Relic accounts/insert keys. Any data sent to New Relic will be sent to both accounts. 
+      - accountName: First NR account
+        insertApiKey: <API key 1 (with insert permissions) from New Relic> 
+        accountId: <New Relic account ID 1>
+      - accountName: Second NR account
+        insertApiKey: <API key 2 (with insert permissions) from New Relic> 
+        accountId: <New Relic account ID 2>
 
   # Store script logs of failed reloads on disk.
   # The script logs will be stored in daily directories under the specified main directory below
@@ -282,6 +289,13 @@ Butler:
         severity: 10              # Signl4 severity level for aborted reloads
     newRelic:
       enable: false
+      destinationAccount:
+        event:
+          - First NR account
+          - Second NR account
+        log:
+          - First NR account
+          - Second NR account
       # New Relic uses different API URLs for different kinds of data (metrics, events, logs, ...)
       # There are different URLs depending on whther you have an EU or US region New Relic account.
       # The available URLs are listed here: https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/choose-your-data-center/
@@ -303,6 +317,9 @@ Butler:
               static:                 # Static attributes/dimensions to attach to events sent to New Relic.
                 - name: event-specific-attribute 1  # Example
                   value: abc 123                    # Example
+              dynamic:
+                useAppTags: true      # Should app tags be sent to New Relic as attributes?
+                useTaskTags: true     # Should task tags be sent to New Relic as attributes?
           log:
             enable: true
             tailScriptLogLines: 20
@@ -310,6 +327,9 @@ Butler:
               static:                 # Static attributes/dimensions to attach to events sent to New Relic.
                 - name: log-specific-attribute 1    # Example
                   value: def 123                    # Example
+              dynamic:
+                useAppTags: true      # Should app tags be sent to New Relic as attributes?
+                useTaskTags: true     # Should task tags be sent to New Relic as attributes?
         sharedSettings:
           rateLimit: 15             # Min seconds between events sent to New Relic for a given taskID. Defaults to 5 minutes.
           header:                   # Custom http headers
@@ -329,6 +349,9 @@ Butler:
               static:                 # Static attributes/dimensions to attach to events sent to New Relic.
                 - name: event-specific-attribute 2  # Example
                   value: abc 123                    # Example
+              dynamic:
+                useAppTags: true      # Should app tags be sent to New Relic as attributes?
+                useTaskTags: true     # Should task tags be sent to New Relic as attributes?
           log:
             enable: true
             tailScriptLogLines: 20
@@ -336,6 +359,9 @@ Butler:
               static:                 # Static attributes/dimensions to attach to events sent to New Relic.
                 - name: log-specific-attribute 2    # Example
                   value: def 123                    # Example
+              dynamic:
+                useAppTags: true      # Should app tags be sent to New Relic as attributes?
+                useTaskTags: true     # Should task tags be sent to New Relic as attributes?
         sharedSettings:
           rateLimit: 15             # Min seconds between events sent to New Relic for a given taskID. Defaults to 5 minutes.
           header:                   # Custom http headers
@@ -457,8 +483,8 @@ Butler:
     keyValueStore: false
     mqttPublishMessage: false
     newRelic:
-      postNewRelicMetric: true
-      postNewRelicEvent: true
+      postNewRelicMetric: false
+      postNewRelicEvent: false
     scheduler:
       createNewSchedule: false
       getSchedule: false
@@ -476,11 +502,13 @@ Butler:
   restServerEndpointsConfig:
     newRelic:
       postNewRelicMetric:          # Setings used by post metric to New Relic API endpoint
-        # Note that the URL path should *not* be included in the url setting below!
+        destinationAccount:
+          - First NR account
+          - Second NR account
         # As of this writing the valid options are
-        # https://insights-collector.eu01.nr-data.net
-        # https://insights-collector.newrelic.com 
-        url: https://insights-collector.eu01.nr-data.net
+        # https://insights-collector.eu01.nr-data.net/metric/v1
+        # https://insights-collector.newrelic.com/metric/v1
+        url: https://insights-collector.eu01.nr-data.net/metric/v1
         header:                   # Custom http headers
           - name: X-My-Header
             value: Header value
@@ -489,6 +517,9 @@ Butler:
             - name: env
               value: prod
       postNewRelicEvent:            # Setings used by post event to New Relic API endpoint
+        destinationAccount:
+          - First NR account
+          - Second NR account
         # Note that the URL path should *not* be included in the url setting below!
         # As of this writing the valid options are
         # https://insights-collector.eu01.nr-data.net

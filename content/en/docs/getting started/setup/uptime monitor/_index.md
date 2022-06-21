@@ -82,6 +82,9 @@ Butler:
         duration: 10d
     storeNewRelic:
       enable: false
+      destinationAccount:
+        - First NR account
+        - Second NR account
       # There are different URLs depending on whther you have an EU or US region New Relic account.
       # The available URLs are listed here: https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/choose-your-data-center/
       # As of this writing the options for the New Relic metrics API are
@@ -107,6 +110,6 @@ Butler:
             value: prod
         dynamic:
           butlerVersion: 
-            enable: true            # Should the Butler version be included in the data sent to New Relic?  ...
+            enable: true            # Should the Butler version be included in the data sent to New Relic?
   ...
 ```

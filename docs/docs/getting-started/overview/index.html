@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.98.0" />
+<meta name="generator" content="Hugo 0.101.0" />
 <link rel="alternate" type="application/rss&#43;xml" href="/docs/getting-started/overview/index.xml">
 <meta name="robots" content="index, follow">
 
@@ -20,13 +20,13 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>Overview | Butler</title>
-<meta name="description" content="Butler makes it both easier to develop Qlik Sense apps and run Qlik Sense clusters.  
+<meta name="description" content="Butler makes it both easier to develop Qlik Sense apps and run client-managed Qlik Sense clusters.  
   
 This page gives you the general steps to get started with Butler.  
 It also explains how Butler relates to and uses other tools and services.
 ">
 <meta property="og:title" content="Overview" />
-<meta property="og:description" content="Butler makes it both easier to develop Qlik Sense apps and run Qlik Sense clusters.  
+<meta property="og:description" content="Butler makes it both easier to develop Qlik Sense apps and run client-managed Qlik Sense clusters.  
   
 This page gives you the general steps to get started with Butler.  
 It also explains how Butler relates to and uses other tools and services.
@@ -35,13 +35,13 @@ It also explains how Butler relates to and uses other tools and services.
 <meta property="og:url" content="/docs/getting-started/overview/" /><meta property="og:site_name" content="Butler" />
 
 <meta itemprop="name" content="Overview">
-<meta itemprop="description" content="Butler makes it both easier to develop Qlik Sense apps and run Qlik Sense clusters.  
+<meta itemprop="description" content="Butler makes it both easier to develop Qlik Sense apps and run client-managed Qlik Sense clusters.  
   
 This page gives you the general steps to get started with Butler.  
 It also explains how Butler relates to and uses other tools and services.
 "><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Overview"/>
-<meta name="twitter:description" content="Butler makes it both easier to develop Qlik Sense apps and run Qlik Sense clusters.  
+<meta name="twitter:description" content="Butler makes it both easier to develop Qlik Sense apps and run client-managed Qlik Sense clusters.  
   
 This page gives you the general steps to get started with Butler.  
 It also explains how Butler relates to and uses other tools and services.
@@ -193,7 +193,7 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsgetting-started-li">
   <a href="/docs/getting-started/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-started"><span class="">Getting started</span></a>
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsgetting-startedoverview-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedoverview-li">
   <a href="/docs/getting-started/overview/" class="align-left pl-0 active td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedoverview"><span class="td-sidebar-nav-active-item">Overview</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgetting-startedinstall-li">
   <a href="/docs/getting-started/install/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedinstall"><span class="">Installing Butler</span></a>
@@ -215,8 +215,8 @@ if (!doNotTrack) {
   <a href="/docs/getting-started/setup/which-config-file/" title="Which config file to use" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupwhich-config-file"><span class="">Which config file?</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupqlik-sense-server-settings-li">
   <a href="/docs/getting-started/setup/qlik-sense-server-settings/" title="Connecting to a Qlik Sense server" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupqlik-sense-server-settings"><span class="">Sense server settings</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupapi-endpoints-li">
-  <a href="/docs/getting-started/setup/api-endpoints/" title="Enabling endpoints in Butler&#39;s REST API" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupapi-endpoints"><span class="">API endpoints</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetuprest-api-li">
+  <a href="/docs/getting-started/setup/rest-api/" title="Configuring Butler&#39;s REST API" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetuprest-api"><span class="">REST API</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsgetting-startedsetupreload-alerts-li">
   <a href="/docs/getting-started/setup/reload-alerts/" title="Reload related alerts" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alerts"><span class="">Reload alerts</span></a>
   <ul class="ul-4 foldable">
@@ -360,8 +360,10 @@ if (!doNotTrack) {
   <ul class="ul-2 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceconfig-file-li">
   <a href="/docs/reference/config-file/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceconfig-file"><span class="">Config file syntax</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencerest-api-li">
-  <a href="/docs/reference/rest-api/" title="REST API documentation" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencerest-api"><span class="">REST API</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencerest-api-1-li">
+  <a href="/docs/reference/rest-api-1/" title="REST API documentation" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencerest-api-1"><span class="">REST API 1</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencerest-api-2-li">
+  <a href="/docs/reference/rest-api-2/" title="REST API documentation (alternative format)" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencerest-api-2"><span class="">REST API 2</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencescheduler-li">
   <a href="/docs/reference/scheduler/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencescheduler"><span class="">Scheduler</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencekey-value-li">
@@ -455,7 +457,7 @@ if (!doNotTrack) {
             
 <div class="td-content">
 	<h1>Overview</h1>
-  <div class="lead"><p>Butler makes it both easier to develop Qlik Sense apps and run Qlik Sense clusters.</p>
+  <div class="lead"><p>Butler makes it both easier to develop Qlik Sense apps and run client-managed Qlik Sense clusters.</p>
 <p>This page gives you the general steps to get started with Butler.<br>
 It also explains how Butler relates to and uses other tools and services.</p>
 </div>
@@ -691,7 +693,7 @@ It also explains how Butler relates to and uses other tools and services.</p>
 
 
 
-<script src="/js/main.min.68e31ec429bf4c76d0cfc803a06912682cfe4274c4cafeb4d70d00cfe3c3b618.js" integrity="sha256-aOMexCm/THbQz8gDoGkSaCz&#43;QnTEyv601w0Az&#43;PDthg=" crossorigin="anonymous"></script>
+<script src="/js/main.min.aa9f4c5dae6a98b2c46277f4c56f1673a2b000d1756ce4ffae93784cab25e6d5.js" integrity="sha256-qp9MXa5qmLLEYnf0xW8Wc6KwANF1bOT/rpN4TKsl5tU=" crossorigin="anonymous"></script>
 
 
 
