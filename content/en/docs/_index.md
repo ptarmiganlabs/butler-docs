@@ -15,6 +15,24 @@ General guidance on how to do this is found [here](/docs/getting-started/upgrade
 
 {{% pageinfo %}}
 
+### What's new in version 8.3.3
+
+*Bug Fixes*
+
+* API endpoint /v4/schedules/status now respects enable/disable in config file [#509](https://github.com/ptarmiganlabs/butler/issues/509)
+* Incorrect return value from base conversion API endpoint [#508](https://github.com/ptarmiganlabs/butler/issues/508)
+
+*Other*
+
+* Migrate to Fastify 4 [#510](https://github.com/ptarmiganlabs/butler/issues/510)
+* Upgrade internal API docs to use OpenAPI 3.x [#511](https://github.com/ptarmiganlabs/butler/issues/511)
+
+### What's new in version 8.3.2
+
+*Bug Fixes*
+
+* Update template config file wrt sending data to multiple New Relic accounts [#505](https://github.com/ptarmiganlabs/butler/issues/505)
+
 ### What's new in version 8.3.1
 
 *Bug Fixes*
