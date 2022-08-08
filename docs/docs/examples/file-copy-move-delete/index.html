@@ -408,6 +408,7 @@ if (!doNotTrack) {
         <li><a href="#4-call-the-butler-apis-or-use-convenience-subs">4. Call the Butler APIs or use convenience subs</a></li>
       </ul>
     </li>
+    <li><a href="#examples-using-unc-paths">Examples using UNC paths</a></li>
   </ul>
 </nav></div>
 
@@ -481,13 +482,26 @@ Make sure the account Butler runs under has the appropriate access to those dire
 <li>Make sure the <a href="/docs/getting-started/setup/data-connections">necessary Sense data connections</a> exist.</li>
 <li>Call the Butler APIs directly or use the subs included in the GitHub repo to do the desired file operations.</li>
 </ol>
+
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Warning: UNC paths only on Windows</h4>
+
+    <p>UNC paths (i.e. &ldquo;\host\fileshare\folder1\folder2&rdquo;) is a Windows-only feature and as such only supported when Butler is running on Windows.</p>
+<p>If Butler is running on a non-Windows operating system and directories on network file shares should be accessible via Butler&rsquo;s RESR API, those directories must be mounted on the server using the standard OS mechanisms, then accessed via the server&rsquo;s local file system.</p>
+<p>Butler will warn in the console and file logs if UNC paths are specified in the config file, and Butler is NOT running on Windows.</p>
+
+
+</div>
+
 <h3 id="1-install-and-configure-butler">1. Install and configure Butler</h3>
 <p>Described <a href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/">here</a>.</p>
 <h3 id="2-add-approved-directories-to-butler-config-file">2. Add approved directories to Butler config file</h3>
 <p>The general idea is:<br>
 For each file system operation (copy, move and delete) you can specify in which (or between which) directories that operation should be allowed.</p>
 <p>This is straight forward, but because Butler can run on different operating systems AND access file shares hosted by various OSs, things can get a bit complicated.<br>
-In most cases the paths to use are the expected ones, but when it comes to UNC paths they need to use forward slash &ldquo;/&rdquo; rather than back ditto &ldquo;\&rdquo;.</p>
+In most cases the paths to use are the expected ones, but when it comes to UNC paths they can for example either use forward slash &ldquo;/&rdquo; or back ditto &ldquo;\&rdquo;.<br>
+Both work as all paths are normalized into an internal, uniform format when loaded into Butler.</p>
 <p>A few examples show how to deal with some common scenarios:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">fileCopyApprovedDirectories</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">fromDirectory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/data1/qvd          </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Butler running on Linux, with either a local directory in /data1, or a remote fileshare mounted into /data1</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -495,7 +509,9 @@ In most cases the paths to use are the expected ones, but when it comes to UNC p
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">fromDirectory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">e:\data3\qvd        </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Butler running on Windows Server, accessing files/directories in the local file system</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">toDirectory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">e:\data4\qvd_archive</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">fromDirectory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">//server1.my.domain/fileshare1/data1  </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Butler running on Windows server, accessing a SMB file share (which can be on a Windows or Linux server)</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">toDirectory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">//server1.my.domain/fileshare1/data2    </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># In UNC notation this path would be \\server1.my.domain\fileshare1\data2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">toDirectory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">//server1.my.domain/fileshare1/data2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">fromDirectory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">\\server1.my.domain\fileshare1\data1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">toDirectory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">\\server1.my.domain\fileshare1\data2</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">fileMoveApprovedDirectories</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">fromDirectory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/data7/qvd</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -508,7 +524,8 @@ In most cases the paths to use are the expected ones, but when it comes to UNC p
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">fileDeleteApprovedDirectories</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#000">/data1/qvd_archive</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#000">e:\data1\qvd_archive</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#000">//server3.my.domain/data1/qvd_archive    </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># UNC would be \\server3.my.domain\data1\qvd_archive</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#000">//server3.my.domain/data1/qvd_archive</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#000">\\server3.my.domain\data1\qvd_archive</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><p>This configuration (for example) means:</p>
 <ul>
 <li>Copying can be done from <code>e:\data3\qvd</code> to <code>e:\data4\qvd_archive</code>, but <em>not</em> from <code>e:\data3\qvd</code> to <code>e:\data6\qvd_archive</code></li>
@@ -569,6 +586,81 @@ sub DeleteFile(vFile)
 end sub
 </code></pre><p>Note how the HTTP operation is set using the X-HTTP-Method-Override HTTP header.</p>
 <p>This is a way to work around a limitation of Qlik&rsquo;s REST connector, as it only supports GET and POST operations. The extra HTTP header tells Butler what kind of HTTP operation should <em>really</em> be carried out.</p>
+<h2 id="examples-using-unc-paths">Examples using UNC paths</h2>
+<p>When specifying UNC paths in the Butler config file and running Butler on a non-Windows operating system, you will get warnings like the ones below.</p>
+<p>The approved directories sections of the config file look like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">Butler</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">....</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#8f5902;font-style:italic"># List of directories between which file copying via the REST API can be done.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">fileCopyApprovedDirectories</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">fromDirectory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/from/some/directory2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">toDirectory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/to/some/directory2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">fromDirectory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">//1.2.3.4/qlik/testdata/deletefile1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">toDirectory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">//1.2.3.4/qlik/testdata/deletefil2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#8f5902;font-style:italic"># List of directories between which file moves via the REST API can be done.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">fileMoveApprovedDirectories</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">fromDirectory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/from/some/directory3</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">toDirectory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/to/some/directory3</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">fromDirectory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">//1.2.3.4/qlik/testdata/deletefile1</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">toDirectory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">//1.2.3.4/qlik/testdata/deletefil2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">fileDeleteApprovedDirectories</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#000">/from/some/directory2</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#000">\\1.2.3.4\qlik\testdata\deletefile3</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><p>In this case Butler is running on macOS (with IP 192.168.1.168 on port 8081) and we get warnings in the logs when starting Butler:</p>
+
+
+
+
+
+
+
+<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 910px">
+	<img class="card-img-top" src="/docs/examples/file-copy-move-delete/butler-unc-path-on-macos-1_hub0140fda08b2ed7b924ad7993ce02ecc_403942_900x0_resize_catmullrom_3.png" width="900" height="487">
+	
+	<div class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+Startup warnings about non-compatible UNC paths when running Butler on macOS.
+</p>
+	</div>
+	
+</div>
+<p>When trying to do a file operation (in this case a delete) using an UNC path (Butler is still running on macOS!) we get a warning in the logs and a http error returned to the Sense script:</p>
+
+
+
+
+
+
+
+<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 610px">
+	<img class="card-img-top" src="/docs/examples/file-copy-move-delete/butler-unc-path-on-macos-3_huc4484a1ad59c1f3d808b4922bdc8b74b_92556_600x0_resize_catmullrom_3.png" width="600" height="622">
+	
+	<div class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+http error returned when trying to delete a file via a UNC path, and Butler is running on macOS.
+</p>
+	</div>
+	
+</div>
+
+
+
+
+
+
+
+<div class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 910px">
+	<img class="card-img-top" src="/docs/examples/file-copy-move-delete/butler-unc-path-on-macos-2_hu5ed2892a2e541c6b69bf232609c4388b_72162_900x0_resize_catmullrom_3.png" width="900" height="109">
+	
+	<div class="card-body px-0 pt-2 pb-0">
+		<p class="card-text">
+Warnings in log for the previous scenario.
+</p>
+	</div>
+	
+</div>
 
         <div class="section-index">
     

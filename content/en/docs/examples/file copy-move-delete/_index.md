@@ -19,6 +19,14 @@ These steps are needed to achieve the goal:
 3. Make sure the [necessary Sense data connections](/docs/getting-started/setup/data-connections) exist.
 4. Call the Butler APIs directly or use the subs included in the GitHub repo to do the desired file operations.
 
+{{% alert title="Warning: UNC paths only on Windows" color="warning" %}}
+UNC paths (i.e. "\\host\fileshare\folder1\folder2") is a Windows-only feature and as such only supported when Butler is running on Windows.  
+
+If Butler is running on a non-Windows operating system and directories on network file shares should be accessible via Butler's RESR API, those directories must be mounted on the server using the standard OS mechanisms, then accessed via the server's local file system.
+
+Butler will warn in the console and file logs if UNC paths are specified in the config file, and Butler is NOT running on Windows.
+{{% /alert %}}
+
 ### 1. Install and configure Butler
 
 Described [here](https://butler.ptarmiganlabs.com/docs/getting-started/setup/).
@@ -29,7 +37,8 @@ The general idea is:
 For each file system operation (copy, move and delete) you can specify in which (or between which) directories that operation should be allowed.
 
 This is straight forward, but because Butler can run on different operating systems AND access file shares hosted by various OSs, things can get a bit complicated.  
-In most cases the paths to use are the expected ones, but when it comes to UNC paths they need to use forward slash "/" rather than back ditto "\\".
+In most cases the paths to use are the expected ones, but when it comes to UNC paths they can for example either use forward slash "/" or back ditto "\\".  
+Both work as all paths are normalized into an internal, uniform format when loaded into Butler.
 
 A few examples show how to deal with some common scenarios:
 
@@ -40,7 +49,9 @@ A few examples show how to deal with some common scenarios:
     - fromDirectory: e:\data3\qvd         # Butler running on Windows Server, accessing files/directories in the local file system
       toDirectory: e:\data4\qvd_archive
     - fromDirectory: //server1.my.domain/fileshare1/data1   # Butler running on Windows server, accessing a SMB file share (which can be on a Windows or Linux server)
-      toDirectory: //server1.my.domain/fileshare1/data2     # In UNC notation this path would be \\server1.my.domain\fileshare1\data2
+      toDirectory: //server1.my.domain/fileshare1/data2
+    - fromDirectory: \\server1.my.domain\fileshare1\data1
+      toDirectory: \\server1.my.domain\fileshare1\data2
 
   fileMoveApprovedDirectories:
     - fromDirectory: /data7/qvd
@@ -53,7 +64,8 @@ A few examples show how to deal with some common scenarios:
   fileDeleteApprovedDirectories:
     - /data1/qvd_archive
     - e:\data1\qvd_archive
-    - //server3.my.domain/data1/qvd_archive     # UNC would be \\server3.my.domain\data1\qvd_archive
+    - //server3.my.domain/data1/qvd_archive
+    - \\server3.my.domain\data1\qvd_archive
 ```
 
 This configuration (for example) means:
@@ -129,3 +141,48 @@ end sub
 Note how the HTTP operation is set using the X-HTTP-Method-Override HTTP header.
 
 This is a way to work around a limitation of Qlik's REST connector, as it only supports GET and POST operations. The extra HTTP header tells Butler what kind of HTTP operation should *really* be carried out.
+
+## Examples using UNC paths
+
+When specifying UNC paths in the Butler config file and running Butler on a non-Windows operating system, you will get warnings like the ones below.  
+
+The approved directories sections of the config file look like this:
+
+```yaml
+Butler:
+  ....
+# List of directories between which file copying via the REST API can be done.
+  fileCopyApprovedDirectories:
+    - fromDirectory: /from/some/directory2
+      toDirectory: /to/some/directory2
+    - fromDirectory: //1.2.3.4/qlik/testdata/deletefile1
+      toDirectory: //1.2.3.4/qlik/testdata/deletefil2
+
+    # List of directories between which file moves via the REST API can be done.
+  fileMoveApprovedDirectories:
+    - fromDirectory: /from/some/directory3
+      toDirectory: /to/some/directory3
+    - fromDirectory: //1.2.3.4/qlik/testdata/deletefile1
+      toDirectory: //1.2.3.4/qlik/testdata/deletefil2
+
+  fileDeleteApprovedDirectories:
+    - /from/some/directory2
+    - \\1.2.3.4\qlik\testdata\deletefile3
+```
+
+In this case Butler is running on macOS (with IP 192.168.1.168 on port 8081) and we get warnings in the logs when starting Butler:
+
+{{< imgproc butler-unc-path-on-macos-1 Resize "900x" >}}
+Startup warnings about non-compatible UNC paths when running Butler on macOS.
+{{< /imgproc >}}
+
+When trying to do a file operation (in this case a delete) using an UNC path (Butler is still running on macOS!) we get a warning in the logs and a http error returned to the Sense script:
+
+{{< imgproc butler-unc-path-on-macos-3 Resize "600x" >}}
+http error returned when trying to delete a file via a UNC path, and Butler is running on macOS.
+{{< /imgproc >}}
+
+{{< imgproc butler-unc-path-on-macos-2 Resize "900x" >}}
+Warnings in log for the previous scenario.
+{{< /imgproc >}}
+

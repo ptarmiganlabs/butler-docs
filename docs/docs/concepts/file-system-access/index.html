@@ -458,19 +458,19 @@ if (!doNotTrack) {
 		
 	</header>
 	<h2 id="unrestricted-file-system-access-is-a-security-risk">Unrestricted file system access is a security risk</h2>
-<p>Qlik Sense locked down things quite a bit compared to its QlikView predecessor:</p>
+<p>Qlik Sense locked down things quite a bit compared to its QlikView predecessor.</p>
 <p>In QlikView your app scripts could do almost anything with any file on the server&rsquo;s disks as long as the QlikView service account had access to the file.<br>
 This was not ideal from a security perspective and Qlik Sense therefore introduced the concept of <a href="https://help.qlik.com/en-US/sense/August2021/Subsystems/Hub/Content/Sense_Hub/LoadData/connect-data-sources-data-load-editor.htm">folder data connetions</a> and in general much stricter <a href="https://help.qlik.com/en-US/sense/August2021/Subsystems/Hub/Content/Sense_Hub/LoadData/file-system-access-restriction.htm">file system access restrictions</a>.</p>
 <p>With this change Qlik Sense had a much better position with respect to security, as access to files was now boxed by the folder data connection the access used (by means of lib:// statements).<br>
 It&rsquo;s also possible to <a href="https://help.qlik.com/en-US/sense/August2021/Subsystems/Hub/Content/Sense_Hub/Scripting/SystemVariables/Include.htm">include .qvs script files</a> via the same mechanism.</p>
 <p>The problem now is that it&rsquo;s no longer possible to do file level operations on individual or groups of files.<br>
 No more deleting, copying or moving of files from within the load script.</p>
-<p>Now - there is a per-server setting that disables this new &ldquo;standard mode&rdquo; and reverts back to what&rsquo;s known as &ldquo;legacy mode&rdquo;, which is essentially how QlikView worked (and still works). But then the Sense environment is once again vulerable to badly written or even malicious Sensse apps.</p>
+<p>Now - there is a per-server setting that disables this new &ldquo;standard mode&rdquo; and reverts back to what&rsquo;s known as &ldquo;legacy mode&rdquo;, which is essentially how QlikView worked (and still works). But then the Sense environment is once again vulerable to badly written or even malicious Sense apps.</p>
 <h2 id="butler-adds-controlled-file-system-access-to-qlik-sense-enterprise">Butler adds controlled file system access to Qlik Sense Enterprise</h2>
 <p>Butler&rsquo;s solution is to add a set of REST API endpoints for file copy/move/delete operations, but only allow these to operate on pre-defined folders.</p>
 <p>For example, you might have a QVD folder at <code>e:\data\qvd\sales\temp</code>.<br>
 You also need to remove old QVDs from that folder.</p>
-<p>This could be done with scheduled BAT/CMD files or PowerShell scripts, but it might be better/more flexible/easier to maintain to drive this cleanup from the load script of a Sense app.</p>
+<p>This could be done with scheduled BAT/CMD files or PowerShell scripts, but it might be better/more flexible/easier/preferred to do this cleanup from the load script of a Sense app.</p>
 <p>The solution: Add <code>e:\data\qvd\sales\temp</code> to Butler&rsquo;s list of folders in which files can be deleted, then call Butler&rsquo;s <code>/v4/filedelete</code> <a href="/docs/reference/rest-api/?operationsSorter=alpha">API endpoint</a> from within your app&rsquo;s load script. Done!</p>
 <h2 id="convenience-subs">Convenience subs</h2>
 <p>Butler includes a set of Subs that make it easy to use the file copy/move/delete APIs.<br>
