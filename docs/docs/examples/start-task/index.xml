@@ -648,7 +648,7 @@ These contain functions/subs that encapsulate various Butler APIs (include start
 &lt;p&gt;The function(=sub in Sense lingo) &lt;code&gt;StartTask&lt;/code&gt; takes a single &lt;code&gt;taskId&lt;/code&gt; parameter,  which means that starting a reload task from an app&amp;rsquo;s load script is as simple as&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;Call StartTask(&amp;lt;TaskId&amp;gt;)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The general Butler 7.0 demo app &lt;code&gt;Butler 7.0 - demo app.qvf&lt;/code&gt; (&lt;a href=&#34;https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps&#34;&gt;link&lt;/a&gt;) contains such a demo (and many others).&lt;/p&gt;
+&lt;p&gt;The demo app &lt;code&gt;Butler 8.4 demo app.qvf&lt;/code&gt; (&lt;a href=&#34;https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps&#34;&gt;link&lt;/a&gt;) contains such a demo (and many others).&lt;/p&gt;
 &lt;h3 id=&#34;need-to-pass-along-parameters-to-a-task-theres-a-sub-for-that&#34;&gt;Need to pass along parameters to a task? There&amp;rsquo;s a Sub for that!&lt;/h3&gt;
 &lt;p&gt;Sometimes you need to send parameters to a reload task (or rather to the load script of the app associated with the task).&lt;br&gt;
 This can be done by using the &lt;code&gt;StartTask_KeyValue&lt;/code&gt; helper function/Sub.&lt;/p&gt;
@@ -671,17 +671,75 @@ This is done by storing the task IDs in a separate table whose name is passed as
 &lt;ol&gt;
 &lt;li&gt;They are qualified (i.e. keep the &amp;ldquo;Qualify *;&amp;rdquo; statement!).&lt;/li&gt;
 &lt;li&gt;The table names are passed as parameters to the StartTask function.&lt;/li&gt;
-&lt;li&gt;The table fields MUST have the names used below.&lt;/li&gt;
+&lt;li&gt;The table MUST have a field called &lt;code&gt;TaskId&lt;/code&gt; that contains the IDs of reload tasks to be started.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Regarding parameters to StartTask:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Trailing, unused parameters can be omitted. For example, if you don&amp;rsquo;t want to pass in custom
-properties and key-values you can just skip those parameters. See below for examples.&lt;/li&gt;
-&lt;li&gt;Unused parameters that are followed by used parameters should be set to Null(). See below for examples.&lt;/li&gt;
+&lt;li&gt;Trailing, unused parameters can be omitted.&lt;/li&gt;
+&lt;li&gt;Unused parameters that are followed by used parameters should be set to Null().&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h3 id=&#34;start-tasks-using-tags&#34;&gt;Start tasks using tags&lt;/h3&gt;
-&lt;h3 id=&#34;start-tasks-using-custom-properties&#34;&gt;Start tasks using custom properties&lt;/h3&gt;
-&lt;h2 id=&#34;seeing-is-believing&#34;&gt;Seeing is believing&lt;/h2&gt;
+&lt;h3 id=&#34;example-1&#34;&gt;Example 1&lt;/h3&gt;
+&lt;p&gt;The script below will start tasks &lt;code&gt;fbf645f0-0c92-40a4-af9a-6e3eb1d3c35c&lt;/code&gt; (via the first parameter), &lt;code&gt;7552d9fc-d1bb-4975-9a38-18357de531ea&lt;/code&gt; (via second parameter, i.e. a table) and &lt;code&gt;fb0f317d-da91-4b86-aafa-0174ae1e8c8f&lt;/code&gt; (via second parameter too).&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Qualify *;
+
+ButlerTaskIDs:
+Load * Inline [
+TaskId
+7552d9fc-d1bb-4975-9a38-18357de531ea
+fb0f317d-da91-4b86-aafa-0174ae1e8c8f
+];
+
+Call StartTask(&amp;#39;fbf645f0-0c92-40a4-af9a-6e3eb1d3c35c&amp;#39;, &amp;#39;ButlerTaskIDs&amp;#39;)
+
+Unqualify *;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;example-2&#34;&gt;Example 2&lt;/h3&gt;
+&lt;p&gt;Same as previous example, except that the first parameter is not used.&lt;br&gt;
+It must still be specified though! Set to &lt;code&gt;Null()&lt;/code&gt; to indicate it isn&amp;rsquo;t used.&lt;/p&gt;
+&lt;p&gt;The script below will thus start tasks &lt;code&gt;7552d9fc-d1bb-4975-9a38-18357de531ea&lt;/code&gt; and &lt;code&gt;fb0f317d-da91-4b86-aafa-0174ae1e8c8f&lt;/code&gt;.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Qualify *;
+
+ButlerTaskIDs:
+Load * Inline [
+TaskId
+7552d9fc-d1bb-4975-9a38-18357de531ea
+fb0f317d-da91-4b86-aafa-0174ae1e8c8f
+];
+
+Call StartTask(Null(), &amp;#39;ButlerTaskIDs&amp;#39;)
+
+Unqualify *;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;start-tasks-using-tags&#34;&gt;Start tasks using tags&lt;/h3&gt;
+&lt;p&gt;Similar to how multiple tasks can be started using a table of task IDs (see above), tasks can also be started using a table containing tag names.&lt;/p&gt;
+&lt;h3 id=&#34;example-1-1&#34;&gt;Example 1&lt;/h3&gt;
+&lt;p&gt;The script below will start all reload tasks that have the &lt;code&gt;startTask1&lt;/code&gt; or &lt;code&gt;startTask2&lt;/code&gt; tag set.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Qualify *;
+
+ButlerTags:
+Load * Inline [
+Tag
+startTask1
+startTask2
+];
+
+Call StartTask(, Null(), &amp;#39;ButlerTags&amp;#39;)
+
+Unqualify *;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;start-tasks-using-custom-properties&#34;&gt;Start tasks using custom properties&lt;/h3&gt;
+&lt;p&gt;Similar to how multiple tasks can be started using a table of task IDs (see above), tasks can also be started using a table containing custom property names and values.&lt;/p&gt;
+&lt;h3 id=&#34;example-1-2&#34;&gt;Example 1&lt;/h3&gt;
+&lt;p&gt;The script below will start all reload tasks that have the &lt;code&gt;taskGroup&lt;/code&gt; custom property set to a value of &lt;code&gt;tasks1&lt;/code&gt;.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Qualify *;
+
+ButlerCustomProperties:
+Load * Inline [
+Name, Value
+taskGroup, tasks1
+];
+
+Call StartTask(, Null(), Null(), &amp;#39;ButlerKeyValues&amp;#39;)
+
+Unqualify *;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;seeing-is-believing&#34;&gt;Seeing is believing&lt;/h2&gt;
 &lt;p&gt;The video below is available at &lt;a href=&#34;https://www.youtube.com/channel/UCpQblhippq-KfWkXEEYFHTQ&#34;&gt;Ptarmigan Labs&amp;rsquo; YouTube channel&lt;/a&gt; and also in the &lt;a href=&#34;https://www.youtube.com/playlist?list=PLUuyY5OOOsz3XX5YT2QEwa7dzaBT1kOCP&#34;&gt;Butler playlist&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
         &lt;iframe src=&#34;https://www.youtube.com/embed/5m6FPRqhN14?enablejsapi=1&#34;

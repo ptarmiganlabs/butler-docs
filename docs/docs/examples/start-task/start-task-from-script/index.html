@@ -397,8 +397,12 @@ if (!doNotTrack) {
         <li><a href="#start-a-single-task">Start a single task</a></li>
         <li><a href="#need-to-pass-along-parameters-to-a-task-theres-a-sub-for-that">Need to pass along parameters to a task? There&rsquo;s a Sub for that!</a></li>
         <li><a href="#start-several-tasks-using-task-ids">Start several tasks using task IDs</a></li>
+        <li><a href="#example-1">Example 1</a></li>
+        <li><a href="#example-2">Example 2</a></li>
         <li><a href="#start-tasks-using-tags">Start tasks using tags</a></li>
+        <li><a href="#example-1-1">Example 1</a></li>
         <li><a href="#start-tasks-using-custom-properties">Start tasks using custom properties</a></li>
+        <li><a href="#example-1-2">Example 1</a></li>
       </ul>
     </li>
     <li><a href="#seeing-is-believing">Seeing is believing</a></li>
@@ -507,7 +511,7 @@ These contain functions/subs that encapsulate various Butler APIs (include start
 <p>The function(=sub in Sense lingo) <code>StartTask</code> takes a single <code>taskId</code> parameter,  which means that starting a reload task from an app&rsquo;s load script is as simple as</p>
 <pre><code>Call StartTask(&lt;TaskId&gt;)
 </code></pre>
-<p>The general Butler 7.0 demo app <code>Butler 7.0 - demo app.qvf</code> (<a href="https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps">link</a>) contains such a demo (and many others).</p>
+<p>The demo app <code>Butler 8.4 demo app.qvf</code> (<a href="https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps">link</a>) contains such a demo (and many others).</p>
 <h3 id="need-to-pass-along-parameters-to-a-task-theres-a-sub-for-that">Need to pass along parameters to a task? There&rsquo;s a Sub for that!</h3>
 <p>Sometimes you need to send parameters to a reload task (or rather to the load script of the app associated with the task).<br>
 This can be done by using the <code>StartTask_KeyValue</code> helper function/Sub.</p>
@@ -530,17 +534,75 @@ This is done by storing the task IDs in a separate table whose name is passed as
 <ol>
 <li>They are qualified (i.e. keep the &ldquo;Qualify *;&rdquo; statement!).</li>
 <li>The table names are passed as parameters to the StartTask function.</li>
-<li>The table fields MUST have the names used below.</li>
+<li>The table MUST have a field called <code>TaskId</code> that contains the IDs of reload tasks to be started.</li>
 </ol>
 <p>Regarding parameters to StartTask:</p>
 <ol>
-<li>Trailing, unused parameters can be omitted. For example, if you don&rsquo;t want to pass in custom
-properties and key-values you can just skip those parameters. See below for examples.</li>
-<li>Unused parameters that are followed by used parameters should be set to Null(). See below for examples.</li>
+<li>Trailing, unused parameters can be omitted.</li>
+<li>Unused parameters that are followed by used parameters should be set to Null().</li>
 </ol>
-<h3 id="start-tasks-using-tags">Start tasks using tags</h3>
-<h3 id="start-tasks-using-custom-properties">Start tasks using custom properties</h3>
-<h2 id="seeing-is-believing">Seeing is believing</h2>
+<h3 id="example-1">Example 1</h3>
+<p>The script below will start tasks <code>fbf645f0-0c92-40a4-af9a-6e3eb1d3c35c</code> (via the first parameter), <code>7552d9fc-d1bb-4975-9a38-18357de531ea</code> (via second parameter, i.e. a table) and <code>fb0f317d-da91-4b86-aafa-0174ae1e8c8f</code> (via second parameter too).</p>
+<pre tabindex="0"><code>Qualify *;
+
+ButlerTaskIDs:
+Load * Inline [
+TaskId
+7552d9fc-d1bb-4975-9a38-18357de531ea
+fb0f317d-da91-4b86-aafa-0174ae1e8c8f
+];
+
+Call StartTask(&#39;fbf645f0-0c92-40a4-af9a-6e3eb1d3c35c&#39;, &#39;ButlerTaskIDs&#39;)
+
+Unqualify *;
+</code></pre><h3 id="example-2">Example 2</h3>
+<p>Same as previous example, except that the first parameter is not used.<br>
+It must still be specified though! Set to <code>Null()</code> to indicate it isn&rsquo;t used.</p>
+<p>The script below will thus start tasks <code>7552d9fc-d1bb-4975-9a38-18357de531ea</code> and <code>fb0f317d-da91-4b86-aafa-0174ae1e8c8f</code>.</p>
+<pre tabindex="0"><code>Qualify *;
+
+ButlerTaskIDs:
+Load * Inline [
+TaskId
+7552d9fc-d1bb-4975-9a38-18357de531ea
+fb0f317d-da91-4b86-aafa-0174ae1e8c8f
+];
+
+Call StartTask(Null(), &#39;ButlerTaskIDs&#39;)
+
+Unqualify *;
+</code></pre><h3 id="start-tasks-using-tags">Start tasks using tags</h3>
+<p>Similar to how multiple tasks can be started using a table of task IDs (see above), tasks can also be started using a table containing tag names.</p>
+<h3 id="example-1-1">Example 1</h3>
+<p>The script below will start all reload tasks that have the <code>startTask1</code> or <code>startTask2</code> tag set.</p>
+<pre tabindex="0"><code>Qualify *;
+
+ButlerTags:
+Load * Inline [
+Tag
+startTask1
+startTask2
+];
+
+Call StartTask(, Null(), &#39;ButlerTags&#39;)
+
+Unqualify *;
+</code></pre><h3 id="start-tasks-using-custom-properties">Start tasks using custom properties</h3>
+<p>Similar to how multiple tasks can be started using a table of task IDs (see above), tasks can also be started using a table containing custom property names and values.</p>
+<h3 id="example-1-2">Example 1</h3>
+<p>The script below will start all reload tasks that have the <code>taskGroup</code> custom property set to a value of <code>tasks1</code>.</p>
+<pre tabindex="0"><code>Qualify *;
+
+ButlerCustomProperties:
+Load * Inline [
+Name, Value
+taskGroup, tasks1
+];
+
+Call StartTask(, Null(), Null(), &#39;ButlerKeyValues&#39;)
+
+Unqualify *;
+</code></pre><h2 id="seeing-is-believing">Seeing is believing</h2>
 <p>The video below is available at <a href="https://www.youtube.com/channel/UCpQblhippq-KfWkXEEYFHTQ">Ptarmigan Labs&rsquo; YouTube channel</a> and also in the <a href="https://www.youtube.com/playlist?list=PLUuyY5OOOsz3XX5YT2QEwa7dzaBT1kOCP">Butler playlist</a>.</p>
 <div class="embed-responsive embed-responsive-16by9">
         <iframe src="https://www.youtube.com/embed/5m6FPRqhN14?enablejsapi=1"
