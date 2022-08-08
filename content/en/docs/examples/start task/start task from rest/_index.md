@@ -346,7 +346,7 @@ The QMC shows which tasks have these tags set:
 
 ![Qlik Sense QMC tasks with tags](qmc-tasks-with-tags-1.png "Tasks with tags starting with 'start'")
 
-Starting the three tasks tagged with `starttask1`:
+Starting the three tasks tagged with `startTask1`:
 
 ```bash
 ➜  ~ curl -X "PUT" "http://192.168.1.168:8080/v4/reloadtask/-/start" -H 'Content-Type: application/json; charset=utf-8' -d $'[
