@@ -487,7 +487,7 @@ Make sure the account Butler runs under has the appropriate access to those dire
 <div class="alert alert-warning" role="alert">
 <h4 class="alert-heading">Warning: UNC paths only on Windows</h4>
 
-    <p>UNC paths (i.e. &ldquo;\host\fileshare\folder1\folder2&rdquo;) is a Windows-only feature and as such only supported when Butler is running on Windows.</p>
+    <p>UNC paths (i.e. &ldquo;\\host\fileshare\folder1\folder2&rdquo;) is a Windows-only feature and as such only supported when Butler is running on Windows.</p>
 <p>If Butler is running on a non-Windows operating system and directories on network file shares should be accessible via Butler&rsquo;s RESR API, those directories must be mounted on the server using the standard OS mechanisms, then accessed via the server&rsquo;s local file system.</p>
 <p>Butler will warn in the console and file logs if UNC paths are specified in the config file, and Butler is NOT running on Windows.</p>
 
@@ -739,7 +739,7 @@ Warnings in log for the previous scenario.
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified 2022-01-27: <a href="https://github.com/ptarmiganlabs/butler-docs/commit/5f0d26591407991d7b48895b1060bdc0b83be082">MInor file delete clarification re UNC paths (5f0d265)</a>
+  Last modified 2022-08-08: <a href="https://github.com/ptarmiganlabs/butler-docs/commit/27c154ee72182a8fd240ca54895585bfa0726338">8.4.0 update (27c154e)</a>
 </div>
 
 </div>

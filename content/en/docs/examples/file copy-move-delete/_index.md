@@ -20,7 +20,7 @@ These steps are needed to achieve the goal:
 4. Call the Butler APIs directly or use the subs included in the GitHub repo to do the desired file operations.
 
 {{% alert title="Warning: UNC paths only on Windows" color="warning" %}}
-UNC paths (i.e. "\\host\fileshare\folder1\folder2") is a Windows-only feature and as such only supported when Butler is running on Windows.  
+UNC paths (i.e. "\\\\host\\fileshare\\folder1\\folder2") is a Windows-only feature and as such only supported when Butler is running on Windows.  
 
 If Butler is running on a non-Windows operating system and directories on network file shares should be accessible via Butler's RESR API, those directories must be mounted on the server using the standard OS mechanisms, then accessed via the server's local file system.
 

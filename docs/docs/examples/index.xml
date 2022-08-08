@@ -657,7 +657,7 @@ Make sure the account Butler runs under has the appropriate access to those dire
 &lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Warning: UNC paths only on Windows&lt;/h4&gt;
 
-    &lt;p&gt;UNC paths (i.e. &amp;ldquo;\host\fileshare\folder1\folder2&amp;rdquo;) is a Windows-only feature and as such only supported when Butler is running on Windows.&lt;/p&gt;
+    &lt;p&gt;UNC paths (i.e. &amp;ldquo;\\host\fileshare\folder1\folder2&amp;rdquo;) is a Windows-only feature and as such only supported when Butler is running on Windows.&lt;/p&gt;
 &lt;p&gt;If Butler is running on a non-Windows operating system and directories on network file shares should be accessible via Butler&amp;rsquo;s RESR API, those directories must be mounted on the server using the standard OS mechanisms, then accessed via the server&amp;rsquo;s local file system.&lt;/p&gt;
 &lt;p&gt;Butler will warn in the console and file logs if UNC paths are specified in the config file, and Butler is NOT running on Windows.&lt;/p&gt;
 
