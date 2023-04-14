@@ -32,7 +32,7 @@
 &lt;h4 class=&#34;alert-heading&#34;&gt;Remember!&lt;/h4&gt;
 
     &lt;p&gt;Individual parts of Butler can be enabled/disabled in the main &lt;a href=&#34;/docs/reference/config-file/&#34;&gt;config file&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;If you&amp;rsquo;re unsure what each REST API endpoint does, the &lt;a href=&#34;/docs/reference/rest-api/?operationsSorter=alpha&#34;&gt;API docs&lt;/a&gt; is the place to check.&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;re unsure what each REST API endpoint does, the &lt;a href=&#34;/docs/reference/rest-api-2/&#34;&gt;API docs&lt;/a&gt; is the place to check.&lt;/p&gt;
 
 
 &lt;/div&gt;
@@ -40,7 +40,7 @@
 &lt;h3 id=&#34;1-installation&#34;&gt;1. Installation&lt;/h3&gt;
 &lt;p&gt;Follow the &lt;a href=&#34;/docs/getting-started/install&#34;&gt;installation instructions&lt;/a&gt; - they will guide through the setup process, including requirements and customisation.&lt;/p&gt;
 &lt;h3 id=&#34;2-setup&#34;&gt;2. Setup&lt;/h3&gt;
-&lt;p&gt;Once everything is installed you need to &lt;a href=&#34;./setup&#34;&gt;edit the configuration file&lt;/a&gt; to suit your specific needs.&lt;/p&gt;
+&lt;p&gt;Once everything is installed you need to &lt;a href=&#34;/docs/getting-started/setup/&#34;&gt;edit the configuration file&lt;/a&gt; to suit your specific needs.&lt;/p&gt;
 &lt;h3 id=&#34;3-try-it-out&#34;&gt;3. Try it out!&lt;/h3&gt;
 &lt;p&gt;Feel free to browse through the &lt;a href=&#34;/docs/concepts&#34;&gt;concepts&lt;/a&gt; and &lt;a href=&#34;/docs/examples&#34;&gt;examples&lt;/a&gt; to get an understanding of how to use Butler.&lt;/p&gt;
 

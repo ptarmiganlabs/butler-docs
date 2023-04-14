@@ -19,7 +19,7 @@ The main components of Butler are outlined in the system diagram above.
 {{% alert title="Remember!" color="primary" %}}
 Individual parts of Butler can be enabled/disabled in the main [config file](/docs/reference/config-file/).
 
-If you're unsure what each REST API endpoint does, the [API docs](/docs/reference/rest-api/?operationsSorter=alpha) is the place to check.
+If you're unsure what each REST API endpoint does, the [API docs](/docs/reference/rest-api-2/) is the place to check.
 {{% /alert %}}
 
 ### 1. Installation
@@ -28,7 +28,7 @@ Follow the [installation instructions](/docs/getting-started/install) - they wil
 
 ### 2. Setup
 
-Once everything is installed you need to [edit the configuration file](./setup) to suit your specific needs.
+Once everything is installed you need to [edit the configuration file](/docs/getting-started/setup/) to suit your specific needs.
 
 ### 3. Try it out!
 
