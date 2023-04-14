@@ -263,7 +263,7 @@ NOTE: There is no macOS binary for this version.
 
 ### What's new in version 5.3
 
-* Added a new API endpoint for listing all keys in a [key-value](http://localhost:1313/docs/concepts/key-value/) namespace.  [#150](https://github.com/ptarmiganlabs/butler/issues/150).
+* Added a new API endpoint for listing all keys in a [key-value](https://butler.ptarmiganlabs.com/docs/concepts/key-value//) namespace.  [#150](https://github.com/ptarmiganlabs/butler/issues/150).
 * Fixed a bug where Butler would not start properly if there were empty config sections in the YAML config file. Butler is now more tolerant against slightly incorrectly formatted config files. [#152](https://github.com/ptarmiganlabs/butler/issues/152).
 
 ### What's new in version 5.2
