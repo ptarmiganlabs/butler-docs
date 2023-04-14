@@ -195,7 +195,7 @@ no = 'Sorry to hear that. Please <a href="https://github.com/ptarmiganlabs/butle
 # End user relevant links. These will show up on left side of footer and in the community page if you have one.
 [[params.links.user]]
 	name = "SenseOps mailing list"
-	url = "https://www.subscribepage.com/g3c1f1"
+	url = "https://ptarmiganlabs.com/#/portal/signup"
 	icon = "fa fa-envelope"
         desc = "SenseOps newsletter from Ptarmigan Labs"
 [[params.links.user]]
