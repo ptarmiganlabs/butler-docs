@@ -41,6 +41,21 @@ The tool can be used stand-along or as part of an automated release process.
 
 [https://github.com/ptarmiganlabs/butler-sheet-icons](https://github.com/ptarmiganlabs/butler-sheet-icons)
 
+### Ctrl-Q
+
+Given the name of this tool it doesn't sound like a member of the Butler family.  
+Let's say Ctrl-Q is a sibling of the Butler bunch.
+
+While the Butler tools are (usually) intended to solve and simplify rather specific use cases, Ctrl-Q is aimed at being the lazy Qlik developer's best friend.
+
+Let's say there is some manual, tedious, time consuming and error prone activity that a Qlik Sense developer is faced with.  
+For example importing dozens of apps from QVF files and creating a hundred associated reload tasks.  
+Ctrl-Q lets you do this with a single command, using definitions in an Excel file. Instead of spending a day on this the actual execution takes a minute or so.
+
+In other words: Ctrl-Q focus on high-value use cases that are difficult or impossible to solve using other tools.
+
+[github.com/ptarmiganlabs/ctrl-q](https://github.com/ptarmiganlabs/ctrl-q)
+
 ### Butler CW
 
 Butler Cache Warmer. Cache warming is the process of proactively forcing Sense apps to be loaded into RAM, so they are readily available when users open them.  
