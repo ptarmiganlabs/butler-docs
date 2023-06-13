@@ -6,13 +6,6 @@ description: >
   Description of how reload alerts can be sent as Microsoft Teams messages.
 ---
 
-{{% alert title="Optional" color="primary" %}}
-These settings are optional.  
-If alerts via Teams are not of interest, just turn off this feature and leave the default values in the config as they are.
-
-Do note though that Butler expects the configuration properties below to exist in the config file, but will *ignore their values* if the related features are disabled.
-{{% /alert %}}
-
 ## What's this?
 
 Butler can send two kinds of alert messages via Teams:
@@ -99,20 +92,18 @@ Those xml files are the foundation on top of which all Butler alerts are built -
 
 The concept is the same as for [all alert types](/docs/getting-started/setup/reload-alerts/#how-it-works).
 
-## Settings in main config file
+## Settings in config file
 
 ```yaml
 ---
 Butler:
   ...
   ...
+  # Settings for notifications and messages sent to MS Teams
   teamsNotification:
-    enable: true
-    userSessionEvents:
-      enable: true
-      webhookURL: <web hook URL from MS Teams>
+    enable: false
     reloadTaskFailure:
-      enable: true
+      enable: false
       webhookURL: <web hook URL from MS Teams>
       messageType: formatted     # formatted / basic. Formatted means that template file below will be used to create the message.
       basicMsgTemplate: 'Qlik Sense reload failed: "{{taskName}}"'      # Only needed if message type = basic
@@ -121,7 +112,7 @@ Butler:
       tailScriptLogLines: 10
       templateFile: /path/to/teams/template/directory/failed-reload.handlebars
     reloadTaskAborted:
-      enable: true
+      enable: false
       webhookURL: <web hook URL from MS Teams>
       messageType: formatted     # formatted / basic. Formatted means that template file below will be used to create the message.
       basicMsgTemplate: 'Qlik Sense reload aborted: "{{taskName}}"'       # Only needed if message type = basic

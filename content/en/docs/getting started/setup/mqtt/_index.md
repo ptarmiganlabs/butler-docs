@@ -6,14 +6,6 @@ description: >
   Butler can use MQTT as a channel for pub-sub style M2M (machine to machine) messages. This page describes how to configure MQTT in Butler.
 ---
 
-{{% alert title="Optional" color="primary" %}}
-These settings are optional.
-
-If you don't need the MQTT feature, just disable it and leave the default values in the config as they are.
-
-Do note though that Butler expects the configuration properties below to exist in the config file, but will *ignore their values* if the related features are disabled.
-{{% /alert %}}
-
 ## What's this?
 
 [MQTT](https://mqtt.org/) is a light weight messaging protocol based on a publish-subscribe metaphore. It is widely for example Internet of Things and telecom sectors.
@@ -24,7 +16,7 @@ Butler can be configured to forward events from Sense (reload task failures, abo
 
 Butler's [REST API](/docs/reference/rest-api/?operationsSorter=alpha) also has an endpoint that makes it possible to send MQTT messages from the Sense load script.
 
-## Settings in main config file
+## Settings in config file
 
 The settings are of two kinds:
 
@@ -49,12 +41,9 @@ Butler:
     taskFailureServerStatusTopic: qliksense/butler/task_failure_server
     taskAbortedTopic: qliksense/task_aborted
     taskAbortedFullTopic: qliksense/task_aborted_full
-    sessionStartTopic: qliksense/session/start
-    sessionStopTopic: qliksense/session/stop
-    connectionOpenTopic: qliksense/connection/open
-    connectionCloseTopic: qliksense/connection/close
-    sessionServerStatusTopic: qliksense/butler/session_server
-    activeUserCountTopic: qliksense/users/active/count
-    activeUsersTopic: qliksense/users/active/usernames  ...
+    serviceRunningTopic: qliksense/service_running
+    serviceStoppedTopic: qliksense/service_stopped
+    serviceStatusTopic: qliksense/service_status
+  ...
   ...
 ```

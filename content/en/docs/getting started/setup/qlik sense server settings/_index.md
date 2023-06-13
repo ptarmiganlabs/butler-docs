@@ -6,11 +6,6 @@ description: >
   Details on how to configure the connection from Butler to Qlik Sense Enterprise on Windows.
 ---
 
-{{% alert title="Mandatory" color="warning" %}}
-These settings are mandatory.  
-They must exist in the config file and be correctly set for Butler to work.
-{{% /alert %}}
-
 ## What's this?
 
 In order to interact with a Qlik Sense Enterprise on Windows (QSEoW) environment, Butler needs to know a few things about that environment. This is true no matter if the Sense cluster consists of a single Sense server or many.

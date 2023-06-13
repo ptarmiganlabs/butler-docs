@@ -1,6 +1,6 @@
 ---
 title: "Control which tasks can be started via Butler's API"
-linkTitle: "Task filter"
+linkTitle: "Start task filter"
 weight: 305
 description: >
   Qlik Sense tasks can be started using Butler's REST API.  
@@ -11,14 +11,7 @@ description: >
   This can be useful for sysadmins when only a limited set of tasks should be available to third party systems.
 ---
 
-{{% alert title="Optional" color="primary" %}}
-Task filtering is an optional Butler feature.
-
-If task filtering is not of interest, the default values in the config file can be left as they are.  
-By default this feature is turned off.
-{{% /alert %}}
-
-## Settings in main config file
+## Settings in config file
 
 ```yaml
 ---

@@ -8,13 +8,6 @@ description: >
     This makes it much easier to find and analyse the script logs of faile reloads.
 ---
 
-{{% alert title="Optional" color="primary" %}}
-Storing the logs of failed reloads is an optional Butler feature.
-
-If reload logs are not of interest, the default values in the config file can be left as they are.  
-Do note though that Butler expects the configuration properties below to exist in the config file, but will _ignore their values_ if the related features are disabled.
-{{% /alert %}}
-
 ## What's this?
 
 The idea is to save the full script logs of failed app reloads.  

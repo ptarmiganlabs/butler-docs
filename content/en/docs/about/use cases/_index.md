@@ -22,6 +22,7 @@ weight = 10
 - [Create directories, copy/move/delete files](#create-directories-copymovedelete-files)
 - [Extract metadata for apps](#extract-metadata-for-apps)
 - [Easily post messages to Slack](#easily-post-messages-to-slack)
+- [Monitor Windows services](#monitor-windows-services)
 
 ## Instant notifications when reload tasks fail or are stopped
 
@@ -177,3 +178,13 @@ I.e. notifying specific Slack users that they have a new message.
 Can for example be used to notify user(s) that an app has reloaded with new data, or that some error condition has occured.
 
 More info [here](docs/examples/sense-demo-apps/post-to-slack/).
+
+## Monitor Windows services
+
+If Butler is running on Windows (server or even desktop) it can monitor one or more Windows services.  
+This feature is **not** available when running Butler on Linux, macOS or in Docker.
+
+Monitoring here means tracking the services' state and sending messages to email, InfluxDB, New Relic, MQTT, Webhooks, Slack or Teams when services stop or start.
+
+It can for example be used to get alerts if a Qlik Sense service for some reason stops.  
+The concept is not limited to Qlik Sense services though - any Windows service can be monitored.

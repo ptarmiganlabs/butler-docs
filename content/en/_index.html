@@ -44,10 +44,45 @@ linkTitle = "Butler"
 
 {{< blocks/section color="light">}}
 
+
+{{% blocks/feature icon="fa-envelope" title="Task failure notifications" %}}
+Who should be the first to know that a reload has failed?  
+You or your users?  
+Who was it that stopped that important 3-hour reload 5 minutes before it was done?
+
+Get notified when tasks fail or are stopped, with notifications sent to Slack, Microsoft Teams, email, New Relic, Signl4 and other destinations.  
+Full support for HTML/Markdown formatting and 40+ template fields.
+
+[Read more...](/docs/concepts/alert-emails/) 
+{{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fa-archive" title="Save logs from failed reloads" %}}
+Finding the complete logs from failed reloads can be a pain.
+
+Butler can save these for you, sorted by date.  
+Finding what caused a reload to fail is now easier than ever!
+
+[Read more...](/docs/concepts/failed-reload-logs/) 
+{{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fa-cogs" title="Monitor Windows services" %}}
+Make sure the Qlik Sense services are always running - and any other Windows services of interest.
+Maybe your IT department does this for you - if not Butler offers a pretty solid solution.
+
+Start/stop alerts can be sent to email, Slack, Teams, InfluxDB, New Relic, MQTT and webhooks.  
+Continuous stats of services is sent to MQTT and InfluxDB. 
+
+[Read more...](/docs/getting-started/setup/windows-service-monitor/) 
+{{% /blocks/feature %}}
+
+
+
 {{% blocks/feature icon="fa-clock" title="Advanced task scheduler" %}}
 Set up advanced task scheduling, more flexible than the one built into Sense.
 
-Cron for Qlik Sense, no more, no less.
+[Cron](https://crontab.guru) for Qlik Sense, no more, no less.
 
 [Read more...](/docs/concepts/scheduler/) 
 {{% /blocks/feature %}}
@@ -83,26 +118,6 @@ Or maybe start all tasks having a certain tag or custom property set? Part of th
 [Read more...](/docs/examples/start-task-from-rest/) 
 {{% /blocks/feature %}}
 
-
-{{% blocks/feature icon="fa-envelope" title="Task failure notifications" %}}
-Who should be the first to know that a reload has failed?  
-You or your users?  
-Who was it that stopped that important 3-hour reload 5 minutes before it was done?
-
-Get notified when tasks fail or are stopped, with notifications sent to Slack, Microsoft Teams, email, New Relic, Signl4 and other destinations.  
-Full support for HTML/Markdown formatting and 40+ template fields.
-
-[Read more...](/docs/concepts/alert-emails/) 
-{{% /blocks/feature %}}
-
-{{% blocks/feature icon="fa-archive" title="Save logs from failed reloads" %}}
-Finding the complete logs from failed reloads can be a pain.
-
-Butler can save these for you, sorted by date.  
-Finding what caused a reload to fail is now easier than ever!
-
-[Read more...](/docs/concepts/failed-reload-logs/) 
-{{% /blocks/feature %}}
 
 {{% blocks/feature icon="fa-redo" title="Partial app reloads" %}}
 Trigger full or partial app reloads using Butler's REST API.
@@ -162,8 +177,8 @@ Butler itself can be monitored in InfluxDB/Grafana and New Relic.
 
 {{< blocks/section color="dark">}}
 
-{{% blocks/feature icon="fa-lightbulb" title="Latest release: 8.6" %}}
-🦠🐛 Antivirus and malware scanning now part of the build process.
+{{% blocks/feature icon="fa-lightbulb" title="Latest release: 9.0" %}}
+🚨 Monitor Windows services and alert to email, Teams, Slack, InfluxDB, New Relic, MQTT and webhooks!
 
 Available on [GitHub](https://github.com/ptarmiganlabs/butler/releases).
 {{% /blocks/feature %}}
@@ -176,8 +191,8 @@ Please consider giving us a star on [GitHub](https://github.com/ptarmiganlabs/bu
 {{% /blocks/feature %}}
 
 
-{{% blocks/feature icon="fab fa-medium-m" title="Don't be a stranger!" url="https://medium.com/ptarmigan-labs" %}}
-We have a great [newsletter](https://ptarmiganlabs.com/#/portal/signup), we're on [Medium](https://medium.com/ptarmigan-labs) and [LinkedIn](https://www.linkedin.com/in/gorsan).  
+{{% blocks/feature icon="fa-hand-spock" title="Don't be a stranger!" url="https://ptarmiganlabs.com/#/portal/signup" %}}
+We have a great [newsletter](https://ptarmiganlabs.com/#/portal/signup)  and [LinkedIn](https://www.linkedin.com/in/gorsan).  
 The [GitHub discussion forums](https://github.com/ptarmiganlabs/butler/discussions) are good for feature questions and discussions.
 {{% /blocks/feature %}}
 

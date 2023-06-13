@@ -18,6 +18,12 @@ Update it as needed (see the [config file reference page](/docs/reference/config
 
 Trying to run Butler with the default config file (the one on GitHub) will not work - you must adapt it to your server environment. For example, you need to enter the IP or host name of you Sense server(s), the IP or host name where Butler is running etc.
 
+{{% alert title="All config entries are mandatory" color="warning" %}}
+As of Butler 9.0 the config file's structure will be validated when Butler starts. If there are any errors (missing entries etc) in the config file, Butler will not start.
+
+This means that all config file entries are mandatory. If some feature is not use the corresponding entry can be left empty.
+{{% /alert %}}
+
 Finally, Butler must somehow be given instructions about where to look for the config file.  
 This can be done in several ways depending on how Butler is used, see below.
 

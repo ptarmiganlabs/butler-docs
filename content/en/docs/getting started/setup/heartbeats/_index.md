@@ -8,14 +8,6 @@ description: >
   Butler can send periodic heartbeat messages to a monitoring tool, which can then alert if Butler hasn't checked in as expected.
 ---
 
-{{% alert title="Optional" color="primary" %}}
-These settings are optional.
-
-If you don't need this feature just disable it and leave the default values in the config as they are.
-
-Do note though that Butler expects the configuration properties below to exist in the config file, but will *ignore their values* if the related features are disabled.
-{{% /alert %}}
-
 ## What's this?
 
 A tool like Butler should be viewed as mission critical, at least if it's features are used by mission critical Sense apps.
@@ -30,7 +22,7 @@ It sends periodic messages to a monitoring tool, which can then alert if Butler 
 
 More info on using Healthchecks.io with Butler can be found [in this blog post](https://ptarmiganlabs.com/blog/2020/07/26/black-box-monitoring-of-butler-tools-monitoring-the-monitor/).
 
-## Settings in main config file
+## Settings in config file
 
 ```yaml
 ---

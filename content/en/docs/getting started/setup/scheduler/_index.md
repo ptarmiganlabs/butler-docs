@@ -1,18 +1,10 @@
 ---
 title: "Configuring the Butler scheduler"
 linkTitle: "Scheduler"
-weight: 110
+weight: 113
 description: >
   Butler's scheduler complements the Qlik Sense built-in scheduler with more flexible triggers and a devops friendly API/file format for storing scheduling data.
 ---
-
-{{% alert title="Optional" color="primary" %}}
-These settings are optional.
-
-If you don't need the features offered by Butler's scheduler, just disable it and leave the default values in the config as they are.
-
-Do note though that Butler expects the configuration properties below to exist in the config file, but will *ignore their values* if the related features are disabled.
-{{% /alert %}}
 
 ## What's this?
 
@@ -87,7 +79,7 @@ butlerSchedule:
 
 A full description of the scheduler and its file format is available in the [Reference docs](/docs/reference/scheduler/) section.
 
-## Settings in main config file
+## Settings in config file
 
 ```yaml
 ---

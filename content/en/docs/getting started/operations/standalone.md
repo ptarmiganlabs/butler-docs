@@ -99,7 +99,7 @@ PS C:\tools\butler>
 
 You can use the excellent [Nssm](https://nssm.cc/) tool to make Butler run as a Windows Service, with all the benefits that follow (can be monitored using operations tools, automatic start/restart etc).
 
-A step-by-step tutorial for running the Butler tools as Windows services is available over at [ptarmiganlabs.com](https://butler.ptarmiganlabs.com/docs/getting-started/operations/standalone/#windows-services--process-monitors).
+A step-by-step tutorial for running the Butler tools as Windows services is available over at [ptarmiganlabs.com](https://ptarmiganlabs.com/running-butler-tools-as-windows-services/).
 
 ### macOS and Linux
 

@@ -6,14 +6,6 @@ description: >
   Butler contains REST API endpoints for moving, copying and deleting files.
 ---
 
-{{% alert title="Optional" color="primary" %}}
-These settings are optional.
-
-If you don't need the features offered by Butler's scheduler, just disable it and leave the default values in the config as they are.
-
-Do note though that Butler expects the configuration properties below to exist in the config file, but will *ignore their values* if the related features are disabled.
-{{% /alert %}}
-
 ## What's this?
 
 For (good) security reasons Qlik Sense does not allow direct access to the file system.  
@@ -34,7 +26,7 @@ There are three supported file system operations: copy, move and delete:
 
 As the config file is only read when Butler starts, you must restart Butler in order for any config changes to take effect.
 
-## Settings in main config file
+## Settings in config file
 
 ```yaml
 ---

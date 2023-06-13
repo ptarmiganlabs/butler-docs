@@ -50,10 +50,18 @@ The changes needed to the config files are usually additive in nature, i.e. some
 
 ### Major upgrades
 
-This scneario involves breaking changes of some kind.  
-These almost certainly require changes to the config files, sometimes even significant ones in the sense that the structure of the config file *may* have changed.
+This scneario involves breaking changes of some kind.
+
+These almost certainly require changes to the config files, sometimes even significant ones in the sense that the structure of the config file may have changed.
 
 ## Upgrade checklist
+
+{{< notice info >}}
+Starting with Butler version 9.0 there is a check that the config file has the correct format.
+
+This means that if you forget to add or change some setting in the main YAML config file, Butler will tell you what's missing and refuse to start.  
+A consequence of this is that all settings are now mandatory, even if you don't use them.
+{{< /notice >}}
 
 1. Look at the [release notes](/docs) to get a general feeling for what is new and what has changed.  
   Those are the areas tha may require changes in the config file. 

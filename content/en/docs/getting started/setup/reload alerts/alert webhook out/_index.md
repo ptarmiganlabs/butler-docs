@@ -6,12 +6,6 @@ description: >
   Description of how reload alerts can be sent via outgoing webhooks.
 ---
 
-{{% alert title="Optional" color="primary" %}}
-These settings are optional.  
-If alerts via outgoing webhooks are not of interest, just turn off this feature and leave the default values in the config as they are.
-
-Do note though that Butler expects the configuration properties below to exist in the config file, but will *ignore their values* if the related features are disabled.
-{{% /alert %}}
 
 ## What's this?
 
@@ -78,7 +72,7 @@ The same event as above looks like this:
 {"event":"Qlik Sense reload failed","hostName":"pro2-win1","user":"LAB\\goran","taskName":"Manually triggered reload of Test failing reloads 2","taskId":"dec2a02a-1680-44ef-8dc2-e2bfb180af87","appName":"Test failing reloads 2","appId":"e7af59a0-c243-480d-9571-08727551a66f","logTimeStamp":"2021-02-16 09:24:59,099","logLevel":"INFO","executionId":"14a81bf5-f81c-4047-b1a1-193b0920de28","logMessage":"Max retries reached"}
 ```
 
-## Settings in main config file
+## Settings in  config file
 
 ```yaml
 ---

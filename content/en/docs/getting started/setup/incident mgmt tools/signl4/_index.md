@@ -12,14 +12,6 @@ description: >
   [www.signl4.com](https://www.signl4.com)
 ---
 
-{{% alert title="Optional" color="primary" %}}
-These settings are optional.
-
-If you don't need the features offered by Butler's Sign4 integration, just disable it and leave the default values in the config as they are.
-
-Do note though that Butler expects the configuration properties below to exist in the config file, but will *ignore their values* if the related features are disabled.
-{{% /alert %}}
-
 ## What's this?
 
 Reload failure/abort events can be forwarded to Signl4, where they become incidents that are tracked, (maybe) escalated and eventually (hopefully!) closed.
@@ -36,7 +28,7 @@ To use Butler with Signl4 you must first create a Signl4 team. Then note the sec
 
 More info about the webhooks can be found in [Signl4's developer docs](https://connect.signl4.com/webhook/docs/index.html).
 
-## Settings in main config file
+## Settings in config file
 
 ```yaml
 ---

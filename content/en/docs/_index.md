@@ -13,7 +13,151 @@ Upgrading from an earlier version of Butler?
 General guidance on how to do this is found [here](/docs/getting-started/upgrade/).
 {{< /notice >}}
 
+
+
 {{% pageinfo %}}
+
+
+### What's new in version 9.0.0
+
+#### ⚠ BREAKING CHANGES
+
+* Move InfluxDB settings to their own section in config file
+
+*Features*
+
+* Add InfluxDB as destination for Windows service status monitoring
+* Add monitoring of Windows services
+* Log at startup current API rate limit
+* Log at startup which config file is used
+* Log warnings when API rate limits exceeded
+* Move InfluxDB settings to their own section in config file
+* New command line option for setting API rate limit
+* Verify structure of config file on Butler startup
+
+*Bug Fixes*
+
+* Add missing fields to template config file
+* Only initiate InfluxDB connection if it's actually enabled in config file
+* Only set up REST server if it's actually enabled in the config file
+
+*Other*
+
+* deps: Update dependencies to stay safe & secure
+* Update Docker image to use Node.js v20
+
+### What's new in version 8.6.2
+
+*Other*
+
+* deps: Update dependencies to stay safe & secure
+
+### What's new in version 8.6.1
+
+*Bug Fixes*
+
+* Allow empty New Relic settings in config file's uptime section
+* Allow uptime reporting to New Relic without custom http headers
+* Better log messages when rate limiting for reload notifications passes
+* Config asset errors when starting Butler without any New Relic accounts specified
+* Improve warning when custom property names in config file don't exist in Sense
+* Only send to New Relic if event/log is enabled AND custom property name specified.
+* Upgrade Swagger docs to latest version
+
+*Other*
+
+* deps: Update dependencies to stay safe & secure
+
+### What's new in version 8.6.0
+
+*Features*
+
+* Add virus/malware scanning of standalone binaries during build,
+* Sign Windows binaries during build
+
+*Other*
+
+* deps: Update dependencies to stay safe & secure
+
+### What's new in version 8.5.3
+
+*Other*
+
+* Update dependencies
+
+### What's new in version 8.5.2
+
+*Bug Fixes*
+
+* Handle startup error messages without... errors
+* Improved startup checks of custom properties handling New Relic destinations
+* Incorrect error messages in config assert module
+
+*Other*
+
+* deps: Updated dependencies to stay safe and secure
+
+### What's new in version 8.5.1
+
+*Bug Fixes*
+
+* New Relic CLI options now work again
+
+*Other*
+
+* deps: Updated dependencies to stay safe and secure
+
+### What's new in version 8.5.0
+
+This release enhances the integration between Butler and the New Relic SaaS monitoring platform.
+
+Specifically, it's now possible to control per reload task which New Relic account failed/aborted task notifications should be sent to.
+The destination New Relic account(s) (where failed reload events/log entries are sent) is set via custom properties on the reload tasks.
+
+Failed and aborted tasks can be sent to New Relic as events or log entries, or both.
+Zero, one or more New Relic accounts can be defined in the Butler config file.
+
+*Features*
+
+* new-relic: Allow per-reload-task control of to which New Relic account failed/aborted reload alerts are sent
+* Add new command line option --no-qs-connection. Used when no connection to Sense should be done, for example when generating API docs
+
+*Bug Fixes*
+
+* scriptlog: Increase timeout when getting script logs
+* scriptlog: More descriptive messages when script log retrieval fails 
+
+*Other*
+
+* deps: Update dependencies to latest versions
+
+### What's new in version 8.4.2
+
+*Bug Fixes*
+
+* Add building of Linux binaries to build pipeline
+
+
+### What's new in version 8.4.1
+
+*Bug Fixes*
+
+* Properly store demo apps in GitHub
+
+### What's new in version 8.4.0
+
+*Features*
+
+* Make file copy/move/delete REST endpoints more robust
+* Warn if UNC paths are used with file API calls, when Butler runs on non-Windows OS
+
+*Bug Fixes*
+
+* Make startup logging of approved directories for file copy/move/delete less verbose
+
+*Other*
+
+* Update dependencies
 
 ### What's new in version 8.3.3
 
