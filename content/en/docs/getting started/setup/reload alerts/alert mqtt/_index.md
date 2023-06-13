@@ -6,13 +6,6 @@ description: >
   Description of how reload alerts can be sent as MQTT messages.
 ---
 
-{{% alert title="Optional" color="primary" %}}
-These settings are optional.  
-If alerts via MQTT are not of interest, just turn off this feature and leave the default values in the config as they are.
-
-Do note though that Butler expects the configuration properties below to exist in the config file, but will *ignore their values* if the related features are disabled.
-{{% /alert %}}
-
 ## What's this?
 
 Butler can send two kinds of alert messages as MQTT messages:
@@ -50,7 +43,7 @@ Those xml files are the foundation on top of which all Butler alerts are built -
 
 The concept is more or less the same as for [alert emails](../alert-emails/#how-it-works).
 
-## Settings in main config file
+## Settings in config file
 
 ```yaml
 ---
@@ -63,6 +56,8 @@ Butler:
     brokerPort: 1883
     taskFailureSendFull: true
     taskAbortedSendFull: true
+    subscriptionRootTopic: qliksense/#                                  # Topic that Butler will subscribe to
+    taskStartTopic: qliksense/start_task                                # Topic for incoming messages used to start Sense tasks. Should be subtopic to subscriptionRootTopic
     taskFailureTopic: qliksense/task_failure
     taskFailureFullTopic: qliksense/task_failure_full
     taskFailureServerStatusTopic: qliksense/butler/task_failure_server

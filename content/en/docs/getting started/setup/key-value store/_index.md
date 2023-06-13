@@ -5,13 +5,6 @@ weight: 120
 description: >
   Butler contains a key-value store that is accessible via the REST API.
 ---
-{{% alert title="Optional" color="primary" %}}
-These settings are optional.
-
-If you don't need the features offered by Butler's key-value store, just disable it and leave the default values in the config as they are.
-
-Do note though that Butler expects the configuration properties below to exist in the config file, but will *ignore their values* if the related features are disabled.
-{{% /alert %}}
 
 ## What's this?
 
@@ -31,7 +24,7 @@ Key-value data is manipulated using Butler's [REST API](/docs/reference/rest-api
 
 The [Reference docs](/docs/reference/key-value/) section has more information about the key-value store.
 
-## Settings in main config file
+## Settings in config file
 
 ```yaml
 ---

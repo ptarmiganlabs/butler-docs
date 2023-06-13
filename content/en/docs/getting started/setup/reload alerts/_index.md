@@ -8,13 +8,6 @@ description: >
     Learn how to set up the desired features, the alert layout, formatting and more.
 ---
 
-{{% alert title="Optional" color="primary" %}}
-Reload alerts are an optional Butler feature.
-
-If alerts are not of interest, the default values in the config file can be left as they are.
-Do note though that Butler expects the configuration properties below to exist in the config file, but will _ignore their values_ if the related features are disabled.
-{{% /alert %}}
-
 ## Alert types
 
 These alert types are available:
@@ -31,6 +24,8 @@ Each destination can be individually enabled/disabled in the config file.
 | Destination | QMC task failure | QMC task aborted | Enable/disable alert per reload task | Per reload task alert recipients | Flexible formatting | Basic formatting | Comment |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|---|
 | Email    | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Basic emails can be sent using a [log appender](/docs/getting-started/setup/reload-alerts/#sending-basic-alert-emails-from-log4net). |
+| New Relic    | ✅ | ✅ | ✅ | ✅ | ✅ | - | The failed reload's log is available in New Relic. |
+| Signl4    | ✅ | ✅ | ✅ | ✅ | ✅ | - | Alerts are presented in Signl4's own format in their mobile app. |
 | Slack    | ✅ | ✅ |  |  | ✅ | ✅ |  |
 | MS Teams | ✅ | ✅ |  |  | ✅ | ✅ |  |
 | Outgoing webhook | ✅ | ✅ |  |  | - | - | Formatting is not relevant for webhooks |
@@ -41,7 +36,7 @@ Each destination can be individually enabled/disabled in the config file.
 In order for Butler initiated alerts to become a reality, Butler must somehow be notified that the event of interest (for example a failed reload task) has taken place.  
 This is achieved by adding a **_log appender_** to Qlik Sense Enterprise on Windows.
 
-Log appenders offer a way to hook into Qlik Sense's logging subsystem, which is called [log4net](https://help.qlik.com/en-US/sense-admin/September2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders-QSRollingFileAppender-Built-in-Appenders.htm).
+Log appenders offer a way to hook into Qlik Sense's logging subsystem, which is called [log4net](https://help.qlik.com/en-US/sense-admin/May2023/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders-QSRollingFileAppender-Built-in-Appenders.htm).
 
 By adding a carefully crafted .xml file in the right location on the Sense server(s), you can make Sense notify Butler by means of UDP messages when the events of interest occur. Conceptually it looks like this:
 
@@ -53,7 +48,8 @@ So what happens when a scheduled reload task fails? Let's look at the steps:
 
 2. When the task's state changes, entries are written to the Sense scheduler's log files using log4net (which is built into Qlik Sense). If the filter defined in the log appender (= the .xml file on the Sense server) matches the log entry at hand, the associated action in the log appender will be carried out.
 
-3. Log appenders can do all kinds of things, everything from writing custom log files, sending basic emails, writing to databases and [much more](https://help.qlik.com/en-US/sense-admin/November2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders-QSRollingFileAppender-Built-in-Appenders.htm). Here we're interested in the log appender sending a UDP message from Qlik Sense to Butler.
+3. Log appenders can do all kinds of things, everything from writing custom log files, sending basic emails, writing to databases and [much more](https://help.qlik.com/en-US/sense-admin/May2023/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders-QSRollingFileAppender-Built-in-Appenders.htm).  
+Here we're interested in the log appender sending a UDP message from Qlik Sense to Butler.
 
 4. The log appender provided as part of Butler will make log4net send a UDP message to Butler, including various info about the reload task that just failed or was stopped/aborted.
 
@@ -61,7 +57,7 @@ So what happens when a scheduled reload task fails? Let's look at the steps:
    For example: Is the event about a reload task failure, a reload that has been aborted/stopped, or something else?  
    Butler thus first works as a dispatcher. In a second step, after the initial dispatch, the event is sent to the relevant handler function within Butler.
 
-Response times are usually very good - Butler will typically get the UDP message within a few seconds with alerts going out shortly thereafter.
+Response times are usually very good - Butler will typically get the UDP message within a few seconds after (for example) the reload failing, with alerts going out shortly thereafter.
 
 {{< notice warning >}}
 The log appenders that catch failed and aborted reloads in the Qlik Sense engine and scheduler must be set up on all Qlik Sense servers where reloads are happening for this feature to work.
@@ -78,7 +74,7 @@ The steps are:
 
 1. In this case you want to be notified when certain events occur in the *scheduler* log files.  
 
-   This is important: Qlik Sense Enterprise on Windows consists of many different subsystems (engine, proxy, scheduler, printing etc) - here you're interested in log events from the *scheduler* subsystem.
+   This is important: Qlik Sense Enterprise on Windows consists of many different subsystems (engine, proxy, scheduler, printing etc) - here we're interested in log events from the *scheduler* subsystem.
 
    Add a file `LocalLogConfig.xml` in the `C:\ProgramData\Qlik\Sense\Scheduler` folder on the Sense server whose scheduler you want to get events from. If you have multiple Sense servers with schedulers running on them, the .xml file should be deployed on each server (assuming you want events from all the servers).
 
@@ -194,7 +190,7 @@ If you are happy with the more basic/limited reload-failed alert emails provided
 
 ### References
 
-- [Qlik's documenation](https://help.qlik.com/en-US/sense-admin/September2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders.htm) around log appenders and how to hook into the Sense logs is somewhat brief, but does provide a starting point if you want to dive deeper into this topic.
+- [Qlik's documenation](https://help.qlik.com/en-US/sense-admin/May2023/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders.htm) around log appenders and how to hook into the Sense logs is somewhat brief, but does provide a starting point if you want to dive deeper into this topic.
 
 - The main [log4net documentation](https://logging.apache.org/log4net/) (log4net is the logging framework used by Qlik Sense Enterprise) can also be useful.
 

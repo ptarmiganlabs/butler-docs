@@ -6,18 +6,12 @@ description: >
   Description of the various kinds of alert emails Butler can send.
 ---
 
-{{% alert title="Optional" color="primary" %}}
-These settings are optional.  
-If alerts are not of interest, the default values in the config file can be left as they are.
-Do note though that Butler expects the configuration properties below to exist in the config file, but will *ignore their values* if the related features are disabled.
-{{% /alert %}}
-
 ## What's this?
 
 Butler can send two kinds of alert emails:
 
 - When a scheduled, running reload task fails.
-- When a scheduled, running reload task is somehow stopped.
+- When a scheduled, running reload task is somehow stopped/aborted.
 
 Butler has a de-duplication feature that ensure each email address that has qualified for an alert email only gets ONE email per alert.
 
@@ -77,7 +71,7 @@ If the settings in the config file's `Butler.emailNotification.smtp` section are
 
 The resulting email looks like this:
 
-{{< imgproc butler-test-email-1.png Resize "x300" >}} Test email from Butler {{< /imgproc >}}
+![Test email from Butler](/img/butler-test-email-1.png 'Test email from Butler')
 
 ## Sending alert emails to app owners
 
@@ -134,7 +128,7 @@ Butler controls which tasks to send alerts for by looking at a specific Qlik Sen
 - If the config file setting `Butler.emailNotification.reloadTaskFailure.alertEnableByCustomProperty.enable` is set to `false`, *all* failed reload tasks will cause alert emails.
 - If that setting is `true` only some tasks will cause alert emails:
   - If a task has the value specified in `Butler.emailNotification.reloadTaskFailure.alertEnableByCustomProperty.enabledValue` set for the custom property named as specified in `Butler.emailNotification.reloadTaskFailure.alertEnableByCustomProperty.customPropertyName`, the alert will be sent.
-  - If a task does not have that custom property *does not* set to that value, no alert will be sent for that task.
+  - If a task *does not* have that custom property set, no alert will be sent for that task.
     - A task can still cause an alert to be sent if a specific email address is specified for the task, see below for details.
 
 Some configuration is needed to make this work:
@@ -169,7 +163,7 @@ Having set two different (blurred out) recipients of alert emails for a reload t
 
 ![QMC custom property for sending alert emails to specific email addresses](/img/set-email-recipient-per-reload-task-1.png "QMC custom property for sending alert emails to specific email addresses")
 
-## Settings in main config file
+## Settings in config file
 
 {{% alert title="Remember" color="warning" %}}
 Don't forget to create the log appender .xml files on the Sense server(s).  

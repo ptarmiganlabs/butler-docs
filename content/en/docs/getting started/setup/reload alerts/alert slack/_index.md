@@ -6,13 +6,6 @@ description: >
   Description of how reload alerts can be sent as Slack messages.
 ---
 
-{{% alert title="Optional" color="primary" %}}
-These settings are optional.  
-If alerts via Slack are not of interest, just turn off this feature and leave the default values in the config as they are.
-
-Do note though that Butler expects the configuration properties below to exist in the config file, but will *ignore their values* if the related features are disabled.
-{{% /alert %}}
-
 ## What's this?
 
 Butler can send two kinds of alert messages via Slack:
@@ -110,40 +103,34 @@ Butler:
   ...
   # Settings for notifications and messages sent to Slack
   slackNotification:
-    enable: true
-    restMessage:
-      enable: true
-      webhookURL: <web hook URL from Slack>
-    userSessionEvents:
-      enable: true
-      webhookURL: <web hook URL from Slack>
-      channel: sense-user-activity    # Slack channel to which user activity data is sent
-      fromUser: Qlik Sense
-      iconEmoji: ':thumbsup:'
+    enable: false
+    restMessage:                      
+      webhookURL: <web hook URL from Slack>   # Webhook to use when sending basic Slack messages via Butler's REST API 
     reloadTaskFailure:
-      enable: true
+      enable: false
       webhookURL: <web hook URL from Slack>
       channel: sense-task-failure     # Slack channel to which task failure notifications are sent
       messageType: formatted          # formatted / basic. Formatted means that template file below will be used to create the message.
       basicMsgTemplate: 'Qlik Sense reload failed: "{{taskName}}"'      # Only needed if message type = basic
-      rateLimit: 15                   # Min seconds between emails for a given taskID. Defaults to 5 minutes.
+      rateLimit: 300                  # Min seconds between emails for a given taskID. Defaults to 5 minutes.
       headScriptLogLines: 10
       tailScriptLogLines: 10
       templateFile: /path/to/slack/template/directory/failed-reload.handlebars
       fromUser: Qlik Sense
       iconEmoji: ':ghost:'
     reloadTaskAborted:
-      enable: true
+      enable: false
       webhookURL: <web hook URL from Slack>
       channel: sense-task-aborted     # Slack channel to which task stopped notifications are sent
       messageType: formatted          # formatted / basic. Formatted means that template file below will be used to create the message.
       basicMsgTemplate: 'Qlik Sense reload aborted: "{{taskName}}"'       # Only needed if message type = basic
-      rateLimit: 15                   # Min seconds between emails for a given taskID. Defaults to 5 minutes.
+      rateLimit: 300                  # Min seconds between emails for a given taskID. Defaults to 5 minutes.
       headScriptLogLines: 10
       tailScriptLogLines: 10
       templateFile: /path/to/slack/template/directory/aborted-reload.handlebars
       fromUser: Qlik Sense
       iconEmoji: ':ghost:'
+
   ...
   ...
   udpServerConfig:

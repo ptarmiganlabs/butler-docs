@@ -15,10 +15,10 @@ This is a placeholder page that shows you how to use this template site.
 How to start Butler varies depending on whether you run it as a standalone app, as a Docker container or as a Node.js app.
 
 ### Monitoring Butler
-<!-- TODO -->
+
 Once Butler is running it's a good idea to also monitor it. Otherwise you stand the risk of not getting notified if Butler for some reason misbehaves.
 
-But logs its own memory usage to the console and log files (if enabled), but can also send these metrics to a InfluxDB database and New Relic. 
+Butler logs its own memory usage to the console and log files (if enabled), but can also send these metrics to an InfluxDB database and New Relic.
 
 Butler will log its own memory usage to InfluxDB if
 

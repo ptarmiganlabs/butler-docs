@@ -14,12 +14,23 @@ This is a placeholder page that shows you how to use this template site.
 
 The `production_template.yaml` config file looks like this (sorry for the incorrect syntax coloring, the issue is noted and is being worked on):
 
+{{< notice info >}}
+Starting with Butler version 9.0 there is a check that the config file has the correct format.
+
+This means that if you forget to add or change some setting in the main YAML config file, Butler will tell you what's missing and refuse to start.  
+A consequence of this is that all settings are now mandatory, even if you don't use them.
+{{< /notice >}}
+
 ```yaml
+---
 ---
 Butler:
   # General notes: 
   # - File and directory paths in this sample config file use Linux/Mac syntax, i.e. using forward slashes.
   #   Windows paths work just as well, just make sure to quote them with single or double quotes.
+  # - All entries in the config file are mandatory in the send that they must be present.
+  #   However, if a feature is not used the corresponding config entries can contain 
+  #   any value (for example the provided default ones).
 
   # Logging configuration
   logLevel: info          # Log level. Possible log levels are silly, debug, verbose, info, warn, error
@@ -50,19 +61,6 @@ Butler:
     logLevel: verbose               # Starting at what log level should uptime messages be shown?
     storeInInfluxdb: 
       enable: false                 # Should Butler memory usage be logged to InfluxDB?
-      hostIP: <IP or host name>     # Where is InfluxDB server located?
-      hostPort: 8086                # InfluxDB port
-      auth:
-        enable: false               # Does InfluxDB require login?
-        username: user_joe      
-        password: joesecret
-      dbName: butler                # Name of database in InfluxDB to which Butler's data is written
-      instanceTag: DEV              # Tag that can be used to differentiate data from multiple Butler instances
-      # Default retention policy that should be created in InfluxDB when Butler creates a new database there. 
-      # Any data older than retention policy threshold will be purged from InfluxDB.
-      retentionPolicy:
-        name: 10d
-        duration: 10d
     storeNewRelic:
       enable: false
       destinationAccount:
@@ -107,6 +105,23 @@ Butler:
         insertApiKey: <API key 2 (with insert permissions) from New Relic> 
         accountId: <New Relic account ID 2>
 
+  # InfluxDB settings
+  influxDb:
+    enable: false                  # Master switch for InfluxDB integration. If false, no data will be sent to InfluxDB.
+    hostIP: <IP or host name>     # Where is InfluxDB server located?
+    hostPort: 8086                # InfluxDB port
+    auth:
+      enable: false               # Does InfluxDB require login?
+      username: user_joe      
+      password: joesecret
+    dbName: butler                # Name of database in InfluxDB to which Butler's data is written
+    instanceTag: DEV              # Tag that can be used to differentiate data from multiple Butler instances
+    # Default retention policy that should be created in InfluxDB when Butler creates a new database there. 
+    # Any data older than retention policy threshold will be purged from InfluxDB.
+    retentionPolicy:
+      name: 10d
+      duration: 10d
+
   # Store script logs of failed reloads on disk.
   # The script logs will be stored in daily directories under the specified main directory below
   # NOTE: Use an absolute path when running Butler as a standalone executable! 
@@ -142,6 +157,19 @@ Butler:
       headScriptLogLines: 10
       tailScriptLogLines: 10
       templateFile: /path/to/teams/template/directory/aborted-reload.handlebars
+    serviceStopped:
+      webhookURL: <web hook URL from MS Teams>
+      messageType: formatted          # formatted / basic. Formatted means that template file below will be used to create the message.
+      basicMsgTemplate: 'Windows service stopped: "{{serviceName}}" on host "{{host}}"'       # Only needed if message type = basic
+      rateLimit: 30                   # Min seconds between messages for a given Windows service. Defaults to 5 minutes.
+      templateFile: /path/to/teams/template/directory/service-stopped.handlebars
+    serviceStarted:
+      webhookURL: <web hook URL from MS Teams>
+      messageType: formatted          # formatted / basic. Formatted means that template file below will be used to create the message.
+      basicMsgTemplate: 'Windows service started: "{{serviceName}}" on host "{{host}}"'       # Only needed if message type = basic
+      rateLimit: 30                   # Min seconds between messages for a given Windows service. Defaults to 5 minutes.
+      templateFile: /path/to/teams/template/directory/service-started.handlebars
+
 
   # Settings for notifications and messages sent to Slack
   slackNotification:
@@ -170,6 +198,24 @@ Butler:
       headScriptLogLines: 10
       tailScriptLogLines: 10
       templateFile: /path/to/slack/template/directory/aborted-reload.handlebars
+      fromUser: Qlik Sense
+      iconEmoji: ':ghost:'
+    serviceStopped:
+      webhookURL: <web hook URL from Slack>
+      channel: qliksense-service-alert  # Slack channel to which Windows service stopped notifications are sent
+      messageType: formatted          # formatted / basic. Formatted means that template file below will be used to create the message.
+      basicMsgTemplate: 'Windows service stopped: "{{serviceName}}" on host "{{host}}"'       # Only needed if message type = basic
+      rateLimit: 30                   # Min seconds between messages for a given Windows service. Defaults to 5 minutes.
+      templateFile: /path/to/slack/template/directory/service-stopped.handlebars
+      fromUser: Qlik Sense
+      iconEmoji: ':ghost:'
+    serviceStarted:
+      webhookURL: <web hook URL from Slack>
+      channel: qliksense-service-alert  # Slack channel to which Windows service stopped notifications are sent
+      messageType: formatted          # formatted / basic. Formatted means that template file below will be used to create the message.
+      basicMsgTemplate: 'Windows service started: "{{serviceName}}" on host "{{host}}"'       # Only needed if message type = basic
+      rateLimit: 30                   # Min seconds between messages for a given Windows service. Defaults to 5 minutes.
+      templateFile: /path/to/slack/template/directory/service-started.handlebars
       fromUser: Qlik Sense
       iconEmoji: ':ghost:'
 
@@ -211,7 +257,7 @@ Butler:
       tailScriptLogLines: 15                          # Number of lines from end of script to include in email
       priority: high                                  # high/normal/low
       subject: 'Qlik Sense reload aborted: "{{taskName}}"'  # Email subject. Can use template fields
-      bodyFileDirectory: config/email_templates       # Directory where email body template files are stored
+      bodyFileDirectory: path/to/email_templates      # Directory where email body template files are stored
       htmlTemplateFile: aborted-reload                # Name of email body template file to use
       fromAdress: Qlik Sense (no-reply) <qliksense-noreply@mydomain.com>
       recipients:                                     # Array of email addresses to which the notification email will be sent
@@ -251,10 +297,30 @@ Butler:
       tailScriptLogLines: 15                          # Number of lines from end of script to include in email
       priority: high                                  # high/normal/low
       subject: 'Qlik Sense reload failed: "{{taskName}}"'   # Email subject. Can use template fields
-      bodyFileDirectory: config/email_templates       # Directory where email body template files are stored
+      bodyFileDirectory: path/to/email_templates      # Directory where email body template files are stored
       htmlTemplateFile: failed-reload                 # Name of email body template file to use
       fromAdress: Qlik Sense (no-reply) <qliksense-noreply@mydomain.com>
       recipients:                                       # Array of email addresses to which the notification email will be sent
+        - <Email address 1>
+        - <Email address 2>
+    serviceStopped:
+      rateLimit: 30                   # Min seconds between emails for a given service. Defaults to 5 minutes.
+      priority: high                  # high/normal/low
+      subject: '❌ Windows service stopped on host {{host}}: "{{serviceDisplayName}}"'
+      bodyFileDirectory: path/to/email_templates/email_templates
+      htmlTemplateFile: service-stopped
+      fromAdress: Qlik Sense (no-reply) <qliksense-noreply@mydomain.com>
+      recipients:
+        - <Email address 1>
+        - <Email address 2>
+    serviceStarted:
+      rateLimit: 30                   # Min seconds between emails for a given service. Defaults to 5 minutes.
+      priority: high                  # high/normal/low
+      subject: '✅ Windows service started on host {{host}}: "{{serviceDisplayName}}"'
+      bodyFileDirectory: path/to/email_templates/email_templates
+      htmlTemplateFile: service-started
+      fromAdress: Qlik Sense (no-reply) <qliksense-noreply@mydomain.com>
+      recipients:
         - <Email address 1>
         - <Email address 2>
     smtp:                                             # Email server settings. See https://nodemailer.com/smtp/ for details on the meaning of these fields.
@@ -290,10 +356,10 @@ Butler:
     newRelic:
       enable: false
       destinationAccount:
-        event:
+        event:                    # Failed/aborted reload tasks are sent as events to these New Relic accounts
           - First NR account
           - Second NR account
-        log:
+        log:                      # Failed/aborted reload tasks are sent as log entries to these New Relic accounts
           - First NR account
           - Second NR account
       # New Relic uses different API URLs for different kinds of data (metrics, events, logs, ...)
@@ -312,7 +378,16 @@ Butler:
       reloadTaskFailure:
         destination:
           event: 
-            enable: true
+            enable: false
+            sendToAccount:              # Which reload task failures are sent to New Relic as events
+              byCustomProperty:
+                enable: false            # Control using a task custom property which reload task failures are sent as events
+                customPropertyName: 'Butler_FailedTask_Event_NewRelicAccount'
+              always:
+                enable: false            # Controls which New Relic accounts ALL failed reload tasks are sent to (as events)
+                account: 
+                  - First NR account
+                  - Second NR account
             attribute: 
               static:                 # Static attributes/dimensions to attach to events sent to New Relic.
                 - name: event-specific-attribute 1  # Example
@@ -321,8 +396,17 @@ Butler:
                 useAppTags: true      # Should app tags be sent to New Relic as attributes?
                 useTaskTags: true     # Should task tags be sent to New Relic as attributes?
           log:
-            enable: true
+            enable: false
             tailScriptLogLines: 20
+            sendToAccount:              # Which reload task failures are sent to New Relic as log entries
+              byCustomProperty:
+                enable: false            # Control using a task custom property which reload task failures are sent as log entries
+                customPropertyName: 'Butler_FailedTask_Log_NewRelicAccount'
+              always:
+                enable: false            # Controls which New Relic accounts ALL failed reload tasks are sent to (as logs)
+                account: 
+                  - First NR account
+                  - Second NR account
             attribute: 
               static:                 # Static attributes/dimensions to attach to events sent to New Relic.
                 - name: log-specific-attribute 1    # Example
@@ -344,7 +428,16 @@ Butler:
       reloadTaskAborted:
         destination:
           event: 
-            enable: true
+            enable: false
+            sendToAccount:              # Which reload task aborts are sent to New Relic as events
+              byCustomProperty:
+                enable: false            # Control using a task custom property which reload task aborts are sent as events
+                customPropertyName: 'Butler_AbortedTask_Event_NewRelicAccount'
+              always:
+                enable: false            # Controls which New Relic accounts ALL aborted reload tasks are sent to (as events)
+                account: 
+                  - First NR account
+                  - Second NR account
             attribute: 
               static:                 # Static attributes/dimensions to attach to events sent to New Relic.
                 - name: event-specific-attribute 2  # Example
@@ -353,8 +446,17 @@ Butler:
                 useAppTags: true      # Should app tags be sent to New Relic as attributes?
                 useTaskTags: true     # Should task tags be sent to New Relic as attributes?
           log:
-            enable: true
+            enable: false
             tailScriptLogLines: 20
+            sendToAccount:              # Which reload task aborts are sent to New Relic as log entries
+              byCustomProperty:
+                enable: true            # Control using a task custom property which reload task aborts are sent as log entries
+                customPropertyName: 'Butler_AbortedTask_Log_NewRelicAccount'
+              always:
+                enable: false          # Controls which New Relic accounts ALL aborted reload tasks are sent to (as logs)
+                account: 
+                  - First NR account
+                  - Second NR account
             attribute: 
               static:                 # Static attributes/dimensions to attach to events sent to New Relic.
                 - name: log-specific-attribute 2    # Example
@@ -373,6 +475,52 @@ Butler:
                 value: butler       # Example
               - name: environment   # Example
                 value: prod         # Example
+      serviceMonitor:
+        destination:
+          event: 
+            enable: false
+            sendToAccount:                # Windows service events are sent to these New Relic accounts
+              - First NR account
+              - Second NR account
+            attribute: 
+              static:                     # Static attributes/dimensions to attach to events sent to New Relic.
+                - name: event-specific-attribute
+                  value: abc 123
+              dynamic:
+                serviceHost: true         # Should host where service is running be sent to New Relic as attribute?
+                serviceName: true         # Should service name be sent to New Relic as attribute?
+                serviceDisplayName: true  # Should service display name be sent to New Relic as attribute?
+                serviceState: true        # Should service state be sent to New Relic as attribute?
+          log:
+            enable: false
+            sendToAccount:                # Windows service log entries are sent to these New Relic accounts
+              - First NR account
+              - Second NR account
+            attribute: 
+              static:                     # Static attributes/dimensions to attach to events sent to New Relic.
+                - name: log-specific-attribute
+                  value: def 456
+              dynamic:
+                serviceHost: true         # Should host where service is running be sent to New Relic as attribute?
+                serviceName: true         # Should service name be sent to New Relic as attribute?
+                serviceDisplayName: true  # Should service display name be sent to New Relic as attribute?
+                serviceState: true        # Should service state be sent to New Relic as attribute?
+        monitorServiceState:              # Control whih service states are sent to New Relic
+          running:
+            enable: true
+          stopped:
+            enable: true
+        sharedSettings:
+          rateLimit: 5                    # Min seconds between events/logs sent to New Relic for a given host+service. Defaults to 5 minutes.
+          header:                         # Custom http headers
+            - name: X-My-Header           # Example
+              value: Header value 2       # Example
+          attribute: 
+            static:                       # Static attributes/dimensions to attach to events sent to New Relic.
+              - name: service             # Example
+                value: butler             # Example
+              - name: environment         # Example
+                value: prod               # Example
 
   # Settings for notifications and messages sent using outgoing webhooks
   webhookNotification:
@@ -401,6 +549,18 @@ Butler:
         - description: 'This outgoing webhook is used to...'  # Informational only
           webhookURL: http://host.my.domain:port/some/path    # outgoing webhook that Butler will call
           httpMethod: GET                                     # GET/POST/PUT
+    serviceMonitor:
+      rateLimit: 15               # Min seconds between outgoing webhook calls, per Windows service that is monitored. Defaults to 5 minutes.
+      webhooks:
+        - description: 'This outgoing webhook is used to...'
+          webhookURL: http://host.my.domain:port/some/path    # outgoing webhook that Butler will call
+          httpMethod: POST                                    # GET/POST/PUT. Note that the body and URL query parameters differs depending on which method is used
+        - description: 'This outgoing webhook is used to...'
+          webhookURL: http://host.my.domain:port/some/path    # outgoing webhook that Butler will call
+          httpMethod: PUT                                     # GET/POST/PUT. Note that the body and URL query parameters differs depending on which method is used
+        - description: 'This outgoing webhook is used to...'
+          webhookURL: http://host.my.domain:port/some/path    # outgoing webhook that Butler will call
+          httpMethod: GET                                     # GET/POST/PUT. Note that the body and URL query parameters differs depending on which method is used
 
   # Scheduler for Qlik Sense tasks
   scheduler:
@@ -425,6 +585,9 @@ Butler:
     taskFailureServerStatusTopic: qliksense/butler/task_failure_server
     taskAbortedTopic: qliksense/task_aborted
     taskAbortedFullTopic: qliksense/task_aborted_full
+    serviceRunningTopic: qliksense/service_running
+    serviceStoppedTopic: qliksense/service_stopped
+    serviceStatusTopic: qliksense/service_status
 
   udpServerConfig:
     enable: false                                     # Should the UDP server responsible for receving task failure/aborted events be started?
@@ -561,6 +724,45 @@ Butler:
         - name: taskGroup
           value: tasks2
 
+  # Monitor Windows services.
+  # This feature only works when Butler is running on Windows Server or desktop.
+  # On other OSs service monitoring will be automatically disabled.
+  serviceMonitor:
+    enable: false                    # Main on/off switch for service monitoring
+    frequency: every 30 seconds     # https://bunkat.github.io/later/parsers.html
+    monitor:
+      - host: <hostname or IP>      # Host name of Windows computer where services are running
+        services:                   # List of services to monitor
+          - name: postgresql-x64-12       # Posgress/repository db
+            friendlyName: Repository DB
+          - name: QlikSenseEngineService
+            friendlyName: Engine
+          - name: QlikSensePrintingService
+            friendlyName: Printing
+          - name: QlikSenseProxyService
+            friendlyName: Proxy
+          - name: QlikSenseRepositoryService
+            friendlyName: Repository
+          - name: QlikSenseSchedulerService
+            friendlyName: Scheduler
+          - name: QlikSenseServiceDispatcher
+            friendlyName: Service Dispatcher
+    alertDestination:               # Control to thich destinations service related alerts are sent
+      influxDb:                     # Send service alerts to InfluxDB
+        enable: true
+      newRelic:                     # Send service alerts to New Relic
+        enable: true
+      email:                        # Send service alerts as emails
+        enable: true                
+      mqtt:                         # Send service alerts as MQTT messages
+        enable: true
+      teams:                        # Send service alerts as MS Teams messages
+        enable: true
+      slack:                        # Send service alerts as Slack messages
+        enable: true
+      webhook:                      # Send service alerts as outbound webhooks/http calls
+        enable: true
+
   # Certificates to use when connecting to Sense. Get these from the Certificate Export in QMC.
   cert:
     clientCert: <path/to/cert/client.pem>
@@ -572,7 +774,6 @@ Butler:
     # clientCertCA: /nodeapp/config/certificate/root.pem
 
   configEngine:
-    # engineVersion: 12.170.2        # Qlik Associative Engine version to use with Enigma.js. Ver 12.170.2 works with Feb 2019
     engineVersion: 12.612.0         # Qlik Associative Engine version to use with Enigma.js. Works with Feb 2020 and others
     host: <FQDN or IP of Sense server where Sense Engine is running>
     port: <Port to connect to, usually 4747>
@@ -586,14 +787,13 @@ Butler:
     authentication: certificates
     host: <FQDN or IP of Sense server where QRS is running>
     useSSL: true
-    port: 4242
+    port: <Port to connect to, usually 4242>
     headerKey: X-Qlik-User                                      # Header used to identify what user connection to QRS is made as
     headerValue: UserDirectory=Internal; UserId=sa_repository   # What user connection to QRS is made as
     rejectUnauthorized: false       # Set to false to ignore warnings/errors caused by Qlik Sense's self-signed certificates.
                                     # Set to true if the Qlik Sense root CA is available on the computer where Butler SOS is running.
 
   configDirectories:
-    # enableirectoryCreation: false
     qvdPath: <Path to folder under which QVDs are stored>
 ```
 

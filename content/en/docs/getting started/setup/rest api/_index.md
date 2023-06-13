@@ -9,11 +9,6 @@ description: >
   By only enabling the endpoints needed for your Qlik Sense environment, memory usage is minimised and security maximised.
 ---
 
-{{% alert title="Mandatory" color="warning" %}}
-These settings are mandatory.  
-They must exist in the config file and be correctly set for Butler to work.
-{{% /alert %}}
-
 ## What's this?
 
 Butler offers a set of REST API endpoints. While these endpoints are tested for stability and correct functionality as part of each release, it's always good practice to only enable the endpoints really needed.

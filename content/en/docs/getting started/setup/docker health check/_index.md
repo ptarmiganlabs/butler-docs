@@ -8,17 +8,9 @@ description: >
   Butler can be configured to send such health check messages to Docker.
 ---
 
-{{% alert title="Optional" color="primary" %}}
-These settings are optional.
-
-If you don't need this feature just disable it and leave the default values in the config as they are.
-
-Do note though that Butler expects the configuration properties below to exist in the config file, but will *ignore their values* if the related features are disabled.
-{{% /alert %}}
-
 Note: Enabling these health check messages is only meaningful when running Butler as a Docker container.
 
-## Settings in main config file
+## Settings in config file
 
 ```yaml
 ---

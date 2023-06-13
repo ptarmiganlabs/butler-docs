@@ -13,17 +13,14 @@ description: >
   More info at [newrelic.com](https://newrelic.com)
 ---
 
-{{% alert title="Optional" color="primary" %}}
-These settings are optional.
-
-If you don't need the features offered by Butler's New Relic integration, just disable it and leave the default values in the config as they are.
-
-Do note though that Butler expects the configuration properties below to exist in the config file, but will *ignore their values* if the related features are disabled.
-{{% /alert %}}
-
 ## What's this?
 
-Reload failure/abort events can be forwarded to New Relic, where they become incidents that are tracked, (maybe) escalated and eventually (hopefully!) closed.
+Butler can forward several kinds of information to New Relic:
+
+- Reload failure/abort events and log entries. Once in New Relic, these can be used to create alerts and incidents.
+- Windows service start/stop events and log entries
+- Generic New Relic events and metrics via Butler's REST API
+- Uptime and performance metrics from Butler itself
 
 Example [here](/docs/concepts/incident-mgmt-tools/new-relic/).
 
@@ -57,6 +54,8 @@ A similar setting exists for aborted reloads.
 
 ## Data sent to New Relic
 
+### Failed and aborted reloads
+
 Butler can be configured to send neither, either or both of two different data sets to New Relic:
 
 - Failed reloads can be sent to New Relic as *events*.  
@@ -66,7 +65,7 @@ Butler can be configured to send neither, either or both of two different data s
   
 Aborted reloads can be configured in exactly the same way as failed reloads, described above.
 
-### New Relic events
+#### New Relic events
 
 The following data is sent as New Relic *events* when a reload task fails or is aborted:
 
@@ -90,7 +89,7 @@ The following data is sent as New Relic *events* when a reload task fails or is 
   - Sense execution ID for this event.
   - Description of the event, as found in the Sense log files.
 
-### New Relic log entries
+#### New Relic log entries
 
 If Butler is configured to forward failed/aborted reload tasks to New Relic as log entries, the follow info is sent to New Relic:
 
@@ -105,6 +104,12 @@ If Butler is configured to forward failed/aborted reload tasks to New Relic as l
 - Result text of the reload task
 - Total size of complete script log (number of characters).
 - Number of lines included in the reload script log sent to New Relic
+
+## Monitoring Windows services
+
+Butler can be configured to send Windows service start/stop events to New Relic as New Relic events and/or log entries.
+
+Please see the setup instructions for [Windows service monitoring](/docs/getting-started/setup/windows-service-monitor/new-relic/).
 
 ## Sending data to several New Relic accounts
 
@@ -172,7 +177,7 @@ The configuration used in the YAML config file above can be specified via comman
 PS C:\tools\butler> .\butler.exe -c production.yaml --new-relic-account-name "First NR account" "Second NR account" --new-relic-api-key "API key 1" "API key 2" --new-relic-account-id "account ID 1" "account ID 2"
 ```
 
-## Settings in main config file
+## Settings in config file
 
 ```yaml
 ---
@@ -180,15 +185,15 @@ Butler:
   ...
   ...
   # Incident management tools integration
-  # Used to trigger incidents in these tools when task reloads fail or are aborted
+  # Used to trigger incidents in these tools when task reloads fail or are aborted.
   incidentTool:
     newRelic:
       enable: false
       destinationAccount:
-        event:
+        event:                    # Failed/aborted reload tasks are sent as events to these New Relic accounts
           - First NR account
           - Second NR account
-        log:
+        log:                      # Failed/aborted reload tasks are sent as log entries to these New Relic accounts
           - First NR account
           - Second NR account
       # New Relic uses different API URLs for different kinds of data (metrics, events, logs, ...)
@@ -207,7 +212,16 @@ Butler:
       reloadTaskFailure:
         destination:
           event: 
-            enable: true
+            enable: false
+            sendToAccount:              # Which reload task failures are sent to New Relic as events
+              byCustomProperty:
+                enable: false            # Control using a task custom property which reload task failures are sent as events
+                customPropertyName: 'Butler_FailedTask_Event_NewRelicAccount'
+              always:
+                enable: false            # Controls which New Relic accounts ALL failed reload tasks are sent to (as events)
+                account: 
+                  - First NR account
+                  - Second NR account
             attribute: 
               static:                 # Static attributes/dimensions to attach to events sent to New Relic.
                 - name: event-specific-attribute 1  # Example
@@ -216,8 +230,17 @@ Butler:
                 useAppTags: true      # Should app tags be sent to New Relic as attributes?
                 useTaskTags: true     # Should task tags be sent to New Relic as attributes?
           log:
-            enable: true
+            enable: false
             tailScriptLogLines: 20
+            sendToAccount:              # Which reload task failures are sent to New Relic as log entries
+              byCustomProperty:
+                enable: false            # Control using a task custom property which reload task failures are sent as log entries
+                customPropertyName: 'Butler_FailedTask_Log_NewRelicAccount'
+              always:
+                enable: false            # Controls which New Relic accounts ALL failed reload tasks are sent to (as logs)
+                account: 
+                  - First NR account
+                  - Second NR account
             attribute: 
               static:                 # Static attributes/dimensions to attach to events sent to New Relic.
                 - name: log-specific-attribute 1    # Example
@@ -239,7 +262,16 @@ Butler:
       reloadTaskAborted:
         destination:
           event: 
-            enable: true
+            enable: false
+            sendToAccount:              # Which reload task aborts are sent to New Relic as events
+              byCustomProperty:
+                enable: false            # Control using a task custom property which reload task aborts are sent as events
+                customPropertyName: 'Butler_AbortedTask_Event_NewRelicAccount'
+              always:
+                enable: false            # Controls which New Relic accounts ALL aborted reload tasks are sent to (as events)
+                account: 
+                  - First NR account
+                  - Second NR account
             attribute: 
               static:                 # Static attributes/dimensions to attach to events sent to New Relic.
                 - name: event-specific-attribute 2  # Example
@@ -248,8 +280,17 @@ Butler:
                 useAppTags: true      # Should app tags be sent to New Relic as attributes?
                 useTaskTags: true     # Should task tags be sent to New Relic as attributes?
           log:
-            enable: true
+            enable: false
             tailScriptLogLines: 20
+            sendToAccount:              # Which reload task aborts are sent to New Relic as log entries
+              byCustomProperty:
+                enable: true            # Control using a task custom property which reload task aborts are sent as log entries
+                customPropertyName: 'Butler_AbortedTask_Log_NewRelicAccount'
+              always:
+                enable: false          # Controls which New Relic accounts ALL aborted reload tasks are sent to (as logs)
+                account: 
+                  - First NR account
+                  - Second NR account
             attribute: 
               static:                 # Static attributes/dimensions to attach to events sent to New Relic.
                 - name: log-specific-attribute 2    # Example
@@ -268,6 +309,52 @@ Butler:
                 value: butler       # Example
               - name: environment   # Example
                 value: prod         # Example
+      serviceMonitor:
+        destination:
+          event: 
+            enable: false
+            sendToAccount:                # Windows service events are sent to these New Relic accounts
+              - First NR account
+              - Second NR account
+            attribute: 
+              static:                     # Static attributes/dimensions to attach to events sent to New Relic.
+                - name: event-specific-attribute
+                  value: abc 123
+              dynamic:
+                serviceHost: true         # Should host where service is running be sent to New Relic as attribute?
+                serviceName: true         # Should service name be sent to New Relic as attribute?
+                serviceDisplayName: true  # Should service display name be sent to New Relic as attribute?
+                serviceState: true        # Should service state be sent to New Relic as attribute?
+          log:
+            enable: false
+            sendToAccount:                # Windows service log entries are sent to these New Relic accounts
+              - First NR account
+              - Second NR account
+            attribute: 
+              static:                     # Static attributes/dimensions to attach to events sent to New Relic.
+                - name: log-specific-attribute
+                  value: def 456
+              dynamic:
+                serviceHost: true         # Should host where service is running be sent to New Relic as attribute?
+                serviceName: true         # Should service name be sent to New Relic as attribute?
+                serviceDisplayName: true  # Should service display name be sent to New Relic as attribute?
+                serviceState: true        # Should service state be sent to New Relic as attribute?
+        monitorServiceState:              # Control whih service states are sent to New Relic
+          running:
+            enable: true
+          stopped:
+            enable: true
+        sharedSettings:
+          rateLimit: 5                    # Min seconds between events/logs sent to New Relic for a given host+service. Defaults to 5 minutes.
+          header:                         # Custom http headers
+            - name: X-My-Header           # Example
+              value: Header value 2       # Example
+          attribute: 
+            static:                       # Static attributes/dimensions to attach to events sent to New Relic.
+              - name: service             # Example
+                value: butler             # Example
+              - name: environment         # Example
+                value: prod               # Example
   ...
   ...
 ```

@@ -5,18 +5,11 @@ weight: 310
 description:
 ---
 
-{{% alert title="Optional" color="primary" %}}
-These settings are optional.
-
-If you don't do anything telemetry is turned on by default.
-
-{{% /alert %}}
-
 ## What's this?
 
 A description of Butler's telemetry feature is available [here](/docs/about/telemetry/).
 
-## Settings in main config file
+## Settings in config file
 
 ```yaml
 ---

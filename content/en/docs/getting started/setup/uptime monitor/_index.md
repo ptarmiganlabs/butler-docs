@@ -9,14 +9,6 @@ description: >
   <br>InfluxDB and New Relic are currently supported targets.
 ---
 
-{{% alert title="Optional" color="primary" %}}
-These settings are optional.
-
-If you don't need this feature just disable it and leave the default values in the config as they are.
-
-Do note though that Butler expects the configuration properties below to exist in the config file, but will *ignore their values* if the related features are disabled.
-{{% /alert %}}
-
 ## What's this?
 
 In some cases - especially when investigating issues or bugs - it can be useful to get log messages telling how long Butler has been running and how much memory it uses.
@@ -53,7 +45,7 @@ The uptime related data sent to New Relic is:
   - qs_butlerProcessMem
   - qs_butlerUptimeMillisec
 
-## Settings in main config file
+## Settings in config file
 
 ```yaml
 ---
@@ -65,21 +57,8 @@ Butler:
     enable: false                   # Should uptime messages be written to the console and log files?
     frequency: every 15 minutes     # https://bunkat.github.io/later/parsers.html
     logLevel: verbose               # Starting at what log level should uptime messages be shown?
-    storeInInfluxdb:
+    storeInInfluxdb: 
       enable: false                 # Should Butler memory usage be logged to InfluxDB?
-      hostIP: <IP or host name>     # Where is InfluxDB server located?
-      hostPort: 8086                # InfluxDB port
-      auth:
-        enable: false               # Does InfluxDB require login?
-        username: user_joe
-        password: joesecret
-      dbName: butler                # Name of database in InfluxDB to which Butler's data is written
-      instanceTag: DEV              # Tag that can be used to differentiate data from multiple Butler instances
-      # Default retention policy that should be created in InfluxDB when Butler creates a new database there. 
-      # Any data older than retention policy threshold will be purged from InfluxDB.
-      retentionPolicy:
-        name: 10d
-        duration: 10d
     storeNewRelic:
       enable: false
       destinationAccount:
@@ -111,5 +90,6 @@ Butler:
         dynamic:
           butlerVersion: 
             enable: true            # Should the Butler version be included in the data sent to New Relic?
+  ...
   ...
 ```

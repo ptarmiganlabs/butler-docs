@@ -13,7 +13,7 @@ Butler is distributed under the [MIT license](https://en.wikipedia.org/wiki/MIT_
 ```
 MIT License
 
-Copyright (c) 2016-2022 Göran Sander
+Copyright (c) 2016-2023 Göran Sander
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

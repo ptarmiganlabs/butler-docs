@@ -28,7 +28,7 @@ That said, if you plan to use the Slack, Teams, email, or webhook connectivity f
 
 This is a basic "web file" connector pointing to `http://www.w3schools.com/tags/ref_urlencode.asp`:
 
-![Creating the URL encode table data connection](url_encore-1.png "Creating the URL encode table data connection")  
+![Creating the URL encode table data connection](url_encode-1.png "Creating the URL encode table data connection")  
 
 {{% alert title="Remember!" color="warning" %}}
 As with all new data connections, Sense will change the name your new connection (adding your username as a suffix).  
