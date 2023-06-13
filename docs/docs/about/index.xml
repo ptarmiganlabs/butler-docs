@@ -4,7 +4,6 @@
     <link>/docs/about/</link>
     <description>Recent content in About on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
     
 	  <atom:link href="/docs/about/index.xml" rel="self" type="application/rss+xml" />
     
@@ -30,7 +29,7 @@ Most of Butler&amp;rsquo;s features try to make daily life for a Qlik Sense admi
 In some cases it might be possible to use these tools from within Sense also without Butler - in those cases Butler simply tries to make things easier, lowering the barriers to get started and get things done.&lt;/p&gt;
 &lt;p&gt;There is also a clear goal that Butler should be very configurable. In practice this means that individual features can be turned on/off as needed, improving security and lowering memory usage.&lt;/p&gt;
 &lt;p&gt;Butler is written in &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js&lt;/a&gt; and runs on most modern operating systems.&lt;br&gt;
-As of version 7.2 Butler offers pre-built binaries for Windows and macOS, meaning that Node.js no longer has to be separately installed to use Butler.&lt;br&gt;
+As of version 7.2 Butler offers pre-built binaries for Windows, macOS and Linux§, meaning that Node.js no longer has to be separately installed to use Butler.&lt;br&gt;
 This simplifies things - just download, configure and run.&lt;/p&gt;
 &lt;p&gt;You can run Butler on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).&lt;/p&gt;
 &lt;p&gt;Butler is a member of a group of tools collectively referred to as the &amp;ldquo;Butler family&amp;rdquo;, more info is available &lt;a href=&#34;/docs/about/butler-family&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
@@ -70,6 +69,7 @@ This simplifies things - just download, configure and run.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;#create-directories-copymovedelete-files&#34;&gt;Create directories, copy/move/delete files&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#extract-metadata-for-apps&#34;&gt;Extract metadata for apps&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#easily-post-messages-to-slack&#34;&gt;Easily post messages to Slack&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#monitor-windows-services&#34;&gt;Monitor Windows services&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;instant-notifications-when-reload-tasks-fail-or-are-stopped&#34;&gt;Instant notifications when reload tasks fail or are stopped&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Information about failing tasks&lt;/strong&gt; can be sent as emails, to Microsoft Teams, Slack, as MQTT messages or outgoing webhooks.&lt;/p&gt;
@@ -156,6 +156,12 @@ MQTT (and the pubsub concept in general) is a great way for systems to communica
 I.e. notifying specific Slack users that they have a new message.&lt;/p&gt;
 &lt;p&gt;Can for example be used to notify user(s) that an app has reloaded with new data, or that some error condition has occured.&lt;/p&gt;
 &lt;p&gt;More info &lt;a href=&#34;docs/examples/sense-demo-apps/post-to-slack/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;monitor-windows-services&#34;&gt;Monitor Windows services&lt;/h2&gt;
+&lt;p&gt;If Butler is running on Windows (server or even desktop) it can monitor one or more Windows services.&lt;br&gt;
+This feature is &lt;strong&gt;not&lt;/strong&gt; available when running Butler on Linux, macOS or in Docker.&lt;/p&gt;
+&lt;p&gt;Monitoring here means tracking the services&amp;rsquo; state and sending messages to email, InfluxDB, New Relic, MQTT, Webhooks, Slack or Teams when services stop or start.&lt;/p&gt;
+&lt;p&gt;It can for example be used to get alerts if a Qlik Sense service for some reason stops.&lt;br&gt;
+The concept is not limited to Qlik Sense services though - any Windows service can be monitored.&lt;/p&gt;
 
       </description>
     </item>

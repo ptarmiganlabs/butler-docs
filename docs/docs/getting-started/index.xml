@@ -4,7 +4,6 @@
     <link>/docs/getting-started/</link>
     <description>Recent content in Getting started on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
     
 	  <atom:link href="/docs/getting-started/index.xml" rel="self" type="application/rss+xml" />
     
@@ -70,7 +69,7 @@ For that reason you should use the latest 1.x version of InfluxDB, which at the 
 &lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
 &lt;p&gt;Given the cross platform nature of Node.js (which is the language Butler is written in), Butler can run on lots of different hardware platforms and operating systems.&lt;/p&gt;
 &lt;p&gt;It is therefore difficult to give detailed installation instructions for each possible installation scenario. This site thus tries explain how to get started with Butler in some of the most common scenarios.&lt;/p&gt;
-&lt;p&gt;Pre-built binaries are available for Windows and macOS. When using these there is no need to install Node.js, as the Node.js runtime is bundled into the binaries.&lt;/p&gt;
+&lt;p&gt;Pre-built binaries are available for Windows, macOS and Linux. When using these there is no need to install Node.js, as the Node.js runtime is bundled into the binaries.&lt;/p&gt;
 &lt;p&gt;Using these binaries is the easiest - and thus recommended - way of using Butler.&lt;br&gt;
 &amp;hellip;unless you want to use Docker, which is also a great option.&lt;/p&gt;
 
@@ -78,23 +77,49 @@ For that reason you should use the latest 1.x version of InfluxDB, which at the 
 
 &lt;h2 id=&#34;getting-started&#34;&gt;Getting started&lt;/h2&gt;
 &lt;p&gt;Sorry - there is no installer for Butler.&lt;/p&gt;
-&lt;p&gt;The pre-built binaries for Windows, macOS and Docker simply work as-is when combined with a properly set up configuration file.&lt;/p&gt;
+&lt;p&gt;The pre-built binaries for Windows, macOS, Linux and Docker simply work as-is when combined with a properly set up configuration file.&lt;/p&gt;
 &lt;p&gt;If you still want to run Butler as Node.js app you will first need to install Node.js.&lt;/p&gt;
 &lt;p&gt;The instructions on the pages below should provide good guidance, if you still run into troubles you can always reach out via the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/discussions&#34;&gt;GitHub discussion forums&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;whats-required-to-use-butler&#34;&gt;What&amp;rsquo;s required to use Butler&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;A Butler executable of some kind. This would be one of the following
-&lt;ul&gt;
-&lt;li&gt;A stand-alone binary for the operating system you plan to use&lt;/li&gt;
-&lt;li&gt;A Docker image from which a Butler container can be created.&lt;br&gt;
-Images are available on &lt;a href=&#34;https://hub.docker.com/r/ptarmiganlabs/butler/tags&#34;&gt;Docker Hub&lt;/a&gt;.&lt;br&gt;
-If you have a Docker or Kubernetes environment this is a great option.&lt;/li&gt;
-&lt;li&gt;The Butler source code plus &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js&lt;/a&gt; installed.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
 &lt;li&gt;A Butler config file adapted to your specific Qlik Sense environment&lt;/li&gt;
 &lt;li&gt;Certificates exported from Qlik Sense Enterprise.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;What&lt;/th&gt;
+&lt;th&gt;Comment&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Qlik Sense Enterprise on Windows&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; Butler is developed with client-managed Qlik Sense Enterprise on Windows (QSEoW) in mind. &lt;br&gt;While some Butler features might also work with Sense Desktop or Sense cloud, you are on your own there.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Butler executable&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; A Butler executable of some kind. This would be a) a stand-alone binary for the operating system you plan to use, b) a &lt;a href=&#34;https://hub.docker.com/r/ptarmiganlabs/butler/tags&#34;&gt;Docker image&lt;/a&gt; from which a Butler container can be created or c) the Butler source code plus &lt;a href=&#34;https://nodejs.org/en&#34;&gt;Node.js&lt;/a&gt; installed.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MQTT broker&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; MQTT is used for both in- and out-bound pub-sub messaging. Butler assumes a working MQTT broker is available, the IP of which is defined in the Butler config file. &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; is a great open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&amp;hellip; instance is enough, if you want a dedicated MQTT server. If you don&amp;rsquo;t care about the pubsub features of Butler, you don&amp;rsquo;t need a MQTT broker. In this case you can disable the MQTT features in the config YAML file.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.influxdata.com/time-series-platform/&#34;&gt;InfluxDB&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; A database for realtime information, used to store metrics around Butler&amp;rsquo;s own memory usage over time (if this feature is enabled).&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://newrelic.com&#34;&gt;New Relic&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; A commercial online service offering a vast set of observability features of which Butler uses just a few. Reload failure alerts are for example very nicely handled in New Relic as you get access to the script logs (similar to what can be done with InfluxDB + Grafana) right in the New Relic UI. New Relic&amp;rsquo;s free tier usually goes a long way towards the need of SenseOps and Butler use cases, so it&amp;rsquo;s easy to try out New Relic.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=&#34;https://www.signl4.com&#34;&gt;Signl4&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; A smaller but very nice, mobible-first incident management service. Using Signl4 it&amp;rsquo;s easy to get failed reload alerts to your phone. The service also makes it easy to set up on-call schedules, escalate incidents if needed etc.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
       </description>
     </item>
@@ -138,9 +163,8 @@ If you have a Docker or Kubernetes environment this is a great option.&lt;/li&gt
 &lt;h2 id=&#34;running-butler&#34;&gt;Running Butler&lt;/h2&gt;
 &lt;p&gt;How to start Butler varies depending on whether you run it as a standalone app, as a Docker container or as a Node.js app.&lt;/p&gt;
 &lt;h3 id=&#34;monitoring-butler&#34;&gt;Monitoring Butler&lt;/h3&gt;
-&lt;!-- TODO --&gt;
 &lt;p&gt;Once Butler is running it&amp;rsquo;s a good idea to also monitor it. Otherwise you stand the risk of not getting notified if Butler for some reason misbehaves.&lt;/p&gt;
-&lt;p&gt;But logs its own memory usage to the console and log files (if enabled), but can also send these metrics to a InfluxDB database and New Relic.&lt;/p&gt;
+&lt;p&gt;Butler logs its own memory usage to the console and log files (if enabled), but can also send these metrics to an InfluxDB database and New Relic.&lt;/p&gt;
 &lt;p&gt;Butler will log its own memory usage to InfluxDB if&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;The config file&amp;rsquo;s &lt;code&gt;Butler.uptimeMonitor.enable&lt;/code&gt; and &lt;code&gt;Butler.uptimeMonitor.storeInInfluxdb.enable&lt;/code&gt; properties are both set to &lt;code&gt;true&lt;/code&gt;.&lt;/li&gt;
@@ -201,9 +225,14 @@ Usually there are also various bug fixes included.&lt;/p&gt;
 By far the most common is that it&amp;rsquo;s the main config file that needs to be modified, but a new scheduler related feature could for example mean that the scheduler config file must be modified too.&lt;/p&gt;
 &lt;p&gt;The changes needed to the config files are usually additive in nature, i.e. some settings must be added to the config file, but the existing settings and general structure of the file remain the same.&lt;/p&gt;
 &lt;h3 id=&#34;major-upgrades&#34;&gt;Major upgrades&lt;/h3&gt;
-&lt;p&gt;This scneario involves breaking changes of some kind.&lt;br&gt;
-These almost certainly require changes to the config files, sometimes even significant ones in the sense that the structure of the config file &lt;em&gt;may&lt;/em&gt; have changed.&lt;/p&gt;
+&lt;p&gt;This scneario involves breaking changes of some kind.&lt;/p&gt;
+&lt;p&gt;These almost certainly require changes to the config files, sometimes even significant ones in the sense that the structure of the config file may have changed.&lt;/p&gt;
 &lt;h2 id=&#34;upgrade-checklist&#34;&gt;Upgrade checklist&lt;/h2&gt;
+&lt;div class=&#34;notice info&#34; &gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#info-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Info&lt;/p&gt;&lt;p&gt;Starting with Butler version 9.0 there is a check that the config file has the correct format.&lt;/p&gt;
+&lt;p&gt;This means that if you forget to add or change some setting in the main YAML config file, Butler will tell you what&amp;rsquo;s missing and refuse to start.&lt;br&gt;
+A consequence of this is that all settings are now mandatory, even if you don&amp;rsquo;t use them.&lt;/p&gt;&lt;/div&gt;
+
 &lt;ol&gt;
 &lt;li&gt;Look at the &lt;a href=&#34;/docs&#34;&gt;release notes&lt;/a&gt; to get a general feeling for what is new and what has changed.&lt;br&gt;
 Those are the areas tha may require changes in the config file.&lt;/li&gt;

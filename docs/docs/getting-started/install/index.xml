@@ -4,7 +4,6 @@
     <link>/docs/getting-started/install/</link>
     <description>Recent content in Installing Butler on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
     
 	  <atom:link href="/docs/getting-started/install/index.xml" rel="self" type="application/rss+xml" />
     
@@ -59,32 +58,9 @@ Another good tool is &lt;a href=&#34;https://pm2.keymetrics.io&#34;&gt;PM2&lt;/a
         &lt;h2 id=&#34;downloading-the-app&#34;&gt;Downloading the app&lt;/h2&gt;
 &lt;p&gt;Download Butler for your preferred operating systym.&lt;/p&gt;
 &lt;p&gt;Latest version is available on &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/releases/latest&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;What&lt;/th&gt;
-&lt;th&gt;Comment&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Qlik Sense Enterprise on Windows&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; Butler is developed with client-managed Qlik Sense Enterprise on Windows (QSEoW) in mind. &lt;br&gt;While some Butler features might also work with Sense Desktop or Sense cloud, you are on your own there.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;MQTT broker&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; MQTT is used for both in- and out-bound pub-sub messaging. Butler assumes a working MQTT broker is available, the IP of which is defined in the Butler config file. &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; is a great open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&amp;hellip; instance is enough, if you want a dedicated MQTT server. If you don&amp;rsquo;t care about the pubsub features of Butler, you don&amp;rsquo;t need a MQTT broker. In this case you can disable the MQTT features in the config YAML file.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.influxdata.com/time-series-platform/&#34;&gt;InfluxDB&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; A database for realtime information, used to store metrics around Butler&amp;rsquo;s own memory usage over time (if this feature is enabled).&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
 &lt;h2 id=&#34;installation-steps&#34;&gt;Installation steps&lt;/h2&gt;
-&lt;p&gt;There is no installation needed for the stand-alone Butler executables.&lt;/p&gt;
-&lt;p&gt;The steps below outline the steps needed to install Butler as a native Node.js application on for example Windows Server.&lt;/p&gt;
+&lt;p&gt;Installing Butler is quite simple.&lt;br&gt;
+The steps below outline the process.&lt;/p&gt;
 &lt;p&gt;Additional information is found on the &lt;a href=&#34;/docs/getting-started/operations/&#34;&gt;Day 2 operations&lt;/a&gt; page.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -112,14 +88,6 @@ Then unpack the ZIP file.&lt;/p&gt;
 &lt;p&gt;The macOS version of Butler is signed using Apple&amp;rsquo;s official app signing process.&lt;br&gt;
 This means you may see a warning the first time you start Butler, but after that there should be no more warnings.&lt;/p&gt;&lt;/div&gt;
 
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;MQTT message broker&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Several of Butler&amp;rsquo;s features use &lt;a href=&#34;https://mqtt.org/&#34;&gt;MQTT&lt;/a&gt; for sending and receiving messages.&lt;br&gt;
-MQTT is a standardised messaging protocol and it should be possible to use &lt;a href=&#34;https://github.com/mqtt/mqtt.org/wiki/software?id=software&#34;&gt;any broker following the MQTT standard&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Butler has been developed and tested using &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; running on mac OS, Debian Linux and Docker - all work flawlessly.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 
       </description>
     </item>
@@ -133,34 +101,7 @@ MQTT is a standardised messaging protocol and it should be possible to use &lt;a
       <description>
         
         
-        &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;What&lt;/th&gt;
-&lt;th&gt;Comment&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Qlik Sense Enterprise on Windows&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; Butler is developed with Qlik Sense Enterprise on Windows (QSEoW) in mind. &lt;br&gt;While some Butler features might also work with Sense Desktop or Sense cloud, you are on your own there.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Docker&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; A Docker runtime environment on any supported platform.&lt;br&gt;This means you can run Butler on any platform where Docker is available, including Linux, Mac OS, Windows and most cloud providers. It is very doable to run Butler under Kubernetes too, if so desired.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;MQTT broker&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; MQTT is used for both in- and out-bound pub-sub messaging. Butler assumes a working MQTT broker is available, the IP of which is defined in the Butler config file. &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; is a great open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&amp;hellip; instance is enough, if you want a dedicated MQTT server. If you don&amp;rsquo;t care about the pubsub features of Butler, you don&amp;rsquo;t need a MQTT broker. In this case you can disable the MQTT features in Butler&amp;rsquo;s config file.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.influxdata.com/time-series-platform/&#34;&gt;InfluxDB&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; A database for realtime information, used to store metrics around Butler&amp;rsquo;s own memory usage over time (if this feature is enabled).&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;installation-steps&#34;&gt;Installation steps&lt;/h2&gt;
+        &lt;h2 id=&#34;installation-steps&#34;&gt;Installation steps&lt;/h2&gt;
 &lt;p&gt;The following steps give some guidance on how to get Butler running on Docker.&lt;br&gt;
 Here Mac OS was used, things will look different on Linux and Windows.&lt;/p&gt;
 &lt;p&gt;Note: While the console logs below refer to an older version of Butler&amp;rsquo;s Docker image, the steps involved are the same also for current/most recent version of Butler.&lt;/p&gt;
@@ -381,33 +322,6 @@ You can name the config file anything, but its name has to match the NODE_ENV en
         &lt;h2 id=&#34;selecting-an-os&#34;&gt;Selecting an OS&lt;/h2&gt;
 &lt;p&gt;While Qlik Sense Enterprise is a Windows only system, Butler should be able to run on any OS where Node.js is available.&lt;br&gt;
 Butler has been succesfully used - during development and production - on Windows, Linux (Debian and Ubuntu tested) and mac OS.&lt;/p&gt;
-&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;What&lt;/th&gt;
-&lt;th&gt;Comment&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Qlik Sense Enterprise on Windows&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; Butler is developed with Qlik Sense Enterprise on Windows (QSEoW) in mind. &lt;br&gt;While some Butler features might also work with Sense Desktop or Sense cloud, you are on your own there.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Node.js&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Mandatory.&lt;/em&gt; Butler is written in Node - which is thus a firm requirement.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;MQTT broker&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; MQTT is used for both in- and out-bound pub-sub messaging. Butler assumes a working MQTT broker is available, the IP of which is defined in the Butler config file. &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; is a great open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&amp;hellip; instance is enough, if you want a dedicated MQTT server. If you don&amp;rsquo;t care about the pubsub features of Butler, you don&amp;rsquo;t need a MQTT broker. In this case you can disable the MQTT features in the config YAML file.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.influxdata.com/time-series-platform/&#34;&gt;InfluxDB&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;&lt;em&gt;Optional.&lt;/em&gt; A database for realtime information, used to store metrics around Butler&amp;rsquo;s own memory usage over time (if this feature is enabled).&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
 &lt;h2 id=&#34;installation-steps&#34;&gt;Installation steps&lt;/h2&gt;
 &lt;p&gt;The steps below outline the steps needed to install Butler as a native Node.js application on for example Windows Server.&lt;/p&gt;
 &lt;p&gt;Additional information is found on the &lt;a href=&#34;/docs/getting-started/operations/&#34;&gt;Day 2 operations&lt;/a&gt; page.&lt;/p&gt;
@@ -437,12 +351,6 @@ From a Windows command prompt (assuming the Butler ZIP file/repository was saved
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This will download and install all Node.js modules used by Butler.&lt;br&gt;
 On some OSs you&amp;rsquo;ll get some warnings during the installation - they are usually harmless. Try to run Butler even if you got some warnings, chances are good that things will work just fine. This is common on especially Windows Server and is a result of some Butler dependencies being primarily developed on Linux rather than Windows.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;MQTT message broker&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Several of Butler&amp;rsquo;s features use &lt;a href=&#34;https://mqtt.org/&#34;&gt;MQTT&lt;/a&gt; for sending and receiving messages.&lt;br&gt;
-MQTT is a standardised messaging protocol and it should be possible to use &lt;a href=&#34;https://github.com/mqtt/mqtt.org/wiki/software?id=software&#34;&gt;any broker following the MQTT standard&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Butler has been developed and tested using &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; running on mac OS, Debian Linux and Docker - all work flawlessly.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 

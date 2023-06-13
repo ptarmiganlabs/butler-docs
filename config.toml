@@ -9,6 +9,9 @@ defaultContentLanguageInSubdir = false
 # Useful when translating.
 enableMissingTranslationPlaceholders = true
 
+# Added to support publishing to GitHub Pages, as per https://gohugo.io/hosting-and-deployment/hosting-on-github/
+publishDir = "docs"
+
 enableRobotsTXT = true
 
 # Will give values to .Lastmod etc.

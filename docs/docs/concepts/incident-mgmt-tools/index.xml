@@ -4,7 +4,6 @@
     <link>/docs/concepts/incident-mgmt-tools/</link>
     <description>Recent content in Incident management tools on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
     
 	  <atom:link href="/docs/concepts/incident-mgmt-tools/index.xml" rel="self" type="application/rss+xml" />
     
@@ -49,14 +48,14 @@ Butler provides data for failed/aborted reloads tables and charts.&lt;/p&gt;
 
 
 
-&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 1006px&#34;&gt;
+&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 1006px&#34;&gt;
 	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/new-relic/new-relic-dashboard-1_hu48ad02a06a5a48454f6fc0abc1638707_603480_0x640_resize_catmullrom_3.png&#34; width=&#34;996&#34; height=&#34;640&#34;&gt;
 	
-	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt; New Relic metrics &amp; incident dashboard (light mode) &lt;/p&gt;
-	&lt;/div&gt;
+	&lt;/figcaption&gt;
 	
-&lt;/div&gt;
+&lt;/figure&gt;
 
 
 
@@ -64,14 +63,15 @@ Butler provides data for failed/aborted reloads tables and charts.&lt;/p&gt;
 
 
 
-&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 1140px&#34;&gt;
+
+&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 1140px&#34;&gt;
 	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/new-relic/new-relic-senseops-1_hue5080e106e013819ec01dca063b0cec7_772873_0x640_resize_catmullrom_3.png&#34; width=&#34;1130&#34; height=&#34;640&#34;&gt;
 	
-	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt; New Relic metrics &amp; incident dashboard (dark mode, different time range than previous dashboard above). &lt;/p&gt;
-	&lt;/div&gt;
+	&lt;/figcaption&gt;
 	
-&lt;/div&gt;
+&lt;/figure&gt;
 
 
 
@@ -79,14 +79,15 @@ Butler provides data for failed/aborted reloads tables and charts.&lt;/p&gt;
 
 
 
-&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 1140px&#34;&gt;
+
+&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 1140px&#34;&gt;
 	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/new-relic/new-relic-senseops-2_hu61e65e0680cce0dd7d3e3b98e131878a_961604_0x640_resize_catmullrom_3.png&#34; width=&#34;1130&#34; height=&#34;640&#34;&gt;
 	
-	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt; Detailed information about failed reloads, including the last part of the script log, is available from within New Relic dashboards. &lt;/p&gt;
-	&lt;/div&gt;
+	&lt;/figcaption&gt;
 	
-&lt;/div&gt;
+&lt;/figure&gt;
 
 
 
@@ -94,14 +95,15 @@ Butler provides data for failed/aborted reloads tables and charts.&lt;/p&gt;
 
 
 
-&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 1140px&#34;&gt;
+
+&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 1140px&#34;&gt;
 	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/new-relic/new-relic-senseops-3_hue5080e106e013819ec01dca063b0cec7_855196_0x640_resize_catmullrom_3.png&#34; width=&#34;1130&#34; height=&#34;640&#34;&gt;
 	
-	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt; Butler SOS metrics in a dark mode New Relic dashboard. &lt;/p&gt;
-	&lt;/div&gt;
+	&lt;/figcaption&gt;
 	
-&lt;/div&gt;
+&lt;/figure&gt;
 
 
 
@@ -109,14 +111,15 @@ Butler provides data for failed/aborted reloads tables and charts.&lt;/p&gt;
 
 
 
-&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 1126px&#34;&gt;
+
+&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 1126px&#34;&gt;
 	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/new-relic/new-relic-alert-overview-1_huca017e540ec50ef68c261f5dbd64c672_486416_0x640_resize_catmullrom_3.png&#34; width=&#34;1116&#34; height=&#34;640&#34;&gt;
 	
-	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt; New Relic incidents overview page (dark mode) &lt;/p&gt;
-	&lt;/div&gt;
+	&lt;/figcaption&gt;
 	
-&lt;/div&gt;
+&lt;/figure&gt;
 
 
 
@@ -124,14 +127,15 @@ Butler provides data for failed/aborted reloads tables and charts.&lt;/p&gt;
 
 
 
-&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 1126px&#34;&gt;
+
+&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 1126px&#34;&gt;
 	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/new-relic/new-relic-alert-conditions-1_huca017e540ec50ef68c261f5dbd64c672_449678_0x640_resize_catmullrom_3.png&#34; width=&#34;1116&#34; height=&#34;640&#34;&gt;
 	
-	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt; New Relic alert conditions (dark mode)&lt;/p&gt;
-	&lt;/div&gt;
+	&lt;/figcaption&gt;
 	
-&lt;/div&gt;
+&lt;/figure&gt;
 
 
 
@@ -139,14 +143,15 @@ Butler provides data for failed/aborted reloads tables and charts.&lt;/p&gt;
 
 
 
-&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 2131px&#34;&gt;
+
+&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 2131px&#34;&gt;
 	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/new-relic/new-relic-slack-alert-1_hu03fb9c540c54344a3e0ee19f7817a5cf_219666_0x640_resize_catmullrom_3.png&#34; width=&#34;2121&#34; height=&#34;640&#34;&gt;
 	
-	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt; Basic New Relic Slack alert (dark mode) &lt;/p&gt;
-	&lt;/div&gt;
+	&lt;/figcaption&gt;
 	
-&lt;/div&gt;
+&lt;/figure&gt;
 
 
 
@@ -154,14 +159,16 @@ Butler provides data for failed/aborted reloads tables and charts.&lt;/p&gt;
 
 
 
-&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 1108px&#34;&gt;
+
+&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 1108px&#34;&gt;
 	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/new-relic/new-relic-slack-alert-2_hu528289caef6e1eb03d6ff06aca8998be_407785_0x640_resize_catmullrom_3.png&#34; width=&#34;1098&#34; height=&#34;640&#34;&gt;
 	
-	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt; More comprehensive New Relic Slack alert (dark mode) &lt;/p&gt;
-	&lt;/div&gt;
+	&lt;/figcaption&gt;
 	
-&lt;/div&gt;
+&lt;/figure&gt;
+
 
       </description>
     </item>
@@ -212,14 +219,15 @@ Butler integrates with these APIs, creating a seamless, almost instantaneous han
 
 
 
-&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 370px&#34;&gt;
+&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 370px&#34;&gt;
 	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/signl4/signl4-1_hu502bbcd9147e0361bdddf0aa3faaafbc_162998_360x0_resize_q75_catmullrom.jpg&#34; width=&#34;360&#34; height=&#34;792&#34;&gt;
 	
-	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt; Signl4 message on Android lock screen. &lt;/p&gt;
-	&lt;/div&gt;
+	&lt;/figcaption&gt;
 	
-&lt;/div&gt;&lt;/td&gt;
+&lt;/figure&gt;
+&lt;/td&gt;
 &lt;td&gt;
 
 
@@ -227,14 +235,15 @@ Butler integrates with these APIs, creating a seamless, almost instantaneous han
 
 
 
-&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 370px&#34;&gt;
+&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 370px&#34;&gt;
 	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/signl4/signl4-2_hu18d79376c456c286601acabdf019b347_136457_360x0_resize_q75_catmullrom.jpg&#34; width=&#34;360&#34; height=&#34;792&#34;&gt;
 	
-	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt; Signl4 message on Android lock screen. &lt;/p&gt;
-	&lt;/div&gt;
+	&lt;/figcaption&gt;
 	
-&lt;/div&gt;&lt;/td&gt;
+&lt;/figure&gt;
+&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;
@@ -244,14 +253,15 @@ Butler integrates with these APIs, creating a seamless, almost instantaneous han
 
 
 
-&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 370px&#34;&gt;
+&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 370px&#34;&gt;
 	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/signl4/signl4-3_hue02c839b75ab4615bab0e8b36a646528_194639_360x0_resize_q75_catmullrom.jpg&#34; width=&#34;360&#34; height=&#34;792&#34;&gt;
 	
-	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt; Overview of incidents. &lt;/p&gt;
-	&lt;/div&gt;
+	&lt;/figcaption&gt;
 	
-&lt;/div&gt;&lt;/td&gt;
+&lt;/figure&gt;
+&lt;/td&gt;
 &lt;td&gt;
 
 
@@ -259,14 +269,15 @@ Butler integrates with these APIs, creating a seamless, almost instantaneous han
 
 
 
-&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 370px&#34;&gt;
+&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 370px&#34;&gt;
 	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/signl4/signl4-4_hud28b089d7f22295ea3f275d5a8057818_263046_360x0_resize_q75_catmullrom.jpg&#34; width=&#34;360&#34; height=&#34;792&#34;&gt;
 	
-	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt; List of incidents during past 24 hours. &lt;/p&gt;
-	&lt;/div&gt;
+	&lt;/figcaption&gt;
 	
-&lt;/div&gt;&lt;/td&gt;
+&lt;/figure&gt;
+&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;
@@ -276,14 +287,15 @@ Butler integrates with these APIs, creating a seamless, almost instantaneous han
 
 
 
-&lt;div class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 370px&#34;&gt;
+&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 370px&#34;&gt;
 	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/incident-mgmt-tools/signl4/signl4-5_hu43379b6a402b5a8ae5311cc78fccbe5a_143540_360x0_resize_q75_catmullrom.jpg&#34; width=&#34;360&#34; height=&#34;792&#34;&gt;
 	
-	&lt;div class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt; Incident details. &lt;/p&gt;
-	&lt;/div&gt;
+	&lt;/figcaption&gt;
 	
-&lt;/div&gt;&lt;/td&gt;
+&lt;/figure&gt;
+&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;

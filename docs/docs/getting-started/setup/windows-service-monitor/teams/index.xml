@@ -1,0 +1,17 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler – Sending Windows service alerts to Microsoft Teams</title>
+    <link>/docs/getting-started/setup/windows-service-monitor/teams/</link>
+    <description>Recent content in Sending Windows service alerts to Microsoft Teams on Butler</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="/docs/getting-started/setup/windows-service-monitor/teams/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+  </channel>
+</rss>

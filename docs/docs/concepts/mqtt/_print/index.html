@@ -1,0 +1,258 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.111.3">
+<link rel="canonical" type="text/html" href="/docs/concepts/mqtt/">
+<link rel="alternate" type="application/rss&#43;xml" href="/docs/concepts/mqtt/index.xml">
+<meta name="robots" content="noindex, nofollow">
+<script defer data-domain="butler.ptarmiganlabs.com" src="https://plausible.io/js/script.js"></script>
+
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>MQTT integration | Butler</title>
+<meta name="description" content="Details about how Qlik Sense can use Butler to send pub-sub messages using MQTT.
+">
+<meta property="og:title" content="MQTT integration" />
+<meta property="og:description" content="Details about how Qlik Sense can use Butler to send pub-sub messages using MQTT.
+" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/docs/concepts/mqtt/" /><meta property="og:site_name" content="Butler" />
+<meta itemprop="name" content="MQTT integration">
+<meta itemprop="description" content="Details about how Qlik Sense can use Butler to send pub-sub messages using MQTT.
+"><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MQTT integration"/>
+<meta name="twitter:description" content="Details about how Qlik Sense can use Butler to send pub-sub messages using MQTT.
+"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.760be0d42a95747f7072e6cf9b47cc5c5c4d7715dd765fd062712100e6b3d9d8.css" as="style">
+<link href="/scss/main.min.760be0d42a95747f7072e6cf9b47cc5c5c4d7715dd765fd062712100e6b3d9d8.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-00000000-0', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">Butler</span></a>
+  <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      </ul>
+  </div>
+  <div class="navbar-nav d-none d-lg-block">
+    
+  </div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/docs/concepts/mqtt/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">MQTT integration</h1>
+<div class="lead">Details about how Qlik Sense can use Butler to send pub-sub messages using MQTT.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+
+    </ul>
+
+
+<div class="content">
+      <h2 id="what-is-mqtt">What is MQTT?</h2>
+<p><a href="https://mqtt.org">MQTT</a> is a light weight publish-subscribe (&ldquo;pub-sub&rdquo;) protocol.</p>
+<p>Used in both the telecomms industry and various Internet of Things applications, there are client libraries available for many different languages and platforms. This is important, as there is a good chance other systems can find a way of sending MQTT messages, which Butler can then listen for/subscribe to.</p>
+<h2 id="outgoing-mqtt-from-butler-itself">Outgoing MQTT from Butler itself</h2>
+<p>If MQTT is enabled, Butler will forward events (reload failed, user opened a session to Sense etc) to MQTT. These events are sent to the MQTT topics defined in the <code>Butler.mqttConfig</code> section of Butler&rsquo;s config file.</p>
+<h2 id="outgoing-mqtt---publish">Outgoing MQTT - publish</h2>
+<p>Butler can post messages to MQTT topics. The <code>/v4/mqttpublishmessage</code> API endpoint is used for this.<br>
+This way Butler can send status information and notifications to other systems, outside of Qlik Sense. Use cases include:</p>
+<ul>
+<li>
+<p>Notify downstream systems that Sense has finished creating some data set that the downstream system depends on.</p>
+</li>
+<li>
+<p>Send debug or trace messages to MQTT instead of to the Sense log. Using a MQTT client (there are multiple ones on both Windows, OSX and Linux) you can then monitor the messages in real time. Very useful during development of tricky Sense load scripts!</p>
+</li>
+<li>
+<p>Start Sense tasks (typically reloads) from the Sense load script. Very useful when you need to trigger a second app reload once the first app&rsquo;s load script reaches some specific point of execution.<br>
+This way the scheduling and execution of Sense tasks can be made much more flexible than using the built in QMC scheduler.</p>
+<p>Note: While possible to start reload tasks using MQTT, it&rsquo;s usually easier to do this using <a href="/docs/reference/rest-api">Butler&rsquo;s REST API</a>.</p>
+</li>
+<li>
+<p>Send messages to platforms such as Node-RED. Node-RED is an open source platform (with a graphical editor) intended for integrating different systems and data sources. As it is built on node.red there are many different modules available, offering integrations with all sorts of systems and protocols.<br>
+Using Node.RED together with Qlik Sense and Butler, it is possible to interface with social media from the Sense load script (send a Tweet when some condition occur during app reload, for example).</p>
+</li>
+</ul>
+<h2 id="incoming-mqtt---subscribe">Incoming MQTT - subscribe</h2>
+<p>Butler subscribes to all MQTT messages in the topic specied in the confif file property <code>Butler.mqttConfig.subscriptionRootTopic</code>.<br>
+Which in MQTT lingo means &ldquo;listen to all messages in the this topic, as well as in any subtopics&rdquo;.</p>
+<p>When Butler gets a message as a result of this subscription it is analysed and if the topic matches any of the predefined topics with special meaning, the associated tasks are carried out.</p>
+<p>Topics with special meaning are:</p>
+<ul>
+<li>Start Sense task. The exact topic is defined in config property <code>Butler.mqttConfig.taskStartTopic</code>.<br>
+Note that this topic <em>must</em> be a subtopic to the topic specified in <code>Butler.mqttConfig.subscriptionRootTopic</code>!<br>
+Starts the Sense task identified by the ID sent in the message body. More info in the <a href="/docs/examples/start-task-from-mqtt/#use-mqtt-to-start-sense-tasks">examples</a> section.</li>
+</ul>
+<p>As Butler listens to all messages in the topic tree specified by <code>Butler.mqttConfig.subscriptionRootTopic</code> it can easily be extended with handlers for additional topics.</p>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="SenseOps mailing list" aria-label="SenseOps mailing list">
+    <a class="text-white" target="_blank" rel="noopener" href="https://ptarmiganlabs.com/#/portal/signup" aria-label="SenseOps mailing list">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Discussion forums on GitHub" aria-label="Discussion forums on GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/ptarmiganlabs/butler/discussions" aria-label="Discussion forums on GitHub">
+      <i class="fa fa-comments"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Ptarmigan Labs" aria-label="Ptarmigan Labs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://ptarmiganlabs.com" aria-label="Ptarmigan Labs">
+      <i class="fa fa-external-link"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener" href="https://www.linkedin.com/in/gorsan/" aria-label="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/ptarmiganlabs/butler" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Bug reports &amp; Feature requests" aria-label="Bug reports &amp; Feature requests">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/ptarmiganlabs/butler/issues/new/choose" aria-label="Bug reports &amp; Feature requests">
+      <i class="fa fa-bug"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Get in touch with Ptarmigan Labs" aria-label="Get in touch with Ptarmigan Labs">
+    <a class="text-white" target="_blank" rel="noopener" href="mailto://info@ptarmiganlabs.com" aria-label="Get in touch with Ptarmigan Labs">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2023 Ptarmigan Labs AB All Rights Reserved</small>
+        
+	
+		<p class="mt-2"><a href="/docs/about/">About</a></p>
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+  <script src="/js/main.min.be25a680a0d95dc8b5d6664622e2134aa894220e2f224ef609e00f633a3a1b32.js" integrity="sha256-viWmgKDZXci11mZGIuITSqiUIg4vIk72CeAPYzo6GzI=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>
