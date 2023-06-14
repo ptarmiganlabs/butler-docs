@@ -21,6 +21,12 @@ This means that if you forget to add or change some setting in the main YAML con
 A consequence of this is that all settings are now mandatory, even if you don't use them.
 {{< /notice >}}
 
+Trying to start Butler without some mandatory settings in the config file will result in an error message like this:
+
+![Starting Butler with missing setting in YAML config file](/img/butler-startup-missing-settings-1.png "Starting Butler with missing setting in YAML config file.")
+
+Adding the missing settings and restarting Butler will result in a successful startup.
+
 ```yaml
 ---
 ---
