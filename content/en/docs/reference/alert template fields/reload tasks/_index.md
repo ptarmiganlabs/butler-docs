@@ -34,6 +34,10 @@ This is simply how Sense works - the template fields just forward the informatio
 | ✅ | ✅ | taskId | ID of reload task that failed/was stopped. |
 | ✅ | ✅ | appName | Name of Sense whose reload failed/was stopped. |
 | ✅ | ✅ | appId | ID of Sense app whose reload failed/was stopped. |
+| ✅ | ✅ | appOwnerName | Name of app owner (if this is available in the metadata provided by the Sense server) |
+| ✅ | ✅ | appOwnerUserDirectory | App owner user's user directory (if this is available in the metadata provided by the Sense server) |
+| ✅ | ✅ | appOwnerUserId | App owner user's user id (if this is available in the metadata provided by the Sense server) |
+| ✅ | ✅ | appOwnerEmail | App owner email (if this is available in the metadata provided by the Sense server) |
 | ✅ | ✅ | logTimeStamp | Timestamp as recorded in the Sense logs |
 | ✅ | ✅ | logLevel | Log level of the Sense log file entry causing the alert |
 | ✅ | ✅ | logMessage | Log message from the Sense log files |

@@ -4,6 +4,7 @@
     <link>/docs/reference/alert-template-fields/</link>
     <description>Recent content in Alert template fields on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     
 	  <atom:link href="/docs/reference/alert-template-fields/index.xml" rel="self" type="application/rss+xml" />
     
@@ -80,6 +81,30 @@ This is simply how Sense works - the template fields just forward the informatio
 &lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
 &lt;td&gt;appId&lt;/td&gt;
 &lt;td&gt;ID of Sense app whose reload failed/was stopped.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;appOwnerName&lt;/td&gt;
+&lt;td&gt;Name of app owner (if this is available in the metadata provided by the Sense server)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;appOwnerUserDirectory&lt;/td&gt;
+&lt;td&gt;App owner user&amp;rsquo;s user directory (if this is available in the metadata provided by the Sense server)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;appOwnerUserId&lt;/td&gt;
+&lt;td&gt;App owner user&amp;rsquo;s user id (if this is available in the metadata provided by the Sense server)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td&gt;appOwnerEmail&lt;/td&gt;
+&lt;td&gt;App owner email (if this is available in the metadata provided by the Sense server)&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
