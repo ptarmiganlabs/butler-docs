@@ -12,8 +12,6 @@ Butler uses the [Handlebars](https://handlebarsjs.com/) library for templating w
 
 Handlebars offers a lot of useful features (nested template fields, evaluation context, template comments) and it's recommended that you browse through at least the [language features](https://handlebarsjs.com/guide/#installation) section of their getting started guide to get a feeling for what's possible.
 
-Note that Handlebars supports nested template fields. The nesting notation is plain JSON, examples below.
-
 {{% alert title="Warning" color="warning" %}}
 Not all alert destinations (MQTT, outgoing webhooks etc) support template fields.
 

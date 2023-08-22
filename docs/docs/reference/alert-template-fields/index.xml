@@ -26,7 +26,6 @@
         &lt;h2 id=&#34;template-fields&#34;&gt;Template fields&lt;/h2&gt;
 &lt;p&gt;Butler uses the &lt;a href=&#34;https://handlebarsjs.com/&#34;&gt;Handlebars&lt;/a&gt; library for templating work.&lt;/p&gt;
 &lt;p&gt;Handlebars offers a lot of useful features (nested template fields, evaluation context, template comments) and it&amp;rsquo;s recommended that you browse through at least the &lt;a href=&#34;https://handlebarsjs.com/guide/#installation&#34;&gt;language features&lt;/a&gt; section of their getting started guide to get a feeling for what&amp;rsquo;s possible.&lt;/p&gt;
-&lt;p&gt;Note that Handlebars supports nested template fields. The nesting notation is plain JSON, examples below.&lt;/p&gt;
 
 
 &lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
