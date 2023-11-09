@@ -607,6 +607,8 @@ Butler:
     backgroundServerPort: 8081                        # Port used internally by Butler's REST API. Any free port on the server where Butler is running can bse used.
 
   # List of directories between which file copying via the REST API can be done.
+  # NOTE: All subdirectories of the specified from and to directories are also approved/allowed.
+  #
   # Butler will try to clean up messy paths like this one, which resolves to /Users/goran/butler-test-dir1
   # How? First you have /Users/goran/butler-test-dir1//abc which cleans up to /Users/goran/butler-test-dir1/abc, 
   # then up one level (..).
@@ -619,6 +621,7 @@ Butler:
       toDirectory: /to/some/directory2
 
   # List of directories between which file moves via the REST API can be done.
+  # NOTE: All subdirectories of the specified from and to directories are also approved/allowed.
   fileMoveApprovedDirectories:                        
     - fromDirectory: /Users/goran/butler-test-dir1//abc//..
       toDirectory: /Users/goran/butler-test-dir2
@@ -628,6 +631,7 @@ Butler:
       toDirectory: /to/some/directory2
 
   # List of directories in which file deletes via the REST API can be done.
+  # NOTE: All subdirectories of the specified directories are also approved/allowed.
   fileDeleteApprovedDirectories:                      
     - /Users/goran/butler-test-dir1
     - /Users/goran/butler-test-dir1//abc//..
