@@ -115,7 +115,8 @@ Butler:
   influxDb:
     enable: false                  # Master switch for InfluxDB integration. If false, no data will be sent to InfluxDB.
     hostIP: <IP or host name>     # Where is InfluxDB server located?
-    hostPort: 8086                # InfluxDB port
+    hostPort: 8086                # InfluxDB port. Must be set to a value (for example 8086), otherwise this config entry
+                                  # will be flagged as invalid when the config file format is verified on startup.
     auth:
       enable: false               # Does InfluxDB require login?
       username: user_joe      
