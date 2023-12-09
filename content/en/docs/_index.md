@@ -13,9 +13,55 @@ Upgrading from an earlier version of Butler?
 General guidance on how to do this is found [here](/docs/getting-started/upgrade/).
 {{< /notice >}}
 
-
-
 {{% pageinfo %}}
+
+
+## Release highlights
+
+
+### What's new in version 9.3.1
+
+*Bug Fixes*
+
+* **mqtt:** More reboust startup code for MQTT & Win svc monitoring.
+* **winsvc:** Don't send Win svc alerts when Butler starts.
+
+*Refactoring*
+
+* **logging:** More consistent log prefixes.
+
+### What's new in version 9.3.0
+
+*Features*
+
+* **influxdb:** Store failed reload info in InfluxDB.
+* **mqtt:** Add support for Azure Event Grid as MQTT broker.
+* **influxdb:** Store reload task success info in InfluxBD.
+
+*Bug Fixes*
+
+* Disable SMTP mail appender in sample config.
+* More robust generation of anonymous Butler instance id.
+* **mqtt:** Better error handling when establishing MQTT connection.
+* Verify that all required config file entries exist.
+* **winservice:** Better handling of services that don't exist.
+
+*Miscellaneous*
+
+* Add sample config files to release ZIPs.
+
+### What's new in version 9.2.0
+
+*Features*
+
+* **reload-alerts:** Make app owner info available in reload failed alerts.
+
+### What's new in version 9.1.0
+
+*Features*
+
+* **scrip logs:** Only get failed-reload script logs once from Sense server.
+* **telemetry:** Change to using PostHog for telemetry collection.
 
 
 ### What's new in version 9.0.0

@@ -78,7 +78,13 @@ A consequence of this is that all settings are now mandatory, even if you don't 
 
 By far the most common problem when upgrading to a new Butler version (or doing a fresh install) is an incorrect config file.
 
+All config entries are mandatory, even if you don't use them.  
+Thiis may seem a bit harsh, but this way Butler can tell you exactly what is missing in the config file.
+
+Butler is pretty good at figuring out what is wrong with the config file, but there may be cases where it's not obvious what is wrong.
+
 Thus, double check your config file, then triple check it.
 
-If things still aren't working you can post a question in the [Butler forums](https://github.com/ptarmiganlabs/butler/discussions/categories/q-a).  
+If things still don't work you can post a question in the [Butler forums](https://github.com/ptarmiganlabs/butler/discussions/categories/q-a).
+
 By sharing your installation and upgrade challenges/issues you enable future improvements, which will benefit both yourself and others.

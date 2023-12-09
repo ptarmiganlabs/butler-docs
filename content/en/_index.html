@@ -50,7 +50,7 @@ Who should be the first to know that a reload has failed?
 You or your users?  
 Who was it that stopped that important 3-hour reload 5 minutes before it was done?
 
-Get notified when tasks fail or are stopped, with notifications sent to Slack, Microsoft Teams, email, New Relic, Signl4 and other destinations.  
+Get notified when tasks fail or are stopped, with notifications sent to Slack, Microsoft Teams, email, InfluxDb, New Relic, Signl4 and other destinations.  
 Full support for HTML/Markdown formatting and 40+ template fields.
 
 [Read more...](/docs/concepts/alert-emails/) 
@@ -72,7 +72,7 @@ Make sure the Qlik Sense services are always running - and any other Windows ser
 Maybe your IT department does this for you - if not Butler offers a pretty solid solution.
 
 Start/stop alerts can be sent to email, Slack, Teams, InfluxDB, New Relic, MQTT and webhooks.  
-Continuous stats of services is sent to MQTT and InfluxDB. 
+Service metrics are continuously sent to MQTT and InfluxDB. 
 
 [Read more...](/docs/getting-started/setup/windows-service-monitor/) 
 {{% /blocks/feature %}}
@@ -113,7 +113,7 @@ Start reload tasks from within app load scripts or from upstream source systems 
 
 Need parameters too? No problem - just add zero or more key-value pairs and they will be available to any Sense app!
 
-Or maybe start all tasks having a certain tag or custom property set? Part of the [REST API](/docs/reference/rest-api/?operationsSorter=alpha?operationsSorter=alpha).
+Or maybe start all tasks having a certain tag or custom property set? Available via the [REST API](/docs/reference/rest-api/?operationsSorter=alpha?operationsSorter=alpha).
 
 [Read more...](/docs/examples/start-task-from-rest/) 
 {{% /blocks/feature %}}
@@ -177,8 +177,11 @@ Butler itself can be monitored in InfluxDB/Grafana and New Relic.
 
 {{< blocks/section color="dark">}}
 
-{{% blocks/feature icon="fa-lightbulb" title="Latest release: 9.2" %}}
-🥳 App owner info now available in reload failed/aborted notifications.
+{{% blocks/feature icon="fa-lightbulb" title="Latest release: 9.3" %}}
+🥳 Info on both failed and successful reloads now stored in InfluxDb.
+
+⚡️ Conntect to Azure EventGrid MQTT broker from Butler.  
+Great for start-reloads-from-anywhere challenges!
 
 Available on [GitHub](https://github.com/ptarmiganlabs/butler/releases).
 {{% /blocks/feature %}}

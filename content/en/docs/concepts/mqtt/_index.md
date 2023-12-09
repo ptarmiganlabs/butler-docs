@@ -33,7 +33,7 @@ Using Node.RED together with Qlik Sense and Butler, it is possible to interface 
 
 ## Incoming MQTT - subscribe
 
-Butler subscribes to all MQTT messages in the topic specied in the confif file property `Butler.mqttConfig.subscriptionRootTopic`.  
+Butler subscribes to all MQTT messages in the topic specied in the config setting `Butler.mqttConfig.subscriptionRootTopic`.  
 Which in MQTT lingo means "listen to all messages in the this topic, as well as in any subtopics".
 
 When Butler gets a message as a result of this subscription it is analysed and if the topic matches any of the predefined topics with special meaning, the associated tasks are carried out.  

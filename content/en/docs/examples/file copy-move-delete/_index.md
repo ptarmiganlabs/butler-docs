@@ -40,7 +40,7 @@ This is straight forward, but because Butler can run on different operating syst
 In most cases the paths to use are the expected ones, but when it comes to UNC paths they can for example either use forward slash "/" or back ditto "\\".  
 Both work as all paths are normalized into an internal, uniform format when loaded into Butler.
 
-Note that all subdirectories of the directories listed in the confifg file are also considered to be approved directories by Butler.
+Note that all subdirectories of the directories listed in the config file are also considered to be approved directories by Butler.
 
 A few examples show how to deal with some common scenarios:
 

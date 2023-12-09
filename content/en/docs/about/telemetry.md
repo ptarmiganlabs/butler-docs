@@ -70,23 +70,23 @@ The telemetry data includes the following:
    _Why: Same as above. Knowing which features are used (and are thus important) allows the Butler developers to better plan future work._
 3. **Information about Butler's execution environment** (operating system, hardware architecture, Node.js version etc).  
     _Why: Ideally the Butler developers want to use as modern versions of Node.js as possible. But if telemetry shows that lots os Butler instances use old Node.js versions or run on some (yet) untested/unverified Linux version - then maybe those older Node.js/Linux versions must be supported for yet some time._
-   {{% /alert %}}
+{{% /alert %}}
 
 {{% alert title="What's not shared" color="warning" %}}
 The telemetry data will never include:
 
 1. Data that can identify your Sense environment or the server on which Butler runs. This includes IP/MAC addresses or other network information, server names, Docker container metadata or similar.
 2. Any actual data sent via Butler APIs.
-3. Qlik Sense or other certificates in any shape or form.
-   {{% /alert %}}
+3. Qlik Sense or other certificates or credentials in any shape or form.
+{{% /alert %}}
 
 ### Where is telemetry data sent
 
-The telemetry data is sent to an Azure server and then stored in a database operated by [Ptarmigan Labs](https://ptarmiganlabs.com) (which is the company sponsoring the Butler project).
+The telemetry data is sent to the [PostHog](https://posthog.com) service, using their database in the European Union.
 
 ### Deleting telemetry data
 
-Even though no-one (not even Ptarmigan Labs who runs the telemetry database!) has any way of ever connecting the data sent by _your_ Butler instance to _you_ (it's all anonymized, remember?), there can be cases where telemetry data must be deleted.
+Even though no-one (not even the Butler developers or Ptarmigan Labs who manage the telemetry database!) has any way of ever connecting the data sent by _your_ Butler instance to _you_ (it's all anonymized, remember?), there can be cases where telemetry data must be deleted.
 
 The [legal page](/docs/legal-stuff/#telemetry-data) has more information about this.
 
@@ -191,12 +191,38 @@ The ID field is created as follows:
    Security is increased due to the fact that the salt never leaves the server where Butler is running.
 
    The bottom line is that it's impossible to reverse the process and get your the IP, host name etc used in step 1 above.  
-   Then again - this is cryptografy and things change.  
-   But if you trust the certificates securing Sense itself, then the ID anonymization in Butler should be ok too.
+   Then again - this is cryptography and things change.  
+   But if you trust the certificates securing Sense itself, then the ID anonymization used by Butler should be ok too.
 3. The result is a string that uniquely identifies the Butler instance at hand, without giving away any sensitive data about the system where Butler is running.
 
 See below for an example of what the `id` field looks like.  
-The `id` field is shown during Butler startup.
+The `id` field is shown during Butler startup as "Instance ID".
+
+```
+2023-12-08T13:15:21.936Z info: --------------------------------------
+2023-12-08T13:15:21.937Z info: Starting Butler
+2023-12-08T13:15:21.937Z info: Log level      : info
+2023-12-08T13:15:21.937Z info: App version    : 9.1.1
+2023-12-08T13:15:21.937Z info: Instance ID    : 3de76798c85894844ac20100cf2142c9a58cc90d7e9dd31a22c94b68048c3ee5
+2023-12-08T13:15:21.937Z info:
+2023-12-08T13:15:21.937Z info: Node version   : v18.5.0
+2023-12-08T13:15:21.937Z info: Architecture   : x64
+2023-12-08T13:15:21.937Z info: Platform       : darwin
+2023-12-08T13:15:21.937Z info: Release        : 14.1
+2023-12-08T13:15:21.938Z info: Distro         : macOS
+2023-12-08T13:15:21.938Z info: Codename       : macOS Sonoma
+2023-12-08T13:15:21.938Z info: Virtual        : false
+2023-12-08T13:15:21.938Z info: Processors     : 1
+2023-12-08T13:15:21.938Z info: Physical cores : 8
+2023-12-08T13:15:21.938Z info: Cores          : 16
+2023-12-08T13:15:21.938Z info: Docker arch.   : undefined
+2023-12-08T13:15:21.938Z info: Total memory   : 68719476736
+2023-12-08T13:15:21.938Z info:
+2023-12-08T13:15:21.938Z info: Config file    : /Users/goran/tools/butler/production.yaml
+2023-12-08T13:15:21.938Z info: API rate limit : 100
+2023-12-08T13:15:21.938Z info: --------------------------------------
+```
+
 
 ## Telemetry FAQ
 
