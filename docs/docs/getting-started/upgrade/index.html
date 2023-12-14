@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.120.4">
+<meta name="generator" content="Hugo 0.121.1">
 <link rel="alternate" type="text/html" href="/docs/getting-started/upgrade/_print/">
 <link rel="alternate" type="application/rss&#43;xml" href="/docs/getting-started/upgrade/index.xml">
 <meta name="robots" content="index, follow">
@@ -39,8 +39,7 @@ This page describes the upgrade process.
 <meta itemprop="description" content="Upgrading from one version of Butler to another is usually quite straightforward.  
   
 This page describes the upgrade process. 
-"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Upgrade"/>
+"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Upgrade"/>
 <meta name="twitter:description" content="Upgrading from one version of Butler to another is usually quite straightforward.  
   
 This page describes the upgrade process. 
@@ -57,7 +56,7 @@ This page describes the upgrade process.
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
 
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -155,6 +154,8 @@ if (!doNotTrack) {
   <ul class="ul-4 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-emails-li">
   <a href="/docs/getting-started/setup/reload-alerts/alert-emails/" title="Reload alerts sent as emails" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-emails"><span class="">Email</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-influxdb-li">
+  <a href="/docs/getting-started/setup/reload-alerts/alert-influxdb/" title="Reload alerts in InfluxDB" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-influxdb"><span class="">InfluxDB</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-new-relic-li">
   <a href="/docs/getting-started/setup/reload-alerts/alert-new-relic/" title="Reload alerts via New Relic" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-new-relic"><span class="">New Relic</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-slack-li">
@@ -333,6 +334,8 @@ if (!doNotTrack) {
   <a href="/docs/reference/alert-template-fields/windows-services/" title="Alert template fields for Windows services events" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldswindows-services"><span class="">Windows services</span></a>
 </li>
   </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceinfluxdb-li">
+  <a href="/docs/reference/influxdb/" title="Information stored in InfluxDB" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceinfluxdb"><span class="">InfluxDB</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencesense-helper-subs-li">
   <a href="/docs/reference/sense-helper-subs/" title="Helper subs that make it easy to use Butler APIs" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencesense-helper-subs"><span class="">Sense helper subs</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencetest-cases-li">
@@ -470,12 +473,12 @@ That version has the latest features, bug fixes and security patches.</p>
 <h3 id="minor-upgrades">Minor upgrades</h3>
 <p>This scenario rarely require any changes to Butler&rsquo;s configuration.<br>
 The new release includes bug fixes, security patches, minor updates to documentation etc - but no new features.</p>
-<p>In theory there should never be any updates needed to the config files when doing a minor upgrade.</p>
+<p>In theory there should never be any changes to the config files when doing a minor upgrade.</p>
 <h3 id="medium-upgrades">Medium upgrades</h3>
 <p>This scenario means that new features are added to Butler.<br>
 Usually there are also various bug fixes included.</p>
 <p>Most new features need to be configured somehow, meaning that medium upgrades usually require modification to the config files.<br>
-By far the most common is that it&rsquo;s the main config file that needs to be modified, but a new scheduler related feature could for example mean that the scheduler config file must be modified too.</p>
+The most common change by far is that it&rsquo;s the main config file that needs to be modified, but a new scheduler related feature could for example mean that the scheduler config file must be modified too.</p>
 <p>The changes needed to the config files are usually additive in nature, i.e. some settings must be added to the config file, but the existing settings and general structure of the file remain the same.</p>
 <h3 id="major-upgrades">Major upgrades</h3>
 <p>This scneario involves breaking changes of some kind.</p>
@@ -503,9 +506,12 @@ Adding <code>--log-level verbose</code> or even <code>--log-level debug</code> w
 </ol>
 <h2 id="when-things-arent-working">When things aren&rsquo;t working</h2>
 <p>By far the most common problem when upgrading to a new Butler version (or doing a fresh install) is an incorrect config file.</p>
+<p>All config entries are mandatory, even if you don&rsquo;t use them.<br>
+Thiis may seem a bit harsh, but this way Butler can tell you exactly what is missing in the config file.</p>
+<p>Butler is pretty good at figuring out what is wrong with the config file, but there may be cases where it&rsquo;s not obvious what is wrong.</p>
 <p>Thus, double check your config file, then triple check it.</p>
-<p>If things still aren&rsquo;t working you can post a question in the <a href="https://github.com/ptarmiganlabs/butler/discussions/categories/q-a">Butler forums</a>.<br>
-By sharing your installation and upgrade challenges/issues you enable future improvements, which will benefit both yourself and others.</p>
+<p>If things still don&rsquo;t work you can post a question in the <a href="https://github.com/ptarmiganlabs/butler/discussions/categories/q-a">Butler forums</a>.</p>
+<p>By sharing your installation and upgrade challenges/issues you enable future improvements, which will benefit both yourself and others.</p>
 
         <div class="section-index">
     
@@ -522,7 +528,7 @@ By sharing your installation and upgrade challenges/issues you enable future imp
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified 2023-06-13: <a href="https://github.com/google/docsy-example/commit/6ae13774642e07f575814ca782a2f50bd0b4373f">Update docs to Butler v9.0 (6ae1377)</a>
+  Last modified 2023-12-09: <a href="https://github.com/google/docsy-example/commit/24d63be33d352116ea65772237e3d0adf91c51dc">WIP 9.3.1 (24d63be)</a>
 </div>
 
 </div>

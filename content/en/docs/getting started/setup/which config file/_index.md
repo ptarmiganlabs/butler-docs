@@ -12,7 +12,8 @@ A description of the config file format is available [here](/docs/reference/conf
 
 Butler uses configuration files in YAML format.
 
-A default config file called `production_template.yaml` is available in the [GitHub repository](https://github.com/ptarmiganlabs/butler/tree/master/src/config).
+A default config file called `production_template.yaml` is included in the release Zip files on the [download page](https://github.com/ptarmiganlabs/butler/releases) (starting with version 9.3.0). It is also available in the [GitHub repository](https://github.com/ptarmiganlabs/butler/tree/master/src/config).
+
 Make a copy of it, then rename the copy `default.yaml`, `production.yaml`, `staging.yaml` or something else suitable to your specific use case.  
 Update it as needed (see the [config file reference page](/docs/reference/config-file/) for details).
 
@@ -42,19 +43,19 @@ Options:
   -V, --version                        output the version number
   -c, --configfile <file>              path to config file
   -l, --loglevel <level>               log level (choices: "error", "warn", "info", "verbose", "debug", "silly")
-  --new-relic-account-name  <name...>  New Relic account name. Used within Butler to differentiate between different target
-                                       New Relic accounts
+  --new-relic-account-name  <name...>  New Relic account name. Used within Butler to differentiate between different target New Relic accounts
   --new-relic-api-key <key...>         insert API key to use with New Relic
   --new-relic-account-id <id...>       New Relic account ID
   --test-email-address <address>       send test email to this address. Used to verify email settings in the config file.
-  --test-email-from-address <address>  send test email from this address. Only relevant when SMTP server allows from address
-                                       to be set.
+  --test-email-from-address <address>  send test email from this address. Only relevant when SMTP server allows from address to be set.
+  --no-qs-connection                   don't connect to Qlik Sense server at all. Run in isolated mode
+  --api-rate-limit                     set the API rate limit, per minute. Default is 100 calls/minute. Set to 0 to disable rate limiting.
   -h, --help                           display help for command
 PS C:\tools\butler>
 ```
 
 There is an option `--configfile` (or its short version `-c`) that let us control which config file to use.  
-In this example there is a `production.yaml` config file in the same directory as `butler.exe`.  
+In this example the config file `.\config\butler-config.yaml` is used.  
 Let's try again with the `-c` option:
 
 ```powershell
@@ -71,7 +72,8 @@ Mode                 LastWriteTime         Length Name
 
 
 PS C:\tools\butler> .\butler.exe -c c:\tools\butler\production.yaml
-2022-06-20T15:18:42.489Z info: Enabled API endpoints: [
+PS C:\tools\butler> .\butler.exe -c .\config\butler-config.yaml
+2023-12-10T13:46:32.939Z info: Enabled API endpoints: [
   "apiListEnbledEndpoints",
   "base62ToBase16",
   "base16ToBase62",
@@ -94,7 +96,7 @@ Butler now starts nicely using the specified config file.
 {{< notice tip >}}
 When using the standalone Butler executables you can use an absolute or a relative path when specifying the location of the config file.
 
-For example, `c:\tools\butler\production.yaml` is an absolute path, while `.\production.yaml` would be a relative path.
+For example, `c:\tools\butler\config\butler-config.yaml` is an absolute path, while `.\config\butler-config.yaml` would be a relative path.
 {{< /notice >}}
 
 ### Config file when running Butler as a Node.js app

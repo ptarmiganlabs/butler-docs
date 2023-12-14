@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.120.4">
+<meta name="generator" content="Hugo 0.121.1">
 <link rel="alternate" type="text/html" href="/docs/getting-started/setup/reload-alerts/_print/">
 <link rel="alternate" type="application/rss&#43;xml" href="/docs/getting-started/setup/reload-alerts/index.xml">
 <meta name="robots" content="index, follow">
@@ -36,8 +36,7 @@ Learn how to set up the desired features, the alert layout, formatting and more.
 <meta itemprop="name" content="Reload related alerts">
 <meta itemprop="description" content="Butler offers a lot of flexibility when it comes to alerts when reloads fail or are aborted.  
 Learn how to set up the desired features, the alert layout, formatting and more.
-"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Reload related alerts"/>
+"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Reload related alerts"/>
 <meta name="twitter:description" content="Butler offers a lot of flexibility when it comes to alerts when reloads fail or are aborted.  
 Learn how to set up the desired features, the alert layout, formatting and more.
 "/>
@@ -53,7 +52,7 @@ Learn how to set up the desired features, the alert layout, formatting and more.
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
 
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -151,6 +150,8 @@ if (!doNotTrack) {
   <ul class="ul-4 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupreload-alertsalert-emails-li">
   <a href="/docs/getting-started/setup/reload-alerts/alert-emails/" title="Reload alerts sent as emails" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-emails"><span class="">Email</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupreload-alertsalert-influxdb-li">
+  <a href="/docs/getting-started/setup/reload-alerts/alert-influxdb/" title="Reload alerts in InfluxDB" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-influxdb"><span class="">InfluxDB</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupreload-alertsalert-new-relic-li">
   <a href="/docs/getting-started/setup/reload-alerts/alert-new-relic/" title="Reload alerts via New Relic" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-new-relic"><span class="">New Relic</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupreload-alertsalert-slack-li">
@@ -329,6 +330,8 @@ if (!doNotTrack) {
   <a href="/docs/reference/alert-template-fields/windows-services/" title="Alert template fields for Windows services events" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldswindows-services"><span class="">Windows services</span></a>
 </li>
   </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceinfluxdb-li">
+  <a href="/docs/reference/influxdb/" title="Information stored in InfluxDB" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceinfluxdb"><span class="">InfluxDB</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencesense-helper-subs-li">
   <a href="/docs/reference/sense-helper-subs/" title="Helper subs that make it easy to use Butler APIs" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencesense-helper-subs"><span class="">Sense helper subs</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencetest-cases-li">
@@ -485,21 +488,31 @@ Each destination can be individually enabled/disabled in the config file.</p>
 <td>Basic emails can be sent using a <a href="/docs/getting-started/setup/reload-alerts/#sending-basic-alert-emails-from-log4net">log appender</a>.</td>
 </tr>
 <tr>
+<td>InfluxDB</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">-</td>
+<td>The failed reload&rsquo;s script log is available in InfluxDb.</td>
+</tr>
+<tr>
 <td>New Relic</td>
 <td style="text-align:center">✅</td>
 <td style="text-align:center">✅</td>
 <td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
+<td style="text-align:center">-</td>
 <td style="text-align:center">✅</td>
 <td style="text-align:center">-</td>
-<td>The failed reload&rsquo;s log is available in New Relic.</td>
+<td>The failed reload&rsquo;s script log is available in New Relic.</td>
 </tr>
 <tr>
 <td>Signl4</td>
 <td style="text-align:center">✅</td>
 <td style="text-align:center">✅</td>
 <td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
+<td style="text-align:center">-</td>
 <td style="text-align:center">✅</td>
 <td style="text-align:center">-</td>
 <td>Alerts are presented in Signl4&rsquo;s own format in their mobile app.</td>
@@ -547,12 +560,13 @@ Each destination can be individually enabled/disabled in the config file.</p>
 </tbody>
 </table>
 <h2 id="how-it-works">How it works</h2>
-<p>In order for Butler initiated alerts to become a reality, Butler must somehow be notified that the event of interest (for example a failed reload task) has taken place.<br>
+<p>In order for Butler initiated alerts to become a reality, Butler must somehow be notified that the event of interest (for example a failed reload task) has occurred.<br>
 This is achieved by adding a <strong><em>log appender</em></strong> to Qlik Sense Enterprise on Windows.</p>
 <p>Log appenders offer a way to hook into Qlik Sense&rsquo;s logging subsystem, which is called <a href="https://help.qlik.com/en-US/sense-admin/May2023/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders-QSRollingFileAppender-Built-in-Appenders.htm">log4net</a>.</p>
 <p>By adding a carefully crafted .xml file in the right location on the Sense server(s), you can make Sense notify Butler by means of UDP messages when the events of interest occur. Conceptually it looks like this:</p>
 <p><img src="/img/butler-log4net-appenders-1.png" alt="Butler high level system overview" title="Butler high level system overview"></p>
-<p>So what happens when a scheduled reload task fails? Let&rsquo;s look at the steps:</p>
+<p>So what happens when a scheduled reload task fails?<br>
+Let&rsquo;s look at the steps:</p>
 <ol>
 <li>
 <p>A reload task is started by the Sense scheduler, either on a time schedule, as a result of some other task(s) finishing or manually by a user in the QMC or from the Hub.</p>
@@ -581,7 +595,8 @@ Butler thus first works as a dispatcher. In a second step, after the initial dis
 
 <h2 id="adding-a-log-appender">Adding a log appender</h2>
 <p>This is possibly the trickiest part to get right when it comes to setting up log4net based alerts.<br>
-Still, if you start from the sample .xml file provided in the <a href="https://github.com/ptarmiganlabs/butler/blob/master/docs/log4net_task-failed/scheduler/LocalLogConfig.xml">Butler repository on GitHub</a> it&rsquo;s not too hard.</p>
+Still, if you start from the sample .xml file provided in the <a href="https://github.com/ptarmiganlabs/butler/tree/master/src/config/log_appender_xml">Butler repository on GitHub</a> it&rsquo;s not too hard.<br>
+Those sample .xml files are also included in the release Zip files available on the <a href="https://github.com/ptarmiganlabs/butler/releases">Butler releases page</a>.</p>
 <p>The steps are:</p>
 <ol>
 <li>
@@ -724,6 +739,14 @@ Still, if you start from the sample .xml file provided in the <a href="https://g
                     <a href="/docs/getting-started/setup/reload-alerts/alert-emails/">Reload alerts sent as emails</a>
                 </h5>
                 <p>Description of the various kinds of alert emails Butler can send.</p>
+            </div>
+        
+            
+            <div class="entry">
+                <h5>
+                    <a href="/docs/getting-started/setup/reload-alerts/alert-influxdb/">Reload alerts in InfluxDB</a>
+                </h5>
+                <p>Description of how information of how successful and failed reload tasks can be stored in InfluxDB.</p>
             </div>
         
             

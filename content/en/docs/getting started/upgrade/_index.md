@@ -36,7 +36,7 @@ Upgrading to an older version - or a pre-release version - means a higher risk f
 This scenario rarely require any changes to Butler's configuration.  
 The new release includes bug fixes, security patches, minor updates to documentation etc - but no new features.
 
-In theory there should never be any updates needed to the config files when doing a minor upgrade.
+In theory there should never be any changes to the config files when doing a minor upgrade.
 
 ### Medium upgrades
 
@@ -44,7 +44,7 @@ This scenario means that new features are added to Butler.
 Usually there are also various bug fixes included.
 
 Most new features need to be configured somehow, meaning that medium upgrades usually require modification to the config files.  
-By far the most common is that it's the main config file that needs to be modified, but a new scheduler related feature could for example mean that the scheduler config file must be modified too.
+The most common change by far is that it's the main config file that needs to be modified, but a new scheduler related feature could for example mean that the scheduler config file must be modified too.
 
 The changes needed to the config files are usually additive in nature, i.e. some settings must be added to the config file, but the existing settings and general structure of the file remain the same.
 

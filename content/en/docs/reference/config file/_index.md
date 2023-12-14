@@ -29,7 +29,6 @@ Adding the missing settings and restarting Butler will result in a successful st
 
 ```yaml
 ---
----
 Butler:
   # General notes: 
   # - File and directory paths in this sample config file use Linux/Mac syntax, i.e. using forward slashes.
@@ -113,21 +112,45 @@ Butler:
 
   # InfluxDB settings
   influxDb:
-    enable: false                  # Master switch for InfluxDB integration. If false, no data will be sent to InfluxDB.
-    hostIP: <IP or host name>     # Where is InfluxDB server located?
-    hostPort: 8086                # InfluxDB port. Must be set to a value (for example 8086), otherwise this config entry
-                                  # will be flagged as invalid when the config file format is verified on startup.
+    enable: false                   # Master switch for InfluxDB integration. If false, no data will be sent to InfluxDB.
+    hostIP: influxdb.mycompany.com  # IP or FQDN of Influxdb server
+    hostPort: 8086                  # Port where Influxdb is listening. Default=8086
     auth:
-      enable: false               # Does InfluxDB require login?
+      enable: false                 # Does InfluxDB require login?
       username: user_joe      
       password: joesecret
-    dbName: butler                # Name of database in InfluxDB to which Butler's data is written
-    instanceTag: DEV              # Tag that can be used to differentiate data from multiple Butler instances
+    dbName: butler                  # Name of database in InfluxDB to which Butler's data is written
+    instanceTag: DEV                # Tag that can be used to differentiate data from multiple Butler instances
     # Default retention policy that should be created in InfluxDB when Butler creates a new database there. 
     # Any data older than retention policy threshold will be purged from InfluxDB.
     retentionPolicy:
       name: 10d
       duration: 10d
+    reloadTaskFailure:
+      enable: true
+      tailScriptLogLines: 20
+      tag: 
+        static:                 # Static tags to attach to data stored in InflixDB
+          - name: butler_instance
+            value: prod-1
+        dynamic:
+          useAppTags: true      # Should app tags be stored in InfluxDB as tags?
+          useTaskTags: true     # Should task tags be stored in InfluxDB as tags?      
+    reloadTaskSuccess:
+      enable: true
+      allReloadTasks:
+        enable: false
+      byCustomProperty:
+        enable: true
+        customPropertyName: 'Butler_SuccessReloadTask_InfluxDB'
+        enabledValue: 'Yes'
+      tag: 
+        static:                 # Static attributes/dimensions to attach to events sent to InfluxDb
+          # - name: event-specific-tag 1
+          #   value: abc 123
+        dynamic:
+          useAppTags: true      # Should app tags be sent to InfluxDb as tags?
+          useTaskTags: true     # Should task tags be sent to InfluxDb as tags?
 
   # Store script logs of failed reloads on disk.
   # The script logs will be stored in daily directories under the specified main directory below
@@ -583,6 +606,11 @@ Butler:
     enable: false                                     # Should Qlik Sense events be forwarded as MQTT messages?
     brokerHost: <FQDN or IP of MQTT server>
     brokerPort: 1883
+    azureEventGrid:
+      enable: false              # If set to true, Butler will connect to an Azure Event Grid MQTT Broker, using brokerHost and brokerPort above 
+      clientId: <client ID>
+      clientCertFile: <path to client certificate file>
+      clientKeyFile: <path to client key file>
     taskFailureSendFull: true
     taskAbortedSendFull: true
     subscriptionRootTopic: qliksense/#                                  # Topic that Butler will subscribe to
@@ -608,8 +636,6 @@ Butler:
     backgroundServerPort: 8081                        # Port used internally by Butler's REST API. Any free port on the server where Butler is running can bse used.
 
   # List of directories between which file copying via the REST API can be done.
-  # NOTE: All subdirectories of the specified from and to directories are also approved/allowed.
-  #
   # Butler will try to clean up messy paths like this one, which resolves to /Users/goran/butler-test-dir1
   # How? First you have /Users/goran/butler-test-dir1//abc which cleans up to /Users/goran/butler-test-dir1/abc, 
   # then up one level (..).
@@ -622,7 +648,6 @@ Butler:
       toDirectory: /to/some/directory2
 
   # List of directories between which file moves via the REST API can be done.
-  # NOTE: All subdirectories of the specified from and to directories are also approved/allowed.
   fileMoveApprovedDirectories:                        
     - fromDirectory: /Users/goran/butler-test-dir1//abc//..
       toDirectory: /Users/goran/butler-test-dir2
@@ -632,7 +657,6 @@ Butler:
       toDirectory: /to/some/directory2
 
   # List of directories in which file deletes via the REST API can be done.
-  # NOTE: All subdirectories of the specified directories are also approved/allowed.
   fileDeleteApprovedDirectories:                      
     - /Users/goran/butler-test-dir1
     - /Users/goran/butler-test-dir1//abc//..
@@ -806,6 +830,7 @@ Butler:
 
   configDirectories:
     qvdPath: <Path to folder under which QVDs are stored>
+
 ```
 
 ### Comments

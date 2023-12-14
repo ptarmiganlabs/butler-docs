@@ -41,6 +41,15 @@ Just make sure that the two settings `Butler.restServerConfig.serverPort` and `B
 
 {{< imgproc butler-ports-1.png Resize "x180" >}} Ports used by Butler {{< /imgproc >}}
 
+## Rate limiting the REST API
+
+Butler's REST API can be rate limited to prevent abuse.
+
+Rate limiting is configured by the `--api-rate-limit` command line parameter when starting Butler.
+
+The parameter takes a single integer value, which is the number of API calls allowed per minute.  
+Set to 0 to disable rate limiting.
+
 ## Enabling individual API endpoints
 
 Each enabled endpoint will result in Butler using more memory and CPU. Thus only enable the endpoints that are needed.

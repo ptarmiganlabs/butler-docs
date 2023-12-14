@@ -1,7 +1,7 @@
 ---
 title: "Reload alerts via MQTT"
 linkTitle: "MQTT"
-weight: 40
+weight: 60
 description: >
   Description of how reload alerts can be sent as MQTT messages.
 ---
@@ -54,6 +54,11 @@ Butler:
     enable: false                                     # Should Qlik Sense events be forwarded as MQTT messages?
     brokerHost: <FQDN or IP of MQTT server>
     brokerPort: 1883
+    azureEventGrid:
+      enable: false              # If set to true, Butler will connect to an Azure Event Grid MQTT Broker, using brokerHost and brokerPort above 
+      clientId: <client ID>
+      clientCertFile: <path to client certificate file>
+      clientKeyFile: <path to client key file>
     taskFailureSendFull: true
     taskAbortedSendFull: true
     subscriptionRootTopic: qliksense/#                                  # Topic that Butler will subscribe to

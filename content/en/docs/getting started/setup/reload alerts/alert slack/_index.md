@@ -1,7 +1,7 @@
 ---
 title: "Reload alerts via Slack"
 linkTitle: "Slack"
-weight: 20
+weight: 40
 description: >
   Description of how reload alerts can be sent as Slack messages.
 ---

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.120.4">
+<meta name="generator" content="Hugo 0.121.1">
 <link rel="alternate" type="text/html" href="/docs/examples/file-copy-move-delete/_print/">
 <link rel="alternate" type="application/rss&#43;xml" href="/docs/examples/file-copy-move-delete/index.xml">
 <meta name="robots" content="index, follow">
@@ -39,8 +39,7 @@ Butler has APIs that enabled file copy/move/delete in a secure, controlled way.
 <meta itemprop="description" content="For security reasons Qlik Sense does not offer direct access to the file system from load scripts. Using lib:// constructs files can be read and written, but not copied, moved or deleted.
   
 Butler has APIs that enabled file copy/move/delete in a secure, controlled way.
-"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Controlled and secure file system operations"/>
+"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Controlled and secure file system operations"/>
 <meta name="twitter:description" content="For security reasons Qlik Sense does not offer direct access to the file system from load scripts. Using lib:// constructs files can be read and written, but not copied, moved or deleted.
   
 Butler has APIs that enabled file copy/move/delete in a secure, controlled way.
@@ -57,7 +56,7 @@ Butler has APIs that enabled file copy/move/delete in a secure, controlled way.
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
 
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -155,6 +154,8 @@ if (!doNotTrack) {
   <ul class="ul-4 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-emails-li">
   <a href="/docs/getting-started/setup/reload-alerts/alert-emails/" title="Reload alerts sent as emails" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-emails"><span class="">Email</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-influxdb-li">
+  <a href="/docs/getting-started/setup/reload-alerts/alert-influxdb/" title="Reload alerts in InfluxDB" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-influxdb"><span class="">InfluxDB</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-new-relic-li">
   <a href="/docs/getting-started/setup/reload-alerts/alert-new-relic/" title="Reload alerts via New Relic" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-new-relic"><span class="">New Relic</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-slack-li">
@@ -333,6 +334,8 @@ if (!doNotTrack) {
   <a href="/docs/reference/alert-template-fields/windows-services/" title="Alert template fields for Windows services events" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldswindows-services"><span class="">Windows services</span></a>
 </li>
   </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceinfluxdb-li">
+  <a href="/docs/reference/influxdb/" title="Information stored in InfluxDB" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceinfluxdb"><span class="">InfluxDB</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencesense-helper-subs-li">
   <a href="/docs/reference/sense-helper-subs/" title="Helper subs that make it easy to use Butler APIs" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencesense-helper-subs"><span class="">Sense helper subs</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencetest-cases-li">
@@ -477,7 +480,7 @@ For each file system operation (copy, move and delete) you can specify in which 
 <p>This is straight forward, but because Butler can run on different operating systems AND access file shares hosted by various OSs, things can get a bit complicated.<br>
 In most cases the paths to use are the expected ones, but when it comes to UNC paths they can for example either use forward slash &ldquo;/&rdquo; or back ditto &ldquo;\&rdquo;.<br>
 Both work as all paths are normalized into an internal, uniform format when loaded into Butler.</p>
-<p>Note that all subdirectories of the directories listed in the confifg file are also considered to be approved directories by Butler.</p>
+<p>Note that all subdirectories of the directories listed in the config file are also considered to be approved directories by Butler.</p>
 <p>A few examples show how to deal with some common scenarios:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">fileCopyApprovedDirectories</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span>- <span style="color:#204a87;font-weight:bold">fromDirectory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/data1/qvd          </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Butler running on Linux, with either a local directory in /data1, or a remote fileshare mounted into /data1</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -656,7 +659,7 @@ Warnings in log for the previous scenario.
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified 2023-11-09: <a href="https://github.com/google/docsy-example/commit/a4e72c2bafd72861196308592715476beb224b60">9.2.2 update (a4e72c2)</a>
+  Last modified 2023-12-09: <a href="https://github.com/google/docsy-example/commit/24d63be33d352116ea65772237e3d0adf91c51dc">WIP 9.3.1 (24d63be)</a>
 </div>
 
 </div>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.120.4">
+<meta name="generator" content="Hugo 0.121.1">
 <link rel="canonical" type="text/html" href="/docs/about/">
 <link rel="alternate" type="application/rss&#43;xml" href="/docs/about/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -35,16 +35,15 @@ Are you stuck on something while setting up Butler? Got ideas for new features?
 Don&#39;t hesitate to post your thoughts in the [Butler forums](https://github.com/ptarmiganlabs/butler/discussions).
 " />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="/docs/about/" /><meta property="og:image" content="/docs/about/_print/featured-background.jpg"/>
+<meta property="og:url" content="/docs/about/" /><meta property="og:image" content="/docs/about/_print/featured-background.jpg" />
 
 <meta itemprop="name" content="About">
 <meta itemprop="description" content="Information about the Butler software, community, docs and more.
 
 Are you stuck on something while setting up Butler? Got ideas for new features?  
 Don&#39;t hesitate to post your thoughts in the [Butler forums](https://github.com/ptarmiganlabs/butler/discussions).
-"><meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="/docs/about/_print/featured-background.jpg"/>
-<meta name="twitter:title" content="About"/>
+"><meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="/docs/about/_print/featured-background.jpg" /><meta name="twitter:title" content="About"/>
 <meta name="twitter:description" content="Information about the Butler software, community, docs and more.
 
 Are you stuck on something while setting up Butler? Got ideas for new features?  
@@ -62,7 +61,7 @@ Don&#39;t hesitate to post your thoughts in the [Butler forums](https://github.c
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
 
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -634,7 +633,6 @@ Or the fact that Qlik released some new feature in Sense and Butler was a way to
 <em>Why: Ideally the Butler developers want to use as modern versions of Node.js as possible. But if telemetry shows that lots os Butler instances use old Node.js versions or run on some (yet) untested/unverified Linux version - then maybe those older Node.js/Linux versions must be supported for yet some time.</em></li>
 </ol>
 
-
 </div>
 
 
@@ -646,16 +644,15 @@ Or the fact that Qlik released some new feature in Sense and Butler was a way to
 <ol>
 <li>Data that can identify your Sense environment or the server on which Butler runs. This includes IP/MAC addresses or other network information, server names, Docker container metadata or similar.</li>
 <li>Any actual data sent via Butler APIs.</li>
-<li>Qlik Sense or other certificates in any shape or form.</li>
+<li>Qlik Sense or other certificates or credentials in any shape or form.</li>
 </ol>
-
 
 </div>
 
 <h3 id="where-is-telemetry-data-sent">Where is telemetry data sent</h3>
-<p>The telemetry data is sent to an Azure server and then stored in a database operated by <a href="https://ptarmiganlabs.com">Ptarmigan Labs</a> (which is the company sponsoring the Butler project).</p>
+<p>The telemetry data is sent to the <a href="https://posthog.com">PostHog</a> service, using their database in the European Union.</p>
 <h3 id="deleting-telemetry-data">Deleting telemetry data</h3>
-<p>Even though no-one (not even Ptarmigan Labs who runs the telemetry database!) has any way of ever connecting the data sent by <em>your</em> Butler instance to <em>you</em> (it&rsquo;s all anonymized, remember?), there can be cases where telemetry data must be deleted.</p>
+<p>Even though no-one (not even the Butler developers or Ptarmigan Labs who manage the telemetry database!) has any way of ever connecting the data sent by <em>your</em> Butler instance to <em>you</em> (it&rsquo;s all anonymized, remember?), there can be cases where telemetry data must be deleted.</p>
 <p>The <a href="/docs/legal-stuff/#telemetry-data">legal page</a> has more information about this.</p>
 <h3 id="field-level-description-of-telemetry-data">Field level description of telemetry data</h3>
 <p>A telemetry message from Butler contains the information below.</p>
@@ -753,16 +750,38 @@ If Butler is stopped and started agagin the same ID should be generated.</p>
 Butler uses Node.js&rsquo; own <a href="https://nodejs.org/docs/latest-v15.x/api/crypto.html">Crypto</a> library to create a <a href="https://en.wikipedia.org/wiki/SHA-2">SHA-256</a> hash, using the default network interface&rsquo;s MAC address as salt.<br>
 Security is increased due to the fact that the salt never leaves the server where Butler is running.</p>
 <p>The bottom line is that it&rsquo;s impossible to reverse the process and get your the IP, host name etc used in step 1 above.<br>
-Then again - this is cryptografy and things change.<br>
-But if you trust the certificates securing Sense itself, then the ID anonymization in Butler should be ok too.</p>
+Then again - this is cryptography and things change.<br>
+But if you trust the certificates securing Sense itself, then the ID anonymization used by Butler should be ok too.</p>
 </li>
 <li>
 <p>The result is a string that uniquely identifies the Butler instance at hand, without giving away any sensitive data about the system where Butler is running.</p>
 </li>
 </ol>
 <p>See below for an example of what the <code>id</code> field looks like.<br>
-The <code>id</code> field is shown during Butler startup.</p>
-<h2 id="telemetry-faq">Telemetry FAQ</h2>
+The <code>id</code> field is shown during Butler startup as &ldquo;Instance ID&rdquo;.</p>
+<pre tabindex="0"><code>2023-12-08T13:15:21.936Z info: --------------------------------------
+2023-12-08T13:15:21.937Z info: Starting Butler
+2023-12-08T13:15:21.937Z info: Log level      : info
+2023-12-08T13:15:21.937Z info: App version    : 9.1.1
+2023-12-08T13:15:21.937Z info: Instance ID    : 3de76798c85894844ac20100cf2142c9a58cc90d7e9dd31a22c94b68048c3ee5
+2023-12-08T13:15:21.937Z info:
+2023-12-08T13:15:21.937Z info: Node version   : v18.5.0
+2023-12-08T13:15:21.937Z info: Architecture   : x64
+2023-12-08T13:15:21.937Z info: Platform       : darwin
+2023-12-08T13:15:21.937Z info: Release        : 14.1
+2023-12-08T13:15:21.938Z info: Distro         : macOS
+2023-12-08T13:15:21.938Z info: Codename       : macOS Sonoma
+2023-12-08T13:15:21.938Z info: Virtual        : false
+2023-12-08T13:15:21.938Z info: Processors     : 1
+2023-12-08T13:15:21.938Z info: Physical cores : 8
+2023-12-08T13:15:21.938Z info: Cores          : 16
+2023-12-08T13:15:21.938Z info: Docker arch.   : undefined
+2023-12-08T13:15:21.938Z info: Total memory   : 68719476736
+2023-12-08T13:15:21.938Z info:
+2023-12-08T13:15:21.938Z info: Config file    : /Users/goran/tools/butler/production.yaml
+2023-12-08T13:15:21.938Z info: API rate limit : 100
+2023-12-08T13:15:21.938Z info: --------------------------------------
+</code></pre><h2 id="telemetry-faq">Telemetry FAQ</h2>
 <ol>
 <li>
 <p><strong><em>What data is included in the telemetry messages?</em></strong><br>

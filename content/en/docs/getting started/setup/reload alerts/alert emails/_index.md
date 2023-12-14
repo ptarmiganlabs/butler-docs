@@ -42,7 +42,8 @@ Butler offers a command line option that when used will send a simple test email
 This makes is very easy to test if the email settings in Butler's config file are working or not.  
 When this command line option is used Butler will start normally, but also send a test email during startup.
 
-The command line option is `--test-email-address <address>`:
+The command line option is `--test-email-address <address>`.  
+The sender of the test email can be specified with `--test-email-from-address <address>`.
 
 ```powershell
 PS C:\tools\butler> .\butler.exe
@@ -55,13 +56,13 @@ Options:
   -V, --version                        output the version number
   -c, --configfile <file>              path to config file
   -l, --loglevel <level>               log level (choices: "error", "warn", "info", "verbose", "debug", "silly")
-  --new-relic-account-name  <name...>  New Relic account name. Used within Butler to differentiate between different target
-                                       New Relic accounts
+  --new-relic-account-name  <name...>  New Relic account name. Used within Butler to differentiate between different target New Relic accounts
   --new-relic-api-key <key...>         insert API key to use with New Relic
   --new-relic-account-id <id...>       New Relic account ID
   --test-email-address <address>       send test email to this address. Used to verify email settings in the config file.
-  --test-email-from-address <address>  send test email from this address. Only relevant when SMTP server allows from address
-                                       to be set.
+  --test-email-from-address <address>  send test email from this address. Only relevant when SMTP server allows from address to be set.
+  --no-qs-connection                   don't connect to Qlik Sense server at all. Run in isolated mode
+  --api-rate-limit                     set the API rate limit, per minute. Default is 100 calls/minute. Set to 0 to disable rate limiting.
   -h, --help                           display help for command
 PS C:\tools\butler>
 ```
@@ -193,7 +194,7 @@ Butler:
         enable: true              # Should app owner get notification email (assuming email address is available in Sense user directory)
         includeOwner:
           includeAll: true                            # true = Send notification to all app owners except those in exclude list
-                                                      # false = Send notification to all app owners in the include list
+                                                      # false = Send notification to app owners in the include list
           user:
             - directory: <Sense user directory>
               userId: <userId>
@@ -205,15 +206,26 @@ Butler:
               userId: <userId>
             - directory: <Sense user directory>
               userId: <userId>
+      # Custom property used to control which aborted tasks will cause alert emails to be sent
+      # If this setting is true, alerts will not be sent for all tasks, but *only* for tasks with the CP set to the enabledValue.
+      # If this setting is false, alerts will be sent for all aborted reload tasks.
+      alertEnableByCustomProperty:
+        enable: true
+        customPropertyName: 'Butler_AbortedAlertEnableEmail'
+        enabledValue: 'Yes'
+      # Custom property used to say that alerts for a certain task should be sent to zero or more recipients
+      # These alerts will be sent irrespective of the alertEnableByCustomProperty.enable setting.
+      alertEnabledByEmailAddress:
+        customPropertyName: 'Butler_AbortedAlertSendToEmail'
       rateLimit: 600                                  # Min seconds between emails for a given taskID. Defaults to 5 minutes.
       headScriptLogLines: 15                          # Number of lines from start of script to include in email
       tailScriptLogLines: 15                          # Number of lines from end of script to include in email
       priority: high                                  # high/normal/low
       subject: 'Qlik Sense reload aborted: "{{taskName}}"'  # Email subject. Can use template fields
-      bodyFileDirectory: config/email_templates       # Directory where email body template files are stored
+      bodyFileDirectory: path/to/email_templates      # Directory where email body template files are stored
       htmlTemplateFile: aborted-reload                # Name of email body template file to use
       fromAdress: Qlik Sense (no-reply) <qliksense-noreply@mydomain.com>
-      recipients:                                       # Array of email addresses to which the notification email will be sent
+      recipients:                                     # Array of email addresses to which the notification email will be sent
         - <Email address 1>
         - <Email address 2>
     reloadTaskFailure:
@@ -222,7 +234,7 @@ Butler:
         enable: true              # Should app owner get notification email (assuming email address is available in Sense user directory)
         includeOwner:
           includeAll: true                            # true = Send notification to all app owners except those in exclude list
-                                                      # false = Send notification to all app owners in the include list
+                                                      # false = Send notification to app owners in the include list
           user:
             - directory: <Sense user directory>
               userId: <userId>
@@ -234,15 +246,46 @@ Butler:
               userId: <userId>
             - directory: <Sense user directory>
               userId: <userId>
+      # Custom property used to control which task failures will cause alert emails to be sent
+      # If this setting is true, alerts will not be sent for all tasks, but *only* for tasks with the CP set to the enabledValue.
+      # If this setting is false, alerts will be sent for all failed reload tasks.
+      alertEnableByCustomProperty:
+        enable: false
+        customPropertyName: 'Butler_FailedAlertEnableEmail'
+        enabledValue: 'Yes'
+      # Custom property used to say that alerts for a certain task should be sent to zero or more recipients
+      # These alerts will be sent irrespective of the alertEnableByCustomProperty.enable setting.
+      alertEnabledByEmailAddress:
+        customPropertyName: 'Butler_FailedAlertSendToEmail'
       rateLimit: 600                                  # Min seconds between emails for a given taskID. Defaults to 5 minutes.
       headScriptLogLines: 15                          # Number of lines from start of script to include in email
       tailScriptLogLines: 15                          # Number of lines from end of script to include in email
       priority: high                                  # high/normal/low
       subject: 'Qlik Sense reload failed: "{{taskName}}"'   # Email subject. Can use template fields
-      bodyFileDirectory: config/email_templates       # Directory where email body template files are stored
+      bodyFileDirectory: path/to/email_templates      # Directory where email body template files are stored
       htmlTemplateFile: failed-reload                 # Name of email body template file to use
       fromAdress: Qlik Sense (no-reply) <qliksense-noreply@mydomain.com>
       recipients:                                       # Array of email addresses to which the notification email will be sent
+        - <Email address 1>
+        - <Email address 2>
+    serviceStopped:
+      rateLimit: 30                   # Min seconds between emails for a given service. Defaults to 5 minutes.
+      priority: high                  # high/normal/low
+      subject: '❌ Windows service stopped on host {{host}}: "{{serviceDisplayName}}"'
+      bodyFileDirectory: path/to/email_templates/email_templates
+      htmlTemplateFile: service-stopped
+      fromAdress: Qlik Sense (no-reply) <qliksense-noreply@mydomain.com>
+      recipients:
+        - <Email address 1>
+        - <Email address 2>
+    serviceStarted:
+      rateLimit: 30                   # Min seconds between emails for a given service. Defaults to 5 minutes.
+      priority: high                  # high/normal/low
+      subject: '✅ Windows service started on host {{host}}: "{{serviceDisplayName}}"'
+      bodyFileDirectory: path/to/email_templates/email_templates
+      htmlTemplateFile: service-started
+      fromAdress: Qlik Sense (no-reply) <qliksense-noreply@mydomain.com>
+      recipients:
         - <Email address 1>
         - <Email address 2>
     smtp:                                             # Email server settings. See https://nodemailer.com/smtp/ for details on the meaning of these fields.

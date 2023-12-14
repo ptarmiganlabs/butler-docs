@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.120.4">
+<meta name="generator" content="Hugo 0.121.1">
 <link rel="alternate" type="text/html" href="/docs/_print/">
 <link rel="alternate" type="application/rss&#43;xml" href="/docs/index.xml">
 <meta name="robots" content="index, follow">
@@ -30,8 +30,7 @@
 <meta property="og:url" content="/docs/" />
 
 <meta itemprop="name" content="Documentation">
-<meta itemprop="description" content="Butler adds features and services to Qlik Sense Enterprise on Windows, making it easier to develop for and operate QSEoW."><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Documentation"/>
+<meta itemprop="description" content="Butler adds features and services to Qlik Sense Enterprise on Windows, making it easier to develop for and operate QSEoW."><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Documentation"/>
 <meta name="twitter:description" content="Butler adds features and services to Qlik Sense Enterprise on Windows, making it easier to develop for and operate QSEoW."/>
 
 
@@ -45,7 +44,7 @@
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
 
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -143,6 +142,8 @@ if (!doNotTrack) {
   <ul class="ul-4 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-emails-li">
   <a href="/docs/getting-started/setup/reload-alerts/alert-emails/" title="Reload alerts sent as emails" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-emails"><span class="">Email</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-influxdb-li">
+  <a href="/docs/getting-started/setup/reload-alerts/alert-influxdb/" title="Reload alerts in InfluxDB" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-influxdb"><span class="">InfluxDB</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-new-relic-li">
   <a href="/docs/getting-started/setup/reload-alerts/alert-new-relic/" title="Reload alerts via New Relic" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-new-relic"><span class="">New Relic</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-slack-li">
@@ -321,6 +322,8 @@ if (!doNotTrack) {
   <a href="/docs/reference/alert-template-fields/windows-services/" title="Alert template fields for Windows services events" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldswindows-services"><span class="">Windows services</span></a>
 </li>
   </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceinfluxdb-li">
+  <a href="/docs/reference/influxdb/" title="Information stored in InfluxDB" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceinfluxdb"><span class="">InfluxDB</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencesense-helper-subs-li">
   <a href="/docs/reference/sense-helper-subs/" title="Helper subs that make it easy to use Butler APIs" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencesense-helper-subs"><span class="">Sense helper subs</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencetest-cases-li">
@@ -421,6 +424,71 @@ if (!doNotTrack) {
 
 
 <div class="pageinfo pageinfo-primary">
+<h2 id="release-highlights">Release highlights</h2>
+<h3 id="whats-new-in-version-940">What&rsquo;s new in version 9.4.0</h3>
+<p><em>🚀 Features</em></p>
+<ul>
+<li><strong>influxdb:</strong> Add Butler version tag to uptime data sent to InfluxDb.</li>
+</ul>
+<p><em>🐛 Bug Fixes</em></p>
+<ul>
+<li><strong>winsvc:</strong> Improve Winsvc checking efficiency</li>
+</ul>
+<h3 id="whats-new-in-version-932">What&rsquo;s new in version 9.3.2</h3>
+<p>⚙️ This release address several bugs related to Windows service monitoring.
+Long story short - this should work a lot better now compared to previous versions.</p>
+<p>🎉 A bonus is that the Windows service monitoring is significantly faster than before.
+For example, if you monitor 5 services on a server, Butler&rsquo;s monitoring code now executes ca 5 times faster than before!</p>
+<p><em>🐛 Bug Fixes</em></p>
+<ul>
+<li><strong>mqtt:</strong> Don&rsquo;t show MQTT startup info when MQTT is disabled.</li>
+<li><strong>winsvc:</strong> Bug fixes and better logging for win service monitoring.</li>
+<li><strong>winsvc:</strong> Make Windows service status checks quicker.</li>
+</ul>
+<p><em>Miscellaneous</em></p>
+<ul>
+<li><strong>deps:</strong> Update dependencies to stay safe &amp; secure.</li>
+</ul>
+<h3 id="whats-new-in-version-931">What&rsquo;s new in version 9.3.1</h3>
+<p><em>Bug Fixes</em></p>
+<ul>
+<li><strong>mqtt:</strong> More reboust startup code for MQTT &amp; Win svc monitoring.</li>
+<li><strong>winsvc:</strong> Don&rsquo;t send Win svc alerts when Butler starts.</li>
+</ul>
+<p><em>Refactoring</em></p>
+<ul>
+<li><strong>logging:</strong> More consistent log prefixes.</li>
+</ul>
+<h3 id="whats-new-in-version-930">What&rsquo;s new in version 9.3.0</h3>
+<p><em>Features</em></p>
+<ul>
+<li><strong>influxdb:</strong> Store failed reload info in InfluxDB.</li>
+<li><strong>mqtt:</strong> Add support for Azure Event Grid as MQTT broker.</li>
+<li><strong>influxdb:</strong> Store reload task success info in InfluxBD.</li>
+</ul>
+<p><em>Bug Fixes</em></p>
+<ul>
+<li>Disable SMTP mail appender in sample config.</li>
+<li>More robust generation of anonymous Butler instance id.</li>
+<li><strong>mqtt:</strong> Better error handling when establishing MQTT connection.</li>
+<li>Verify that all required config file entries exist.</li>
+<li><strong>winservice:</strong> Better handling of services that don&rsquo;t exist.</li>
+</ul>
+<p><em>Miscellaneous</em></p>
+<ul>
+<li>Add sample config files to release ZIPs.</li>
+</ul>
+<h3 id="whats-new-in-version-920">What&rsquo;s new in version 9.2.0</h3>
+<p><em>Features</em></p>
+<ul>
+<li><strong>reload-alerts:</strong> Make app owner info available in reload failed alerts.</li>
+</ul>
+<h3 id="whats-new-in-version-910">What&rsquo;s new in version 9.1.0</h3>
+<p><em>Features</em></p>
+<ul>
+<li><strong>scrip logs:</strong> Only get failed-reload script logs once from Sense server.</li>
+<li><strong>telemetry:</strong> Change to using PostHog for telemetry collection.</li>
+</ul>
 <h3 id="whats-new-in-version-900">What&rsquo;s new in version 9.0.0</h3>
 <h4 id="-breaking-changes">⚠ BREAKING CHANGES</h4>
 <ul>
@@ -929,7 +997,7 @@ Don&rsquo;t hesitate to post your thoughts in the <a href="https://github.com/pt
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified 2023-06-13: <a href="https://github.com/google/docsy-example/commit/6ae13774642e07f575814ca782a2f50bd0b4373f">Update docs to Butler v9.0 (6ae1377)</a>
+  Last modified 2023-12-09: <a href="https://github.com/google/docsy-example/commit/24d63be33d352116ea65772237e3d0adf91c51dc">WIP 9.3.1 (24d63be)</a>
 </div>
 
 </div>

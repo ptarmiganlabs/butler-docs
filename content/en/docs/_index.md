@@ -18,6 +18,33 @@ General guidance on how to do this is found [here](/docs/getting-started/upgrade
 
 ## Release highlights
 
+### What's new in version 9.4.0
+
+*🚀 Features*
+
+* **influxdb:** Add Butler version tag to uptime data sent to InfluxDb.
+
+*🐛 Bug Fixes*
+
+* **winsvc:** Improve Winsvc checking efficiency
+
+### What's new in version 9.3.2
+
+⚙️ This release address several bugs related to Windows service monitoring. 
+Long story short - this should work a lot better now compared to previous versions.
+
+🎉 A bonus is that the Windows service monitoring is significantly faster than before.
+For example, if you monitor 5 services on a server, Butler's monitoring code now executes ca 5 times faster than before! 
+
+*🐛 Bug Fixes*
+
+* **mqtt:** Don't show MQTT startup info when MQTT is disabled.
+* **winsvc:** Bug fixes and better logging for win service monitoring.
+* **winsvc:** Make Windows service status checks quicker.
+
+*Miscellaneous*
+
+* **deps:** Update dependencies to stay safe & secure.
 
 ### What's new in version 9.3.1
 

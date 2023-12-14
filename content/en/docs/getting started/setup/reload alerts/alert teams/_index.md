@@ -1,7 +1,7 @@
 ---
 title: "Reload alerts via Microsoft Teams"
 linkTitle: "MS Teams"
-weight: 30
+weight: 50
 description: >
   Description of how reload alerts can be sent as Microsoft Teams messages.
 ---

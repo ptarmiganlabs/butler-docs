@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.120.4">
+<meta name="generator" content="Hugo 0.121.1">
 <link rel="alternate" type="text/html" href="/docs/legal-stuff/_print/">
 <link rel="alternate" type="application/rss&#43;xml" href="/docs/legal-stuff/index.xml">
 <meta name="robots" content="index, follow">
@@ -33,8 +33,7 @@
 
 <meta itemprop="name" content="Legal stuff">
 <meta itemprop="description" content="Information om licenses, personal integrity and more.
-"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Legal stuff"/>
+"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Legal stuff"/>
 <meta name="twitter:description" content="Information om licenses, personal integrity and more.
 "/>
 
@@ -49,7 +48,7 @@
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
 
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -147,6 +146,8 @@ if (!doNotTrack) {
   <ul class="ul-4 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-emails-li">
   <a href="/docs/getting-started/setup/reload-alerts/alert-emails/" title="Reload alerts sent as emails" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-emails"><span class="">Email</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-influxdb-li">
+  <a href="/docs/getting-started/setup/reload-alerts/alert-influxdb/" title="Reload alerts in InfluxDB" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-influxdb"><span class="">InfluxDB</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-new-relic-li">
   <a href="/docs/getting-started/setup/reload-alerts/alert-new-relic/" title="Reload alerts via New Relic" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-new-relic"><span class="">New Relic</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-slack-li">
@@ -325,6 +326,8 @@ if (!doNotTrack) {
   <a href="/docs/reference/alert-template-fields/windows-services/" title="Alert template fields for Windows services events" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldswindows-services"><span class="">Windows services</span></a>
 </li>
   </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceinfluxdb-li">
+  <a href="/docs/reference/influxdb/" title="Information stored in InfluxDB" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceinfluxdb"><span class="">InfluxDB</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencesense-helper-subs-li">
   <a href="/docs/reference/sense-helper-subs/" title="Helper subs that make it easy to use Butler APIs" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencesense-helper-subs"><span class="">Sense helper subs</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencetest-cases-li">
@@ -360,7 +363,7 @@ if (!doNotTrack) {
   <ul>
     <li><a href="#license">License</a></li>
     <li><a href="#data-collection">Data collection</a></li>
-    <li><a href="#google-analytics">Google Analytics</a></li>
+    <li><a href="#web-analytics">Web analytics</a></li>
     <li><a href="#telemetry-data">Telemetry data</a></li>
   </ul>
 </nav>
@@ -456,11 +459,10 @@ SOFTWARE.
 </code></pre><h2 id="data-collection">Data collection</h2>
 <p>This documentation site was built using <a href="https://gohugo.io/">Hugo</a> and consists of static web pages hosted on <a href="https://pages.github.com/">GitHub Pages</a>.</p>
 <p>GitHub probably keep log files for GitHub Pages, your visit to this documentation site is thus likely to be recorded there. I do not have any access to those logs though.</p>
-<h2 id="google-analytics">Google Analytics</h2>
-<p>Google Analytics is used to track general site usage.</p>
-<p>Aggregated Google Analytics data may be used to determine, and in some cases publicly communicate, how popular the site is.<br>
-Examples of aggregated metrics are how many users have visited the site, from where in the world they accessed the site etc.</p>
-<p>No detailed Google Analytics data for this site will be shared with any third parties.</p>
+<h2 id="web-analytics">Web analytics</h2>
+<p>We use Plausible Analytics to collect aggregated web analytics data.</p>
+<p>Plausible Analytics is a privacy-friendly alternative to Google Analytics. No cookies are used and no personal data is collected.
+Web analytics data is stored on Plausible&rsquo;s servers in the EU.</p>
 <h2 id="telemetry-data">Telemetry data</h2>
 <p>If you at some future date decide that you want your Butler telemetry data deleted from the database operated by Ptarmigan Labs, please follow this process:</p>
 <ol>

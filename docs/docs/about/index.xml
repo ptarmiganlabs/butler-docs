@@ -366,7 +366,6 @@ Or the fact that Qlik released some new feature in Sense and Butler was a way to
 &lt;em&gt;Why: Ideally the Butler developers want to use as modern versions of Node.js as possible. But if telemetry shows that lots os Butler instances use old Node.js versions or run on some (yet) untested/unverified Linux version - then maybe those older Node.js/Linux versions must be supported for yet some time.&lt;/em&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-
 &lt;/div&gt;
 
 
@@ -378,16 +377,15 @@ Or the fact that Qlik released some new feature in Sense and Butler was a way to
 &lt;ol&gt;
 &lt;li&gt;Data that can identify your Sense environment or the server on which Butler runs. This includes IP/MAC addresses or other network information, server names, Docker container metadata or similar.&lt;/li&gt;
 &lt;li&gt;Any actual data sent via Butler APIs.&lt;/li&gt;
-&lt;li&gt;Qlik Sense or other certificates in any shape or form.&lt;/li&gt;
+&lt;li&gt;Qlik Sense or other certificates or credentials in any shape or form.&lt;/li&gt;
 &lt;/ol&gt;
-
 
 &lt;/div&gt;
 
 &lt;h3 id=&#34;where-is-telemetry-data-sent&#34;&gt;Where is telemetry data sent&lt;/h3&gt;
-&lt;p&gt;The telemetry data is sent to an Azure server and then stored in a database operated by &lt;a href=&#34;https://ptarmiganlabs.com&#34;&gt;Ptarmigan Labs&lt;/a&gt; (which is the company sponsoring the Butler project).&lt;/p&gt;
+&lt;p&gt;The telemetry data is sent to the &lt;a href=&#34;https://posthog.com&#34;&gt;PostHog&lt;/a&gt; service, using their database in the European Union.&lt;/p&gt;
 &lt;h3 id=&#34;deleting-telemetry-data&#34;&gt;Deleting telemetry data&lt;/h3&gt;
-&lt;p&gt;Even though no-one (not even Ptarmigan Labs who runs the telemetry database!) has any way of ever connecting the data sent by &lt;em&gt;your&lt;/em&gt; Butler instance to &lt;em&gt;you&lt;/em&gt; (it&amp;rsquo;s all anonymized, remember?), there can be cases where telemetry data must be deleted.&lt;/p&gt;
+&lt;p&gt;Even though no-one (not even the Butler developers or Ptarmigan Labs who manage the telemetry database!) has any way of ever connecting the data sent by &lt;em&gt;your&lt;/em&gt; Butler instance to &lt;em&gt;you&lt;/em&gt; (it&amp;rsquo;s all anonymized, remember?), there can be cases where telemetry data must be deleted.&lt;/p&gt;
 &lt;p&gt;The &lt;a href=&#34;/docs/legal-stuff/#telemetry-data&#34;&gt;legal page&lt;/a&gt; has more information about this.&lt;/p&gt;
 &lt;h3 id=&#34;field-level-description-of-telemetry-data&#34;&gt;Field level description of telemetry data&lt;/h3&gt;
 &lt;p&gt;A telemetry message from Butler contains the information below.&lt;/p&gt;
@@ -485,16 +483,38 @@ If Butler is stopped and started agagin the same ID should be generated.&lt;/p&g
 Butler uses Node.js&amp;rsquo; own &lt;a href=&#34;https://nodejs.org/docs/latest-v15.x/api/crypto.html&#34;&gt;Crypto&lt;/a&gt; library to create a &lt;a href=&#34;https://en.wikipedia.org/wiki/SHA-2&#34;&gt;SHA-256&lt;/a&gt; hash, using the default network interface&amp;rsquo;s MAC address as salt.&lt;br&gt;
 Security is increased due to the fact that the salt never leaves the server where Butler is running.&lt;/p&gt;
 &lt;p&gt;The bottom line is that it&amp;rsquo;s impossible to reverse the process and get your the IP, host name etc used in step 1 above.&lt;br&gt;
-Then again - this is cryptografy and things change.&lt;br&gt;
-But if you trust the certificates securing Sense itself, then the ID anonymization in Butler should be ok too.&lt;/p&gt;
+Then again - this is cryptography and things change.&lt;br&gt;
+But if you trust the certificates securing Sense itself, then the ID anonymization used by Butler should be ok too.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;The result is a string that uniquely identifies the Butler instance at hand, without giving away any sensitive data about the system where Butler is running.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;See below for an example of what the &lt;code&gt;id&lt;/code&gt; field looks like.&lt;br&gt;
-The &lt;code&gt;id&lt;/code&gt; field is shown during Butler startup.&lt;/p&gt;
-&lt;h2 id=&#34;telemetry-faq&#34;&gt;Telemetry FAQ&lt;/h2&gt;
+The &lt;code&gt;id&lt;/code&gt; field is shown during Butler startup as &amp;ldquo;Instance ID&amp;rdquo;.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;2023-12-08T13:15:21.936Z info: --------------------------------------
+2023-12-08T13:15:21.937Z info: Starting Butler
+2023-12-08T13:15:21.937Z info: Log level      : info
+2023-12-08T13:15:21.937Z info: App version    : 9.1.1
+2023-12-08T13:15:21.937Z info: Instance ID    : 3de76798c85894844ac20100cf2142c9a58cc90d7e9dd31a22c94b68048c3ee5
+2023-12-08T13:15:21.937Z info:
+2023-12-08T13:15:21.937Z info: Node version   : v18.5.0
+2023-12-08T13:15:21.937Z info: Architecture   : x64
+2023-12-08T13:15:21.937Z info: Platform       : darwin
+2023-12-08T13:15:21.937Z info: Release        : 14.1
+2023-12-08T13:15:21.938Z info: Distro         : macOS
+2023-12-08T13:15:21.938Z info: Codename       : macOS Sonoma
+2023-12-08T13:15:21.938Z info: Virtual        : false
+2023-12-08T13:15:21.938Z info: Processors     : 1
+2023-12-08T13:15:21.938Z info: Physical cores : 8
+2023-12-08T13:15:21.938Z info: Cores          : 16
+2023-12-08T13:15:21.938Z info: Docker arch.   : undefined
+2023-12-08T13:15:21.938Z info: Total memory   : 68719476736
+2023-12-08T13:15:21.938Z info:
+2023-12-08T13:15:21.938Z info: Config file    : /Users/goran/tools/butler/production.yaml
+2023-12-08T13:15:21.938Z info: API rate limit : 100
+2023-12-08T13:15:21.938Z info: --------------------------------------
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;telemetry-faq&#34;&gt;Telemetry FAQ&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;What data is included in the telemetry messages?&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;

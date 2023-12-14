@@ -1,7 +1,7 @@
 ---
 title: "Reload alerts via outgoing webhooks"
 linkTitle: "Webhook"
-weight: 50
+weight: 70
 description: >
   Description of how reload alerts can be sent via outgoing webhooks.
 ---

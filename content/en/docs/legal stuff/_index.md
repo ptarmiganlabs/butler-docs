@@ -40,14 +40,12 @@ This documentation site was built using [Hugo](https://gohugo.io/) and consists 
 
 GitHub probably keep log files for GitHub Pages, your visit to this documentation site is thus likely to be recorded there. I do not have any access to those logs though.
 
-## Google Analytics
+## Web analytics
 
-Google Analytics is used to track general site usage.
+We use Plausible Analytics to collect aggregated web analytics data.
 
-Aggregated Google Analytics data may be used to determine, and in some cases publicly communicate, how popular the site is.  
-Examples of aggregated metrics are how many users have visited the site, from where in the world they accessed the site etc.
-
-No detailed Google Analytics data for this site will be shared with any third parties.
+Plausible Analytics is a privacy-friendly alternative to Google Analytics. No cookies are used and no personal data is collected.
+Web analytics data is stored on Plausible's servers in the EU.
 
 ## Telemetry data
 

@@ -1,7 +1,7 @@
 ---
 title: "Reload alerts via New Relic"
 linkTitle: "New Relic"
-weight: 14
+weight: 30
 description: >
   Description of how reload alerts can be sent to New Relic as events and log messages.
 ---

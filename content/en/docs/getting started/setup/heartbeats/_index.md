@@ -20,6 +20,8 @@ It sends periodic messages to a monitoring tool, which can then alert if Butler 
 
 [Healthchecks.io](https://healthchecks.io/) is an example of such as tool. It's open source but also a SaaS option if so preferred.
 
+[Uptime Kuma](https://github.com/louislam/uptime-kuma) is another open source option that in addition to monitoring Butler itself can also monitor infrastructure components such as Sense servers, databases, source systems etc.
+
 More info on using Healthchecks.io with Butler can be found [in this blog post](https://ptarmiganlabs.com/blog/2020/07/26/black-box-monitoring-of-butler-tools-monitoring-the-monitor/).
 
 ## Settings in config file

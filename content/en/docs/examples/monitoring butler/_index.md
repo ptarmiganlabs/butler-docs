@@ -4,15 +4,15 @@ linkTitle: "Monitoring Butler"
 weight: 40
 description: >
     Butler can be configured to store its own memory usage in InfluxDB.  
+
     Here we look at how this works and how Grafana real-time charts can be created.
 ---
 
-Butler 4.0 adds several new features, one being the uptime messages that can be optionally posted to the logs. Each message tells how long Butler has been running and how much memory it is using right then.
+Butler can optionally store uptime information (Butler version number and memory usage) in [InfluxDB](https://docs.influxdata.com/influxdb/v1/) or [New Relic](https://newrelic.com).  
+InfluxDB is a database for time-series data such as measurements, while New Relic is an enterprise grade, SaaS observability solution.
 
-This information can also, again optionally, be stored in [InfluxDB](https://docs.influxdata.com/influxdb/v1.8/) or [New Relic](https://newrelic.com).  
-InfluxDB is a database for time-series data such as measurements, while New Relic is enterprise grade, SaaS observability solution.
-
-Once in InfluxDB it's easy to create nice monitoring charts in [Grafana](https://grafana.com/) or similar tools. New Relic has their own built-in dashboard tool (but Grafana can actually load data from New Relic too!).
+Once in InfluxDB it's easy to create nice monitoring charts in [Grafana](https://grafana.com/) or similar tools.  
+New Relic has their own built-in dashboard tool (but Grafana can actually load data from New Relic too!).
 
 But hey - why spend CPU cycles and disk space on this?
 
@@ -33,23 +33,10 @@ The uptime monitoring part of the config file could looks like this:
   # Uptime monitor
   uptimeMonitor:
     enable: false                   # Should uptime messages be written to the console and log files?
-    frequency: every 15 seconds     # https://bunkat.github.io/later/parsers.html
+    frequency: every 15 minutes     # https://bunkat.github.io/later/parsers.html
     logLevel: verbose               # Starting at what log level should uptime messages be shown?
     storeInInfluxdb: 
       enable: false                 # Should Butler memory usage be logged to InfluxDB?
-      hostIP: <IP or host name>     # Where is InfluxDB server located?
-      hostPort: 8086                # InfluxDB port
-      auth:
-        enable: false               # Does InfluxDB require login?
-        username: user_joe      
-        password: joesecret
-      dbName: butler                # Name of database in InfluxDB to which Butler's data is written
-      instanceTag: DEV              # Tag that can be used to differentiate data from multiple Butler instances
-      # Default retention policy that should be created in InfluxDB when Butler creates a new database there. 
-      # Any data older than retention policy threshold will be purged from InfluxDB.
-      retentionPolicy:
-        name: 10d
-        duration: 10d
     storeNewRelic:
       enable: false
       destinationAccount:
@@ -80,20 +67,33 @@ The uptime monitoring part of the config file could looks like this:
             value: prod
         dynamic:
           butlerVersion: 
-            enable: true            # Should the Butler version be included in the data sent to New Relic
+            enable: true            # Should the Butler version be included in the data sent to New Relic?
 ```
 
 ## Creating a InfluxDB database
 
-When starting Butler for the first time and InfluxDB is enabled, it will connect to InfluxDB and if needed create a new database called `butler`, together with a retention policy called `10d`:
+When starting Butler for the first time and InfluxDB is enabled, it will connect to InfluxDB and if needed create a new database with a name controlled by the `Butler.influxDb.dbName` setting in the Butler config file.  
+A retention policy with its name controlled by the `Butler.influxDb.retentionPolicy.name` setting in the Butler config file will also be created:
 
-![alt text](butler-new-influxdb-1.png "Starting Butler for the first time, InfluxDB database created")  
+```
+2023-12-14T17:25:29.851Z info: CONFIG: Influxdb enabled: true
+2023-12-14T17:25:29.851Z info: CONFIG: Influxdb host IP: 192.168.1.51
+2023-12-14T17:25:29.852Z info: CONFIG: Influxdb host port: 8086
+2023-12-14T17:25:29.852Z info: CONFIG: Influxdb db name: butler
+2023-12-14T17:25:30.614Z info: CONFIG: Created new InfluxDB database: butler
+2023-12-14T17:25:30.746Z info: --------------------------------------
+2023-12-14T17:25:30.746Z info: Starting Butler
+2023-12-14T17:25:30.747Z info: Log level      : info
+2023-12-14T17:25:30.747Z info: App version    : 9.4.0
+...
+```
 
 Note that the only thing needed is a running InfluxDB instance. Butler creates the database in InfluxDB if needed, together with a retention policy that is defined in the Butler config file.
 
 ## Hey data, are you there?
 
-So far so good. Let's wait a few minutes and then verify that New Relic and/or InfluxDB has received a few dataspoints. There should be data with 15 second intervals, to be precise.
+So far so good. Let's wait a few minutes and then verify that New Relic and/or InfluxDB has received a few dataspoints.  
+The interval between the uptime messages is controlled by the `Butler.uptimeMonitor.frequency` setting in the Butler config file.
 
 Using the InfluxDB command line client to connect to InfluxDB we can do a manual query:
 
@@ -115,6 +115,13 @@ If everything works you'll see something like this:
 
 Looks like Butler is using ca 70 MByte here. This is pretty normal, memory usage is usually around 100 MByte, even when Butler has been running for days, weeks and months. Exact memory usage will vary depending on which features are enabled.
 
+Butler's version number is also included in the data sent to InfluxDB.
+
+This means that you can easily create a Grafana dashboard showing which Butler version is running on which server.  
+If you have multiple Butler instances running in your environment, this can be very useful.
+
+![alt text](butler-grafana-versions-1.png "Butler version number in Grafana")
+
 ## Butler + New Relic = 😎🌟
 
 While InfluxDB combined with Grafana is hard to beat when it comes to flexibility and look'n'feel of the dashboards, New Relic is outstanding when it comes to ease of setup.
@@ -131,3 +138,7 @@ There is thus a good chance you won't even have to pay for New Relic if you only
 A New Relic chart showing Butler memory usage can look like this:
 
 ![alt text](/img/butler-memory-usage-new-relic-1.png "Butler memory usage in Grafana dashboard")  
+
+Similarly to the Grafana dashboard, Butler's version number is also included in the data sent to New Relic, and can be used to create a chart showing which Butler version is running on which server:
+
+![alt text](butler-new-relic-versions-1.png "Butler version numbers in New Relic dashboard")

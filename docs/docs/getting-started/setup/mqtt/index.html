@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.120.4">
+<meta name="generator" content="Hugo 0.121.1">
 <link rel="alternate" type="text/html" href="/docs/getting-started/setup/mqtt/_print/">
 <link rel="alternate" type="application/rss&#43;xml" href="/docs/getting-started/setup/mqtt/index.xml">
 <meta name="robots" content="index, follow">
@@ -33,8 +33,7 @@
 
 <meta itemprop="name" content="Setting up MQTT messaging">
 <meta itemprop="description" content="Butler can use MQTT as a channel for pub-sub style M2M (machine to machine) messages. This page describes how to configure MQTT in Butler.
-"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Setting up MQTT messaging"/>
+"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Setting up MQTT messaging"/>
 <meta name="twitter:description" content="Butler can use MQTT as a channel for pub-sub style M2M (machine to machine) messages. This page describes how to configure MQTT in Butler.
 "/>
 
@@ -49,7 +48,7 @@
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
 
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -147,6 +146,8 @@ if (!doNotTrack) {
   <ul class="ul-4 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-emails-li">
   <a href="/docs/getting-started/setup/reload-alerts/alert-emails/" title="Reload alerts sent as emails" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-emails"><span class="">Email</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-influxdb-li">
+  <a href="/docs/getting-started/setup/reload-alerts/alert-influxdb/" title="Reload alerts in InfluxDB" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-influxdb"><span class="">InfluxDB</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-new-relic-li">
   <a href="/docs/getting-started/setup/reload-alerts/alert-new-relic/" title="Reload alerts via New Relic" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-new-relic"><span class="">New Relic</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-slack-li">
@@ -325,6 +326,8 @@ if (!doNotTrack) {
   <a href="/docs/reference/alert-template-fields/windows-services/" title="Alert template fields for Windows services events" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldswindows-services"><span class="">Windows services</span></a>
 </li>
   </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceinfluxdb-li">
+  <a href="/docs/reference/influxdb/" title="Information stored in InfluxDB" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferenceinfluxdb"><span class="">InfluxDB</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencesense-helper-subs-li">
   <a href="/docs/reference/sense-helper-subs/" title="Helper subs that make it easy to use Butler APIs" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencesense-helper-subs"><span class="">Sense helper subs</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencetest-cases-li">
@@ -358,7 +361,12 @@ if (!doNotTrack) {
             <div class="td-toc">
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#whats-this">What&rsquo;s this?</a></li>
+    <li><a href="#whats-this">What&rsquo;s this?</a>
+      <ul>
+        <li><a href="#defining-what-mqtt-brokerserver-to-connect-to">Defining what MQTT broker/server to connect to</a></li>
+        <li><a href="#setting-up-mqtt-in-azure-event-grid">Setting up MQTT in Azure Event Grid</a></li>
+      </ul>
+    </li>
     <li><a href="#settings-in-config-file">Settings in config file</a></li>
   </ul>
 </nav>
@@ -435,15 +443,35 @@ if (!doNotTrack) {
 		
 	</header>
 	<h2 id="whats-this">What&rsquo;s this?</h2>
-<p><a href="https://mqtt.org/">MQTT</a> is a light weight messaging protocol based on a publish-subscribe metaphore. It is widely for example Internet of Things and telecom sectors.</p>
+<p><a href="https://mqtt.org/">MQTT</a> is a light weight messaging protocol based on a publish-subscribe metaphore. It is widely used in the Internet of Things (IoT) and telecom sectors.</p>
 <p>MQTT has features such as guaranteed delivery of messages, which makes it very useful for communicating between Sense and both up- and downstream source/destination systems.</p>
-<p>Butler can be configured to forward events from Sense (reload task failures, aborted reload tasks, user session start/stop etc) as MQTT messages.</p>
-<p>Butler&rsquo;s <a href="/docs/reference/rest-api/?operationsSorter=alpha">REST API</a> also has an endpoint that makes it possible to send MQTT messages from the Sense load script.</p>
+<p>Butler can be configured to forward events from Sense (reload task failures, aborted reload tasks, windows services starting/stopping, user session start/stop etc) as MQTT messages.</p>
+<p>Butler&rsquo;s <a href="/docs/reference/rest-api/?operationsSorter=alpha">REST API</a> also has an endpoint that makes it possible to send MQTT messages from Sense apps&rsquo; load scripts.</p>
+<h3 id="defining-what-mqtt-brokerserver-to-connect-to">Defining what MQTT broker/server to connect to</h3>
+<p>Butler can use either of two kinds of MQTT brokers:</p>
+<ol>
+<li>A standard MQTT broker, such as <a href="https://mosquitto.org/">Mosquitto</a>.</li>
+<li>An <a href="https://docs.microsoft.com/en-us/azure/event-grid/overview">Azure Event Grid</a> MQTT broker.</li>
+</ol>
+<p>The former is useful if you want to use Butler in an on-prem environment where there is no need to communicate outside of the local network.</p>
+<p>The latter is useful if you want to use Butler&rsquo;s MQTT related features outside of the local network, for example in a cloud environment.<br>
+A concrete example could be that a system that Sense read data from is located in the cloud, and that system should trigger reload tasks in Sense when new data is available.</p>
+<p>The Azure Event Grid option is also useful if you want to use Butler&rsquo;s MQTT features in a hybrid environment, where some of the systems are on-prem and some are in the cloud.</p>
+<p>The Butler consfig file controls which kind of MQTT broker Butler will connect to.</p>
+<ul>
+<li>If <code>Butler.mqttConfig.enable</code> is set to <code>true</code> and <code>Butler.mqttConfig.azureEventGrid.enable</code> is set to <code>false</code>, Butler will connect the standard MQTT broker defined in <code>Butler.mqttConfig.brokerHost</code> and <code>Butler.mqttConfig.brokerPort</code>. No authentication is supported in this case.</li>
+<li>If <code>Butler.mqttConfig.enable</code> is set to <code>true</code> and <code>Butler.mqttConfig.azureEventGrid.enable</code> is set to <code>true</code>, Butler will connect to an Azure Event Grid MQTT broker, using the settings defined in <code>Butler.mqttConfig.azureEventGrid</code> to authenticate with Azure.</li>
+</ul>
+<h3 id="setting-up-mqtt-in-azure-event-grid">Setting up MQTT in Azure Event Grid</h3>
+<p>Setting up Event Grid with MQTT support is described <a href="https://learn.microsoft.com/en-us/azure/event-grid/mqtt-publish-and-subscribe-portal">here</a>.</p>
+<p>It&rsquo;s worth noting that there may be costs associated with using Event Grid, depending on the number of messages sent and received.<br>
+At the time of this writing, Azure Event Grid has a generous free tier that should be sufficient for most use cases.<br>
+Check the <a href="https://azure.microsoft.com/en-us/pricing/details/event-grid/">Azure pricing page</a> for the latest information.</p>
 <h2 id="settings-in-config-file">Settings in config file</h2>
 <p>The settings are of two kinds:</p>
 <ol>
 <li>Defining what MQTT broker/server to connect to</li>
-<li>What MQTT topics should be used when forwarding Qlik Sense events to MQTT.</li>
+<li>What MQTT topics should be used when forwarding various Qlik Sense events to MQTT.</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000">---</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">Butler</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -453,6 +481,11 @@ if (!doNotTrack) {
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">                                     </span><span style="color:#8f5902;font-style:italic"># Should Qlik Sense events be forwarded as MQTT messages?</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">brokerHost</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;FQDN or IP of MQTT server&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">brokerPort</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">1883</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">azureEventGrid</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">              </span><span style="color:#8f5902;font-style:italic"># If set to true, Butler will connect to an Azure Event Grid MQTT Broker, using brokerHost and brokerPort above </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">clientId</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;client ID&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">clientCertFile</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;path to client certificate file&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">clientKeyFile</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;path to client key file&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">taskFailureSendFull</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">taskAbortedSendFull</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">subscriptionRootTopic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qliksense/#                                 </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Topic that Butler will subscribe to</span><span style="color:#f8f8f8;text-decoration:underline">

@@ -9,7 +9,7 @@ description: >
 
 ## Failed reload tasks
 
-The following information is stored in the `reload_task_failed` measurement:
+Measurement: `reload_task_failed`
 
 ### Tags
 
@@ -51,6 +51,8 @@ The following information is stored in the `reload_task_failed` measurement:
 
 ## Successful reload tasks
 
+Measurement: `reload_task_success`
+
 ### Tags
 
 | Tag name | Description |
@@ -88,5 +90,43 @@ The following information is stored in the `reload_task_failed` measurement:
 
 ## Windows service info
 
+Measurement: `win_service_state`
+
+### Tags
+
+| Tag name | Description |
+|----------|-------------|
+| butler_instance | Name of the Butler instance, from config file.|
+| host | Server on which the reload took place. |
+| service_name | Name of the Windows service. |
+| display_name | Display name of the Windows service. |
+| friendly_name | Friendly name of the Windows service (as defined in the Butler config file). |
+
+### Fields
+
+| Field name | Description |
+|------------|-------------|
+| state_num | State of the Windows service (numeric). |
+| state_text | State of the Windows service (text). |
+| startup_mode_num | Startup mode of the Windows service (numeric). |
+| startup_mode_text | Startup mode of the Windows service (text). |
+
 ## Butler uptime info
 
+Measurement: `butler_memory_usage`
+
+### Tags
+
+| Tag name | Description |
+|----------|-------------|
+| butler_instance | Name of the Butler instance, from config file.|
+| version | Version of Butler. |
+
+### Fields
+
+| Field name | Description |
+|------------|-------------|
+| heap_used | Amount of heap memory used by Butler. |
+| heap_total | Total amount of heap memory available to Butler. |
+| external | Amount of external memory used by Butler. |
+| process_memory | Amount of memory used by the Butler process. |

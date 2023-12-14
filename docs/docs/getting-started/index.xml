@@ -218,12 +218,12 @@ That version has the latest features, bug fixes and security patches.&lt;/p&gt;
 &lt;h3 id=&#34;minor-upgrades&#34;&gt;Minor upgrades&lt;/h3&gt;
 &lt;p&gt;This scenario rarely require any changes to Butler&amp;rsquo;s configuration.&lt;br&gt;
 The new release includes bug fixes, security patches, minor updates to documentation etc - but no new features.&lt;/p&gt;
-&lt;p&gt;In theory there should never be any updates needed to the config files when doing a minor upgrade.&lt;/p&gt;
+&lt;p&gt;In theory there should never be any changes to the config files when doing a minor upgrade.&lt;/p&gt;
 &lt;h3 id=&#34;medium-upgrades&#34;&gt;Medium upgrades&lt;/h3&gt;
 &lt;p&gt;This scenario means that new features are added to Butler.&lt;br&gt;
 Usually there are also various bug fixes included.&lt;/p&gt;
 &lt;p&gt;Most new features need to be configured somehow, meaning that medium upgrades usually require modification to the config files.&lt;br&gt;
-By far the most common is that it&amp;rsquo;s the main config file that needs to be modified, but a new scheduler related feature could for example mean that the scheduler config file must be modified too.&lt;/p&gt;
+The most common change by far is that it&amp;rsquo;s the main config file that needs to be modified, but a new scheduler related feature could for example mean that the scheduler config file must be modified too.&lt;/p&gt;
 &lt;p&gt;The changes needed to the config files are usually additive in nature, i.e. some settings must be added to the config file, but the existing settings and general structure of the file remain the same.&lt;/p&gt;
 &lt;h3 id=&#34;major-upgrades&#34;&gt;Major upgrades&lt;/h3&gt;
 &lt;p&gt;This scneario involves breaking changes of some kind.&lt;/p&gt;
@@ -251,9 +251,12 @@ Adding &lt;code&gt;--log-level verbose&lt;/code&gt; or even &lt;code&gt;--log-le
 &lt;/ol&gt;
 &lt;h2 id=&#34;when-things-arent-working&#34;&gt;When things aren&amp;rsquo;t working&lt;/h2&gt;
 &lt;p&gt;By far the most common problem when upgrading to a new Butler version (or doing a fresh install) is an incorrect config file.&lt;/p&gt;
+&lt;p&gt;All config entries are mandatory, even if you don&amp;rsquo;t use them.&lt;br&gt;
+Thiis may seem a bit harsh, but this way Butler can tell you exactly what is missing in the config file.&lt;/p&gt;
+&lt;p&gt;Butler is pretty good at figuring out what is wrong with the config file, but there may be cases where it&amp;rsquo;s not obvious what is wrong.&lt;/p&gt;
 &lt;p&gt;Thus, double check your config file, then triple check it.&lt;/p&gt;
-&lt;p&gt;If things still aren&amp;rsquo;t working you can post a question in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/discussions/categories/q-a&#34;&gt;Butler forums&lt;/a&gt;.&lt;br&gt;
-By sharing your installation and upgrade challenges/issues you enable future improvements, which will benefit both yourself and others.&lt;/p&gt;
+&lt;p&gt;If things still don&amp;rsquo;t work you can post a question in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/discussions/categories/q-a&#34;&gt;Butler forums&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;By sharing your installation and upgrade challenges/issues you enable future improvements, which will benefit both yourself and others.&lt;/p&gt;
 
       </description>
     </item>

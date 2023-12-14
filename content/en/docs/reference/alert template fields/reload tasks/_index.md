@@ -13,7 +13,11 @@ Butler uses the [Handlebars](https://handlebarsjs.com/) library for templating w
 Handlebars offers a lot of useful features (nested template fields, evaluation context, template comments) and it's recommended that you browse through at least the [language features](https://handlebarsjs.com/guide/#installation) section of their getting started guide to get a feeling for what's possible.
 
 {{% alert title="Warning" color="warning" %}}
-Not all alert destinations (MQTT, outgoing webhooks etc) support template fields.
+Only some alert destinations support template files, namely
+
+- Email
+- Teams
+- Slack
 
 Please see the [Concepts](/docs/concepts) and [Getting started](/docs/getting-started/setup/reload-alerts) sections for more information about which alert types support templates.
 {{% /alert %}}

@@ -24,8 +24,9 @@ Each destination can be individually enabled/disabled in the config file.
 | Destination | QMC task failure | QMC task aborted | Enable/disable alert per reload task | Per reload task alert recipients | Flexible formatting | Basic formatting | Comment |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|---|
 | Email    | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Basic emails can be sent using a [log appender](/docs/getting-started/setup/reload-alerts/#sending-basic-alert-emails-from-log4net). |
-| New Relic    | ✅ | ✅ | ✅ | ✅ | ✅ | - | The failed reload's log is available in New Relic. |
-| Signl4    | ✅ | ✅ | ✅ | ✅ | ✅ | - | Alerts are presented in Signl4's own format in their mobile app. |
+| InfluxDB | ✅ |   | ✅ | - | ✅ | - | The failed reload's script log is available in InfluxDb. |
+| New Relic    | ✅ | ✅ | ✅ | - | ✅ | - | The failed reload's script log is available in New Relic. |
+| Signl4    | ✅ | ✅ | ✅ | - | ✅ | - | Alerts are presented in Signl4's own format in their mobile app. |
 | Slack    | ✅ | ✅ |  |  | ✅ | ✅ |  |
 | MS Teams | ✅ | ✅ |  |  | ✅ | ✅ |  |
 | Outgoing webhook | ✅ | ✅ |  |  | - | - | Formatting is not relevant for webhooks |
@@ -33,7 +34,7 @@ Each destination can be individually enabled/disabled in the config file.
 
 ## How it works
 
-In order for Butler initiated alerts to become a reality, Butler must somehow be notified that the event of interest (for example a failed reload task) has taken place.  
+In order for Butler initiated alerts to become a reality, Butler must somehow be notified that the event of interest (for example a failed reload task) has occurred.  
 This is achieved by adding a **_log appender_** to Qlik Sense Enterprise on Windows.
 
 Log appenders offer a way to hook into Qlik Sense's logging subsystem, which is called [log4net](https://help.qlik.com/en-US/sense-admin/May2023/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders-QSRollingFileAppender-Built-in-Appenders.htm).
@@ -42,7 +43,8 @@ By adding a carefully crafted .xml file in the right location on the Sense serve
 
 ![Butler high level system overview](/img/butler-log4net-appenders-1.png 'Butler high level system overview')
 
-So what happens when a scheduled reload task fails? Let's look at the steps:
+So what happens when a scheduled reload task fails?  
+Let's look at the steps:
 
 1. A reload task is started by the Sense scheduler, either on a time schedule, as a result of some other task(s) finishing or manually by a user in the QMC or from the Hub.
 
@@ -68,7 +70,8 @@ Failing to do so will result in Butler not being notified about some reload fail
 ## Adding a log appender
 
 This is possibly the trickiest part to get right when it comes to setting up log4net based alerts.  
-Still, if you start from the sample .xml file provided in the [Butler repository on GitHub](https://github.com/ptarmiganlabs/butler/blob/master/docs/log4net_task-failed/scheduler/LocalLogConfig.xml) it's not too hard.
+Still, if you start from the sample .xml file provided in the [Butler repository on GitHub](https://github.com/ptarmiganlabs/butler/tree/master/src/config/log_appender_xml) it's not too hard.  
+Those sample .xml files are also included in the release Zip files available on the [Butler releases page](https://github.com/ptarmiganlabs/butler/releases).
 
 The steps are:
 

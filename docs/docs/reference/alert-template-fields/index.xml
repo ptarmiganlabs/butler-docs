@@ -31,7 +31,12 @@
 &lt;div class=&#34;alert alert-warning&#34; role=&#34;alert&#34;&gt;
 &lt;h4 class=&#34;alert-heading&#34;&gt;Warning&lt;/h4&gt;
 
-    &lt;p&gt;Not all alert destinations (MQTT, outgoing webhooks etc) support template fields.&lt;/p&gt;
+    &lt;p&gt;Only some alert destinations support template files, namely&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Email&lt;/li&gt;
+&lt;li&gt;Teams&lt;/li&gt;
+&lt;li&gt;Slack&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;Please see the &lt;a href=&#34;/docs/concepts&#34;&gt;Concepts&lt;/a&gt; and &lt;a href=&#34;/docs/getting-started/setup/reload-alerts&#34;&gt;Getting started&lt;/a&gt; sections for more information about which alert types support templates.&lt;/p&gt;
 
 

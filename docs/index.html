@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.120.4">
+<meta name="generator" content="Hugo 0.121.1">
 <link rel="alternate" type="application/rss&#43;xml" href="/index.xml">
 <meta name="robots" content="index, follow">
 <script defer data-domain="butler.ptarmiganlabs.com" src="https://plausible.io/js/script.js"></script>
@@ -43,12 +43,11 @@
 <meta property="og:title" content="Butler" />
 <meta property="og:description" content="Butler adds features and services to Qlik Sense Enterprise on Windows, making it easier to develop for and operate QSEoW." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="/" /><meta property="og:image" content="/featured-background.jpg"/>
+<meta property="og:url" content="/" /><meta property="og:image" content="/featured-background.jpg" />
 
 <meta itemprop="name" content="Butler">
-<meta itemprop="description" content="Butler adds features and services to Qlik Sense Enterprise on Windows, making it easier to develop for and operate QSEoW."><meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="/featured-background.jpg"/>
-<meta name="twitter:title" content="Butler"/>
+<meta itemprop="description" content="Butler adds features and services to Qlik Sense Enterprise on Windows, making it easier to develop for and operate QSEoW."><meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="/featured-background.jpg" /><meta name="twitter:title" content="Butler"/>
 <meta name="twitter:description" content="Butler adds features and services to Qlik Sense Enterprise on Windows, making it easier to develop for and operate QSEoW."/>
 
 
@@ -62,7 +61,7 @@
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
 
-<script type="application/javascript">
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -202,7 +201,7 @@ if (!doNotTrack) {
 <p>Who should be the first to know that a reload has failed?<br>
 You or your users?<br>
 Who was it that stopped that important 3-hour reload 5 minutes before it was done?</p>
-<p>Get notified when tasks fail or are stopped, with notifications sent to Slack, Microsoft Teams, email, New Relic, Signl4 and other destinations.<br>
+<p>Get notified when tasks fail or are stopped, with notifications sent to Slack, Microsoft Teams, email, InfluxDb, New Relic, Signl4 and other destinations.<br>
 Full support for HTML/Markdown formatting and 40+ template fields.</p>
 <p><a href="/docs/concepts/alert-emails/">Read more…</a></p>
 
@@ -238,7 +237,7 @@ Finding what caused a reload to fail is now easier than ever!</p>
 <p>Make sure the Qlik Sense services are always running - and any other Windows services of interest.
 Maybe your IT department does this for you - if not Butler offers a pretty solid solution.</p>
 <p>Start/stop alerts can be sent to email, Slack, Teams, InfluxDB, New Relic, MQTT and webhooks.<br>
-Continuous stats of services is sent to MQTT and InfluxDB.</p>
+Service metrics are continuously sent to MQTT and InfluxDB.</p>
 <p><a href="/docs/getting-started/setup/windows-service-monitor/">Read more…</a></p>
 
 </div>
@@ -307,7 +306,7 @@ Continuous stats of services is sent to MQTT and InfluxDB.</p>
 <p>Data delays - no thanks!<br>
 Start reload tasks from within app load scripts or from upstream source systems that feed Sense with data.</p>
 <p>Need parameters too? No problem - just add zero or more key-value pairs and they will be available to any Sense app!</p>
-<p>Or maybe start all tasks having a certain tag or custom property set? Part of the <a href="/docs/reference/rest-api/?operationsSorter=alpha?operationsSorter=alpha">REST API</a>.</p>
+<p>Or maybe start all tasks having a certain tag or custom property set? Available via the <a href="/docs/reference/rest-api/?operationsSorter=alpha?operationsSorter=alpha">REST API</a>.</p>
 <p><a href="/docs/examples/start-task-from-rest/">Read more…</a></p>
 
 </div>
@@ -437,9 +436,12 @@ Great for backup purposes!</p>
 <div class="mb-4 h1">
   <i class="fas fa-lightbulb"></i>
 </div>
-<h4 class="h3">Latest release: 9.2</h4>
+<h4 class="h3">Latest release: 9.4</h4>
 <div class="mb-0">
-<p>🥳 App owner info now available in reload failed/aborted notifications.</p>
+<p>🥳 Info on both failed and successful reloads now stored in InfluxDb.</p>
+<p>⚙️ Windows services checks now support multiple hosts and are much quicker than before.</p>
+<p>⚡️ Conntect to Azure EventGrid MQTT broker from Butler.<br>
+Great for start-reloads-from-anywhere challenges!</p>
 <p>Available on <a href="https://github.com/ptarmiganlabs/butler/releases">GitHub</a>.</p>
 
 </div>
