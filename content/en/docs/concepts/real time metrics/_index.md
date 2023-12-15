@@ -1,7 +1,7 @@
 ---
 title: "Real-time metrics"
 linkTitle: "Real-time metrics"
-weight: 200
+weight: 9000
 description: >
   Details about the real-time metrics (active user count etc) provided by Butler.
 ---
