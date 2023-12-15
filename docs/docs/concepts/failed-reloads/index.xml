@@ -1,0 +1,234 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Butler – Failed/aborted reloads</title>
+    <link>/docs/concepts/failed-reloads/</link>
+    <description>Recent content in Failed/aborted reloads on Butler</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    
+	  <atom:link href="/docs/concepts/failed-reloads/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Alert emails</title>
+      <link>/docs/concepts/failed-reloads/alert-emails/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/concepts/failed-reloads/alert-emails/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;scheduled-vs-manual-app-reloads&#34;&gt;Scheduled vs manual app reloads&lt;/h2&gt;
+&lt;p&gt;It might not be obvious at first, but there are several kinds of reloads in Qlik Sense Enterprise on Windows:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Reloads started from QMC.&lt;/strong&gt; These are usually created and managed in the QMC. Quite often they are also combined into reload chains. The common thing about these reloads is that they - under the hood - are managed by Sense&amp;rsquo;s scheduling service.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Manual reloads started from the script editor.&lt;/strong&gt; When developing apps in the standard Sense client/script editor you usually reload the apps from there. This does trigger an app reload, but not via the Sense scheduling service. Instead the reload is done directly in the engine service.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The reload failure notifications described here work by looking at log entries written by the scheduling service. When that service writes information to the logs about a failed reload, your logging appender will detect it and send a UDP message to Butler - who will forward the message to all the notification destinations configured in the config file.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s also possible to have the log appender send emails without using Butler.
+It works perfectly fine, but the emails will be very basic when it comes to formatting and you will not get any of the features offered by Butler (last few lines of the reload script log included in the email, customizable email subjects etc).&lt;/p&gt;
+&lt;h2 id=&#34;alert-emails&#34;&gt;Alert emails&lt;/h2&gt;
+&lt;p&gt;Butler can send two kinds of alert emails:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;When a scheduled reload task fails.&lt;/li&gt;
+&lt;li&gt;When a running reload task is stopped.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Alert emails can be formatted using HTML, use CSS styling, emojis etc.&lt;br&gt;
+There&amp;rsquo;s no reason an alert email can&amp;rsquo;t look good!&lt;/p&gt;
+&lt;p&gt;Alert emails viewed on a mobile phone give direct insight into what has happened:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;
+
+
+
+
+
+
+&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 283px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/failed-reloads/alert-emails/reload-fail-alert-email-mobile-1_hu4db7033860926d00b760f31fa6e519f7_495784_600x600_fit_catmullrom_3.png&#34; width=&#34;273&#34; height=&#34;600&#34;&gt;
+	
+	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt;Failed reload alert email on mobile home screen.&lt;/p&gt;
+	&lt;/figcaption&gt;
+	
+&lt;/figure&gt;
+&lt;/td&gt;
+&lt;td&gt;
+
+
+
+
+
+
+&lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 283px&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/concepts/failed-reloads/alert-emails/reload-fail-alert-email-mobile-2_hu00edd26148aa6620913d66039b3ac1b8_473599_600x600_fit_catmullrom_3.png&#34; width=&#34;273&#34; height=&#34;600&#34;&gt;
+	
+	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
+		&lt;p class=&#34;card-text&#34;&gt;Failed reload alert email viewed on mobile.&lt;/p&gt;
+	&lt;/figcaption&gt;
+	
+&lt;/figure&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;In a regular email client a reload failed email could look like below.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Note the end of the script&lt;/strong&gt;&lt;/em&gt; - the last few lines of the reload log are often very useful when it comes to understanding what caused the reload failure.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;failed_reload_email_1.png&#34; alt=&#34;alt text&#34; title=&#34;Reload failed alert email&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;basic-alert-emails-also-possible&#34;&gt;Basic alert emails also possible&lt;/h3&gt;
+&lt;p&gt;Qlik Sense Enterprise on Windows uses the log4net logging framework to create log files. Log4net is quite flexible and can - among other things - send emails when events such as reload failures occur. There is however little flexibility when it comes to layout and contents of those emails. They are text only (no formatting, tables, different fonts, colors etc) and the email subjects cannot contain any dynamic fields (for example the name of the failed reload task).&lt;/p&gt;
+&lt;p&gt;The goal of Butler&amp;rsquo;s alert emails is to address these limitations and offer a flexible foundation not only for emails, but for all kinds of alerts.&lt;/p&gt;
+&lt;p&gt;If you want to explore what&amp;rsquo;s possible using just the features offered by log4net, Christof Schwarz has a &lt;a href=&#34;https://www.linkedin.com/pulse/qlik-sense-task-email-notifications-so-easy-christof-schwarz/?trackingId=X8MEGEmppfSvdukFRbnLwQ%3D%3D&#34;&gt;good post&lt;/a&gt; on sending basic notification emails when scheduled reloads fail, with links to &lt;a href=&#34;https://github.com/levi-turner/getting_notified_from_qliksense&#34;&gt;Levi Turner&amp;rsquo;s great examples&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;alert-emails-to-app-owners&#34;&gt;Alert emails to app owners&lt;/h2&gt;
+&lt;p&gt;Qlik Sense can be configured in many ways. In some companies all apps are owned by a central service account.&lt;br&gt;
+Other companies set the developer as app owner also for published apps.&lt;/p&gt;
+&lt;p&gt;In the latter case it might be relevant to send the app owner a notification email when a reload task fails or is aborted. That way the developer is immediately made aware of the issue and can act on it as needed.&lt;/p&gt;
+&lt;p&gt;This feature assumes the app owner&amp;rsquo;s user account (in the Sense user directory) has an email address associated with it. When syncing users from Active Directory the users&amp;rsquo; emails are often brought along into Sense, but there is no guarantee for this.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;If&lt;/em&gt; an email address is available for a Sense user, the QMC user section can look like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./qlik_sense_user_email_address_1.png&#34; alt=&#34;Email address available for Qlik Sense user&#34; title=&#34;Email address available for Qlik Sense user&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;alert-emails-only-for-some-tasks&#34;&gt;Alert emails only for some tasks&lt;/h2&gt;
+&lt;p&gt;Sometimes there is a desire to only have email alerts for &lt;em&gt;some&lt;/em&gt; tasks.&lt;br&gt;
+One example can be a Sense cluster that hosts both development and production apps, maybe separated on different servers.&lt;/p&gt;
+&lt;p&gt;As of Butler 7.4.0 it is possible to control per task if an alert email should be sent when the task fails or is aborted from the QMC.&lt;/p&gt;
+&lt;p&gt;Conceptually it works like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/butler-alert-emails-on-off-per-task-1.png&#34; alt=&#34;Switching alert emails on/off per reload task&#34; title=&#34;Switching alert emails on/off per reload task&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Instructions for how to configure this feature is available &lt;a href=&#34;/docs/getting-started/setup/reload-alerts/alert-emails/#send-alerts-only-for-some-tasks&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Note: This feature is similar to - but independent from - the &amp;ldquo;task specific email recipients&amp;rdquo; feature below. Either feature can be enabled or disabled independently of the other in Butler&amp;rsquo;s config file.&lt;/p&gt;
+&lt;h2 id=&#34;task-specific-email-recipients&#34;&gt;Task specific email recipients&lt;/h2&gt;
+&lt;p&gt;They may be cases where all alert emails should normally go to for example a Sense administrator, but &lt;em&gt;some&lt;/em&gt; alerts should instead (or also) go to some other recipients.&lt;/p&gt;
+&lt;p&gt;An example could be a sales related Sense app. If it fails reloading the standard alert email should go to the Sense administrator, but there should also be an alert email sent to the sales operations team, to notify them that they won&amp;rsquo;t find updated numbers in the Sales app.&lt;/p&gt;
+&lt;p&gt;Butler handles this scenario by using a custome propperty (its name is configurable in the Butler config file) to set alert email recipients on a per-task basis.&lt;/p&gt;
+&lt;p&gt;Conceptually it works like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/butler-different-recipients-alert-emails-1.png&#34; alt=&#34;Task specific alert email recipients&#34; title=&#34;Task specific alert email recipients&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Instructions for how to configure this feature is available &lt;a href=&#34;/docs/getting-started/setup/reload-alerts/alert-emails/#send-alerts-to-specific-people-for-some-tasks&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Note: This feature is similar to - but independent from - the &amp;ldquo;alert emails only for some tasks&amp;rdquo; feature below. Either feature can be enabled or disabled independently of the other in Butler&amp;rsquo;s config file.&lt;/p&gt;
+&lt;h2 id=&#34;how-it-works&#34;&gt;How it works&lt;/h2&gt;
+&lt;p&gt;Butler uses a templating engine called &lt;a href=&#34;https://handlebarsjs.com/guide/&#34;&gt;Handlebars&lt;/a&gt;. It is used when sending all kinds of alert emails supported by Butler.&lt;/p&gt;
+&lt;p&gt;Slack, MS Teams and MQTT messages are currently not using the templating engine - this is however likely to change in coming Butler versions. Feel free to &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/issues&#34;&gt;add (or +1) a request on GitHub&lt;/a&gt; if this is of interest to you!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/butler-log4net-appenders-1.png&#34; alt=&#34;Butler high level system overview&#34; title=&#34;Butler high level system overview&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;template-fields&#34;&gt;Template fields&lt;/h3&gt;
+&lt;p&gt;The Handlebars templating engine looks for &lt;em&gt;template fields&lt;/em&gt; in the template files you create.&lt;/p&gt;
+&lt;p&gt;A complete list of template fields - including descriptions - is available in the &lt;a href=&#34;/docs/reference/alert-template-fields&#34;&gt;Reference&lt;/a&gt; section.&lt;/p&gt;
+&lt;h3 id=&#34;not-all-failed-reloads-will-cause-alert-emails&#34;&gt;Not all failed reloads will cause alert emails&lt;/h3&gt;
+&lt;p&gt;While not obvious at first, there are different kinds of reloads taking place in a Qlik Sense Enterprise environment:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Reloads started by the Sense Scheduler service. These reloads always have a &lt;em&gt;task&lt;/em&gt; associated with them.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Reloads started from Sense&amp;rsquo;s standard script editor. These reloads are &lt;em&gt;not&lt;/em&gt; started by the Sense scheduler, but rather directly in the Sense engine. Progress for such reloads will therefore go to the &lt;em&gt;engine logs&lt;/em&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The log appenders that drive Butler&amp;rsquo;s alerts rely on the Scheduler logs - not the engine logs.&lt;br&gt;
+This is an intentional design decision.&lt;/p&gt;
+&lt;p&gt;It is certainly possible to add log appenders also for engine logs and that way get notified when &lt;em&gt;any&lt;/em&gt; reload fail. The question is whether that&amp;rsquo;s an interesting use case. In most cases sys admins aren&amp;rsquo;t very interested in reloads that fail during app development - they only care about failures caused by apps in production - i.e. app reload tasks managed by the Sense Scheduler. Thus, Butler currently doesn&amp;rsquo;t deal with reload failures reported from the Sense engine.&lt;/p&gt;
+&lt;h2 id=&#34;references&#34;&gt;References&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://help.qlik.com/en-US/sense-admin/September2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders.htm&#34;&gt;Qlik&amp;rsquo;s documenation&lt;/a&gt; around log appenders and how to hook into the Sense logs is somewhat brief, but does provide a starting point if you want to dive deeper into this topic.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The main &lt;a href=&#34;https://logging.apache.org/log4net/&#34;&gt;log4net documentation&lt;/a&gt; (log4net is the logging framework used by Qlik Sense Enterprise) can also be useful.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These links describe how emails can be sent from the log4net logging framework itself, directly to the recipient. Butler includes sameple XML files for this use case too, but Butler takes things further by using the data in the Sense logs to pull in more data around the failed or stopped reload.&lt;/p&gt;
+&lt;p&gt;In other words - Butler&amp;rsquo;s alert emails are significantly more flexible and contain information (such as script logs) that are not availble using purely log4net.&lt;/p&gt;
+&lt;h2 id=&#34;seeing-is-believing&#34;&gt;Seeing is believing&lt;/h2&gt;
+&lt;p&gt;The video below is available at &lt;a href=&#34;https://www.youtube.com/channel/UCpQblhippq-KfWkXEEYFHTQ&#34;&gt;Ptarmigan Labs&amp;rsquo; YouTube channel&lt;/a&gt; and also in the &lt;a href=&#34;https://www.youtube.com/playlist?list=PLUuyY5OOOsz3XX5YT2QEwa7dzaBT1kOCP&#34;&gt;Butler playlist&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+        &lt;iframe src=&#34;https://www.youtube.com/embed/PxYGtCmpu4o?enablejsapi=1&#34;
+                 allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Alerts via Slack and Microsoft Teams</title>
+      <link>/docs/concepts/failed-reloads/alerts-slack-teams/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/concepts/failed-reloads/alerts-slack-teams/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;teams-slack-and-email-notifications&#34;&gt;Teams, Slack and email notifications&lt;/h2&gt;
+&lt;p&gt;Microsoft Teams, Slack and email are all notification &lt;em&gt;&lt;strong&gt;destinations&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Alert messages/notifications come in two variants: &amp;ldquo;basic&amp;rdquo; and &amp;ldquo;formatted&amp;rdquo;.&lt;/p&gt;
+&lt;h3 id=&#34;formatted-messages&#34;&gt;Formatted messages&lt;/h3&gt;
+&lt;p&gt;These messages take full advantage of the formatting available in each notification destination.&lt;/p&gt;
+&lt;p&gt;Slack has its own way for creating messages with rich layout and formatting - as does Teams and email.&lt;/p&gt;
+&lt;p&gt;Formatted messages are created using template files.&lt;br&gt;
+Each notification destination has its own set of template files. It&amp;rsquo;s therefore possible to take advantage of each destination&amp;rsquo;s specific features when it comes to formatting the messages sent by Butler.&lt;/p&gt;
+&lt;p&gt;Message templates can include &amp;ldquo;template fields&amp;rdquo;. These are placeholders that are replaced with actual event values before the message is sent.&lt;/p&gt;
+&lt;p&gt;The GitHub repository includes fully functional template files for all destinations.&lt;/p&gt;
+&lt;h3 id=&#34;basic-messages&#34;&gt;Basic messages&lt;/h3&gt;
+&lt;p&gt;Basic message formats are available for all notification destinations.&lt;/p&gt;
+&lt;p&gt;This message type is useful if you only want a short, basic notification that a task failed or was aborted. The basic formats are pre-defined and are thus easy to set up.&lt;/p&gt;
+&lt;h2 id=&#34;microsoft-teams-notifications&#34;&gt;Microsoft Teams notifications&lt;/h2&gt;
+&lt;p&gt;Basic and formatted reload task failure notifications can look like this in Teams:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/failed-reload-teams-basic_1.png&#34; alt=&#34;alt text&#34; title=&#34;Basic failed reload notification in Microsoft Teams&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/failed-reload-teams-formatted_1.png&#34; alt=&#34;alt text&#34; title=&#34;Formatted failed reload notification in Microsoft Teams&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The configuration needed for setting this up is described &lt;a href=&#34;/docs/getting-started/setup/reload-alerts/alert-teams/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;slack-notifications&#34;&gt;Slack notifications&lt;/h2&gt;
+&lt;p&gt;Basic and formatted reload task failure notifications can look like this in Teams:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/failed-reload-slack-basic_1.png&#34; alt=&#34;alt text&#34; title=&#34;Basic failed reload notification in Microsoft Teams&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/failed-reload-slack-formatted_1.png&#34; alt=&#34;alt text&#34; title=&#34;Formatted failed reload notification in Microsoft Teams&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The configuration needed for setting this up is described &lt;a href=&#34;/docs/getting-started/setup/reload-alerts/alert-slack/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;seeing-is-believing&#34;&gt;Seeing is believing&lt;/h2&gt;
+&lt;p&gt;The video below is available at &lt;a href=&#34;https://www.youtube.com/channel/UCpQblhippq-KfWkXEEYFHTQ&#34;&gt;Ptarmigan Labs&amp;rsquo; YouTube channel&lt;/a&gt; and also in the &lt;a href=&#34;https://www.youtube.com/playlist?list=PLUuyY5OOOsz3XX5YT2QEwa7dzaBT1kOCP&#34;&gt;Butler playlist&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
+        &lt;iframe src=&#34;https://www.youtube.com/embed/PxYGtCmpu4o?enablejsapi=1&#34;
+                 allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Storing script logs of failed reloads to disk</title>
+      <link>/docs/concepts/failed-reloads/failed-logs-storage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docs/concepts/failed-reloads/failed-logs-storage/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;reload-script-logs&#34;&gt;Reload script logs&lt;/h2&gt;
+&lt;p&gt;When doing a scheduled reload or a reload started from the QMC, Sense will create a detailed log file that includes all the commands executed during the reload.&lt;/p&gt;
+&lt;p&gt;If a reload for reason fails it can be very useful to look at these reload logs.&lt;/p&gt;
+&lt;p&gt;The &lt;em&gt;latest&lt;/em&gt; reload log file for each reload task is available via the QMC, but logs for previous reload attempts are not available via the QMC.&lt;/p&gt;
+&lt;p&gt;Using the same mechanism used by &lt;a href=&#34;/docs/concepts/alert-emails/&#34;&gt;reload failure alerts&lt;/a&gt; in general, Butler can be configured to store the reload logs of all failed reloads to disk.&lt;/p&gt;
+&lt;p&gt;The reload logs are stored in the directory configured in the Butler config file, with separate directories for each date:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── butler.exe
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── log
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;│   └── butler.2022-04-07.log
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── production.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;└── scriptlog
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ├── 2022-04-06
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    │   ├── 2022-04-06_15-36-12_appId&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;deba4bcf-47e4-472e-97b2-4fe8d6498e11_taskId&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;0d815a99-1ca3-4131-a398-6878bd735fd8.log
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    │   └── 2022-04-06_22-42-35_appId&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;66bc109d-286a-415b-8355-1422abb22133_taskId&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;e959f40a-67be-4a5b-ae83-a292f96ba078.log
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    └── 2022-04-07
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        └── 2022-04-07_05-49-16_appId&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;deba4bcf-47e4-472e-97b2-4fe8d6498e11_taskId&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;0d815a99-1ca3-4131-a398-6878bd735fd8.log
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;All in all this makes it a lot easier to find log files for failed reloads.&lt;/p&gt;
+&lt;p&gt;Configuration of this feature is described &lt;a href=&#34;/docs/getting-started/setup/reload-script-logs/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

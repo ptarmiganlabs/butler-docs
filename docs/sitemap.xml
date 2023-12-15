@@ -119,11 +119,12 @@
     <loc>/docs/reference/rest-api-2/</loc>
     <lastmod>2022-06-21T09:33:35+02:00</lastmod>
   </url><url>
-    <loc>/docs/concepts/alert-emails/</loc>
-    <lastmod>2022-05-14T22:54:24+02:00</lastmod>
+    <loc>/docs/concepts/failed-reloads/alert-emails/</loc>
   </url><url>
     <loc>/docs/concepts/</loc>
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
+  </url><url>
+    <loc>/docs/concepts/failed-reloads/</loc>
   </url><url>
     <loc>/docs/getting-started/setup/windows-service-monitor/influxdb/</loc>
     <lastmod>2023-06-13T15:01:58+02:00</lastmod>
@@ -155,8 +156,7 @@
     <loc>/docs/getting-started/setup/</loc>
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
   </url><url>
-    <loc>/docs/concepts/alerts-slack-teams/</loc>
-    <lastmod>2021-11-03T14:09:22+01:00</lastmod>
+    <loc>/docs/concepts/failed-reloads/alerts-slack-teams/</loc>
   </url><url>
     <loc>/docs/getting-started/operations/</loc>
     <lastmod>2023-06-13T15:01:58+02:00</lastmod>
@@ -179,8 +179,9 @@
     <loc>/docs/getting-started/setup/windows-service-monitor/slack/</loc>
     <lastmod>2023-06-13T15:01:58+02:00</lastmod>
   </url><url>
-    <loc>/docs/concepts/failed-reload-logs/</loc>
-    <lastmod>2022-04-07T10:17:58+02:00</lastmod>
+    <loc>/docs/concepts/successful-reloads/</loc>
+  </url><url>
+    <loc>/docs/concepts/failed-reloads/failed-logs-storage/</loc>
   </url><url>
     <loc>/docs/concepts/start-sense-tasks/</loc>
     <lastmod>2021-11-03T14:09:22+01:00</lastmod>

@@ -1,6 +1,6 @@
 ---
 title: "Storing script logs of failed reloads to disk"
-linkTitle: "Failed reload logs"
+linkTitle: "Store failed reload logs"
 weight: 42
 description: >
   When investigating reload failures it can often be useful to have access to the entire reload log.<br>
