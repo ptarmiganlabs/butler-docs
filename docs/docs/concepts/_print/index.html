@@ -917,12 +917,16 @@ Butler can be configured to get these tags and include them in the data sent to 
 </ul>
 <p>Sample dashboard showing the above charts:</p>
 <p><img src="./butler-grafana-successful-reloads-1.png" alt="alt text" title="Grafana reload success"></p>
+<p>Here is another set of charts, also showing what metadata is available for each reload task:</p>
+<p><img src="./butler-grafana-successful-reloads-2.png" alt="alt text" title="Grafana reload success"></p>
 <h2 id="how-it-works">How it works</h2>
 <h3 id="reload-success-udp-server">Reload success UDP server</h3>
 <p>Butler includes a UDP server to which Sense&rsquo;s logging framework Log4Net can send reload success messages.</p>
 <p>The UDP server is configured in the Butler config file, and is disabled by default.
 When enabled, the UDP server listens for UDP messages on the configured port.</p>
-<p>When a UDP message is received, the UDP server will parse the message to determine what it is about and to extract relevant data, then dispatch the message to the enabled destinations.</p>
+<p>When a UDP message is received, the UDP server will parse the message to determine what it is about and to extract relevant data, then dispatch the message to the enabled destinations.<br>
+The XML appenders must be correctly deployed on the Sense servers for this to work.<br>
+See <a href="/docs/getting-started/setup/reload-alerts/#adding-a-log-appender">this page</a> for more information on setting up the XML appenders.</p>
 <p>In the case of successful reload tasks, the UDP server will determine which app was reloaded, the duration of the reload task, who started the task etc.<br>
 Butler will then send this information to the enabled destinations.</p>
 <h2 id="supported-destinations">Supported destinations</h2>

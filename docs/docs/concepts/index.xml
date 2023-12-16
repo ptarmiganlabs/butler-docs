@@ -188,12 +188,16 @@ Butler can be configured to get these tags and include them in the data sent to 
 &lt;/ul&gt;
 &lt;p&gt;Sample dashboard showing the above charts:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;./butler-grafana-successful-reloads-1.png&#34; alt=&#34;alt text&#34; title=&#34;Grafana reload success&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Here is another set of charts, also showing what metadata is available for each reload task:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./butler-grafana-successful-reloads-2.png&#34; alt=&#34;alt text&#34; title=&#34;Grafana reload success&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;how-it-works&#34;&gt;How it works&lt;/h2&gt;
 &lt;h3 id=&#34;reload-success-udp-server&#34;&gt;Reload success UDP server&lt;/h3&gt;
 &lt;p&gt;Butler includes a UDP server to which Sense&amp;rsquo;s logging framework Log4Net can send reload success messages.&lt;/p&gt;
 &lt;p&gt;The UDP server is configured in the Butler config file, and is disabled by default.
 When enabled, the UDP server listens for UDP messages on the configured port.&lt;/p&gt;
-&lt;p&gt;When a UDP message is received, the UDP server will parse the message to determine what it is about and to extract relevant data, then dispatch the message to the enabled destinations.&lt;/p&gt;
+&lt;p&gt;When a UDP message is received, the UDP server will parse the message to determine what it is about and to extract relevant data, then dispatch the message to the enabled destinations.&lt;br&gt;
+The XML appenders must be correctly deployed on the Sense servers for this to work.&lt;br&gt;
+See &lt;a href=&#34;/docs/getting-started/setup/reload-alerts/#adding-a-log-appender&#34;&gt;this page&lt;/a&gt; for more information on setting up the XML appenders.&lt;/p&gt;
 &lt;p&gt;In the case of successful reload tasks, the UDP server will determine which app was reloaded, the duration of the reload task, who started the task etc.&lt;br&gt;
 Butler will then send this information to the enabled destinations.&lt;/p&gt;
 &lt;h2 id=&#34;supported-destinations&#34;&gt;Supported destinations&lt;/h2&gt;
