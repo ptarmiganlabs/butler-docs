@@ -101,7 +101,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;...&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;windows-services--process-monitors&#34;&gt;Windows services &amp;amp; process monitors&lt;/h4&gt;
 &lt;p&gt;You can use the excellent &lt;a href=&#34;https://nssm.cc/&#34;&gt;Nssm&lt;/a&gt; tool to make Butler run as a Windows Service, with all the benefits that follow (can be monitored using operations tools, automatic start/restart etc).&lt;/p&gt;
-&lt;p&gt;A step-by-step tutorial for running the Butler tools as Windows services is available over at &lt;a href=&#34;https://ptarmiganlabs.com/running-butler-tools-as-windows-services/&#34;&gt;ptarmiganlabs.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A step-by-step tutorial for running Butler as a Windows service is available over at &lt;a href=&#34;https://ptarmiganlabs.com/running-butler-tools-as-windows-services/&#34;&gt;ptarmiganlabs.com&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;macos-and-linux&#34;&gt;macOS and Linux&lt;/h3&gt;
 &lt;p&gt;Running the standalone Butler tool without any parameters gives you a help text that explains which commands and options are available:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;➜  butler ./butler

@@ -6,3 +6,4 @@ node_modules/
 tech-doc-hugo
 
 .DS_Store
+content/en/docs/.DS_Store
