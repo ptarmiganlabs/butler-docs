@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler – Documentation</title>
-    <link>/docs/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/</link>
     <description>Recent content in Documentation on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="/docs/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://butler.ptarmiganlabs.com/docs/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Butler</title>
-      <link>/docs/about/butler/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/about/butler/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/about/butler/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/about/butler/</guid>
       <description>
         
         
@@ -33,19 +33,19 @@ In some cases it might be possible to use these tools from within Sense also wit
 As of version 7.2 Butler offers pre-built binaries for Windows, macOS and Linux§, meaning that Node.js no longer has to be separately installed to use Butler.&lt;br&gt;
 This simplifies things - just download, configure and run.&lt;/p&gt;
 &lt;p&gt;You can run Butler on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).&lt;/p&gt;
-&lt;p&gt;Butler is a member of a group of tools collectively referred to as the &amp;ldquo;Butler family&amp;rdquo;, more info is available &lt;a href=&#34;/docs/about/butler-family&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Butler is a member of a group of tools collectively referred to as the &amp;ldquo;Butler family&amp;rdquo;, more info is available &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/about/butler-family&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;This picture might be useful to understand what Butler does and how it fits into the larger system map around Qlik Sense:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/butler-system-overview-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler high level system overview&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://butler.ptarmiganlabs.com/img/butler-system-overview-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler high level system overview&#34;&gt;&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
       <title>Docs: Standalone app</title>
-      <link>/docs/getting-started/operations/standalone/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/operations/standalone/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/operations/standalone/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/operations/standalone/</guid>
       <description>
         
         
@@ -198,10 +198,10 @@ This is used when Butler is executed to provide a Swagger/OpenAPI specification 
     
     <item>
       <title>Docs: Decide how to run Butler</title>
-      <link>/docs/getting-started/install/choose-platform/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/install/choose-platform/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/install/choose-platform/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/install/choose-platform/</guid>
       <description>
         
         
@@ -231,10 +231,10 @@ Another good tool is &lt;a href=&#34;https://pm2.keymetrics.io&#34;&gt;PM2&lt;/a
     
     <item>
       <title>Docs: Running Butler as a native, pre-built application</title>
-      <link>/docs/getting-started/install/native/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/install/native/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/install/native/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/install/native/</guid>
       <description>
         
         
@@ -244,7 +244,7 @@ Another good tool is &lt;a href=&#34;https://pm2.keymetrics.io&#34;&gt;PM2&lt;/a
 &lt;h2 id=&#34;installation-steps&#34;&gt;Installation steps&lt;/h2&gt;
 &lt;p&gt;Installing Butler is quite simple.&lt;br&gt;
 The steps below outline the process.&lt;/p&gt;
-&lt;p&gt;Additional information is found on the &lt;a href=&#34;/docs/getting-started/operations/&#34;&gt;Day 2 operations&lt;/a&gt; page.&lt;/p&gt;
+&lt;p&gt;Additional information is found on the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/operations/&#34;&gt;Day 2 operations&lt;/a&gt; page.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Decide where to install Butler&lt;/strong&gt;&lt;br&gt;
@@ -277,10 +277,10 @@ This means you may see a warning the first time you start Butler, but after that
     
     <item>
       <title>Docs: Running Butler in Docker</title>
-      <link>/docs/getting-started/install/docker/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/install/docker/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/install/docker/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/install/docker/</guid>
       <description>
         
         
@@ -495,10 +495,10 @@ You can name the config file anything, but its name has to match the NODE_ENV en
     
     <item>
       <title>Docs: Docker</title>
-      <link>/docs/getting-started/operations/docker/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/operations/docker/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/operations/docker/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/operations/docker/</guid>
       <description>
         
         
@@ -529,10 +529,10 @@ Then start Butler in deameon (background) mode:&lt;/p&gt;
     
     <item>
       <title>Docs: The Butler family</title>
-      <link>/docs/about/butler-family/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/about/butler-family/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/about/butler-family/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/about/butler-family/</guid>
       <description>
         
         
@@ -594,10 +594,10 @@ Using Butler CW is an easy way to make your end users&amp;rsquo; experience of S
     
     <item>
       <title>Docs: Running Butler as a Node.js application</title>
-      <link>/docs/getting-started/install/nodejs/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/install/nodejs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/install/nodejs/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/install/nodejs/</guid>
       <description>
         
         
@@ -606,7 +606,7 @@ Using Butler CW is an easy way to make your end users&amp;rsquo; experience of S
 Butler has been succesfully used - during development and production - on Windows, Linux (Debian and Ubuntu tested) and mac OS.&lt;/p&gt;
 &lt;h2 id=&#34;installation-steps&#34;&gt;Installation steps&lt;/h2&gt;
 &lt;p&gt;The steps below outline the steps needed to install Butler as a native Node.js application on for example Windows Server.&lt;/p&gt;
-&lt;p&gt;Additional information is found on the &lt;a href=&#34;/docs/getting-started/operations/&#34;&gt;Day 2 operations&lt;/a&gt; page.&lt;/p&gt;
+&lt;p&gt;Additional information is found on the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/operations/&#34;&gt;Day 2 operations&lt;/a&gt; page.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Install node.js&lt;/strong&gt;&lt;br&gt;
@@ -641,10 +641,10 @@ On some OSs you&amp;rsquo;ll get some warnings during the installation - they ar
     
     <item>
       <title>Docs: Node.js app</title>
-      <link>/docs/getting-started/operations/nodejs/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/operations/nodejs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/operations/nodejs/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/operations/nodejs/</guid>
       <description>
         
         
@@ -699,10 +699,10 @@ Use the &lt;code&gt;--help&lt;/code&gt; command line option to show what options
     
     <item>
       <title>Docs: Retired use cases</title>
-      <link>/docs/about/use-cases/retired/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/about/use-cases/retired/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/about/use-cases/retired/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/about/use-cases/retired/</guid>
       <description>
         
         
@@ -715,8 +715,8 @@ Here&amp;rsquo;s a list of features that are candidates for removal from Butler,
 For example, when Butler was started it wouldn&amp;rsquo;t capture currently active users or sessions - it was only after some event captured in the logs that Butler would update it&amp;rsquo;s internal counters. This meant that it would take some time (sometimes quite long) until the metrics were even approaching the real number of users using Sense.&lt;/p&gt;
 &lt;p&gt;There was also the risk of Butler missing UDP messages and not registering the associated log event.&lt;/p&gt;
 &lt;p&gt;The affected API endpoints are:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;/docs/reference/rest-api/?operationsSorter=alpha&#34;&gt;/v4/activeusercount&lt;/a&gt;&lt;br&gt;
-&lt;a href=&#34;/docs/reference/rest-api/?operationsSorter=alpha&#34;&gt;/v4/activeusers&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/rest-api/?operationsSorter=alpha&#34;&gt;/v4/activeusercount&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/rest-api/?operationsSorter=alpha&#34;&gt;/v4/activeusers&lt;/a&gt;&lt;/p&gt;
 
 
 &lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
@@ -734,10 +734,10 @@ For example, when Butler was started it wouldn&amp;rsquo;t capture currently act
     
     <item>
       <title>Docs: Versions</title>
-      <link>/docs/about/versioning/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/about/versioning/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/about/versioning/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/about/versioning/</guid>
       <description>
         
         
@@ -763,10 +763,10 @@ Note 2: If a version of 5.2 is mentioned, this implicitly means 5.2.0.&lt;/p&gt;
     
     <item>
       <title>Docs: Contribution guidelines</title>
-      <link>/docs/about/contributing/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/about/contributing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/about/contributing/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/about/contributing/</guid>
       <description>
         
         
@@ -800,10 +800,10 @@ Hugo is an open-source static site generator that provides us with templates, co
     
     <item>
       <title>Docs: Telemetry</title>
-      <link>/docs/about/telemetry/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/about/telemetry/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/about/telemetry/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/about/telemetry/</guid>
       <description>
         
         
@@ -849,7 +849,7 @@ Or the fact that Qlik released some new feature in Sense and Butler was a way to
 &lt;li&gt;Same thing for understanding what operating systems Butler runs (and should be supported) on.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;configuring-butlers-telemetry&#34;&gt;Configuring Butler&amp;rsquo;s telemetry&lt;/h3&gt;
-&lt;p&gt;Instructions &lt;a href=&#34;/docs/getting-started/setup/telemetry/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Instructions &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/telemetry/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;the-details&#34;&gt;The details&lt;/h2&gt;
 
 
@@ -886,7 +886,7 @@ Or the fact that Qlik released some new feature in Sense and Butler was a way to
 &lt;p&gt;The telemetry data is sent to the &lt;a href=&#34;https://posthog.com&#34;&gt;PostHog&lt;/a&gt; service, using their database in the European Union.&lt;/p&gt;
 &lt;h3 id=&#34;deleting-telemetry-data&#34;&gt;Deleting telemetry data&lt;/h3&gt;
 &lt;p&gt;Even though no-one (not even the Butler developers or Ptarmigan Labs who manage the telemetry database!) has any way of ever connecting the data sent by &lt;em&gt;your&lt;/em&gt; Butler instance to &lt;em&gt;you&lt;/em&gt; (it&amp;rsquo;s all anonymized, remember?), there can be cases where telemetry data must be deleted.&lt;/p&gt;
-&lt;p&gt;The &lt;a href=&#34;/docs/legal-stuff/#telemetry-data&#34;&gt;legal page&lt;/a&gt; has more information about this.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/legal-stuff/#telemetry-data&#34;&gt;legal page&lt;/a&gt; has more information about this.&lt;/p&gt;
 &lt;h3 id=&#34;field-level-description-of-telemetry-data&#34;&gt;Field level description of telemetry data&lt;/h3&gt;
 &lt;p&gt;A telemetry message from Butler contains the information below.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;

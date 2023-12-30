@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler – Reload related alerts</title>
-    <link>/docs/getting-started/setup/reload-alerts/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/</link>
     <description>Recent content in Reload related alerts on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="/docs/getting-started/setup/reload-alerts/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Reload alerts sent as emails</title>
-      <link>/docs/getting-started/setup/reload-alerts/alert-emails/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/alert-emails/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/reload-alerts/alert-emails/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/alert-emails/</guid>
       <description>
         
         
@@ -30,11 +30,11 @@
 &lt;li&gt;When a scheduled, running reload task is somehow stopped/aborted.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Butler has a de-duplication feature that ensure each email address that has qualified for an alert email only gets ONE email per alert.&lt;/p&gt;
-&lt;p&gt;See the &lt;a href=&#34;/docs/concepts/alert-emails/&#34;&gt;Concepts section&lt;/a&gt; for additional details and sample alert emails.&lt;/p&gt;
+&lt;p&gt;See the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/concepts/alert-emails/&#34;&gt;Concepts section&lt;/a&gt; for additional details and sample alert emails.&lt;/p&gt;
 &lt;h2 id=&#34;basic-vs-formatted-email-alerts&#34;&gt;Basic vs formatted email alerts&lt;/h2&gt;
 &lt;p&gt;If you want Butler to send email alerts you must provide an email template file.&lt;/p&gt;
 &lt;p&gt;For some other alert destinations (Slack and Teams) Butler offers a &amp;ldquo;basic&amp;rdquo; option. A fixed format alert is then sent by Butler.&lt;br&gt;
-The closest thing available for emails is to use the mail log appender described &lt;a href=&#34;/docs/getting-started/setup/reload-alerts/#sending-basic-alert-emails-from-log4net&#34;&gt;here&lt;/a&gt;, but if you set up a log appender AND have Butler running, you might as well use the formatted email option as it provides &lt;strong&gt;much&lt;/strong&gt; more flexibility than log4net&amp;rsquo;s email appender.&lt;/p&gt;
+The closest thing available for emails is to use the mail log appender described &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/#sending-basic-alert-emails-from-log4net&#34;&gt;here&lt;/a&gt;, but if you set up a log appender AND have Butler running, you might as well use the formatted email option as it provides &lt;strong&gt;much&lt;/strong&gt; more flexibility than log4net&amp;rsquo;s email appender.&lt;/p&gt;
 &lt;h2 id=&#34;rate-limiting&#34;&gt;Rate limiting&lt;/h2&gt;
 &lt;p&gt;Butler has rate limiting feature to ensure alert recipients are not spammed with too many alert emails.&lt;/p&gt;
 &lt;p&gt;The rate limit is configured (in seconds) in the main config file and can be set independently for reload-failed and reload-aborted emails.&lt;br&gt;
@@ -70,7 +70,7 @@ The sender of the test email can be specified with &lt;code&gt;--test-email-from
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If the settings in the config file&amp;rsquo;s &lt;code&gt;Butler.emailNotification.smtp&lt;/code&gt; section are valid and correct a command like this can be used:&lt;br&gt;
 &lt;code&gt;butler.exe -c ./config/production.yaml --test-email-address myname@somedomain.com&lt;/code&gt;. Adapt config file location and email address as needed.&lt;/p&gt;
 &lt;p&gt;The resulting email looks like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/butler-test-email-1.png&#34; alt=&#34;Test email from Butler&#34; title=&#34;Test email from Butler&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://butler.ptarmiganlabs.com/img/butler-test-email-1.png&#34; alt=&#34;Test email from Butler&#34; title=&#34;Test email from Butler&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;sending-alertemails-to-app-owners&#34;&gt;Sending alert emails to app owners&lt;/h2&gt;
 &lt;p&gt;Butler can optionally send alert emails to the owner of apps that failed reloading/were aborted.&lt;/p&gt;
 
@@ -146,7 +146,7 @@ I.e. some tasks should generate alert emails when they fail, but others not.&lt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;em&gt;Aborted&lt;/em&gt; reload tasks (as compared to the &lt;em&gt;failed&lt;/em&gt; reload tasks described above) are handled the same way, with their own settings in the config file.&lt;/p&gt;
 &lt;p&gt;In the QMC the custom property can look like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/enable-reload-alert-for-specific-task-1.png&#34; alt=&#34;QMC custom property for controlling reload alerts&#34; title=&#34;QMC custom property for controlling reload alerts&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://butler.ptarmiganlabs.com/img/enable-reload-alert-for-specific-task-1.png&#34; alt=&#34;QMC custom property for controlling reload alerts&#34; title=&#34;QMC custom property for controlling reload alerts&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;send-alerts-to-specific-people-for-some-tasks&#34;&gt;Send alerts to specific people, for some tasks&lt;/h2&gt;
 &lt;p&gt;It&amp;rsquo;s possible to send alert emails to specific email addresses and control this on a per-task basis.&lt;/p&gt;
 &lt;p&gt;This is achieved by using a Sense custom property that contains the email addresses alerts should be sent to, for the task in question.&lt;/p&gt;
@@ -158,10 +158,10 @@ I.e. some tasks should generate alert emails when they fail, but others not.&lt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Email specific alert recpients is independent from the feature where alerts can be switched on/off for individual tasks (see &lt;a href=&#34;/docs/getting-started/setup/reload-alerts/alert-emails/#send-alerts-only-for-some-tasks&#34;&gt;above&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Email specific alert recpients is independent from the feature where alerts can be switched on/off for individual tasks (see &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/alert-emails/#send-alerts-only-for-some-tasks&#34;&gt;above&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;In other words: If an email address has been designated as recipient of alert emails, that address will always receive alert emails for &lt;em&gt;all&lt;/em&gt; failed or aborted reload tasks.&lt;/p&gt;
 &lt;p&gt;Having set two different (blurred out) recipients of alert emails for a reload task:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/set-email-recipient-per-reload-task-1.png&#34; alt=&#34;QMC custom property for sending alert emails to specific email addresses&#34; title=&#34;QMC custom property for sending alert emails to specific email addresses&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://butler.ptarmiganlabs.com/img/set-email-recipient-per-reload-task-1.png&#34; alt=&#34;QMC custom property for sending alert emails to specific email addresses&#34; title=&#34;QMC custom property for sending alert emails to specific email addresses&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;settings-in-config-file&#34;&gt;Settings in config file&lt;/h2&gt;
 
 
@@ -342,17 +342,17 @@ I.e. some tasks should generate alert emails when they fail, but others not.&lt;
 &lt;/div&gt;
 
 &lt;h2 id=&#34;template-fields-reference&#34;&gt;Template fields reference&lt;/h2&gt;
-&lt;p&gt;A complete list of template fields - including descriptions - is available in the &lt;a href=&#34;/docs/reference/alert-template-fields&#34;&gt;Reference&lt;/a&gt; section.&lt;/p&gt;
+&lt;p&gt;A complete list of template fields - including descriptions - is available in the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/alert-template-fields&#34;&gt;Reference&lt;/a&gt; section.&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
       <title>Docs: Reload alerts in InfluxDB</title>
-      <link>/docs/getting-started/setup/reload-alerts/alert-influxdb/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/alert-influxdb/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/reload-alerts/alert-influxdb/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/alert-influxdb/</guid>
       <description>
         
         
@@ -444,10 +444,10 @@ An example of a static tag could be the name of the Qlik Sense server that Butle
     
     <item>
       <title>Docs: Reload alerts via New Relic</title>
-      <link>/docs/getting-started/setup/reload-alerts/alert-new-relic/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/alert-new-relic/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/reload-alerts/alert-new-relic/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/alert-new-relic/</guid>
       <description>
         
         
@@ -457,9 +457,9 @@ An example of a static tag could be the name of the Qlik Sense server that Butle
 &lt;li&gt;When a scheduled or started from the QMC reload task fails.&lt;/li&gt;
 &lt;li&gt;When a scheduled or started from the QMC reload task is somehow stopped/aborted.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;See the &lt;a href=&#34;/docs/concepts/incident-mgmt-tools/new-relic/&#34;&gt;Concepts section&lt;/a&gt; for examples on what a New Relic alert can look like.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;/docs/getting-started/setup/incident-mgmt-tools/new-relic/&#34;&gt;This page&lt;/a&gt; has additional info on how to set up Butler to work with New Relic.&lt;/p&gt;
-&lt;p&gt;A complete reference to the config file format is found &lt;a href=&#34;/docs/reference/config-file/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;See the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/concepts/incident-mgmt-tools/new-relic/&#34;&gt;Concepts section&lt;/a&gt; for examples on what a New Relic alert can look like.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/incident-mgmt-tools/new-relic/&#34;&gt;This page&lt;/a&gt; has additional info on how to set up Butler to work with New Relic.&lt;/p&gt;
+&lt;p&gt;A complete reference to the config file format is found &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/config-file/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;different-kinds-of-new-relic-messages&#34;&gt;Different kinds of New Relic messages&lt;/h2&gt;
 &lt;p&gt;Two kinds of messages can be sent to New Relic: Events and log messages.&lt;/p&gt;
 &lt;p&gt;The difference between them is that New Relic events are meant to be used for alerting, while New Relic log messages are meant to be used for troubleshooting.&lt;/p&gt;
@@ -699,10 +699,10 @@ Values there will be used for both events and log messages, unless they are over
     
     <item>
       <title>Docs: Reload alerts via Slack</title>
-      <link>/docs/getting-started/setup/reload-alerts/alert-slack/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/alert-slack/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/reload-alerts/alert-slack/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/alert-slack/</guid>
       <description>
         
         
@@ -712,8 +712,8 @@ Values there will be used for both events and log messages, unless they are over
 &lt;li&gt;When a scheduled, or started from the QMC reload task fails.&lt;/li&gt;
 &lt;li&gt;When a scheduled, or started from the QMC reload task is somehow stopped.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;See the &lt;a href=&#34;/docs/concepts/alerts-slack-teams/&#34;&gt;Concepts section&lt;/a&gt; for additional details.&lt;/p&gt;
-&lt;p&gt;A complete reference to the config file format is found &lt;a href=&#34;/docs/reference/config-file/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;See the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/concepts/alerts-slack-teams/&#34;&gt;Concepts section&lt;/a&gt; for additional details.&lt;/p&gt;
+&lt;p&gt;A complete reference to the config file format is found &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/config-file/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;basic-vs-formatted-slack-alerts&#34;&gt;Basic vs formatted Slack alerts&lt;/h2&gt;
 &lt;p&gt;Slack alerts come in two forms:&lt;/p&gt;
 &lt;ul&gt;
@@ -723,7 +723,7 @@ Values there will be used for both events and log messages, unless they are over
 &lt;p&gt;Which option to go for depends on whether you want just a notification that something went wrong, or if you want as much detail as possible in the Slack message.&lt;/p&gt;
 &lt;h3 id=&#34;sample-message-with-custom-formatting&#34;&gt;Sample message with custom formatting&lt;/h3&gt;
 &lt;p&gt;A &amp;ldquo;reload task failed&amp;rdquo; Slack message using the custom formatting option could look like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/failed-reload-slack-formatted_1.png&#34; alt=&#34;alt text&#34; title=&#34;Reload failed alert email&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://butler.ptarmiganlabs.com/img/failed-reload-slack-formatted_1.png&#34; alt=&#34;alt text&#34; title=&#34;Reload failed alert email&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s how to set this up:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -736,7 +736,7 @@ The &lt;code&gt;basicMsgTemplate&lt;/code&gt; property is not used with formatte
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Edit the template file(s) as needed, these are specified by &lt;code&gt;Butler.slackNotification.reloadTaskFailure.templateFile&lt;/code&gt; and &lt;code&gt;Butler.slackNotification.reloadTaskAborted.templateFile&lt;/code&gt;. They are using the Handlebars templating engine, to which Butler provides template fields with actual values.&lt;/p&gt;
-&lt;p&gt;The available template fields are described &lt;a href=&#34;/docs/reference/alert-template-fields/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The available template fields are described &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/alert-template-fields/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Sample template files are available in the GitHub repository&amp;rsquo;s &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/tree/master/src/config/slack_templates&#34;&gt;src/config/slack_templates&lt;/a&gt; directory.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -745,7 +745,7 @@ The &lt;code&gt;basicMsgTemplate&lt;/code&gt; property is not used with formatte
 &lt;/ol&gt;
 &lt;h3 id=&#34;sample-message-with-basic-formatting&#34;&gt;Sample message with basic formatting&lt;/h3&gt;
 &lt;p&gt;A &amp;ldquo;reload task failed&amp;rdquo; Slack message with basic formatting could look like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/failed-reload-slack-basic_1.png&#34; alt=&#34;alt text&#34; title=&#34;Reload failed alert email&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://butler.ptarmiganlabs.com/img/failed-reload-slack-basic_1.png&#34; alt=&#34;alt text&#34; title=&#34;Reload failed alert email&#34;&gt;&lt;/p&gt;
 &lt;p&gt;To set it up:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -754,7 +754,7 @@ The &lt;code&gt;basicMsgTemplate&lt;/code&gt; property is not used with formatte
 &lt;li&gt;
 &lt;p&gt;Edit the Slack section of the config file i.e. the settings in &lt;code&gt;Butler.slackNotification.reloadTaskFailure&lt;/code&gt; and/or &lt;code&gt;Butler.slackNotification.reloadTaskAborted&lt;/code&gt; sections of the confi file.&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;messageType&lt;/code&gt; property should be set to &lt;code&gt;basic&lt;/code&gt;.&lt;br&gt;
-The &lt;code&gt;basicMsgTemplate&lt;/code&gt; property is the message that will be sent via Slack. &lt;a href=&#34;/docs/reference/alert-template-fields/&#34;&gt;Template fields&lt;/a&gt; can be used.&lt;/p&gt;
+The &lt;code&gt;basicMsgTemplate&lt;/code&gt; property is the message that will be sent via Slack. &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/alert-template-fields/&#34;&gt;Template fields&lt;/a&gt; can be used.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Restart Butler if it&amp;rsquo;s already running.&lt;/p&gt;
@@ -791,7 +791,7 @@ If the JSON syntax is somehow invaid the Slack API will return errors and no mes
 
 &lt;/div&gt;
 
-&lt;p&gt;The concept is the same for &lt;a href=&#34;/docs/getting-started/setup/reload-alerts/#how-it-works&#34;&gt;all alert types&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The concept is the same for &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/#how-it-works&#34;&gt;all alert types&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;settings-in-config-file&#34;&gt;Settings in config file&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;---&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;Butler&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -841,10 +841,10 @@ If the JSON syntax is somehow invaid the Slack API will return errors and no mes
     
     <item>
       <title>Docs: Reload alerts via Microsoft Teams</title>
-      <link>/docs/getting-started/setup/reload-alerts/alert-teams/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/alert-teams/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/reload-alerts/alert-teams/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/alert-teams/</guid>
       <description>
         
         
@@ -854,8 +854,8 @@ If the JSON syntax is somehow invaid the Slack API will return errors and no mes
 &lt;li&gt;When a scheduled or started from the QMC reload task fails.&lt;/li&gt;
 &lt;li&gt;When a scheduled or started from the QMC reload task is somehow stopped.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;See the &lt;a href=&#34;/docs/concepts/alerts-slack-teams/&#34;&gt;Concepts section&lt;/a&gt; for additional details.&lt;/p&gt;
-&lt;p&gt;A complete reference to the config file format is found &lt;a href=&#34;/docs/reference/config-file/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;See the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/concepts/alerts-slack-teams/&#34;&gt;Concepts section&lt;/a&gt; for additional details.&lt;/p&gt;
+&lt;p&gt;A complete reference to the config file format is found &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/config-file/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;basic-vs-formatted-teams-alerts&#34;&gt;Basic vs formatted Teams alerts&lt;/h2&gt;
 &lt;p&gt;Teams alerts come in two forms:&lt;/p&gt;
 &lt;ul&gt;
@@ -865,7 +865,7 @@ If the JSON syntax is somehow invaid the Slack API will return errors and no mes
 &lt;p&gt;Which option to go for depends on whether you want just a notification that something went wrong, or if you want as much detail as possible in the Teams message.&lt;/p&gt;
 &lt;h3 id=&#34;sample-message-with-custom-formatting&#34;&gt;Sample message with custom formatting&lt;/h3&gt;
 &lt;p&gt;A &amp;ldquo;reload task failed&amp;rdquo; Teams message using the custom formatting option could look like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/failed-reload-teams-formatted_1.png&#34; alt=&#34;alt text&#34; title=&#34;Reload failed alert email&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://butler.ptarmiganlabs.com/img/failed-reload-teams-formatted_1.png&#34; alt=&#34;alt text&#34; title=&#34;Reload failed alert email&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s how to set it up:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -878,7 +878,7 @@ The &lt;code&gt;basicMsgTemplate&lt;/code&gt; property is not used with formatte
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Edit the template file(s) as needed, these are specified by &lt;code&gt;Butler.teamsNotification.reloadTaskFailure.templateFile&lt;/code&gt; and &lt;code&gt;Butler.teamsNotification.reloadTaskAborted.templateFile&lt;/code&gt;. They are using the Handlebars templating engine, to which Butler provides template fields with actual values.&lt;/p&gt;
-&lt;p&gt;The available template fields are described &lt;a href=&#34;/docs/reference/alert-template-fields/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The available template fields are described &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/alert-template-fields/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Sample template files are available in the GitHub repository&amp;rsquo;s &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/tree/master/src/config/teams_templates&#34;&gt;src/config/teams_templates&lt;/a&gt; directory.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -887,7 +887,7 @@ The &lt;code&gt;basicMsgTemplate&lt;/code&gt; property is not used with formatte
 &lt;/ol&gt;
 &lt;h3 id=&#34;sample-message-with-basic-formatting&#34;&gt;Sample message with basic formatting&lt;/h3&gt;
 &lt;p&gt;A &amp;ldquo;reload task failed&amp;rdquo; Teams message with basic formatting could look like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/failed-reload-teams-basic_1.png&#34; alt=&#34;alt text&#34; title=&#34;Reload failed alert email&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://butler.ptarmiganlabs.com/img/failed-reload-teams-basic_1.png&#34; alt=&#34;alt text&#34; title=&#34;Reload failed alert email&#34;&gt;&lt;/p&gt;
 &lt;p&gt;To set it up:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -896,7 +896,7 @@ The &lt;code&gt;basicMsgTemplate&lt;/code&gt; property is not used with formatte
 &lt;li&gt;
 &lt;p&gt;Edit the Teams section of the config file i.e. the settings in &lt;code&gt;Butler.teamsNotification.reloadTaskFailure&lt;/code&gt; and/or &lt;code&gt;Butler.teamsNotification.reloadTaskAborted&lt;/code&gt; sections of the confi file.&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;messageType&lt;/code&gt; property should be set to &lt;code&gt;basic&lt;/code&gt;.&lt;br&gt;
-The &lt;code&gt;basicMsgTemplate&lt;/code&gt; property is the message that will be sent via Teams. &lt;a href=&#34;/docs/reference/alert-template-fields/&#34;&gt;Template fields&lt;/a&gt; can be used.&lt;/p&gt;
+The &lt;code&gt;basicMsgTemplate&lt;/code&gt; property is the message that will be sent via Teams. &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/alert-template-fields/&#34;&gt;Template fields&lt;/a&gt; can be used.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Restart Butler if it&amp;rsquo;s already running.&lt;/p&gt;
@@ -929,7 +929,7 @@ If the JSON syntax is somehow invaid the Teams API will return errors and no mes
 
 &lt;/div&gt;
 
-&lt;p&gt;The concept is the same as for &lt;a href=&#34;/docs/getting-started/setup/reload-alerts/#how-it-works&#34;&gt;all alert types&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The concept is the same as for &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/#how-it-works&#34;&gt;all alert types&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;settings-in-config-file&#34;&gt;Settings in config file&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;---&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;Butler&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -970,10 +970,10 @@ If the JSON syntax is somehow invaid the Teams API will return errors and no mes
     
     <item>
       <title>Docs: Reload alerts via MQTT</title>
-      <link>/docs/getting-started/setup/reload-alerts/alert-mqtt/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/alert-mqtt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/reload-alerts/alert-mqtt/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/alert-mqtt/</guid>
       <description>
         
         
@@ -1045,10 +1045,10 @@ The message is sent on the &lt;code&gt;Butler.mqttConfig.taskFailureFullTopic&lt
     
     <item>
       <title>Docs: Reload alerts via outgoing webhooks</title>
-      <link>/docs/getting-started/setup/reload-alerts/alert-webhook-out/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/alert-webhook-out/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/reload-alerts/alert-webhook-out/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/alert-webhook-out/</guid>
       <description>
         
         

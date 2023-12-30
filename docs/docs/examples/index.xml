@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler – Examples</title>
-    <link>/docs/examples/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/examples/</link>
     <description>Recent content in Examples on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="/docs/examples/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://butler.ptarmiganlabs.com/docs/examples/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Swagger UI: Try out the Butler API using the API docs</title>
-      <link>/docs/examples/openapi-docs/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/examples/openapi-docs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/examples/openapi-docs/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/examples/openapi-docs/</guid>
       <description>
         
         
@@ -48,7 +48,7 @@ The beauty of the Swagger docs is that you can also test drive the API itself. I
 
 
 &lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 812px&#34;&gt;
-	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/examples/openapi-docs/openapi-latest-1_hua3038860b6359b9abb1d81d9ee348589_397677_0x650_resize_catmullrom_3.png&#34; width=&#34;802&#34; height=&#34;650&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;https://butler.ptarmiganlabs.com/docs/examples/openapi-docs/openapi-latest-1_hua3038860b6359b9abb1d81d9ee348589_397677_0x650_resize_catmullrom_3.png&#34; width=&#34;802&#34; height=&#34;650&#34;&gt;
 	
 	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt;
@@ -79,7 +79,7 @@ Two good ones are:&lt;/p&gt;
                  allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 &lt;h3 id=&#34;list-all-enabled-api-endpoints&#34;&gt;List all enabled API endpoints&lt;/h3&gt;
-&lt;p&gt;Let&amp;rsquo;s take a look at which API endpoints are &lt;a href=&#34;/docs/reference/config-file/&#34;&gt;enabled in the restServerEndpointsEnable section of the config file&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s take a look at which API endpoints are &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/config-file/&#34;&gt;enabled in the restServerEndpointsEnable section of the config file&lt;/a&gt;:&lt;/p&gt;
 &lt;div class=&#34;embed-responsive embed-responsive-16by9&#34;&gt;
         &lt;iframe src=&#34;https://www.youtube.com/embed/JdOt1aQj9Hw?enablejsapi=1&#34;
                  allowfullscreen&gt;&lt;/iframe&gt;
@@ -111,10 +111,10 @@ One of them fires every 30 seconds and this is also visible in the Butler logs:&
     
     <item>
       <title>Docs: Flexible scheduling of Sense reload tasks</title>
-      <link>/docs/examples/scheduling/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/examples/scheduling/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/examples/scheduling/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/examples/scheduling/</guid>
       <description>
         
         
@@ -284,10 +284,10 @@ One of them fires every 30 seconds and this is also visible in the Butler logs:&
     
     <item>
       <title>Docs: Reload task chaining with parameters</title>
-      <link>/docs/examples/reload-chaining/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/examples/reload-chaining/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/examples/reload-chaining/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/examples/reload-chaining/</guid>
       <description>
         
         
@@ -521,10 +521,10 @@ set vParam1=;
     
     <item>
       <title>Docs: Monitoring Butler&#39;s memory usage using Grafana</title>
-      <link>/docs/examples/monitoring-butler/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/examples/monitoring-butler/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/examples/monitoring-butler/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/examples/monitoring-butler/</guid>
       <description>
         
         
@@ -618,7 +618,7 @@ It&amp;rsquo;s all there within New Relic.&lt;/p&gt;
 But given that Butler will send &lt;em&gt;very little&lt;/em&gt; data you are unlikely to ever reach the limit of New Relic&amp;rsquo;s free tier.&lt;br&gt;
 There is thus a good chance you won&amp;rsquo;t even have to pay for New Relic if you only use it to monitor Butler.&lt;/p&gt;
 &lt;p&gt;A New Relic chart showing Butler memory usage can look like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/butler-memory-usage-new-relic-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler memory usage in Grafana dashboard&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://butler.ptarmiganlabs.com/img/butler-memory-usage-new-relic-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler memory usage in Grafana dashboard&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Similarly to the Grafana dashboard, Butler&amp;rsquo;s version number is also included in the data sent to New Relic, and can be used to create a chart showing which Butler version is running on which server:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;butler-new-relic-versions-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler version numbers in New Relic dashboard&#34;&gt;&lt;/p&gt;
 
@@ -627,10 +627,10 @@ There is thus a good chance you won&amp;rsquo;t even have to pay for New Relic i
     
     <item>
       <title>Docs: Start Sense tasks using Butler APIs</title>
-      <link>/docs/examples/start-task/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/examples/start-task/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/examples/start-task/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/examples/start-task/</guid>
       <description>
         
         
@@ -640,10 +640,10 @@ There is thus a good chance you won&amp;rsquo;t even have to pay for New Relic i
     
     <item>
       <title>Docs: Controlled and secure file system operations</title>
-      <link>/docs/examples/file-copy-move-delete/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/examples/file-copy-move-delete/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/examples/file-copy-move-delete/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/examples/file-copy-move-delete/</guid>
       <description>
         
         
@@ -653,7 +653,7 @@ There is thus a good chance you won&amp;rsquo;t even have to pay for New Relic i
 &lt;li&gt;Install and configure Butler&amp;rsquo;s general settings.&lt;/li&gt;
 &lt;li&gt;Add the directories in which file operations should be allowed to Butler&amp;rsquo;s config file.&lt;br&gt;
 Make sure the account Butler runs under has the appropriate access to those directories.&lt;/li&gt;
-&lt;li&gt;Make sure the &lt;a href=&#34;/docs/getting-started/setup/data-connections&#34;&gt;necessary Sense data connections&lt;/a&gt; exist.&lt;/li&gt;
+&lt;li&gt;Make sure the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/data-connections&#34;&gt;necessary Sense data connections&lt;/a&gt; exist.&lt;/li&gt;
 &lt;li&gt;Call the Butler APIs directly or use the subs included in the GitHub repo to do the desired file operations.&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -708,7 +708,7 @@ Both work as all paths are normalized into an internal, uniform format when load
 &lt;li&gt;Files can be deleted in the directories &lt;code&gt;/data1/qvd_archive&lt;/code&gt;, &lt;code&gt;e:\data1\qvd_archive&lt;/code&gt; and (using UNC notation) &lt;code&gt;\\server3.my.domain\data1\qvd_archive&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;3-create-sense-data-connections-used-to-call-butlers-rest-api&#34;&gt;3. Create Sense data connections used to call Butler&amp;rsquo;s REST API&lt;/h3&gt;
-&lt;p&gt;Described &lt;a href=&#34;/docs/getting-started/setup/data-connections/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Described &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/data-connections/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;4-call-the-butler-apis-or-use-convenience-subs&#34;&gt;4. Call the Butler APIs or use convenience subs&lt;/h3&gt;
 &lt;p&gt;Once you know what file path format to use (see above), using the helper subs is pretty easy:&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;// Where is Butler running?
@@ -792,7 +792,7 @@ end sub
 
 
 &lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 910px&#34;&gt;
-	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/examples/file-copy-move-delete/butler-unc-path-on-macos-1_hub0140fda08b2ed7b924ad7993ce02ecc_403942_900x0_resize_catmullrom_3.png&#34; width=&#34;900&#34; height=&#34;487&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;https://butler.ptarmiganlabs.com/docs/examples/file-copy-move-delete/butler-unc-path-on-macos-1_hub0140fda08b2ed7b924ad7993ce02ecc_403942_900x0_resize_catmullrom_3.png&#34; width=&#34;900&#34; height=&#34;487&#34;&gt;
 	
 	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt;
@@ -811,7 +811,7 @@ Startup warnings about non-compatible UNC paths when running Butler on macOS.
 
 
 &lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 610px&#34;&gt;
-	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/examples/file-copy-move-delete/butler-unc-path-on-macos-3_huc4484a1ad59c1f3d808b4922bdc8b74b_92556_600x0_resize_catmullrom_3.png&#34; width=&#34;600&#34; height=&#34;622&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;https://butler.ptarmiganlabs.com/docs/examples/file-copy-move-delete/butler-unc-path-on-macos-3_huc4484a1ad59c1f3d808b4922bdc8b74b_92556_600x0_resize_catmullrom_3.png&#34; width=&#34;600&#34; height=&#34;622&#34;&gt;
 	
 	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt;
@@ -829,7 +829,7 @@ http error returned when trying to delete a file via a UNC path, and Butler is r
 
 
 &lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 910px&#34;&gt;
-	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/examples/file-copy-move-delete/butler-unc-path-on-macos-2_hu5ed2892a2e541c6b69bf232609c4388b_72162_900x0_resize_catmullrom_3.png&#34; width=&#34;900&#34; height=&#34;109&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;https://butler.ptarmiganlabs.com/docs/examples/file-copy-move-delete/butler-unc-path-on-macos-2_hu5ed2892a2e541c6b69bf232609c4388b_72162_900x0_resize_catmullrom_3.png&#34; width=&#34;900&#34; height=&#34;109&#34;&gt;
 	
 	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt;
@@ -845,10 +845,10 @@ Warnings in log for the previous scenario.
     
     <item>
       <title>Docs: Sense apps that explain and highlight various Butler features</title>
-      <link>/docs/examples/sense-demo-apps/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/examples/sense-demo-apps/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/examples/sense-demo-apps/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/examples/sense-demo-apps/</guid>
       <description>
         
         
@@ -858,17 +858,17 @@ Warnings in log for the previous scenario.
     
     <item>
       <title>Docs: Run Butler as a Windows service</title>
-      <link>/docs/examples/butler-windows-service/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/examples/butler-windows-service/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/examples/butler-windows-service/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/examples/butler-windows-service/</guid>
       <description>
         
         
         &lt;p&gt;If running Butler on a Windows computer it is possible to install Butler as a Windows service.&lt;/p&gt;
 &lt;p&gt;This means that Butler will start automatically when the computer starts, and will run in the background without any user interaction.&lt;/p&gt;
 &lt;p&gt;A blog post on &lt;a href=&#34;https://ptarmiganlabs.com/the-lazy-qlik-developer-2-setting-up-butler-sos/&#34;&gt;ptarmiganlabs.com&lt;/a&gt; goes through the steps required to install &lt;em&gt;Butler SOS&lt;/em&gt; as a Windows service, the steps needed for &lt;em&gt;Butler&lt;/em&gt; are virtually identical.&lt;/p&gt;
-&lt;p&gt;This topic is is also discussed on the &lt;a href=&#34;/docs/getting-started/operations/&#34;&gt;Day 2 operations&lt;/a&gt; page.&lt;/p&gt;
+&lt;p&gt;This topic is is also discussed on the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/operations/&#34;&gt;Day 2 operations&lt;/a&gt; page.&lt;/p&gt;
 
       </description>
     </item>

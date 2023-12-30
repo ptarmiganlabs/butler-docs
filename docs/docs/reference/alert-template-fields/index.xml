@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler – Alert template fields</title>
-    <link>/docs/reference/alert-template-fields/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/reference/alert-template-fields/</link>
     <description>Recent content in Alert template fields on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="/docs/reference/alert-template-fields/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://butler.ptarmiganlabs.com/docs/reference/alert-template-fields/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Alert template fields for failed/aborted reload tasks</title>
-      <link>/docs/reference/alert-template-fields/reload-tasks/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/reference/alert-template-fields/reload-tasks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/reference/alert-template-fields/reload-tasks/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/reference/alert-template-fields/reload-tasks/</guid>
       <description>
         
         
@@ -37,7 +37,7 @@
 &lt;li&gt;Teams&lt;/li&gt;
 &lt;li&gt;Slack&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Please see the &lt;a href=&#34;/docs/concepts&#34;&gt;Concepts&lt;/a&gt; and &lt;a href=&#34;/docs/getting-started/setup/reload-alerts&#34;&gt;Getting started&lt;/a&gt; sections for more information about which alert types support templates.&lt;/p&gt;
+&lt;p&gt;Please see the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/concepts&#34;&gt;Concepts&lt;/a&gt; and &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts&#34;&gt;Getting started&lt;/a&gt; sections for more information about which alert types support templates.&lt;/p&gt;
 
 
 &lt;/div&gt;
@@ -328,10 +328,10 @@ This is simply how Sense works - the template fields just forward the informatio
     
     <item>
       <title>Docs: Alert template fields for Windows services events</title>
-      <link>/docs/reference/alert-template-fields/windows-services/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/reference/alert-template-fields/windows-services/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/reference/alert-template-fields/windows-services/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/reference/alert-template-fields/windows-services/</guid>
       <description>
         
         
@@ -345,7 +345,7 @@ This gives a lot of flexibility in how alert messages are formatted for the dest
 &lt;h4 class=&#34;alert-heading&#34;&gt;Warning&lt;/h4&gt;
 
     &lt;p&gt;Not all alert destinations (MQTT, outgoing webhooks etc) support template fields.&lt;/p&gt;
-&lt;p&gt;Please see the &lt;a href=&#34;/docs/getting-started/setup/reload-alerts&#34;&gt;Getting started&lt;/a&gt; sections for more information on how to set up alerts for each destination.&lt;/p&gt;
+&lt;p&gt;Please see the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts&#34;&gt;Getting started&lt;/a&gt; sections for more information on how to set up alerts for each destination.&lt;/p&gt;
 
 
 &lt;/div&gt;
@@ -353,9 +353,9 @@ This gives a lot of flexibility in how alert messages are formatted for the dest
 &lt;p&gt;If a template field is used for an alert type where that field is not supported, the field will simply be blank. No errors will occur.&lt;/p&gt;
 &lt;p&gt;The following alert destinations support template fields:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;/docs/getting-started/setup/windows-service-monitor/email/&#34;&gt;Email&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/docs/getting-started/setup/windows-service-monitor/slack/&#34;&gt;Slack&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/docs/getting-started/setup/windows-service-monitor/teams/&#34;&gt;Teams&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/email/&#34;&gt;Email&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/slack/&#34;&gt;Slack&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/teams/&#34;&gt;Teams&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The following template fields are available in alert messages.&lt;/p&gt;
 &lt;p&gt;Note that some fields are usually (always?) empty, for example the script log for stopped messages.&lt;br&gt;

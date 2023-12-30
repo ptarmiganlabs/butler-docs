@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler – Sense apps that explain and highlight various Butler features</title>
-    <link>/docs/examples/sense-demo-apps/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/examples/sense-demo-apps/</link>
     <description>Recent content in Sense apps that explain and highlight various Butler features on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="/docs/examples/sense-demo-apps/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://butler.ptarmiganlabs.com/docs/examples/sense-demo-apps/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Using Butler APIs from Sense load script</title>
-      <link>/docs/examples/sense-demo-apps/butler-5.0-demo-app/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/examples/sense-demo-apps/butler-5.0-demo-app/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/examples/sense-demo-apps/butler-5.0-demo-app/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/examples/sense-demo-apps/butler-5.0-demo-app/</guid>
       <description>
         
         
@@ -27,22 +27,22 @@
 &lt;p&gt;The demo app &lt;code&gt;Butler 5.0 - demo app.qvf&lt;/code&gt; is available in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The app includes examples on how to use many of Butler&amp;rsquo;s REST APIs endpoints.&lt;br&gt;
 It doesn&amp;rsquo;t have much of a user interface (it just shows what API endpoints are enabled) so you should look at the load script to get examples of how to use the Butler APIs.&lt;/p&gt;
-&lt;p&gt;The app includes a copy of the &lt;a href=&#34;/docs/reference/sense-helper-subs/&#34;&gt;helper functions&lt;/a&gt; that are also available in the GitHub repository.&lt;/p&gt;
+&lt;p&gt;The app includes a copy of the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/sense-helper-subs/&#34;&gt;helper functions&lt;/a&gt; that are also available in the GitHub repository.&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
       <title>Docs: Partial loads in Qlik Sense</title>
-      <link>/docs/examples/sense-demo-apps/partial-loads/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/examples/sense-demo-apps/partial-loads/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/examples/sense-demo-apps/partial-loads/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/examples/sense-demo-apps/partial-loads/</guid>
       <description>
         
         
         &lt;h2 id=&#34;partial-reload-api&#34;&gt;Partial reload API&lt;/h2&gt;
-&lt;p&gt;The full API documentation is available in the &lt;a href=&#34;/docs/reference/rest-api/?operationsSorter=alpha&#34;&gt;Reference section&lt;/a&gt;, here we&amp;rsquo;re interested in the PUT &lt;code&gt;/v4/app/{appId}/reload&lt;/code&gt; endpoint.&lt;/p&gt;
+&lt;p&gt;The full API documentation is available in the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/rest-api/?operationsSorter=alpha&#34;&gt;Reference section&lt;/a&gt;, here we&amp;rsquo;re interested in the PUT &lt;code&gt;/v4/app/{appId}/reload&lt;/code&gt; endpoint.&lt;/p&gt;
 &lt;h2 id=&#34;demo-apps-for-partial-reloads&#34;&gt;Demo apps for partial reloads&lt;/h2&gt;
 &lt;p&gt;A couple of apps showing how to use Butler&amp;rsquo;s partial load API are &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps&#34;&gt;included in the GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;ul&gt;
@@ -62,15 +62,15 @@ It doesn&amp;rsquo;t have much of a user interface (it just shows what API endpo
     
     <item>
       <title>Docs: Post message to Slack</title>
-      <link>/docs/examples/sense-demo-apps/post-to-slack/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/examples/sense-demo-apps/post-to-slack/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/examples/sense-demo-apps/post-to-slack/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/examples/sense-demo-apps/post-to-slack/</guid>
       <description>
         
         
         &lt;h2 id=&#34;load-script&#34;&gt;Load script&lt;/h2&gt;
-&lt;p&gt;Assuming the &lt;a href=&#34;/docs/reference/sense-helper-subs/&#34;&gt;.qvs helper subs&lt;/a&gt; are used, only one line of script is needed to send a Slack message:&lt;/p&gt;
+&lt;p&gt;Assuming the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/sense-helper-subs/&#34;&gt;.qvs helper subs&lt;/a&gt; are used, only one line of script is needed to send a Slack message:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;// -------------------------------------------
 // Post messsage to Slack
 // -------------------------------------------
@@ -79,7 +79,7 @@ Call PostToSlack(&#39;#general&#39;, &#39;Butler the Bot&#39;, &#39;👽 Greetin
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Note how emojis can be used in the message and a message specific icon can be used (&amp;quot;:ghost:&amp;quot; above).&lt;/p&gt;
 &lt;p&gt;The Slack message looks like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/butler-slack-message-1.png&#34; alt=&#34;alt text&#34; title=&#34;Slack message created from Qlik Sense load script.&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://butler.ptarmiganlabs.com/img/butler-slack-message-1.png&#34; alt=&#34;alt text&#34; title=&#34;Slack message created from Qlik Sense load script.&#34;&gt;&lt;/p&gt;
 &lt;p&gt;The demo app is available in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 
       </description>
@@ -87,15 +87,15 @@ Call PostToSlack(&#39;#general&#39;, &#39;Butler the Bot&#39;, &#39;👽 Greetin
     
     <item>
       <title>Docs: Publish message to MQTT</title>
-      <link>/docs/examples/sense-demo-apps/publish-to-mqtt/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/examples/sense-demo-apps/publish-to-mqtt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/examples/sense-demo-apps/publish-to-mqtt/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/examples/sense-demo-apps/publish-to-mqtt/</guid>
       <description>
         
         
         &lt;h2 id=&#34;load-script&#34;&gt;Load script&lt;/h2&gt;
-&lt;p&gt;Assuming the &lt;a href=&#34;/docs/reference/sense-helper-subs/&#34;&gt;.qvs helper subs&lt;/a&gt; are used, only one line of script is needed to publish a MQTT message.&lt;/p&gt;
+&lt;p&gt;Assuming the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/sense-helper-subs/&#34;&gt;.qvs helper subs&lt;/a&gt; are used, only one line of script is needed to publish a MQTT message.&lt;/p&gt;
 &lt;p&gt;The demo app does a bit more. First it posts a startup message to MQTT, then it loads some data and finally an all-done message is sent:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;// -------------------------------------------
 // Publish a MQTT message, load some data and publish another message
@@ -109,7 +109,7 @@ Load Chr(RecNo()+Ord(&#39;A&#39;)-1) as Alpha, RecNo() as Num autogenerate 26;
 Call PostToMQTT(&#39;butler/5.0/demo-reloading/status&#39;, &#39;reload done&#39;)
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The MQTT messages look like this in the &lt;a href=&#34;http://mqtt-explorer.com/&#34;&gt;MQTT Explorer&lt;/a&gt; app on mac OS:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/butler-publish-mqtt-message-1.png&#34; alt=&#34;alt text&#34; title=&#34;MQTT messages created from Qlik Sense load script.&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://butler.ptarmiganlabs.com/img/butler-publish-mqtt-message-1.png&#34; alt=&#34;alt text&#34; title=&#34;MQTT messages created from Qlik Sense load script.&#34;&gt;&lt;/p&gt;
 &lt;p&gt;The demo app is available in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;seeing-is-believing&#34;&gt;Seeing is believing&lt;/h2&gt;
 &lt;p&gt;The video below is available at &lt;a href=&#34;https://www.youtube.com/channel/UCpQblhippq-KfWkXEEYFHTQ&#34;&gt;Ptarmigan Labs&amp;rsquo; YouTube channel&lt;/a&gt; and also in the &lt;a href=&#34;https://www.youtube.com/playlist?list=PLUuyY5OOOsz3XX5YT2QEwa7dzaBT1kOCP&#34;&gt;Butler playlist&lt;/a&gt;.&lt;/p&gt;

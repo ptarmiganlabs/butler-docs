@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler – Scheduler</title>
-    <link>/docs/reference/scheduler/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/reference/scheduler/</link>
     <description>Recent content in Scheduler on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="/docs/reference/scheduler/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://butler.ptarmiganlabs.com/docs/reference/scheduler/index.xml" rel="self" type="application/rss+xml" />
     
     
       

@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler – New Releases</title>
-    <link>/blog/releases/</link>
+    <link>https://butler.ptarmiganlabs.com/blog/releases/</link>
     <description>Recent content in New Releases on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="/blog/releases/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://butler.ptarmiganlabs.com/blog/releases/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Blog: Butler blog moved to ptarmiganlabs.com</title>
-      <link>/blog/2023/04/14/butler-blog-moved-to-ptarmiganlabs.com/</link>
+      <link>https://butler.ptarmiganlabs.com/blog/2023/04/14/butler-blog-moved-to-ptarmiganlabs.com/</link>
       <pubDate>Fri, 14 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2023/04/14/butler-blog-moved-to-ptarmiganlabs.com/</guid>
+      <guid>https://butler.ptarmiganlabs.com/blog/2023/04/14/butler-blog-moved-to-ptarmiganlabs.com/</guid>
       <description>
         
         
@@ -31,10 +31,10 @@
     
     <item>
       <title>Blog: v5.3.0: Key-value refinement</title>
-      <link>/blog/2021/04/12/v5.3.0-key-value-refinement/</link>
+      <link>https://butler.ptarmiganlabs.com/blog/2021/04/12/v5.3.0-key-value-refinement/</link>
       <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2021/04/12/v5.3.0-key-value-refinement/</guid>
+      <guid>https://butler.ptarmiganlabs.com/blog/2021/04/12/v5.3.0-key-value-refinement/</guid>
       <description>
         
         
@@ -51,10 +51,10 @@ A few of those in this relelase too.&lt;/p&gt;
     
     <item>
       <title>Blog: v5.1.0: Sharing is caring</title>
-      <link>/blog/2021/03/03/v5.1.0-sharing-is-caring/</link>
+      <link>https://butler.ptarmiganlabs.com/blog/2021/03/03/v5.1.0-sharing-is-caring/</link>
       <pubDate>Wed, 03 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2021/03/03/v5.1.0-sharing-is-caring/</guid>
+      <guid>https://butler.ptarmiganlabs.com/blog/2021/03/03/v5.1.0-sharing-is-caring/</guid>
       <description>
         
         
@@ -75,7 +75,7 @@ Yup. Not even the IP addresses of the server sending the telemetry data is kept.
 &lt;li&gt;The message&amp;rsquo;s content is stored in a database. Nothing else.&lt;/li&gt;
 &lt;li&gt;You can request your data to be deleted in the future, if need be. But only if you tell Ptarmigan Labs which data is yours - as they have no way of knowing this themselves.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;A full description of what data is included in telemetry messages is found &lt;a href=&#34;/docs/about/telemetry/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A full description of what data is included in telemetry messages is found &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/about/telemetry/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;why&#34;&gt;Why&lt;/h3&gt;
 &lt;p&gt;Good question.&lt;/p&gt;
 &lt;p&gt;It&amp;rsquo;s pretty simple really: If the Butler developers know which features are used most and on what OSs and types of hardware/VMs etc Butler runs, they can do a much better job when it comes to refining those popular features and supporting the most commonly used platforms.&lt;br&gt;
@@ -91,10 +91,10 @@ That&amp;rsquo;s it - telemetry is 100% about making future Butler versions bett
     
     <item>
       <title>Blog: v5.0.0: Reload alerting deluxe</title>
-      <link>/blog/2021/02/24/v5.0.0-reload-alerting-deluxe/</link>
+      <link>https://butler.ptarmiganlabs.com/blog/2021/02/24/v5.0.0-reload-alerting-deluxe/</link>
       <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2021/02/24/v5.0.0-reload-alerting-deluxe/</guid>
+      <guid>https://butler.ptarmiganlabs.com/blog/2021/02/24/v5.0.0-reload-alerting-deluxe/</guid>
       <description>
         
         
@@ -121,10 +121,10 @@ Not ideal - you as admin/developer should be the first to know that something ha
     
     <item>
       <title>Blog: v4.3.0: Bug fixes, improved documentation</title>
-      <link>/blog/2021/02/03/v4.3.0-bug-fixes-improved-documentation/</link>
+      <link>https://butler.ptarmiganlabs.com/blog/2021/02/03/v4.3.0-bug-fixes-improved-documentation/</link>
       <pubDate>Wed, 03 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2021/02/03/v4.3.0-bug-fixes-improved-documentation/</guid>
+      <guid>https://butler.ptarmiganlabs.com/blog/2021/02/03/v4.3.0-bug-fixes-improved-documentation/</guid>
       <description>
         
         
@@ -140,10 +140,10 @@ That is fixed in this release, together with a general cleanup of this documenta
     
     <item>
       <title>Blog: v4.2.0: Failed reloads? Notify me!</title>
-      <link>/blog/2020/11/07/v4.2.0-failed-reloads-notify-me/</link>
+      <link>https://butler.ptarmiganlabs.com/blog/2020/11/07/v4.2.0-failed-reloads-notify-me/</link>
       <pubDate>Sat, 07 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2020/11/07/v4.2.0-failed-reloads-notify-me/</guid>
+      <guid>https://butler.ptarmiganlabs.com/blog/2020/11/07/v4.2.0-failed-reloads-notify-me/</guid>
       <description>
         
         
@@ -168,10 +168,10 @@ But Butler goes way beyond staic alert emails with limited possibilities for cus
     
     <item>
       <title>Blog: v4.1.1: Fixing broken start Sense task API endpoint</title>
-      <link>/blog/2020/10/28/v4.1.1-fixing-broken-start-sense-task-api-endpoint/</link>
+      <link>https://butler.ptarmiganlabs.com/blog/2020/10/28/v4.1.1-fixing-broken-start-sense-task-api-endpoint/</link>
       <pubDate>Wed, 28 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2020/10/28/v4.1.1-fixing-broken-start-sense-task-api-endpoint/</guid>
+      <guid>https://butler.ptarmiganlabs.com/blog/2020/10/28/v4.1.1-fixing-broken-start-sense-task-api-endpoint/</guid>
       <description>
         
         
@@ -185,10 +185,10 @@ Fixed in version 4.1.1.&lt;/p&gt;
     
     <item>
       <title>Blog: v4.1.2: Sense demo app can now start reloads</title>
-      <link>/blog/2020/10/28/v4.1.2-sense-demo-app-can-now-start-reloads/</link>
+      <link>https://butler.ptarmiganlabs.com/blog/2020/10/28/v4.1.2-sense-demo-app-can-now-start-reloads/</link>
       <pubDate>Wed, 28 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2020/10/28/v4.1.2-sense-demo-app-can-now-start-reloads/</guid>
+      <guid>https://butler.ptarmiganlabs.com/blog/2020/10/28/v4.1.2-sense-demo-app-can-now-start-reloads/</guid>
       <description>
         
         
@@ -201,10 +201,10 @@ Fixed in version 4.1.1.&lt;/p&gt;
     
     <item>
       <title>Blog: v4.1.0: File copying &#43; Qlik Sense = Useful</title>
-      <link>/blog/2020/10/27/v4.1.0-file-copying--qlik-sense-useful/</link>
+      <link>https://butler.ptarmiganlabs.com/blog/2020/10/27/v4.1.0-file-copying--qlik-sense-useful/</link>
       <pubDate>Tue, 27 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2020/10/27/v4.1.0-file-copying--qlik-sense-useful/</guid>
+      <guid>https://butler.ptarmiganlabs.com/blog/2020/10/27/v4.1.0-file-copying--qlik-sense-useful/</guid>
       <description>
         
         
@@ -220,10 +220,10 @@ This way the security risk is greatly reduced, and file copying can become an in
     
     <item>
       <title>Blog: v4.0.0: A SenseOps reboot</title>
-      <link>/blog/2020/10/21/v4.0.0-a-senseops-reboot/</link>
+      <link>https://butler.ptarmiganlabs.com/blog/2020/10/21/v4.0.0-a-senseops-reboot/</link>
       <pubDate>Wed, 21 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2020/10/21/v4.0.0-a-senseops-reboot/</guid>
+      <guid>https://butler.ptarmiganlabs.com/blog/2020/10/21/v4.0.0-a-senseops-reboot/</guid>
       <description>
         
         
@@ -252,10 +252,10 @@ Start Butler and you get a full Swagger interface through which you get both API
     
     <item>
       <title>Blog: v3.1.0: An armful of heart beats</title>
-      <link>/blog/2020/07/15/v3.1.0-an-armful-of-heart-beats/</link>
+      <link>https://butler.ptarmiganlabs.com/blog/2020/07/15/v3.1.0-an-armful-of-heart-beats/</link>
       <pubDate>Wed, 15 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2020/07/15/v3.1.0-an-armful-of-heart-beats/</guid>
+      <guid>https://butler.ptarmiganlabs.com/blog/2020/07/15/v3.1.0-an-armful-of-heart-beats/</guid>
       <description>
         
         
@@ -274,10 +274,10 @@ You can now run Butler on more cost effective AWS EC2 Arm instances, or even a R
     
     <item>
       <title>Blog: v3.0.1: Docker health check is now... healthy.</title>
-      <link>/blog/2019/11/29/v3.0.1-docker-health-check-is-now...-healthy./</link>
+      <link>https://butler.ptarmiganlabs.com/blog/2019/11/29/v3.0.1-docker-health-check-is-now...-healthy./</link>
       <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2019/11/29/v3.0.1-docker-health-check-is-now...-healthy./</guid>
+      <guid>https://butler.ptarmiganlabs.com/blog/2019/11/29/v3.0.1-docker-health-check-is-now...-healthy./</guid>
       <description>
         
         
@@ -290,10 +290,10 @@ You can now run Butler on more cost effective AWS EC2 Arm instances, or even a R
     
     <item>
       <title>Blog: v3.0.0: Enable some REST API endpoints, disable others.</title>
-      <link>/blog/2019/11/01/v3.0.0-enable-some-rest-api-endpoints-disable-others./</link>
+      <link>https://butler.ptarmiganlabs.com/blog/2019/11/01/v3.0.0-enable-some-rest-api-endpoints-disable-others./</link>
       <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>/blog/2019/11/01/v3.0.0-enable-some-rest-api-endpoints-disable-others./</guid>
+      <guid>https://butler.ptarmiganlabs.com/blog/2019/11/01/v3.0.0-enable-some-rest-api-endpoints-disable-others./</guid>
       <description>
         
         

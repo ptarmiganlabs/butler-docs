@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler – Storing Windows service alerts in InfluxDB</title>
-    <link>/docs/getting-started/setup/windows-service-monitor/influxdb/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/influxdb/</link>
     <description>Recent content in Storing Windows service alerts in InfluxDB on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="/docs/getting-started/setup/windows-service-monitor/influxdb/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/influxdb/index.xml" rel="self" type="application/rss+xml" />
     
     
       

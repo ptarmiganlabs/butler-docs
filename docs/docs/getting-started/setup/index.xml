@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler – Setup</title>
-    <link>/docs/getting-started/setup/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/</link>
     <description>Recent content in Setup on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="/docs/getting-started/setup/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,19 +16,19 @@
     
     <item>
       <title>Docs: Which config file to use</title>
-      <link>/docs/getting-started/setup/which-config-file/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/which-config-file/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/which-config-file/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/which-config-file/</guid>
       <description>
         
         
-        &lt;p&gt;A description of the config file format is available &lt;a href=&#34;/docs/reference/config-file/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+        &lt;p&gt;A description of the config file format is available &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/config-file/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;select-which-config-file-to-use&#34;&gt;Select which config file to use&lt;/h2&gt;
 &lt;p&gt;Butler uses configuration files in YAML format.&lt;/p&gt;
 &lt;p&gt;A default config file called &lt;code&gt;production_template.yaml&lt;/code&gt; is included in the release Zip files on the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/releases&#34;&gt;download page&lt;/a&gt; (starting with version 9.3.0). It is also available in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/tree/master/src/config&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Make a copy of it, then rename the copy &lt;code&gt;default.yaml&lt;/code&gt;, &lt;code&gt;production.yaml&lt;/code&gt;, &lt;code&gt;staging.yaml&lt;/code&gt; or something else suitable to your specific use case.&lt;br&gt;
-Update it as needed (see the &lt;a href=&#34;/docs/reference/config-file/&#34;&gt;config file reference page&lt;/a&gt; for details).&lt;/p&gt;
+Update it as needed (see the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/config-file/&#34;&gt;config file reference page&lt;/a&gt; for details).&lt;/p&gt;
 &lt;p&gt;Trying to run Butler with the default config file (the one on GitHub) will not work - you must adapt it to your server environment. For example, you need to enter the IP or host name of you Sense server(s), the IP or host name where Butler is running etc.&lt;/p&gt;
 
 
@@ -156,10 +156,10 @@ The file name is determined by Butler (running in the container) looking at the 
     
     <item>
       <title>Docs: Connecting to a Qlik Sense server</title>
-      <link>/docs/getting-started/setup/qlik-sense-server-settings/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/qlik-sense-server-settings/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/qlik-sense-server-settings/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/qlik-sense-server-settings/</guid>
       <description>
         
         
@@ -207,10 +207,10 @@ The file name is determined by Butler (running in the container) looking at the 
     
     <item>
       <title>Docs: Configuring Butler&#39;s REST API</title>
-      <link>/docs/getting-started/setup/rest-api/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/rest-api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/rest-api/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/rest-api/</guid>
       <description>
         
         
@@ -230,7 +230,7 @@ The file name is determined by Butler (running in the container) looking at the 
 &lt;p&gt;Butler exposes its REST API on a TCP port defined in the &lt;code&gt;Butler.restServerConfig.serverPort&lt;/code&gt; setting in the config file.&lt;/p&gt;
 &lt;p&gt;Similarly, the host name Butler listens at is defined by the &lt;code&gt;Butler.restServerConfig.serverHost&lt;/code&gt; setting. This would typically be the IP number, host name or fully qualified domain name of the computer where Butler is running.&lt;/p&gt;
 &lt;p&gt;Note that Butler uses two ports for its REST API: One external facing port and one used internally. Both must be dedicated to Butler on the computer where Butler is running.&lt;/p&gt;
-&lt;p&gt;Using two ports (one external facing and one internal) is not ideal, but it was an easy yet stable way of solving some technical challenges around Butler&amp;rsquo;s use of the &lt;code&gt;X-HTTP-Method-Override&lt;/code&gt; &lt;a href=&#34;/docs/getting-started/setup/data-connections/&#34;&gt;HTTP header&lt;/a&gt;.
+&lt;p&gt;Using two ports (one external facing and one internal) is not ideal, but it was an easy yet stable way of solving some technical challenges around Butler&amp;rsquo;s use of the &lt;code&gt;X-HTTP-Method-Override&lt;/code&gt; &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/data-connections/&#34;&gt;HTTP header&lt;/a&gt;.
 Just make sure that the two settings &lt;code&gt;Butler.restServerConfig.serverPort&lt;/code&gt; and &lt;code&gt;Butler.restServerConfig.backgroundServerPort&lt;/code&gt; aren&amp;rsquo;t the same and aren&amp;rsquo;t already in use, and all should be fine.&lt;/p&gt;
 
 
@@ -240,7 +240,7 @@ Just make sure that the two settings &lt;code&gt;Butler.restServerConfig.serverP
 
 
 &lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 663px&#34;&gt;
-	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/getting-started/setup/rest-api/butler-ports-1_hu0708832be258dc4f5b0142c3681602e0_53085_0x180_resize_catmullrom_3.png&#34; width=&#34;653&#34; height=&#34;180&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/rest-api/butler-ports-1_hu0708832be258dc4f5b0142c3681602e0_53085_0x180_resize_catmullrom_3.png&#34; width=&#34;653&#34; height=&#34;180&#34;&gt;
 	
 	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt; Ports used by Butler &lt;/p&gt;
@@ -334,10 +334,10 @@ This information is configured in the &lt;code&gt;Butler.restServerEndpointsConf
     
     <item>
       <title>Docs: Reload related alerts</title>
-      <link>/docs/getting-started/setup/reload-alerts/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/reload-alerts/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/</guid>
       <description>
         
         
@@ -376,7 +376,7 @@ Each destination can be individually enabled/disabled in the config file.&lt;/p&
 &lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
-&lt;td&gt;Basic emails can be sent using a &lt;a href=&#34;/docs/getting-started/setup/reload-alerts/#sending-basic-alert-emails-from-log4net&#34;&gt;log appender&lt;/a&gt;.&lt;/td&gt;
+&lt;td&gt;Basic emails can be sent using a &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/#sending-basic-alert-emails-from-log4net&#34;&gt;log appender&lt;/a&gt;.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;InfluxDB&lt;/td&gt;
@@ -455,7 +455,7 @@ Each destination can be individually enabled/disabled in the config file.&lt;/p&
 This is achieved by adding a &lt;strong&gt;&lt;em&gt;log appender&lt;/em&gt;&lt;/strong&gt; to Qlik Sense Enterprise on Windows.&lt;/p&gt;
 &lt;p&gt;Log appenders offer a way to hook into Qlik Sense&amp;rsquo;s logging subsystem, which is called &lt;a href=&#34;https://help.qlik.com/en-US/sense-admin/May2023/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders-QSRollingFileAppender-Built-in-Appenders.htm&#34;&gt;log4net&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;By adding a carefully crafted .xml file in the right location on the Sense server(s), you can make Sense notify Butler by means of UDP messages when the events of interest occur. Conceptually it looks like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/butler-log4net-appenders-1.png&#34; alt=&#34;Butler high level system overview&#34; title=&#34;Butler high level system overview&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://butler.ptarmiganlabs.com/img/butler-log4net-appenders-1.png&#34; alt=&#34;Butler high level system overview&#34; title=&#34;Butler high level system overview&#34;&gt;&lt;/p&gt;
 &lt;p&gt;So what happens when a scheduled reload task fails?&lt;br&gt;
 Let&amp;rsquo;s look at the steps:&lt;/p&gt;
 &lt;ol&gt;
@@ -646,10 +646,10 @@ That log entry occurs when a reload task has completed successfully.&lt;/p&gt;
     
     <item>
       <title>Docs: Reload script logs</title>
-      <link>/docs/getting-started/setup/reload-script-logs/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-script-logs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/reload-script-logs/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-script-logs/</guid>
       <description>
         
         
@@ -673,8 +673,8 @@ Having access to the full logs can sometimes be what&amp;rsquo;s needed to under
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    └── 2022-04-07
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        └── 2022-04-07_05-49-16_appId&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;deba4bcf-47e4-472e-97b2-4fe8d6498e11_taskId&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt;0d815a99-1ca3-4131-a398-6878bd735fd8.log
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;how-it-works&#34;&gt;How it works&lt;/h2&gt;
-&lt;p&gt;This feature relies on the same Qlik Sense log appenders that the &lt;a href=&#34;/docs/getting-started/setup/reload-alerts/&#34;&gt;reload alerts&lt;/a&gt; uses. Please see that page for an in-depth discussion on how log appenders work and how to set them up.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/butler-failed-reload-log-1.png&#34; alt=&#34;Butler high level system overview&#34; title=&#34;Butler high level system overview&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This feature relies on the same Qlik Sense log appenders that the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/&#34;&gt;reload alerts&lt;/a&gt; uses. Please see that page for an in-depth discussion on how log appenders work and how to set them up.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://butler.ptarmiganlabs.com/img/butler-failed-reload-log-1.png&#34; alt=&#34;Butler high level system overview&#34; title=&#34;Butler high level system overview&#34;&gt;&lt;/p&gt;
 &lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
 &lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice warning&#34; &gt;
 &lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#warning-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Warning&lt;/p&gt;&lt;p&gt;The log appenders that catch failed reloads in the Qlik Sense scheduler must be set up on all Qlik Sense servers where reloads are happening for this feature to work.&lt;/p&gt;&lt;/div&gt;
@@ -699,10 +699,10 @@ Having access to the full logs can sometimes be what&amp;rsquo;s needed to under
     
     <item>
       <title>Docs: Monitoring Windows services</title>
-      <link>/docs/getting-started/setup/windows-service-monitor/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/windows-service-monitor/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/</guid>
       <description>
         
         
@@ -780,10 +780,10 @@ The friendly name is used in the alert messages sent to the various alert destin
     
     <item>
       <title>Docs: Configuring the Butler scheduler</title>
-      <link>/docs/getting-started/setup/scheduler/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/scheduler/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/scheduler/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/scheduler/</guid>
       <description>
         
         
@@ -842,7 +842,7 @@ The friendly name is used in the alert messages sent to the various alert destin
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;- &lt;span style=&#34;color:#000&#34;&gt;Extract&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;task-2&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;lastKnownState&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;started&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;A full description of the scheduler and its file format is available in the &lt;a href=&#34;/docs/reference/scheduler/&#34;&gt;Reference docs&lt;/a&gt; section.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;A full description of the scheduler and its file format is available in the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/scheduler/&#34;&gt;Reference docs&lt;/a&gt; section.&lt;/p&gt;
 &lt;h2 id=&#34;settings-in-config-file&#34;&gt;Settings in config file&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;---&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;Butler&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -860,10 +860,10 @@ The friendly name is used in the alert messages sent to the various alert destin
     
     <item>
       <title>Docs: Configuring the key-value store</title>
-      <link>/docs/getting-started/setup/key-value-store/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/key-value-store/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/key-value-store/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/key-value-store/</guid>
       <description>
         
         
@@ -878,8 +878,8 @@ The friendly name is used in the alert messages sent to the various alert destin
 &lt;h2 id=&#34;how-it-works&#34;&gt;How it works&lt;/h2&gt;
 &lt;p&gt;The data in the key-value store is &lt;em&gt;not&lt;/em&gt; persisted to disk, which means that key-value data will be lost if Butler is restarted.&lt;br&gt;
 This behaviour could possibly be changed if there is a need, please open a &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/issues&#34;&gt;GitHub ticket&lt;/a&gt; if key-value persistence is of interest.&lt;/p&gt;
-&lt;p&gt;Key-value data is manipulated using Butler&amp;rsquo;s &lt;a href=&#34;/docs/reference/rest-api/?operationsSorter=alpha&#34;&gt;REST API&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The &lt;a href=&#34;/docs/reference/key-value/&#34;&gt;Reference docs&lt;/a&gt; section has more information about the key-value store.&lt;/p&gt;
+&lt;p&gt;Key-value data is manipulated using Butler&amp;rsquo;s &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/rest-api/?operationsSorter=alpha&#34;&gt;REST API&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/key-value/&#34;&gt;Reference docs&lt;/a&gt; section has more information about the key-value store.&lt;/p&gt;
 &lt;h2 id=&#34;settings-in-config-file&#34;&gt;Settings in config file&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;---&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;Butler&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
@@ -897,10 +897,10 @@ This behaviour could possibly be changed if there is a need, please open a &lt;a
     
     <item>
       <title>Docs: Configuring file system access via REST API</title>
-      <link>/docs/getting-started/setup/file-system-access/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/file-system-access/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/file-system-access/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/file-system-access/</guid>
       <description>
         
         
@@ -957,10 +957,10 @@ In QlikView this was possible, but also resulted in risks and potential attack v
     
     <item>
       <title>Docs: Incident management tools</title>
-      <link>/docs/getting-started/setup/incident-mgmt-tools/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/incident-mgmt-tools/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/incident-mgmt-tools/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/incident-mgmt-tools/</guid>
       <description>
         
         
@@ -970,10 +970,10 @@ In QlikView this was possible, but also resulted in risks and potential attack v
     
     <item>
       <title>Docs: Setting up MQTT messaging</title>
-      <link>/docs/getting-started/setup/mqtt/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/mqtt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/mqtt/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/mqtt/</guid>
       <description>
         
         
@@ -981,7 +981,7 @@ In QlikView this was possible, but also resulted in risks and potential attack v
 &lt;p&gt;&lt;a href=&#34;https://mqtt.org/&#34;&gt;MQTT&lt;/a&gt; is a light weight messaging protocol based on a publish-subscribe metaphore. It is widely used in the Internet of Things (IoT) and telecom sectors.&lt;/p&gt;
 &lt;p&gt;MQTT has features such as guaranteed delivery of messages, which makes it very useful for communicating between Sense and both up- and downstream source/destination systems.&lt;/p&gt;
 &lt;p&gt;Butler can be configured to forward events from Sense (reload task failures, aborted reload tasks, windows services starting/stopping, user session start/stop etc) as MQTT messages.&lt;/p&gt;
-&lt;p&gt;Butler&amp;rsquo;s &lt;a href=&#34;/docs/reference/rest-api/?operationsSorter=alpha&#34;&gt;REST API&lt;/a&gt; also has an endpoint that makes it possible to send MQTT messages from Sense apps&amp;rsquo; load scripts.&lt;/p&gt;
+&lt;p&gt;Butler&amp;rsquo;s &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/rest-api/?operationsSorter=alpha&#34;&gt;REST API&lt;/a&gt; also has an endpoint that makes it possible to send MQTT messages from Sense apps&amp;rsquo; load scripts.&lt;/p&gt;
 &lt;h3 id=&#34;defining-what-mqtt-brokerserver-to-connect-to&#34;&gt;Defining what MQTT broker/server to connect to&lt;/h3&gt;
 &lt;p&gt;Butler can use either of two kinds of MQTT brokers:&lt;/p&gt;
 &lt;ol&gt;
@@ -1041,10 +1041,10 @@ Check the &lt;a href=&#34;https://azure.microsoft.com/en-us/pricing/details/even
     
     <item>
       <title>Docs: Configuring Butler heartbeats</title>
-      <link>/docs/getting-started/setup/heartbeats/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/heartbeats/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/heartbeats/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/heartbeats/</guid>
       <description>
         
         
@@ -1075,10 +1075,10 @@ It sends periodic messages to a monitoring tool, which can then alert if Butler 
     
     <item>
       <title>Docs: Configuring Butler metrics &amp; monitoring</title>
-      <link>/docs/getting-started/setup/uptime-monitor/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/uptime-monitor/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/uptime-monitor/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/uptime-monitor/</guid>
       <description>
         
         
@@ -1165,10 +1165,10 @@ That said, InfluxDB does offer more flexibility with respect to what kinds of da
     
     <item>
       <title>Docs: Docker healthcheck</title>
-      <link>/docs/getting-started/setup/docker-health-check/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/docker-health-check/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/docker-health-check/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/docker-health-check/</guid>
       <description>
         
         
@@ -1193,10 +1193,10 @@ That said, InfluxDB does offer more flexibility with respect to what kinds of da
     
     <item>
       <title>Docs: Creating Sense data connections</title>
-      <link>/docs/getting-started/setup/data-connections/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/data-connections/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/data-connections/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/data-connections/</guid>
       <description>
         
         
@@ -1289,7 +1289,7 @@ The actual URL of the data connection will be modified on the fly every time you
 
 &lt;p&gt;The data connection used for POST, PUT, DELETE and all other HTTP operations beyond GET should be named &amp;ldquo;Butler_POST&amp;rdquo;.&lt;br&gt;
 Its configuration is similar to that of Butler_GET, except that a message body is also needed for the POST to work.&lt;/p&gt;
-&lt;p&gt;Assuming Butler&amp;rsquo;s &lt;a href=&#34;/docs/getting-started/setup/key-value-store&#34;&gt;key-value store is enabled&lt;/a&gt; in the main config file, you can create a dummy key-value pair using a POST command with the following payload.&lt;/p&gt;
+&lt;p&gt;Assuming Butler&amp;rsquo;s &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/key-value-store&#34;&gt;key-value store is enabled&lt;/a&gt; in the main config file, you can create a dummy key-value pair using a POST command with the following payload.&lt;/p&gt;
 &lt;p&gt;The effect is that the data connection is created and can be used for future POST/PUT/DELETE operations against Butler&amp;rsquo;s API.&lt;br&gt;
 The fact that is was created against the key-value store doesn&amp;rsquo;t matter, the data conncetion details will be replaced each time it is used.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
@@ -1334,10 +1334,10 @@ The fact that is was created against the key-value store doesn&amp;rsquo;t matte
     
     <item>
       <title>Docs: Forwarding user activity events to Butler</title>
-      <link>/docs/getting-started/setup/user-events/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/user-events/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/user-events/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/user-events/</guid>
       <description>
         
         
@@ -1360,10 +1360,10 @@ The fact that is was created against the key-value store doesn&amp;rsquo;t matte
     
     <item>
       <title>Docs: Control which tasks can be started via Butler&#39;s API</title>
-      <link>/docs/getting-started/setup/start-task-filter/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/start-task-filter/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/start-task-filter/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/start-task-filter/</guid>
       <description>
         
         
@@ -1408,15 +1408,15 @@ The fact that is was created against the key-value store doesn&amp;rsquo;t matte
     
     <item>
       <title>Docs: Configuring telemetry</title>
-      <link>/docs/getting-started/setup/telemetry/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/telemetry/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/telemetry/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/telemetry/</guid>
       <description>
         
         
         &lt;h2 id=&#34;whats-this&#34;&gt;What&amp;rsquo;s this?&lt;/h2&gt;
-&lt;p&gt;A description of Butler&amp;rsquo;s telemetry feature is available &lt;a href=&#34;/docs/about/telemetry/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A description of Butler&amp;rsquo;s telemetry feature is available &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/about/telemetry/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;settings-in-config-file&#34;&gt;Settings in config file&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000&#34;&gt;---&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;Butler&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;

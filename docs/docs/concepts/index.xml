@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler – Concepts</title>
-    <link>/docs/concepts/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/concepts/</link>
     <description>Recent content in Concepts on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="/docs/concepts/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://butler.ptarmiganlabs.com/docs/concepts/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Key-value store</title>
-      <link>/docs/concepts/key-value/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/concepts/key-value/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/concepts/key-value/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/concepts/key-value/</guid>
       <description>
         
         
@@ -42,7 +42,7 @@
 &lt;/div&gt;
 
 &lt;p&gt;There is also an optional, per KV-pair Time To Live (TTL) feature. If used it will auto-delete the KV pair when a certain time has passed from the KV-pair&amp;rsquo;s last update.&lt;/p&gt;
-&lt;p&gt;The &lt;a href=&#34;/docs/reference/rest-api&#34;&gt;API docs&lt;/a&gt; shows what methods are available to work with KV pairs.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/rest-api&#34;&gt;API docs&lt;/a&gt; shows what methods are available to work with KV pairs.&lt;/p&gt;
 &lt;h2 id=&#34;how-can-a-key-value-store-be-used-in-sense-apps&#34;&gt;How can a key-value store be used in Sense apps?&lt;/h2&gt;
 &lt;p&gt;As mentioned above - A KV store can be useful whenever you need to stash data away for a while and then get it back. I.e. keeping track of the state of something.&lt;/p&gt;
 &lt;p&gt;For example&lt;/p&gt;
@@ -89,10 +89,10 @@ Is this good or bad? It depends:&lt;/p&gt;
     
     <item>
       <title>Docs: Scheduler</title>
-      <link>/docs/concepts/scheduler/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/concepts/scheduler/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/concepts/scheduler/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/concepts/scheduler/</guid>
       <description>
         
         
@@ -117,7 +117,7 @@ Cron has been the standard scheduler for decades in most Linux systems, it&amp;r
 &lt;li&gt;5 postition patterns are also supported, the leftmost position then represents minutes.&lt;/li&gt;
 &lt;li&gt;Hundreds of schedules tested and confirmed working as expected.&lt;/li&gt;
 &lt;li&gt;A Qlik Sense task ID is associated with each schedule. When the schedule fires, the associated task is started.&lt;/li&gt;
-&lt;li&gt;Schedules can be added either manually in the YAML schedules file (as defined in the main Butler config file) or using &lt;a href=&#34;/docs/reference/rest-api&#34;&gt;Butler&amp;rsquo;s API&lt;/a&gt;. A sample schedule file is included in the GitHub repository. Schedules added using the API will be stored in the schedule YAML file referenced in the main Butler config file.&lt;/li&gt;
+&lt;li&gt;Schedules can be added either manually in the YAML schedules file (as defined in the main Butler config file) or using &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/rest-api&#34;&gt;Butler&amp;rsquo;s API&lt;/a&gt;. A sample schedule file is included in the GitHub repository. Schedules added using the API will be stored in the schedule YAML file referenced in the main Butler config file.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The two supported schedule formats look like this:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;    ┌───────────── seconds (0 - 59)
@@ -142,10 +142,10 @@ Cron has been the standard scheduler for decades in most Linux systems, it&amp;r
     
     <item>
       <title>Docs: Failed/aborted reloads</title>
-      <link>/docs/concepts/failed-reloads/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/concepts/failed-reloads/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/concepts/failed-reloads/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/concepts/failed-reloads/</guid>
       <description>
         
         
@@ -155,10 +155,10 @@ Cron has been the standard scheduler for decades in most Linux systems, it&amp;r
     
     <item>
       <title>Docs: Successful reloads</title>
-      <link>/docs/concepts/successful-reloads/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/concepts/successful-reloads/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/concepts/successful-reloads/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/concepts/successful-reloads/</guid>
       <description>
         
         
@@ -197,7 +197,7 @@ Butler can be configured to get these tags and include them in the data sent to 
 When enabled, the UDP server listens for UDP messages on the configured port.&lt;/p&gt;
 &lt;p&gt;When a UDP message is received, the UDP server will parse the message to determine what it is about and to extract relevant data, then dispatch the message to the enabled destinations.&lt;br&gt;
 The XML appenders must be correctly deployed on the Sense servers for this to work.&lt;br&gt;
-See &lt;a href=&#34;/docs/getting-started/setup/reload-alerts/#adding-a-log-appender&#34;&gt;this page&lt;/a&gt; for more information on setting up the XML appenders.&lt;/p&gt;
+See &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/#adding-a-log-appender&#34;&gt;this page&lt;/a&gt; for more information on setting up the XML appenders.&lt;/p&gt;
 &lt;p&gt;In the case of successful reload tasks, the UDP server will determine which app was reloaded, the duration of the reload task, who started the task etc.&lt;br&gt;
 Butler will then send this information to the enabled destinations.&lt;/p&gt;
 &lt;h2 id=&#34;supported-destinations&#34;&gt;Supported destinations&lt;/h2&gt;
@@ -237,10 +237,10 @@ Butler will then send this information to the enabled destinations.&lt;/p&gt;
     
     <item>
       <title>Docs: Starting Sense tasks in style</title>
-      <link>/docs/concepts/start-sense-tasks/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/concepts/start-sense-tasks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/concepts/start-sense-tasks/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/concepts/start-sense-tasks/</guid>
       <description>
         
         
@@ -252,7 +252,7 @@ Consider a Sense environment that gets its data from some source system, for exa
 &lt;p&gt;Or simply: Notifications are usually (always?) a better solution than polling for new data.&lt;/p&gt;
 &lt;p&gt;The good news is that Butler includes solid support for starting Sense tasks from 3rd party systems.&lt;/p&gt;
 &lt;p&gt;Below the concept is described on a high level.&lt;br&gt;
-Actual examples are available &lt;a href=&#34;/docs/examples/start-task-from-rest/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+Actual examples are available &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/start-task-from-rest/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;start-tasks-by-ids-tags-and-custom-properties&#34;&gt;Start tasks by IDs, tags and custom properties&lt;/h2&gt;
 &lt;p&gt;Butler&amp;rsquo;s &lt;code&gt;/v4/reloadtask/&amp;lt;taskid&amp;gt;/start&lt;/code&gt; API endpoint is used to start tasks.&lt;br&gt;
 For historical reasons there are two variants: POST and PUT. Both do the exactly the same though.&lt;/p&gt;
@@ -303,10 +303,10 @@ The main difference is that the caller must know the name of the custom property
     
     <item>
       <title>Docs: Incident management tools</title>
-      <link>/docs/concepts/incident-mgmt-tools/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/concepts/incident-mgmt-tools/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/concepts/incident-mgmt-tools/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/concepts/incident-mgmt-tools/</guid>
       <description>
         
         
@@ -316,10 +316,10 @@ The main difference is that the caller must know the name of the custom property
     
     <item>
       <title>Docs: File system access: copy/move/delete files</title>
-      <link>/docs/concepts/file-system-access/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/concepts/file-system-access/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/concepts/file-system-access/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/concepts/file-system-access/</guid>
       <description>
         
         
@@ -337,21 +337,21 @@ No more deleting, copying or moving of files from within the load script.&lt;/p&
 &lt;p&gt;For example, you might have a QVD folder at &lt;code&gt;e:\data\qvd\sales\temp&lt;/code&gt;.&lt;br&gt;
 You also need to remove old QVDs from that folder.&lt;/p&gt;
 &lt;p&gt;This could be done with scheduled BAT/CMD files or PowerShell scripts, but it might be better/more flexible/easier/preferred to do this cleanup from the load script of a Sense app.&lt;/p&gt;
-&lt;p&gt;The solution: Add &lt;code&gt;e:\data\qvd\sales\temp&lt;/code&gt; to Butler&amp;rsquo;s list of folders in which files can be deleted, then call Butler&amp;rsquo;s &lt;code&gt;/v4/filedelete&lt;/code&gt; &lt;a href=&#34;/docs/reference/rest-api/?operationsSorter=alpha&#34;&gt;API endpoint&lt;/a&gt; from within your app&amp;rsquo;s load script. Done!&lt;/p&gt;
+&lt;p&gt;The solution: Add &lt;code&gt;e:\data\qvd\sales\temp&lt;/code&gt; to Butler&amp;rsquo;s list of folders in which files can be deleted, then call Butler&amp;rsquo;s &lt;code&gt;/v4/filedelete&lt;/code&gt; &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/rest-api/?operationsSorter=alpha&#34;&gt;API endpoint&lt;/a&gt; from within your app&amp;rsquo;s load script. Done!&lt;/p&gt;
 &lt;h2 id=&#34;convenience-subs&#34;&gt;Convenience subs&lt;/h2&gt;
 &lt;p&gt;Butler includes a set of Subs that make it easy to use the file copy/move/delete APIs.&lt;br&gt;
 These subs are found in &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/docs/sense_script/butler_subs.qvs&#34;&gt;this .qvs file&lt;/a&gt; as well as embedded in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps&#34;&gt;Butler demo app&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The &lt;a href=&#34;/docs/examples&#34;&gt;examples section&lt;/a&gt; shows how to use these subs - or call the Butler APIs directly.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples&#34;&gt;examples section&lt;/a&gt; shows how to use these subs - or call the Butler APIs directly.&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
       <title>Docs: MQTT integration</title>
-      <link>/docs/concepts/mqtt/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/concepts/mqtt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/concepts/mqtt/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/concepts/mqtt/</guid>
       <description>
         
         
@@ -373,7 +373,7 @@ This way Butler can send status information and notifications to other systems, 
 &lt;li&gt;
 &lt;p&gt;Start Sense tasks (typically reloads) from the Sense load script. Very useful when you need to trigger a second app reload once the first app&amp;rsquo;s load script reaches some specific point of execution.&lt;br&gt;
 This way the scheduling and execution of Sense tasks can be made much more flexible than using the built in QMC scheduler.&lt;/p&gt;
-&lt;p&gt;Note: While possible to start reload tasks using MQTT, it&amp;rsquo;s usually easier to do this using &lt;a href=&#34;/docs/reference/rest-api&#34;&gt;Butler&amp;rsquo;s REST API&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Note: While possible to start reload tasks using MQTT, it&amp;rsquo;s usually easier to do this using &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/rest-api&#34;&gt;Butler&amp;rsquo;s REST API&lt;/a&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Send messages to platforms such as Node-RED. Node-RED is an open source platform (with a graphical editor) intended for integrating different systems and data sources. As it is built on node.red there are many different modules available, offering integrations with all sorts of systems and protocols.&lt;br&gt;
@@ -388,7 +388,7 @@ Which in MQTT lingo means &amp;ldquo;listen to all messages in the this topic, a
 &lt;ul&gt;
 &lt;li&gt;Start Sense task. The exact topic is defined in config property &lt;code&gt;Butler.mqttConfig.taskStartTopic&lt;/code&gt;.&lt;br&gt;
 Note that this topic &lt;em&gt;must&lt;/em&gt; be a subtopic to the topic specified in &lt;code&gt;Butler.mqttConfig.subscriptionRootTopic&lt;/code&gt;!&lt;br&gt;
-Starts the Sense task identified by the ID sent in the message body. More info in the &lt;a href=&#34;/docs/examples/start-task-from-mqtt/#use-mqtt-to-start-sense-tasks&#34;&gt;examples&lt;/a&gt; section.&lt;/li&gt;
+Starts the Sense task identified by the ID sent in the message body. More info in the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/start-task-from-mqtt/#use-mqtt-to-start-sense-tasks&#34;&gt;examples&lt;/a&gt; section.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;As Butler listens to all messages in the topic tree specified by &lt;code&gt;Butler.mqttConfig.subscriptionRootTopic&lt;/code&gt; it can easily be extended with handlers for additional topics.&lt;/p&gt;
 
@@ -397,10 +397,10 @@ Starts the Sense task identified by the ID sent in the message body. More info i
     
     <item>
       <title>Docs: UDP client</title>
-      <link>/docs/concepts/udp/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/concepts/udp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/concepts/udp/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/concepts/udp/</guid>
       <description>
         
         
@@ -439,10 +439,10 @@ $
     
     <item>
       <title>Docs: Monitor Windows services</title>
-      <link>/docs/concepts/windows-services/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/concepts/windows-services/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/concepts/windows-services/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/concepts/windows-services/</guid>
       <description>
         
         
@@ -605,10 +605,10 @@ Not all destinations support this, but for example the Teams destination does:&l
     
     <item>
       <title>Docs: Real-time metrics</title>
-      <link>/docs/concepts/real-time-metrics/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/concepts/real-time-metrics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/concepts/real-time-metrics/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/concepts/real-time-metrics/</guid>
       <description>
         
         

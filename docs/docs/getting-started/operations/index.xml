@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler – Day 2 operations</title>
-    <link>/docs/getting-started/operations/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/getting-started/operations/</link>
     <description>Recent content in Day 2 operations on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="/docs/getting-started/operations/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://butler.ptarmiganlabs.com/docs/getting-started/operations/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Standalone app</title>
-      <link>/docs/getting-started/operations/standalone/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/operations/standalone/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/operations/standalone/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/operations/standalone/</guid>
       <description>
         
         
@@ -172,10 +172,10 @@ This is used when Butler is executed to provide a Swagger/OpenAPI specification 
     
     <item>
       <title>Docs: Docker</title>
-      <link>/docs/getting-started/operations/docker/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/operations/docker/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/operations/docker/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/operations/docker/</guid>
       <description>
         
         
@@ -206,10 +206,10 @@ Then start Butler in deameon (background) mode:&lt;/p&gt;
     
     <item>
       <title>Docs: Node.js app</title>
-      <link>/docs/getting-started/operations/nodejs/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/operations/nodejs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/operations/nodejs/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/operations/nodejs/</guid>
       <description>
         
         

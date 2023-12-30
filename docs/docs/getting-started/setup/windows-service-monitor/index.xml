@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler – Monitoring Windows services</title>
-    <link>/docs/getting-started/setup/windows-service-monitor/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/</link>
     <description>Recent content in Monitoring Windows services on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="/docs/getting-started/setup/windows-service-monitor/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Sending Windows service alerts as email</title>
-      <link>/docs/getting-started/setup/windows-service-monitor/email/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/email/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/windows-service-monitor/email/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/email/</guid>
       <description>
         
         
@@ -120,10 +120,10 @@ The available values are:&lt;/p&gt;
     
     <item>
       <title>Docs: Sending Windows service alerts to New Relic</title>
-      <link>/docs/getting-started/setup/windows-service-monitor/new-relic/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/new-relic/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/windows-service-monitor/new-relic/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/new-relic/</guid>
       <description>
         
         
@@ -234,10 +234,10 @@ These can be used to identify which of potentially several Butler instances the 
     
     <item>
       <title>Docs: Storing Windows service alerts in InfluxDB</title>
-      <link>/docs/getting-started/setup/windows-service-monitor/influxdb/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/influxdb/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/windows-service-monitor/influxdb/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/influxdb/</guid>
       <description>
         
         
@@ -276,10 +276,10 @@ This means that information about Windows service alerts are stored in the same 
     
     <item>
       <title>Docs: Sending Windows service alerts to Slack</title>
-      <link>/docs/getting-started/setup/windows-service-monitor/slack/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/slack/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/windows-service-monitor/slack/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/slack/</guid>
       <description>
         
         
@@ -380,10 +380,10 @@ They are used in addition to the general Windows Service monitoring settings in 
     
     <item>
       <title>Docs: Sending Windows service alerts to Microsoft Teams</title>
-      <link>/docs/getting-started/setup/windows-service-monitor/teams/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/teams/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/windows-service-monitor/teams/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/teams/</guid>
       <description>
         
         
@@ -478,10 +478,10 @@ They are used in addition to the general Windows Service monitoring settings in 
     
     <item>
       <title>Docs: Sending Windows service alerts as MQTT messages</title>
-      <link>/docs/getting-started/setup/windows-service-monitor/mqtt/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/mqtt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/windows-service-monitor/mqtt/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/mqtt/</guid>
       <description>
         
         
@@ -529,10 +529,10 @@ The payload will be a JSON with information about the service (name, display nam
     
     <item>
       <title>Docs: Sending Windows service alerts as outgoing webhooks (=http messages)</title>
-      <link>/docs/getting-started/setup/windows-service-monitor/webhook-out/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/webhook-out/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/windows-service-monitor/webhook-out/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/webhook-out/</guid>
       <description>
         
         

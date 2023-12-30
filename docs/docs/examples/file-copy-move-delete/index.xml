@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler – Controlled and secure file system operations</title>
-    <link>/docs/examples/file-copy-move-delete/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/examples/file-copy-move-delete/</link>
     <description>Recent content in Controlled and secure file system operations on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="/docs/examples/file-copy-move-delete/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://butler.ptarmiganlabs.com/docs/examples/file-copy-move-delete/index.xml" rel="self" type="application/rss+xml" />
     
     
       

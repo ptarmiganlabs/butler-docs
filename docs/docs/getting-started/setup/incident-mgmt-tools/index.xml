@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler – Incident management tools</title>
-    <link>/docs/getting-started/setup/incident-mgmt-tools/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/incident-mgmt-tools/</link>
     <description>Recent content in Incident management tools on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="/docs/getting-started/setup/incident-mgmt-tools/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/incident-mgmt-tools/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: New Relic</title>
-      <link>/docs/getting-started/setup/incident-mgmt-tools/new-relic/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/incident-mgmt-tools/new-relic/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/incident-mgmt-tools/new-relic/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/incident-mgmt-tools/new-relic/</guid>
       <description>
         
         
@@ -31,7 +31,7 @@
 &lt;li&gt;Generic New Relic events and metrics via Butler&amp;rsquo;s REST API&lt;/li&gt;
 &lt;li&gt;Uptime and performance metrics from Butler itself&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Example &lt;a href=&#34;/docs/concepts/incident-mgmt-tools/new-relic/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Example &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/concepts/incident-mgmt-tools/new-relic/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;how-it-works&#34;&gt;How it works&lt;/h2&gt;
 &lt;p&gt;New Relic exposes APIs through which data such as log entries as well as generic events and metrics can be sent to New Relic.&lt;/p&gt;
 &lt;p&gt;These logs, metrics and events are stored in New Relic&amp;rsquo;s databases for a configurable retention period.&lt;br&gt;
@@ -103,7 +103,7 @@ Log entries are more versatile than events and can contain any text in the &lt;e
 &lt;/ul&gt;
 &lt;h2 id=&#34;monitoring-windows-services&#34;&gt;Monitoring Windows services&lt;/h2&gt;
 &lt;p&gt;Butler can be configured to send Windows service start/stop events to New Relic as New Relic events and/or log entries.&lt;/p&gt;
-&lt;p&gt;Please see the setup instructions for &lt;a href=&#34;/docs/getting-started/setup/windows-service-monitor/new-relic/&#34;&gt;Windows service monitoring&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Please see the setup instructions for &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/new-relic/&#34;&gt;Windows service monitoring&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;sending-data-to-several-new-relic-accounts&#34;&gt;Sending data to several New Relic accounts&lt;/h2&gt;
 &lt;p&gt;The most common scenario is to send metrics and events to a single New Relic account.&lt;br&gt;
 There are however scenarios when sending data to multimple accounts can be of interest.&lt;/p&gt;
@@ -333,16 +333,16 @@ This is useful as it means the New Relic API keys do not have to be stored in th
     
     <item>
       <title>Docs: Signl4</title>
-      <link>/docs/getting-started/setup/incident-mgmt-tools/signl4/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/incident-mgmt-tools/signl4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/setup/incident-mgmt-tools/signl4/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/setup/incident-mgmt-tools/signl4/</guid>
       <description>
         
         
         &lt;h2 id=&#34;whats-this&#34;&gt;What&amp;rsquo;s this?&lt;/h2&gt;
 &lt;p&gt;Reload failure/abort events can be forwarded to Signl4, where they become incidents that are tracked, (maybe) escalated and eventually (hopefully!) closed.&lt;/p&gt;
-&lt;p&gt;Example &lt;a href=&#34;/docs/examples/signl4/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Example &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/signl4/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;how-it-works&#34;&gt;How it works&lt;/h2&gt;
 &lt;p&gt;Signl4 exposes webhooks through which incidents can be created. The &lt;code&gt;Butler.incidentTool.signl4.url&lt;/code&gt; is used to specify this webhook.&lt;/p&gt;
 &lt;p&gt;To use Butler with Signl4 you must first create a Signl4 team. Then note the secret key for that team:&lt;/p&gt;
@@ -354,7 +354,7 @@ This is useful as it means the New Relic API keys do not have to be stored in th
 
 
 &lt;figure class=&#34;card rounded p-2 td-post-card mb-4 mt-4&#34; style=&#34;max-width: 810px&#34;&gt;
-	&lt;img class=&#34;card-img-top&#34; src=&#34;/docs/getting-started/setup/incident-mgmt-tools/signl4/signl4-team-config-1_hu47a02a1f4a2d556ef5bc36199dff0aff_1260300_800x0_resize_catmullrom_3.png&#34; width=&#34;800&#34; height=&#34;647&#34;&gt;
+	&lt;img class=&#34;card-img-top&#34; src=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/incident-mgmt-tools/signl4/signl4-team-config-1_hu47a02a1f4a2d556ef5bc36199dff0aff_1260300_800x0_resize_catmullrom_3.png&#34; width=&#34;800&#34; height=&#34;647&#34;&gt;
 	
 	&lt;figcaption class=&#34;card-body px-0 pt-2 pb-0&#34;&gt;
 		&lt;p class=&#34;card-text&#34;&gt;  &lt;/p&gt;

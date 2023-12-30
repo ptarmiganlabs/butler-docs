@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler – Key-value store</title>
-    <link>/docs/reference/key-value/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/reference/key-value/</link>
     <description>Recent content in Key-value store on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="/docs/reference/key-value/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://butler.ptarmiganlabs.com/docs/reference/key-value/index.xml" rel="self" type="application/rss+xml" />
     
     
       

@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler – Real-time metrics</title>
-    <link>/docs/concepts/real-time-metrics/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/concepts/real-time-metrics/</link>
     <description>Recent content in Real-time metrics on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="/docs/concepts/real-time-metrics/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://butler.ptarmiganlabs.com/docs/concepts/real-time-metrics/index.xml" rel="self" type="application/rss+xml" />
     
     
       

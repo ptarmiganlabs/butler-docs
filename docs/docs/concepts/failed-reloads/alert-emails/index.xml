@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler – Alert emails</title>
-    <link>/docs/concepts/failed-reloads/alert-emails/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/concepts/failed-reloads/alert-emails/</link>
     <description>Recent content in Alert emails on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="/docs/concepts/failed-reloads/alert-emails/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://butler.ptarmiganlabs.com/docs/concepts/failed-reloads/alert-emails/index.xml" rel="self" type="application/rss+xml" />
     
     
       

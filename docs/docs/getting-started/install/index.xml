@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler – Installing Butler</title>
-    <link>/docs/getting-started/install/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/getting-started/install/</link>
     <description>Recent content in Installing Butler on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="/docs/getting-started/install/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://butler.ptarmiganlabs.com/docs/getting-started/install/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Decide how to run Butler</title>
-      <link>/docs/getting-started/install/choose-platform/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/install/choose-platform/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/install/choose-platform/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/install/choose-platform/</guid>
       <description>
         
         
@@ -49,10 +49,10 @@ Another good tool is &lt;a href=&#34;https://pm2.keymetrics.io&#34;&gt;PM2&lt;/a
     
     <item>
       <title>Docs: Running Butler as a native, pre-built application</title>
-      <link>/docs/getting-started/install/native/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/install/native/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/install/native/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/install/native/</guid>
       <description>
         
         
@@ -62,7 +62,7 @@ Another good tool is &lt;a href=&#34;https://pm2.keymetrics.io&#34;&gt;PM2&lt;/a
 &lt;h2 id=&#34;installation-steps&#34;&gt;Installation steps&lt;/h2&gt;
 &lt;p&gt;Installing Butler is quite simple.&lt;br&gt;
 The steps below outline the process.&lt;/p&gt;
-&lt;p&gt;Additional information is found on the &lt;a href=&#34;/docs/getting-started/operations/&#34;&gt;Day 2 operations&lt;/a&gt; page.&lt;/p&gt;
+&lt;p&gt;Additional information is found on the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/operations/&#34;&gt;Day 2 operations&lt;/a&gt; page.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Decide where to install Butler&lt;/strong&gt;&lt;br&gt;
@@ -95,10 +95,10 @@ This means you may see a warning the first time you start Butler, but after that
     
     <item>
       <title>Docs: Running Butler in Docker</title>
-      <link>/docs/getting-started/install/docker/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/install/docker/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/install/docker/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/install/docker/</guid>
       <description>
         
         
@@ -313,10 +313,10 @@ You can name the config file anything, but its name has to match the NODE_ENV en
     
     <item>
       <title>Docs: Running Butler as a Node.js application</title>
-      <link>/docs/getting-started/install/nodejs/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/install/nodejs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/getting-started/install/nodejs/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/install/nodejs/</guid>
       <description>
         
         
@@ -325,7 +325,7 @@ You can name the config file anything, but its name has to match the NODE_ENV en
 Butler has been succesfully used - during development and production - on Windows, Linux (Debian and Ubuntu tested) and mac OS.&lt;/p&gt;
 &lt;h2 id=&#34;installation-steps&#34;&gt;Installation steps&lt;/h2&gt;
 &lt;p&gt;The steps below outline the steps needed to install Butler as a native Node.js application on for example Windows Server.&lt;/p&gt;
-&lt;p&gt;Additional information is found on the &lt;a href=&#34;/docs/getting-started/operations/&#34;&gt;Day 2 operations&lt;/a&gt; page.&lt;/p&gt;
+&lt;p&gt;Additional information is found on the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/operations/&#34;&gt;Day 2 operations&lt;/a&gt; page.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Install node.js&lt;/strong&gt;&lt;br&gt;

@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler – About</title>
-    <link>/docs/about/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/about/</link>
     <description>Recent content in About on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="/docs/about/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://butler.ptarmiganlabs.com/docs/about/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Butler</title>
-      <link>/docs/about/butler/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/about/butler/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/about/butler/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/about/butler/</guid>
       <description>
         
         
@@ -33,19 +33,19 @@ In some cases it might be possible to use these tools from within Sense also wit
 As of version 7.2 Butler offers pre-built binaries for Windows, macOS and Linux§, meaning that Node.js no longer has to be separately installed to use Butler.&lt;br&gt;
 This simplifies things - just download, configure and run.&lt;/p&gt;
 &lt;p&gt;You can run Butler on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).&lt;/p&gt;
-&lt;p&gt;Butler is a member of a group of tools collectively referred to as the &amp;ldquo;Butler family&amp;rdquo;, more info is available &lt;a href=&#34;/docs/about/butler-family&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Butler is a member of a group of tools collectively referred to as the &amp;ldquo;Butler family&amp;rdquo;, more info is available &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/about/butler-family&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;This picture might be useful to understand what Butler does and how it fits into the larger system map around Qlik Sense:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;/img/butler-system-overview-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler high level system overview&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://butler.ptarmiganlabs.com/img/butler-system-overview-1.png&#34; alt=&#34;alt text&#34; title=&#34;Butler high level system overview&#34;&gt;&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
       <title>Docs: Use cases</title>
-      <link>/docs/about/use-cases/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/about/use-cases/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/about/use-cases/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/about/use-cases/</guid>
       <description>
         
         
@@ -106,49 +106,49 @@ This makes it easy to find the log file you are interested in.&lt;/p&gt;
 &lt;p&gt;Trigger Sense reload tasks from a reload script: This makes it possible to start different Sense tasks based on what data has been read from a database, what time of day it is etc.&lt;br&gt;
 Starting a task from the reload script is as easy as &lt;code&gt;Call StartTask(&#39;fbf645f0-0c92-40a4-af9a-6e3eb1d3c35c&#39;)&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Trigger Sense reloads from external systems: When new data is available in a source database, that database can trigger a reload in Sense, and the data is loaded from the database into Sense. This way delays caused by Sense polling for data are minimized and data arrives at end users as quickly as possible.&lt;/p&gt;
-&lt;p&gt;Starting reload tasks using REST API is described &lt;a href=&#34;/docs/examples/start-task-from-rest/&#34;&gt;here&lt;/a&gt;.&lt;br&gt;
-Using MQTT messages to achieve this is described &lt;a href=&#34;/docs/examples/start-task-from-mqtt/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Starting reload tasks using REST API is described &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/start-task-from-rest/&#34;&gt;here&lt;/a&gt;.&lt;br&gt;
+Using MQTT messages to achieve this is described &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/start-task-from-mqtt/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;start-any-reload-task-from-within-any-qlik-sense-or-web-app&#34;&gt;Start any reload task from within any Qlik Sense or web app&lt;/h2&gt;
 &lt;p&gt;Some HTML and Javascript magic is also needed, but given Butler&amp;rsquo;s start-task API it&amp;rsquo;s pretty easy to set up a button in a Sense app (or any web app!) to start any Sense reload task.&lt;/p&gt;
 &lt;p&gt;This can for example be used to allow end users to start an Extract-Transform when they (the user) need refreshed data.&lt;/p&gt;
-&lt;p&gt;More info &lt;a href=&#34;/docs/examples/start-task-from-rest/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;More info &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/start-task-from-rest/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;start-reload-tasks-via-rest-api-based-on-task-tags-or-custom-properties&#34;&gt;Start reload tasks via REST API based on task tags or custom properties&lt;/h2&gt;
 &lt;p&gt;Using tags and/or custom properties to identify what tasks should be started can be easier than having to know the tasks IDs.
 This both makes it easier for 3rd party systems to start Qlik Sense tasks and easier for Sense admins to manage which tasks should be startable by 3rd party systems.&lt;/p&gt;
-&lt;p&gt;More info in &lt;a href=&#34;/docs/concepts/start-sense-tasks/&#34;&gt;Concepts&lt;/a&gt; and &lt;a href=&#34;/docs/examples/start-task/&#34;&gt;Examples&lt;/a&gt; sections.&lt;/p&gt;
+&lt;p&gt;More info in &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/concepts/start-sense-tasks/&#34;&gt;Concepts&lt;/a&gt; and &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/start-task/&#34;&gt;Examples&lt;/a&gt; sections.&lt;/p&gt;
 &lt;h2 id=&#34;trigger-fullpartial-app-reloads-from-load-script-or-upstream-systems&#34;&gt;Trigger full/partial app reloads from load script or upstream systems&lt;/h2&gt;
 &lt;p&gt;Sometimes you just want to reload an app without also having to create a reload task.&lt;br&gt;
 When it comes to partial app reloads it&amp;rsquo;s not even possible to do these from a Sense reload task.&lt;/p&gt;
 &lt;p&gt;Butler&amp;rsquo;s API makes prvovides a solution: Just pass in an app ID to reload together with task IDs of the tasks that should be started when the app is done reloading (different tasks can be started depending on app reload success or failure).&lt;/p&gt;
 &lt;p&gt;The partial reload feature is of special interest as it can be used to trigger faster  incremental execution of of Extract-Transform reload chains. Great for keeping data in Sense apps updated during the course of a day!&lt;/p&gt;
-&lt;p&gt;More info &lt;a href=&#34;/docs/examples/sense-demo-apps/partial-loads/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;More info &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/sense-demo-apps/partial-loads/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;flexible-scheduling-of-app-reloads-in-qlik-sense-enterprise-on-windows&#34;&gt;Flexible scheduling of app reloads in Qlik Sense Enterprise on Windows&lt;/h2&gt;
 &lt;p&gt;Using the scheduler built into Qlik Sense you can&amp;rsquo;t for example create schedules that are limited to a parts of a day.&lt;br&gt;
 This is a pretty common scenario though - you want to reload an app hourly from say 3 am to 3 pm.&lt;/p&gt;
 &lt;p&gt;You &lt;em&gt;can&lt;/em&gt; set this up in Sense, but it involves creating &lt;em&gt;a lot&lt;/em&gt; of triggers for the reload task, which becomes a nightmare to maintain.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;/docs/concepts/scheduler&#34;&gt;Butler&amp;rsquo;s task scheduler&lt;/a&gt; is built on Cron, which has been used in Linux for decades. Battle proven and very flexible.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/concepts/scheduler&#34;&gt;Butler&amp;rsquo;s task scheduler&lt;/a&gt; is built on Cron, which has been used in Linux for decades. Battle proven and very flexible.&lt;/p&gt;
 &lt;h2 id=&#34;passing-parameters-between-reload-tasks&#34;&gt;Passing parameters between reload tasks&lt;/h2&gt;
 &lt;p&gt;This has always been hard both in QlikView and Sense.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;/docs/concepts/key-value/&#34;&gt;Butler&amp;rsquo;s key-value store&lt;/a&gt; makes it much easier to pass values from one app to the next in a reload chain.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/concepts/key-value/&#34;&gt;Butler&amp;rsquo;s key-value store&lt;/a&gt; makes it much easier to pass values from one app to the next in a reload chain.&lt;/p&gt;
 &lt;h2 id=&#34;storing-state-across-several-apps&#34;&gt;Storing state across several apps&lt;/h2&gt;
-&lt;p&gt;The &lt;a href=&#34;/docs/concepts/key-value/&#34;&gt;key-value store&lt;/a&gt; can also be used to keep state in general across several apps or parts of a Qlik Sense environment.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/concepts/key-value/&#34;&gt;key-value store&lt;/a&gt; can also be used to keep state in general across several apps or parts of a Qlik Sense environment.&lt;/p&gt;
 &lt;p&gt;Maybe a Development cluster needs to share information in real time with the Test and Production clusters?&lt;br&gt;
 Easily solved using Butler&amp;rsquo;s key-value store.&lt;/p&gt;
-&lt;p&gt;A demo showing parameter passing between apps is found &lt;a href=&#34;/docs/examples/reload-chaining/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A demo showing parameter passing between apps is found &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/reload-chaining/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;time-to-live-ttl-for-key-value-pairs&#34;&gt;Time-to-live (TTL) for key-value pairs&lt;/h3&gt;
 &lt;p&gt;Key-value pairs can optionally be set up with a time-to-live (ttl) parameter. If ttl is set, the KV pair will auto-delete when the ttl expires.&lt;/p&gt;
-&lt;p&gt;The key-value store is described &lt;a href=&#34;/docs/concepts/key-value/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The key-value store is described &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/concepts/key-value/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;make-new-data-reach-end-users-as-quickly-as-possible&#34;&gt;Make new data reach end users as quickly as possible&lt;/h2&gt;
 &lt;p&gt;See above. Have the upstream data source initiate Sense app reloads, either via Butler&amp;rsquo;s REST API or via MQTT messages sent to Butler.&lt;/p&gt;
 &lt;h2 id=&#34;using-mqtt-to-notify-downstream-systems-that-sense-is-done-processing-data&#34;&gt;Using MQTT to notify downstream systems that Sense is done processing data&lt;/h2&gt;
 &lt;p&gt;Use Butler&amp;rsquo;s API endpoints for MQTT handling to send and receive MQTT publish-subscribe messages.&lt;br&gt;
 MQTT (and the pubsub concept in general) is a great way for systems to communicate reliably with each other.&lt;/p&gt;
-&lt;p&gt;A demo app is available, showing how MQTT messages can be sent from Sense load scripts. More info &lt;a href=&#34;/docs/examples/sense-demo-apps/publish-to-mqtt/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A demo app is available, showing how MQTT messages can be sent from Sense load scripts. More info &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/sense-demo-apps/publish-to-mqtt/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;create-directories-copymovedelete-files&#34;&gt;Create directories, copy/move/delete files&lt;/h2&gt;
 &lt;p&gt;In &amp;ldquo;standard mode&amp;rdquo; apps reloading in Qlik Sense Enterprise on Windows can&amp;rsquo;t access the file system of the Sense servers. This is a good thing because it adds a lot of security.&lt;/p&gt;
 &lt;p&gt;From time to time you need to delete temp QVDs though, or copy or move data files from one directory to another.&lt;/p&gt;
 &lt;p&gt;Butler has REST API endpoints for these use cases, but as those endpoints are locked down to only work on specific, configurable directiories they don&amp;rsquo;t result in the same security issues as seen in for example QlikView or Sense running in legacy mode.&lt;/p&gt;
-&lt;p&gt;More info &lt;a href=&#34;/docs/examples/file-copy-move-delete/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;More info &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/file-copy-move-delete/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;extract-metadata-for-apps&#34;&gt;Extract metadata for apps&lt;/h2&gt;
 &lt;p&gt;Exporting apps as JSON can be very useful for backup purposes. Doing regular snapshots of all apps in a Sense cluster is a fast and space-effective way of keeping point-in-time backups.&lt;/p&gt;
 &lt;p&gt;The &lt;a href=&#34;http://localhost:1313/docs/reference/rest-api/?operationsSorter=alpha&#34;&gt;REST API documentation&lt;/a&gt; has full docs for the &lt;code&gt;/v4/app/{appId}/dump&lt;/code&gt; endpoint.&lt;/p&gt;
@@ -169,10 +169,10 @@ The concept is not limited to Qlik Sense services though - any Windows service c
     
     <item>
       <title>Docs: The Butler family</title>
-      <link>/docs/about/butler-family/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/about/butler-family/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/about/butler-family/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/about/butler-family/</guid>
       <description>
         
         
@@ -234,10 +234,10 @@ Using Butler CW is an easy way to make your end users&amp;rsquo; experience of S
     
     <item>
       <title>Docs: Versions</title>
-      <link>/docs/about/versioning/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/about/versioning/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/about/versioning/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/about/versioning/</guid>
       <description>
         
         
@@ -263,10 +263,10 @@ Note 2: If a version of 5.2 is mentioned, this implicitly means 5.2.0.&lt;/p&gt;
     
     <item>
       <title>Docs: Contribution guidelines</title>
-      <link>/docs/about/contributing/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/about/contributing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/about/contributing/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/about/contributing/</guid>
       <description>
         
         
@@ -300,10 +300,10 @@ Hugo is an open-source static site generator that provides us with templates, co
     
     <item>
       <title>Docs: Telemetry</title>
-      <link>/docs/about/telemetry/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/about/telemetry/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/about/telemetry/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/about/telemetry/</guid>
       <description>
         
         
@@ -349,7 +349,7 @@ Or the fact that Qlik released some new feature in Sense and Butler was a way to
 &lt;li&gt;Same thing for understanding what operating systems Butler runs (and should be supported) on.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;configuring-butlers-telemetry&#34;&gt;Configuring Butler&amp;rsquo;s telemetry&lt;/h3&gt;
-&lt;p&gt;Instructions &lt;a href=&#34;/docs/getting-started/setup/telemetry/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Instructions &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/telemetry/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;the-details&#34;&gt;The details&lt;/h2&gt;
 
 
@@ -386,7 +386,7 @@ Or the fact that Qlik released some new feature in Sense and Butler was a way to
 &lt;p&gt;The telemetry data is sent to the &lt;a href=&#34;https://posthog.com&#34;&gt;PostHog&lt;/a&gt; service, using their database in the European Union.&lt;/p&gt;
 &lt;h3 id=&#34;deleting-telemetry-data&#34;&gt;Deleting telemetry data&lt;/h3&gt;
 &lt;p&gt;Even though no-one (not even the Butler developers or Ptarmigan Labs who manage the telemetry database!) has any way of ever connecting the data sent by &lt;em&gt;your&lt;/em&gt; Butler instance to &lt;em&gt;you&lt;/em&gt; (it&amp;rsquo;s all anonymized, remember?), there can be cases where telemetry data must be deleted.&lt;/p&gt;
-&lt;p&gt;The &lt;a href=&#34;/docs/legal-stuff/#telemetry-data&#34;&gt;legal page&lt;/a&gt; has more information about this.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/legal-stuff/#telemetry-data&#34;&gt;legal page&lt;/a&gt; has more information about this.&lt;/p&gt;
 &lt;h3 id=&#34;field-level-description-of-telemetry-data&#34;&gt;Field level description of telemetry data&lt;/h3&gt;
 &lt;p&gt;A telemetry message from Butler contains the information below.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;

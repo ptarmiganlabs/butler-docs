@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler – Start Sense tasks using Butler APIs</title>
-    <link>/docs/examples/start-task/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/examples/start-task/</link>
     <description>Recent content in Start Sense tasks using Butler APIs on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="/docs/examples/start-task/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://butler.ptarmiganlabs.com/docs/examples/start-task/index.xml" rel="self" type="application/rss+xml" />
     
     
       
@@ -16,10 +16,10 @@
     
     <item>
       <title>Docs: Start Sense tasks using REST API</title>
-      <link>/docs/examples/start-task/start-task-from-rest/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/examples/start-task/start-task-from-rest/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/examples/start-task/start-task-from-rest/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/examples/start-task/start-task-from-rest/</guid>
       <description>
         
         
@@ -600,10 +600,10 @@ Two key-value pairs are passed along as parameters to the app. One has a TimeToL
     
     <item>
       <title>Docs: Start Sense tasks from load script of Sense apps</title>
-      <link>/docs/examples/start-task/start-task-from-script/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/examples/start-task/start-task-from-script/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/examples/start-task/start-task-from-script/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/examples/start-task/start-task-from-script/</guid>
       <description>
         
         
@@ -635,7 +635,7 @@ These contain functions/subs that encapsulate various Butler APIs (include start
 &lt;li&gt;Butler.restServerEndpointsEnable.senseStartTask: true&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Sense data connections as described in the &lt;a href=&#34;/docs/getting-started/setup/data-connections&#34;&gt;Getting started&lt;/a&gt; section.&lt;/li&gt;
+&lt;li&gt;Sense data connections as described in the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/data-connections&#34;&gt;Getting started&lt;/a&gt; section.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;helper-functions&#34;&gt;Helper functions&lt;/h2&gt;
 &lt;p&gt;There are two helper functions/sub for starting tasks:&lt;/p&gt;
@@ -661,8 +661,8 @@ This can be done by using the &lt;code&gt;StartTask_KeyValue&lt;/code&gt; helper
 &lt;li&gt;The value (required).&lt;/li&gt;
 &lt;li&gt;An time-to-live valud in milliseconds (optional). When the ttl times out the key-value pair is automatically deleted.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Documentation about Butler&amp;rsquo;s key-value store is available &lt;a href=&#34;/docs/concepts/key-value/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;An example showing how task chaining with parameters can be done using key-values is found &lt;a href=&#34;/docs/examples/reload-chaining/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Documentation about Butler&amp;rsquo;s key-value store is available &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/concepts/key-value/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;An example showing how task chaining with parameters can be done using key-values is found &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/reload-chaining/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;start-several-tasks-using-task-ids&#34;&gt;Start several tasks using task IDs&lt;/h3&gt;
 &lt;p&gt;If several tasks should be started using task IDs, those IDs need to be passed into the &lt;code&gt;StartTask&lt;/code&gt; sub.&lt;br&gt;
 This is done by storing the task IDs in a separate table whose name is passed as a parameter into &lt;code&gt;StartTask&lt;/code&gt;:&lt;/p&gt;
@@ -750,10 +750,10 @@ Unqualify *;
     
     <item>
       <title>Docs: Start Sense tasks using MQTT</title>
-      <link>/docs/examples/start-task/start-task-from-mqtt/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/examples/start-task/start-task-from-mqtt/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/examples/start-task/start-task-from-mqtt/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/examples/start-task/start-task-from-mqtt/</guid>
       <description>
         
         

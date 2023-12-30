@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Butler – Start Sense tasks using REST API</title>
-    <link>/docs/examples/start-task/start-task-from-rest/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/examples/start-task/start-task-from-rest/</link>
     <description>Recent content in Start Sense tasks using REST API on Butler</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="/docs/examples/start-task/start-task-from-rest/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="https://butler.ptarmiganlabs.com/docs/examples/start-task/start-task-from-rest/index.xml" rel="self" type="application/rss+xml" />
     
     
       
