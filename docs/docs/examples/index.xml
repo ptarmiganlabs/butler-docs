@@ -873,5 +873,92 @@ Warnings in log for the previous scenario.
       </description>
     </item>
     
+    <item>
+      <title>Docs: When things don&#39;t work as expected</title>
+      <link>https://butler.ptarmiganlabs.com/docs/examples/when-things-dont-work/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler.ptarmiganlabs.com/docs/examples/when-things-dont-work/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Butler is a complex piece of software, and it is not uncommon to run into issues when &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/&#34;&gt;setting up and configuring&lt;/a&gt; Butler.&lt;br&gt;
+In the vast majority of cases, the issues are caused by misconfiguration, and not by bugs in the tool itself.&lt;/p&gt;
+&lt;p&gt;This page contains some tips and tricks that can be useful when troubleshooting a Butler instance.&lt;/p&gt;
+&lt;h2 id=&#34;general-things-to-check&#34;&gt;General things to check&lt;/h2&gt;
+&lt;h3 id=&#34;is-butler-running&#34;&gt;Is Butler running?&lt;/h3&gt;
+&lt;p&gt;The first thing to check is if Butler is running at all.&lt;/p&gt;
+&lt;p&gt;If Butler is running as a Windows service, check the Windows Services applet to see if the service is running.&lt;/p&gt;
+&lt;p&gt;If Butler is running as a Docker container, check the Docker container status with the &lt;code&gt;docker ps&lt;/code&gt; command.&lt;/p&gt;
+&lt;h3 id=&#34;logs&#34;&gt;Logs&lt;/h3&gt;
+&lt;p&gt;Make sure logging to file is enabled in the Butler configuration file.&lt;br&gt;
+Take note of the log file location.&lt;/p&gt;
+&lt;p&gt;Then check the log files for errors and warnings.&lt;/p&gt;
+&lt;p&gt;In theory errors and warnings can occur as part of normal operation, but that should be rate.&lt;br&gt;
+If there are errors or warnings during startup, or if there are a lot of errors and warnings, then there is most likely a problem.&lt;/p&gt;
+&lt;p&gt;You can also try increasing the log level to &lt;code&gt;verbose&lt;/code&gt; or even &lt;code&gt;debug&lt;/code&gt; to get more information about what&amp;rsquo;s happening, and where in Butler the problem is occurring.&lt;/p&gt;
+&lt;p&gt;Logging level is configured in the Butler configuration file or via the &lt;code&gt;--loglevel&lt;/code&gt; command line parameter (which takes precedence over the configuration file).&lt;/p&gt;
+&lt;h2 id=&#34;feature-specific-issues&#34;&gt;Feature specific issues&lt;/h2&gt;
+&lt;h3 id=&#34;failed-reload-alerts-not-working&#34;&gt;Failed reload alerts not working&lt;/h3&gt;
+&lt;p&gt;Butler offers quite comprehensive support for dealing with failed or aborted reloads tasks.&lt;br&gt;
+As such there are a number of things that can go wrong and settings that can be misconfigured.&lt;/p&gt;
+&lt;p&gt;When configured correctly, Butler&amp;rsquo;s logs can look like below.&lt;br&gt;
+In this example Butler has received a reload task failure event from Qlik Sense, and is now sending out notifications to the following channels:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Script log archive (all failed reload logs are archived to a folder on disk)&lt;/li&gt;
+&lt;li&gt;InfluxDB (from where the reload failure can be visualized in a Grafana dashboard)&lt;/li&gt;
+&lt;li&gt;Slack&lt;/li&gt;
+&lt;li&gt;Teams&lt;/li&gt;
+&lt;li&gt;Outgoing webhook&lt;/li&gt;
+&lt;li&gt;Email&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2024-01-10T05:47:52.992Z info: SCRIPTLOG STORE: Writing failed task script log: C:\tools\butler\config\scriptlog\2024-01-10\2024-01-10_06-47-52_appId=8f1d1ecf-97a6-4eb5-8f47-f9156300b854_taskId=22b106a8-e7ed-4466-b700-014f060bef16.log
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2024-01-10T05:47:52.994Z info: INFLUXDB RELOAD TASK FAILED: Sending reload task notification to InfluxDB
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2024-01-10T05:47:53.008Z info: SLACK RELOAD TASK FAILED: Rate limiting check passed for failed task notification. Task name: &amp;#34;Reload of Test failing reloads 1 (emojis supported! 🤪)&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2024-01-10T05:47:53.017Z info: TEAMS RELOAD TASK FAILED: Rate limiting check passed for failed task notification. Task name: &amp;#34;Reload of Test failing reloads 1 (emojis supported! 🤪)&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2024-01-10T05:47:53.021Z info: WEBHOOK OUT RELOAD TASK FAILED: Rate limiting check passed for failed task notification. Task name: &amp;#34;Reload of Test failing reloads 1 (emojis supported! 🤪)&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2024-01-10T05:47:53.300Z info: EMAIL RELOAD TASK FAILED ALERT: Rate limiting check passed for failed task notification. Task name: &amp;#34;Reload of Test failing reloads 1 (emojis supported! 🤪)&amp;#34;, Recipient: &amp;#34;joe@company.com&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;style type=&#34;text/css&#34;&gt;.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style&gt;
+&lt;p&gt;&lt;svg width=&#34;0&#34; height=&#34;0&#34; display=&#34;none&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;symbol id=&#34;tip-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;note-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;warning-notice&#34; viewBox=&#34;0 0 576 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z&#34;/&gt;&lt;/symbol&gt;&lt;symbol id=&#34;info-notice&#34; viewBox=&#34;0 0 512 512&#34; preserveAspectRatio=&#34;xMidYMid meet&#34;&gt;&lt;path d=&#34;M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z&#34;/&gt;&lt;/symbol&gt;&lt;/svg&gt;&lt;div class=&#34;notice tip&#34; &gt;&lt;/p&gt;
+&lt;p class=&#34;first notice-title&#34;&gt;&lt;span class=&#34;icon-notice baseline&#34;&gt;&lt;svg&gt;&lt;use href=&#34;#tip-notice&#34;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/span&gt;Tip&lt;/p&gt;&lt;p&gt;Rate limiting is defined in the Butler configuration file.&lt;br&gt;
+If the rate limiting condition is met, this will be shown as &amp;ldquo;Rate limiting check passed for failed task notification&amp;rdquo; in the logs.&lt;/p&gt;&lt;/div&gt;
+&lt;p&gt;Things to check:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Is Butler receiving the reload task events from Qlik Sense?
+&lt;ul&gt;
+&lt;li&gt;Check the Butler log files.
+When Butler receives a reload task event from Qlik Sense, it will check if rate limiting conditions are met, and also log a message about that.
+If there are no such messages:
+&lt;ul&gt;
+&lt;li&gt;Butler has not received the event from Qlik Sense.&lt;/li&gt;
+&lt;li&gt;Check the XML appender files deployed to the Qlik Sense servers. Make sure they send UDP events to the host and port where Butler is listening.&lt;/li&gt;
+&lt;li&gt;Try pinging the host where Butler is running, from the Qlik Sense server (&lt;code&gt;ping &amp;lt;butler host&amp;gt;&lt;/code&gt;). If the ping fails, there is probably a network issue.&lt;/li&gt;
+&lt;li&gt;Try doing a telnet to the UDP port where Butler is listening from the Qlik Sense server (&lt;code&gt;telnet &amp;lt;butler host&amp;gt; &amp;lt;butler port&amp;gt;&lt;/code&gt;). If the telnet fails, there is for sure a network issue.&lt;/li&gt;
+&lt;li&gt;Make sure reload failure events are enabled in the Butler configuration file.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Are reload failure events received from some Sense nodes, but not others?
+&lt;ul&gt;
+&lt;li&gt;Check the XML appenders on the nodes where the events are not received.&lt;/li&gt;
+&lt;li&gt;Check the network connectivity between the nodes and the Butler host.&lt;/li&gt;
+&lt;li&gt;The XML appender files can be identical on all nodes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Are some reload failure events forwarded to destinations, but not others?
+&lt;ul&gt;
+&lt;li&gt;Check the Butler log files.&lt;/li&gt;
+&lt;li&gt;Is rate limiting enabled? If so, check the rate limiting settings in the Butler configuration file.&lt;/li&gt;
+&lt;li&gt;If events arrive more frequently than the rate limiting settings allow, Butler will not forward all events.
+A failed rate limiting check will result in a log warning:&lt;br&gt;
+&lt;code&gt;Rate limiting failed. Not sending reload notification email for task ...&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
   </channel>
 </rss>
