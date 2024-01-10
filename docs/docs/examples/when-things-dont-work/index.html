@@ -508,7 +508,7 @@ If the rate limiting condition is met, this will be shown as &ldquo;Rate limitin
 <code>TASKFAILURE: Error in UDP error handler: Error: getsockname EINVAL</code></li>
 </ul>
 </li>
-<li>Check the Butler log files.
+<li>Check the Butler log files.<br>
 When Butler receives a reload task event from Qlik Sense, it will check if rate limiting conditions are met, and also log a message about that.
 If there are no such messages:
 <ul>
@@ -537,6 +537,12 @@ A failed rate limiting check will result in a log warning:<br>
 <code>Rate limiting failed. Not sending reload notification email for task ...</code></li>
 </ul>
 </li>
+<li>Are alerts forwarded to some destination, but not others?
+<ul>
+<li>Each destination can be enabled/disabled individually in the Butler configuration file.<br>
+Make sure the destination you are interested in is enabled.</li>
+</ul>
+</li>
 </ul>
 
         <div class="section-index">
@@ -554,7 +560,7 @@ A failed rate limiting check will result in a log warning:<br>
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified 2024-01-10: <a href="https://github.com/google/docsy-example/commit/5aead1910ca1422f9afe6813c088dce240601e68">Add when-things-do-not-work section (5aead19)</a>
+  Last modified 2024-01-10: <a href="https://github.com/google/docsy-example/commit/4fbe65698913e4a4f2289db4086edd06f1f24723">Add info to things-do-not-work page (4fbe656)</a>
 </div>
 
 </div>

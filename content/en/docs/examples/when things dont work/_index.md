@@ -76,7 +76,7 @@ Things to check:
       `TASKFAILURE: UDP server listening on 10.11.12.13:9998`
     - If there is a problem with the UDP server, the log might show a message like this (in this case the IP address is not valid for the Butler host):  
       `TASKFAILURE: Error in UDP error handler: Error: getsockname EINVAL`
-  - Check the Butler log files.
+  - Check the Butler log files.  
     When Butler receives a reload task event from Qlik Sense, it will check if rate limiting conditions are met, and also log a message about that.
     If there are no such messages:
     - Butler has not received the event from Qlik Sense.
@@ -94,3 +94,6 @@ Things to check:
   - If events arrive more frequently than the rate limiting settings allow, Butler will not forward all events.
     A failed rate limiting check will result in a log warning:  
     `Rate limiting failed. Not sending reload notification email for task ...`
+- Are alerts forwarded to some destination, but not others?
+  - Each destination can be enabled/disabled individually in the Butler configuration file.  
+    Make sure the destination you are interested in is enabled.

@@ -936,7 +936,7 @@ If the rate limiting condition is met, this will be shown as &amp;ldquo;Rate lim
 &lt;code&gt;TASKFAILURE: Error in UDP error handler: Error: getsockname EINVAL&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Check the Butler log files.
+&lt;li&gt;Check the Butler log files.&lt;br&gt;
 When Butler receives a reload task event from Qlik Sense, it will check if rate limiting conditions are met, and also log a message about that.
 If there are no such messages:
 &lt;ul&gt;
@@ -963,6 +963,12 @@ If there are no such messages:
 &lt;li&gt;If events arrive more frequently than the rate limiting settings allow, Butler will not forward all events.
 A failed rate limiting check will result in a log warning:&lt;br&gt;
 &lt;code&gt;Rate limiting failed. Not sending reload notification email for task ...&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Are alerts forwarded to some destination, but not others?
+&lt;ul&gt;
+&lt;li&gt;Each destination can be enabled/disabled individually in the Butler configuration file.&lt;br&gt;
+Make sure the destination you are interested in is enabled.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
