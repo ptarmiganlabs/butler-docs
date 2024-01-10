@@ -69,6 +69,13 @@ If the rate limiting condition is met, this will be shown as "Rate limiting chec
 Things to check:
 
 - Is Butler receiving the reload task events from Qlik Sense?
+  - Is the failed/aborted reload UDP server in Butler enabled and working?
+    - The UDP server is enabled via the `Butler.udpServerConfig.enabled` setting in the Butler configuration file.
+    - The IP address/host and port where Butler is listening for UDP events is configured via the `Butler.udpServerConfig.serverHost` and `Butler.udpServerConfig.portTaskFailure` settings in the Butler configuration file.
+    - If working correctly, the log will show a message like this:  
+      `TASKFAILURE: UDP server listening on 10.11.12.13:9998`
+    - If there is a problem with the UDP server, the log might show a message like this (in this case the IP address is not valid for the Butler host):  
+      `TASKFAILURE: Error in UDP error handler: Error: getsockname EINVAL`
   - Check the Butler log files.
     When Butler receives a reload task event from Qlik Sense, it will check if rate limiting conditions are met, and also log a message about that.
     If there are no such messages:
