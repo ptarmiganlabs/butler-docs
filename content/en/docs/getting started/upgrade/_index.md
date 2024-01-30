@@ -31,6 +31,21 @@ That version has the latest features, bug fixes and security patches.
 Upgrading to an older version - or a pre-release version - means a higher risk for security concerns, not yet fully tested features etc.
 {{< /notice >}}
 
+### InfluxDB considerations
+
+Some versions include changes to the InfluxDB schema, meaning that you need to do some manual work in order to upgrade to the new schema.
+
+The easiest way to do this is to delete the InfluxDB database used by Butler, then let Butler re-create it using the new schema.  
+If the InfluxDB database specified in the Butler config file does not exist, Butler will automatically create it for you.
+
+Deleting the InfluxDB database (called "butlerops" in this example) can be done with a command similar to this:
+
+```bash
+influx --host <ip-where-influxdb-is-running> --port <influxdb-port-usually-8086>
+drop database butlerops
+exit
+```
+
 ### Minor upgrades
 
 This scenario rarely require any changes to Butler's configuration.  

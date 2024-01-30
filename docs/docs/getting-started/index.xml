@@ -215,7 +215,15 @@ Example: 7.4.2 &amp;gt; 8.0.0&lt;/li&gt;
 That version has the latest features, bug fixes and security patches.&lt;/p&gt;
 &lt;p&gt;Upgrading to an older version - or a pre-release version - means a higher risk for security concerns, not yet fully tested features etc.&lt;/p&gt;&lt;/div&gt;
 
-&lt;h3 id=&#34;minor-upgrades&#34;&gt;Minor upgrades&lt;/h3&gt;
+&lt;h3 id=&#34;influxdb-considerations&#34;&gt;InfluxDB considerations&lt;/h3&gt;
+&lt;p&gt;Some versions include changes to the InfluxDB schema, meaning that you need to do some manual work in order to upgrade to the new schema.&lt;/p&gt;
+&lt;p&gt;The easiest way to do this is to delete the InfluxDB database used by Butler, then let Butler re-create it using the new schema.&lt;br&gt;
+If the InfluxDB database specified in the Butler config file does not exist, Butler will automatically create it for you.&lt;/p&gt;
+&lt;p&gt;Deleting the InfluxDB database (called &amp;ldquo;butlerops&amp;rdquo; in this example) can be done with a command similar to this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;influx --host &amp;lt;ip-where-influxdb-is-running&amp;gt; --port &amp;lt;influxdb-port-usually-8086&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drop database butlerops
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#204a87&#34;&gt;exit&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;minor-upgrades&#34;&gt;Minor upgrades&lt;/h3&gt;
 &lt;p&gt;This scenario rarely require any changes to Butler&amp;rsquo;s configuration.&lt;br&gt;
 The new release includes bug fixes, security patches, minor updates to documentation etc - but no new features.&lt;/p&gt;
 &lt;p&gt;In theory there should never be any changes to the config files when doing a minor upgrade.&lt;/p&gt;
