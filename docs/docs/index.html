@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.121.1">
+<meta name="generator" content="Hugo 0.122.0">
 <link rel="alternate" type="text/html" href="https://butler.ptarmiganlabs.com/docs/_print/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/index.xml">
 <meta name="robots" content="index, follow">
@@ -177,6 +177,8 @@ if (!doNotTrack) {
   <a href="/docs/getting-started/setup/windows-service-monitor/webhook-out/" title="Sending Windows service alerts as outgoing webhooks (=http messages)" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupwindows-service-monitorwebhook-out"><span class="">Webhook</span></a>
 </li>
   </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupqlik-sense-licenses-li">
+  <a href="/docs/getting-started/setup/qlik-sense-licenses/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupqlik-sense-licenses"><span class="">Qlik Sense licenses</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupscheduler-li">
   <a href="/docs/getting-started/setup/scheduler/" title="Configuring the Butler scheduler" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupscheduler"><span class="">Scheduler</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupkey-value-store-li">
@@ -256,6 +258,8 @@ if (!doNotTrack) {
   <a href="/docs/concepts/incident-mgmt-tools/signl4/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsincident-mgmt-toolssignl4"><span class="">Signl4</span></a>
 </li>
   </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsqlik-sense-licenses-li">
+  <a href="/docs/concepts/qlik-sense-licenses/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsqlik-sense-licenses"><span class="">Qlik Sense licenses</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsfile-system-access-li">
   <a href="/docs/concepts/file-system-access/" title="File system access: copy/move/delete files" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfile-system-access"><span class="">Copy/move/delete files</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsmqtt-li">
@@ -436,6 +440,42 @@ if (!doNotTrack) {
 
 <div class="pageinfo pageinfo-primary">
 <h2 id="release-highlights">Release highlights</h2>
+<h3 id="whats-new-in-version-1110">What&rsquo;s new in version 11.1.0</h3>
+<p><em>🚀 Features</em></p>
+<ul>
+<li><strong>license</strong>: Monitor high level Qilk Sense license usage across different license types.</li>
+<li><strong>license</strong>: Scheduled removal of unused user Qlik Sense licenses.</li>
+</ul>
+<p><em>🐛 Bug Fixes</em></p>
+<ul>
+<li><strong>config</strong>: Better, more complete check of config when starting Butler.</li>
+<li><strong>reload failed</strong>: Make handling of reload failed/aborted/succeeded messages more robust.</li>
+<li><strong>startup</strong>: Remove Node.js warnings on Butler startup.</li>
+<li><strong>startup</strong>: More consistent logging during startup.</li>
+<li><strong>startup</strong>: Tidy up formatting of startup info written to logs.</li>
+</ul>
+<p><em>👉 Miscellaneous</em></p>
+<p>Optimize GH Actions for building binaries.
+Remove udp client from Butler project, move to its own repo.
+Sign Win binaries with new signing solution.
+Update dependencies.</p>
+<h3 id="whats-new-in-version-1102">What&rsquo;s new in version 11.0.2</h3>
+<p>This is a maintenance release used to test the automatic building of Butler binaries, Docker images etc.
+No new features or bug fixes were added in this version.</p>
+<h3 id="whats-new-in-version-1101">What&rsquo;s new in version 11.0.1</h3>
+<p>This is a maintenance release used to test the automatic building of Butler binaries, Docker images etc.
+No new features or bug fixes were added in this version.</p>
+<h3 id="whats-new-in-version-1100">What&rsquo;s new in version 11.0.0</h3>
+<p>Focus of this release is to modernize the Butler code base.<br>
+No new features, but a lot of work has been done to make Butler more robust and easier to maintain in the future.</p>
+<p><em>🐛 Bug Fixes</em></p>
+<ul>
+<li><strong>docker</strong>: Correctly report Docker status (72e1087), closes #939</li>
+<li><strong>general</strong>: Make path resoultion for QIX schema files more robust (568aa2e)</li>
+<li><strong>mqtt</strong>: Better logging and check for cert existence (59dc4fa)</li>
+<li><strong>webhook</strong>: Deal with empty webhook list wo errors (3f42d02), closes #944</li>
+<li><strong>winsvc</strong>: Win service monitoring no longer rely on New Relic (e47124c), closes #967</li>
+</ul>
 <h3 id="whats-new-in-version-940">What&rsquo;s new in version 9.4.0</h3>
 <p><em>🚀 Features</em></p>
 <ul>

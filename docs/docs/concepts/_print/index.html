@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.121.1">
+<meta name="generator" content="Hugo 0.122.0">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/concepts/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/concepts/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -320,7 +320,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>7: <a href="#pg-1ac4fd4b7c9bf1db2e94deeef12e64c6">File system access: copy/move/delete files</a></li>
+<li>7: <a href="#pg-d53b327fc967acd8173b66baaf9430d6">Qlik Sense licenses</a></li>
 
 
     
@@ -339,7 +339,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>8: <a href="#pg-54cf36a5b3033781aa5a15d5bc3676b6">MQTT integration</a></li>
+<li>8: <a href="#pg-1ac4fd4b7c9bf1db2e94deeef12e64c6">File system access: copy/move/delete files</a></li>
 
 
     
@@ -358,7 +358,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>9: <a href="#pg-ea75db05eef40e825410085639630380">UDP client</a></li>
+<li>9: <a href="#pg-54cf36a5b3033781aa5a15d5bc3676b6">MQTT integration</a></li>
 
 
     
@@ -377,7 +377,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>10: <a href="#pg-cd624950aeaafeeed59dd958b408e6b6">Monitor Windows services</a></li>
+<li>10: <a href="#pg-ea75db05eef40e825410085639630380">UDP client</a></li>
 
 
     
@@ -396,7 +396,26 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>11: <a href="#pg-30913de421ba8a1881920f31d3308f5e">Real-time metrics</a></li>
+<li>11: <a href="#pg-cd624950aeaafeeed59dd958b408e6b6">Monitor Windows services</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>12: <a href="#pg-30913de421ba8a1881920f31d3308f5e">Real-time metrics</a></li>
 
 
     
@@ -1421,7 +1440,50 @@ Butler integrates with these APIs, creating a seamless, almost instantaneous han
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-1ac4fd4b7c9bf1db2e94deeef12e64c6">7 - File system access: copy/move/delete files</h1>
+	<h1 id="pg-d53b327fc967acd8173b66baaf9430d6">7 - Qlik Sense licenses</h1>
+    <div class="lead"><p>Monitor and manage Qlik Sense licenses.</p>
+<ul>
+<li>High level metrics per user license type (professional, analyzer etc) are gathered and stored in your database of choice (at the time of writing, InfluxDB is supported).</li>
+<li>User licenses can be released automatically after a certain period of inactivity, allowing them to be used by other users.</li>
+</ul></div>
+	<h2 id="monitor-user-licenses">Monitor user licenses</h2>
+<p>In order to use Qlik Sense end users must be assigned some kind of access license.<br>
+There are different types of licenses, for example Professional, Analyzer and Analyzer Capacity licenses.</p>
+<p>Butler can monitor the usage of these licenses and store the data in InfluxDB, from where the license data can be visualized in Grafana.</p>
+<p>This makes it easy to track (and alert if needed) on the number of used licenses, how many are available and when it&rsquo;s time to get more licenses.</p>
+<h2 id="release-inactive-user-licenses">Release inactive user licenses</h2>
+<p>Butler can automatically release Professional and Analyzer user licenses that have been inactive for a certain period of time.</p>
+<p>This is useful in environments where some users use Sense sporadically, for example only during certain times of the year.<br>
+In such cases it&rsquo;s a waste of resources to keep the license assigned to the user when it&rsquo;s not being used.</p>
+<p>Butler can be configured to release the license after a certain period of inactivity, allowing it to be used by other users.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-1ac4fd4b7c9bf1db2e94deeef12e64c6">8 - File system access: copy/move/delete files</h1>
     <div class="lead">Manipulating files from Sense load scripts in a secure yet flexible way.</div>
 	<h2 id="unrestricted-file-system-access-is-a-security-risk">Unrestricted file system access is a security risk</h2>
 <p>Qlik Sense locked down things quite a bit compared to its QlikView predecessor.</p>
@@ -1469,7 +1531,7 @@ These subs are found in <a href="https://github.com/ptarmiganlabs/butler/blob/ma
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-54cf36a5b3033781aa5a15d5bc3676b6">8 - MQTT integration</h1>
+	<h1 id="pg-54cf36a5b3033781aa5a15d5bc3676b6">9 - MQTT integration</h1>
     <div class="lead">Details about how Qlik Sense can use Butler to send pub-sub messages using MQTT.</div>
 	<h2 id="what-is-mqtt">What is MQTT?</h2>
 <p><a href="https://mqtt.org">MQTT</a> is a light weight publish-subscribe (&ldquo;pub-sub&rdquo;) protocol.</p>
@@ -1534,7 +1596,7 @@ Starts the Sense task identified by the ID sent in the message body. More info i
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-ea75db05eef40e825410085639630380">9 - UDP client</h1>
+	<h1 id="pg-ea75db05eef40e825410085639630380">10 - UDP client</h1>
     <div class="lead">A basic, stand-alone UDP client is included in Butler.</div>
 	<p>Butler includes a very basic UDP client, which can be used to send test messages to Butler&rsquo;s UDP servers.<br>
 This can be useful when debugging a Butler server, when adding new UDP handlers etc.<br>
@@ -1592,7 +1654,7 @@ $
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-cd624950aeaafeeed59dd958b408e6b6">10 - Monitor Windows services</h1>
+	<h1 id="pg-cd624950aeaafeeed59dd958b408e6b6">11 - Monitor Windows services</h1>
     <div class="lead">Butler can monitor Windows services and send alerts if a service is not running.<br>
 Services on multiple servers can be monitored, and Butler can send alerts to destinations such as Slack, Teams, email, webhooks, InfluxDB, New Relic and MQTT.</div>
 	
@@ -1775,7 +1837,7 @@ Not all destinations support this, but for example the Teams destination does:</
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-30913de421ba8a1881920f31d3308f5e">11 - Real-time metrics</h1>
+	<h1 id="pg-30913de421ba8a1881920f31d3308f5e">12 - Real-time metrics</h1>
     <div class="lead">Details about the real-time metrics (active user count etc) provided by Butler.</div>
 	
 

@@ -166,6 +166,43 @@ Butler:
     qmc: <Link to Qlik Sense QMC>
     hub: <Link to Qlik Sense Hub>
 
+  # Settings for monitoring Qlik Sense licenses
+  qlikSenseLicense:
+    licenseMonitor:
+      enable: true
+      frequency: every 6 hours        # https://bunkat.github.io/later/parsers.html#text
+      destination:
+        influxDb:                     # Store license data in InfluxDB
+          enable: true
+          tag: 
+            static:                   # Static attributes/tags to attach to the data sent to InflixDB
+              - name: foo
+                value: bar
+    licenseRelease:
+      enable: true
+      frequency: every 6 hours        # https://bunkat.github.io/later/parsers.html#text
+      neverReleaseUsers:              # Users that should never have their license released
+        - userDir: 'INTERNAL'
+          userId: 'sa_repository'
+        - userDir: 'INTERNAL'
+          userId: 'sa_api'
+        - userDir: 'USERDIR'
+          userId: 'qs_admin_account'
+      licenseType:                    # License types to monitor and release
+        analyzer:                     
+          enable: true                # Monitor and release Analyzer licenses
+          releaseThresholdDays: 30    # Number of days a license can be unused before it is released
+        professional:
+          enable: true                # Monitor and release Professional licenses
+          releaseThresholdDays: 30    # Number of days a license can be unused before it is released
+      destination:
+        influxDb:                     # Store info about released licenses in InfluxDB
+          enable: true
+          tag: 
+            static:                   # Static attributes/tags to attach to the data sent to InflixDB
+              - name: foo
+                value: bar
+
   # Settings for notifications and messages sent to MS Teams
   teamsNotification:
     enable: false

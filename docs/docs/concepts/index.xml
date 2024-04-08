@@ -315,6 +315,29 @@ The main difference is that the caller must know the name of the custom property
     </item>
     
     <item>
+      <title>Docs: Qlik Sense licenses</title>
+      <link>https://butler.ptarmiganlabs.com/docs/concepts/qlik-sense-licenses/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler.ptarmiganlabs.com/docs/concepts/qlik-sense-licenses/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;monitor-user-licenses&#34;&gt;Monitor user licenses&lt;/h2&gt;
+&lt;p&gt;In order to use Qlik Sense end users must be assigned some kind of access license.&lt;br&gt;
+There are different types of licenses, for example Professional, Analyzer and Analyzer Capacity licenses.&lt;/p&gt;
+&lt;p&gt;Butler can monitor the usage of these licenses and store the data in InfluxDB, from where the license data can be visualized in Grafana.&lt;/p&gt;
+&lt;p&gt;This makes it easy to track (and alert if needed) on the number of used licenses, how many are available and when it&amp;rsquo;s time to get more licenses.&lt;/p&gt;
+&lt;h2 id=&#34;release-inactive-user-licenses&#34;&gt;Release inactive user licenses&lt;/h2&gt;
+&lt;p&gt;Butler can automatically release Professional and Analyzer user licenses that have been inactive for a certain period of time.&lt;/p&gt;
+&lt;p&gt;This is useful in environments where some users use Sense sporadically, for example only during certain times of the year.&lt;br&gt;
+In such cases it&amp;rsquo;s a waste of resources to keep the license assigned to the user when it&amp;rsquo;s not being used.&lt;/p&gt;
+&lt;p&gt;Butler can be configured to release the license after a certain period of inactivity, allowing it to be used by other users.&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
       <title>Docs: File system access: copy/move/delete files</title>
       <link>https://butler.ptarmiganlabs.com/docs/concepts/file-system-access/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

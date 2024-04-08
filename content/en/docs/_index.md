@@ -15,8 +15,52 @@ General guidance on how to do this is found [here](/docs/getting-started/upgrade
 
 {{% pageinfo %}}
 
-
 ## Release highlights
+
+### What's new in version 11.1.0
+
+*🚀 Features*
+
+* **license**: Monitor high level Qilk Sense license usage across different license types.
+* **license**: Scheduled removal of unused user Qlik Sense licenses.
+
+*🐛 Bug Fixes*
+
+* **config**: Better, more complete check of config when starting Butler.
+* **reload failed**: Make handling of reload failed/aborted/succeeded messages more robust.
+* **startup**: Remove Node.js warnings on Butler startup.
+* **startup**: More consistent logging during startup.
+* **startup**: Tidy up formatting of startup info written to logs.
+
+*👉 Miscellaneous*
+
+Optimize GH Actions for building binaries.
+Remove udp client from Butler project, move to its own repo.
+Sign Win binaries with new signing solution.
+Update dependencies.
+
+### What's new in version 11.0.2
+
+This is a maintenance release used to test the automatic building of Butler binaries, Docker images etc.
+No new features or bug fixes were added in this version.
+
+### What's new in version 11.0.1
+
+This is a maintenance release used to test the automatic building of Butler binaries, Docker images etc.
+No new features or bug fixes were added in this version.
+
+### What's new in version 11.0.0
+
+Focus of this release is to modernize the Butler code base.  
+No new features, but a lot of work has been done to make Butler more robust and easier to maintain in the future.
+
+*🐛 Bug Fixes*
+
+* **docker**: Correctly report Docker status (72e1087), closes #939
+* **general**: Make path resoultion for QIX schema files more robust (568aa2e)
+* **mqtt**: Better logging and check for cert existence (59dc4fa)
+* **webhook**: Deal with empty webhook list wo errors (3f42d02), closes #944
+* **winsvc**: Win service monitoring no longer rely on New Relic (e47124c), closes #967
 
 ### What's new in version 9.4.0
 

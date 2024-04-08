@@ -13,7 +13,7 @@ Butler is distributed under the [MIT license](https://en.wikipedia.org/wiki/MIT_
 ```
 MIT License
 
-Copyright (c) 2016-2023 Göran Sander
+Copyright (c) 2016-2024 Göran Sander
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -44,7 +44,7 @@ GitHub probably keep log files for GitHub Pages, your visit to this documentatio
 
 We use Plausible Analytics to collect aggregated web analytics data.
 
-Plausible Analytics is a privacy-friendly alternative to Google Analytics. No cookies are used and no personal data is collected.
+Plausible Analytics is a privacy-friendly alternative to Google Analytics. No cookies are used and no personal data is collected.  
 Web analytics data is stored on Plausible's servers in the EU.
 
 ## Telemetry data

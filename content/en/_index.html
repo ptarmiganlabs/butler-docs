@@ -7,7 +7,7 @@ linkTitle = "Butler"
 {{< blocks/cover title="Butler: Adding superpowers to Qlik Sense" image_anchor="center" height="full" color="dark" >}}
 <div class="mx-auto">
 	<p class="lead mt-5" style="font-size: 120%" ">
-		Great looking alerts to Slack, Teams, email or New Relic when reloads fail, save all failed reload scripts, advanced task scheduling, task chaining with parameters, key-value store, start reload tasks from any system, extract app metadata, post to Slack/Teams, MQTT integration and more.<br><br>
+		Great looking alerts to Slack, Teams, email or New Relic when reloads fail, save all failed reload scripts, monitor Sense licenses, advanced task scheduling, task chaining with parameters, key-value store, start reload tasks from any system, extract app metadata, post to Slack/Teams, MQTT integration and more.<br><br>
 	</p>
 	<p style="font-size: 120%" ">
 		No installation needed. Just download, configure and run.<br>
@@ -77,6 +77,13 @@ Service metrics are continuously sent to MQTT and InfluxDB.
 [Read more...](/docs/getting-started/setup/windows-service-monitor/) 
 {{% /blocks/feature %}}
 
+
+{{% blocks/feature icon="fa-cogs" title="Monitor and release user licenses" %}}
+Stay on top of how your Qlik Sense user licenses are used.
+Monitor in real time - broken down by license type - and release licenses that are no longer used by users.
+
+[Read more...](/docs/concepts/qlik-sense-licenses/)
+{{% /blocks/feature %}}
 
 
 {{% blocks/feature icon="fa-clock" title="Advanced task scheduler" %}}
@@ -177,13 +184,10 @@ Butler itself can be monitored in InfluxDB/Grafana and New Relic.
 
 {{< blocks/section color="dark">}}
 
-{{% blocks/feature icon="fa-lightbulb" title="Latest release: 9.4" %}}
-🥳 Info on both failed and successful reloads now stored in InfluxDb.
+{{% blocks/feature icon="fa-lightbulb" title="Latest release: 11.1" %}}
+🥳 Monitor Sense user licenses to avoid running out of them.
 
-⚙️ Windows services checks now support multiple hosts and are much quicker than before. 
-
-⚡️ Conntect to Azure EventGrid MQTT broker from Butler.  
-Great for start-reloads-from-anywhere challenges!
+Automatically release unused Sense user licenses.
 
 Available on [GitHub](https://github.com/ptarmiganlabs/butler/releases).
 {{% /blocks/feature %}}

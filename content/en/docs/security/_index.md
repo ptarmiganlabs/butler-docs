@@ -46,3 +46,10 @@ Adding https support could be done, Node.js supports this very nicely.
 ## Butler talking to Qlik Sense
 
 Butler uses https for all communication with Sense, using Sense's certificates for authentication.
+
+## Signed binaries
+
+The macOS executable binary is signed and notarized by Apple’s standard process.  
+A warning may still be shown first time the app is started. This is expected and normal.
+
+The Windows executable binary is signed by “Open Source Developer, Göran Sander".
