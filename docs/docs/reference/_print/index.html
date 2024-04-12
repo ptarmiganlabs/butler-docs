@@ -3578,6 +3578,153 @@ This is simply how Sense works - the template fields just forward the informatio
 </tr>
 </tbody>
 </table>
+<h2 id="qlik-sense-license-info">Qlik Sense license info</h2>
+<p>The license information returned by the Qlik Sense API is not very well documented by Qlik.<br>
+As a result it is not always clear what the different fields mean.<br>
+This is highlighted for each affected field below.</p>
+<p>Measurement: <code>sense_license_info</code></p>
+<p>Each datapoint has a tag called <code>license_type</code> that can have the following values:</p>
+<ul>
+<li><code>professional</code></li>
+<li><code>analyzer</code></li>
+<li><code>analyzer_capacity</code></li>
+<li><code>token_login</code></li>
+<li><code>token_user</code></li>
+<li><code>tokens_available</code></li>
+</ul>
+<p>The tags are the same for all license types, but the fields differ as follows.</p>
+<h3 id="license-types-professional-and-analyzer">License types &ldquo;professional&rdquo; and &ldquo;analyzer&rdquo;</h3>
+<table>
+<thead>
+<tr>
+<th>Field name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>allocated</td>
+<td>Number of allocated professional licenses.</td>
+</tr>
+<tr>
+<td>available</td>
+<td>Number of available professional licenses.</td>
+</tr>
+<tr>
+<td>excess</td>
+<td>Number of excess professional licenses. <em>Unclear what this means.</em></td>
+</tr>
+<tr>
+<td>quarantined</td>
+<td>Number of quarantined professional licenses.</td>
+</tr>
+<tr>
+<td>total</td>
+<td>Total number of professional licenses included in the installed Qlik Sense license.</td>
+</tr>
+<tr>
+<td>used</td>
+<td>Number of professional licenses in use right now.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="license-type-analyzer_capacity">License type <code>analyzer_capacity</code></h3>
+<table>
+<thead>
+<tr>
+<th>Field name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>allocated_minutes</td>
+<td>Total number of analyzer capacity minutes available in the installed Qlik Sense license.</td>
+</tr>
+<tr>
+<td>unavailable_minutes</td>
+<td>Number of analyzer capacity minutes that are currently unavailable. <em>Unclear what this means.</em></td>
+</tr>
+<tr>
+<td>used_minutes</td>
+<td>Number of analyzer capacity minutes used so far this month.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="license-type-token_login">License type <code>token_login</code></h3>
+<table>
+<thead>
+<tr>
+<th>Field name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>allocated_tokens</td>
+<td><em>Unclear what this means.</em></td>
+</tr>
+<tr>
+<td>token_cost</td>
+<td><em>Unclear what this means.</em></td>
+</tr>
+<tr>
+<td>unavailable_tokens</td>
+<td><em>Unclear what this means.</em></td>
+</tr>
+<tr>
+<td>used_tokens</td>
+<td><em>Unclear what this means.</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="license-type-token_user">License type <code>token_user</code></h3>
+<table>
+<thead>
+<tr>
+<th>Field name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>allocated_tokens</td>
+<td><em>Unclear what this means.</em></td>
+</tr>
+<tr>
+<td>quarantined_tokens</td>
+<td><em>Unclear what this means.</em></td>
+</tr>
+<tr>
+<td>token_cost</td>
+<td><em>Unclear what this means.</em></td>
+</tr>
+<tr>
+<td>used_tokens</td>
+<td><em>Unclear what this means.</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="license-type-tokens_available">License type <code>tokens_available</code></h3>
+<p>This license type contains aggregated token information.</p>
+<table>
+<thead>
+<tr>
+<th>Field name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>available_tokens</td>
+<td>Number of tokens available. <em>Unclear what this means.</em></td>
+</tr>
+<tr>
+<td>total_tokens</td>
+<td>Total number of tokens included in the installed Qlik Sense license. <em>Unclear what this means.</em></td>
+</tr>
+</tbody>
+</table>
 <h2 id="butler-uptime-info">Butler uptime info</h2>
 <p>Measurement: <code>butler_memory_usage</code></p>
 <h3 id="tags-3">Tags</h3>

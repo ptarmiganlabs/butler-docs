@@ -111,6 +111,71 @@ Measurement: `win_service_state`
 | startup_mode_num | Startup mode of the Windows service (numeric). |
 | startup_mode_text | Startup mode of the Windows service (text). |
 
+## Qlik Sense license info
+
+The license information returned by the Qlik Sense API is not very well documented by Qlik.  
+As a result it is not always clear what the different fields mean.  
+This is highlighted for each affected field below.
+
+Measurement: `sense_license_info`
+
+Each datapoint has a tag called `license_type` that can have the following values:
+
+- `professional`
+- `analyzer`
+- `analyzer_capacity`
+- `token_login`
+- `token_user`
+- `tokens_available`
+
+The tags are the same for all license types, but the fields differ as follows.
+
+### License types "professional" and "analyzer"
+
+| Field name | Description |
+|------------|-------------|
+| allocated | Number of allocated professional licenses. |
+| available | Number of available professional licenses. |
+| excess | Number of excess professional licenses. *Unclear what this means.* |
+| quarantined | Number of quarantined professional licenses. |
+| total | Total number of professional licenses included in the installed Qlik Sense license. |
+| used | Number of professional licenses in use right now. |
+
+### License type `analyzer_capacity`
+
+| Field name | Description |
+|------------|-------------|
+| allocated_minutes | Total number of analyzer capacity minutes available in the installed Qlik Sense license. |
+| unavailable_minutes | Number of analyzer capacity minutes that are currently unavailable. *Unclear what this means.*  |
+| used_minutes | Number of analyzer capacity minutes used so far this month. |
+
+### License type `token_login`
+
+| Field name | Description |
+|------------|-------------|
+| allocated_tokens | *Unclear what this means.* |
+| token_cost | *Unclear what this means.* |
+| unavailable_tokens | *Unclear what this means.* |
+| used_tokens | *Unclear what this means.* |
+
+### License type `token_user`
+
+| Field name | Description |
+|------------|-------------|
+| allocated_tokens | *Unclear what this means.* |
+| quarantined_tokens | *Unclear what this means.* |
+| token_cost | *Unclear what this means.* |
+| used_tokens | *Unclear what this means.* |
+
+### License type `tokens_available`
+
+This license type contains aggregated token information.
+
+| Field name | Description |
+|------------|-------------|
+| available_tokens | Number of tokens available. *Unclear what this means.* |
+| total_tokens | Total number of tokens included in the installed Qlik Sense license. *Unclear what this means.* |
+
 ## Butler uptime info
 
 Measurement: `butler_memory_usage`
