@@ -290,7 +290,7 @@ It is thus possible to get started with monitoring Sense reloads in New Relic wi
 &lt;p&gt;In short, MQTT works by having a broker that clients can connect to. Clients can publish messages to the broker, and clients can subscribe to messages from the broker.&lt;br&gt;
 This makes MQTT a great way to integrate different systems in a publish/subscribe pattern.&lt;/p&gt;
 &lt;p&gt;By sending information about failed reloads to an MQTT broker, Butler can be integrated with any system that can consume MQTT messages - which is a lot of systems.&lt;/p&gt;
-&lt;p&gt;The data sent via MQTT messages is described &lt;a href=&#34;TODO&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The information included in the MQTT message is described &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/alert-mqtt/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Here is an example of how the information about a failed reload can be viewed in MQTT Explorer:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://butler.ptarmiganlabs.com/img/failed-reload-mqtt-explorer-1.png&#34; alt=&#34;Information about a failed reload, viewed in MQTT Explorer&#34; title=&#34;Information about a failed reload, viewed in MQTT Explorer&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;

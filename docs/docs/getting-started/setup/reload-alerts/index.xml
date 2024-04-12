@@ -387,7 +387,7 @@ You can also use the information to create alerts in Grafana using it&amp;rsquo;
 &lt;li&gt;Dynamic app tags, i.e. Sense tags for the app being reloaded, if enabled in the config file &lt;code&gt;Butler.influxDb.reloadTaskFailure.tag.dynamic.useAppTags&lt;/code&gt; section.&lt;/li&gt;
 &lt;li&gt;Dynamic reload task tags, i.e. Sense tags for the reload task being executed, if enabled in the config file &lt;code&gt;Butler.influxDb.reloadTaskFailure.tag.dynamic.useTaskTags&lt;/code&gt; section.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;A complete definition of all information sent to InfluxDB is available in the reference section. TODO: Add link&lt;/p&gt;
+&lt;p&gt;A complete definition of all information sent to InfluxDB is available in the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/influxdb/&#34;&gt;reference section&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;monitor-successful-reload-tasks&#34;&gt;Monitor successful reload tasks&lt;/h2&gt;
 &lt;p&gt;Butler can monitor all reload tasks for successful completion, or only some of them.&lt;/p&gt;
 &lt;h3 id=&#34;monitor-all-successful-reload-tasks&#34;&gt;Monitor all successful reload tasks&lt;/h3&gt;

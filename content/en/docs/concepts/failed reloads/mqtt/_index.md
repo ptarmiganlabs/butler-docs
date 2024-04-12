@@ -17,7 +17,7 @@ This makes MQTT a great way to integrate different systems in a publish/subscrib
 
 By sending information about failed reloads to an MQTT broker, Butler can be integrated with any system that can consume MQTT messages - which is a lot of systems.
 
-The data sent via MQTT messages is described [here](TODO).
+The information included in the MQTT message is described [here](/docs/getting-started/setup/reload-alerts/alert-mqtt/).
 
 Here is an example of how the information about a failed reload can be viewed in MQTT Explorer:
 

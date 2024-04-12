@@ -4889,7 +4889,7 @@ You can also use the information to create alerts in Grafana using it&rsquo;s co
 <li>Dynamic app tags, i.e. Sense tags for the app being reloaded, if enabled in the config file <code>Butler.influxDb.reloadTaskFailure.tag.dynamic.useAppTags</code> section.</li>
 <li>Dynamic reload task tags, i.e. Sense tags for the reload task being executed, if enabled in the config file <code>Butler.influxDb.reloadTaskFailure.tag.dynamic.useTaskTags</code> section.</li>
 </ul>
-<p>A complete definition of all information sent to InfluxDB is available in the reference section. TODO: Add link</p>
+<p>A complete definition of all information sent to InfluxDB is available in the <a href="/docs/reference/influxdb/">reference section</a>.</p>
 <h2 id="monitor-successful-reload-tasks">Monitor successful reload tasks</h2>
 <p>Butler can monitor all reload tasks for successful completion, or only some of them.</p>
 <h3 id="monitor-all-successful-reload-tasks">Monitor all successful reload tasks</h3>
@@ -9031,7 +9031,7 @@ It is thus possible to get started with monitoring Sense reloads in New Relic wi
 <p>In short, MQTT works by having a broker that clients can connect to. Clients can publish messages to the broker, and clients can subscribe to messages from the broker.<br>
 This makes MQTT a great way to integrate different systems in a publish/subscribe pattern.</p>
 <p>By sending information about failed reloads to an MQTT broker, Butler can be integrated with any system that can consume MQTT messages - which is a lot of systems.</p>
-<p>The data sent via MQTT messages is described <a href="TODO">here</a>.</p>
+<p>The information included in the MQTT message is described <a href="/docs/getting-started/setup/reload-alerts/alert-mqtt/">here</a>.</p>
 <p>Here is an example of how the information about a failed reload can be viewed in MQTT Explorer:</p>
 <p><img src="/img/failed-reload-mqtt-explorer-1.png" alt="Information about a failed reload, viewed in MQTT Explorer" title="Information about a failed reload, viewed in MQTT Explorer"></p>
 <h2 id="configuration">Configuration</h2>
