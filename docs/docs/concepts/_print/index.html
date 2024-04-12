@@ -218,6 +218,101 @@ This is the multi-page printable view of this section.
     </ul>
     
   
+    
+    
+	
+<li>3.4: <a href="#pg-2572b5d0bb912bb2fe6598f2112aa5c4">InfluxDB</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3.5: <a href="#pg-bb0b42e65c84552525f295e8402fc090">New Relic</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3.6: <a href="#pg-ae3289abc4fde74201ada2090f471d10">MQTT</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3.7: <a href="#pg-da76efdcdc38f4b3df6afb92ec23202c">Signl4</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3.8: <a href="#pg-047e1db6b8a4141a89e5a2106def9fa3">Webhooks</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
 
     </ul>
     
@@ -617,7 +712,9 @@ Cron has been the standard scheduler for decades in most Linux systems, it&rsquo
     
 	<h1 id="pg-2eacc0a085abb47e5414dfd9fb8120b3">3 - Failed/aborted reloads</h1>
     <div class="lead">Overview of the actions Butler can take when a reload task fails or is aborted.</div>
-	
+	<p>Below follows a list of destinations to which Butler can send notifications when a reload task fails or is aborted.</p>
+<p>A comparison of the different alert destinations can be found <a href="/docs/getting-started/setup/reload-alerts/#alert-destinations-and-options">here</a>.</p>
+
 </div>
 
 
@@ -877,6 +974,207 @@ Each notification destination has its own set of template files. It&rsquo;s ther
 </span></span><span style="display:flex;"><span>        └── 2022-04-07_05-49-16_appId<span style="color:#ce5c00;font-weight:bold">=</span>deba4bcf-47e4-472e-97b2-4fe8d6498e11_taskId<span style="color:#ce5c00;font-weight:bold">=</span>0d815a99-1ca3-4131-a398-6878bd735fd8.log
 </span></span></code></pre></div><p>All in all this makes it a lot easier to find log files for failed reloads.</p>
 <p>Configuration of this feature is described <a href="/docs/getting-started/setup/reload-script-logs/">here</a>.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-2572b5d0bb912bb2fe6598f2112aa5c4">3.4 - InfluxDB</h1>
+    <div class="lead">Storing information about failed reloads in InfluxDB can be useful for monitoring and analysis purposes.<br>
+Once the data is in InfluxDB it can be visualized in Grafana or similar tools.</div>
+	<h2 id="visualising-failed-reloads-in-grafana">Visualising failed reloads in Grafana</h2>
+<p>When a reload fails, Butler can send information about the failed reload to InfluxDB.<br>
+The data stored in InfluxDB is described <a href="/docs/reference/influxdb/#failed-reload-tasks">here</a>.</p>
+<p>Once the data is in InfluxDB it can be visualized in Grafana or similar tools.<br>
+Grafana has a good log viewer that can be used to visualize the data.</p>
+<p>Note how even the script log is stored in InfluxDB, so you can see the last few lines of the reload script log in Grafana.<br>
+This makes it easy to right away see what went wrong, especially when dealing with reloads that happened a while back.</p>
+<p><img src="/img/failed-reload-log-in-grafana-1.png" alt="Failed reload task visualised in Grafana" title="Failed reload task visualised in Grafana"></p>
+<h2 id="configuration">Configuration</h2>
+<p>Configuration of this feature is described <a href="/docs/getting-started/setup/reload-alerts/">here</a>.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-bb0b42e65c84552525f295e8402fc090">3.5 - New Relic</h1>
+    
+	<h2 id="view-reload-alerts-in-new-relic">View reload alerts in New Relic</h2>
+<p>When investigating reload failures it can often be useful to have access to the entire reload log, as this usually tells immediately what went wrong.<br>
+Butler forwards a very comprehensive set of data to New Relic when a reload fails, including the failing part of the app&rsquo;s script.</p>
+<p>This means that companies using New Relic as their enterprise monitoring solution can now also use it to monitor their Qlik Sense reloads, as well as all the Sense real-time metrics provided by Butler&rsquo;s sibling tool <a href="https://butler-sos.ptarmiganlabs.com">Butler SOS</a>.</p>
+<p>As of this wrtiting, New Relic also offers a free tier that will be more than enough for most Butler users.<br>
+It is thus possible to get started with monitoring Sense reloads in New Relic without any additional cost.</p>
+<p>More information about how Butler integrates with New Relic can be found <a href="/docs/concepts/incident-mgmt-tools/new-relic/">here</a>.</p>
+<h2 id="configuration">Configuration</h2>
+<p>Configuration of this feature is described <a href="/docs/getting-started/setup/incident-mgmt-tools/new-relic/">here</a>.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ae3289abc4fde74201ada2090f471d10">3.6 - MQTT</h1>
+    
+	<h2 id="mqtt-as-unified-message-bus">MQTT as unified message bus</h2>
+<p>When a reload fails, Butler can send information about the failed reload to an MQTT broker.</p>
+<p>MQTT is a lightweight messaging protocol that is commonly used in IoT applications, but it is a mature and versatile protocol that can be used in many different scenarios.</p>
+<p>In short, MQTT works by having a broker that clients can connect to. Clients can publish messages to the broker, and clients can subscribe to messages from the broker.<br>
+This makes MQTT a great way to integrate different systems in a publish/subscribe pattern.</p>
+<p>By sending information about failed reloads to an MQTT broker, Butler can be integrated with any system that can consume MQTT messages - which is a lot of systems.</p>
+<p>The data sent via MQTT messages is described <a href="TODO">here</a>.</p>
+<p>Here is an example of how the information about a failed reload can be viewed in MQTT Explorer:</p>
+<p><img src="/img/failed-reload-mqtt-explorer-1.png" alt="Information about a failed reload, viewed in MQTT Explorer" title="Information about a failed reload, viewed in MQTT Explorer"></p>
+<h2 id="configuration">Configuration</h2>
+<p>Configuration of this feature is described <a href="/docs/getting-started/setup/mqtt/">here</a>.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-da76efdcdc38f4b3df6afb92ec23202c">3.7 - Signl4</h1>
+    <div class="lead">Signl4 is a mobile alerting app that offers an easy way to get started with monitoring and alerting in general,<br> including Qlik Sense reloads via Butler&rsquo;s integration with Signl4.</div>
+	<h2 id="mobile-alerting">Mobile alerting</h2>
+<p>Signl4 has a great mobile app that can be used to receive reload-failed alerts from Butler.</p>
+<p>It can look something like this:</p>
+<p><img src="/docs/concepts/incident-mgmt-tools/signl4/signl4-4.jpg" alt="Reload failed alerts in Signl4 mobile app" title="Reload failed alerts in Signl4 mobile app"></p>
+<p>More information about how Butler integrates with Signl4 can be found <a href="/docs/concepts/incident-mgmt-tools/signl4/">here</a>.</p>
+<h2 id="configuration">Configuration</h2>
+<p>Configuration of this feature is described <a href="/docs/getting-started/setup/incident-mgmt-tools/signl4/">here</a>.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-047e1db6b8a4141a89e5a2106def9fa3">3.8 - Webhooks</h1>
+    <div class="lead">Webhooks provide a generic way to send information about failed/aborted reloads to any system that can receive HTTP POST/PUT/GET requests.<br></div>
+	<h2 id="when-nothing-else-works">When nothing else works</h2>
+<p>Webhooks may be somewhat limited in terms of what they can do, but their simplicity is also their strength.</p>
+<p>When you need to send information about failed/aborted reloads to a system that doesn&rsquo;t have a dedicated integration with Butler, webhooks may be a good solution.</p>
+<p>Butler offers a lot of flexibility in terms of how each webhook is configured.<br>
+You can&hellip;</p>
+<ul>
+<li>specify the URL to send the webhook to.</li>
+<li>specify the HTTP method to use (POST, PUT, GET).</li>
+<li>use htto or https.</li>
+<li>specify if a custom certificate should be used.
+In this case the root CA certificate is provided to Butler per webhook, which means Butler can be integrated to many systems, each using their own self-signed certificate.</li>
+<li>specify if an untrusted certificate should be accepted.
+This is useful when integrating with systems that use self-signed certificates and you don&rsquo;t have access to the root CA certificate.</li>
+</ul>
+<p>Sending reload-failed informnation to a GET http webhook provided by Node-RED can look like this in the Node-RED editor:</p>
+<p><img src="/img/webhook-node-red-1.png" alt="Webhook in Node-RED" title="Webhook in Node-RED"></p>
+<h2 id="configuration">Configuration</h2>
+<p>Configuration of this feature is described <a href="/docs/getting-started/setup/reload-alerts/alert-webhook-out/">here</a>.</p>
 
 </div>
 

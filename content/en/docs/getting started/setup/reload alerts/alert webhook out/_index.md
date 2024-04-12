@@ -12,12 +12,13 @@ description: >
 Butler can send two kinds of alert messages as outgoing webhooks:
 
 - When a scheduled, running reload task fails.
-- When a scheduled, running reload task is somehow stopped.
+- When a scheduled, running reload task is somehow stopped/aborted.
 
 ## How it works
 
 Outgoing webhooks is a concept where Butler will do a GET, POST or PUT HTTP call to a specific URL when a task fails or is aborted/stopped.  
-The use case is to interface with currently unkown third party systems in a generic way.
+The use case is to interface with currently unkown third party systems in a generic way.  
+Both http and https calls are supported, including the use of self-signed certificates and untrusted certificates.
 
 As the call will include information about the failed/aborted task, the typical (and arguably most correct) way of doing this would be via a PUT call.
 
@@ -30,6 +31,29 @@ If that property is `true` both task fail and abort webhooks are enabled.
 If you don't need any outgoing webhooks you should keep the `Butler.webhookNotification.reloadTaskFailure.webhooks` and `Butler.webhookNotification.reloadTaskAborted.webhooks` arrays empty.
 
 There are also rate limiting properties that are used to ensure that webhooks are not sent too often.
+
+## Certificates and https
+
+Outgoing webhooks can use http or https.  
+If https is used and the server being called uses a publicly trusted certificate, no additional configuration is needed.  
+If the server uses a self-signed certificate, the corresponding root CA certificate must be provided to Butler in order to avoid certificate validation errors.
+
+Each webhook has its own certificate configuration, so Butler can be integrated with many systems, each using their own publicly verified or self-signed certificates - or just plain http without any certificates at all.
+
+The certificate configuration is done in the Butler config file and looks like this for each webhook:
+
+```yaml
+...
+cert:
+  enable: true                    # Set to true to use a custom CA certificate when calling the webhookURL
+  rejectUnauthorized: true        # Set to false to ignore warnings/errors caused by self-signed certificates used on the webhooks server.
+  certCA: /path/to/ca-certificate.pem       # Path to the CA certificate file
+...
+```
+
+If `...cert.enable` is set to `true` Butler will use the certificate specified in `...cert.certCA` when calling the webhook.
+
+If `...cert.rejectUnauthorized` is set to `false` Butler will ignore warnings/errors caused by self-signed certificates being used on the webhook server.
 
 ## Data included in outgoing webhooks
 
@@ -86,26 +110,50 @@ Butler:
       rateLimit: 300              # Min seconds between outgoing webhook calls for a given taskID. Defaults to 5 minutes.
       webhooks:
         - description: 'This outgoing webhook is used to...'  # Informational only
-          webhookURL: http://host.my.domain:port/some/path    # outgoing webhook that Butler will call
+          webhookURL: http://host.my.domain:port/some/path    # Outgoing webhook that Butler will call
           httpMethod: POST                                    # GET/POST/PUT
+          cert:
+            enable: false                                     # Set to true to use a custom CA certificate when calling the webhookURL
+            rejectUnauthorized: true                          # Set to false to ignore warnings/errors caused by self-signed certificates used on the webhooks server.
+            certCA: /path/to/ca-certificate.pem               # Path to the CA certificate file
         - description: 'This outgoing webhook is used to...'  # Informational only
-          webhookURL: http://host.my.domain:port/some/path    # outgoing webhook that Butler will call
-          httpMethod: PUT                                     # GET/POST/PUT.
+          webhookURL: http://host.my.domain:port/some/path    # Outgoing webhook that Butler will call
+          httpMethod: PUT                                     # GET/POST/PUT
+          cert:
+            enable: false                                     # Set to true to use a custom CA certificate when calling the webhookURL
+            rejectUnauthorized: true                          # Set to false to ignore warnings/errors caused by self-signed certificates used on the webhooks server.
+            certCA: /path/to/ca-certificate.pem               # Path to the CA certificate file
         - description: 'This outgoing webhook is used to...'  # Informational only
-          webhookURL: http://host.my.domain:port/some/path    # outgoing webhook that Butler will call
+          webhookURL: http://host.my.domain:port/some/path    # Outgoing webhook that Butler will call
           httpMethod: GET                                     # GET/POST/PUT
+          cert:
+            enable: false                                     # Set to true to use a custom CA certificate when calling the webhookURL
+            rejectUnauthorized: true                          # Set to false to ignore warnings/errors caused by self-signed certificates used on the webhooks server.
+            certCA: /path/to/ca-certificate.pem               # Path to the CA certificate file
     reloadTaskAborted:
       rateLimit: 300              # Min seconds between outgoing webhook calls for a given taskID. Defaults to 5 minutes.
       webhooks:
         - description: 'This outgoing webhook is used to...'  # Informational only
-          webhookURL: http://host.my.domain:port/some/path    # outgoing webhook that Butler will call
+          webhookURL: http://host.my.domain:port/some/path    # Outgoing webhook that Butler will call
           httpMethod: PUT                                     # GET/POST/PUT
+          cert:
+            enable: false                                     # Set to true to use a custom CA certificate when calling the webhookURL
+            rejectUnauthorized: true                          # Set to false to ignore warnings/errors caused by self-signed certificates used on the webhooks server.
+            certCA: /path/to/ca-certificate.pem               # Path to the CA certificate file
         - description: 'This outgoing webhook is used to...'  # Informational only
-          webhookURL: http://host.my.domain:port/some/path    # outgoing webhook that Butler will call
+          webhookURL: http://host.my.domain:port/some/path    # Outgoing webhook that Butler will call
           httpMethod: POST                                    # GET/POST/PUT
+          cert:
+            enable: false                                     # Set to true to use a custom CA certificate when calling the webhookURL
+            rejectUnauthorized: true                          # Set to false to ignore warnings/errors caused by self-signed certificates used on the webhooks server.
+            certCA: /path/to/ca-certificate.pem               # Path to the CA certificate file
         - description: 'This outgoing webhook is used to...'  # Informational only
-          webhookURL: http://host.my.domain:port/some/path    # outgoing webhook that Butler will call
+          webhookURL: http://host.my.domain:port/some/path    # Outgoing webhook that Butler will call
           httpMethod: GET                                     # GET/POST/PUT
+          cert:
+            enable: false                                     # Set to true to use a custom CA certificate when calling the webhookURL
+            rejectUnauthorized: true                          # Set to false to ignore warnings/errors caused by self-signed certificates used on the webhooks server.
+            certCA: /path/to/ca-certificate.pem               # Path to the CA certificate file
   ...
   ...
 ```

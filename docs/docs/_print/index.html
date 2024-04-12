@@ -1150,6 +1150,101 @@ This is the multi-page printable view of this section.
     </ul>
     
   
+    
+    
+	
+<li>3.3.4: <a href="#pg-2572b5d0bb912bb2fe6598f2112aa5c4">InfluxDB</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3.3.5: <a href="#pg-bb0b42e65c84552525f295e8402fc090">New Relic</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3.3.6: <a href="#pg-ae3289abc4fde74201ada2090f471d10">MQTT</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3.3.7: <a href="#pg-da76efdcdc38f4b3df6afb92ec23202c">Signl4</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3.3.8: <a href="#pg-047e1db6b8a4141a89e5a2106def9fa3">Webhooks</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
 
     </ul>
     
@@ -1969,6 +2064,7 @@ This is the multi-page printable view of this section.
 
 
 <div class="pageinfo pageinfo-primary">
+<p>Starting with version 11.2, the <a href="https://github.com/ptarmiganlabs/butler/releases">GitHub releases page</a> is the place where release notes are found.</p>
 <h2 id="release-highlights">Release highlights</h2>
 <h3 id="whats-new-in-version-1110">What&rsquo;s new in version 11.1.0</h3>
 <p><em>🚀 Features</em></p>
@@ -5542,11 +5638,12 @@ The message is sent on the <code>Butler.mqttConfig.taskFailureFullTopic</code> o
 <p>Butler can send two kinds of alert messages as outgoing webhooks:</p>
 <ul>
 <li>When a scheduled, running reload task fails.</li>
-<li>When a scheduled, running reload task is somehow stopped.</li>
+<li>When a scheduled, running reload task is somehow stopped/aborted.</li>
 </ul>
 <h2 id="how-it-works">How it works</h2>
 <p>Outgoing webhooks is a concept where Butler will do a GET, POST or PUT HTTP call to a specific URL when a task fails or is aborted/stopped.<br>
-The use case is to interface with currently unkown third party systems in a generic way.</p>
+The use case is to interface with currently unkown third party systems in a generic way.<br>
+Both http and https calls are supported, including the use of self-signed certificates and untrusted certificates.</p>
 <p>As the call will include information about the failed/aborted task, the typical (and arguably most correct) way of doing this would be via a PUT call.</p>
 <p>But some systems only handle GET calls - and Butler should still be able to notify them using webhooks.<br>
 The chosen solution is to offer full flexibility for outgoing webhooks and support both GET, PUT and POST calls.</p>
@@ -5554,6 +5651,20 @@ The chosen solution is to offer full flexibility for outgoing webhooks and suppo
 If that property is <code>true</code> both task fail and abort webhooks are enabled.</p>
 <p>If you don&rsquo;t need any outgoing webhooks you should keep the <code>Butler.webhookNotification.reloadTaskFailure.webhooks</code> and <code>Butler.webhookNotification.reloadTaskAborted.webhooks</code> arrays empty.</p>
 <p>There are also rate limiting properties that are used to ensure that webhooks are not sent too often.</p>
+<h2 id="certificates-and-https">Certificates and https</h2>
+<p>Outgoing webhooks can use http or https.<br>
+If https is used and the server being called uses a publicly trusted certificate, no additional configuration is needed.<br>
+If the server uses a self-signed certificate, the corresponding root CA certificate must be provided to Butler in order to avoid certificate validation errors.</p>
+<p>Each webhook has its own certificate configuration, so Butler can be integrated with many systems, each using their own publicly verified or self-signed certificates - or just plain http without any certificates at all.</p>
+<p>The certificate configuration is done in the Butler config file and looks like this for each webhook:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">cert</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Set to true to use a custom CA certificate when calling the webhookURL</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">rejectUnauthorized</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#8f5902;font-style:italic"># Set to false to ignore warnings/errors caused by self-signed certificates used on the webhooks server.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">certCA</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/path/to/ca-certificate.pem      </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Path to the CA certificate file</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div><p>If <code>...cert.enable</code> is set to <code>true</code> Butler will use the certificate specified in <code>...cert.certCA</code> when calling the webhook.</p>
+<p>If <code>...cert.rejectUnauthorized</code> is set to <code>false</code> Butler will ignore warnings/errors caused by self-signed certificates being used on the webhook server.</p>
 <h2 id="data-included-in-outgoing-webhooks">Data included in outgoing webhooks</h2>
 <p>This information is included in all outgoing webhook calls:</p>
 <table>
@@ -5635,26 +5746,50 @@ If that property is <code>true</code> both task fail and abort webhooks are enab
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">rateLimit</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">300</span><span style="color:#f8f8f8;text-decoration:underline">              </span><span style="color:#8f5902;font-style:italic"># Min seconds between outgoing webhook calls for a given taskID. Defaults to 5 minutes.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">webhooks</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#204a87;font-weight:bold">description</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#39;This outgoing webhook is used to...&#39;</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Informational only</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">webhookURL</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">http://host.my.domain:port/some/path   </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># outgoing webhook that Butler will call</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">webhookURL</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">http://host.my.domain:port/some/path   </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Outgoing webhook that Butler will call</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">httpMethod</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">POST                                   </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># GET/POST/PUT</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">cert</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">                                     </span><span style="color:#8f5902;font-style:italic"># Set to true to use a custom CA certificate when calling the webhookURL</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">rejectUnauthorized</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                          </span><span style="color:#8f5902;font-style:italic"># Set to false to ignore warnings/errors caused by self-signed certificates used on the webhooks server.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">certCA</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/path/to/ca-certificate.pem              </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Path to the CA certificate file</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#204a87;font-weight:bold">description</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#39;This outgoing webhook is used to...&#39;</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Informational only</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">webhookURL</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">http://host.my.domain:port/some/path   </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># outgoing webhook that Butler will call</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">httpMethod</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">PUT                                    </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># GET/POST/PUT.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">webhookURL</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">http://host.my.domain:port/some/path   </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Outgoing webhook that Butler will call</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">httpMethod</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">PUT                                    </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># GET/POST/PUT</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">cert</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">                                     </span><span style="color:#8f5902;font-style:italic"># Set to true to use a custom CA certificate when calling the webhookURL</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">rejectUnauthorized</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                          </span><span style="color:#8f5902;font-style:italic"># Set to false to ignore warnings/errors caused by self-signed certificates used on the webhooks server.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">certCA</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/path/to/ca-certificate.pem              </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Path to the CA certificate file</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#204a87;font-weight:bold">description</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#39;This outgoing webhook is used to...&#39;</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Informational only</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">webhookURL</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">http://host.my.domain:port/some/path   </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># outgoing webhook that Butler will call</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">webhookURL</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">http://host.my.domain:port/some/path   </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Outgoing webhook that Butler will call</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">httpMethod</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">GET                                    </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># GET/POST/PUT</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">cert</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">                                     </span><span style="color:#8f5902;font-style:italic"># Set to true to use a custom CA certificate when calling the webhookURL</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">rejectUnauthorized</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                          </span><span style="color:#8f5902;font-style:italic"># Set to false to ignore warnings/errors caused by self-signed certificates used on the webhooks server.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">certCA</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/path/to/ca-certificate.pem              </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Path to the CA certificate file</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">reloadTaskAborted</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">rateLimit</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">300</span><span style="color:#f8f8f8;text-decoration:underline">              </span><span style="color:#8f5902;font-style:italic"># Min seconds between outgoing webhook calls for a given taskID. Defaults to 5 minutes.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">webhooks</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#204a87;font-weight:bold">description</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#39;This outgoing webhook is used to...&#39;</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Informational only</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">webhookURL</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">http://host.my.domain:port/some/path   </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># outgoing webhook that Butler will call</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">webhookURL</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">http://host.my.domain:port/some/path   </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Outgoing webhook that Butler will call</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">httpMethod</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">PUT                                    </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># GET/POST/PUT</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">cert</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">                                     </span><span style="color:#8f5902;font-style:italic"># Set to true to use a custom CA certificate when calling the webhookURL</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">rejectUnauthorized</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                          </span><span style="color:#8f5902;font-style:italic"># Set to false to ignore warnings/errors caused by self-signed certificates used on the webhooks server.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">certCA</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/path/to/ca-certificate.pem              </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Path to the CA certificate file</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#204a87;font-weight:bold">description</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#39;This outgoing webhook is used to...&#39;</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Informational only</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">webhookURL</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">http://host.my.domain:port/some/path   </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># outgoing webhook that Butler will call</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">webhookURL</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">http://host.my.domain:port/some/path   </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Outgoing webhook that Butler will call</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">httpMethod</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">POST                                   </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># GET/POST/PUT</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">cert</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">                                     </span><span style="color:#8f5902;font-style:italic"># Set to true to use a custom CA certificate when calling the webhookURL</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">rejectUnauthorized</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                          </span><span style="color:#8f5902;font-style:italic"># Set to false to ignore warnings/errors caused by self-signed certificates used on the webhooks server.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">certCA</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/path/to/ca-certificate.pem              </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Path to the CA certificate file</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span>- <span style="color:#204a87;font-weight:bold">description</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#39;This outgoing webhook is used to...&#39;</span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Informational only</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">webhookURL</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">http://host.my.domain:port/some/path   </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># outgoing webhook that Butler will call</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">webhookURL</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">http://host.my.domain:port/some/path   </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Outgoing webhook that Butler will call</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">httpMethod</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">GET                                    </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># GET/POST/PUT</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">cert</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">                                     </span><span style="color:#8f5902;font-style:italic"># Set to true to use a custom CA certificate when calling the webhookURL</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">rejectUnauthorized</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                          </span><span style="color:#8f5902;font-style:italic"># Set to false to ignore warnings/errors caused by self-signed certificates used on the webhooks server.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">certCA</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/path/to/ca-certificate.pem              </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Path to the CA certificate file</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div>
@@ -8521,7 +8656,9 @@ Cron has been the standard scheduler for decades in most Linux systems, it&rsquo
     
 	<h1 id="pg-2eacc0a085abb47e5414dfd9fb8120b3">3.3 - Failed/aborted reloads</h1>
     <div class="lead">Overview of the actions Butler can take when a reload task fails or is aborted.</div>
-	
+	<p>Below follows a list of destinations to which Butler can send notifications when a reload task fails or is aborted.</p>
+<p>A comparison of the different alert destinations can be found <a href="/docs/getting-started/setup/reload-alerts/#alert-destinations-and-options">here</a>.</p>
+
 </div>
 
 
@@ -8781,6 +8918,207 @@ Each notification destination has its own set of template files. It&rsquo;s ther
 </span></span><span style="display:flex;"><span>        └── 2022-04-07_05-49-16_appId<span style="color:#ce5c00;font-weight:bold">=</span>deba4bcf-47e4-472e-97b2-4fe8d6498e11_taskId<span style="color:#ce5c00;font-weight:bold">=</span>0d815a99-1ca3-4131-a398-6878bd735fd8.log
 </span></span></code></pre></div><p>All in all this makes it a lot easier to find log files for failed reloads.</p>
 <p>Configuration of this feature is described <a href="/docs/getting-started/setup/reload-script-logs/">here</a>.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-2572b5d0bb912bb2fe6598f2112aa5c4">3.3.4 - InfluxDB</h1>
+    <div class="lead">Storing information about failed reloads in InfluxDB can be useful for monitoring and analysis purposes.<br>
+Once the data is in InfluxDB it can be visualized in Grafana or similar tools.</div>
+	<h2 id="visualising-failed-reloads-in-grafana">Visualising failed reloads in Grafana</h2>
+<p>When a reload fails, Butler can send information about the failed reload to InfluxDB.<br>
+The data stored in InfluxDB is described <a href="/docs/reference/influxdb/#failed-reload-tasks">here</a>.</p>
+<p>Once the data is in InfluxDB it can be visualized in Grafana or similar tools.<br>
+Grafana has a good log viewer that can be used to visualize the data.</p>
+<p>Note how even the script log is stored in InfluxDB, so you can see the last few lines of the reload script log in Grafana.<br>
+This makes it easy to right away see what went wrong, especially when dealing with reloads that happened a while back.</p>
+<p><img src="/img/failed-reload-log-in-grafana-1.png" alt="Failed reload task visualised in Grafana" title="Failed reload task visualised in Grafana"></p>
+<h2 id="configuration">Configuration</h2>
+<p>Configuration of this feature is described <a href="/docs/getting-started/setup/reload-alerts/">here</a>.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-bb0b42e65c84552525f295e8402fc090">3.3.5 - New Relic</h1>
+    
+	<h2 id="view-reload-alerts-in-new-relic">View reload alerts in New Relic</h2>
+<p>When investigating reload failures it can often be useful to have access to the entire reload log, as this usually tells immediately what went wrong.<br>
+Butler forwards a very comprehensive set of data to New Relic when a reload fails, including the failing part of the app&rsquo;s script.</p>
+<p>This means that companies using New Relic as their enterprise monitoring solution can now also use it to monitor their Qlik Sense reloads, as well as all the Sense real-time metrics provided by Butler&rsquo;s sibling tool <a href="https://butler-sos.ptarmiganlabs.com">Butler SOS</a>.</p>
+<p>As of this wrtiting, New Relic also offers a free tier that will be more than enough for most Butler users.<br>
+It is thus possible to get started with monitoring Sense reloads in New Relic without any additional cost.</p>
+<p>More information about how Butler integrates with New Relic can be found <a href="/docs/concepts/incident-mgmt-tools/new-relic/">here</a>.</p>
+<h2 id="configuration">Configuration</h2>
+<p>Configuration of this feature is described <a href="/docs/getting-started/setup/incident-mgmt-tools/new-relic/">here</a>.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ae3289abc4fde74201ada2090f471d10">3.3.6 - MQTT</h1>
+    
+	<h2 id="mqtt-as-unified-message-bus">MQTT as unified message bus</h2>
+<p>When a reload fails, Butler can send information about the failed reload to an MQTT broker.</p>
+<p>MQTT is a lightweight messaging protocol that is commonly used in IoT applications, but it is a mature and versatile protocol that can be used in many different scenarios.</p>
+<p>In short, MQTT works by having a broker that clients can connect to. Clients can publish messages to the broker, and clients can subscribe to messages from the broker.<br>
+This makes MQTT a great way to integrate different systems in a publish/subscribe pattern.</p>
+<p>By sending information about failed reloads to an MQTT broker, Butler can be integrated with any system that can consume MQTT messages - which is a lot of systems.</p>
+<p>The data sent via MQTT messages is described <a href="TODO">here</a>.</p>
+<p>Here is an example of how the information about a failed reload can be viewed in MQTT Explorer:</p>
+<p><img src="/img/failed-reload-mqtt-explorer-1.png" alt="Information about a failed reload, viewed in MQTT Explorer" title="Information about a failed reload, viewed in MQTT Explorer"></p>
+<h2 id="configuration">Configuration</h2>
+<p>Configuration of this feature is described <a href="/docs/getting-started/setup/mqtt/">here</a>.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-da76efdcdc38f4b3df6afb92ec23202c">3.3.7 - Signl4</h1>
+    <div class="lead">Signl4 is a mobile alerting app that offers an easy way to get started with monitoring and alerting in general,<br> including Qlik Sense reloads via Butler&rsquo;s integration with Signl4.</div>
+	<h2 id="mobile-alerting">Mobile alerting</h2>
+<p>Signl4 has a great mobile app that can be used to receive reload-failed alerts from Butler.</p>
+<p>It can look something like this:</p>
+<p><img src="/docs/concepts/incident-mgmt-tools/signl4/signl4-4.jpg" alt="Reload failed alerts in Signl4 mobile app" title="Reload failed alerts in Signl4 mobile app"></p>
+<p>More information about how Butler integrates with Signl4 can be found <a href="/docs/concepts/incident-mgmt-tools/signl4/">here</a>.</p>
+<h2 id="configuration">Configuration</h2>
+<p>Configuration of this feature is described <a href="/docs/getting-started/setup/incident-mgmt-tools/signl4/">here</a>.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-047e1db6b8a4141a89e5a2106def9fa3">3.3.8 - Webhooks</h1>
+    <div class="lead">Webhooks provide a generic way to send information about failed/aborted reloads to any system that can receive HTTP POST/PUT/GET requests.<br></div>
+	<h2 id="when-nothing-else-works">When nothing else works</h2>
+<p>Webhooks may be somewhat limited in terms of what they can do, but their simplicity is also their strength.</p>
+<p>When you need to send information about failed/aborted reloads to a system that doesn&rsquo;t have a dedicated integration with Butler, webhooks may be a good solution.</p>
+<p>Butler offers a lot of flexibility in terms of how each webhook is configured.<br>
+You can&hellip;</p>
+<ul>
+<li>specify the URL to send the webhook to.</li>
+<li>specify the HTTP method to use (POST, PUT, GET).</li>
+<li>use htto or https.</li>
+<li>specify if a custom certificate should be used.
+In this case the root CA certificate is provided to Butler per webhook, which means Butler can be integrated to many systems, each using their own self-signed certificate.</li>
+<li>specify if an untrusted certificate should be accepted.
+This is useful when integrating with systems that use self-signed certificates and you don&rsquo;t have access to the root CA certificate.</li>
+</ul>
+<p>Sending reload-failed informnation to a GET http webhook provided by Node-RED can look like this in the Node-RED editor:</p>
+<p><img src="/img/webhook-node-red-1.png" alt="Webhook in Node-RED" title="Webhook in Node-RED"></p>
+<h2 id="configuration">Configuration</h2>
+<p>Configuration of this feature is described <a href="/docs/getting-started/setup/reload-alerts/alert-webhook-out/">here</a>.</p>
 
 </div>
 

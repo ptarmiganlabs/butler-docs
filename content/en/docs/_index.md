@@ -15,6 +15,9 @@ General guidance on how to do this is found [here](/docs/getting-started/upgrade
 
 {{% pageinfo %}}
 
+
+Starting with version 11.2, the [GitHub releases page](https://github.com/ptarmiganlabs/butler/releases) is the place where release notes are found.
+
 ## Release highlights
 
 ### What's new in version 11.1.0

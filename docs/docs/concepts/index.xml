@@ -149,7 +149,9 @@ Cron has been the standard scheduler for decades in most Linux systems, it&amp;r
       <description>
         
         
-        
+        &lt;p&gt;Below follows a list of destinations to which Butler can send notifications when a reload task fails or is aborted.&lt;/p&gt;
+&lt;p&gt;A comparison of the different alert destinations can be found &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/#alert-destinations-and-options&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
       </description>
     </item>
     
