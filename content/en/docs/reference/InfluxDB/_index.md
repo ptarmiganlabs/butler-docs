@@ -141,7 +141,7 @@ The tags are the same for all license types, but the fields differ as follows.
 | total | Total number of professional licenses included in the installed Qlik Sense license. |
 | used | Number of professional licenses in use right now. |
 
-### License type `analyzer_capacity`
+### License type "analyzer_capacity"
 
 | Field name | Description |
 |------------|-------------|
@@ -149,7 +149,7 @@ The tags are the same for all license types, but the fields differ as follows.
 | unavailable_minutes | Number of analyzer capacity minutes that are currently unavailable. *Unclear what this means.*  |
 | used_minutes | Number of analyzer capacity minutes used so far this month. |
 
-### License type `token_login`
+### License type "token_login"
 
 | Field name | Description |
 |------------|-------------|
@@ -158,7 +158,7 @@ The tags are the same for all license types, but the fields differ as follows.
 | unavailable_tokens | *Unclear what this means.* |
 | used_tokens | *Unclear what this means.* |
 
-### License type `token_user`
+### License type "token_user"
 
 | Field name | Description |
 |------------|-------------|
@@ -167,7 +167,7 @@ The tags are the same for all license types, but the fields differ as follows.
 | token_cost | *Unclear what this means.* |
 | used_tokens | *Unclear what this means.* |
 
-### License type `tokens_available`
+### License type "tokens_available"
 
 This license type contains aggregated token information.
 
