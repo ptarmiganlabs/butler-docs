@@ -86,14 +86,8 @@
     <loc>https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/new-relic/</loc>
     <lastmod>2023-06-13T15:01:58+02:00</lastmod>
   </url><url>
-    <loc>https://butler.ptarmiganlabs.com/blog/news/</loc>
-    <lastmod>2023-04-14T10:18:33+02:00</lastmod>
-  </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/examples/sense-demo-apps/partial-loads/</loc>
     <lastmod>2021-12-11T19:29:14+01:00</lastmod>
-  </url><url>
-    <loc>https://butler.ptarmiganlabs.com/blog/releases/</loc>
-    <lastmod>2021-04-22T21:58:55+02:00</lastmod>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/reference/rest-api-1/</loc>
     <lastmod>2022-06-21T09:33:35+02:00</lastmod>
@@ -340,60 +334,6 @@
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/examples/when-things-dont-work/</loc>
     <lastmod>2024-01-10T09:00:58+01:00</lastmod>
-  </url><url>
-    <loc>https://butler.ptarmiganlabs.com/blog/2023/04/14/butler-blog-moved-to-ptarmiganlabs.com/</loc>
-    <lastmod>2023-04-14T10:18:33+02:00</lastmod>
-  </url><url>
-    <loc>https://butler.ptarmiganlabs.com/blog/2023/04/14/butler-blog-moved-to-ptarmiganlabs.com/</loc>
-    <lastmod>2023-04-14T10:18:33+02:00</lastmod>
-  </url><url>
-    <loc>https://butler.ptarmiganlabs.com/blog/2021/04/12/v5.3.0-key-value-refinement/</loc>
-    <lastmod>2021-04-22T21:58:55+02:00</lastmod>
-  </url><url>
-    <loc>https://butler.ptarmiganlabs.com/blog/2021/03/03/v5.1.0-sharing-is-caring/</loc>
-    <lastmod>2021-04-22T21:58:55+02:00</lastmod>
-  </url><url>
-    <loc>https://butler.ptarmiganlabs.com/blog/2021/02/24/v5.0.0-reload-alerting-deluxe/</loc>
-    <lastmod>2021-04-22T21:58:55+02:00</lastmod>
-  </url><url>
-    <loc>https://butler.ptarmiganlabs.com/blog/2021/02/03/file-operations-examples-and-better-setup-instructions/</loc>
-    <lastmod>2021-04-22T21:58:55+02:00</lastmod>
-  </url><url>
-    <loc>https://butler.ptarmiganlabs.com/blog/2021/02/03/v4.3.0-bug-fixes-improved-documentation/</loc>
-    <lastmod>2021-04-22T21:58:55+02:00</lastmod>
-  </url><url>
-    <loc>https://butler.ptarmiganlabs.com/blog/2020/11/07/v4.2.0-failed-reloads-notify-me/</loc>
-    <lastmod>2021-04-22T21:58:55+02:00</lastmod>
-  </url><url>
-    <loc>https://butler.ptarmiganlabs.com/blog/2020/10/28/v4.1.1-fixing-broken-start-sense-task-api-endpoint/</loc>
-    <lastmod>2021-04-22T21:58:55+02:00</lastmod>
-  </url><url>
-    <loc>https://butler.ptarmiganlabs.com/blog/2020/10/28/v4.1.2-sense-demo-app-can-now-start-reloads/</loc>
-    <lastmod>2021-04-22T21:58:55+02:00</lastmod>
-  </url><url>
-    <loc>https://butler.ptarmiganlabs.com/blog/2020/10/27/v4.1.0-file-copying--qlik-sense-useful/</loc>
-    <lastmod>2021-04-22T21:58:55+02:00</lastmod>
-  </url><url>
-    <loc>https://butler.ptarmiganlabs.com/blog/2020/10/21/material-added-to-butler-doc-site/</loc>
-    <lastmod>2021-04-22T21:58:55+02:00</lastmod>
-  </url><url>
-    <loc>https://butler.ptarmiganlabs.com/blog/2020/10/21/v4.0.0-a-senseops-reboot/</loc>
-    <lastmod>2021-04-22T21:58:55+02:00</lastmod>
-  </url><url>
-    <loc>https://butler.ptarmiganlabs.com/blog/2020/07/15/v3.1.0-an-armful-of-heart-beats/</loc>
-    <lastmod>2021-04-22T21:58:55+02:00</lastmod>
-  </url><url>
-    <loc>https://butler.ptarmiganlabs.com/blog/2019/11/29/new-documentation-site-for-butler/</loc>
-    <lastmod>2021-04-22T21:58:55+02:00</lastmod>
-  </url><url>
-    <loc>https://butler.ptarmiganlabs.com/blog/2019/11/29/v3.0.1-docker-health-check-is-now...-healthy./</loc>
-    <lastmod>2021-04-22T21:58:55+02:00</lastmod>
-  </url><url>
-    <loc>https://butler.ptarmiganlabs.com/blog/2019/11/01/v3.0.0-enable-some-rest-api-endpoints-disable-others./</loc>
-    <lastmod>2021-04-22T21:58:55+02:00</lastmod>
-  </url><url>
-    <loc>https://butler.ptarmiganlabs.com/blog/</loc>
-    <lastmod>2023-04-14T10:18:33+02:00</lastmod>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/</loc>
     <lastmod>2024-04-12T22:32:28+02:00</lastmod>
