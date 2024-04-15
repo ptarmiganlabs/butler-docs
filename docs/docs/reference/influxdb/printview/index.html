@@ -1,0 +1,739 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/reference/influxdb/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/reference/influxdb/index.xml">
+<meta name="robots" content="noindex, nofollow">
+<script defer data-domain="butler.ptarmiganlabs.com" src="https://plausible.io/js/script.js"></script>
+
+<link rel="canonical" href="https://butler.ptarmiganlabs.com/docs/reference/influxdb/" />
+
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Information stored in InfluxDB | Butler</title>
+<meta name="description" content="Butler stores a lot of information in InfluxDB. This page describes the different measurements and tags that Butler send to InfluxDB.
+">
+<meta property="og:title" content="Information stored in InfluxDB" />
+<meta property="og:description" content="Butler stores a lot of information in InfluxDB. This page describes the different measurements and tags that Butler send to InfluxDB.
+" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://butler.ptarmiganlabs.com/docs/reference/influxdb/" />
+
+<meta itemprop="name" content="Information stored in InfluxDB">
+<meta itemprop="description" content="Butler stores a lot of information in InfluxDB. This page describes the different measurements and tags that Butler send to InfluxDB.
+"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Information stored in InfluxDB"/>
+<meta name="twitter:description" content="Butler stores a lot of information in InfluxDB. This page describes the different measurements and tags that Butler send to InfluxDB.
+"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.760be0d42a95747f7072e6cf9b47cc5c5c4d7715dd765fd062712100e6b3d9d8.css" as="style">
+<link href="/scss/main.min.760be0d42a95747f7072e6cf9b47cc5c5c4d7715dd765fd062712100e6b3d9d8.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-00000000-0', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">Butler</span></a>
+  <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      </ul>
+  </div>
+  <div class="navbar-nav d-none d-lg-block">
+    
+  </div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/docs/reference/influxdb/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Information stored in InfluxDB</h1>
+<div class="lead">Butler stores a lot of information in InfluxDB. This page describes the different measurements and tags that Butler send to InfluxDB.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+
+    </ul>
+
+
+<div class="content">
+      <h2 id="failed-reload-tasks">Failed reload tasks</h2>
+<p>Measurement: <code>reload_task_failed</code></p>
+<h3 id="tags">Tags</h3>
+<table>
+<thead>
+<tr>
+<th>Tag name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>host</td>
+<td>Server on which the reload took place.</td>
+</tr>
+<tr>
+<td>user</td>
+<td>Full user info (directory + ID) for user doing the reload. Typically <code>sa_scheduler</code> for tasks started via scheduler. For manually started (from QMC) tasks the actual user starting the task is used.</td>
+</tr>
+<tr>
+<td>task_id</td>
+<td>ID of reload task that failed.</td>
+</tr>
+<tr>
+<td>task_name</td>
+<td>Name of reload task that failed.</td>
+</tr>
+<tr>
+<td>app_id</td>
+<td>ID of Sense app whose reload failed.</td>
+</tr>
+<tr>
+<td>app_name</td>
+<td>Name of Sense app whose reload failed.</td>
+</tr>
+<tr>
+<td>log_level</td>
+<td>Log level of the Sense log file entry causing the alert</td>
+</tr>
+<tr>
+<td>task_executingNodeName</td>
+<td>Name of node where the reload task was executed.</td>
+</tr>
+<tr>
+<td>task_executionStatusNum</td>
+<td>Reload task&rsquo;s execution result code (numeric).</td>
+</tr>
+<tr>
+<td>task_executionStatusText</td>
+<td>Reload task&rsquo;s execution result (text).</td>
+</tr>
+<tr>
+<td>appTag_&lt;app tag name 1 from Qlik Sense&gt;</td>
+<td>App tag defined in the QMC for the Qlik Sense app.</td>
+</tr>
+<tr>
+<td>appTag_&lt;app tag name 2 from Qlik Sense&gt;</td>
+<td>App tag defined in the QMC for the Qlik Sense app.</td>
+</tr>
+<tr>
+<td>taskTag_&lt;reload task tag name 1 from Qlik Sense&gt;</td>
+<td>Task tag defined in the QMC for the Qlik Sense reload task.</td>
+</tr>
+<tr>
+<td>taskTag_&lt;reload task tag name 2 from Qlik Sense&gt;</td>
+<td>Task tag defined in the QMC for the Qlik Sense reload task.</td>
+</tr>
+<tr>
+<td>static-tag-1</td>
+<td>Static tag specified in the Butler configuration file.</td>
+</tr>
+<tr>
+<td>static-tag-2</td>
+<td>Static tag specified in the Butler configuration file.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fields">Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>log_timestamp</td>
+<td>Timestamp of the Sense log file entry that triggered the event.</td>
+</tr>
+<tr>
+<td>execution_id</td>
+<td> Execution ID of the reload task.</td>
+</tr>
+<tr>
+<td>log_message</td>
+<td>Raw message from the Sense log file entry that triggered the alert.</td>
+</tr>
+<tr>
+<td>task_executionStartTime_json</td>
+<td>Start time of the reload task. Stringified JSON with seconds, minutes, hours.</td>
+</tr>
+<tr>
+<td>task_executionStopTime_json</td>
+<td>Stop time of the reload task. Stringified JSON with seconds, minutes, hours.</td>
+</tr>
+<tr>
+<td>task_executionDuration_json</td>
+<td>Duration of the reload task. Stringified JSON with seconds, minutes, hours.</td>
+</tr>
+<tr>
+<td>task_executionDuration_sec</td>
+<td>Duration of the reload task in seconds.</td>
+</tr>
+<tr>
+<td>task_executionDuration_min</td>
+<td>Duration of the reload task in minutes.</td>
+</tr>
+<tr>
+<td>task_executionDuration_h</td>
+<td>Duration of the reload task in hours.</td>
+</tr>
+<tr>
+<td>task_scriptLogSize</td>
+<td>Size (number of characters) of the reload script log associated with the event.</td>
+</tr>
+<tr>
+<td>task_scriptLogTailCount</td>
+<td>Number of lines from the end of the reload script log that are included in the event.</td>
+</tr>
+<tr>
+<td>reload_log</td>
+<td>Last few lines of the reload script log associated with the event.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="successful-reload-tasks">Successful reload tasks</h2>
+<p>Measurement: <code>reload_task_success</code></p>
+<h3 id="tags-1">Tags</h3>
+<table>
+<thead>
+<tr>
+<th>Tag name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>host</td>
+<td>Server on which the reload took place.</td>
+</tr>
+<tr>
+<td>user</td>
+<td>Full user info (directory + ID) for user doing the reload. Typically <code>sa_scheduler</code> for tasks started via scheduler. For manually started (from QMC) tasks the actual user starting the task is used.</td>
+</tr>
+<tr>
+<td>task_id</td>
+<td>ID of reload task.</td>
+</tr>
+<tr>
+<td>task_name</td>
+<td>Name of reload task.</td>
+</tr>
+<tr>
+<td>app_id</td>
+<td>ID of Sense app that was reloaded.</td>
+</tr>
+<tr>
+<td>app_name</td>
+<td>Name of Sense app that was reloaded.</td>
+</tr>
+<tr>
+<td>log_level</td>
+<td>Log level of the Sense log file entry causing the event</td>
+</tr>
+<tr>
+<td>task_executingNodeName</td>
+<td>Name of node where the reload task was executed.</td>
+</tr>
+<tr>
+<td>task_executionStatusNum</td>
+<td>Reload task&rsquo;s execution result code (numeric).</td>
+</tr>
+<tr>
+<td>task_executionStatusText</td>
+<td>Reload task&rsquo;s execution result (text).</td>
+</tr>
+<tr>
+<td>appTag_&lt;app tag name 1 from Qlik Sense&gt;</td>
+<td>App tag defined in the QMC for the Qlik Sense app.</td>
+</tr>
+<tr>
+<td>appTag_&lt;app tag name 2 from Qlik Sense&gt;</td>
+<td>App tag defined in the QMC for the Qlik Sense app.</td>
+</tr>
+<tr>
+<td>taskTag_&lt;reload task tag name 1 from Qlik Sense&gt;</td>
+<td>Task tag defined in the QMC for the Qlik Sense reload task.</td>
+</tr>
+<tr>
+<td>taskTag_&lt;reload task tag name 2 from Qlik Sense&gt;</td>
+<td>Task tag defined in the QMC for the Qlik Sense reload task.</td>
+</tr>
+<tr>
+<td>static-tag-1</td>
+<td>Static tag specified in the Butler configuration file.</td>
+</tr>
+<tr>
+<td>static-tag-2</td>
+<td>Static tag specified in the Butler configuration file.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fields-1">Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>log_timestamp</td>
+<td>Timestamp of the Sense log file entry that triggered the event.</td>
+</tr>
+<tr>
+<td>execution_id</td>
+<td> Execution ID of the reload task.</td>
+</tr>
+<tr>
+<td>log_message</td>
+<td>Raw message from the Sense log file entry that triggered the event.</td>
+</tr>
+<tr>
+<td>task_executionStartTime_json</td>
+<td>Start time of the reload task. Stringified JSON with seconds, minutes, hours.</td>
+</tr>
+<tr>
+<td>task_executionStopTime_json</td>
+<td>Stop time of the reload task. Stringified JSON with seconds, minutes, hours.</td>
+</tr>
+<tr>
+<td>task_executionDuration_json</td>
+<td>Duration of the reload task. Stringified JSON with seconds, minutes, hours.</td>
+</tr>
+<tr>
+<td>task_executionDuration_sec</td>
+<td>Duration of the reload task in seconds.</td>
+</tr>
+<tr>
+<td>task_executionDuration_min</td>
+<td>Duration of the reload task in minutes.</td>
+</tr>
+<tr>
+<td>task_executionDuration_h</td>
+<td>Duration of the reload task in hours.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="windows-service-info">Windows service info</h2>
+<p>Measurement: <code>win_service_state</code></p>
+<h3 id="tags-2">Tags</h3>
+<table>
+<thead>
+<tr>
+<th>Tag name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>butler_instance</td>
+<td>Name of the Butler instance, from config file.</td>
+</tr>
+<tr>
+<td>host</td>
+<td>Server on which the reload took place.</td>
+</tr>
+<tr>
+<td>service_name</td>
+<td>Name of the Windows service.</td>
+</tr>
+<tr>
+<td>display_name</td>
+<td>Display name of the Windows service.</td>
+</tr>
+<tr>
+<td>friendly_name</td>
+<td>Friendly name of the Windows service (as defined in the Butler config file).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fields-2">Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>state_num</td>
+<td>State of the Windows service (numeric).</td>
+</tr>
+<tr>
+<td>state_text</td>
+<td>State of the Windows service (text).</td>
+</tr>
+<tr>
+<td>startup_mode_num</td>
+<td>Startup mode of the Windows service (numeric).</td>
+</tr>
+<tr>
+<td>startup_mode_text</td>
+<td>Startup mode of the Windows service (text).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="qlik-sense-license-info">Qlik Sense license info</h2>
+<p>The license information returned by the Qlik Sense API is not very well documented by Qlik.<br>
+As a result it is not always clear what the different fields mean.<br>
+This is highlighted for each affected field below.</p>
+<p>Measurement: <code>sense_license_info</code></p>
+<p>Each datapoint has a tag called <code>license_type</code> that can have the following values:</p>
+<ul>
+<li><code>professional</code></li>
+<li><code>analyzer</code></li>
+<li><code>analyzer_capacity</code></li>
+<li><code>token_login</code></li>
+<li><code>token_user</code></li>
+<li><code>tokens_available</code></li>
+</ul>
+<p>The tags are the same for all license types, but the fields differ as follows.</p>
+<h3 id="license-types-professional-and-analyzer">License types &ldquo;professional&rdquo; and &ldquo;analyzer&rdquo;</h3>
+<table>
+<thead>
+<tr>
+<th>Field name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>allocated</td>
+<td>Number of allocated professional licenses.</td>
+</tr>
+<tr>
+<td>available</td>
+<td>Number of available professional licenses.</td>
+</tr>
+<tr>
+<td>excess</td>
+<td>Number of excess professional licenses. <em>Unclear what this means.</em></td>
+</tr>
+<tr>
+<td>quarantined</td>
+<td>Number of quarantined professional licenses.</td>
+</tr>
+<tr>
+<td>total</td>
+<td>Total number of professional licenses included in the installed Qlik Sense license.</td>
+</tr>
+<tr>
+<td>used</td>
+<td>Number of professional licenses in use right now.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="license-type-analyzer_capacity">License type &ldquo;analyzer_capacity&rdquo;</h3>
+<table>
+<thead>
+<tr>
+<th>Field name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>allocated_minutes</td>
+<td>Total number of analyzer capacity minutes available in the installed Qlik Sense license.</td>
+</tr>
+<tr>
+<td>unavailable_minutes</td>
+<td>Number of analyzer capacity minutes that are currently unavailable. <em>Unclear what this means.</em></td>
+</tr>
+<tr>
+<td>used_minutes</td>
+<td>Number of analyzer capacity minutes used so far this month.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="license-type-token_login">License type &ldquo;token_login&rdquo;</h3>
+<table>
+<thead>
+<tr>
+<th>Field name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>allocated_tokens</td>
+<td><em>Unclear what this means.</em></td>
+</tr>
+<tr>
+<td>token_cost</td>
+<td><em>Unclear what this means.</em></td>
+</tr>
+<tr>
+<td>unavailable_tokens</td>
+<td><em>Unclear what this means.</em></td>
+</tr>
+<tr>
+<td>used_tokens</td>
+<td><em>Unclear what this means.</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="license-type-token_user">License type &ldquo;token_user&rdquo;</h3>
+<table>
+<thead>
+<tr>
+<th>Field name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>allocated_tokens</td>
+<td><em>Unclear what this means.</em></td>
+</tr>
+<tr>
+<td>quarantined_tokens</td>
+<td><em>Unclear what this means.</em></td>
+</tr>
+<tr>
+<td>token_cost</td>
+<td><em>Unclear what this means.</em></td>
+</tr>
+<tr>
+<td>used_tokens</td>
+<td><em>Unclear what this means.</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="license-type-tokens_available">License type &ldquo;tokens_available&rdquo;</h3>
+<p>This license type contains aggregated token information.</p>
+<table>
+<thead>
+<tr>
+<th>Field name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>available_tokens</td>
+<td>Number of tokens available. <em>Unclear what this means.</em></td>
+</tr>
+<tr>
+<td>total_tokens</td>
+<td>Total number of tokens included in the installed Qlik Sense license. <em>Unclear what this means.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="butler-uptime-info">Butler uptime info</h2>
+<p>Measurement: <code>butler_memory_usage</code></p>
+<h3 id="tags-3">Tags</h3>
+<table>
+<thead>
+<tr>
+<th>Tag name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>butler_instance</td>
+<td>Name of the Butler instance, from config file.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>Version of Butler.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fields-3">Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>heap_used</td>
+<td>Amount of heap memory used by Butler.</td>
+</tr>
+<tr>
+<td>heap_total</td>
+<td>Total amount of heap memory available to Butler.</td>
+</tr>
+<tr>
+<td>external</td>
+<td>Amount of external memory used by Butler.</td>
+</tr>
+<tr>
+<td>process_memory</td>
+<td>Amount of memory used by the Butler process.</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="SenseOps mailing list" aria-label="SenseOps mailing list">
+    <a class="text-white" target="_blank" rel="noopener" href="https://ptarmiganlabs.com/#/portal/signup" aria-label="SenseOps mailing list">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Discussion forums on GitHub" aria-label="Discussion forums on GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/ptarmiganlabs/butler/discussions" aria-label="Discussion forums on GitHub">
+      <i class="fa fa-comments"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Ptarmigan Labs" aria-label="Ptarmigan Labs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://ptarmiganlabs.com" aria-label="Ptarmigan Labs">
+      <i class="fa fa-external-link"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener" href="https://www.linkedin.com/in/gorsan/" aria-label="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/ptarmiganlabs/butler" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Bug reports &amp; Feature requests" aria-label="Bug reports &amp; Feature requests">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/ptarmiganlabs/butler/issues/new/choose" aria-label="Bug reports &amp; Feature requests">
+      <i class="fa fa-bug"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Get in touch with Ptarmigan Labs" aria-label="Get in touch with Ptarmigan Labs">
+    <a class="text-white" target="_blank" rel="noopener" href="mailto://info@ptarmiganlabs.com" aria-label="Get in touch with Ptarmigan Labs">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2024 Ptarmigan Labs AB All Rights Reserved</small>
+        
+	
+		<p class="mt-2"><a href="/docs/about/">About</a></p>
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+  <script src="/js/main.min.523509bf13607632997fb2eeed668872c5fb9c71c1c18f4d68e77a786fa8136f.js" integrity="sha256-UjUJvxNgdjKZf7Lu7WaIcsX7nHHBwY9NaOd6eG&#43;oE28=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

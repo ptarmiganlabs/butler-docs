@@ -90,6 +90,14 @@ time_format_blog = "2006-01-02"
 [outputs]
 section = ["HTML", "print", "RSS"]
 
+[outputFormats]
+[outputFormats.PRINT]
+baseName = "index"
+isHTML = true
+mediaType = "text/html"
+path = "printview"
+permalinkable = false
+
 [params]
 copyright = "Ptarmigan Labs AB"
 # privacy_policy = "https://policies.google.com/privacy"
