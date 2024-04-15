@@ -50,17 +50,6 @@
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
 
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-00000000-0', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
   </head>
   <body class="td-section">
     <header>
@@ -1468,7 +1457,7 @@ Their task IDs are returned in the denied array in the response.</li>
 <p>The QMC shows which tasks have these tags set:</p>
 <p><img src="qmc-tasks-with-tags-1.png" alt="Qlik Sense QMC tasks with tags" title="Tasks with tags starting with 'start'"></p>
 <p>Starting the three tasks tagged with <code>startTask1</code>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>➜  ~ curl -X <span style="color:#4e9a06">&#34;PUT&#34;</span> <span style="color:#4e9a06">&#34;http://192.168.1.168:8080/v4/reloadtask/-/start&#34;</span> -H <span style="color:#4e9a06">&#39;Content-Type: application/json; charset=utf-8&#39;</span> -d $<span style="color:#4e9a06">&#39;[
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>➜  ~ curl -X <span style="color:#4e9a06">&#34;PUT&#34;</span> <span style="color:#4e9a06">&#34;http://192.168.1.168:8080/v4/reloadtask/-/start&#34;</span> -H <span style="color:#4e9a06">&#39;Content-Type: application/json; charset=utf-8&#39;</span> -d <span style="color:#4e9a06">$&#39;[
 </span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">  {
 </span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">    &#34;type&#34;: &#34;starttasktag&#34;,
 </span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">    &#34;payload&#34;: {
