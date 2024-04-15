@@ -909,7 +909,7 @@ A consequence of this is that all settings are now mandatory, even if you don&am
 &lt;h4 class=&#34;alert-heading&#34;&gt;Remember&lt;/h4&gt;
 
     &lt;p&gt;The &amp;ldquo;Try it out&amp;rdquo; feature of the API documentation below does not work when accessed from butler.ptarmiganlabs.com. This is only expected as this site does not know anything about where &lt;em&gt;your&lt;/em&gt; Butler instance is running.&lt;/p&gt;
-&lt;p&gt;The same feature is however also available from Butler itself, see &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/openapi-docs#openapi-documentation-built-into-butler&#34;&gt;this page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The same feature is however also available from Butler itself, see &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/openapi-docs/&#34;&gt;this page&lt;/a&gt;.&lt;/p&gt;
 
 
 &lt;/div&gt;
