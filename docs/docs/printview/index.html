@@ -2583,7 +2583,7 @@ Key-value stores are a very versatile tool and a great addition to Qlik Sense.</
 <p><strong>API docs</strong> using the OpenAPI/Swagger format.</p>
 </li>
 <li>
-<p>A totally <strong>re-engineered REST API</strong> that now better follows best practices when to use GET/POST/PUT/DELETE. Previously everything was done using GETs&hellip; which was really ugly. The downside is that this is a major breaking change! Please review the <a href="/docs/reference/rest-api">API docs</a> for details.</p>
+<p>A totally <strong>re-engineered REST API</strong> that now better follows best practices when to use GET/POST/PUT/DELETE. Previously everything was done using GETs&hellip; which was really ugly. The downside is that this is a major breaking change! Please review the <a href="/docs/reference/rest-api-1/">API docs</a> for details.</p>
 </li>
 </ul>
 
@@ -8509,7 +8509,7 @@ Thiis may seem a bit harsh, but this way Butler can tell you exactly what is mis
 </div>
 
 <p>There is also an optional, per KV-pair Time To Live (TTL) feature. If used it will auto-delete the KV pair when a certain time has passed from the KV-pair&rsquo;s last update.</p>
-<p>The <a href="/docs/reference/rest-api">API docs</a> shows what methods are available to work with KV pairs.</p>
+<p>The <a href="/docs/reference/rest-api-1/">API docs</a> shows what methods are available to work with KV pairs.</p>
 <h2 id="how-can-a-key-value-store-be-used-in-sense-apps">How can a key-value store be used in Sense apps?</h2>
 <p>As mentioned above - A KV store can be useful whenever you need to stash data away for a while and then get it back. I.e. keeping track of the state of something.</p>
 <p>For example</p>
@@ -8600,7 +8600,7 @@ Cron has been the standard scheduler for decades in most Linux systems, it&rsquo
 <li>5 postition patterns are also supported, the leftmost position then represents minutes.</li>
 <li>Hundreds of schedules tested and confirmed working as expected.</li>
 <li>A Qlik Sense task ID is associated with each schedule. When the schedule fires, the associated task is started.</li>
-<li>Schedules can be added either manually in the YAML schedules file (as defined in the main Butler config file) or using <a href="/docs/reference/rest-api">Butler&rsquo;s API</a>. A sample schedule file is included in the GitHub repository. Schedules added using the API will be stored in the schedule YAML file referenced in the main Butler config file.</li>
+<li>Schedules can be added either manually in the YAML schedules file (as defined in the main Butler config file) or using <a href="/docs/reference/rest-api-1/">Butler&rsquo;s API</a>. A sample schedule file is included in the GitHub repository. Schedules added using the API will be stored in the schedule YAML file referenced in the main Butler config file.</li>
 </ul>
 <p>The two supported schedule formats look like this:</p>
 <pre><code>    ┌───────────── seconds (0 - 59)

@@ -34,7 +34,7 @@ Features of the Butler scheduler:
 * 5 postition patterns are also supported, the leftmost position then represents minutes.
 * Hundreds of schedules tested and confirmed working as expected.
 * A Qlik Sense task ID is associated with each schedule. When the schedule fires, the associated task is started.
-* Schedules can be added either manually in the YAML schedules file (as defined in the main Butler config file) or using [Butler's API](/docs/reference/rest-api). A sample schedule file is included in the GitHub repository. Schedules added using the API will be stored in the schedule YAML file referenced in the main Butler config file.
+* Schedules can be added either manually in the YAML schedules file (as defined in the main Butler config file) or using [Butler's API](/docs/reference/rest-api-1/). A sample schedule file is included in the GitHub repository. Schedules added using the API will be stored in the schedule YAML file referenced in the main Butler config file.
 
 The two supported schedule formats look like this:
 
