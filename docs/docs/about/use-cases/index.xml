@@ -32,8 +32,8 @@ Here&amp;rsquo;s a list of features that are candidates for removal from Butler,
 For example, when Butler was started it wouldn&amp;rsquo;t capture currently active users or sessions - it was only after some event captured in the logs that Butler would update it&amp;rsquo;s internal counters. This meant that it would take some time (sometimes quite long) until the metrics were even approaching the real number of users using Sense.&lt;/p&gt;
 &lt;p&gt;There was also the risk of Butler missing UDP messages and not registering the associated log event.&lt;/p&gt;
 &lt;p&gt;The affected API endpoints are:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/rest-api/?operationsSorter=alpha&#34;&gt;/v4/activeusercount&lt;/a&gt;&lt;br&gt;
-&lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/rest-api/?operationsSorter=alpha&#34;&gt;/v4/activeusers&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/rest-api-1/?operationsSorter=alpha&#34;&gt;/v4/activeusercount&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/rest-api-1/?operationsSorter=alpha&#34;&gt;/v4/activeusers&lt;/a&gt;&lt;/p&gt;
 
 
 &lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;

@@ -1987,7 +1987,7 @@ On the other hand, it&amp;rsquo;s questionable if Sense jobs should run more oft
         
         
         &lt;h2 id=&#34;key-value-store-overview&#34;&gt;Key-value store overview&lt;/h2&gt;
-&lt;p&gt;The &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/rest-api/?operationsSorter=alpha&#34;&gt;API documentation&lt;/a&gt; is the best, most complete source of information about the key-value API endpoints.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/rest-api-1/?operationsSorter=alpha&#34;&gt;API documentation&lt;/a&gt; is the best, most complete source of information about the key-value API endpoints.&lt;/p&gt;
 &lt;h2 id=&#34;namespaces&#34;&gt;Namespaces&lt;/h2&gt;
 &lt;p&gt;Each key-value pair is associated with a &amp;ldquo;namespace&amp;rdquo;, which is simply a way to group KV pairs together in logical groups.&lt;/p&gt;
 &lt;p&gt;Examples:&lt;/p&gt;

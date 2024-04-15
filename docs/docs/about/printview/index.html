@@ -342,7 +342,7 @@ MQTT (and the pubsub concept in general) is a great way for systems to communica
 <p>More info <a href="/docs/examples/file-copy-move-delete/">here</a>.</p>
 <h2 id="extract-metadata-for-apps">Extract metadata for apps</h2>
 <p>Exporting apps as JSON can be very useful for backup purposes. Doing regular snapshots of all apps in a Sense cluster is a fast and space-effective way of keeping point-in-time backups.</p>
-<p>The <a href="http://localhost:1313/docs/reference/rest-api/?operationsSorter=alpha">REST API documentation</a> has full docs for the <code>/v4/app/{appId}/dump</code> endpoint.</p>
+<p>The <a href="/docs/reference/rest-api-1/?operationsSorter=alpha">REST API documentation</a> has full docs for the <code>/v4/app/{appId}/dump</code> endpoint.</p>
 <h2 id="easily-post-messages-to-slack">Easily post messages to Slack</h2>
 <p>Slack messages can include full formatting (web links, text formatting etc), as well as &ldquo;poking&rdquo; users.<br>
 I.e. notifying specific Slack users that they have a new message.</p>
@@ -388,8 +388,8 @@ Here&rsquo;s a list of features that are candidates for removal from Butler, or 
 For example, when Butler was started it wouldn&rsquo;t capture currently active users or sessions - it was only after some event captured in the logs that Butler would update it&rsquo;s internal counters. This meant that it would take some time (sometimes quite long) until the metrics were even approaching the real number of users using Sense.</p>
 <p>There was also the risk of Butler missing UDP messages and not registering the associated log event.</p>
 <p>The affected API endpoints are:</p>
-<p><a href="/docs/reference/rest-api/?operationsSorter=alpha">/v4/activeusercount</a><br>
-<a href="/docs/reference/rest-api/?operationsSorter=alpha">/v4/activeusers</a></p>
+<p><a href="/docs/reference/rest-api-1/?operationsSorter=alpha">/v4/activeusercount</a><br>
+<a href="/docs/reference/rest-api-1/?operationsSorter=alpha">/v4/activeusers</a></p>
 
 
 <div class="alert alert-info" role="alert">

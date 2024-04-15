@@ -4562,7 +4562,7 @@ In such cases it&rsquo;s a waste of resources to keep the license assigned to th
 <h2 id="how-it-works">How it works</h2>
 <p>The data in the key-value store is <em>not</em> persisted to disk, which means that key-value data will be lost if Butler is restarted.<br>
 This behaviour could possibly be changed if there is a need, please open a <a href="https://github.com/ptarmiganlabs/butler/issues">GitHub ticket</a> if key-value persistence is of interest.</p>
-<p>Key-value data is manipulated using Butler&rsquo;s <a href="/docs/reference/rest-api/?operationsSorter=alpha">REST API</a>.</p>
+<p>Key-value data is manipulated using Butler&rsquo;s <a href="/docs/reference/rest-api-1/?operationsSorter=alpha">REST API</a>.</p>
 <p>The <a href="/docs/reference/key-value/">Reference docs</a> section has more information about the key-value store.</p>
 <h2 id="settings-in-config-file">Settings in config file</h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000">---</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -5122,7 +5122,7 @@ This is useful as it means the New Relic API keys do not have to be stored in th
 <p><a href="https://mqtt.org/">MQTT</a> is a light weight messaging protocol based on a publish-subscribe metaphore. It is widely used in the Internet of Things (IoT) and telecom sectors.</p>
 <p>MQTT has features such as guaranteed delivery of messages, which makes it very useful for communicating between Sense and both up- and downstream source/destination systems.</p>
 <p>Butler can be configured to forward events from Sense (reload task failures, aborted reload tasks, windows services starting/stopping, user session start/stop etc) as MQTT messages.</p>
-<p>Butler&rsquo;s <a href="/docs/reference/rest-api/?operationsSorter=alpha">REST API</a> also has an endpoint that makes it possible to send MQTT messages from Sense apps&rsquo; load scripts.</p>
+<p>Butler&rsquo;s <a href="/docs/reference/rest-api-1/?operationsSorter=alpha">REST API</a> also has an endpoint that makes it possible to send MQTT messages from Sense apps&rsquo; load scripts.</p>
 <h3 id="defining-what-mqtt-brokerserver-to-connect-to">Defining what MQTT broker/server to connect to</h3>
 <p>Butler can use either of two kinds of MQTT brokers:</p>
 <ol>

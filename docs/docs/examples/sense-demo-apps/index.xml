@@ -42,7 +42,7 @@ It doesn&amp;rsquo;t have much of a user interface (it just shows what API endpo
         
         
         &lt;h2 id=&#34;partial-reload-api&#34;&gt;Partial reload API&lt;/h2&gt;
-&lt;p&gt;The full API documentation is available in the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/rest-api/?operationsSorter=alpha&#34;&gt;Reference section&lt;/a&gt;, here we&amp;rsquo;re interested in the PUT &lt;code&gt;/v4/app/{appId}/reload&lt;/code&gt; endpoint.&lt;/p&gt;
+&lt;p&gt;The full API documentation is available in the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/rest-api-1/?operationsSorter=alpha&#34;&gt;Reference section&lt;/a&gt;, here we&amp;rsquo;re interested in the PUT &lt;code&gt;/v4/app/{appId}/reload&lt;/code&gt; endpoint.&lt;/p&gt;
 &lt;h2 id=&#34;demo-apps-for-partial-reloads&#34;&gt;Demo apps for partial reloads&lt;/h2&gt;
 &lt;p&gt;A couple of apps showing how to use Butler&amp;rsquo;s partial load API are &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps&#34;&gt;included in the GitHub repository&lt;/a&gt;.&lt;/p&gt;
 &lt;ul&gt;

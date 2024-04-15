@@ -168,7 +168,7 @@ More info [here](/docs/examples/file-copy-move-delete/).
 
 Exporting apps as JSON can be very useful for backup purposes. Doing regular snapshots of all apps in a Sense cluster is a fast and space-effective way of keeping point-in-time backups.
 
-The [REST API documentation](http://localhost:1313/docs/reference/rest-api/?operationsSorter=alpha) has full docs for the `/v4/app/{appId}/dump` endpoint.
+The [REST API documentation](/docs/reference/rest-api-1/?operationsSorter=alpha) has full docs for the `/v4/app/{appId}/dump` endpoint.
 
 ## Easily post messages to Slack
 

@@ -362,7 +362,7 @@ No more deleting, copying or moving of files from within the load script.&lt;/p&
 &lt;p&gt;For example, you might have a QVD folder at &lt;code&gt;e:\data\qvd\sales\temp&lt;/code&gt;.&lt;br&gt;
 You also need to remove old QVDs from that folder.&lt;/p&gt;
 &lt;p&gt;This could be done with scheduled BAT/CMD files or PowerShell scripts, but it might be better/more flexible/easier/preferred to do this cleanup from the load script of a Sense app.&lt;/p&gt;
-&lt;p&gt;The solution: Add &lt;code&gt;e:\data\qvd\sales\temp&lt;/code&gt; to Butler&amp;rsquo;s list of folders in which files can be deleted, then call Butler&amp;rsquo;s &lt;code&gt;/v4/filedelete&lt;/code&gt; &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/rest-api/?operationsSorter=alpha&#34;&gt;API endpoint&lt;/a&gt; from within your app&amp;rsquo;s load script. Done!&lt;/p&gt;
+&lt;p&gt;The solution: Add &lt;code&gt;e:\data\qvd\sales\temp&lt;/code&gt; to Butler&amp;rsquo;s list of folders in which files can be deleted, then call Butler&amp;rsquo;s &lt;code&gt;/v4/filedelete&lt;/code&gt; &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/rest-api-1/?operationsSorter=alpha&#34;&gt;API endpoint&lt;/a&gt; from within your app&amp;rsquo;s load script. Done!&lt;/p&gt;
 &lt;h2 id=&#34;convenience-subs&#34;&gt;Convenience subs&lt;/h2&gt;
 &lt;p&gt;Butler includes a set of Subs that make it easy to use the file copy/move/delete APIs.&lt;br&gt;
 These subs are found in &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/blob/master/docs/sense_script/butler_subs.qvs&#34;&gt;this .qvs file&lt;/a&gt; as well as embedded in the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps&#34;&gt;Butler demo app&lt;/a&gt;.&lt;/p&gt;

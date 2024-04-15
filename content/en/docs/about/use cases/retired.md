@@ -20,8 +20,8 @@ There was also the risk of Butler missing UDP messages and not registering the a
 
 The affected API endpoints are:
 
-[/v4/activeusercount](/docs/reference/rest-api/?operationsSorter=alpha)  
-[/v4/activeusers](/docs/reference/rest-api/?operationsSorter=alpha)
+[/v4/activeusercount](/docs/reference/rest-api-1/?operationsSorter=alpha)  
+[/v4/activeusers](/docs/reference/rest-api-1/?operationsSorter=alpha)
 
 {{% alert title="Tip: Butler SOS" color="info" %}}
 The shortcomings above lead to the creation of the Butler SOS project, which has over the years evolved into a very comprehensive open source tool for professional grade, real-time monitoring of Qlik Sense.

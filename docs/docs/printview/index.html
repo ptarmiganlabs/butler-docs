@@ -2772,7 +2772,7 @@ MQTT (and the pubsub concept in general) is a great way for systems to communica
 <p>More info <a href="/docs/examples/file-copy-move-delete/">here</a>.</p>
 <h2 id="extract-metadata-for-apps">Extract metadata for apps</h2>
 <p>Exporting apps as JSON can be very useful for backup purposes. Doing regular snapshots of all apps in a Sense cluster is a fast and space-effective way of keeping point-in-time backups.</p>
-<p>The <a href="http://localhost:1313/docs/reference/rest-api/?operationsSorter=alpha">REST API documentation</a> has full docs for the <code>/v4/app/{appId}/dump</code> endpoint.</p>
+<p>The <a href="/docs/reference/rest-api-1/?operationsSorter=alpha">REST API documentation</a> has full docs for the <code>/v4/app/{appId}/dump</code> endpoint.</p>
 <h2 id="easily-post-messages-to-slack">Easily post messages to Slack</h2>
 <p>Slack messages can include full formatting (web links, text formatting etc), as well as &ldquo;poking&rdquo; users.<br>
 I.e. notifying specific Slack users that they have a new message.</p>
@@ -2818,8 +2818,8 @@ Here&rsquo;s a list of features that are candidates for removal from Butler, or 
 For example, when Butler was started it wouldn&rsquo;t capture currently active users or sessions - it was only after some event captured in the logs that Butler would update it&rsquo;s internal counters. This meant that it would take some time (sometimes quite long) until the metrics were even approaching the real number of users using Sense.</p>
 <p>There was also the risk of Butler missing UDP messages and not registering the associated log event.</p>
 <p>The affected API endpoints are:</p>
-<p><a href="/docs/reference/rest-api/?operationsSorter=alpha">/v4/activeusercount</a><br>
-<a href="/docs/reference/rest-api/?operationsSorter=alpha">/v4/activeusers</a></p>
+<p><a href="/docs/reference/rest-api-1/?operationsSorter=alpha">/v4/activeusercount</a><br>
+<a href="/docs/reference/rest-api-1/?operationsSorter=alpha">/v4/activeusers</a></p>
 
 
 <div class="alert alert-info" role="alert">
@@ -6882,7 +6882,7 @@ In such cases it&rsquo;s a waste of resources to keep the license assigned to th
 <h2 id="how-it-works">How it works</h2>
 <p>The data in the key-value store is <em>not</em> persisted to disk, which means that key-value data will be lost if Butler is restarted.<br>
 This behaviour could possibly be changed if there is a need, please open a <a href="https://github.com/ptarmiganlabs/butler/issues">GitHub ticket</a> if key-value persistence is of interest.</p>
-<p>Key-value data is manipulated using Butler&rsquo;s <a href="/docs/reference/rest-api/?operationsSorter=alpha">REST API</a>.</p>
+<p>Key-value data is manipulated using Butler&rsquo;s <a href="/docs/reference/rest-api-1/?operationsSorter=alpha">REST API</a>.</p>
 <p>The <a href="/docs/reference/key-value/">Reference docs</a> section has more information about the key-value store.</p>
 <h2 id="settings-in-config-file">Settings in config file</h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000">---</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -7442,7 +7442,7 @@ This is useful as it means the New Relic API keys do not have to be stored in th
 <p><a href="https://mqtt.org/">MQTT</a> is a light weight messaging protocol based on a publish-subscribe metaphore. It is widely used in the Internet of Things (IoT) and telecom sectors.</p>
 <p>MQTT has features such as guaranteed delivery of messages, which makes it very useful for communicating between Sense and both up- and downstream source/destination systems.</p>
 <p>Butler can be configured to forward events from Sense (reload task failures, aborted reload tasks, windows services starting/stopping, user session start/stop etc) as MQTT messages.</p>
-<p>Butler&rsquo;s <a href="/docs/reference/rest-api/?operationsSorter=alpha">REST API</a> also has an endpoint that makes it possible to send MQTT messages from Sense apps&rsquo; load scripts.</p>
+<p>Butler&rsquo;s <a href="/docs/reference/rest-api-1/?operationsSorter=alpha">REST API</a> also has an endpoint that makes it possible to send MQTT messages from Sense apps&rsquo; load scripts.</p>
 <h3 id="defining-what-mqtt-brokerserver-to-connect-to">Defining what MQTT broker/server to connect to</h3>
 <p>Butler can use either of two kinds of MQTT brokers:</p>
 <ol>
@@ -9733,7 +9733,7 @@ No more deleting, copying or moving of files from within the load script.</p>
 <p>For example, you might have a QVD folder at <code>e:\data\qvd\sales\temp</code>.<br>
 You also need to remove old QVDs from that folder.</p>
 <p>This could be done with scheduled BAT/CMD files or PowerShell scripts, but it might be better/more flexible/easier/preferred to do this cleanup from the load script of a Sense app.</p>
-<p>The solution: Add <code>e:\data\qvd\sales\temp</code> to Butler&rsquo;s list of folders in which files can be deleted, then call Butler&rsquo;s <code>/v4/filedelete</code> <a href="/docs/reference/rest-api/?operationsSorter=alpha">API endpoint</a> from within your app&rsquo;s load script. Done!</p>
+<p>The solution: Add <code>e:\data\qvd\sales\temp</code> to Butler&rsquo;s list of folders in which files can be deleted, then call Butler&rsquo;s <code>/v4/filedelete</code> <a href="/docs/reference/rest-api-1/?operationsSorter=alpha">API endpoint</a> from within your app&rsquo;s load script. Done!</p>
 <h2 id="convenience-subs">Convenience subs</h2>
 <p>Butler includes a set of Subs that make it easy to use the file copy/move/delete APIs.<br>
 These subs are found in <a href="https://github.com/ptarmiganlabs/butler/blob/master/docs/sense_script/butler_subs.qvs">this .qvs file</a> as well as embedded in the <a href="https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps">Butler demo app</a>.</p>
@@ -11978,7 +11978,7 @@ In QlikView that feature was easily available, but in QSEoW it&rsquo;s currently
 <p>Butler has an API for doing partial reloads of apps. A couple of demo apps are also includedin the GitHub repository.</p>
 </div>
 	<h2 id="partial-reload-api">Partial reload API</h2>
-<p>The full API documentation is available in the <a href="/docs/reference/rest-api/?operationsSorter=alpha">Reference section</a>, here we&rsquo;re interested in the PUT <code>/v4/app/{appId}/reload</code> endpoint.</p>
+<p>The full API documentation is available in the <a href="/docs/reference/rest-api-1/?operationsSorter=alpha">Reference section</a>, here we&rsquo;re interested in the PUT <code>/v4/app/{appId}/reload</code> endpoint.</p>
 <h2 id="demo-apps-for-partial-reloads">Demo apps for partial reloads</h2>
 <p>A couple of apps showing how to use Butler&rsquo;s partial load API are <a href="https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps">included in the GitHub repository</a>.</p>
 <ul>
@@ -14334,7 +14334,7 @@ On the other hand, it&rsquo;s questionable if Sense jobs should run more often t
 	<h1 id="pg-88691ec18b505c39f7a839e1cfd36bf9">5.5 - Key-value store</h1>
     <div class="lead">Details about the Butler key-value store.</div>
 	<h2 id="key-value-store-overview">Key-value store overview</h2>
-<p>The <a href="/docs/reference/rest-api/?operationsSorter=alpha">API documentation</a> is the best, most complete source of information about the key-value API endpoints.</p>
+<p>The <a href="/docs/reference/rest-api-1/?operationsSorter=alpha">API documentation</a> is the best, most complete source of information about the key-value API endpoints.</p>
 <h2 id="namespaces">Namespaces</h2>
 <p>Each key-value pair is associated with a &ldquo;namespace&rdquo;, which is simply a way to group KV pairs together in logical groups.</p>
 <p>Examples:</p>

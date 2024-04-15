@@ -8,7 +8,7 @@ description: >
 
 ## Key-value store overview
 
-The [API documentation](/docs/reference/rest-api/?operationsSorter=alpha) is the best, most complete source of information about the key-value API endpoints.
+The [API documentation](/docs/reference/rest-api-1/?operationsSorter=alpha) is the best, most complete source of information about the key-value API endpoints.
 
 ## Namespaces
 
