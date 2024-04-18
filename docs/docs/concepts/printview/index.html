@@ -1745,6 +1745,13 @@ There are different types of licenses, for example Professional, Analyzer and An
 <p>This is useful in environments where some users use Sense sporadically, for example only during certain times of the year.<br>
 In such cases it&rsquo;s a waste of resources to keep the license assigned to the user when it&rsquo;s not being used.</p>
 <p>Butler can be configured to release the license after a certain period of inactivity, allowing it to be used by other users.</p>
+<h2 id="disclaimer">Disclaimer</h2>
+<p>This feature has the potential to let more users use your Sense environment, compared to a scenario where no release of licenses is done.</p>
+<p>In order to avoid users not being able to access Sense you should still ensure to have a good margin, i.e. get more licenses from Qlik once you are running low. This is the only (and correct and proper) way to ensure that users are not denied access to Sense due to missing licenses.</p>
+<p>Also, you must ensure that managing licenses this way is not in conflict with <em>your</em> license agreement with Qlik.</p>
+<p>Butler&rsquo;s license release feature uses <a href="https://help.qlik.com/en-US/sense-developer/February2024/Subsystems/RepositoryServiceAPI/Content/Sense_RepositoryServiceAPI/RepositoryServiceAPI-Reference-Redirect.htm?ref=ptarmiganlabs.com">APIs</a> that are publicly documented by Qlik (example <a href="https://help.qlik.com/en-US/sense-developer/February2024/APIs/RepositoryServiceAPI/index.html?page=126&amp;ref=ptarmiganlabs.com">here</a>).</p>
+<p>The same APIs are used by the QMC to release licenses.<br>
+Butler simply automates what is otherwise a manual task in the QMC.</p>
 
 </div>
 

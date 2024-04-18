@@ -27,3 +27,16 @@ This is useful in environments where some users use Sense sporadically, for exam
 In such cases it's a waste of resources to keep the license assigned to the user when it's not being used.
 
 Butler can be configured to release the license after a certain period of inactivity, allowing it to be used by other users.
+
+## Disclaimer
+
+This feature has the potential to let more users use your Sense environment, compared to a scenario where no release of licenses is done.
+
+In order to avoid users not being able to access Sense you should still ensure to have a good margin, i.e. get more licenses from Qlik once you are running low. This is the only (and correct and proper) way to ensure that users are not denied access to Sense due to missing licenses.
+
+Also, you must ensure that managing licenses this way is not in conflict with *your* license agreement with Qlik.
+
+Butler's license release feature uses [APIs](https://help.qlik.com/en-US/sense-developer/February2024/Subsystems/RepositoryServiceAPI/Content/Sense_RepositoryServiceAPI/RepositoryServiceAPI-Reference-Redirect.htm?ref=ptarmiganlabs.com) that are publicly documented by Qlik (example [here](https://help.qlik.com/en-US/sense-developer/February2024/APIs/RepositoryServiceAPI/index.html?page=126&ref=ptarmiganlabs.com)).  
+
+The same APIs are used by the QMC to release licenses.  
+Butler simply automates what is otherwise a manual task in the QMC.
