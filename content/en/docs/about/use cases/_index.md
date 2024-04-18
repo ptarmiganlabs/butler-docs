@@ -84,8 +84,8 @@ Starting a task from the reload script is as easy as `Call StartTask('fbf645f0-0
 
 Trigger Sense reloads from external systems: When new data is available in a source database, that database can trigger a reload in Sense, and the data is loaded from the database into Sense. This way delays caused by Sense polling for data are minimized and data arrives at end users as quickly as possible.
 
-Starting reload tasks using REST API is described [here](/docs/examples/start-task-from-rest/).  
-Using MQTT messages to achieve this is described [here](/docs/examples/start-task-from-mqtt/).
+Starting reload tasks using REST API is described [here](/docs/examples/start-task/start-task-from-rest/).  
+Using MQTT messages to achieve this is described [here](/docs/examples/start-task/start-task-from-mqtt/).
 
 ## Start any reload task from within any Qlik Sense or web app
 
@@ -93,7 +93,7 @@ Some HTML and Javascript magic is also needed, but given Butler's start-task API
 
 This can for example be used to allow end users to start an Extract-Transform when they (the user) need refreshed data.
 
-More info [here](/docs/examples/start-task-from-rest/).
+More info [here](/docs/examples/start-task/start-task-from-rest/).
 
 ## Start reload tasks via REST API based on task tags or custom properties
 

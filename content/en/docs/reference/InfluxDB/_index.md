@@ -2,6 +2,8 @@
 title: "Information stored in InfluxDB"
 linkTitle: "InfluxDB"
 weight: 55
+alias:
+  - /docs/examples/influxdb-metrics
 description: >
     Butler stores a lot of information in InfluxDB. This page describes the different measurements and tags that Butler send to InfluxDB.
 ---

@@ -2,6 +2,8 @@
 title: "Configuring Butler's REST API"
 linkTitle: "REST API"
 weight: 30
+alias: 
+ - /docs/getting-started/setup/api-endpoints/
 description: >
   Butler's REST API can be enabled/disabled in itself.  
   If the API is enabled, individual API endpoints can then be enabled/disabled as needed.

@@ -21,7 +21,7 @@ Or simply: Notifications are usually (always?) a better solution than polling fo
 The good news is that Butler includes solid support for starting Sense tasks from 3rd party systems.
 
 Below the concept is described on a high level.  
-Actual examples are available [here](/docs/examples/start-task-from-rest/).
+Actual examples are available [here](/docs/examples/start-task/start-task-from-rest/).
 
 ## Start tasks by IDs, tags and custom properties
 

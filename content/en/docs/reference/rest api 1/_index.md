@@ -3,6 +3,8 @@ title: "REST API documentation"
 linkTitle: "REST API 1"
 type: swagger
 weight: 20
+aliases:
+  - /docs/reference/rest_api
 description: >
   OpenAPI/Swagger style documentation for the Butler API.
 

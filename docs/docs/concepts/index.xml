@@ -254,7 +254,7 @@ Consider a Sense environment that gets its data from some source system, for exa
 &lt;p&gt;Or simply: Notifications are usually (always?) a better solution than polling for new data.&lt;/p&gt;
 &lt;p&gt;The good news is that Butler includes solid support for starting Sense tasks from 3rd party systems.&lt;/p&gt;
 &lt;p&gt;Below the concept is described on a high level.&lt;br&gt;
-Actual examples are available &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/start-task-from-rest/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+Actual examples are available &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/start-task/start-task-from-rest/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;start-tasks-by-ids-tags-and-custom-properties&#34;&gt;Start tasks by IDs, tags and custom properties&lt;/h2&gt;
 &lt;p&gt;Butler&amp;rsquo;s &lt;code&gt;/v4/reloadtask/&amp;lt;taskid&amp;gt;/start&lt;/code&gt; API endpoint is used to start tasks.&lt;br&gt;
 For historical reasons there are two variants: POST and PUT. Both do the exactly the same though.&lt;/p&gt;
@@ -413,7 +413,7 @@ Which in MQTT lingo means &amp;ldquo;listen to all messages in the this topic, a
 &lt;ul&gt;
 &lt;li&gt;Start Sense task. The exact topic is defined in config property &lt;code&gt;Butler.mqttConfig.taskStartTopic&lt;/code&gt;.&lt;br&gt;
 Note that this topic &lt;em&gt;must&lt;/em&gt; be a subtopic to the topic specified in &lt;code&gt;Butler.mqttConfig.subscriptionRootTopic&lt;/code&gt;!&lt;br&gt;
-Starts the Sense task identified by the ID sent in the message body. More info in the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/start-task-from-mqtt/#use-mqtt-to-start-sense-tasks&#34;&gt;examples&lt;/a&gt; section.&lt;/li&gt;
+Starts the Sense task identified by the ID sent in the message body. More info in the &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/start-task/start-task-from-mqtt/#use-mqtt-to-start-sense-tasks&#34;&gt;examples&lt;/a&gt; section.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;As Butler listens to all messages in the topic tree specified by &lt;code&gt;Butler.mqttConfig.subscriptionRootTopic&lt;/code&gt; it can easily be extended with handlers for additional topics.&lt;/p&gt;
 

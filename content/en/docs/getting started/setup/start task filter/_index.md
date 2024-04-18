@@ -2,6 +2,8 @@
 title: "Control which tasks can be started via Butler's API"
 linkTitle: "Start task filter"
 weight: 305
+alias:
+  - /docs/getting-started/setup/task-filter/
 description: >
   Qlik Sense tasks can be started using Butler's REST API.  
 

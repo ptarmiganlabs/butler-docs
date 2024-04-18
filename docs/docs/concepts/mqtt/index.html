@@ -485,7 +485,7 @@ Which in MQTT lingo means &ldquo;listen to all messages in the this topic, as we
 <ul>
 <li>Start Sense task. The exact topic is defined in config property <code>Butler.mqttConfig.taskStartTopic</code>.<br>
 Note that this topic <em>must</em> be a subtopic to the topic specified in <code>Butler.mqttConfig.subscriptionRootTopic</code>!<br>
-Starts the Sense task identified by the ID sent in the message body. More info in the <a href="/docs/examples/start-task-from-mqtt/#use-mqtt-to-start-sense-tasks">examples</a> section.</li>
+Starts the Sense task identified by the ID sent in the message body. More info in the <a href="/docs/examples/start-task/start-task-from-mqtt/#use-mqtt-to-start-sense-tasks">examples</a> section.</li>
 </ul>
 <p>As Butler listens to all messages in the topic tree specified by <code>Butler.mqttConfig.subscriptionRootTopic</code> it can easily be extended with handlers for additional topics.</p>
 

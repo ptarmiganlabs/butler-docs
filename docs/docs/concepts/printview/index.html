@@ -1305,7 +1305,7 @@ Consider a Sense environment that gets its data from some source system, for exa
 <p>Or simply: Notifications are usually (always?) a better solution than polling for new data.</p>
 <p>The good news is that Butler includes solid support for starting Sense tasks from 3rd party systems.</p>
 <p>Below the concept is described on a high level.<br>
-Actual examples are available <a href="/docs/examples/start-task-from-rest/">here</a>.</p>
+Actual examples are available <a href="/docs/examples/start-task/start-task-from-rest/">here</a>.</p>
 <h2 id="start-tasks-by-ids-tags-and-custom-properties">Start tasks by IDs, tags and custom properties</h2>
 <p>Butler&rsquo;s <code>/v4/reloadtask/&lt;taskid&gt;/start</code> API endpoint is used to start tasks.<br>
 For historical reasons there are two variants: POST and PUT. Both do the exactly the same though.</p>
@@ -1855,7 +1855,7 @@ Which in MQTT lingo means &ldquo;listen to all messages in the this topic, as we
 <ul>
 <li>Start Sense task. The exact topic is defined in config property <code>Butler.mqttConfig.taskStartTopic</code>.<br>
 Note that this topic <em>must</em> be a subtopic to the topic specified in <code>Butler.mqttConfig.subscriptionRootTopic</code>!<br>
-Starts the Sense task identified by the ID sent in the message body. More info in the <a href="/docs/examples/start-task-from-mqtt/#use-mqtt-to-start-sense-tasks">examples</a> section.</li>
+Starts the Sense task identified by the ID sent in the message body. More info in the <a href="/docs/examples/start-task/start-task-from-mqtt/#use-mqtt-to-start-sense-tasks">examples</a> section.</li>
 </ul>
 <p>As Butler listens to all messages in the topic tree specified by <code>Butler.mqttConfig.subscriptionRootTopic</code> it can easily be extended with handlers for additional topics.</p>
 

@@ -2727,12 +2727,12 @@ This makes it easy to find the log file you are interested in.</p>
 <p>Trigger Sense reload tasks from a reload script: This makes it possible to start different Sense tasks based on what data has been read from a database, what time of day it is etc.<br>
 Starting a task from the reload script is as easy as <code>Call StartTask('fbf645f0-0c92-40a4-af9a-6e3eb1d3c35c')</code>.</p>
 <p>Trigger Sense reloads from external systems: When new data is available in a source database, that database can trigger a reload in Sense, and the data is loaded from the database into Sense. This way delays caused by Sense polling for data are minimized and data arrives at end users as quickly as possible.</p>
-<p>Starting reload tasks using REST API is described <a href="/docs/examples/start-task-from-rest/">here</a>.<br>
-Using MQTT messages to achieve this is described <a href="/docs/examples/start-task-from-mqtt/">here</a>.</p>
+<p>Starting reload tasks using REST API is described <a href="/docs/examples/start-task/start-task-from-rest/">here</a>.<br>
+Using MQTT messages to achieve this is described <a href="/docs/examples/start-task/start-task-from-mqtt/">here</a>.</p>
 <h2 id="start-any-reload-task-from-within-any-qlik-sense-or-web-app">Start any reload task from within any Qlik Sense or web app</h2>
 <p>Some HTML and Javascript magic is also needed, but given Butler&rsquo;s start-task API it&rsquo;s pretty easy to set up a button in a Sense app (or any web app!) to start any Sense reload task.</p>
 <p>This can for example be used to allow end users to start an Extract-Transform when they (the user) need refreshed data.</p>
-<p>More info <a href="/docs/examples/start-task-from-rest/">here</a>.</p>
+<p>More info <a href="/docs/examples/start-task/start-task-from-rest/">here</a>.</p>
 <h2 id="start-reload-tasks-via-rest-api-based-on-task-tags-or-custom-properties">Start reload tasks via REST API based on task tags or custom properties</h2>
 <p>Using tags and/or custom properties to identify what tasks should be started can be easier than having to know the tasks IDs.
 This both makes it easier for 3rd party systems to start Qlik Sense tasks and easier for Sense admins to manage which tasks should be startable by 3rd party systems.</p>
@@ -9250,7 +9250,7 @@ Consider a Sense environment that gets its data from some source system, for exa
 <p>Or simply: Notifications are usually (always?) a better solution than polling for new data.</p>
 <p>The good news is that Butler includes solid support for starting Sense tasks from 3rd party systems.</p>
 <p>Below the concept is described on a high level.<br>
-Actual examples are available <a href="/docs/examples/start-task-from-rest/">here</a>.</p>
+Actual examples are available <a href="/docs/examples/start-task/start-task-from-rest/">here</a>.</p>
 <h2 id="start-tasks-by-ids-tags-and-custom-properties">Start tasks by IDs, tags and custom properties</h2>
 <p>Butler&rsquo;s <code>/v4/reloadtask/&lt;taskid&gt;/start</code> API endpoint is used to start tasks.<br>
 For historical reasons there are two variants: POST and PUT. Both do the exactly the same though.</p>
@@ -9800,7 +9800,7 @@ Which in MQTT lingo means &ldquo;listen to all messages in the this topic, as we
 <ul>
 <li>Start Sense task. The exact topic is defined in config property <code>Butler.mqttConfig.taskStartTopic</code>.<br>
 Note that this topic <em>must</em> be a subtopic to the topic specified in <code>Butler.mqttConfig.subscriptionRootTopic</code>!<br>
-Starts the Sense task identified by the ID sent in the message body. More info in the <a href="/docs/examples/start-task-from-mqtt/#use-mqtt-to-start-sense-tasks">examples</a> section.</li>
+Starts the Sense task identified by the ID sent in the message body. More info in the <a href="/docs/examples/start-task/start-task-from-mqtt/#use-mqtt-to-start-sense-tasks">examples</a> section.</li>
 </ul>
 <p>As Butler listens to all messages in the topic tree specified by <code>Butler.mqttConfig.subscriptionRootTopic</code> it can easily be extended with handlers for additional topics.</p>
 

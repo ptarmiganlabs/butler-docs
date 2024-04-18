@@ -106,12 +106,12 @@ This makes it easy to find the log file you are interested in.&lt;/p&gt;
 &lt;p&gt;Trigger Sense reload tasks from a reload script: This makes it possible to start different Sense tasks based on what data has been read from a database, what time of day it is etc.&lt;br&gt;
 Starting a task from the reload script is as easy as &lt;code&gt;Call StartTask(&#39;fbf645f0-0c92-40a4-af9a-6e3eb1d3c35c&#39;)&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Trigger Sense reloads from external systems: When new data is available in a source database, that database can trigger a reload in Sense, and the data is loaded from the database into Sense. This way delays caused by Sense polling for data are minimized and data arrives at end users as quickly as possible.&lt;/p&gt;
-&lt;p&gt;Starting reload tasks using REST API is described &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/start-task-from-rest/&#34;&gt;here&lt;/a&gt;.&lt;br&gt;
-Using MQTT messages to achieve this is described &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/start-task-from-mqtt/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Starting reload tasks using REST API is described &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/start-task/start-task-from-rest/&#34;&gt;here&lt;/a&gt;.&lt;br&gt;
+Using MQTT messages to achieve this is described &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/start-task/start-task-from-mqtt/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;start-any-reload-task-from-within-any-qlik-sense-or-web-app&#34;&gt;Start any reload task from within any Qlik Sense or web app&lt;/h2&gt;
 &lt;p&gt;Some HTML and Javascript magic is also needed, but given Butler&amp;rsquo;s start-task API it&amp;rsquo;s pretty easy to set up a button in a Sense app (or any web app!) to start any Sense reload task.&lt;/p&gt;
 &lt;p&gt;This can for example be used to allow end users to start an Extract-Transform when they (the user) need refreshed data.&lt;/p&gt;
-&lt;p&gt;More info &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/start-task-from-rest/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;More info &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/start-task/start-task-from-rest/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;start-reload-tasks-via-rest-api-based-on-task-tags-or-custom-properties&#34;&gt;Start reload tasks via REST API based on task tags or custom properties&lt;/h2&gt;
 &lt;p&gt;Using tags and/or custom properties to identify what tasks should be started can be easier than having to know the tasks IDs.
 This both makes it easier for 3rd party systems to start Qlik Sense tasks and easier for Sense admins to manage which tasks should be startable by 3rd party systems.&lt;/p&gt;
