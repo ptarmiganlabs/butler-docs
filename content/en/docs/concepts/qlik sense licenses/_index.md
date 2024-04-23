@@ -26,7 +26,22 @@ Butler can automatically release Professional and Analyzer user licenses that ha
 This is useful in environments where some users use Sense sporadically, for example only during certain times of the year.  
 In such cases it's a waste of resources to keep the license assigned to the user when it's not being used.
 
-Butler can be configured to release the license after a certain period of inactivity, allowing it to be used by other users.
+Here is how it works:
+
+- Butler will evaluate allocation of professional and analyzer access licenses on a configurable schedule, for example once per day.
+- Licenses that have not been used for a certain period of time (e.g. 30 days) will be released.
+  - Separate inactivity periods can be configured for professional and analyzer licenses.
+- Licenses that are within quarantine period will never be released.
+- It is possible to exclude certain users from having their licenses released, i.e. guarantee they will always have a license available.
+  Can be useful for administrators or users that need guaranteed access to Sense.
+  - The following criteria can be used to exclude users from having their licenses released:
+    - Specific users (by userDirectory\userId)
+    - Specific tag(s) assigned to a user.
+    - Specific custom property value(s) assigned to a user.
+    - Users belonging to a user directory.
+    - Users being marked as (not) active in the QMC.
+    - Users being marked as (not) blocked in the QMC.
+    - Users being marked as (not) externally removed in the QMC.
 
 ## Disclaimer
 

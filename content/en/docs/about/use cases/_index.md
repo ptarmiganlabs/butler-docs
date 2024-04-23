@@ -23,6 +23,7 @@ weight = 10
 - [Extract metadata for apps](#extract-metadata-for-apps)
 - [Easily post messages to Slack](#easily-post-messages-to-slack)
 - [Monitor Windows services](#monitor-windows-services)
+- [Monitor and release Qlik Sense user licenses](#monitor-and-release-qlik-sense-user-licenses)
 
 ## Instant notifications when reload tasks fail or are stopped
 
@@ -36,7 +37,7 @@ For both Slack and Teams there are options to use more flexible/configurable ale
 
 The result is a very poweful tool for QSEoW sysadmins, who get real-time insight into what's happening with respect to task execution.
 
-More info [here](docs/getting-started/setup/reload-alerts/).
+More info [here](/docs/getting-started/setup/reload-alerts/).
 
 ## Forward failed reload events to incident management systems (New Relic, Signl4)
 
@@ -177,7 +178,7 @@ I.e. notifying specific Slack users that they have a new message.
 
 Can for example be used to notify user(s) that an app has reloaded with new data, or that some error condition has occured.
 
-More info [here](docs/examples/sense-demo-apps/post-to-slack/).
+More info [here](/docs/examples/sense-demo-apps/post-to-slack/).
 
 ## Monitor Windows services
 
@@ -188,3 +189,14 @@ Monitoring here means tracking the services' state and sending messages to email
 
 It can for example be used to get alerts if a Qlik Sense service for some reason stops.  
 The concept is not limited to Qlik Sense services though - any Windows service can be monitored.
+
+## Monitor and release Qlik Sense user licenses
+
+Butler can monitor the usage of Qlik Sense user licenses and store the data in InfluxDB, from where the license data can be visualized in Grafana.
+This makes it easy to track (and alert if needed) on the number of used licenses, how many are available and when it's time to get more licenses.
+
+Butler can also automatically release Professional and Analyzer user licenses that have been inactive for a certain period of time.
+This is useful in environments where some users use Sense sporadically, for example only during certain times of the year.
+In such cases it's a waste of resources to keep the license assigned to the user when it's not being used.
+
+More info [here](/docs/concepts/qlik-sense-licenses/).

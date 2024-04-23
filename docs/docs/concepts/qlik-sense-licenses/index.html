@@ -472,7 +472,32 @@ There are different types of licenses, for example Professional, Analyzer and An
 <p>Butler can automatically release Professional and Analyzer user licenses that have been inactive for a certain period of time.</p>
 <p>This is useful in environments where some users use Sense sporadically, for example only during certain times of the year.<br>
 In such cases it&rsquo;s a waste of resources to keep the license assigned to the user when it&rsquo;s not being used.</p>
-<p>Butler can be configured to release the license after a certain period of inactivity, allowing it to be used by other users.</p>
+<p>Here is how it works:</p>
+<ul>
+<li>Butler will evaluate allocation of professional and analyzer access licenses on a configurable schedule, for example once per day.</li>
+<li>Licenses that have not been used for a certain period of time (e.g. 30 days) will be released.
+<ul>
+<li>Separate inactivity periods can be configured for professional and analyzer licenses.</li>
+</ul>
+</li>
+<li>Licenses that are within quarantine period will never be released.</li>
+<li>It is possible to exclude certain users from having their licenses released, i.e. guarantee they will always have a license available.
+Can be useful for administrators or users that need guaranteed access to Sense.
+<ul>
+<li>The following criteria can be used to exclude users from having their licenses released:
+<ul>
+<li>Specific users (by userDirectory\userId)</li>
+<li>Specific tag(s) assigned to a user.</li>
+<li>Specific custom property value(s) assigned to a user.</li>
+<li>Users belonging to a user directory.</li>
+<li>Users being marked as (not) active in the QMC.</li>
+<li>Users being marked as (not) blocked in the QMC.</li>
+<li>Users being marked as (not) externally removed in the QMC.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="disclaimer">Disclaimer</h2>
 <p>This feature has the potential to let more users use your Sense environment, compared to a scenario where no release of licenses is done.</p>
 <p>In order to avoid users not being able to access Sense you should still ensure to have a good margin, i.e. get more licenses from Qlik once you are running low. This is the only (and correct and proper) way to ensure that users are not denied access to Sense due to missing licenses.</p>
@@ -496,7 +521,7 @@ Butler simply automates what is otherwise a manual task in the QMC.</p>
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified 2024-04-08: <a href="https://github.com/ptarmiganlabs/butler-docs/commit/000eedeed726f30dbcaf6c0dc1ce9b2b2e3a7139">11.1 release (000eede)</a>
+  Last modified 2024-04-18: <a href="https://github.com/ptarmiganlabs/butler-docs/commit/14c2481573f5a07537c869ccab0e2782159d68c0">Update license monitoring page (14c2481)</a>
 </div>
 
 </div>

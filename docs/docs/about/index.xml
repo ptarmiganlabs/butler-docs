@@ -71,6 +71,7 @@ This simplifies things - just download, configure and run.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;#extract-metadata-for-apps&#34;&gt;Extract metadata for apps&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#easily-post-messages-to-slack&#34;&gt;Easily post messages to Slack&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#monitor-windows-services&#34;&gt;Monitor Windows services&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#monitor-and-release-qlik-sense-user-licenses&#34;&gt;Monitor and release Qlik Sense user licenses&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;instant-notifications-when-reload-tasks-fail-or-are-stopped&#34;&gt;Instant notifications when reload tasks fail or are stopped&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Information about failing tasks&lt;/strong&gt; can be sent as emails, to Microsoft Teams, Slack, as MQTT messages or outgoing webhooks.&lt;/p&gt;
@@ -78,7 +79,7 @@ This simplifies things - just download, configure and run.&lt;/p&gt;
 &lt;p&gt;Both subject and body of email can use the template fields.&lt;/p&gt;
 &lt;p&gt;For both Slack and Teams there are options to use more flexible/configurable alert formats and more basic pre-configured alerts.&lt;/p&gt;
 &lt;p&gt;The result is a very poweful tool for QSEoW sysadmins, who get real-time insight into what&amp;rsquo;s happening with respect to task execution.&lt;/p&gt;
-&lt;p&gt;More info &lt;a href=&#34;docs/getting-started/setup/reload-alerts/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;More info &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;forward-failed-reload-events-to-incident-management-systems-new-relic-signl4&#34;&gt;Forward failed reload events to incident management systems (New Relic, Signl4)&lt;/h2&gt;
 &lt;p&gt;Butler offers advanced failed reload alerts via Slack, Teams, email and outgoing webhooks.&lt;br&gt;
 Configurable templates means you can customize emails/Teams/Slack messages.&lt;/p&gt;
@@ -156,13 +157,20 @@ MQTT (and the pubsub concept in general) is a great way for systems to communica
 &lt;p&gt;Slack messages can include full formatting (web links, text formatting etc), as well as &amp;ldquo;poking&amp;rdquo; users.&lt;br&gt;
 I.e. notifying specific Slack users that they have a new message.&lt;/p&gt;
 &lt;p&gt;Can for example be used to notify user(s) that an app has reloaded with new data, or that some error condition has occured.&lt;/p&gt;
-&lt;p&gt;More info &lt;a href=&#34;docs/examples/sense-demo-apps/post-to-slack/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;More info &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/examples/sense-demo-apps/post-to-slack/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;monitor-windows-services&#34;&gt;Monitor Windows services&lt;/h2&gt;
 &lt;p&gt;If Butler is running on Windows (server or even desktop) it can monitor one or more Windows services.&lt;br&gt;
 This feature is &lt;strong&gt;not&lt;/strong&gt; available when running Butler on Linux, macOS or in Docker.&lt;/p&gt;
 &lt;p&gt;Monitoring here means tracking the services&amp;rsquo; state and sending messages to email, InfluxDB, New Relic, MQTT, Webhooks, Slack or Teams when services stop or start.&lt;/p&gt;
 &lt;p&gt;It can for example be used to get alerts if a Qlik Sense service for some reason stops.&lt;br&gt;
 The concept is not limited to Qlik Sense services though - any Windows service can be monitored.&lt;/p&gt;
+&lt;h2 id=&#34;monitor-and-release-qlik-sense-user-licenses&#34;&gt;Monitor and release Qlik Sense user licenses&lt;/h2&gt;
+&lt;p&gt;Butler can monitor the usage of Qlik Sense user licenses and store the data in InfluxDB, from where the license data can be visualized in Grafana.
+This makes it easy to track (and alert if needed) on the number of used licenses, how many are available and when it&amp;rsquo;s time to get more licenses.&lt;/p&gt;
+&lt;p&gt;Butler can also automatically release Professional and Analyzer user licenses that have been inactive for a certain period of time.
+This is useful in environments where some users use Sense sporadically, for example only during certain times of the year.
+In such cases it&amp;rsquo;s a waste of resources to keep the license assigned to the user when it&amp;rsquo;s not being used.&lt;/p&gt;
+&lt;p&gt;More info &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/concepts/qlik-sense-licenses/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
       </description>
     </item>

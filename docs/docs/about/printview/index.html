@@ -262,6 +262,7 @@ This simplifies things - just download, configure and run.</p>
 <li><a href="#extract-metadata-for-apps">Extract metadata for apps</a></li>
 <li><a href="#easily-post-messages-to-slack">Easily post messages to Slack</a></li>
 <li><a href="#monitor-windows-services">Monitor Windows services</a></li>
+<li><a href="#monitor-and-release-qlik-sense-user-licenses">Monitor and release Qlik Sense user licenses</a></li>
 </ul>
 <h2 id="instant-notifications-when-reload-tasks-fail-or-are-stopped">Instant notifications when reload tasks fail or are stopped</h2>
 <p><strong>Information about failing tasks</strong> can be sent as emails, to Microsoft Teams, Slack, as MQTT messages or outgoing webhooks.</p>
@@ -269,7 +270,7 @@ This simplifies things - just download, configure and run.</p>
 <p>Both subject and body of email can use the template fields.</p>
 <p>For both Slack and Teams there are options to use more flexible/configurable alert formats and more basic pre-configured alerts.</p>
 <p>The result is a very poweful tool for QSEoW sysadmins, who get real-time insight into what&rsquo;s happening with respect to task execution.</p>
-<p>More info <a href="docs/getting-started/setup/reload-alerts/">here</a>.</p>
+<p>More info <a href="/docs/getting-started/setup/reload-alerts/">here</a>.</p>
 <h2 id="forward-failed-reload-events-to-incident-management-systems-new-relic-signl4">Forward failed reload events to incident management systems (New Relic, Signl4)</h2>
 <p>Butler offers advanced failed reload alerts via Slack, Teams, email and outgoing webhooks.<br>
 Configurable templates means you can customize emails/Teams/Slack messages.</p>
@@ -347,13 +348,20 @@ MQTT (and the pubsub concept in general) is a great way for systems to communica
 <p>Slack messages can include full formatting (web links, text formatting etc), as well as &ldquo;poking&rdquo; users.<br>
 I.e. notifying specific Slack users that they have a new message.</p>
 <p>Can for example be used to notify user(s) that an app has reloaded with new data, or that some error condition has occured.</p>
-<p>More info <a href="docs/examples/sense-demo-apps/post-to-slack/">here</a>.</p>
+<p>More info <a href="/docs/examples/sense-demo-apps/post-to-slack/">here</a>.</p>
 <h2 id="monitor-windows-services">Monitor Windows services</h2>
 <p>If Butler is running on Windows (server or even desktop) it can monitor one or more Windows services.<br>
 This feature is <strong>not</strong> available when running Butler on Linux, macOS or in Docker.</p>
 <p>Monitoring here means tracking the services&rsquo; state and sending messages to email, InfluxDB, New Relic, MQTT, Webhooks, Slack or Teams when services stop or start.</p>
 <p>It can for example be used to get alerts if a Qlik Sense service for some reason stops.<br>
 The concept is not limited to Qlik Sense services though - any Windows service can be monitored.</p>
+<h2 id="monitor-and-release-qlik-sense-user-licenses">Monitor and release Qlik Sense user licenses</h2>
+<p>Butler can monitor the usage of Qlik Sense user licenses and store the data in InfluxDB, from where the license data can be visualized in Grafana.
+This makes it easy to track (and alert if needed) on the number of used licenses, how many are available and when it&rsquo;s time to get more licenses.</p>
+<p>Butler can also automatically release Professional and Analyzer user licenses that have been inactive for a certain period of time.
+This is useful in environments where some users use Sense sporadically, for example only during certain times of the year.
+In such cases it&rsquo;s a waste of resources to keep the license assigned to the user when it&rsquo;s not being used.</p>
+<p>More info <a href="/docs/concepts/qlik-sense-licenses/">here</a>.</p>
 
 </div>
 
