@@ -148,7 +148,7 @@ When set, this overrides the log level specified in the configuration file.</p>
 <p>Valid values: &rsquo;error&rsquo;, &lsquo;warn&rsquo;, &lsquo;info&rsquo;, &lsquo;verbose&rsquo;, &lsquo;debug&rsquo;, &lsquo;silly&rsquo;</p>
 <p>Default: &lsquo;info&rsquo;</p>
 <h2 id="new-relic-related-options">New Relic related options</h2>
-<p>When using New Relic as backend for storing logs, information about failed reloads etc, you can specify New Relic credentials in the config file - but that has the disadvantage that you have to store the credentials in the config file.</p>
+<p>When using New Relic as backend for storing logs, information about failed reloads etc, you can specify New Relic credentials in the config file - but that is not ideal from a security perspective.</p>
 <p>To avoid that, you can specify the New Relic credentials on the command line using the following options.</p>
 <h3 id="--new-relic-account-name">&ndash;new-relic-account-name</h3>
 <p>List of New Relic account names. Used within Butler to differentiate between different target New Relic accounts to which data can be sent. This name has nothing to do with the account name used in New Relic - it&rsquo;s purely for Butler&rsquo;s internal use.<br>

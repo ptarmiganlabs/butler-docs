@@ -63,7 +63,7 @@ Default: 'info'
 
 ## New Relic related options
 
-When using New Relic as backend for storing logs, information about failed reloads etc, you can specify New Relic credentials in the config file - but that has the disadvantage that you have to store the credentials in the config file.
+When using New Relic as backend for storing logs, information about failed reloads etc, you can specify New Relic credentials in the config file - but that is not ideal from a security perspective.
 
 To avoid that, you can specify the New Relic credentials on the command line using the following options.
 
