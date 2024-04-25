@@ -81,7 +81,7 @@ Example: `--new-relic-account-name "Account 1" "Account 2"`
 
 List of New Relic API keys. Used to authenticate with New Relic.
 
-Enclose API keys in quotes if they contain spaces.
+Enclose API keys in quotes if they contain spaces.  
 Separate multiple API keys with a space. Note that the order of the API keys must match the order of the account names, i.e. the first API key corresponds to the first account name, the second API key corresponds to the second account name, and so on.
 
 Example: `--new-relic-api-key "API key 1" "API key 2"`
@@ -90,7 +90,7 @@ Example: `--new-relic-api-key "API key 1" "API key 2"`
 
 List of New Relic account IDs. Used to identify the New Relic account to which data should be sent.
 
-Enclose account IDs in quotes if they contain spaces.
+Enclose account IDs in quotes if they contain spaces.  
 Separate multiple account IDs with a space. Note that the order of the account IDs must match the order of the account names, i.e. the first account ID corresponds to the first account name, the second account ID corresponds to the second account name, and so on.
 
 ## Send test email

@@ -77,12 +77,12 @@ Separate multiple account names with a space.&lt;/p&gt;
 &lt;p&gt;Example: &lt;code&gt;--new-relic-account-name &amp;quot;Account 1&amp;quot; &amp;quot;Account 2&amp;quot;&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&#34;--new-relic-api-key&#34;&gt;&amp;ndash;new-relic-api-key&lt;/h3&gt;
 &lt;p&gt;List of New Relic API keys. Used to authenticate with New Relic.&lt;/p&gt;
-&lt;p&gt;Enclose API keys in quotes if they contain spaces.
+&lt;p&gt;Enclose API keys in quotes if they contain spaces.&lt;br&gt;
 Separate multiple API keys with a space. Note that the order of the API keys must match the order of the account names, i.e. the first API key corresponds to the first account name, the second API key corresponds to the second account name, and so on.&lt;/p&gt;
 &lt;p&gt;Example: &lt;code&gt;--new-relic-api-key &amp;quot;API key 1&amp;quot; &amp;quot;API key 2&amp;quot;&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&#34;--new-relic-account-id&#34;&gt;&amp;ndash;new-relic-account-id&lt;/h3&gt;
 &lt;p&gt;List of New Relic account IDs. Used to identify the New Relic account to which data should be sent.&lt;/p&gt;
-&lt;p&gt;Enclose account IDs in quotes if they contain spaces.
+&lt;p&gt;Enclose account IDs in quotes if they contain spaces.&lt;br&gt;
 Separate multiple account IDs with a space. Note that the order of the account IDs must match the order of the account names, i.e. the first account ID corresponds to the first account name, the second account ID corresponds to the second account name, and so on.&lt;/p&gt;
 &lt;h2 id=&#34;send-test-email&#34;&gt;Send test email&lt;/h2&gt;
 &lt;p&gt;Butler has several alerting features for sending emails when some event happens (typoically something failing&amp;hellip;) in Sense.&lt;/p&gt;
