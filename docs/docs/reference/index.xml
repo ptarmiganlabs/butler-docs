@@ -52,6 +52,7 @@ Looks like this:&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --skip-config-verification           Disable config file verification &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;(&lt;/span&gt;default: &lt;span style=&#34;color:#204a87&#34;&gt;false&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  -h, --help                           display &lt;span style=&#34;color:#204a87&#34;&gt;help&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#204a87&#34;&gt;command&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;-v---version&#34;&gt;-V, &amp;ndash;version&lt;/h2&gt;
+&lt;p&gt;Output the version number of Butler.&lt;/p&gt;
 &lt;h2 id=&#34;-c---configfile&#34;&gt;-c, &amp;ndash;configfile&lt;/h2&gt;
 &lt;p&gt;Specifies the configuration file to use.&lt;/p&gt;
 &lt;p&gt;Valid values: A path to a configuration file.&lt;/p&gt;

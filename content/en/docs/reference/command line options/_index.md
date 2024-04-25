@@ -38,6 +38,7 @@ Options:
 
 ## -V, --version
 
+Output the version number of Butler.
 
 ## -c, --configfile
 
