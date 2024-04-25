@@ -102,7 +102,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-7f7d6f8507fae88d284446932d7bce54">Config file syntax</a></li>
+<li>1: <a href="#pg-0f3b13017db18ddf0cdc4c4696a6b595">Command line options</a></li>
 
 
     
@@ -121,7 +121,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-1ac666597eebd4a3b48feb2bde31a45a">REST API documentation</a></li>
+<li>2: <a href="#pg-7f7d6f8507fae88d284446932d7bce54">Config file syntax</a></li>
 
 
     
@@ -140,7 +140,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3: <a href="#pg-9553cd721548ae742a04c156f67b45f0">REST API documentation (alternative format)</a></li>
+<li>3: <a href="#pg-1ac666597eebd4a3b48feb2bde31a45a">REST API documentation</a></li>
 
 
     
@@ -159,7 +159,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-4855880b84ba1a846a9f67eefa76a3b0">Scheduler</a></li>
+<li>4: <a href="#pg-9553cd721548ae742a04c156f67b45f0">REST API documentation (alternative format)</a></li>
 
 
     
@@ -178,7 +178,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>5: <a href="#pg-88691ec18b505c39f7a839e1cfd36bf9">Key-value store</a></li>
+<li>5: <a href="#pg-4855880b84ba1a846a9f67eefa76a3b0">Scheduler</a></li>
 
 
     
@@ -197,22 +197,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>6: <a href="#pg-e5cecb6907bf3382792d483df8a5ddc6">Alert template fields</a></li>
-
-
-    
-    <ul>
-        
-  
-  
-  
-  
-
-  
-    
-    
-	
-<li>6.1: <a href="#pg-256549f01c30baa13a7b12cad4c2ecd6">Alert template fields for failed/aborted reload tasks</a></li>
+<li>6: <a href="#pg-88691ec18b505c39f7a839e1cfd36bf9">Key-value store</a></li>
 
 
     
@@ -231,7 +216,41 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>6.2: <a href="#pg-de4574faf55327363573635d5028a3d4">Alert template fields for Windows services events</a></li>
+<li>7: <a href="#pg-e5cecb6907bf3382792d483df8a5ddc6">Alert template fields</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>7.1: <a href="#pg-256549f01c30baa13a7b12cad4c2ecd6">Alert template fields for failed/aborted reload tasks</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>7.2: <a href="#pg-de4574faf55327363573635d5028a3d4">Alert template fields for Windows services events</a></li>
 
 
     
@@ -254,7 +273,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>7: <a href="#pg-3977823133d83e617a4e7e46829d788b">Information stored in InfluxDB</a></li>
+<li>8: <a href="#pg-3977823133d83e617a4e7e46829d788b">Information stored in InfluxDB</a></li>
 
 
     
@@ -273,7 +292,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>8: <a href="#pg-0c0dea361e950e580c9e83bac272042c">Helper subs that make it easy to use Butler APIs</a></li>
+<li>9: <a href="#pg-0c0dea361e950e580c9e83bac272042c">Helper subs that make it easy to use Butler APIs</a></li>
 
 
     
@@ -292,7 +311,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>9: <a href="#pg-a57203f5e07e2248b37c5791ea744d92">Test cases</a></li>
+<li>10: <a href="#pg-a57203f5e07e2248b37c5791ea744d92">Test cases</a></li>
 
 
     
@@ -341,7 +360,119 @@ This is the multi-page printable view of this section.
 
 <div class="td-content" style="">
     
-	<h1 id="pg-7f7d6f8507fae88d284446932d7bce54">1 - Config file syntax</h1>
+	<h1 id="pg-0f3b13017db18ddf0cdc4c4696a6b595">1 - Command line options</h1>
+    <div class="lead">Description of Butler&rsquo;s command line options.</div>
+	<!-- 
+
+<div class="pageinfo pageinfo-primary">
+<p>This is a placeholder page that shows you how to use this template site.</p>
+
+</div>
+ -->
+<h2 id="command-line-options">Command line options</h2>
+<p>When starting Butler, you can pass command line options to customize its behavior.<br>
+Looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Usage: butler <span style="color:#ce5c00;font-weight:bold">[</span>options<span style="color:#ce5c00;font-weight:bold">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Butler gives superpowers to client-managed Qlik Sense Enterprise on Windows!
+</span></span><span style="display:flex;"><span>Advanced reload failure alerts, task scheduler, key-value store, file system access and much more.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Options:
+</span></span><span style="display:flex;"><span>  -V, --version                        output the version number
+</span></span><span style="display:flex;"><span>  -c, --configfile &lt;file&gt;              path to config file
+</span></span><span style="display:flex;"><span>  -l, --loglevel &lt;level&gt;               log level <span style="color:#ce5c00;font-weight:bold">(</span>choices: <span style="color:#4e9a06">&#34;error&#34;</span>, <span style="color:#4e9a06">&#34;warn&#34;</span>, <span style="color:#4e9a06">&#34;info&#34;</span>, <span style="color:#4e9a06">&#34;verbose&#34;</span>, <span style="color:#4e9a06">&#34;debug&#34;</span>, <span style="color:#4e9a06">&#34;silly&#34;</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  --new-relic-account-name  &lt;name...&gt;  New Relic account name. Used within Butler to differentiate between different target New Relic accounts
+</span></span><span style="display:flex;"><span>  --new-relic-api-key &lt;key...&gt;         insert API key to use with New Relic
+</span></span><span style="display:flex;"><span>  --new-relic-account-id &lt;id...&gt;       New Relic account ID
+</span></span><span style="display:flex;"><span>  --test-email-address &lt;address&gt;       send <span style="color:#204a87">test</span> email to this address. Used to verify email settings in the config file.
+</span></span><span style="display:flex;"><span>  --test-email-from-address &lt;address&gt;  send <span style="color:#204a87">test</span> email from this address. Only relevant when SMTP server allows from address to be set.
+</span></span><span style="display:flex;"><span>  --no-qs-connection                   don<span style="color:#a40000">&#39;</span>t connect to Qlik Sense server at all. Run in isolated mode
+</span></span><span style="display:flex;"><span>  --api-rate-limit                     <span style="color:#204a87">set</span> the API rate limit, per minute. Default is <span style="color:#0000cf;font-weight:bold">100</span> calls/minute. Set to <span style="color:#0000cf;font-weight:bold">0</span> to disable rate limiting.
+</span></span><span style="display:flex;"><span>  --skip-config-verification           Disable config file verification <span style="color:#ce5c00;font-weight:bold">(</span>default: <span style="color:#204a87">false</span><span style="color:#ce5c00;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>  -h, --help                           display <span style="color:#204a87">help</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#204a87">command</span>
+</span></span></code></pre></div><h2 id="-v---version">-V, &ndash;version</h2>
+<h2 id="-c---configfile">-c, &ndash;configfile</h2>
+<p>Specifies the configuration file to use.</p>
+<p>Valid values: A path to a configuration file.</p>
+<p>Default: Whatever is specified in the <code>NODE_ENV</code> environment variable, with a .yaml extension added. Butler will look for that file in the <code>./config</code> directory.</p>
+<p>Example:</p>
+<ul>
+<li><code>-c</code> or <code>--configfile</code> are not specified. <code>NODE_ENV</code> is set to <code>production</code>. Butler will try to read settings from <code>./config/production.yaml</code>.</li>
+</ul>
+<h2 id="-l---loglevel">-l, &ndash;loglevel</h2>
+<p>Specifies the log level to use.<br>
+When set, this overrides the log level specified in the configuration file.</p>
+<p>Valid values: &rsquo;error&rsquo;, &lsquo;warn&rsquo;, &lsquo;info&rsquo;, &lsquo;verbose&rsquo;, &lsquo;debug&rsquo;, &lsquo;silly&rsquo;</p>
+<p>Default: &lsquo;info&rsquo;</p>
+<h2 id="new-relic-related-options">New Relic related options</h2>
+<p>When using New Relic as backend for storing logs, information about failed reloads etc, you can specify New Relic credentials in the config file - but that has the disadvantage that you have to store the credentials in the config file.</p>
+<p>To avoid that, you can specify the New Relic credentials on the command line using the following options.</p>
+<h3 id="--new-relic-account-name">&ndash;new-relic-account-name</h3>
+<p>List of New Relic account names. Used within Butler to differentiate between different target New Relic accounts to which data can be sent. This name has nothing to do with the account name used in New Relic - it&rsquo;s purely for Butler&rsquo;s internal use.<br>
+Specifically, it&rsquo;s at multiple places in the config file where you can specificy to which New Relic account to send data.</p>
+<p>Enclose account names in quotes if they contain spaces.<br>
+Separate multiple account names with a space.</p>
+<p>Example: <code>--new-relic-account-name &quot;Account 1&quot; &quot;Account 2&quot;</code></p>
+<h3 id="--new-relic-api-key">&ndash;new-relic-api-key</h3>
+<p>List of New Relic API keys. Used to authenticate with New Relic.</p>
+<p>Enclose API keys in quotes if they contain spaces.
+Separate multiple API keys with a space. Note that the order of the API keys must match the order of the account names, i.e. the first API key corresponds to the first account name, the second API key corresponds to the second account name, and so on.</p>
+<p>Example: <code>--new-relic-api-key &quot;API key 1&quot; &quot;API key 2&quot;</code></p>
+<h3 id="--new-relic-account-id">&ndash;new-relic-account-id</h3>
+<p>List of New Relic account IDs. Used to identify the New Relic account to which data should be sent.</p>
+<p>Enclose account IDs in quotes if they contain spaces.
+Separate multiple account IDs with a space. Note that the order of the account IDs must match the order of the account names, i.e. the first account ID corresponds to the first account name, the second account ID corresponds to the second account name, and so on.</p>
+<h2 id="send-test-email">Send test email</h2>
+<p>Butler has several alerting features for sending emails when some event happens (typoically something failing&hellip;) in Sense.</p>
+<p>To verify that the email settings in the config file are correct, you can send a test email using the following options.</p>
+<h3 id="--test-email-address">&ndash;test-email-address</h3>
+<p>Send a test email to this address, using the SMTP configuration in the config file.<br>
+Used to verify email settings in the config file.</p>
+<p>This is the destination address for the test email.</p>
+<h3 id="--test-email-from-address">&ndash;test-email-from-address</h3>
+<p>Send a test email to this address, using the SMTP configuration in the config file.<br>
+Used to verify email settings in the config file.</p>
+<p>This is the sender address for the test email. Only relevant when the SMTP server allows the from address to be set.</p>
+<h2 id="--no-qs-connection">&ndash;no-qs-connection</h2>
+<p>Don&rsquo;t connect to Qlik Sense server at all. Run in isolated mode.</p>
+<p>This is probably only relevant when you&rsquo;re developing Butler and don&rsquo;t have a Qlik Sense server available, or when you want to automatically exporting the API docs for Butler&rsquo;s REST API (this is done during the build process).</p>
+<h2 id="--api-rate-limit">&ndash;api-rate-limit</h2>
+<p>Set the rate limit of Butler&rsquo;s REST API, per minute. Default is 100 calls/minute. Set to 0 to disable rate limiting.</p>
+<p>Useful when you want to ensure that Butler (or the server it runs on) doesn&rsquo;t get overloaded with requests.</p>
+<h2 id="--skip-config-verification">&ndash;skip-config-verification</h2>
+<p>Disable config file verification.</p>
+<p>By default, Butler verifies the config file when it starts. If the config file is invalid, Butler will log an error and exit.<br>
+Use this option to disable config file verification.</p>
+<h2 id="-h---help">-h, &ndash;help</h2>
+<p>Display help for command.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-7f7d6f8507fae88d284446932d7bce54">2 - Config file syntax</h1>
     <div class="lead">Description of Butler&rsquo;s config file.</div>
 	<!-- 
 
@@ -1262,7 +1393,7 @@ A consequence of this is that all settings are now mandatory, even if you don&rs
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-1ac666597eebd4a3b48feb2bde31a45a">2 - REST API documentation</h1>
+	<h1 id="pg-1ac666597eebd4a3b48feb2bde31a45a">3 - REST API documentation</h1>
     <div class="lead">OpenAPI/Swagger style documentation for the Butler API.</div>
 	
 
@@ -1318,7 +1449,7 @@ A consequence of this is that all settings are now mandatory, even if you don&rs
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-9553cd721548ae742a04c156f67b45f0">3 - REST API documentation (alternative format)</h1>
+	<h1 id="pg-9553cd721548ae742a04c156f67b45f0">4 - REST API documentation (alternative format)</h1>
     <div class="lead">Alternative documentation for the Butler API.</div>
 	
 <!DOCTYPE html>
@@ -2202,7 +2333,7 @@ Butler will ignore the &quot;magic&quot; task ID of &quot;-&quot; (=dash, hyphen
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-4855880b84ba1a846a9f67eefa76a3b0">4 - Scheduler</h1>
+	<h1 id="pg-4855880b84ba1a846a9f67eefa76a3b0">5 - Scheduler</h1>
     <div class="lead">Details about the Butler scheduler.</div>
 	<h2 id="scheduling-overview">Scheduling overview</h2>
 <p>The scheduler is used to start Sense reloads at specific times, or at certain intervals.</p>
@@ -2393,7 +2524,7 @@ On the other hand, it&rsquo;s questionable if Sense jobs should run more often t
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-88691ec18b505c39f7a839e1cfd36bf9">5 - Key-value store</h1>
+	<h1 id="pg-88691ec18b505c39f7a839e1cfd36bf9">6 - Key-value store</h1>
     <div class="lead">Details about the Butler key-value store.</div>
 	<h2 id="key-value-store-overview">Key-value store overview</h2>
 <p>The <a href="/docs/reference/rest-api-1/?operationsSorter=alpha">API documentation</a> is the best, most complete source of information about the key-value API endpoints.</p>
@@ -2437,7 +2568,7 @@ On the other hand, it&rsquo;s questionable if Sense jobs should run more often t
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-e5cecb6907bf3382792d483df8a5ddc6">6 - Alert template fields</h1>
+	<h1 id="pg-e5cecb6907bf3382792d483df8a5ddc6">7 - Alert template fields</h1>
     <div class="lead">List of template fields available in Butler alert messages.</div>
 	<h2 id="template-fields">Template fields</h2>
 <p>Butler uses the <a href="https://handlebarsjs.com/">Handlebars</a> library for templating work.</p>
@@ -2467,7 +2598,7 @@ For example, the template fields available for reload alerts are different from 
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-256549f01c30baa13a7b12cad4c2ecd6">6.1 - Alert template fields for failed/aborted reload tasks</h1>
+	<h1 id="pg-256549f01c30baa13a7b12cad4c2ecd6">7.1 - Alert template fields for failed/aborted reload tasks</h1>
     <div class="lead">List of template fields available in Butler&rsquo;s reload failed/aborted alert messages.</div>
 	<h2 id="template-fields">Template fields</h2>
 <p>Butler uses the <a href="https://handlebarsjs.com/">Handlebars</a> library for templating work.</p>
@@ -2795,7 +2926,7 @@ This is simply how Sense works - the template fields just forward the informatio
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-de4574faf55327363573635d5028a3d4">6.2 - Alert template fields for Windows services events</h1>
+	<h1 id="pg-de4574faf55327363573635d5028a3d4">7.2 - Alert template fields for Windows services events</h1>
     <div class="lead">List of template fields available in Butler&rsquo;s Windows services alert messages.</div>
 	<h2 id="email-slack-and-teams">Email, Slack and Teams</h2>
 <p>Butler uses the <a href="https://handlebarsjs.com/">Handlebars</a> library for templating work.<br>
@@ -3272,7 +3403,7 @@ This is simply how Sense works - the template fields just forward the informatio
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-3977823133d83e617a4e7e46829d788b">7 - Information stored in InfluxDB</h1>
+	<h1 id="pg-3977823133d83e617a4e7e46829d788b">8 - Information stored in InfluxDB</h1>
     <div class="lead">Butler stores a lot of information in InfluxDB. This page describes the different measurements and tags that Butler send to InfluxDB.</div>
 	<h2 id="failed-reload-tasks">Failed reload tasks</h2>
 <p>Measurement: <code>reload_task_failed</code></p>
@@ -3816,7 +3947,7 @@ This is highlighted for each affected field below.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-0c0dea361e950e580c9e83bac272042c">8 - Helper subs that make it easy to use Butler APIs</h1>
+	<h1 id="pg-0c0dea361e950e580c9e83bac272042c">9 - Helper subs that make it easy to use Butler APIs</h1>
     <div class="lead"><p>Butler exposes a REST API that can be called from many different systems and tools, just not Qlik Sense itself.</p>
 <p>When it comes to Sense, it&rsquo;s very doable but not entirely easy to call REST APIs from an app&rsquo;s load script.   Butler comes with a set of subs/functions that wrap the API calls and make it a lot easier and cleaner to call Butler APIs from load scripts.</p>
 <p>This page describes those subs.</p>
@@ -3981,7 +4112,7 @@ This is highlighted for each affected field below.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-a57203f5e07e2248b37c5791ea744d92">9 - Test cases</h1>
+	<h1 id="pg-a57203f5e07e2248b37c5791ea744d92">10 - Test cases</h1>
     <div class="lead">Automated test cases are used to ensure that (mainly) Butler&rsquo;s REST API works as intended.</div>
 	<p>All test cases are documented in an Excel file stored in the <a href="https://github.com/ptarmiganlabs/butler/tree/master/docs/tests">tests directory</a> in the main Butler repository.</p>
 
