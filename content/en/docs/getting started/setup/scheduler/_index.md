@@ -1,7 +1,7 @@
 ---
 title: "Configuring the Butler scheduler"
 linkTitle: "Scheduler"
-weight: 113
+weight: 118
 description: >
   Butler's scheduler complements the Qlik Sense built-in scheduler with more flexible triggers and a devops friendly API/file format for storing scheduling data.
 ---

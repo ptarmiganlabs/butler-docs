@@ -239,17 +239,55 @@ Service metrics are continuously sent to MQTT and InfluxDB.</p>
 
 <div class="col-lg-4 mb-5 mb-lg-0 text-center">
 <div class="mb-4 h1">
-  <i class="fas fa-cogs"></i>
+  <i class="fas fa-users"></i>
 </div>
 <h4 class="h3">Monitor and release user licenses</h4>
 <div class="mb-0">
 <p>Stay on top of how your Qlik Sense user licenses are used.
 Monitor in real time - broken down by license type - and release licenses that are no longer used by users.</p>
-<p><a href="/docs/concepts/qlik-sense-licenses/">Read more…</a></p>
+<p><a href="/docs/concepts/qlik-sense-access-licenses/">Read more…</a></p>
 
 </div>
 
 </div>
+
+
+
+
+
+<div class="col-lg-4 mb-5 mb-lg-0 text-center">
+<div class="mb-4 h1">
+  <i class="fas fa-file-code"></i>
+</div>
+<h4 class="h3">Monitor and alert on Sense server license</h4>
+<div class="mb-0">
+<p>Continuously monitor the Qlik Sense server license and alert when it is about to expire.</p>
+<p>Store the data in InfluxDB for further analysis, or send to your alerting destination of choice.</p>
+<!--TODO-->
+<p><a href="/docs/concepts/qlik-sense-server-license/">Read more…</a></p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-4 mb-5 mb-lg-0 text-center">
+<div class="mb-4 h1">
+  <i class="fas fa-code-branch"></i>
+</div>
+<h4 class="h3">Monitor Sense server version</h4>
+<div class="mb-0">
+<p>Continuously monitor the Qlik Sense server version and store the data in InfluxDB.</p>
+<p>Reduces the risk of running outdated versions of Sense, with associated security risks.</p>
+<!--TODO-->
+<p><a href="/docs/concepts/qlik-sense-server-version/">Read more…</a></p>
+
+</div>
+
+</div>
+
+
 
 
 
@@ -442,10 +480,10 @@ Great for backup purposes!</p>
 <div class="mb-4 h1">
   <i class="fas fa-lightbulb"></i>
 </div>
-<h4 class="h3">Latest release: 12.3</h4>
+<h4 class="h3">Latest release: 12.4</h4>
 <div class="mb-0">
-<p>Small release adding an option to skip verification of the config file.<br>
-Use with care..</p>
+<p>Monitor and alert when Qlik Sense server licenses are about to expire.</p>
+<p>Monitor Qlik Sense server version to make sure it is updated as needed.</p>
 <p>Available on <a href="https://github.com/ptarmiganlabs/butler/releases">GitHub</a>.</p>
 
 </div>

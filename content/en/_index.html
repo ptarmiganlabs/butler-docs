@@ -78,12 +78,35 @@ Service metrics are continuously sent to MQTT and InfluxDB.
 {{% /blocks/feature %}}
 
 
-{{% blocks/feature icon="fa-cogs" title="Monitor and release user licenses" %}}
+{{% blocks/feature icon="fa-users" title="Monitor and release user licenses" %}}
 Stay on top of how your Qlik Sense user licenses are used.
 Monitor in real time - broken down by license type - and release licenses that are no longer used by users.
 
-[Read more...](/docs/concepts/qlik-sense-licenses/)
+[Read more...](/docs/concepts/qlik-sense-access-licenses/)
 {{% /blocks/feature %}}
+
+
+
+
+{{% blocks/feature icon="fa-file-code" title="Monitor and alert on Sense server license" %}}
+Continuously monitor the Qlik Sense server license and alert when it is about to expire.
+
+Store the data in InfluxDB for further analysis, or send to your alerting destination of choice.
+<!--TODO-->
+[Read more...](/docs/concepts/qlik-sense-server-license/)
+{{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fa-code-branch" title="Monitor Sense server version" %}}
+Continuously monitor the Qlik Sense server version and store the data in InfluxDB.
+
+Reduces the risk of running outdated versions of Sense, with associated security risks.
+
+<!--TODO-->
+[Read more...](/docs/concepts/qlik-sense-server-version/)
+{{% /blocks/feature %}}
+
+
 
 
 {{% blocks/feature icon="fa-clock" title="Advanced task scheduler" %}}
@@ -184,9 +207,10 @@ Butler itself can be monitored in InfluxDB/Grafana and New Relic.
 
 {{< blocks/section color="dark">}}
 
-{{% blocks/feature icon="fa-lightbulb" title="Latest release: 12.3" %}}
-Small release adding an option to skip verification of the config file.  
-Use with care..
+{{% blocks/feature icon="fa-lightbulb" title="Latest release: 12.4" %}}
+Monitor and alert when Qlik Sense server licenses are about to expire.
+
+Monitor Qlik Sense server version to make sure it is updated as needed.
 
 Available on [GitHub](https://github.com/ptarmiganlabs/butler/releases).
 {{% /blocks/feature %}}

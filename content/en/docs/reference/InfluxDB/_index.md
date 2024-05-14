@@ -113,9 +113,54 @@ Measurement: `win_service_state`
 | startup_mode_num | Startup mode of the Windows service (numeric). |
 | startup_mode_text | Startup mode of the Windows service (text). |
 
-## Qlik Sense license info
+## Qlik Sense server version info
 
-The license information returned by the Qlik Sense API is not very well documented by Qlik.  
+Measurement: `qlik_sense_version`
+
+### Tags
+
+| Tag name | Description |
+|----------|-------------|
+| butler_instance | Name of the Butler instance, from `Butler.influxDb.instanceTag` in config file.
+
+In addition to above, all tags defined in `Butler.qlikSenseVersion.versionMonitor.destination.influxDb.tag.static` in the config file are added to each datapoint that is sent to InfluxDB.
+
+### Fields
+
+| Field name | Description |
+|------------|-------------|
+| content_hash | Content hash, as returned from the Sense version API. |
+| sense_id | Sense ID, as returned from the Sense version API. This is usually on the form `qliksenseserver:<version>` |
+| product_name | Sense product name, for example `Qlik Sense` |
+| deployment_type | Sense deployment type, for example `QlikSenseServer` |
+| version | Sense version, for example `14.173.4` |
+| release_label | Sense release label, for example `February 2024 Patch 1` |
+| deprecated_product_version | Sense old/deprecated product version, for example `4.0.x` |
+| copyright_year_range | Sense copyright year range, for example `1993-2024` |
+
+## Qlik Sense server license info
+
+Measurement: `qlik_sense_server_license`
+
+### Tags
+
+| Tag name | Description |
+|----------|-------------|
+| butler_instance | Name of the Butler instance, from `Butler.influxDb.instanceTag` in config file.
+
+In addition to above, all tags defined in `Butler.qlikSenseLicense.serverLicenseMonitor.destination.influxDb.tag.static` in the config file are added to each datapoint that is sent to InfluxDB.
+
+### Fields
+
+| Field name | Description |
+|------------|-------------|
+| license_expired | Whether the Sense license has expired. true/false. |
+| expiry_date | Expiry date of the Sense server license, `YYYY-MM-DD` formaat. |
+| days_until_expiry | Number of days until the Sense server license expires. If expiration date has passed this number will be negative. |
+
+## Qlik Sense end user access license info
+
+The access license information returned by the Qlik Sense API is not very well documented by Qlik.  
 As a result it is not always clear what the different fields mean.  
 This is highlighted for each affected field below.
 
@@ -131,6 +176,14 @@ Each datapoint has a tag called `license_type` that can have the following value
 - `tokens_available`
 
 The tags are the same for all license types, but the fields differ as follows.
+
+### Tags
+
+| Tag name | Description |
+|----------|-------------|
+| butler_instance | Name of the Butler instance, from `Butler.influxDb.instanceTag` in config file.
+
+In addition to above, all tags defined in `Butler.qlikSenseLicense.licenseMonitor.destination.influxDb.tag.static` in the config file are added to each datapoint that is sent to InfluxDB.
 
 ### License types "professional" and "analyzer"
 

@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://butler.ptarmiganlabs.com/docs/reference/command-line-options/</loc>
-    <lastmod>2024-04-25T10:08:03+02:00</lastmod>
+    <lastmod>2024-04-25T10:11:25+02:00</lastmod>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/about/</loc>
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
@@ -58,6 +58,8 @@
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/reference/alert-template-fields/windows-services/</loc>
     <lastmod>2023-06-13T15:01:58+02:00</lastmod>
+  </url><url>
+    <loc>https://butler.ptarmiganlabs.com/docs/getting-started/setup/minimal-config/</loc>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/getting-started/install/native/</loc>
     <lastmod>2023-06-13T15:01:58+02:00</lastmod>
@@ -209,6 +211,8 @@
     <loc>https://butler.ptarmiganlabs.com/docs/reference/influxdb/</loc>
     <lastmod>2024-04-18T13:01:43+02:00</lastmod>
   </url><url>
+    <loc>https://butler.ptarmiganlabs.com/docs/concepts/qlik-sense-server-version/</loc>
+  </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/examples/start-task/</loc>
     <lastmod>2021-11-03T14:09:22+01:00</lastmod>
   </url><url>
@@ -227,14 +231,15 @@
     <loc>https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/mqtt/</loc>
     <lastmod>2023-06-13T15:01:58+02:00</lastmod>
   </url><url>
+    <loc>https://butler.ptarmiganlabs.com/docs/concepts/qlik-sense-server-license/</loc>
+  </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/reference/sense-helper-subs/</loc>
     <lastmod>2021-11-03T15:36:48+01:00</lastmod>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/concepts/failed-reloads/new-relic/</loc>
     <lastmod>2024-04-12T11:41:58+02:00</lastmod>
   </url><url>
-    <loc>https://butler.ptarmiganlabs.com/docs/concepts/qlik-sense-licenses/</loc>
-    <lastmod>2024-04-23T16:38:56+02:00</lastmod>
+    <loc>https://butler.ptarmiganlabs.com/docs/concepts/qlik-sense-access-licenses/</loc>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/about/telemetry/</loc>
     <lastmod>2023-12-09T17:33:59+01:00</lastmod>
@@ -278,8 +283,11 @@
     <loc>https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/</loc>
     <lastmod>2023-06-13T15:01:58+02:00</lastmod>
   </url><url>
-    <loc>https://butler.ptarmiganlabs.com/docs/getting-started/setup/qlik-sense-licenses/</loc>
-    <lastmod>2024-04-08T20:53:42+02:00</lastmod>
+    <loc>https://butler.ptarmiganlabs.com/docs/getting-started/setup/qlik-sense-server-version/</loc>
+  </url><url>
+    <loc>https://butler.ptarmiganlabs.com/docs/getting-started/setup/qlik-sense-server-licenses/</loc>
+  </url><url>
+    <loc>https://butler.ptarmiganlabs.com/docs/getting-started/setup/qlik-sense-access-licenses/</loc>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/getting-started/setup/scheduler/</loc>
     <lastmod>2023-06-13T15:01:58+02:00</lastmod>

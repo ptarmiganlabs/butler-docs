@@ -1,9 +1,9 @@
 ---
-title: "Qlik Sense licenses"
-linkTitle: "Qlik Sense licenses"
+title: "Qlik Sense access licenses"
+linkTitle: "Qlik Sense access licenses"
 weight: 70
 description: >
-  Monitor and manage Qlik Sense licenses.  
+  Monitor and manage Qlik Sense end user access licenses.  
 
   - High level metrics per user license type (professional, analyzer etc) are gathered and stored in your database of choice (at the time of writing, InfluxDB is supported).  
   

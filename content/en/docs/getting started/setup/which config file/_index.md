@@ -68,10 +68,9 @@ PS C:\tools\butler> dir
 Mode                 LastWriteTime         Length Name
 ----                 -------------         ------ ----
 -a----        20/06/2022     16:27       68426646 butler.exe
--a----        20/06/2022     17:17          34762 production.yaml
+-a----        20/06/2022     17:17          34762 butler-config.yaml
 
 
-PS C:\tools\butler> .\butler.exe -c c:\tools\butler\production.yaml
 PS C:\tools\butler> .\butler.exe -c .\config\butler-config.yaml
 2023-12-10T13:46:32.939Z info: Enabled API endpoints: [
   "apiListEnbledEndpoints",
@@ -116,7 +115,6 @@ The [template docker-compose.yaml](https://github.com/ptarmiganlabs/butler/blob/
 
 ```yaml
 # docker-compose.yml
-version: '3.3'
 services:
   butler:
     image: ptarmiganlabs/butler:latest
@@ -159,12 +157,8 @@ Note: If running several Butler instances in parallel, you must also ensure that
 
 The method for setting environment variables varies between operating systems:
 
-On Windows:
+On Windows: `set NODE_ENV=production`
 
-    set NODE_ENV=production
-
-Mac OS or Linux
-
-    export NODE_ENV=production
+Mac OS or Linux: `export NODE_ENV=production`
 
 If using Docker, the NODE_ENV environment varible is set in the docker-compose.yml file (as already done in the [template docker-compose file](https://github.com/ptarmiganlabs/butler/blob/master/docs/docker-compose/docker-compose.yaml).)

@@ -317,11 +317,66 @@ The main difference is that the caller must know the name of the custom property
     </item>
     
     <item>
-      <title>Docs: Qlik Sense licenses</title>
-      <link>https://butler.ptarmiganlabs.com/docs/concepts/qlik-sense-licenses/</link>
+      <title>Docs: Qlik Sense server version</title>
+      <link>https://butler.ptarmiganlabs.com/docs/concepts/qlik-sense-server-version/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://butler.ptarmiganlabs.com/docs/concepts/qlik-sense-licenses/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/concepts/qlik-sense-server-version/</guid>
+      <description>
+        
+        
+        &lt;p&gt;Butler can monitor the server version of the client-managed Qlik Sense environment that Butler is configured to connect to.&lt;br&gt;
+Configuring this is described &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/getting-started/setup/qlik-sense-server-version/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;why-is-this-useful&#34;&gt;Why is this useful?&lt;/h2&gt;
+&lt;p&gt;You can always see the version of the Qlik Sense server in the main page of the Qlik Management Console (QMC).&lt;/p&gt;
+&lt;p&gt;But let&amp;rsquo;s say you use Butler and/or Butler SOS to collect operational Sense server metrics (like CPU, memory, failed reload tasks etc) in InfluxDB, and visualize this info in Grafana.&lt;br&gt;
+If you also store the version of the Sense server in InfluxDB, you can include that info in your Grafana dashboards, making it easy to see what the current version of the Sense server is.&lt;/p&gt;
+&lt;p&gt;Another use case is if you have multiple Sense servers (maybe PROD, TEST, DEV - or different Sense environments for different parts of the company, or&amp;hellip;), and you want to keep track of which version each server is running.&lt;br&gt;
+You then probably run one Butler instance for each Sense environment, and each Butler instance can then retrieve and store in InfluxDB the version of the Sense server it is connected to.&lt;/p&gt;
+&lt;p&gt;It&amp;rsquo;s then easy to create a Grafana dashboard that shows the version of each Sense server, and you can quickly see if any server is running an outdated version.&lt;/p&gt;
+&lt;h2 id=&#34;information-stored-in-influxdb&#34;&gt;Information stored in InfluxDB&lt;/h2&gt;
+&lt;p&gt;Description of what data is stored in InfluxDB is available &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/influxdb/#qlik-sense-server-version-info&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;sample-grafana-dashboard&#34;&gt;Sample Grafana dashboard&lt;/h2&gt;
+&lt;p&gt;Here is an example of a Grafana dashboard that shows the version of the Sense server, and also some info related to the Sense server license:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://butler.ptarmiganlabs.com/img/butler-qlik-sense-version-license-in-grafana-1.png&#34; alt=&#34;Grafana dashboard showing Sense server version and license info&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Qlik Sense server license</title>
+      <link>https://butler.ptarmiganlabs.com/docs/concepts/qlik-sense-server-license/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler.ptarmiganlabs.com/docs/concepts/qlik-sense-server-license/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;why-is-this-useful&#34;&gt;Why is this useful?&lt;/h2&gt;
+&lt;p&gt;If the Qlik Sense server license expires, the Qlik Sense environment will go into a disabled state and users will not be able to access Sense.&lt;/p&gt;
+&lt;p&gt;Butler can monitor the Qlik Sense server license and alert if the license is about to expire.&lt;br&gt;
+The number of days before expiration that the alert should be sent is configurable in the &lt;code&gt;Butler.qlikSenseLicense.serverLicenseMonitor.alert.thresholdDays&lt;/code&gt; setting.&lt;/p&gt;
+&lt;h2 id=&#34;how-it-works&#34;&gt;How it works&lt;/h2&gt;
+&lt;p&gt;Butler will periodically poll the Qlik Sense server for information about the Qlik Sense server license.&lt;/p&gt;
+&lt;p&gt;The retrieved information can be stored in/sent to zero or more of InfluxDB, webhooks and MQTT.&lt;/p&gt;
+&lt;p&gt;If the license is about to expire, Butler will send an alert to the configured alert destinations.&lt;/p&gt;
+&lt;p&gt;The alert will be sent a configurable number of days before the license expires, giving you time to renew the license.&lt;/p&gt;
+&lt;p&gt;Continusly storing info in InfluxDB and sending to other destinations, as well as sending alerts, can be individually enabled/disabled for each destination using the &lt;code&gt;sendRecurring&lt;/code&gt; and &lt;code&gt;sendAlert&lt;/code&gt; settings for each destination in the config file.&lt;/p&gt;
+&lt;h2 id=&#34;information-stored-in-influxdb&#34;&gt;Information stored in InfluxDB&lt;/h2&gt;
+&lt;p&gt;Description of what data is stored in InfluxDB is available &lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/influxdb/#qlik-sense-server-license-info&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;sample-grafana-dashboard&#34;&gt;Sample Grafana dashboard&lt;/h2&gt;
+&lt;p&gt;Here is an example of a Grafana dashboard that shows the version of the Sense server, and also some info related to the Sense server license:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://butler.ptarmiganlabs.com/img/butler-qlik-sense-version-license-in-grafana-1.png&#34; alt=&#34;Grafana dashboard showing Sense server version and license info&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Qlik Sense access licenses</title>
+      <link>https://butler.ptarmiganlabs.com/docs/concepts/qlik-sense-access-licenses/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://butler.ptarmiganlabs.com/docs/concepts/qlik-sense-access-licenses/</guid>
       <description>
         
         

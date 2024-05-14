@@ -406,7 +406,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>7: <a href="#pg-d53b327fc967acd8173b66baaf9430d6">Qlik Sense licenses</a></li>
+<li>7: <a href="#pg-841b9447d5672c804d5cb2112ef76132">Qlik Sense server version</a></li>
 
 
     
@@ -425,7 +425,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>8: <a href="#pg-1ac4fd4b7c9bf1db2e94deeef12e64c6">File system access: copy/move/delete files</a></li>
+<li>8: <a href="#pg-0f31a8d6d638eb135c662e3c11c79250">Qlik Sense server license</a></li>
 
 
     
@@ -444,7 +444,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>9: <a href="#pg-54cf36a5b3033781aa5a15d5bc3676b6">MQTT integration</a></li>
+<li>9: <a href="#pg-17a8b4b1cfc0cd29024fece0bebb1c9b">Qlik Sense access licenses</a></li>
 
 
     
@@ -463,7 +463,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>10: <a href="#pg-ea75db05eef40e825410085639630380">UDP client</a></li>
+<li>10: <a href="#pg-1ac4fd4b7c9bf1db2e94deeef12e64c6">File system access: copy/move/delete files</a></li>
 
 
     
@@ -482,7 +482,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>11: <a href="#pg-cd624950aeaafeeed59dd958b408e6b6">Monitor Windows services</a></li>
+<li>11: <a href="#pg-54cf36a5b3033781aa5a15d5bc3676b6">MQTT integration</a></li>
 
 
     
@@ -501,7 +501,45 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>12: <a href="#pg-30913de421ba8a1881920f31d3308f5e">Real-time metrics</a></li>
+<li>12: <a href="#pg-ea75db05eef40e825410085639630380">UDP client</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>13: <a href="#pg-cd624950aeaafeeed59dd958b408e6b6">Monitor Windows services</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>14: <a href="#pg-30913de421ba8a1881920f31d3308f5e">Real-time metrics</a></li>
 
 
     
@@ -1729,8 +1767,111 @@ Butler integrates with these APIs, creating a seamless, almost instantaneous han
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-d53b327fc967acd8173b66baaf9430d6">7 - Qlik Sense licenses</h1>
-    <div class="lead"><p>Monitor and manage Qlik Sense licenses.</p>
+	<h1 id="pg-841b9447d5672c804d5cb2112ef76132">7 - Qlik Sense server version</h1>
+    <div class="lead"><p>Monitor Qlik Sense server version.</p>
+<ul>
+<li>Check server version at regular, configurable intervals.</li>
+<li>Store version info in InfluxDB, then visualize in Grafana.</li>
+</ul></div>
+	<p>Butler can monitor the server version of the client-managed Qlik Sense environment that Butler is configured to connect to.<br>
+Configuring this is described <a href="/docs/getting-started/setup/qlik-sense-server-version/">here</a>.</p>
+<h2 id="why-is-this-useful">Why is this useful?</h2>
+<p>You can always see the version of the Qlik Sense server in the main page of the Qlik Management Console (QMC).</p>
+<p>But let&rsquo;s say you use Butler and/or Butler SOS to collect operational Sense server metrics (like CPU, memory, failed reload tasks etc) in InfluxDB, and visualize this info in Grafana.<br>
+If you also store the version of the Sense server in InfluxDB, you can include that info in your Grafana dashboards, making it easy to see what the current version of the Sense server is.</p>
+<p>Another use case is if you have multiple Sense servers (maybe PROD, TEST, DEV - or different Sense environments for different parts of the company, or&hellip;), and you want to keep track of which version each server is running.<br>
+You then probably run one Butler instance for each Sense environment, and each Butler instance can then retrieve and store in InfluxDB the version of the Sense server it is connected to.</p>
+<p>It&rsquo;s then easy to create a Grafana dashboard that shows the version of each Sense server, and you can quickly see if any server is running an outdated version.</p>
+<h2 id="information-stored-in-influxdb">Information stored in InfluxDB</h2>
+<p>Description of what data is stored in InfluxDB is available <a href="/docs/reference/influxdb/#qlik-sense-server-version-info">here</a>.</p>
+<h2 id="sample-grafana-dashboard">Sample Grafana dashboard</h2>
+<p>Here is an example of a Grafana dashboard that shows the version of the Sense server, and also some info related to the Sense server license:</p>
+<p><img src="/img/butler-qlik-sense-version-license-in-grafana-1.png" alt="Grafana dashboard showing Sense server version and license info"></p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-0f31a8d6d638eb135c662e3c11c79250">8 - Qlik Sense server license</h1>
+    <div class="lead"><p>Monitor and alert on expiring Qlik Sense server license.</p>
+<ul>
+<li>
+<p>Check server license status at regular, configurable intervals.</p>
+</li>
+<li>
+<p>Store license status in InfluxDB, then visualize in Grafana. Or send licens status to webhooks or MQTT.</p>
+</li>
+<li>
+<p>Alert via InfluxDB/Grafana, webhooks or MQTT when the license is about to expire.</p>
+</li>
+</ul>
+</div>
+	<h2 id="why-is-this-useful">Why is this useful?</h2>
+<p>If the Qlik Sense server license expires, the Qlik Sense environment will go into a disabled state and users will not be able to access Sense.</p>
+<p>Butler can monitor the Qlik Sense server license and alert if the license is about to expire.<br>
+The number of days before expiration that the alert should be sent is configurable in the <code>Butler.qlikSenseLicense.serverLicenseMonitor.alert.thresholdDays</code> setting.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Butler will periodically poll the Qlik Sense server for information about the Qlik Sense server license.</p>
+<p>The retrieved information can be stored in/sent to zero or more of InfluxDB, webhooks and MQTT.</p>
+<p>If the license is about to expire, Butler will send an alert to the configured alert destinations.</p>
+<p>The alert will be sent a configurable number of days before the license expires, giving you time to renew the license.</p>
+<p>Continusly storing info in InfluxDB and sending to other destinations, as well as sending alerts, can be individually enabled/disabled for each destination using the <code>sendRecurring</code> and <code>sendAlert</code> settings for each destination in the config file.</p>
+<h2 id="information-stored-in-influxdb">Information stored in InfluxDB</h2>
+<p>Description of what data is stored in InfluxDB is available <a href="/docs/reference/influxdb/#qlik-sense-server-license-info">here</a>.</p>
+<h2 id="sample-grafana-dashboard">Sample Grafana dashboard</h2>
+<p>Here is an example of a Grafana dashboard that shows the version of the Sense server, and also some info related to the Sense server license:</p>
+<p><img src="/img/butler-qlik-sense-version-license-in-grafana-1.png" alt="Grafana dashboard showing Sense server version and license info"></p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-17a8b4b1cfc0cd29024fece0bebb1c9b">9 - Qlik Sense access licenses</h1>
+    <div class="lead"><p>Monitor and manage Qlik Sense end user access licenses.</p>
 <ul>
 <li>High level metrics per user license type (professional, analyzer etc) are gathered and stored in your database of choice (at the time of writing, InfluxDB is supported).</li>
 <li>User licenses can be released automatically after a certain period of inactivity, allowing them to be used by other users.</li>
@@ -1804,7 +1945,7 @@ Butler simply automates what is otherwise a manual task in the QMC.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-1ac4fd4b7c9bf1db2e94deeef12e64c6">8 - File system access: copy/move/delete files</h1>
+	<h1 id="pg-1ac4fd4b7c9bf1db2e94deeef12e64c6">10 - File system access: copy/move/delete files</h1>
     <div class="lead">Manipulating files from Sense load scripts in a secure yet flexible way.</div>
 	<h2 id="unrestricted-file-system-access-is-a-security-risk">Unrestricted file system access is a security risk</h2>
 <p>Qlik Sense locked down things quite a bit compared to its QlikView predecessor.</p>
@@ -1852,7 +1993,7 @@ These subs are found in <a href="https://github.com/ptarmiganlabs/butler/blob/ma
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-54cf36a5b3033781aa5a15d5bc3676b6">9 - MQTT integration</h1>
+	<h1 id="pg-54cf36a5b3033781aa5a15d5bc3676b6">11 - MQTT integration</h1>
     <div class="lead">Details about how Qlik Sense can use Butler to send pub-sub messages using MQTT.</div>
 	<h2 id="what-is-mqtt">What is MQTT?</h2>
 <p><a href="https://mqtt.org">MQTT</a> is a light weight publish-subscribe (&ldquo;pub-sub&rdquo;) protocol.</p>
@@ -1917,7 +2058,7 @@ Starts the Sense task identified by the ID sent in the message body. More info i
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-ea75db05eef40e825410085639630380">10 - UDP client</h1>
+	<h1 id="pg-ea75db05eef40e825410085639630380">12 - UDP client</h1>
     <div class="lead">A basic, stand-alone UDP client is included in Butler.</div>
 	<p>Butler includes a very basic UDP client, which can be used to send test messages to Butler&rsquo;s UDP servers.<br>
 This can be useful when debugging a Butler server, when adding new UDP handlers etc.<br>
@@ -1975,7 +2116,7 @@ $
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-cd624950aeaafeeed59dd958b408e6b6">11 - Monitor Windows services</h1>
+	<h1 id="pg-cd624950aeaafeeed59dd958b408e6b6">13 - Monitor Windows services</h1>
     <div class="lead">Butler can monitor Windows services and send alerts if a service is not running.<br>
 Services on multiple servers can be monitored, and Butler can send alerts to destinations such as Slack, Teams, email, webhooks, InfluxDB, New Relic and MQTT.</div>
 	
@@ -2158,7 +2299,7 @@ Not all destinations support this, but for example the Teams destination does:</
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-30913de421ba8a1881920f31d3308f5e">12 - Real-time metrics</h1>
+	<h1 id="pg-30913de421ba8a1881920f31d3308f5e">14 - Real-time metrics</h1>
     <div class="lead">Details about the real-time metrics (active user count etc) provided by Butler.</div>
 	
 

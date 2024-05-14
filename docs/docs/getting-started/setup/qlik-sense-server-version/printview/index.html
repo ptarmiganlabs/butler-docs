@@ -1,0 +1,268 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/qlik-sense-server-version/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/qlik-sense-server-version/index.xml">
+<meta name="robots" content="noindex, nofollow">
+<script defer data-domain="butler.ptarmiganlabs.com" src="https://plausible.io/js/script.js"></script>
+
+<link rel="canonical" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/qlik-sense-server-version/" />
+
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Qlik Sense server version | Butler</title>
+<meta name="description" content="Butler can monitor the server version of the client-managed Qlik Sense environment that Butler is configured to connect to.
+- Check server version at regular intervals.
+- Save version to InfluxDB.
+- Makes it easy to keep track of versions running on different Qlik Sense environments, for example PROD, TEST and DEV. 
+">
+<meta property="og:title" content="Qlik Sense server version" />
+<meta property="og:description" content="Butler can monitor the server version of the client-managed Qlik Sense environment that Butler is configured to connect to.
+- Check server version at regular intervals.
+- Save version to InfluxDB.
+- Makes it easy to keep track of versions running on different Qlik Sense environments, for example PROD, TEST and DEV. 
+" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://butler.ptarmiganlabs.com/docs/getting-started/setup/qlik-sense-server-version/" />
+
+<meta itemprop="name" content="Qlik Sense server version">
+<meta itemprop="description" content="Butler can monitor the server version of the client-managed Qlik Sense environment that Butler is configured to connect to.
+- Check server version at regular intervals.
+- Save version to InfluxDB.
+- Makes it easy to keep track of versions running on different Qlik Sense environments, for example PROD, TEST and DEV. 
+"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Qlik Sense server version"/>
+<meta name="twitter:description" content="Butler can monitor the server version of the client-managed Qlik Sense environment that Butler is configured to connect to.
+- Check server version at regular intervals.
+- Save version to InfluxDB.
+- Makes it easy to keep track of versions running on different Qlik Sense environments, for example PROD, TEST and DEV. 
+"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.760be0d42a95747f7072e6cf9b47cc5c5c4d7715dd765fd062712100e6b3d9d8.css" as="style">
+<link href="/scss/main.min.760be0d42a95747f7072e6cf9b47cc5c5c4d7715dd765fd062712100e6b3d9d8.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">Butler</span></a>
+  <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      </ul>
+  </div>
+  <div class="navbar-nav d-none d-lg-block">
+    
+  </div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/docs/getting-started/setup/qlik-sense-server-version/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Qlik Sense server version</h1>
+<div class="lead"><p>Butler can monitor the server version of the client-managed Qlik Sense environment that Butler is configured to connect to.</p>
+<ul>
+<li>Check server version at regular intervals.</li>
+<li>Save version to InfluxDB.</li>
+<li>Makes it easy to keep track of versions running on different Qlik Sense environments, for example PROD, TEST and DEV.</li>
+</ul></div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+
+    </ul>
+
+
+<div class="content">
+      <h2 id="whats-this">What&rsquo;s this?</h2>
+<p>As with most software, client-mananged Qlik Senwse is updated regularly.</p>
+<p>Butler can monitor the server version of the Qlik Sense environment that Butler is connected to and store this information in InfluxDB.<br>
+Having this information in InflixDB makes it easy to visualize it in a Grafana dashboard, or similar tool.</p>
+<p>If you are running multiple Qlik Sense environments, for example PROD, TEST and DEV, you probably have one Butler instance running for each environment.<br>
+By storing the server version in InfluxDB, you can easily keep track of which Sense version is running on which environment.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Butler will periodically poll the Qlik Sense server for information about the server version.
+The retrieved information is logged to the log file and can also optionally be stored in InfluxDB.</p>
+<p>It is possible to add additional tags to the data sent to InfluxDB, for example to differentiate between PROD, TEST and DEV environments, to make later visualizations easier and richer.</p>
+<h3 id="how-often-to-check-the-server-version">How often to check the server version</h3>
+<p>The frequency of the server version check is configurable in the <code>Butler.qlikSenseVersion.versionMonitor.frequency</code> setting.<br>
+It uses the <a href="https://bunkat.github.io/later/">later.js</a> syntax, for example <code>every 24 hours</code> or <code>every 14 days</code>.</p>
+<h3 id="which-influxdb-database-is-used">Which InfluxDB database is used?</h3>
+<p>The data sent to InfluxDB is stored in the database specified in the <code>Butler.influxDb</code> setting.</p>
+<h2 id="settings-in-config-file">Settings in config file</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000">---</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">Butler</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Settings for monitoring Qlik Sense version info</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Version info is retrieved from the hostname:9032/v1/systeminfo endpoint in Qlik Sense</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">qlikSenseVersion</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">versionMonitor</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">                   </span><span style="color:#8f5902;font-style:italic"># Should Qlik Sense version info be retrieved?</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">frequency</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">every 24 hours      </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># https://bunkat.github.io/later/parsers.html#text</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">host</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;FQDN or IP of Qlik Sense central node&gt;         </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">rejectUnauthorized</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">       </span><span style="color:#8f5902;font-style:italic"># Set to false to ignore warnings/errors caused by Qlik Sense&#39;s self-signed certificates.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">destination</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">influxDb</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                     </span><span style="color:#8f5902;font-style:italic"># Store version data in InfluxDB.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                      </span><span style="color:#8f5902;font-style:italic"># If enabled, version info will be stored as measurements in InfluxDB.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">tag</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">static</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                   </span><span style="color:#8f5902;font-style:italic"># Static attributes/tags to attach to the data sent to InflixDB</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">              </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">foo</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">bar</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div>
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="SenseOps mailing list" aria-label="SenseOps mailing list">
+    <a class="text-white" target="_blank" rel="noopener" href="https://ptarmiganlabs.com/#/portal/signup" aria-label="SenseOps mailing list">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Discussion forums on GitHub" aria-label="Discussion forums on GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/ptarmiganlabs/butler/discussions" aria-label="Discussion forums on GitHub">
+      <i class="fa fa-comments"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Ptarmigan Labs" aria-label="Ptarmigan Labs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://ptarmiganlabs.com" aria-label="Ptarmigan Labs">
+      <i class="fa fa-external-link"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener" href="https://www.linkedin.com/in/gorsan/" aria-label="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/ptarmiganlabs/butler" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Bug reports &amp; Feature requests" aria-label="Bug reports &amp; Feature requests">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/ptarmiganlabs/butler/issues/new/choose" aria-label="Bug reports &amp; Feature requests">
+      <i class="fa fa-bug"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Get in touch with Ptarmigan Labs" aria-label="Get in touch with Ptarmigan Labs">
+    <a class="text-white" target="_blank" rel="noopener" href="mailto://info@ptarmiganlabs.com" aria-label="Get in touch with Ptarmigan Labs">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2024 Ptarmigan Labs AB All Rights Reserved</small>
+        
+	
+		<p class="mt-2"><a href="/docs/about/">About</a></p>
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+  <script src="/js/main.min.523509bf13607632997fb2eeed668872c5fb9c71c1c18f4d68e77a786fa8136f.js" integrity="sha256-UjUJvxNgdjKZf7Lu7WaIcsX7nHHBwY9NaOd6eG&#43;oE28=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>

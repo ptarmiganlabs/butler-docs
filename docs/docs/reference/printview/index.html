@@ -3726,8 +3726,110 @@ This is simply how Sense works - the template fields just forward the informatio
 </tr>
 </tbody>
 </table>
-<h2 id="qlik-sense-license-info">Qlik Sense license info</h2>
-<p>The license information returned by the Qlik Sense API is not very well documented by Qlik.<br>
+<h2 id="qlik-sense-server-version-info">Qlik Sense server version info</h2>
+<p>Measurement: <code>qlik_sense_version</code></p>
+<h3 id="tags-3">Tags</h3>
+<table>
+<thead>
+<tr>
+<th>Tag name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>butler_instance</td>
+<td>Name of the Butler instance, from <code>Butler.influxDb.instanceTag</code> in config file.</td>
+</tr>
+</tbody>
+</table>
+<p>In addition to above, all tags defined in <code>Butler.qlikSenseVersion.versionMonitor.destination.influxDb.tag.static</code> in the config file are added to each datapoint that is sent to InfluxDB.</p>
+<h3 id="fields-3">Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>content_hash</td>
+<td>Content hash, as returned from the Sense version API.</td>
+</tr>
+<tr>
+<td>sense_id</td>
+<td>Sense ID, as returned from the Sense version API. This is usually on the form <code>qliksenseserver:&lt;version&gt;</code></td>
+</tr>
+<tr>
+<td>product_name</td>
+<td>Sense product name, for example <code>Qlik Sense</code></td>
+</tr>
+<tr>
+<td>deployment_type</td>
+<td>Sense deployment type, for example <code>QlikSenseServer</code></td>
+</tr>
+<tr>
+<td>version</td>
+<td>Sense version, for example <code>14.173.4</code></td>
+</tr>
+<tr>
+<td>release_label</td>
+<td>Sense release label, for example <code>February 2024 Patch 1</code></td>
+</tr>
+<tr>
+<td>deprecated_product_version</td>
+<td>Sense old/deprecated product version, for example <code>4.0.x</code></td>
+</tr>
+<tr>
+<td>copyright_year_range</td>
+<td>Sense copyright year range, for example <code>1993-2024</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="qlik-sense-server-license-info">Qlik Sense server license info</h2>
+<p>Measurement: <code>qlik_sense_server_license</code></p>
+<h3 id="tags-4">Tags</h3>
+<table>
+<thead>
+<tr>
+<th>Tag name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>butler_instance</td>
+<td>Name of the Butler instance, from <code>Butler.influxDb.instanceTag</code> in config file.</td>
+</tr>
+</tbody>
+</table>
+<p>In addition to above, all tags defined in <code>Butler.qlikSenseLicense.serverLicenseMonitor.destination.influxDb.tag.static</code> in the config file are added to each datapoint that is sent to InfluxDB.</p>
+<h3 id="fields-4">Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>license_expired</td>
+<td>Whether the Sense license has expired. true/false.</td>
+</tr>
+<tr>
+<td>expiry_date</td>
+<td>Expiry date of the Sense server license, <code>YYYY-MM-DD</code> formaat.</td>
+</tr>
+<tr>
+<td>days_until_expiry</td>
+<td>Number of days until the Sense server license expires. If expiration date has passed this number will be negative.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="qlik-sense-end-user-access-license-info">Qlik Sense end user access license info</h2>
+<p>The access license information returned by the Qlik Sense API is not very well documented by Qlik.<br>
 As a result it is not always clear what the different fields mean.<br>
 This is highlighted for each affected field below.</p>
 <p>Measurement: <code>sense_license_info</code></p>
@@ -3741,6 +3843,22 @@ This is highlighted for each affected field below.</p>
 <li><code>tokens_available</code></li>
 </ul>
 <p>The tags are the same for all license types, but the fields differ as follows.</p>
+<h3 id="tags-5">Tags</h3>
+<table>
+<thead>
+<tr>
+<th>Tag name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>butler_instance</td>
+<td>Name of the Butler instance, from <code>Butler.influxDb.instanceTag</code> in config file.</td>
+</tr>
+</tbody>
+</table>
+<p>In addition to above, all tags defined in <code>Butler.qlikSenseLicense.licenseMonitor.destination.influxDb.tag.static</code> in the config file are added to each datapoint that is sent to InfluxDB.</p>
 <h3 id="license-types-professional-and-analyzer">License types &ldquo;professional&rdquo; and &ldquo;analyzer&rdquo;</h3>
 <table>
 <thead>
@@ -3875,7 +3993,7 @@ This is highlighted for each affected field below.</p>
 </table>
 <h2 id="butler-uptime-info">Butler uptime info</h2>
 <p>Measurement: <code>butler_memory_usage</code></p>
-<h3 id="tags-3">Tags</h3>
+<h3 id="tags-6">Tags</h3>
 <table>
 <thead>
 <tr>
@@ -3894,7 +4012,7 @@ This is highlighted for each affected field below.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="fields-3">Fields</h3>
+<h3 id="fields-5">Fields</h3>
 <table>
 <thead>
 <tr>

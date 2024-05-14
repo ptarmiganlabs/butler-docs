@@ -1,0 +1,260 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.122.0">
+<link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/minimal-config/">
+<link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/minimal-config/index.xml">
+<meta name="robots" content="noindex, nofollow">
+<script defer data-domain="butler.ptarmiganlabs.com" src="https://plausible.io/js/script.js"></script>
+
+<link rel="canonical" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/minimal-config/" />
+
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Minimal configuration to start Butler | Butler</title>
+<meta name="description" content="The provided sample config file is a good starting point for your own config file.  
+It contains the minimum settings needed to start Butler, but a few settings in it must be updated to match your environment.
+">
+<meta property="og:title" content="Minimal configuration to start Butler" />
+<meta property="og:description" content="The provided sample config file is a good starting point for your own config file.  
+It contains the minimum settings needed to start Butler, but a few settings in it must be updated to match your environment.
+" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://butler.ptarmiganlabs.com/docs/getting-started/setup/minimal-config/" />
+
+<meta itemprop="name" content="Minimal configuration to start Butler">
+<meta itemprop="description" content="The provided sample config file is a good starting point for your own config file.  
+It contains the minimum settings needed to start Butler, but a few settings in it must be updated to match your environment.
+"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Minimal configuration to start Butler"/>
+<meta name="twitter:description" content="The provided sample config file is a good starting point for your own config file.  
+It contains the minimum settings needed to start Butler, but a few settings in it must be updated to match your environment.
+"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.760be0d42a95747f7072e6cf9b47cc5c5c4d7715dd765fd062712100e6b3d9d8.css" as="style">
+<link href="/scss/main.min.760be0d42a95747f7072e6cf9b47cc5c5c4d7715dd765fd062712100e6b3d9d8.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">Butler</span></a>
+  <div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+    <ul class="navbar-nav mt-2 mt-lg-0">
+      </ul>
+  </div>
+  <div class="navbar-nav d-none d-lg-block">
+    
+  </div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+
+
+
+
+<div class="td-content">
+<div class="pageinfo pageinfo-primary d-print-none">
+<p>
+This is the multi-page printable view of this section.
+<a href="#" onclick="print();return false;">Click here to print</a>.
+</p><p>
+<a href="/docs/getting-started/setup/minimal-config/">Return to the regular view of this page</a>.
+</p>
+</div>
+
+
+
+<h1 class="title">Minimal configuration to start Butler</h1>
+<div class="lead">The provided sample config file is a good starting point for your own config file.<br>
+It contains the minimum settings needed to start Butler, but a few settings in it must be updated to match your environment.</div>
+
+
+
+
+    <ul>
+    
+  
+  
+  
+  
+
+  
+
+    </ul>
+
+
+<div class="content">
+      <h2 id="starting-butler-with-a-minimal-config-file">Starting Butler with a minimal config file</h2>
+<p>Configuring Butler via its <a href="https://www.redhat.com/en/topics/automation/what-is-yaml#">YAML format</a> config file is arguably the most difficult part of setting up Butler.<br>
+It&rsquo;s however also <em>the only</em> way to configure Butler, so it needs to be done.</p>
+<p>To make that process easier, a minimal config file called <code>production_template.yaml</code> is included in the release Zip files on the <a href="https://github.com/ptarmiganlabs/butler/releases">download page</a>.</p>
+<pre><code>The included sample config file contains the minimum settings needed to start Butler, but a few settings in it must be updated to match your environment.
+These are described in the comments at the beginning of the config file.
+</code></pre>
+<p>The settings are mostly related to the host names and ports of the Qlik Sense server(s) you want Butler to connect to, and the host name and port of the machine where Butler is running.<br>
+After working through the instructions in the config file, you should be able to start Butler with the following command (PowerShell in this case):</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span><span style="color:#204a87">PS </span><span style="color:#000">C:</span><span style="color:#000;font-weight:bold">\</span><span style="color:#000">tools</span><span style="color:#000;font-weight:bold">\</span><span style="color:#000">butler</span><span style="color:#000;font-weight:bold">&gt;</span> <span style="color:#000;font-weight:bold">.\</span><span style="color:#000">butler</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">exe</span> <span style="color:#000">-c</span> <span style="color:#000;font-weight:bold">.\</span><span style="color:#000">config</span><span style="color:#000;font-weight:bold">\</span><span style="color:#204a87">butler-config</span><span style="color:#ce5c00;font-weight:bold">-file</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">yaml</span>
+</span></span></code></pre></div><p>Most Butler features are disabled in the minimal config file, but it&rsquo;s a good starting point for your own config file.</p>
+<p>To summarize, the recommended steps to get Butler up and running are:</p>
+<ol>
+<li>Download the latest Butler release from the <a href="https://github.com/ptarmiganlabs/butler/releases">download page</a>. Precompiled binaries are available for Windows, Linux, macOS and Docker (on Docker Hub).</li>
+<li>Copy the <code>production_template.yaml</code> config file (which is included in the Zip file) to a new file, e.g. <code>butler-config.yaml</code>.</li>
+<li>Add the needed settings to <code>butler-config.yaml</code> as described in the comments at the beginning of that that file.</li>
+<li>Start Butler, passing in the path to the config file as the <code>--configfile</code> (or <code>-c</code>) parameter.</li>
+<li>Once Butler is running in this minimal configuration, you can start enabling more features in the config file, for example failed task monitoring, monitoring of Windows services, Sense licenses and much more.</li>
+</ol>
+<h2 id="example-things-to-change-in-the-minimal-config-file">Example: Things to change in the minimal config file</h2>
+<p>The following is an example of the comments at the beginning of the <code>production_template.yaml</code> config file, describing what needs to be changed in it to start Butler with a minimal configuration.</p>
+<p>The example below is for Butler <a href="https://github.com/ptarmiganlabs/butler/releases">12.4.0</a>, but the same principle applies to later versions too.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000">---</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">Butler</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># General notes: </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># - File and directory paths in this sample config file use Linux/Mac syntax, i.e. using forward slashes.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic">#   Windows paths work just as well, just make sure to quote them with single or double quotes.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># - All entries in the config file are mandatory in the sense that they must be present.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic">#   However, if a feature is not used the corresponding config entries can contain </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic">#   any value (for example the provided default ones).</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># - Butler will start using the settings in this file if the follwing settings are set first:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic">#   - Butler.cert.clientCert: Set to the path of the client certificate file. If relative paths cause issues, use an absolute path.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic">#   - Butler.cert.clientCertKey: Set to the path of the client key file. If relative paths cause issues, use an absolute path.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic">#   - Butler.cert.clientCertCA: Set to the path of the CA certificate file. If relative paths cause issues, use an absolute path.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic">#   - Butler.configEngine.host: Set to the IP or FQDN of the host where the Sense engine service is running.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic">#   - Butler.configEngine.port: Set to the port where the Sense engine service is listening.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic">#   - Butler.configQRS.host: Set to the IP or FQDN of the host where the Qlik Repository Service (QRS) is running.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic">#   - Butler.configQRS.port: Set to the port where the Qlik Repository Service (QRS) is listening.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># - Having set the above settings, Butler will start and run, but it will not do anything useful until you configure</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic">#   the various monitoring and notification settings, as described at https://butler.ptarmiganlabs.com.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span></code></pre></div>
+</div>
+</div>
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="SenseOps mailing list" aria-label="SenseOps mailing list">
+    <a class="text-white" target="_blank" rel="noopener" href="https://ptarmiganlabs.com/#/portal/signup" aria-label="SenseOps mailing list">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Discussion forums on GitHub" aria-label="Discussion forums on GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/ptarmiganlabs/butler/discussions" aria-label="Discussion forums on GitHub">
+      <i class="fa fa-comments"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Ptarmigan Labs" aria-label="Ptarmigan Labs">
+    <a class="text-white" target="_blank" rel="noopener" href="https://ptarmiganlabs.com" aria-label="Ptarmigan Labs">
+      <i class="fa fa-external-link"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="LinkedIn" aria-label="LinkedIn">
+    <a class="text-white" target="_blank" rel="noopener" href="https://www.linkedin.com/in/gorsan/" aria-label="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/ptarmiganlabs/butler" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Bug reports &amp; Feature requests" aria-label="Bug reports &amp; Feature requests">
+    <a class="text-white" target="_blank" rel="noopener" href="https://github.com/ptarmiganlabs/butler/issues/new/choose" aria-label="Bug reports &amp; Feature requests">
+      <i class="fa fa-bug"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Get in touch with Ptarmigan Labs" aria-label="Get in touch with Ptarmigan Labs">
+    <a class="text-white" target="_blank" rel="noopener" href="mailto://info@ptarmiganlabs.com" aria-label="Get in touch with Ptarmigan Labs">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2024 Ptarmigan Labs AB All Rights Reserved</small>
+        
+	
+		<p class="mt-2"><a href="/docs/about/">About</a></p>
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+  <script src="/js/main.min.523509bf13607632997fb2eeed668872c5fb9c71c1c18f4d68e77a786fa8136f.js" integrity="sha256-UjUJvxNgdjKZf7Lu7WaIcsX7nHHBwY9NaOd6eG&#43;oE28=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>
