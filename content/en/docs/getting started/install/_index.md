@@ -1,6 +1,6 @@
 ---
-title: 'Installing Butler'
-linkTitle: 'Installing Butler'
+title: 'Install'
+linkTitle: 'Install'
 weight: 20
 description: >
     How to install Butler, including requirements and on what platforms Butler can be installed.

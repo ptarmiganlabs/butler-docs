@@ -1,53 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Butler – Use cases</title>
+    <title>Use cases on Butler</title>
     <link>https://butler.ptarmiganlabs.com/docs/about/use-cases/</link>
     <description>Recent content in Use cases on Butler</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    
-	  <atom:link href="https://butler.ptarmiganlabs.com/docs/about/use-cases/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
+    <atom:link href="https://butler.ptarmiganlabs.com/docs/about/use-cases/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Docs: Retired use cases</title>
+      <title>Retired use cases</title>
       <link>https://butler.ptarmiganlabs.com/docs/about/use-cases/retired/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://butler.ptarmiganlabs.com/docs/about/use-cases/retired/</guid>
-      <description>
-        
-        
-        &lt;p&gt;Some features age with grace, others don&amp;rsquo;t.&lt;br&gt;
-Here&amp;rsquo;s a list of features that are candidates for removal from Butler, or that have already been removed.&lt;/p&gt;
-&lt;h2 id=&#34;candidates-for-removal-in-coming-versions&#34;&gt;Candidates for removal in coming versions&lt;/h2&gt;
-&lt;h3 id=&#34;real-time-metrics-around-active-users&#34;&gt;Real-time metrics around active users&lt;/h3&gt;
-&lt;p&gt;While a good idea in theory, Butler just wasn&amp;rsquo;t the vehicle for this.&lt;/p&gt;
-&lt;p&gt;The way Butler approached this was to have Sense&amp;rsquo;s log4net logging framework send UDP messages to Butler when users logged in/out or sessions started/ended. This certainly works (quite well in fact!), but it also has inherent issues.&lt;br&gt;
-For example, when Butler was started it wouldn&amp;rsquo;t capture currently active users or sessions - it was only after some event captured in the logs that Butler would update it&amp;rsquo;s internal counters. This meant that it would take some time (sometimes quite long) until the metrics were even approaching the real number of users using Sense.&lt;/p&gt;
-&lt;p&gt;There was also the risk of Butler missing UDP messages and not registering the associated log event.&lt;/p&gt;
-&lt;p&gt;The affected API endpoints are:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/rest-api-1/?operationsSorter=alpha&#34;&gt;/v4/activeusercount&lt;/a&gt;&lt;br&gt;
-&lt;a href=&#34;https://butler.ptarmiganlabs.com/docs/reference/rest-api-1/?operationsSorter=alpha&#34;&gt;/v4/activeusers&lt;/a&gt;&lt;/p&gt;
-
-
-&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
-&lt;h4 class=&#34;alert-heading&#34;&gt;Tip: Butler SOS&lt;/h4&gt;
-
-    &lt;p&gt;The shortcomings above lead to the creation of the Butler SOS project, which has over the years evolved into a very comprehensive open source tool for professional grade, real-time monitoring of Qlik Sense.&lt;/p&gt;
-&lt;p&gt;More information available at &lt;a href=&#34;https://butler-sos.ptarmiganlabs.com&#34;&gt;butler-sos.ptarmiganlabs.com&lt;/a&gt;.&lt;/p&gt;
-
-
-&lt;/div&gt;
-
-
-      </description>
+      <description>Some features age with grace, others don&amp;rsquo;t.&#xA;Here&amp;rsquo;s a list of features that are candidates for removal from Butler, or that have already been removed.&#xA;Candidates for removal in coming versions Real-time metrics around active users While a good idea in theory, Butler just wasn&amp;rsquo;t the vehicle for this.&#xA;The way Butler approached this was to have Sense&amp;rsquo;s log4net logging framework send UDP messages to Butler when users logged in/out or sessions started/ended.</description>
     </item>
-    
   </channel>
 </rss>

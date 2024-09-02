@@ -1,18 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Butler – Configuring the key-value store</title>
+    <title>Configuring the key-value store on Butler</title>
     <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/key-value-store/</link>
     <description>Recent content in Configuring the key-value store on Butler</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    
-	  <atom:link href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/key-value-store/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
+    <atom:link href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/key-value-store/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -1,18 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Butler – Alert template fields for failed/aborted reload tasks</title>
+    <title>Alert template fields for failed/aborted reload tasks on Butler</title>
     <link>https://butler.ptarmiganlabs.com/docs/reference/alert-template-fields/reload-tasks/</link>
     <description>Recent content in Alert template fields for failed/aborted reload tasks on Butler</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    
-	  <atom:link href="https://butler.ptarmiganlabs.com/docs/reference/alert-template-fields/reload-tasks/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-        
-      
-    
-    
+    <atom:link href="https://butler.ptarmiganlabs.com/docs/reference/alert-template-fields/reload-tasks/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

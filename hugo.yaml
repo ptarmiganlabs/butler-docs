@@ -1,0 +1,223 @@
+baseURL: https://butler.ptarmiganlabs.com/
+title: Butler
+
+# Language settings
+contentDir: content/en
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: false
+# Useful when translating.
+enableMissingTranslationPlaceholders: true
+
+enableRobotsTXT: true
+
+# Will give values to .Lastmod etc.
+enableGitInfo: true
+
+# Comment out to enable taxonomies in Docsy
+disableKinds:
+  - taxonomy
+  # - taxonomyTerm
+
+# You can add your own taxonomies
+taxonomies:
+  tag: tags
+  # category: categories
+
+# Highlighting config
+pygmentsCodeFences: true
+pygmentsUseClasses: false
+# Use the new Chroma Go highlighter in Hugo.
+pygmentsUseClassic: false
+# pygmentsOptions: "linenos=table"
+# See https://help.farbox.com/pygments.html
+pygmentsStyle: tango
+
+# Configure how URLs look like per section.
+permalinks:
+  blog: /:section/:year/:month/:day/:slug/
+
+# Image processing configuration.
+imaging:
+  resampleFilter: CatmullRom
+  quality: 75
+  anchor: smart
+
+# Language configuration
+languages:
+  en:
+    languageName: English
+    title: Butler
+    params:
+      description: Butler documentation
+
+markup:
+  goldmark:
+    parser:
+      attribute:
+        block: true
+    renderer:
+      unsafe: true
+  highlight:
+    # See a complete list of available styles at https://xyproto.github.io/splash/docs/all.html
+    style: tango
+    # Uncomment if you want your chosen highlight style used for code blocks without a specified language
+    # guessSyntax: true
+
+# Added to support publishing to GitHub Pages, as per https://gohugo.io/hosting-and-deployment/hosting-on-github/
+publishDir: docs
+
+
+# Everything below this are Site Params
+
+# Comment out if you don't want the "print entire section" link enabled.
+outputs:
+  # section: [print, RSS]
+  section: [HTML, print, RSS]
+
+# Not in template file
+outputFormats:
+  PRINT:
+    baseName: index
+    isHTML: true
+    mediaType: text/html
+    path: printview
+    permalinkable: false
+
+params:
+  taxonomy:
+    # set taxonomyCloud = [] to hide taxonomy clouds
+    taxonomyCloud: [tags, categories]
+
+    # If used, must have same length as taxonomyCloud
+    taxonomyCloudTitle: [Tag Cloud, Categories]
+
+    # set taxonomyPageHeader = [] to hide taxonomies on the page headers
+    taxonomyPageHeader: [tags, categories]
+
+  # privacy_policy: https://policies.google.com/privacy
+
+  # Repository configuration (URLs for in-page links to opening issues and suggesting changes)
+  github_repo: https://github.com/ptarmiganlabs/butler-docs
+
+  # An optional link to a related project repo. For example, the sibling repository where your product code lives.
+  github_project_repo: https://github.com/ptarmiganlabs/butler
+
+  # Specify a value here if your content directory is not in your repo's root directory
+  # github_subdir: ""
+
+  # Uncomment this if your GitHub repo does not have "main" as the default branch,
+  # or specify a new value if you want to reference another branch in your GitHub links
+  # github_branch: main
+
+  # Google Custom Search Engine ID. Remove or comment out to disable search.
+  # gcs_engine_id: d72aa9b2712488cc3
+
+  # Enable Lunr.js offline search
+  offlineSearch: false
+
+  # Enable syntax highlighting and copy buttons on code blocks with Prism
+  prism_syntax_highlighting: true
+
+  copyright:
+    authors: Ptarmigan Labs AB
+    from_year: 2018
+
+  # User interface configuration
+  ui:
+    # Set to true to disable breadcrumb navigation.
+    breadcrumb_disable: false
+    # Set to false if you don't want to display a logo (/assets/icons/logo.svg) in the top navbar
+    navbar_logo: true
+    # Set to true if you don't want the top navbar to be translucent when over a `block/cover`, like on the homepage.
+    navbar_translucent_over_cover_disable: false
+    # Enable to show the side bar menu in its compact state.
+    sidebar_menu_compact: true
+    # Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
+    sidebar_search_disable: false
+
+    footer_about_enable: true
+
+    # Adds a reading time to the top of each doc.
+    # If you want this feature, but occasionally need to remove the Reading time from a single page,
+    # add "hide_readingtime: true" to the page's front matter
+    readingtime:
+      enable: false
+
+  links:
+    # End user relevant links. These will show up on left side of footer and in the community page if you have one.
+    user:
+      - name: Ptarmigan Labs Newsletter
+        url: https://ptarmiganlabs.com/#/portal/signup
+        icon: fa fa-envelope
+        desc: Qlik Sense tips straight to your inbox.
+      - name: Discussion forums on GitHub
+        url: https://github.com/ptarmiganlabs/butler/discussions
+        icon: fa fa-comments
+        desc: Ask questions, suggest features and discuss everything Butler related.
+      - name: Ptarmigan Labs website
+        url: https://ptarmiganlabs.com
+        icon: fa fa-external-link
+        desc: Blog posts related to Butler and advanced Qlik Sense topics.
+      - name: LinkedIn
+        url: https://www.linkedin.com/in/gorsan/
+        icon: fab fa-linkedin
+        desc: Reach out to Ptarmigan Labs via LinkedIn
+    # Developer relevant links. These will show up on right side of footer and in the community page if you have one.
+    developer:
+      - name: GitHub
+        url: https://github.com/ptarmiganlabs/butler
+        icon: fab fa-github
+        desc: Development takes place here!
+      - name: Bug reports & Feature requests
+        url: https://github.com/ptarmiganlabs/butler/issues/new/choose
+        icon: fab fa-bug
+        desc: Let us know what's working, what's not and what's missing.
+      - name: Get in touch with Ptarmigan Labs
+        url: mailto://info@ptarmiganlabs.com
+        icon: fa fa-envelope
+        desc: Get in touch with Ptarmigan Labs around Butler
+
+module:
+  # Uncomment the next line to build and serve using local docsy clone declared in the named Hugo workspace:
+  # workspace: docsy.work
+  hugoVersion:
+    extended: true
+    min: 0.110.0
+  imports:
+    - path: github.com/google/docsy
+      disable: false
+    - path: github.com/divinerites/plausible-hugo
+
+
+
+theme:
+  - github.com/google/docsy
+  - hugo-notice
+  # - plausible-hugo
+#   - hugo-dynamic-tabs
+
+
+
+# blackfriday:
+#   plainIDAnchors: true
+#   hrefTargetBlank: true
+#   angledQuotes: false
+#   latexDashes: true
+
+
+    
+privacy:
+  disqus:
+    disable: true
+  instagram:
+    disable: true
+  vimeo:
+    disable: true
+  youtube:
+    disable: false
+
+# module:
+#   proxy: direct
+#   imports:
+#     - path: github.com/google/docsy
+

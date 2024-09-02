@@ -54,12 +54,13 @@
     <lastmod>2024-04-23T16:38:56+02:00</lastmod>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/getting-started/setup/which-config-file/</loc>
-    <lastmod>2023-12-14T20:30:11+01:00</lastmod>
+    <lastmod>2024-05-14T10:36:28+02:00</lastmod>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/reference/alert-template-fields/windows-services/</loc>
     <lastmod>2023-06-13T15:01:58+02:00</lastmod>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/getting-started/setup/minimal-config/</loc>
+    <lastmod>2024-05-14T10:36:28+02:00</lastmod>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/getting-started/install/native/</loc>
     <lastmod>2023-06-13T15:01:58+02:00</lastmod>
@@ -209,9 +210,10 @@
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/reference/influxdb/</loc>
-    <lastmod>2024-04-18T13:01:43+02:00</lastmod>
+    <lastmod>2024-05-14T10:36:28+02:00</lastmod>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/concepts/qlik-sense-server-version/</loc>
+    <lastmod>2024-05-14T10:36:28+02:00</lastmod>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/examples/start-task/</loc>
     <lastmod>2021-11-03T14:09:22+01:00</lastmod>
@@ -232,6 +234,7 @@
     <lastmod>2023-06-13T15:01:58+02:00</lastmod>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/concepts/qlik-sense-server-license/</loc>
+    <lastmod>2024-05-14T10:36:28+02:00</lastmod>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/reference/sense-helper-subs/</loc>
     <lastmod>2021-11-03T15:36:48+01:00</lastmod>
@@ -240,6 +243,7 @@
     <lastmod>2024-04-12T11:41:58+02:00</lastmod>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/concepts/qlik-sense-access-licenses/</loc>
+    <lastmod>2024-05-14T10:36:28+02:00</lastmod>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/about/telemetry/</loc>
     <lastmod>2023-12-09T17:33:59+01:00</lastmod>
@@ -284,13 +288,16 @@
     <lastmod>2023-06-13T15:01:58+02:00</lastmod>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/getting-started/setup/qlik-sense-server-version/</loc>
+    <lastmod>2024-05-14T10:36:28+02:00</lastmod>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/getting-started/setup/qlik-sense-server-licenses/</loc>
+    <lastmod>2024-05-14T10:36:28+02:00</lastmod>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/getting-started/setup/qlik-sense-access-licenses/</loc>
+    <lastmod>2024-05-14T10:36:28+02:00</lastmod>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/getting-started/setup/scheduler/</loc>
-    <lastmod>2023-06-13T15:01:58+02:00</lastmod>
+    <lastmod>2024-05-14T10:36:28+02:00</lastmod>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/docs/getting-started/setup/key-value-store/</loc>
     <lastmod>2024-04-15T12:39:58+02:00</lastmod>
@@ -347,7 +354,7 @@
     <lastmod>2024-01-10T09:00:58+01:00</lastmod>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/</loc>
-    <lastmod>2024-04-25T09:47:00+02:00</lastmod>
+    <lastmod>2024-05-14T10:36:28+02:00</lastmod>
   </url><url>
     <loc>https://butler.ptarmiganlabs.com/community/</loc>
     <lastmod>2021-04-22T21:58:55+02:00</lastmod>

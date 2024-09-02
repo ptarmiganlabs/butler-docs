@@ -1,17 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Butler – Butler</title>
+    <title>Butler</title>
     <link>https://butler.ptarmiganlabs.com/</link>
     <description>Recent content on Butler</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    
-	  <atom:link href="https://butler.ptarmiganlabs.com/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-      
-      
-    
-    
+    <atom:link href="https://butler.ptarmiganlabs.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Butler</title>
+      <link>https://butler.ptarmiganlabs.com/docs/about/butler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://butler.ptarmiganlabs.com/docs/about/butler/</guid>
+      <description>The Butler project is all about adding useful features to the client-managed version of Qlik Sense, also known as Qlik Sense Enterprise on Windows, QSEoW.&#xA;Some of the features can be used from Sense load scripts, other features provide integration with 3rd party systems.&#xA;Most of Butler&amp;rsquo;s features try to make daily life for a Qlik Sense administrator a bit easier.&#xA;The goal is to integrate battle-proven concepts and best-of-breed open-source tools into Butler and thus make them available to developers of Sense apps or those responsible for running Sense clusters.</description>
+    </item>
+    <item>
+      <title>Standalone app</title>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/operations/standalone/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/operations/standalone/</guid>
+      <description>Running Butler as standalone, native app Windows Running standalone Butler on Windows Server 2016 looks like this:&#xA;PS C:\tools\butler&amp;gt; .\butler.exe Usage: butler [options] Butler gives superpowers to client-managed Qlik Sense Enterprise on Windows! Advanced reload failure alerts, task scheduler, key-value store, file system access and much more. Options: -V, --version output the version number -c, --configfile &amp;lt;file&amp;gt; path to config file -l, --loglevel &amp;lt;level&amp;gt; log level (choices: &amp;#34;error&amp;#34;, &amp;#34;warn&amp;#34;, &amp;#34;info&amp;#34;, &amp;#34;verbose&amp;#34;, &amp;#34;debug&amp;#34;, &amp;#34;silly&amp;#34;) --new-relic-account-name &amp;lt;name.</description>
+    </item>
+    <item>
+      <title>Decide how to run Butler</title>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/install/choose-platform/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/install/choose-platform/</guid>
+      <description>The short answer is: Almost anywhere.&#xA;The pre-built binaries for Windows, macOS, Linux and Docker should cater for most use cases.&#xA;If you have some other, more exotic platform or operating system you want to run Butler on that&amp;rsquo;s probably possible too.&#xA;Butler is built on Node.js and as long as Node.js is available on the platform/operating system of your choice there is a good chance Butler will run there.</description>
+    </item>
+    <item>
+      <title>Running Butler as a native, pre-built application</title>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/install/native/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/install/native/</guid>
+      <description>Downloading the app Download Butler for your preferred operating systym.&#xA;Latest version is available on GitHub.&#xA;Installation steps Installing Butler is quite simple.&#xA;The steps below outline the process.&#xA;Additional information is found on the Day 2 operations page.&#xA;Decide where to install Butler&#xA;It is usually a good starting point to run Butler on the Sense server. If there are more than one server in the Sense cluster, Butler can be placed on the reload server (as the /createDir endpoint then can be used to create folders in which QVD and other files can be stored).</description>
+    </item>
+    <item>
+      <title>Running Butler in Docker</title>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/install/docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/install/docker/</guid>
+      <description>Installation steps The following steps give some guidance on how to get Butler running on Docker.&#xA;Here Mac OS was used, things will look different on Linux and Windows.&#xA;Note: While the console logs below refer to an older version of Butler&amp;rsquo;s Docker image, the steps involved are the same also for current/most recent version of Butler.&#xA;proton:~ goran$ mkdir /Users/goran/butler proton:~ goran$ cd /Users/goran/butler proton:butler goran$ mkdir -p config/certificate proton:butler goran$ proton:butler goran$ wget https://raw.</description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/operations/docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/operations/docker/</guid>
+      <description>Running Butler in Docker First configure the docker-compose.yml file as needed, then start the Docker container in interactive mode (with output sent to the screen).&#xA;This is useful to ensure everything works as intended when first setting up Butler SOS.&#xA;docker-compose up Once Butler has been verified to work as intended, hit ctrl-c to stop it.&#xA;Then start Butler in deameon (background) mode:&#xA;docker-compose up -d From here on the Docker enviromment will make sure Butler is always running, including restarting it if it for some reason stops.</description>
+    </item>
+    <item>
+      <title>The Butler family</title>
+      <link>https://butler.ptarmiganlabs.com/docs/about/butler-family/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://butler.ptarmiganlabs.com/docs/about/butler-family/</guid>
+      <description>Butler started out with a very specific need to start Sense reloads from outside systems.&#xA;Over the years a few projects (for example Butler SOS, which simplifies day 2 operations ([1], [2]) have spun off from the original Butler project, and still other projects have been created from scratch to solve specific challenges around developing Sense apps and running Qlik Sense server environments.&#xA;All members of the Butler family are available on Ptarmigan Labs&amp;rsquo; GitHub page.</description>
+    </item>
+    <item>
+      <title>Running Butler as a Node.js application</title>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/install/nodejs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/install/nodejs/</guid>
+      <description>Selecting an OS While Qlik Sense Enterprise is a Windows only system, Butler should be able to run on any OS where Node.js is available.&#xA;Butler has been succesfully used - during development and production - on Windows, Linux (Debian and Ubuntu tested) and mac OS.&#xA;Installation steps The steps below outline the steps needed to install Butler as a native Node.js application on for example Windows Server.&#xA;Additional information is found on the Day 2 operations page.</description>
+    </item>
+    <item>
+      <title>Node.js app</title>
+      <link>https://butler.ptarmiganlabs.com/docs/getting-started/operations/nodejs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://butler.ptarmiganlabs.com/docs/getting-started/operations/nodejs/</guid>
+      <description>Running Butler as Node.js app If the Butler source code has been installed in d:\tools\butler, starting Butler as a Node.js app on Windows could look like this:&#xA;d: cd \tools\butler\src node butler.js It is of course also possible to put those commands in a command file (.bat or .ps1 on Windows) file and execute that file instead.&#xA;The commands above assume there is a d:\tools\butler\src\config directory in which there is a YAML config file.</description>
+    </item>
+    <item>
+      <title>Retired use cases</title>
+      <link>https://butler.ptarmiganlabs.com/docs/about/use-cases/retired/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://butler.ptarmiganlabs.com/docs/about/use-cases/retired/</guid>
+      <description>Some features age with grace, others don&amp;rsquo;t.&#xA;Here&amp;rsquo;s a list of features that are candidates for removal from Butler, or that have already been removed.&#xA;Candidates for removal in coming versions Real-time metrics around active users While a good idea in theory, Butler just wasn&amp;rsquo;t the vehicle for this.&#xA;The way Butler approached this was to have Sense&amp;rsquo;s log4net logging framework send UDP messages to Butler when users logged in/out or sessions started/ended.</description>
+    </item>
+    <item>
+      <title>Versions</title>
+      <link>https://butler.ptarmiganlabs.com/docs/about/versioning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://butler.ptarmiganlabs.com/docs/about/versioning/</guid>
+      <description>In the spirit of not copying information to several places, the version history is kept as annotations of each release on the GitHub release page.&#xA;Version numbers include up to 3 levels, for example version 4.6.2 (which is a fictitious version):&#xA;4 is the major version. It is increased when Butler has added major new features, or in other ways changed in major ways. If following this principle, breaking changes should always result in a bumped major version.</description>
+    </item>
+    <item>
+      <title>Contribution guidelines</title>
+      <link>https://butler.ptarmiganlabs.com/docs/about/contributing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://butler.ptarmiganlabs.com/docs/about/contributing/</guid>
+      <description>Butler is an open source project, using the MIT license.&#xA;This means that all source code, documentation etc is available as-is, at no cost.&#xA;It however also means that anyone interested can - and is encouraged to - contribute to the project!&#xA;Butler is developed in Node.js, with support from various NPM modules.&#xA;We use Hugo to format and generate this documentation site, the Docsy theme for styling and site structure.</description>
+    </item>
+    <item>
+      <title>Telemetry</title>
+      <link>https://butler.ptarmiganlabs.com/docs/about/telemetry/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://butler.ptarmiganlabs.com/docs/about/telemetry/</guid>
+      <description>Sharing telemetry data from Butler is optional.&#xA;You can use all Butler features without sharing telemetry data.&#xA;That said, if you find the Butler tool useful you are strongly encouraged to leave Butler&amp;rsquo;s telemetry feature turned on.&#xA;Having access to this data greatly helps the Butler developers when they design new features, fix bugs etc.&#xA;The Butler developers care about you - sharing telemetry data is your way of showing you care about them.</description>
+    </item>
+    <item>
+      <title>Search Results</title>
+      <link>https://butler.ptarmiganlabs.com/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://butler.ptarmiganlabs.com/search/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
