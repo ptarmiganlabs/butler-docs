@@ -12,13 +12,15 @@ description: >
 
 ## Starting Butler with a minimal config file
 
-Configuring Butler via its [YAML format](https://www.redhat.com/en/topics/automation/what-is-yaml#) config file is arguably the most difficult part of setting up Butler.  
+Configuring Butler via its [YAML format](https://www.redhat.com/en/topics/automation/what-is-yaml#) config file is probably the most difficult part of setting up Butler.  
 It's however also *the only* way to configure Butler, so it needs to be done.
 
 To make that process easier, a minimal config file called `production_template.yaml` is included in the release Zip files on the [download page](https://github.com/ptarmiganlabs/butler/releases).
 
-    The included sample config file contains the minimum settings needed to start Butler, but a few settings in it must be updated to match your environment.
-    These are described in the comments at the beginning of the config file.
+{{% notice note %}}
+  The included sample config file contains the minimum settings needed to start Butler, but a few settings in it must be updated to match your environment.
+  These are described in the comments at the beginning of the config file.
+{{% /notice %}}
 
 The settings are mostly related to the host names and ports of the Qlik Sense server(s) you want Butler to connect to, and the host name and port of the machine where Butler is running.  
 After working through the instructions in the config file, you should be able to start Butler with the following command (PowerShell in this case):

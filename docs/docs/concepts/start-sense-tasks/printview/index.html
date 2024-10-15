@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.135.0">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/concepts/start-sense-tasks/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/concepts/start-sense-tasks/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -155,17 +155,17 @@ All tasks having the custom property/value combinations in the call will be star
 <p>While this may be the most obvious way to control what task(s) should be started, it requires the caller to know the exact ID of the task of interest.<br>
 If the task for some reason is re-created its ID will change.</p>
 <p>Still, there are certainly cases where task IDs are relevant and the easiest option to use and set up.</p>
-<p><img alt="alt text" src="/docs/concepts/start-sense-tasks/start-tasks-using-taskid-1.png" title="Finding task IDs in the QMC"></p>
+<p><img alt="Finding task IDs in the QMC" src="/docs/concepts/start-sense-tasks/start-tasks-using-taskid-1.png" title="Finding task IDs in the QMC"></p>
 <h3 id="start-tasks-by-tags">Start tasks by tags</h3>
 <p>Given the example below, <strong>a single call</strong> to Butlers API could start all four of the tasks tagged <code>Butler 5.0 demo</code>.<br>
 Or the three tasks tagged <code>startTask1</code>.<br>
 Or all of those tasks, if both tags were passed to the Butler API.</p>
-<p><img alt="alt text" src="/docs/concepts/start-sense-tasks/start-tasks-using-tag-1.png" title="Finding tags in the QMC"></p>
+<p><img alt="Finding tags in the QMC" src="/docs/concepts/start-sense-tasks/start-tasks-using-tag-1.png" title="Finding tags in the QMC"></p>
 <h3 id="start-tasks-by-custom-properties">Start tasks by custom properties</h3>
 <p>Using custom properties to identify which tasks to start works similarly to how tags are used (see above).<br>
 The main difference is that the caller must know the name of the custom property and at least one of the possible values for that custom property, in order to start the associated task.</p>
 <p>In the example below, calling the Butler API with parameters <code>taskGroup=tasks2</code> would result in all tasks having the <code>taskGroup</code> custom property set to <code>tasks2</code> to be started.</p>
-<p><img alt="alt text" src="/docs/concepts/start-sense-tasks/start-tasks-using-cp-1.png" title="Finding a task&#39;s custom property values in the QMC"></p>
+<p><img alt="Finding a task&rsquo;s custom property values in the QMC" src="/docs/concepts/start-sense-tasks/start-tasks-using-cp-1.png" title="Finding a task&#39;s custom property values in the QMC"></p>
 
 </div>
 </div>

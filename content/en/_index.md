@@ -7,17 +7,16 @@ title: Butler
  <p class="lead mt-5" style="font-size: 120%" ">
   Great looking alerts to Slack, Teams, email or New Relic when reloads fail, save all failed reload scripts, monitor Sense licenses, advanced task scheduling, task chaining with parameters, key-value store, start reload tasks from any system, extract app metadata, post to Slack/Teams, MQTT integration and more.<br><br>
  </p>
+
+ <p style="font-size: 120%" ">
+  Several of the key features (like app reload failure notifications) are available <br>in both Qlik Sense client-managed and Qlik Sense Cloud environments.
+  <br>
+ </p>
+
  <p style="font-size: 120%" ">
   No installation needed. Just download, configure and run.<br>
   Open source of course.<br><br>
  </p>
- <!-- <p class="lead mt-5" style="font-size: 120%" ">
-		Interested in beta testing (no cost) the new SIGNL4 integration for mobile reload alerts?<br>
-		Let us know via info -at- ptarmiganlabs -dot- com.
-			<div class="mx-auto w-50">
-				{{< youtube id="iC_zbgczvFY" modestbranding=true color="red">}}
-			</div>
-		</p> -->
  <a class="btn btn-lg btn-primary mr-3 mb-4" href="{{< relref "/docs" >}}">
   Documentation <i class="fas fa-arrow-alt-circle-right ml-2"></i>
  </a>
@@ -48,7 +47,19 @@ You or your users?
 Who was it that stopped that important 3-hour reload 5 minutes before it was done?
 
 Get notified when tasks fail or are stopped, with notifications sent to Slack, Microsoft Teams, email, InfluxDb, New Relic, Signl4 and other destinations.  
-Full support for HTML/Markdown formatting and 40+ template fields.
+Full support for HTML/Markdown formatting and 50+ template fields.
+
+Both **Qlik Sense client-managed** and **Qlik Sense Cloud** supported, with alerts looking the same in both environments.
+
+[Read more...](/docs/concepts/failed-reloads/)
+{{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fa-envelope" title="Task success notifications" %}}
+Knowing about failed reloads is important, but sometimes it's just as important to know when a reload has succeeded.
+
+Get emails when those important reloads have completed successfully.
+Nicely formatted with all the details you need.
 
 [Read more...](/docs/concepts/failed-reloads/) 
 {{% /blocks/feature %}}
@@ -59,6 +70,8 @@ Finding the complete logs from failed reloads can be a pain.
 
 Butler can save these for you, sorted by date.  
 Finding what caused a reload to fail is now easier than ever!
+
+Both **Qlik Sense client-managed** and **Qlik Sense Cloud** supported.
 
 [Read more...](/docs/concepts/failed-reloads/) 
 {{% /blocks/feature %}}
@@ -89,7 +102,7 @@ Monitor in real time - broken down by license type - and release licenses that a
 Continuously monitor the Qlik Sense server license and alert when it is about to expire.
 
 Store the data in InfluxDB for further analysis, or send to your alerting destination of choice.
-<!--TODO-->
+
 [Read more...](/docs/concepts/qlik-sense-server-license/)
 {{% /blocks/feature %}}
 
@@ -99,7 +112,6 @@ Continuously monitor the Qlik Sense server version and store the data in InfluxD
 
 Reduces the risk of running outdated versions of Sense, with associated security risks.
 
-<!--TODO-->
 [Read more...](/docs/concepts/qlik-sense-server-version/)
 {{% /blocks/feature %}}
 
@@ -204,10 +216,12 @@ Butler itself can be monitored in InfluxDB/Grafana and New Relic.
 
 {{< blocks/section type="row" color="dark">}}
 
-{{% blocks/feature icon="fa-lightbulb" title="Latest release: 12.4" %}}
-Monitor and alert when Qlik Sense server licenses are about to expire.
+{{% blocks/feature icon="fa-lightbulb" title="Latest release: 13.0" %}}
+Qlik Sense Cloud support added. Yay! 🎉
 
-Monitor Qlik Sense server version to make sure it is updated as needed.
+Get reload failed alerts to email, Slack, Teams or script log on local disk.
+
+Tons of updates to the reload failed alert templates, making them better looking than before, and also consistent across client-managed and Qlik Sense Cloud.
 
 Available on [GitHub](https://github.com/ptarmiganlabs/butler/releases).
 {{% /blocks/feature %}}

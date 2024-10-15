@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.135.0">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/examples/when-things-dont-work/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/examples/when-things-dont-work/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -37,7 +37,7 @@
   <meta itemprop="name" content="When things don&#39;t work as expected">
   <meta itemprop="description" content="Tips and tricks for troubleshooting Butler.">
   <meta itemprop="dateModified" content="2024-01-10T09:00:58+01:00">
-  <meta itemprop="wordCount" content="909">
+  <meta itemprop="wordCount" content="1077">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="When things don&#39;t work as expected">
   <meta name="twitter:description" content="Tips and tricks for troubleshooting Butler.">
@@ -126,6 +126,23 @@ Take note of the log file location.</p>
 If there are errors or warnings during startup, or if there are a lot of errors and warnings, then there is most likely a problem.</p>
 <p>You can also try increasing the log level to <code>verbose</code> or even <code>debug</code> to get more information about what&rsquo;s happening, and where in Butler the problem is occurring.</p>
 <p>Logging level is configured in the Butler configuration file or via the <code>--loglevel</code> command line parameter (which takes precedence over the configuration file).</p>
+<h2 id="incorrect-config-file">Incorrect config file</h2>
+<p>The Butler configuration file is a YAML file, and it is easy to make mistakes when editing it.</p>
+<p>Butler validates the configuration file when it starts and if there are any syntax errors in the file, Butler will not start.<br>
+It will also show what the error is.</p>
+<p>Can look like below, starting Butler 13.0 with a 12.x config file on Windows Server 2019:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>.\butler.exe --configfile .\config\butler-config.yaml
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>2024-10-15T06:42:34.564Z info: CONFIG: Influxdb enabled: true
+</span></span><span style="display:flex;"><span>2024-10-15T06:42:34.565Z info: CONFIG: Influxdb host IP: 10.11.12.13
+</span></span><span style="display:flex;"><span>2024-10-15T06:42:34.568Z info: CONFIG: Influxdb host port: 8086
+</span></span><span style="display:flex;"><span>2024-10-15T06:42:34.569Z info: CONFIG: Influxdb db name: butler
+</span></span><span style="display:flex;"><span>2024-10-15T06:42:35.512Z error: VERIFY CONFIG FILE: /Butler/scriptLog/storeOnDisk : must have required property &#39;clientMan
+</span></span><span style="display:flex;"><span>2024-10-15T06:42:35.513Z error: VERIFY CONFIG FILE: /Butler/scriptLog/storeOnDisk : must have required property &#39;qsCloud&#39;
+</span></span><span style="display:flex;"><span>2024-10-15T06:42:35.516Z error: VERIFY CONFIG FILE: /Butler/scriptLog/storeOnDisk : must NOT have additional properties
+</span></span></code></pre></div><p>Here Butler is complaining about missing required properties in the <code>scriptLog</code> section of the configuration file.<br>
+And indeed, that section has changed in version 13.0, and the configuration file needs to be updated.</p>
 <h2 id="feature-specific-issues">Feature specific issues</h2>
 <h3 id="failed-reload-alerts-not-working">Failed reload alerts not working</h3>
 <p>Butler offers quite comprehensive support for dealing with failed or aborted reloads tasks.<br>

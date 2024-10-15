@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.135.0">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/mqtt/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/mqtt/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -37,7 +37,7 @@
   <meta itemprop="name" content="Setting up MQTT messaging">
   <meta itemprop="description" content="Butler can use MQTT as a channel for pub-sub style M2M (machine to machine) messages. This page describes how to configure MQTT in Butler.">
   <meta itemprop="dateModified" content="2024-04-15T12:39:58+02:00">
-  <meta itemprop="wordCount" content="532">
+  <meta itemprop="wordCount" content="685">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Setting up MQTT messaging">
   <meta name="twitter:description" content="Butler can use MQTT as a channel for pub-sub style M2M (machine to machine) messages. This page describes how to configure MQTT in Butler.">
@@ -115,7 +115,7 @@ This is the multi-page printable view of this section.
 <p>MQTT has features such as guaranteed delivery of messages, which makes it very useful for communicating between Sense and both up- and downstream source/destination systems.</p>
 <p>Butler can be configured to forward events from Sense (reload task failures, aborted reload tasks, windows services starting/stopping, user session start/stop etc) as MQTT messages.</p>
 <p>Butler&rsquo;s <a href="/docs/reference/rest-api-1/?operationsSorter=alpha">REST API</a> also has an endpoint that makes it possible to send MQTT messages from Sense apps&rsquo; load scripts.</p>
-<h3 id="defining-what-mqtt-brokerserver-to-connect-to">Defining what MQTT broker/server to connect to</h3>
+<h2 id="defining-what-mqtt-brokerserver-to-connect-to">Defining what MQTT broker/server to connect to</h2>
 <p>Butler can use either of two kinds of MQTT brokers:</p>
 <ol>
 <li>A standard MQTT broker, such as <a href="https://mosquitto.org/">Mosquitto</a>.</li>
@@ -135,11 +135,15 @@ A concrete example could be that a system that Sense read data from is located i
 <p>It&rsquo;s worth noting that there may be costs associated with using Event Grid, depending on the number of messages sent and received.<br>
 At the time of this writing, Azure Event Grid has a generous free tier that should be sufficient for most use cases.<br>
 Check the <a href="https://azure.microsoft.com/en-us/pricing/details/event-grid/">Azure pricing page</a> for the latest information.</p>
+<h2 id="using-mqtt-to-get-evens-from-qlik-sense-cloud">Using MQTT to get evens from Qlik Sense Cloud</h2>
+<p>Butler can use MQTT as a transport layer for events from Qlik Sense Cloud, for example app reload failure events.
+A separate MQTT configiration section in the config file is used for this, see below.</p>
 <h2 id="settings-in-config-file">Settings in config file</h2>
-<p>The settings are of two kinds:</p>
+<p>The config file contains several settings related to MQTT:</p>
 <ol>
-<li>Defining what MQTT broker/server to connect to</li>
-<li>What MQTT topics should be used when forwarding various Qlik Sense events to MQTT.</li>
+<li>Defining what MQTT broker/server to connect to for handling client-managed Qlik Sense events and messages.</li>
+<li>What MQTT topics should be used when forwarding various client-managed Qlik Sense events to MQTT.</li>
+<li>Settings related to Butler&rsquo;s use of MQTT for connecting with Qlik Sense Cloud.</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000">---</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">Butler</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -166,6 +170,20 @@ Check the <a href="https://azure.microsoft.com/en-us/pricing/details/event-grid/
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">serviceRunningTopic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qliksense/service_running</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">serviceStoppedTopic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qliksense/service_stopped</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">serviceStatusTopic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qliksense/service_status</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">qlikSenseServerLicenseTopic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qliksense/qliksense_server_license         </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Topic to which Sense server license info is published</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">qlikSenseServerLicenseExpireTopic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qliksense/qliksense_server_license_expire</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Topic to which Sense server license expiration alerts are published</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">qlikSenseCloud</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                                                   </span><span style="color:#8f5902;font-style:italic"># MQTT settings for Qlik Sense Cloud integration</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">event</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                                                          
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">mqttForward</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                                                  </span><span style="color:#8f5902;font-style:italic"># QS Cloud events forwarded to MQTT topics, which Butler will subscribe to</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">broker</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                                                     </span><span style="color:#8f5902;font-style:italic"># Settings for MQTT broker to which QS Cloud events are forwarded</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">host</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">mqttbroker.company.com</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">port</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;port&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">username</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;username&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">password</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;password&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">topic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">subscriptionRoot</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qscloud/#                    </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Topic that Butler will subscribe to</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">appReload</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qscloud/app/reload</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div>

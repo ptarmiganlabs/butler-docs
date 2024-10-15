@@ -29,7 +29,7 @@ In the context of software tools (including Butler) telemetry is often used to d
 
 ## Why telemetry in Butler
 
-This is a very, very good question.
+That is a very good question.
 
 For many years there was no telemetry at all in Butler.
 
@@ -92,80 +92,166 @@ The [legal page](/docs/legal-stuff/#telemetry-data) has more information about t
 
 ### Field level description of telemetry data
 
-A telemetry message from Butler contains the information below.
+A telemetry message from Butler (with all features enabled!) contains the information below as of Butler 13.0.
 
 ```json
 {
-  "ts": "2021-04-23T23:11:51.431Z",
-  "data": {
-    service: "butler",
-    serviceVersion: "7.2.1",
-    system: {
-      id: "3de76798c85894844ac20100cf2142c9a58cc90d7e9dd31a22c94b68048c3ee5",
-      arch: "x64",
-      platform: "darwin",
-      release: "12.3.1",
-      distro: "macOS",
-      codename: "macOS Monterey",
-      virtual: false,
-      hypervisor: undefined,
-      nodeVersion: "v16.4.0",
-    },
-    enabledFeatures: {
-      api: {
-        apiListEnbledEndpoints: true,
-        base62ToBase16: true,
-        base16ToBase62: true,
-        butlerping: true,
-        createDir: true,
-        createDirQVD: true,
-        fileDelete: true,
-        fileMove: true,
-        fileCopy: true,
-        keyValueStore: true,
-        mqttPublishMessage: true,
-        scheduler: {
-          createNewSchedule: true,
-          getSchedule: true,
-          getScheduleStatusAll: true,
-          updateSchedule: true,
-          deleteSchedule: true,
-          startSchedule: true,
-          stopSchedule: true,
+  "service": "butler",
+  "serviceVersion": "12.4.2",
+  "system_id": "d7864884fcd5534377febd1dad8a3db87ba0a3e63d365fa9a587775abcc781ac",
+  "system_isRunningInDocker": false,
+  "system_virtual": true,
+  "system_arch": "x64",
+  "system_nodeVersion": "v22.9.0",
+  "system_platform": "linux",
+  "system_distro": "Ubuntu",
+  "system_codename": "jammy",
+  "system_release": "22.04.4 LTS",
+  "feature_apiKeyValueStore": true,
+  "feature_teamsNotificationReloadTaskFailure": true,
+  "feature_serviceMonitor": true,
+  "feature_apiSchedulerGet": true,
+  "feature_apiSchedulerUpdate": true,
+  "feature_apiCreateDir": true,
+  "feature_influxDbReloadTaskSuccess": true,
+  "feature_newRelicNotificationReloadTaskFailure": true,
+  "feature_uptimeMonitoStoreInNewRelic": false,
+  "feature_udpServer": true,
+  "feature_restServer": true,
+  "feature_apiButlerPing": true,
+  "feature_mqtt": true,
+  "feature_apiFileCopy": true,
+  "feature_apiSchedulerDelete": true,
+  "feature_apiListEnabledEndpoints": true,
+  "feature_dockerHealthCheck": true,
+  "feature_apiSchedulerStart": true,
+  "feature_signl4NotificationReloadTaskFailure": true,
+  "feature_apiBase62ToBase16": true,
+  "feature_apiSenseAppDump": true,
+  "feature_slackNotificationReloadTaskAborted": true,
+  "feature_emailNotificationReloadTaskFailure": true,
+  "feature_webhookNotification": true,
+  "feature_apiMqttPublishMessage": true,
+  "feature_newRelicNotificationReloadTaskAborted": true,
+  "feature_apiSenseStartTask": true,
+  "feature_scriptLogQsCloudAppReloadFailure": true,
+  "feature_apiCreateDirQvd": true,
+  "feature_apiBase16ToBase62": true,
+  "feature_apiSenseListApps": true,
+  "feature_qliksensecloud": true,
+  "feature_apiNewRelicPostEvent": true,
+  "feature_apiFileDelete": true,
+  "feature_scriptLogQseowReloadTaskFailure": true,
+  "feature_webhookNotificationReloadTaskFailure": true,
+  "feature_keyValueStore": true,
+  "feature_influxDbReloadTaskFailure": true,
+  "feature_uptimeMonitoStoreInInfluxdb": true,
+  "feature_qliksensecloudReloadAppFailureSlackNotification": true,
+  "feature_slackNotificationReloadTaskFailure": true,
+  "feature_qliksensecloudReloadAppFailureEmailNotification": true,
+  "feature_apiSchedulerGetStatusAll": true,
+  "feature_teamsNotificationReloadTaskAborted": true,
+  "feature_apiSlackPostMessage": true,
+  "feature_emailNotificationReloadTaskAborted": true,
+  "feature_webhookNotificationReloadTaskAborted": true,
+  "feature_webhookNotificationServiceMonitor": true,
+  "feature_apiFileMove": true,
+  "feature_heartbeat": true,
+  "feature_signl4NotificationReloadTaskAborted": true,
+  "feature_scheduler": true,
+  "feature_apiNewRelicPostMetric": true,
+  "feature_apiSchedulerCreateNew": true,
+  "feature_apiSchedulerStop": true,
+  "feature_qliksensecloudReloadAppFailureTeamsNotification": true,
+  "feature_uptimeMonitor": true,
+  "feature_apiSenseAppReload": true,
+  "telemetry_json": {
+    "enabledFeatures": {
+      "feature": {
+        "apiEnabledEndpoints": {
+          "apiListEnabledEndpoints": true,
+          "base16ToBase62": true,
+          "base62ToBase16": true,
+          "butlerping": true,
+          "createDir": true,
+          "createDirQVD": true,
+          "fileCopy": true,
+          "fileDelete": true,
+          "fileMove": true,
+          "keyValueStore": true,
+          "mqttPublishMessage": true,
+          "newRelic": {
+            "postNewRelicEvent": true,
+            "postNewRelicMetric": true
+          },
+          "scheduler": {
+            "createNewSchedule": true,
+            "deleteSchedule": true,
+            "getSchedule": true,
+            "getScheduleStatusAll": true,
+            "startSchedule": true,
+            "stopSchedule": true,
+            "updateSchedule": true
+          },
+          "senseAppDump": true,
+          "senseAppReload": true,
+          "senseListApps": true,
+          "senseStartTask": true,
+          "slackPostMessage": true
         },
-        senseAppReload: true,
-        senseAppDump: true,
-        senseListApps: true,
-        senseStartTask: true,
-        slackPostMessage: true,
-      },
-      feature: {
-        heartbeat: false,
-        dockerHealthCheck: true,
-        uptimeMonitor: true,
-        uptimeMonitor_storeInInfluxdb: true,
-        uptimeMonitor_storeInNewRelic: true,
-        teamsNotification: true,
-        teamsNotification_reloadTaskFailure: true,
-        teamsNotification_reloadTaskAborted: true,
-        slackNotification: true,
-        slackNotification_reloadTaskFailure: true,
-        slackNotification_reloadTaskAborted: true,
-        emailNotification: true,
-        emailNotification_reloadTaskFailure: true,
-        emailNotification_reloadTaskAborted: true,
-        webhookNotification: false,
-        webhookNotification_reloadTaskFailure: false,
-        webhookNotification_reloadTaskAborted: false,
-        signl4Notification_reloadTaskFailure: true,
-        signl4Notification_reloadTaskAborted: true,
-        newRelicNotification_reloadTaskFailure: true,
-        newRelicNotification_reloadTaskAborted: true,
-        scheduler: true,
-        mqtt: true,
-        userActivityLogging: false,
-      },
+        "dockerHealthCheck": true,
+        "emailNotificationReloadTaskAborted": true,
+        "emailNotificationReloadTaskFailure": true,
+        "heartbeat": true,
+        "influxDbReloadTaskFailure": true,
+        "influxDbReloadTaskSuccess": true,
+        "keyValueStore": true,
+        "mqtt": true,
+        "newRelicNotificationReloadTaskAborted": true,
+        "newRelicNotificationReloadTaskFailure": true,
+        "qlikSenseCloud": {
+          "enabled": true,
+          "reloadAppFailureEmailNotification": true,
+          "reloadAppFailureSlackNotification": true,
+          "reloadAppFailureTeamsNotification": true
+        },
+        "restServer": true,
+        "scheduler": true,
+        "scriptLogStoreOnDisk": {
+          "qsCloud": {
+            "appReloadFailure": true
+          },
+          "qseow": {
+            "reloadTaskFailure": true
+          }
+        },
+        "serviceMonitor": true,
+        "signl4NotificationReloadTaskAborted": true,
+        "signl4NotificationReloadTaskFailure": true,
+        "slackNotificationReloadTaskAborted": true,
+        "slackNotificationReloadTaskFailure": true,
+        "teamsNotificationReloadTaskAborted": true,
+        "teamsNotificationReloadTaskFailure": true,
+        "udpServer": true,
+        "uptimeMonitor": true,
+        "uptimeMonitor_storeInInfluxdb": true,
+        "uptimeMonitor_storeInNewRelic": false,
+        "webhookNotificationReloadTaskAborted": true,
+        "webhookNotificationReloadTaskFailure": true,
+        "webhookNotificationServiceMonitor": true
+      }
     },
+    "system": {
+      "arch": "x64",
+      "codename": "jammy",
+      "distro": "Ubuntu",
+      "id": "d7864884fcd5534377febd1dad8a3db87ba0a3e63d365fa9a587775abcc781ac",
+      "isRunningInDocker": false,
+      "nodeVersion": "v22.9.0",
+      "platform": "linux",
+      "release": "22.04.4 LTS",
+      "virtual": true
+    }
   }
 }
 ```
@@ -175,9 +261,9 @@ A telemetry message from Butler contains the information below.
 The `id` field deserves a bit more explanation.  
 
 It's purpose is to uniquely identify the Butler instance - nothing else.  
-If Butler is stopped and started agagin the same ID should be generated.
+If Butler is stopped and started agagin the same ID will be used.
 
-Some sensitive information is used to create the ID, but as the ID is anonymized before sent as part of the telemetry data, *no sensitive information leaves your servers*.  
+Some sensitive information is used to create the ID, but as the ID is anonymized using a one-way hash function before sent as part of the telemetry data, *no sensitive information leaves your servers*.  
 
 The ID field is created as follows:
 

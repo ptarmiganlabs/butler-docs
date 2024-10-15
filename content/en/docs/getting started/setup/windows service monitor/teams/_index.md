@@ -51,6 +51,10 @@ The following information is available in formatted Teams messages:
 | `{{serviceStartType}}` | The start type of the service, e.g. `AUTO_START` or `DEMAND_START`. |
 | `{{serviceExePath}}` | The path to the service executable. |
 
+## Creating a MS Teams webhook
+
+To create a webhook in MS Teams, follow the steps in the [Concepts section](/docs/concepts/setting-up-teams-webhooks/).
+
 ## Settings in config file
 
 ```yaml

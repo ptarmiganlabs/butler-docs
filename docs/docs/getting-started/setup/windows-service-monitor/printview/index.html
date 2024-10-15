@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.135.0">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -362,46 +362,46 @@ They are used in addition to the general Windows Service monitoring settings in 
 <p>The template files can contain <a href="https://handlebarsjs.com/guide/expressions.html">Handlebars expressions</a> to insert values from the alert data.<br>
 The available values are:</p>
 <table>
-<thead>
-<tr>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>{{host}}</code></td>
-<td>The hostname of the server where the service is running</td>
-</tr>
-<tr>
-<td><code>{{serviceStatus}}</code></td>
-<td>The status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code></td>
-</tr>
-<tr>
-<td><code>{{servicePrevStatus}}</code></td>
-<td>The previous status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code></td>
-</tr>
-<tr>
-<td><code>{{serviceName}}</code></td>
-<td>The name of the service as defined in Windows</td>
-</tr>
-<tr>
-<td><code>{{serviceDisplayName}}</code></td>
-<td>The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName.</td>
-</tr>
-<tr>
-<td><code>{{serviceFriendlyName}}</code></td>
-<td>The display name of the service as defined in the Butler config file. Used to give the service a good name when both serviceName and serviceDisplayName are unsuitable for use in for example Grafana dashboards.</td>
-</tr>
-<tr>
-<td><code>{{serviceStartType}}</code></td>
-<td>The startup mode of the service, e.g. <code>Automatic</code> or <code>Manual</code></td>
-</tr>
-<tr>
-<td><code>{{serviceExePath}}</code></td>
-<td>The path to the executable of the service</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Value</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>{{host}}</code></td>
+          <td style="text-align: left">The hostname of the server where the service is running</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>{{serviceStatus}}</code></td>
+          <td style="text-align: left">The status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>{{servicePrevStatus}}</code></td>
+          <td style="text-align: left">The previous status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>{{serviceName}}</code></td>
+          <td style="text-align: left">The name of the service as defined in Windows</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>{{serviceDisplayName}}</code></td>
+          <td style="text-align: left">The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>{{serviceFriendlyName}}</code></td>
+          <td style="text-align: left">The display name of the service as defined in the Butler config file. Used to give the service a good name when both serviceName and serviceDisplayName are unsuitable for use in for example Grafana dashboards.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>{{serviceStartType}}</code></td>
+          <td style="text-align: left">The startup mode of the service, e.g. <code>Automatic</code> or <code>Manual</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>{{serviceExePath}}</code></td>
+          <td style="text-align: left">The path to the executable of the service</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="settings-in-config-file">Settings in config file</h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000">---</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -488,30 +488,30 @@ If in doubt, send both - that will give you the freedom to choose later which to
 These can be used to identify which of potentially several Butler instances the message originated from, and to filter and group messages in New Relic.</p>
 <p>The values of dynamic attributes are determined at runtime and can be enabled or disabled in the config file:</p>
 <table>
-<thead>
-<tr>
-<th>Dynamic attribute name in New Relic</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>butler_serviceHost</td>
-<td>The hostname of the server where the service is running</td>
-</tr>
-<tr>
-<td>butler_serviceName</td>
-<td>The name of the service as defined in Windows</td>
-</tr>
-<tr>
-<td>butler_serviceDisplayName</td>
-<td>The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName.</td>
-</tr>
-<tr>
-<td>butler_serviceStatus</td>
-<td>The status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Dynamic attribute name in New Relic</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">butler_serviceHost</td>
+          <td style="text-align: left">The hostname of the server where the service is running</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butler_serviceName</td>
+          <td style="text-align: left">The name of the service as defined in Windows</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butler_serviceDisplayName</td>
+          <td style="text-align: left">The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butler_serviceStatus</td>
+          <td style="text-align: left">The status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code></td>
+      </tr>
+  </tbody>
 </table>
 <p><img alt="New Relic event for a Windows service alert message" src="/docs/getting-started/setup/windows-service-monitor/new-relic/butler-win-svc-monitor-new-relic-event-1.png" title="New Relic event for a Windows service alert message"></p>
 <h3 id="new-relic-log-entries">New Relic log entries</h3>
@@ -684,46 +684,46 @@ They are used in addition to the general Windows Service monitoring settings in 
 <p>Similar to how failed-reload email notifications work, the templating engine <a href="https://handlebarsjs.com/">Handlebars</a> is used to format the Slack messages.</p>
 <p>The following information is available in formatted Slack messages:</p>
 <table>
-<thead>
-<tr>
-<th>Handlebars variable</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>{{host}}</code></td>
-<td>The hostname of the server where the service is running</td>
-</tr>
-<tr>
-<td><code>{{serviceStatus}}</code></td>
-<td>The status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code></td>
-</tr>
-<tr>
-<td><code>{{servicePrevStatus}}</code></td>
-<td>The previous status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code></td>
-</tr>
-<tr>
-<td><code>{{serviceName}}</code></td>
-<td>The name of the service as defined in Windows</td>
-</tr>
-<tr>
-<td><code>{{serviceDisplayName}}</code></td>
-<td>The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName.</td>
-</tr>
-<tr>
-<td><code>{{serviceFriendlyName}}</code></td>
-<td>The friendly name of the service as defined in the config file.</td>
-</tr>
-<tr>
-<td><code>{{serviceStartType}}</code></td>
-<td>The start type of the service, e.g. <code>AUTO_START</code> or <code>DEMAND_START</code></td>
-</tr>
-<tr>
-<td><code>{{serviceExePath}}</code></td>
-<td>The path to the service executable</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Handlebars variable</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>{{host}}</code></td>
+          <td style="text-align: left">The hostname of the server where the service is running</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>{{serviceStatus}}</code></td>
+          <td style="text-align: left">The status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>{{servicePrevStatus}}</code></td>
+          <td style="text-align: left">The previous status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>{{serviceName}}</code></td>
+          <td style="text-align: left">The name of the service as defined in Windows</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>{{serviceDisplayName}}</code></td>
+          <td style="text-align: left">The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>{{serviceFriendlyName}}</code></td>
+          <td style="text-align: left">The friendly name of the service as defined in the config file.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>{{serviceStartType}}</code></td>
+          <td style="text-align: left">The start type of the service, e.g. <code>AUTO_START</code> or <code>DEMAND_START</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>{{serviceExePath}}</code></td>
+          <td style="text-align: left">The path to the service executable</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="settings-in-config-file">Settings in config file</h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000">---</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -804,47 +804,49 @@ They are used in addition to the general Windows Service monitoring settings in 
 <p>Similar to how failed-reload email notifications work, the templating engine <a href="https://handlebarsjs.com/">Handlebars</a> is used to format the Teams messages.</p>
 <p>The following information is available in formatted Teams messages:</p>
 <table>
-<thead>
-<tr>
-<th>Handlebars variable</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>{{host}}</code></td>
-<td>The hostname of the server where the service is running.</td>
-</tr>
-<tr>
-<td><code>{{serviceStatus}}</code></td>
-<td>The status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
-</tr>
-<tr>
-<td><code>{{servicePrevStatus}}</code></td>
-<td>The previous status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
-</tr>
-<tr>
-<td><code>{{serviceName}}</code></td>
-<td>The name of the service as defined in Windows.</td>
-</tr>
-<tr>
-<td><code>{{serviceDisplayName}}</code></td>
-<td>The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName.</td>
-</tr>
-<tr>
-<td><code>{{serviceFriendlyName}}</code></td>
-<td>The friendly name of the service as defined in the config file.</td>
-</tr>
-<tr>
-<td><code>{{serviceStartType}}</code></td>
-<td>The start type of the service, e.g. <code>AUTO_START</code> or <code>DEMAND_START</code>.</td>
-</tr>
-<tr>
-<td><code>{{serviceExePath}}</code></td>
-<td>The path to the service executable.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Handlebars variable</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>{{host}}</code></td>
+          <td style="text-align: left">The hostname of the server where the service is running.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>{{serviceStatus}}</code></td>
+          <td style="text-align: left">The status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>{{servicePrevStatus}}</code></td>
+          <td style="text-align: left">The previous status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>{{serviceName}}</code></td>
+          <td style="text-align: left">The name of the service as defined in Windows.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>{{serviceDisplayName}}</code></td>
+          <td style="text-align: left">The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>{{serviceFriendlyName}}</code></td>
+          <td style="text-align: left">The friendly name of the service as defined in the config file.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>{{serviceStartType}}</code></td>
+          <td style="text-align: left">The start type of the service, e.g. <code>AUTO_START</code> or <code>DEMAND_START</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>{{serviceExePath}}</code></td>
+          <td style="text-align: left">The path to the service executable.</td>
+      </tr>
+  </tbody>
 </table>
+<h2 id="creating-a-ms-teams-webhook">Creating a MS Teams webhook</h2>
+<p>To create a webhook in MS Teams, follow the steps in the <a href="/docs/concepts/setting-up-teams-webhooks/">Concepts section</a>.</p>
 <h2 id="settings-in-config-file">Settings in config file</h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000">---</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">Butler</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.135.0">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/examples/reload-chaining/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/examples/reload-chaining/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -118,7 +118,7 @@ This is the multi-page printable view of this section.
 Store the parameters in a disk file (CSV, QVD etc) in the first app, then load the parameters back into the second app when it is reloading.</p>
 <p>Butler offers a different approach: Store and manipulate named key-value pairs within Butler, using its REST API.</p>
 <p>It works like this:</p>
-<p><img alt="alt text" src="/docs/examples/reload-chaining/butler-key-value-store-1.png" title="Passing parameters between Sense apps using Butler"></p>
+<p><img alt="Passing parameters between Sense apps using Butler" src="/docs/examples/reload-chaining/butler-key-value-store-1.png" title="Passing parameters between Sense apps using Butler"></p>
 <p>Pretty easy, right?</p>
 <p>One more thing. There is an optional but useful property for each KV pair: TTL, or time-to-live.</p>
 <p>If a ttl is set (in milliseconds) for a KV pair, it will be automatically deleted when the ttl clock expire. This is an easy way to keep the Butler key-value store nice and tidy.</p>
@@ -126,7 +126,7 @@ Store the parameters in a disk file (CSV, QVD etc) in the first app, then load t
 <p>In order to call Butler&rsquo;s REST API you need a couple of REST data connections defined in Qlik Sense. The apps described in this example assumes <code>Butler_Get</code> and <code>Butler_POST</code> exists. They look like this:</p>
 <h4 id="butler_get">Butler_GET</h4>
 <p>This data connection is trivial. When creating it any REST API that responds to GET requests can be used. Later on (before the calls to the Butler API) the URL will be replaced with the correct one = host:port where Butler is running.</p>
-<p><img alt="alt text" src="/docs/examples/reload-chaining/butler-api-dc-get-1.png" title="GET data connection part "></p>
+<p><img alt="GET data connection part 1" src="/docs/examples/reload-chaining/butler-api-dc-get-1.png" title="GET data connection part 1"></p>
 <h4 id="butler_post">Butler_POST</h4>
 <p>This data connection is a bit more complex.</p>
 <p>First, in order to create the connection you need a REST endpoint that takes a POST with data passed in the body of the message. The data connection used by the apps in this example are found below. Note the http method, the request body and the <code>Content-Type</code> Query header. Any other settings can be ignored.</p>
@@ -135,9 +135,9 @@ Store the parameters in a disk file (CSV, QVD etc) in the first app, then load t
 <p>We still need a way to invoke PUT and DELETE endpoints from Sense load script.
 This is done in the script, by adding an extra http header in the call to Butler&rsquo;s API: <code>X-HTTP-Method-Override</code></p>
 <p>If <code>X-HTTP-Method-Override</code> is set to PUT in the call to Butler&rsquo;s API, the Butler will convert the call to a PUT call before it reaches the message dispatching within Butler. Same thing for DELETEs.</p>
-<p><img alt="alt text" src="/docs/examples/reload-chaining/butler-api-dc-post-1.png" title="POST data connection part 1"></p>
-<p><img alt="alt text" src="/docs/examples/reload-chaining/butler-api-dc-post-2.png" title="POST data connection part 2"></p>
-<p><img alt="alt text" src="/docs/examples/reload-chaining/butler-api-dc-post-3.png" title="POST data connection part 3"></p>
+<p><img alt="POST data connection part 1" src="/docs/examples/reload-chaining/butler-api-dc-post-1.png" title="POST data connection part 1"></p>
+<p><img alt="POST data connection part 2" src="/docs/examples/reload-chaining/butler-api-dc-post-2.png" title="POST data connection part 2"></p>
+<p><img alt="POST data connection part 3" src="/docs/examples/reload-chaining/butler-api-dc-post-3.png" title="POST data connection part 3"></p>
 <h2 id="parameter-passing-in-action">Parameter passing in action</h2>
 <p>The scenario is as follows:</p>
 <ul>
@@ -147,9 +147,9 @@ This is done in the script, by adding an extra http header in the call to Butler
 <li>When App 2 reloads it pulls the parameter from the KV store.</li>
 </ul>
 <p>When App 1 reloads the reload window looks like this. Note how the app has created a key-value pair within Butler.</p>
-<p><img alt="alt text" src="/docs/examples/reload-chaining/reload-chain-parameter-app-1-1.png" title="Reload log from App 1, first part of reload chain"></p>
+<p><img alt="Reload log from App 1, first part of reload chain" src="/docs/examples/reload-chaining/reload-chain-parameter-app-1-1.png" title="Reload log from App 1, first part of reload chain"></p>
 <p>App 2 is scheduled to reload when App 1 has finished reloading. Note that we get back the same value that was set by App 1. Mission accomplished.</p>
-<p><img alt="alt text" src="/docs/examples/reload-chaining/reload-chain-parameter-app-2-1.png" title="Reload log from App 2, second part of reload chain"></p>
+<p><img alt="Reload log from App 2, second part of reload chain" src="/docs/examples/reload-chaining/reload-chain-parameter-app-2-1.png" title="Reload log from App 2, second part of reload chain"></p>
 <h2 id="qlik-script-for-passing-parameters-between-apps">Qlik script for passing parameters between apps</h2>
 <p>Let&rsquo;s take a closer look at the two apps. The apps are available in the sense_apps directory of <a href="https://github.com/ptarmiganlabs/butler">the Butler repository on GitHub</a>.</p>
 <p>The apps are called <code>Butler 4.0 - Reload chain parameters, app 1.qvf</code> and <code>Butler 4.0 - Reload chain parameters, app 2.qvf</code>.</p>

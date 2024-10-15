@@ -16,7 +16,7 @@ Butler can be configured to forward events from Sense (reload task failures, abo
 
 Butler's [REST API](/docs/reference/rest-api-1/?operationsSorter=alpha) also has an endpoint that makes it possible to send MQTT messages from Sense apps' load scripts.
 
-### Defining what MQTT broker/server to connect to
+## Defining what MQTT broker/server to connect to
 
 Butler can use either of two kinds of MQTT brokers:
 
@@ -43,13 +43,18 @@ It's worth noting that there may be costs associated with using Event Grid, depe
 At the time of this writing, Azure Event Grid has a generous free tier that should be sufficient for most use cases.  
 Check the [Azure pricing page](https://azure.microsoft.com/en-us/pricing/details/event-grid/) for the latest information.
 
+## Using MQTT to get evens from Qlik Sense Cloud
+
+Butler can use MQTT as a transport layer for events from Qlik Sense Cloud, for example app reload failure events.
+A separate MQTT configiration section in the config file is used for this, see below.
+
 ## Settings in config file
 
-The settings are of two kinds:
+The config file contains several settings related to MQTT:
 
-1. Defining what MQTT broker/server to connect to
-2. What MQTT topics should be used when forwarding various Qlik Sense events to MQTT.
-
+1. Defining what MQTT broker/server to connect to for handling client-managed Qlik Sense events and messages.
+2. What MQTT topics should be used when forwarding various client-managed Qlik Sense events to MQTT.
+3. Settings related to Butler's use of MQTT for connecting with Qlik Sense Cloud.
 
 ```yaml
 ---
@@ -77,6 +82,20 @@ Butler:
     serviceRunningTopic: qliksense/service_running
     serviceStoppedTopic: qliksense/service_stopped
     serviceStatusTopic: qliksense/service_status
+    qlikSenseServerLicenseTopic: qliksense/qliksense_server_license          # Topic to which Sense server license info is published
+    qlikSenseServerLicenseExpireTopic: qliksense/qliksense_server_license_expire # Topic to which Sense server license expiration alerts are published
+    qlikSenseCloud:                                                   # MQTT settings for Qlik Sense Cloud integration
+      event:                                                          
+        mqttForward:                                                  # QS Cloud events forwarded to MQTT topics, which Butler will subscribe to
+          enable: false
+          broker:                                                     # Settings for MQTT broker to which QS Cloud events are forwarded
+            host: mqttbroker.company.com
+            port: <port>
+            username: <username>
+            password: <password>
+          topic:
+            subscriptionRoot: qscloud/#                     # Topic that Butler will subscribe to
+            appReload: qscloud/app/reload
   ...
   ...
 ```

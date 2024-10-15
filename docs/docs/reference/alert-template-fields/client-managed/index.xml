@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Client managed Qlik Sense Enterprise on Windows on Butler</title>
+    <link>https://butler.ptarmiganlabs.com/docs/reference/alert-template-fields/client-managed/</link>
+    <description>Recent content in Client managed Qlik Sense Enterprise on Windows on Butler</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="https://butler.ptarmiganlabs.com/docs/reference/alert-template-fields/client-managed/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

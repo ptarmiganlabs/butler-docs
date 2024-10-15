@@ -35,9 +35,9 @@ This message type is useful if you only want a short, basic notification that a 
 
 Basic and formatted reload task failure notifications can look like this in Teams:
 
-![alt text](/img/failed-reload-teams-basic_1.png "Basic failed reload notification in Microsoft Teams")  
+![Basic failed reload notification in Microsoft Teams](/img/failed-reload-teams-basic_1.png "Basic failed reload notification in Microsoft Teams")  
 
-![alt text](/img/failed-reload-teams-formatted_1.png "Formatted failed reload notification in Microsoft Teams")  
+![Formatted failed reload notification in Microsoft Teams](/img/failed-reload-teams-formatted_1.png "Formatted failed reload notification in Microsoft Teams")  
 
 The configuration needed for setting this up is described [here](/docs/getting-started/setup/reload-alerts/alert-teams/). 
 
@@ -45,9 +45,9 @@ The configuration needed for setting this up is described [here](/docs/getting-s
 
 Basic and formatted reload task failure notifications can look like this in Teams:
 
-![alt text](/img/failed-reload-slack-basic_1.png "Basic failed reload notification in Microsoft Teams")  
+![Basic failed reload notification in Microsoft Teams](/img/failed-reload-slack-basic_1.png "Basic failed reload notification in Microsoft Teams")  
 
-![alt text](/img/failed-reload-slack-formatted_1.png "Formatted failed reload notification in Microsoft Teams")  
+![Formatted failed reload notification in Microsoft Teams](/img/failed-reload-slack-formatted_1.png "Formatted failed reload notification in Microsoft Teams")  
 
 The configuration needed for setting this up is described [here](/docs/getting-started/setup/reload-alerts/alert-slack/).
 

@@ -38,7 +38,7 @@ In a regular email client a reload failed email could look like below.
 
 ***Note the end of the script*** - the last few lines of the reload log are often very useful when it comes to understanding what caused the reload failure.
 
-![alt text](failed_reload_email_1.png "Reload failed alert email")  
+![Reload failed alert email](failed_reload_email_1.png "Reload failed alert email")  
 
 ### Basic alert emails also possible
 

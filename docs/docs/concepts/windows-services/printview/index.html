@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.135.0">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/concepts/windows-services/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/concepts/windows-services/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -135,7 +135,7 @@ Services on multiple servers can be monitored, and Butler can send alerts to des
 <p>Butler can send service related alerts to InfluxDB, and Grafana can then be used to create dashboards and alerts based on the data in InfluxDB.</p>
 <p>A Grafana &ldquo;state timeline&rdquo; chart showing the status of Qlik Sense services across 4 servers can look like below.<br>
 Note the red bar indicating that all Qlik Sense services were restarted at one point, but also note that a couple of the servers had additional, shorter outages:</p>
-<p><img alt="alt text" src="/docs/concepts/windows-services/butler-grafana-windows-service-1.png" title="Grafana Sense services"></p>
+<p><img alt="Grafana Sense services" src="/docs/concepts/windows-services/butler-grafana-windows-service-1.png" title="Grafana Sense services"></p>
 <p>With the above in place, Grafana alerts can be created that will trigger when a service stops, sending messages to incident management systems such as PagerDuty, OpsGenie and VictorOps - or to Slack, Teams, email etc.</p>
 <h2 id="many-servers-many-services---and-permissions">Many servers, many services - and permissions</h2>
 <p>Butler can monitor services on multiple servers, and it can monitor multiple services on each server.</p>
@@ -147,7 +147,7 @@ This should be done on all remote servers that Butler will monitor services on.<
 <h2 id="how-it-works">How it works</h2>
 <p>Butler uses a state machine to keep track of the status of each service.<br>
 The available states and the possible transitions between them are:</p>
-<p><img alt="alt text" src="/docs/concepts/windows-services/butler-windows-service-state-machine-1.png" title="Butler Windows service state machine"></p>
+<p><img alt="Butler Windows service state machine" src="/docs/concepts/windows-services/butler-windows-service-state-machine-1.png" title="Butler Windows service state machine"></p>
 <p>When a service check reveals that a service has changed state compared to the state stored in the state machine, Butler will send an alert message to the configured destinations.</p>
 <p>Note 1: Windows services technically have more states than the ones shown above, but for our use case the above states are sufficient.</p>
 <p>Note 2: The state machine is not persisted to disk, so if Butler is restarted it will not remember the state of the services it was monitoring before the restart.</p>

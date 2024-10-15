@@ -97,7 +97,7 @@ The interval between the uptime messages is controlled by the `Butler.uptimeMoni
 
 Using the InfluxDB command line client to connect to InfluxDB we can do a manual query:
 
-![alt text](butler-new-influxdb-2.png "Manual query of Butler data in InfluxDB")  
+![Manual query of Butler data in InfluxDB](butler-new-influxdb-2.png "Manual query of Butler data in InfluxDB")  
 
 Indeed, there are a few data points in InfluxDB. Butler's uptime monitor seems to be working.
 
@@ -111,7 +111,7 @@ Once the Grafana data source is in place and working you can import the Grafana 
 
 If everything works you'll see something like this:
 
-![alt text](butler-grafana-1.png "Butler memory metrics in Grafana")
+![Butler memory metrics in Grafana](butler-grafana-1.png "Butler memory metrics in Grafana")
 
 Looks like Butler is using ca 70 MByte here. This is pretty normal, memory usage is usually around 100 MByte, even when Butler has been running for days, weeks and months. Exact memory usage will vary depending on which features are enabled.
 
@@ -120,7 +120,7 @@ Butler's version number is also included in the data sent to InfluxDB.
 This means that you can easily create a Grafana dashboard showing which Butler version is running on which server.  
 If you have multiple Butler instances running in your environment, this can be very useful.
 
-![alt text](butler-grafana-versions-1.png "Butler version number in Grafana")
+![Butler version number in Grafana](butler-grafana-versions-1.png "Butler version number in Grafana")
 
 ## Butler + New Relic = 😎🌟
 
@@ -137,8 +137,8 @@ There is thus a good chance you won't even have to pay for New Relic if you only
 
 A New Relic chart showing Butler memory usage can look like this:
 
-![alt text](/img/butler-memory-usage-new-relic-1.png "Butler memory usage in Grafana dashboard")  
+![Butler memory usage in Grafana dashboard](/img/butler-memory-usage-new-relic-1.png "Butler memory usage in Grafana dashboard")  
 
 Similarly to the Grafana dashboard, Butler's version number is also included in the data sent to New Relic, and can be used to create a chart showing which Butler version is running on which server:
 
-![alt text](butler-new-relic-versions-1.png "Butler version numbers in New Relic dashboard")
+![Butler version numbers in New Relic dashboard](butler-new-relic-versions-1.png "Butler version numbers in New Relic dashboard")

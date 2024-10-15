@@ -1,6 +1,6 @@
 ---
-title: "Real-time metrics"
-linkTitle: "Real-time metrics"
+title: "Real-time metrics (deprecated)"
+linkTitle: "Real-time metrics (deprecated)"
 weight: 9000
 description: >
   Details about the real-time metrics (active user count etc) provided by Butler.

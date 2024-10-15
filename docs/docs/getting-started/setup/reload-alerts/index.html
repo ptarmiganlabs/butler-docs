@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.135.0">
 <link rel="alternate" type="text/html" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/printview/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/index.xml">
 <meta name="robots" content="index, follow">
@@ -24,27 +24,46 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Reload related alerts | Butler</title>
-<meta name="description" content="Butler offers a lot of flexibility when it comes to alerts when reloads fail or are aborted.  
-Learn how to set up the desired features, the alert layout, formatting and more.
+<title>Reload alerts | Butler</title>
+<meta name="description" content="Butler handles reload alerts from both client-managed Qlik Sense and Qlik Sense Cloud.
+
+The same kind of message templates are used, meaning that the look and feel of the alerts are the same regardless of where the alert originated. 
+
+This can be of particular interest for companies with a hybrid setup or that are in the process of migrating from client-managed to cloud-based Qlik Sense.
+
+Getting the same kind of alerts from both environments can make it easier to understand what&#39;s going on.
 ">
 <meta property="og:url" content="https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/">
   <meta property="og:site_name" content="Butler">
-  <meta property="og:title" content="Reload related alerts">
-  <meta property="og:description" content="Butler offers a lot of flexibility when it comes to alerts when reloads fail or are aborted.  
-Learn how to set up the desired features, the alert layout, formatting and more.">
+  <meta property="og:title" content="Reload alerts">
+  <meta property="og:description" content="Butler handles reload alerts from both client-managed Qlik Sense and Qlik Sense Cloud.
+
+The same kind of message templates are used, meaning that the look and feel of the alerts are the same regardless of where the alert originated. 
+
+This can be of particular interest for companies with a hybrid setup or that are in the process of migrating from client-managed to cloud-based Qlik Sense.
+
+Getting the same kind of alerts from both environments can make it easier to understand what&#39;s going on.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
 
-  <meta itemprop="name" content="Reload related alerts">
-  <meta itemprop="description" content="Butler offers a lot of flexibility when it comes to alerts when reloads fail or are aborted.  
-Learn how to set up the desired features, the alert layout, formatting and more.">
+  <meta itemprop="name" content="Reload alerts">
+  <meta itemprop="description" content="Butler handles reload alerts from both client-managed Qlik Sense and Qlik Sense Cloud.
+
+The same kind of message templates are used, meaning that the look and feel of the alerts are the same regardless of where the alert originated. 
+
+This can be of particular interest for companies with a hybrid setup or that are in the process of migrating from client-managed to cloud-based Qlik Sense.
+
+Getting the same kind of alerts from both environments can make it easier to understand what&#39;s going on.">
   <meta itemprop="dateModified" content="2023-12-16T06:30:49+01:00">
-  <meta itemprop="wordCount" content="1586">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Reload related alerts">
-  <meta name="twitter:description" content="Butler offers a lot of flexibility when it comes to alerts when reloads fail or are aborted.  
-Learn how to set up the desired features, the alert layout, formatting and more.">
+  <meta name="twitter:title" content="Reload alerts">
+  <meta name="twitter:description" content="Butler handles reload alerts from both client-managed Qlik Sense and Qlik Sense Cloud.
+
+The same kind of message templates are used, meaning that the look and feel of the alerts are the same regardless of where the alert originated. 
+
+This can be of particular interest for companies with a hybrid setup or that are in the process of migrating from client-managed to cloud-based Qlik Sense.
+
+Getting the same kind of alerts from both environments can make it easier to understand what&#39;s going on.">
 
 
 
@@ -138,25 +157,43 @@ Learn how to set up the desired features, the alert layout, formatting and more.
   <a href="/docs/getting-started/setup/minimal-config/" title="Minimal configuration to start Butler" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupminimal-config"><span class="">Minimal config</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupqlik-sense-server-settings-li">
   <a href="/docs/getting-started/setup/qlik-sense-server-settings/" title="Connecting to a Qlik Sense server" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupqlik-sense-server-settings"><span class="">Sense server settings</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupqlik-sense-cloud-settings-li">
+  <a href="/docs/getting-started/setup/qlik-sense-cloud-settings/" title="Connecting to Qlik Cloud" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupqlik-sense-cloud-settings"><span class="">Qlik Cloud settings</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetuprest-api-li">
   <a href="/docs/getting-started/setup/rest-api/" title="Configuring Butler&#39;s REST API" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetuprest-api"><span class="">REST API</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsgetting-startedsetupreload-alerts-li">
-  <a href="/docs/getting-started/setup/reload-alerts/" title="Reload related alerts" class="align-left ps-0 active td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alerts"><span class="td-sidebar-nav-active-item">Reload alerts</span></a>
+  <a href="/docs/getting-started/setup/reload-alerts/" class="align-left ps-0 active td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alerts"><span class="td-sidebar-nav-active-item">Reload alerts</span></a>
   <ul class="ul-4 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupreload-alertsalert-emails-li">
-  <a href="/docs/getting-started/setup/reload-alerts/alert-emails/" title="Reload alerts sent as emails" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-emails"><span class="">Email</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupreload-alertsalert-influxdb-li">
-  <a href="/docs/getting-started/setup/reload-alerts/alert-influxdb/" title="Reload alerts in InfluxDB" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-influxdb"><span class="">InfluxDB</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupreload-alertsalert-new-relic-li">
-  <a href="/docs/getting-started/setup/reload-alerts/alert-new-relic/" title="Reload alerts via New Relic" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-new-relic"><span class="">New Relic</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupreload-alertsalert-slack-li">
-  <a href="/docs/getting-started/setup/reload-alerts/alert-slack/" title="Reload alerts via Slack" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-slack"><span class="">Slack</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupreload-alertsalert-teams-li">
-  <a href="/docs/getting-started/setup/reload-alerts/alert-teams/" title="Reload alerts via Microsoft Teams" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-teams"><span class="">MS Teams</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupreload-alertsalert-mqtt-li">
-  <a href="/docs/getting-started/setup/reload-alerts/alert-mqtt/" title="Reload alerts via MQTT" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-mqtt"><span class="">MQTT</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupreload-alertsalert-webhook-out-li">
-  <a href="/docs/getting-started/setup/reload-alerts/alert-webhook-out/" title="Reload alerts via outgoing webhooks" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-webhook-out"><span class="">Webhook</span></a>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgetting-startedsetupreload-alertsclient-managed-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/" title="Reload alerts for client-managed Qlik Sense" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managed"><span class="">Client-managed</span></a>
+  <ul class="ul-5 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-emails-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/alert-emails/" title="Reload alerts sent as emails" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-emails"><span class="">Email</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-influxdb-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/alert-influxdb/" title="Reload alerts in InfluxDB" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-influxdb"><span class="">InfluxDB</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-new-relic-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/alert-new-relic/" title="Reload alerts via New Relic" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-new-relic"><span class="">New Relic</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-slack-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/alert-slack/" title="Reload alerts via Slack" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-slack"><span class="">Slack</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-teams-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/alert-teams/" title="Reload alerts via Microsoft Teams" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-teams"><span class="">MS Teams</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-mqtt-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/alert-mqtt/" title="Reload alerts via MQTT" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-mqtt"><span class="">MQTT</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-webhook-out-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/alert-webhook-out/" title="Reload alerts via outgoing webhooks" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-webhook-out"><span class="">Webhook</span></a>
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgetting-startedsetupreload-alertscloud-li">
+  <a href="/docs/getting-started/setup/reload-alerts/cloud/" title="Reload alerts for Qlik Sense Cloud" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertscloud"><span class="">Cloud</span></a>
+  <ul class="ul-5 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertscloudalert-emails-li">
+  <a href="/docs/getting-started/setup/reload-alerts/cloud/alert-emails/" title="Qlik Cloud reload alerts sent as emails" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertscloudalert-emails"><span class="">Email</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertscloudalert-slack-li">
+  <a href="/docs/getting-started/setup/reload-alerts/cloud/alert-slack/" title="Reload alerts via Slack" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertscloudalert-slack"><span class="">Slack</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertscloudalert-teams-li">
+  <a href="/docs/getting-started/setup/reload-alerts/cloud/alert-teams/" title="Reload alerts via Microsoft Teams" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertscloudalert-teams"><span class="">MS Teams</span></a>
+</li>
+  </ul>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupreload-script-logs-li">
@@ -211,12 +248,14 @@ Learn how to set up the desired features, the alert layout, formatting and more.
   <a href="/docs/getting-started/setup/docker-health-check/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupdocker-health-check"><span class="">Docker healthcheck</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupdata-connections-li">
   <a href="/docs/getting-started/setup/data-connections/" title="Creating Sense data connections" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupdata-connections"><span class="">Sense data connections</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupuser-events-li">
-  <a href="/docs/getting-started/setup/user-events/" title="Forwarding user activity events to Butler" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupuser-events"><span class="">User activity events</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupstart-task-filter-li">
   <a href="/docs/getting-started/setup/start-task-filter/" title="Control which tasks can be started via Butler&#39;s API" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupstart-task-filter"><span class="">Start task filter</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetuptelemetry-li">
   <a href="/docs/getting-started/setup/telemetry/" title="Configuring telemetry" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetuptelemetry"><span class="">Telemetry</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupvisualise-config-file-li">
+  <a href="/docs/getting-started/setup/visualise-config-file/" title="Visualise Butler&#39;s config file" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupvisualise-config-file"><span class="">Visualise config file</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsgetting-startedsetupuser-events-li">
+  <a href="/docs/getting-started/setup/user-events/" title="Forwarding user activity events to Butler" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupuser-events"><span class="">User activity events</span></a>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsgetting-startedoperations-li">
@@ -289,8 +328,12 @@ Learn how to set up the desired features, the alert layout, formatting and more.
   <a href="/docs/concepts/udp/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsudp"><span class="">UDP client</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptswindows-services-li">
   <a href="/docs/concepts/windows-services/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptswindows-services"><span class="">Monitor Windows services</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptssetting-up-teams-webhooks-li">
+  <a href="/docs/concepts/setting-up-teams-webhooks/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptssetting-up-teams-webhooks"><span class="">Sending messages to MS Teams</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptscustom-links-in-alerts-li">
+  <a href="/docs/concepts/custom-links-in-alerts/" title="Using custom links in alerts" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptscustom-links-in-alerts"><span class="">Custom links in alerts</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsreal-time-metrics-li">
-  <a href="/docs/concepts/real-time-metrics/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsreal-time-metrics"><span class="">Real-time metrics</span></a>
+  <a href="/docs/concepts/real-time-metrics/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsreal-time-metrics"><span class="">Real-time metrics (deprecated)</span></a>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsexamples-li">
@@ -354,10 +397,22 @@ Learn how to set up the desired features, the alert layout, formatting and more.
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsreferencealert-template-fields-li">
   <a href="/docs/reference/alert-template-fields/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fields"><span class="">Alert template fields</span></a>
   <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencealert-template-fieldsreload-tasks-li">
-  <a href="/docs/reference/alert-template-fields/reload-tasks/" title="Alert template fields for failed/aborted reload tasks" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldsreload-tasks"><span class="">Reload tasks</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencealert-template-fieldswindows-services-li">
-  <a href="/docs/reference/alert-template-fields/windows-services/" title="Alert template fields for Windows services events" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldswindows-services"><span class="">Windows services</span></a>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsreferencealert-template-fieldsclient-managed-li">
+  <a href="/docs/reference/alert-template-fields/client-managed/" title="Client managed Qlik Sense Enterprise on Windows" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldsclient-managed"><span class="">Client-managed</span></a>
+  <ul class="ul-4 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencealert-template-fieldsclient-managedreload-tasks-li">
+  <a href="/docs/reference/alert-template-fields/client-managed/reload-tasks/" title="Alert template fields for failed/aborted reload tasks" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldsclient-managedreload-tasks"><span class="">Reload tasks</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencealert-template-fieldsclient-managedwindows-services-li">
+  <a href="/docs/reference/alert-template-fields/client-managed/windows-services/" title="Alert template fields for Windows services events" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldsclient-managedwindows-services"><span class="">Windows services</span></a>
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsreferencealert-template-fieldsqlik-sense-cloud-li">
+  <a href="/docs/reference/alert-template-fields/qlik-sense-cloud/" title="Qlik Sense Cloud" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldsqlik-sense-cloud"><span class="">QS Cloud</span></a>
+  <ul class="ul-4 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencealert-template-fieldsqlik-sense-cloudapp-reload-li">
+  <a href="/docs/reference/alert-template-fields/qlik-sense-cloud/app-reload/" title="Alert template fields for failed app reloads" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldsqlik-sense-cloudapp-reload"><span class="">Failed app reloads</span></a>
+</li>
+  </ul>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceinfluxdb-li">
@@ -385,29 +440,13 @@ Learn how to set up the desired features, the alert layout, formatting and more.
 <a href="https://github.com/ptarmiganlabs/butler-docs/tree/main/content/en/docs/getting%20started/setup/reload%20alerts/_index.md" class="td-page-meta--view td-page-meta__view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
   <a href="https://github.com/ptarmiganlabs/butler-docs/edit/main/content/en/docs/getting%20started/setup/reload%20alerts/_index.md" class="td-page-meta--edit td-page-meta__edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
   <a href="https://github.com/ptarmiganlabs/butler-docs/new/main/content/en/docs/getting%20started/setup/reload%20alerts?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child td-page-meta__child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
-  <a href="https://github.com/ptarmiganlabs/butler-docs/issues/new?title=Reload%20related%20alerts" class="td-page-meta--issue td-page-meta__issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a>
+  <a href="https://github.com/ptarmiganlabs/butler-docs/issues/new?title=Reload%20alerts" class="td-page-meta--issue td-page-meta__issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a>
   <a href="https://github.com/ptarmiganlabs/butler/issues/new" class="td-page-meta--project td-page-meta__project-issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create project issue</a>
   <a id="print" href="/docs/getting-started/setup/reload-alerts/printview/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
 
 </div>
 
-            <div class="td-toc">
-        <nav id="TableOfContents">
-  <ul>
-    <li><a href="#alert-types">Alert types</a></li>
-    <li><a href="#alert-destinations-and-options">Alert destinations and options</a></li>
-    <li><a href="#how-it-works">How it works</a></li>
-    <li><a href="#adding-a-log-appender">Adding a log appender</a>
-      <ul>
-        <li><a href="#forwarding-task-reload-events-to-butler">Forwarding task reload events to Butler</a></li>
-        <li><a href="#sending-basic-alert-emails-from-log4net">Sending basic alert emails from log4net</a></li>
-        <li><a href="#references">References</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-      </div>
-    
+            
             
 	
           </aside>
@@ -429,357 +468,35 @@ Learn how to set up the desired features, the alert layout, formatting and more.
 </nav>
             
 <div class="td-content">
-	<h1>Reload related alerts</h1>
-  <div class="lead">Butler offers a lot of flexibility when it comes to alerts when reloads fail or are aborted.<br>
-Learn how to set up the desired features, the alert layout, formatting and more.</div>
+	<h1>Reload alerts</h1>
+  <div class="lead"><p>Butler handles reload alerts from both client-managed Qlik Sense and Qlik Sense Cloud.</p>
+<p>The same kind of message templates are used, meaning that the look and feel of the alerts are the same regardless of where the alert originated.</p>
+<p>This can be of particular interest for companies with a hybrid setup or that are in the process of migrating from client-managed to cloud-based Qlik Sense.</p>
+<p>Getting the same kind of alerts from both environments can make it easier to understand what&rsquo;s going on.</p>
+</div>
 	<header class="article-meta">
 		
   </header>
-	<h2 id="alert-types">Alert types</h2>
-<p>These alert types are available:</p>
-<ul>
-<li>
-<p>Reload task failure. Send alerts when reload tasks fail, no matter if they were started on schedule or manually from the QMC.</p>
-</li>
-<li>
-<p>Reload task aborted. Send alerts when reload tasks are manually aborted in the QMC.</p>
-</li>
-</ul>
-<h2 id="alert-destinations-and-options">Alert destinations and options</h2>
-<p>Alerts can be sent to these destinations, with different options available for each destination.<br>
-Each destination can be individually enabled/disabled in the config file.</p>
-<table>
-<thead>
-<tr>
-<th>Destination</th>
-<th style="text-align:center">QMC task failure</th>
-<th style="text-align:center">QMC task aborted</th>
-<th style="text-align:center">Enable/disable alert per reload task</th>
-<th style="text-align:center">Per reload task alert recipients</th>
-<th style="text-align:center">Flexible formatting</th>
-<th style="text-align:center">Basic formatting</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Email</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>Basic emails can be sent using a <a href="/docs/getting-started/setup/reload-alerts/#sending-basic-alert-emails-from-log4net">log appender</a>.</td>
-</tr>
-<tr>
-<td>InfluxDB</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">-</td>
-<td>The failed reload&rsquo;s script log is available in InfluxDb.</td>
-</tr>
-<tr>
-<td>New Relic</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">-</td>
-<td>The failed reload&rsquo;s script log is available in New Relic.</td>
-</tr>
-<tr>
-<td>Signl4</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">-</td>
-<td>Alerts are presented in Signl4&rsquo;s own format in their mobile app.</td>
-</tr>
-<tr>
-<td>Slack</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td></td>
-</tr>
-<tr>
-<td>MS Teams</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td></td>
-</tr>
-<tr>
-<td>Outgoing webhook</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td>Formatting is not relevant for webhooks</td>
-</tr>
-<tr>
-<td>MQTT</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td>Formatting is not relevant for MQTT messages</td>
-</tr>
-</tbody>
-</table>
-<h2 id="how-it-works">How it works</h2>
-<p>In order for Butler initiated alerts to become a reality, Butler must somehow be notified that the event of interest (for example a failed reload task) has occurred.<br>
-This is achieved by adding a <strong><em>log appender</em></strong> to Qlik Sense Enterprise on Windows.</p>
-<p>Log appenders offer a way to hook into Qlik Sense&rsquo;s logging subsystem, which is called <a href="https://help.qlik.com/en-US/sense-admin/May2023/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders-QSRollingFileAppender-Built-in-Appenders.htm">log4net</a>.</p>
-<p>By adding a carefully crafted .xml file in the right location on the Sense server(s), you can make Sense notify Butler by means of UDP messages when the events of interest occur. Conceptually it looks like this:</p>
-<p><img alt="Butler high level system overview" src="/img/butler-log4net-appenders-1.png" title="Butler high level system overview"></p>
-<p>So what happens when a scheduled reload task fails?<br>
-Let&rsquo;s look at the steps:</p>
-<ol>
-<li>
-<p>A reload task is started by the Sense scheduler, either on a time schedule, as a result of some other task(s) finishing or manually by a user in the QMC or from the Hub.</p>
-</li>
-<li>
-<p>When the task&rsquo;s state changes, entries are written to the Sense scheduler&rsquo;s log files using log4net (which is built into Qlik Sense). If the filter defined in the log appender (= the .xml file on the Sense server) matches the log entry at hand, the associated action in the log appender will be carried out.</p>
-</li>
-<li>
-<p>Log appenders can do all kinds of things, everything from writing custom log files, sending basic emails, writing to databases and <a href="https://help.qlik.com/en-US/sense-admin/May2023/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders-QSRollingFileAppender-Built-in-Appenders.htm">much more</a>.<br>
-Here we&rsquo;re interested in the log appender sending a UDP message from Qlik Sense to Butler.</p>
-</li>
-<li>
-<p>The log appender provided as part of Butler will make log4net send a UDP message to Butler, including various info about the reload task that just failed or was stopped/aborted.</p>
-</li>
-<li>
-<p>Butler will look at the incoming event and determine what it is about.<br>
-For example: Is the event about a reload task failure, a reload that has been aborted/stopped, or something else?<br>
-Butler thus first works as a dispatcher. In a second step, after the initial dispatch, the event is sent to the relevant handler function within Butler.</p>
-</li>
-</ol>
-<p>Response times are usually very good - Butler will typically get the UDP message within a few seconds after (for example) the reload failing, with alerts going out shortly thereafter.</p>
-<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
-<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice warning" >
-<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#warning-notice"></use></svg></span>Warning</p><p>The log appenders that catch failed and aborted reloads in the Qlik Sense engine and scheduler must be set up on all Qlik Sense servers where reloads are happening for this feature to work.</p>
-<p>Failing to do so will result in Butler not being notified about some reload failures/aborted reloads.</p></div>
-
-<h2 id="adding-a-log-appender">Adding a log appender</h2>
-<p>This is possibly the trickiest part to get right when it comes to setting up log4net based alerts.<br>
-Still, if you start from the sample .xml file provided in the <a href="https://github.com/ptarmiganlabs/butler/tree/master/src/config/log_appender_xml">Butler repository on GitHub</a> it&rsquo;s not too hard.<br>
-Those sample .xml files are also included in the release Zip files available on the <a href="https://github.com/ptarmiganlabs/butler/releases">Butler releases page</a>.</p>
-<p>The steps are:</p>
-<ol>
-<li>
-<p>In this case you want to be notified when certain events occur in the <em>scheduler</em> log files.</p>
-<p>This is important: Qlik Sense Enterprise on Windows consists of many different subsystems (engine, proxy, scheduler, printing etc) - here we&rsquo;re interested in log events from the <em>scheduler</em> subsystem.</p>
-<p>Add a file <code>LocalLogConfig.xml</code> in the <code>C:\ProgramData\Qlik\Sense\Scheduler</code> folder on the Sense server whose scheduler you want to get events from. If you have multiple Sense servers with schedulers running on them, the .xml file should be deployed on each server (assuming you want events from all the servers).</p>
-</li>
-<li>
-<p>The contents of <code>LocalLogConfig.xml</code> will determine what events are forwarded to Butler, or what other actions will be taken by log4net. See below for examples.</p>
-</li>
-<li>
-<p>Sense will eventually detect and load the new xml file, but it might take a while (minutes). Restarting the Qlik Sense Scheduler Windows service will make the changes take effect immediately.</p>
-</li>
-</ol>
-<p><img alt="alt text" src="/docs/getting-started/setup/reload-alerts/reload-failure-notification-win-config-1.png" title="log4net log appender on Windows Server"></p>
-<h3 id="forwarding-task-reload-events-to-butler">Forwarding task reload events to Butler</h3>
-<p>Here&rsquo;s the XML that should go into <code>C:\ProgramData\Qlik\Sense\Scheduler\LocalLogConfig.xml</code> to enable the various kinds of Butler task reload alerts.</p>
-<ul>
-<li>
-<p>The <code>remoteAddress</code> property should be set to the host name or IP where Butler is running.</p>
-</li>
-<li>
-<p>The <code>remotePort</code> property should match the port number specified in Butler&rsquo;s config file. Note that Butler uses different ports for task related and user activity related events.</p>
-</li>
-<li>
-<p>The first appender looks for the text &ldquo;Max retries reached&rdquo; in the <code>System.Scheduler.Scheduler.Master.Task.TaskSession</code> log stream. That log entry will be created when a reload task has failed and also carried out all its retries. Once the search string is found a UDP message will be sent to port 9998 on IP 10.11.12.13.</p>
-</li>
-<li>
-<p>The second appender looks for &ldquo;Execution State Change to Aborting&rdquo; in the <code>System.Scheduler.Scheduler.Master.Task.TaskSession</code> log stream. That log entry occurs when a user stops a running reload from the QMC&rsquo;s task view, or using the Sense APIs. When the search string is found a UDP message is once again sent to 10.11.12.13:9998, but with a different messsage (as specified in the <code>conversionpattern</code> property of the appender).</p>
-</li>
-<li>
-<p>The third appender looks for &ldquo;Reload complete&rdquo; in the <code>System.Scheduler.Scheduler.Slave.Tasks.ReloadTask</code> log stream.<br>
-That log entry occurs when a reload task has completed successfully.</p>
-</li>
-</ul>
-<p>Here is an XML file that would forward log events as UDP messages to Butler:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">&lt;configuration&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">&lt;!-- Appender for detecting reload task failures. Only the last of potentially several retries is reported --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&lt;appender</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;TaskFailureLogger&#34;</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Appender.UdpAppender&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;filter</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Filter.StringMatchFilter&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;stringToMatch&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;Max retries reached&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;/filter&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;filter</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Filter.DenyAllFilter&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;remoteAddress&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;&lt;IP of server where Butler is running&gt;&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;remotePort&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;9998&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;encoding&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;utf-8&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;layout</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Layout.PatternLayout&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&lt;converter&gt;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;name&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;hostname&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;type&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;Qlik.Sense.Logging.log4net.Layout.Pattern.HostNamePatternConverter&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&lt;/converter&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;conversionpattern&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;/scheduler-reload-failed/;%hostname;%property{TaskName};%property{AppName};%property{User};%property{TaskId};%property{AppId};%date;%level;%property{ExecutionId};%message&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;/layout&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&lt;/appender&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">&lt;!-- Appender for detecting aborted reloads --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&lt;appender</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;AbortedReloadTaskLogger&#34;</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Appender.UdpAppender&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;filter</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Filter.StringMatchFilter&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;stringToMatch&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;Execution State Change to Aborting&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;/filter&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;filter</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Filter.DenyAllFilter&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;remoteAddress&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;&lt;IP of server where Butler is running&gt;&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;remotePort&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;9998&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;encoding&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;utf-8&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;layout</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Layout.PatternLayout&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&lt;converter&gt;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;name&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;hostname&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;type&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;Qlik.Sense.Logging.log4net.Layout.Pattern.HostNamePatternConverter&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&lt;/converter&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;conversionpattern&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;/scheduler-reload-aborted/;%hostname;%property{TaskName};%property{AppName};%property{User};%property{TaskId};%property{AppId};%date;%level;%property{ExecutionId};%message&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;/layout&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&lt;/appender&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">&lt;!-- Appender for detecting successful reload tasks --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&lt;appender</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;ReloadTaskSuccessLogger&#34;</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Appender.UdpAppender&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;filter</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Filter.StringMatchFilter&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;stringToMatch&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;Reload complete&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;/filter&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;filter</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Filter.DenyAllFilter&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;remoteAddress&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;&lt;IP of server where Butler is running&gt;&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;remotePort&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;9998&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;encoding&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;utf-8&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;layout</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Layout.PatternLayout&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&lt;converter&gt;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;name&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;hostname&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;type&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;Qlik.Sense.Logging.log4net.Layout.Pattern.HostNamePatternConverter&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&lt;/converter&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;conversionpattern&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;/scheduler-reloadtask-success/;%hostname;%property{TaskName};%property{AppName};%property{User};%property{TaskId};%property{AppId};%date;%level;%property{ExecutionId};%message&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;/layout&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&lt;/appender&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">&lt;!-- Send message to Butler on task failure --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">&lt;!-- Send message to Butler on task abort --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&lt;logger</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;System.Scheduler.Scheduler.Master.Task.TaskSession&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;appender-ref</span> <span style="color:#c4a000">ref=</span><span style="color:#4e9a06">&#34;TaskFailureLogger&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;appender-ref</span> <span style="color:#c4a000">ref=</span><span style="color:#4e9a06">&#34;AbortedReloadTaskLogger&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&lt;/logger&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">&lt;!-- Send message to Butler on reload task success --&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&lt;logger</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;System.Scheduler.Scheduler.Slave.Tasks.ReloadTask&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;appender-ref</span> <span style="color:#c4a000">ref=</span><span style="color:#4e9a06">&#34;ReloadTaskSuccessLogger&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&lt;/logger&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">&lt;/configuration&gt;</span>
-</span></span></code></pre></div><p>The above configuration is enough to support all task reload alerts currently supported by Butler.</p>
-<h3 id="sending-basic-alert-emails-from-log4net">Sending basic alert emails from log4net</h3>
-<p>If you are happy with the more basic/limited reload-failed alert emails provided by log4net, you can add a SMTP appender like this (the example below is for sending emails using Google GMail, customise as needed):</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">&lt;configuration&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">&lt;!-- Mail appender--&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&lt;appender</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;MailAppender&#34;</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Appender.SmtpAppender&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;filter</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Filter.StringMatchFilter&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;stringToMatch&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;Message from ReloadProvider&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;/filter&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;filter</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Filter.DenyAllFilter&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;evaluator</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Core.LevelEvaluator&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;threshold&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;ERROR&#34;</span><span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;/evaluator&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;to&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;&lt;email address to send failed task notification emails to&gt;&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;from&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;&lt;sender email address used in notification emails&gt;&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;subject&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;Qlik Sense failed task (server &lt;servername&gt;)&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;smtpHost&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;smtp.gmail.com&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;port&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;587&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;EnableSsl&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;true&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;Authentication&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;Basic&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;username&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;&lt;Gmail username&gt;&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;password&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;&lt;Gmail password&gt;&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;bufferSize&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;0&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span> <span style="color:#8f5902;font-style:italic">&lt;!-- Set this to 0 to make sure an email is sent on every error --&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;lossy&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;true&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;layout</span> <span style="color:#c4a000">type=</span><span style="color:#4e9a06">&#34;log4net.Layout.PatternLayout&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">&lt;param</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;conversionPattern&#34;</span> <span style="color:#c4a000">value=</span><span style="color:#4e9a06">&#34;%newline%date %-5level %newline%property{TaskName}%newline%property{AppName}%newline%message%newline%newline%newline&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;/layout&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&lt;/appender&gt;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">&lt;!--Send mail on task failure--&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&lt;logger</span> <span style="color:#c4a000">name=</span><span style="color:#4e9a06">&#34;System.Scheduler.Scheduler.Slave.Tasks.ReloadTask&#34;</span><span style="color:#204a87;font-weight:bold">&gt;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">&lt;appender-ref</span> <span style="color:#c4a000">ref=</span><span style="color:#4e9a06">&#34;MailAppender&#34;</span> <span style="color:#204a87;font-weight:bold">/&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">&lt;/logger&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">&lt;/configuration&gt;</span>
-</span></span></code></pre></div><h3 id="references">References</h3>
-<ul>
-<li>
-<p><a href="https://help.qlik.com/en-US/sense-admin/November2023/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders.htm">Qlik&rsquo;s documenation</a> around log appenders and how to hook into the Sense logs is somewhat brief, but does provide a starting point if you want to dive deeper into this topic.</p>
-</li>
-<li>
-<p>The main <a href="https://logging.apache.org/log4net/">log4net documentation</a> (log4net is the logging framework used by Qlik Sense Enterprise) can also be useful.</p>
-</li>
-</ul>
-<p>These links describe how emails can be sent from the log4net logging framework itself, directly to the recipient. Butler includes sameple XML files for this use case too, but Butler takes things further by using the data in the Sense logs to pull in more data around the failed or stopped reload.</p>
-<p>In other words - Butler&rsquo;s alert emails are significantly more flexible and contain information (such as script logs) that are not availble using purely log4net.</p>
-
+	
   <div class="section-index">
     
     
     <hr class="panel-line">
         <div class="entry">
                 <h5>
-                    <a href="/docs/getting-started/setup/reload-alerts/alert-emails/">Reload alerts sent as emails</a>
+                    <a href="/docs/getting-started/setup/reload-alerts/client-managed/">Reload alerts for client-managed Qlik Sense</a>
                 </h5>
-                <p>Description of the various kinds of alert emails Butler can send.</p>
+                <p><p>Butler offers a lot of flexibility when it comes to alerts when reloads fail, are aborted or succeed in Qlik Sense Enterprise on Windows (QSEoW).</p>
+<p>Learn how to set up the desired features, the alert layout, formatting and more.</p>
+</p>
             </div>
         <div class="entry">
                 <h5>
-                    <a href="/docs/getting-started/setup/reload-alerts/alert-influxdb/">Reload alerts in InfluxDB</a>
+                    <a href="/docs/getting-started/setup/reload-alerts/cloud/">Reload alerts for Qlik Sense Cloud</a>
                 </h5>
-                <p>Description of how information of how successful and failed reload tasks can be stored in InfluxDB.</p>
-            </div>
-        <div class="entry">
-                <h5>
-                    <a href="/docs/getting-started/setup/reload-alerts/alert-new-relic/">Reload alerts via New Relic</a>
-                </h5>
-                <p>Description of how reload alerts can be sent to New Relic as events and log messages.</p>
-            </div>
-        <div class="entry">
-                <h5>
-                    <a href="/docs/getting-started/setup/reload-alerts/alert-slack/">Reload alerts via Slack</a>
-                </h5>
-                <p>Description of how reload alerts can be sent as Slack messages.</p>
-            </div>
-        <div class="entry">
-                <h5>
-                    <a href="/docs/getting-started/setup/reload-alerts/alert-teams/">Reload alerts via Microsoft Teams</a>
-                </h5>
-                <p>Description of how reload alerts can be sent as Microsoft Teams messages.</p>
-            </div>
-        <div class="entry">
-                <h5>
-                    <a href="/docs/getting-started/setup/reload-alerts/alert-mqtt/">Reload alerts via MQTT</a>
-                </h5>
-                <p>Description of how reload alerts can be sent as MQTT messages.</p>
-            </div>
-        <div class="entry">
-                <h5>
-                    <a href="/docs/getting-started/setup/reload-alerts/alert-webhook-out/">Reload alerts via outgoing webhooks</a>
-                </h5>
-                <p>Description of how reload alerts can be sent via outgoing webhooks.</p>
+                <p><p>Butler offers a lot of flexibility when it comes to alerts when reloads fai in Qlik Sense Cloud.</p>
+<p>Learn how to set up the desired features, the alert layout, formatting and more.</p>
+</p>
             </div>
         </div>
 <div class="td-page-meta__lastmod">

@@ -23,7 +23,7 @@ A couple of apps showing how to use Butler's partial load API are [included in t
 - The first app's load script uses the Butler API to do full and partial reloads of the second app.
 - The second app loads 10 rows of data during a full reload and 5 rows during a partial reload.
 
-![alt text](butler-demo-partial-reload-1.png "Partial app reloads using Butler.")
+![Partial app reloads using Butler.](butler-demo-partial-reload-1.png "Partial app reloads using Butler.")
 
 ## Video showing how to use demo apps
 

@@ -41,11 +41,11 @@ Given the information stored in InfluxDB, several interesting Grafana dashboards
 
 Sample dashboard showing the above charts:
 
-![alt text](./butler-grafana-successful-reloads-1.png "Grafana reload success")
+![Grafana reload success](./butler-grafana-successful-reloads-1.png "Grafana reload success")
 
 Here is another set of charts, also showing what metadata is available for each reload task:
 
-![alt text](./butler-grafana-successful-reloads-2.png "Grafana reload success")
+![Grafana reload success](./butler-grafana-successful-reloads-2.png "Grafana reload success")
 
 ## How it works
 

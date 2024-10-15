@@ -34,8 +34,8 @@ With this taken care of, we can call any other Butler API.
     CALL PostToSlack('sense-reload-info', subfield(OSUser(),'UserId=',2) & ' on server: ' & ComputerName(), '*Reloaded by: ' & subfield(OSUser(),'UserId=',2) & '* <App name>: Reload starting', ':test:');  
 
 This will result in the following Slack entries:  
-![alt text](post_to_slack_1.png "Posting to Slack")  
-![alt text](post_to_slack_2.png "Posting to Slack")  
+![Posting to Slack](post_to_slack_1.png "Posting to Slack")  
+![Posting to Slack](post_to_slack_2.png "Posting to Slack")  
 
 ### Start a Sense task
 
@@ -106,4 +106,4 @@ To dynamically control which app is serialized you can use the "with connection"
 
 Here is what the Sense data model can look like for a Sense app:
 
-![alt text](data_model_of_a_qlik_sense_app.png "Qlik Sense app data model")  
+![Qlik Sense app data model](data_model_of_a_qlik_sense_app.png "Qlik Sense app data model")  

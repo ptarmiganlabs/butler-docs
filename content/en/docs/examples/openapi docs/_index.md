@@ -73,7 +73,7 @@ Create, query, edit and delete task reload schedules using Butler's scheduling A
 When wathcing the video below, you will notice there are two pre-defined schedules.  
 One of them fires every 30 seconds and this is also visible in the Butler logs:
 
-![alt text](butler-running-schedules-firing-1.png "Active user sessions")  
+![Active user sessions](butler-running-schedules-firing-1.png "Active user sessions")  
 
 {{< youtube id="f-ZSUvXeFmw" modestbranding=true color="red">}}
 

@@ -12,7 +12,7 @@ A description of the config file format is available [here](/docs/reference/conf
 
 Butler uses configuration files in YAML format.
 
-A default config file called `production_template.yaml` is included in the release Zip files on the [download page](https://github.com/ptarmiganlabs/butler/releases) (starting with version 9.3.0). It is also available in the [GitHub repository](https://github.com/ptarmiganlabs/butler/tree/master/src/config).
+A default config file called `production_template.yaml` is included in the release Zip files on the [download page](https://github.com/ptarmiganlabs/butler/releases). It is also available in the [GitHub repository](https://github.com/ptarmiganlabs/butler/tree/master/src/config).
 
 Make a copy of it, then rename the copy `default.yaml`, `production.yaml`, `staging.yaml` or something else suitable to your specific use case.  
 Update it as needed (see the [config file reference page](/docs/reference/config-file/) for details).

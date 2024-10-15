@@ -25,7 +25,7 @@ The demo app does a bit more. First it posts a startup message to MQTT, then it 
 
 The MQTT messages look like this in the [MQTT Explorer](http://mqtt-explorer.com/) app on mac OS:
 
-![alt text](/img/butler-publish-mqtt-message-1.png "MQTT messages created from Qlik Sense load script.")
+![MQTT messages created from Qlik Sense load script.](/img/butler-publish-mqtt-message-1.png "MQTT messages created from Qlik Sense load script.")
 
 The demo app is available in the [GitHub repository](https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps).
 

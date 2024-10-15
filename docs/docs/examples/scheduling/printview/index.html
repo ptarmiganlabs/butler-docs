@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.135.0">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/examples/scheduling/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/examples/scheduling/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -199,7 +199,7 @@ This is the multi-page printable view of this section.
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>➜  ~
 </span></span></code></pre></div><p>Looking in the Butler logs we see that the every-5-seconds schedule with an ID ending in &hellip;a300 indeed fires every 5 seconds:</p>
-<p><img alt="alt text" src="/docs/examples/scheduling/butler-logs-new-schedule-1.png" title="New schedule fires every 5 seconds"></p>
+<p><img alt="New schedule fires every 5 seconds" src="/docs/examples/scheduling/butler-logs-new-schedule-1.png" title="New schedule fires every 5 seconds"></p>
 <h2 id="starting-and-stopping-a-schedule">Starting and stopping a schedule</h2>
 <p>Let&rsquo;s stop the schedule we just created:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>➜  ~ curl -X <span style="color:#4e9a06">&#34;PUT&#34;</span> <span style="color:#4e9a06">&#34;http://192.168.1.168:8080/v4/schedules/b028d0a2-7116-41bf-b15a-4f01bd126464/stop&#34;</span> <span style="color:#000;font-weight:bold">|</span> json_pp

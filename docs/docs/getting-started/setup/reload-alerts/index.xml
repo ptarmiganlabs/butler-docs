@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Reload related alerts on Butler</title>
+    <title>Reload alerts on Butler</title>
     <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/</link>
-    <description>Recent content in Reload related alerts on Butler</description>
+    <description>Recent content in Reload alerts on Butler</description>
     <generator>Hugo</generator>
     <language>en</language>
     <atom:link href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/index.xml" rel="self" type="application/rss+xml" />

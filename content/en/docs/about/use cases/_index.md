@@ -7,6 +7,7 @@ weight = 10
 
 - [Instant notifications when reload tasks fail or are stopped](#instant-notifications-when-reload-tasks-fail-or-are-stopped)
 - [Forward failed reload events to incident management systems (New Relic, Signl4)](#forward-failed-reload-events-to-incident-management-systems-new-relic-signl4)
+- [Send alerts when reload tasks succeed](#send-alerts-when-reload-tasks-succeed)
 - [Use InfluxDB/Grafana or New Relic to track Butler memory usage](#use-influxdbgrafana-or-new-relic-to-track-butler-memory-usage)
 - [Save a copy of the complete reload log for all failed reload tasks](#save-a-copy-of-the-complete-reload-log-for-all-failed-reload-tasks)
 - [Start reload tasks from load script or from upstream systems](#start-reload-tasks-from-load-script-or-from-upstream-systems)
@@ -29,13 +30,17 @@ weight = 10
 
 **Information about failing tasks** can be sent as emails, to Microsoft Teams, Slack, as MQTT messages or outgoing webhooks.
 
-Email, Slack and MS Teams notifications all use a templating concept where HTML/Markdown template files describe what the alert message should look like. Before the alert is sent the template is populated with actual data from the failed reload task.
+{{% notice tip %}}
+This feature is available for both **Qlik Sense client-managed** and **Qlik Sense Cloud**.
+{{% /notice %}}
 
-Both subject and body of email can use the template fields.
+Email, Slack and MS Teams notifications all use a templating concept where HTML/Markdown template files describe what the alert message should look like. Before the alert is sent the template is populated with actual data from the failed reload task (client-managed Sense) or app reload (Sense Cloud).
+
+For email alerts both subject and body of the email can be templated.
 
 For both Slack and Teams there are options to use more flexible/configurable alert formats and more basic pre-configured alerts.
 
-The result is a very poweful tool for QSEoW sysadmins, who get real-time insight into what's happening with respect to task execution.
+The result is a very poweful tool for both QSEoW sysadmins and those responsible for Qlik Cloud tenants, who both want to be notified when reloads fail.
 
 More info [here](/docs/getting-started/setup/reload-alerts/).
 
@@ -53,6 +58,17 @@ Both offer incident management features on both the web and via mobile clients.
 Information about failed/aborted reloads can be sent to one or more New Relic accounts.  
 Tags for the reload task and associated app is sent to New Relic as metadata for the event/log entry that's created there.
 
+## Send alerts when reload tasks succeed
+
+Knowing about failed reloads is important, but sometimes it's just as important to know when a reload has succeeded.
+
+Get emails when those important reloads have completed successfully.  
+Nicely formatted with all the details you need.
+
+Controlling which tasks should send success alerts is done using custom properties or via Butler's config file.
+
+More info [here](/docs/concepts/successful-reloads/).
+
 ## Use InfluxDB/Grafana or New Relic to track Butler memory usage
 
 Butler can be configured to log its own memory usage to [InfluxDB](https://www.influxdata.com/products/), from where it can be visualised using [Grafana](https://grafana.com).
@@ -60,6 +76,10 @@ Butler can be configured to log its own memory usage to [InfluxDB](https://www.i
 If you prefer using [New Relic One](https://newrelic.com) that's possible too - sending Butler memory metrics to New Relic is super simple: Just add your New Relic credentials in the YAML config file or as command line options when starting Butler and you're set.
 
 ## Save a copy of the complete reload log for all failed reload tasks
+
+{{% notice tip %}}
+This feature is available for both **Qlik Sense client-managed** and **Qlik Sense Cloud**.
+{{% /notice %}}
 
 Let's say a scheduled reload task fails.
 
@@ -72,10 +92,12 @@ These notifications can include the last 20-30-40 lines of the script log and th
 
 But what if you want to look at the *complete* reload log of that failed app reload?
 
-So far you would have to dig into the log directory on the Sense server, find that specific reload log among potentially thousands of other log files. Not very effective.
+So far you would have to dig into the log directory on the Sense server (for client-managed Sense) and find that specific reload log file among potentially thousands of other log files. Not very effective.
+For Sense Cloud you would have to download the log file from the Sense Cloud hub. Doable, but could be easier.
 
-As of version 7.2 Butler can store a copy of the complete reload log in a directory that you specify.  
-The log files are stored in separate directories, one for each date.  
+Butler can store a copy of the complete reload log of failed reload tasks/app reloads in directories that you specify.  
+The log files are stored in separate directories, one for each date. Sense Cloud logs are stored in a separate directory tree from client-managed Sense logs.
+
 This makes it easy to find the log file you are interested in.
 
 ## Start reload tasks from load script or from upstream systems

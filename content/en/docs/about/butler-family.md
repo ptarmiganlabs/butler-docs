@@ -5,11 +5,15 @@ weight: 20
 ---
 
 Butler started out with a very specific need to start Sense reloads from outside systems.  
-Over the years a few projects (for example Butler SOS, which simplifies day 2 operations ([[1](https://www.infoworld.com/article/3442754/why-de-risking-day-2-operations-is-a-smart-business-strategy.html)], [[2](https://dzone.com/articles/defining-day-2-operations)]) have spun off from the original Butler project, and still other projects have been created from scratch to solve specific challenges around developing Sense apps and running Qlik Sense server environments.
+Back in those days the cloud wasn't a thing, and Sense was only available on Windows servers.  
+
+Over the years a few projects (for example Butler SOS, which simplifies day 2 operations of client-managed Sense ([[1](https://www.infoworld.com/article/3442754/why-de-risking-day-2-operations-is-a-smart-business-strategy.html)], [[2](https://dzone.com/articles/defining-day-2-operations)]) have spun off from the original Butler project, and still other projects have been created from scratch to solve specific challenges around developing Sense apps and running Qlik Sense server environments or developing apps for Qlik Sense Cloud.
 
 All members of the Butler family are available on [Ptarmigan Labs' GitHub page](https://github.com/ptarmiganlabs).
 
-Projects with production grade release status are (as of this writing):
+## Projects with production grade release status
+
+The following tools are actively maintained and have a production grade release status.
 
 ### Butler
 
@@ -19,7 +23,8 @@ The original Butler. Offers various utilities that make it easier to develop Sen
 
 ### Butler SOS
 
-Real-time operational metrics for Qlik Sense. A must-have if you are responsible for a Sense environment with more than a dozen or so users.
+Real-time operational metrics for Qlik Sense. A must-have if you are responsible for a Sense environment with more than a dozen or so users.  
+Simplifies day 2 operations of client-managed Sense.
 
 Butler SOS makes it possible to detect and alert on issues as they happen, rather than in retrospect much later.
 
@@ -56,10 +61,17 @@ In other words: Ctrl-Q focus on high-value use cases that are difficult or impos
 
 [github.com/ptarmiganlabs/ctrl-q](https://github.com/ptarmiganlabs/ctrl-q)
 
+## Projects with not-so-active status
+
+The following tools are no longer actively maintained, but they are still available on GitHub.  
+If you find them useful, feel free to use them.
+
 ### Butler CW
 
 Butler Cache Warmer. Cache warming is the process of proactively forcing Sense apps to be loaded into RAM, so they are readily available when users open them.  
 Using Butler CW is an easy way to make your end users' experience of Sense a little better.
+
+Now that client-managed Qlik Sense has its own cache warming feature (as of 1st half 2024), Butler CW will eventually be phased out.
 
 [github.com/ptarmiganlabs/butler-cw](https://github.com/ptarmiganlabs/butler-cw)
 

@@ -20,7 +20,6 @@ Note how emojis can be used in the message and a message specific icon can be us
 
 The Slack message looks like this:
 
-![alt text](/img/butler-slack-message-1.png "Slack message created from Qlik Sense load script.")
+![Slack message created from Qlik Sense load script.](/img/butler-slack-message-1.png "Slack message created from Qlik Sense load script.")
 
 The demo app is available in the [GitHub repository](https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps).
-

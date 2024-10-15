@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.135.0">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/concepts/failed-reloads/alert-emails/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/concepts/failed-reloads/alert-emails/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -129,15 +129,15 @@ It works perfectly fine, but the emails will be very basic when it comes to form
 There&rsquo;s no reason an alert email can&rsquo;t look good!</p>
 <p>Alert emails viewed on a mobile phone give direct insight into what has happened:</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 283px">
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: left"></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 283px">
 <img class="card-img-top" src="/docs/concepts/failed-reloads/alert-emails/reload-fail-alert-email-mobile-1_hu4885082042632949329.png" width="273" height="600">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
@@ -147,7 +147,7 @@ Failed reload alert email on mobile home screen.
 </figcaption>
 </figure>
 </td>
-<td><figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 283px">
+          <td style="text-align: left"><figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 283px">
 <img class="card-img-top" src="/docs/concepts/failed-reloads/alert-emails/reload-fail-alert-email-mobile-2_hu18022836765164921548.png" width="273" height="600">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
@@ -157,12 +157,12 @@ Failed reload alert email viewed on mobile.
 </figcaption>
 </figure>
 </td>
-</tr>
-</tbody>
+      </tr>
+  </tbody>
 </table>
 <p>In a regular email client a reload failed email could look like below.</p>
 <p><em><strong>Note the end of the script</strong></em> - the last few lines of the reload log are often very useful when it comes to understanding what caused the reload failure.</p>
-<p><img alt="alt text" src="/docs/concepts/failed-reloads/alert-emails/failed_reload_email_1.png" title="Reload failed alert email"></p>
+<p><img alt="Reload failed alert email" src="/docs/concepts/failed-reloads/alert-emails/failed_reload_email_1.png" title="Reload failed alert email"></p>
 <h3 id="basic-alert-emails-also-possible">Basic alert emails also possible</h3>
 <p>Qlik Sense Enterprise on Windows uses the log4net logging framework to create log files. Log4net is quite flexible and can - among other things - send emails when events such as reload failures occur. There is however little flexibility when it comes to layout and contents of those emails. They are text only (no formatting, tables, different fonts, colors etc) and the email subjects cannot contain any dynamic fields (for example the name of the failed reload task).</p>
 <p>The goal of Butler&rsquo;s alert emails is to address these limitations and offer a flexible foundation not only for emails, but for all kinds of alerts.</p>

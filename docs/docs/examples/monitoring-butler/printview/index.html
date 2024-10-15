@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.135.0">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/examples/monitoring-butler/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/examples/monitoring-butler/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -183,19 +183,19 @@ A retention policy with its name controlled by the <code>Butler.influxDb.retenti
 <p>So far so good. Let&rsquo;s wait a few minutes and then verify that New Relic and/or InfluxDB has received a few dataspoints.<br>
 The interval between the uptime messages is controlled by the <code>Butler.uptimeMonitor.frequency</code> setting in the Butler config file.</p>
 <p>Using the InfluxDB command line client to connect to InfluxDB we can do a manual query:</p>
-<p><img alt="alt text" src="/docs/examples/monitoring-butler/butler-new-influxdb-2.png" title="Manual query of Butler data in InfluxDB"></p>
+<p><img alt="Manual query of Butler data in InfluxDB" src="/docs/examples/monitoring-butler/butler-new-influxdb-2.png" title="Manual query of Butler data in InfluxDB"></p>
 <p>Indeed, there are a few data points in InfluxDB. Butler&rsquo;s uptime monitor seems to be working.</p>
 <h2 id="butler--influxdb--grafana--">Butler + InfluxDB + Grafana = 🎉📈</h2>
 <p>Grafana has excellent support for InfluxDB, it&rsquo;s therefore a good way to visualise Butler memory use over time.</p>
 <p>To use the Grafana dashboard included in the Butler GitHub repository you first need to create a Grafana data source named <code>Butler ops metrics</code>, and point it to the InfluxDB database in which Butler stores its data.</p>
 <p>Once the Grafana data source is in place and working you can import the Grafana dashboard file <code>Butler operational metrics.json</code> (available in the docs/grafana folder in the GitHub repo).</p>
 <p>If everything works you&rsquo;ll see something like this:</p>
-<p><img alt="alt text" src="/docs/examples/monitoring-butler/butler-grafana-1.png" title="Butler memory metrics in Grafana"></p>
+<p><img alt="Butler memory metrics in Grafana" src="/docs/examples/monitoring-butler/butler-grafana-1.png" title="Butler memory metrics in Grafana"></p>
 <p>Looks like Butler is using ca 70 MByte here. This is pretty normal, memory usage is usually around 100 MByte, even when Butler has been running for days, weeks and months. Exact memory usage will vary depending on which features are enabled.</p>
 <p>Butler&rsquo;s version number is also included in the data sent to InfluxDB.</p>
 <p>This means that you can easily create a Grafana dashboard showing which Butler version is running on which server.<br>
 If you have multiple Butler instances running in your environment, this can be very useful.</p>
-<p><img alt="alt text" src="/docs/examples/monitoring-butler/butler-grafana-versions-1.png" title="Butler version number in Grafana"></p>
+<p><img alt="Butler version number in Grafana" src="/docs/examples/monitoring-butler/butler-grafana-versions-1.png" title="Butler version number in Grafana"></p>
 <h2 id="butler--new-relic--">Butler + New Relic = 😎🌟</h2>
 <p>While InfluxDB combined with Grafana is hard to beat when it comes to flexibility and look&rsquo;n&rsquo;feel of the dashboards, New Relic is outstanding when it comes to ease of setup.</p>
 <p>New Relic is a SaaS product which means you don&rsquo;t have to host neither databaes nor dashboard tool yourself.<br>
@@ -205,9 +205,9 @@ It&rsquo;s all there within New Relic.</p>
 But given that Butler will send <em>very little</em> data you are unlikely to ever reach the limit of New Relic&rsquo;s free tier.<br>
 There is thus a good chance you won&rsquo;t even have to pay for New Relic if you only use it to monitor Butler.</p>
 <p>A New Relic chart showing Butler memory usage can look like this:</p>
-<p><img alt="alt text" src="/img/butler-memory-usage-new-relic-1.png" title="Butler memory usage in Grafana dashboard"></p>
+<p><img alt="Butler memory usage in Grafana dashboard" src="/img/butler-memory-usage-new-relic-1.png" title="Butler memory usage in Grafana dashboard"></p>
 <p>Similarly to the Grafana dashboard, Butler&rsquo;s version number is also included in the data sent to New Relic, and can be used to create a chart showing which Butler version is running on which server:</p>
-<p><img alt="alt text" src="/docs/examples/monitoring-butler/butler-new-relic-versions-1.png" title="Butler version numbers in New Relic dashboard"></p>
+<p><img alt="Butler version numbers in New Relic dashboard" src="/docs/examples/monitoring-butler/butler-new-relic-versions-1.png" title="Butler version numbers in New Relic dashboard"></p>
 
 </div>
 </div>

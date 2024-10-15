@@ -35,10 +35,10 @@ You can also set up alerts in Grafana if so desired, with notifications going to
 
 A Grafana dashboard can look like this. Note that one of the available metrics (`external`) is not used in this particular dashboard. It's still logged to InfluxDB though.
 
-![alt text](butler-memory-usage-grafana-1.png "Butler memory usage in Grafana dashboard")  
+![Butler memory usage in Grafana dashboard](butler-memory-usage-grafana-1.png "Butler memory usage in Grafana dashboard")  
 
 There is a [sample Grafana dashboard](https://github.com/ptarmiganlabs/butler/tree/master/docs/grafana) in Butler's GitHub repo.
 
 A New Relic graph covering the same information (but a different time range!) can look like this:
 
-![alt text](/img/butler-memory-usage-new-relic-1.png "Butler memory usage in Grafana dashboard")  
+![Butler memory usage in Grafana dashboard](/img/butler-memory-usage-new-relic-1.png "Butler memory usage in Grafana dashboard")  

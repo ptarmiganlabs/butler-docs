@@ -117,7 +117,7 @@ Note how we get back information about the newly created schedule. It's the same
 
 Looking in the Butler logs we see that the every-5-seconds schedule with an ID ending in ...a300 indeed fires every 5 seconds:
 
-![alt text](butler-logs-new-schedule-1.png "New schedule fires every 5 seconds")  
+![New schedule fires every 5 seconds](butler-logs-new-schedule-1.png "New schedule fires every 5 seconds")  
 
 ## Starting and stopping a schedule
 

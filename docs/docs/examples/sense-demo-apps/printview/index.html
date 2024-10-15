@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.135.0">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/examples/sense-demo-apps/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/examples/sense-demo-apps/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -265,7 +265,7 @@ In QlikView that feature was easily available, but in QSEoW it&rsquo;s currently
 <li>The first app&rsquo;s load script uses the Butler API to do full and partial reloads of the second app.</li>
 <li>The second app loads 10 rows of data during a full reload and 5 rows during a partial reload.</li>
 </ul>
-<p><img alt="alt text" src="/docs/examples/sense-demo-apps/partial-loads/butler-demo-partial-reload-1.png" title="Partial app reloads using Butler."></p>
+<p><img alt="Partial app reloads using Butler." src="/docs/examples/sense-demo-apps/partial-loads/butler-demo-partial-reload-1.png" title="Partial app reloads using Butler."></p>
 <h2 id="video-showing-how-to-use-demo-apps">Video showing how to use demo apps</h2>
 <p>Available at <a href="https://www.youtube.com/channel/UCpQblhippq-KfWkXEEYFHTQ">Ptarmigan Labs&rsquo; YouTube channel</a> and also in the <a href="https://www.youtube.com/playlist?list=PLUuyY5OOOsz3XX5YT2QEwa7dzaBT1kOCP">Butler YouTube playlist</a>.</p>
 <div class="embed-responsive embed-responsive-16by9">
@@ -311,7 +311,7 @@ Call PostToSlack('#general', 'Butler the Bot', '👽 Greetings, we come in peace
 </code></pre>
 <p>Note how emojis can be used in the message and a message specific icon can be used (&quot;:ghost:&quot; above).</p>
 <p>The Slack message looks like this:</p>
-<p><img alt="alt text" src="/img/butler-slack-message-1.png" title="Slack message created from Qlik Sense load script."></p>
+<p><img alt="Slack message created from Qlik Sense load script." src="/img/butler-slack-message-1.png" title="Slack message created from Qlik Sense load script."></p>
 <p>The demo app is available in the <a href="https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps">GitHub repository</a>.</p>
 
 </div>
@@ -357,7 +357,7 @@ Load Chr(RecNo()+Ord('A')-1) as Alpha, RecNo() as Num autogenerate 26;
 Call PostToMQTT('butler/5.0/demo-reloading/status', 'reload done')
 </code></pre>
 <p>The MQTT messages look like this in the <a href="http://mqtt-explorer.com/">MQTT Explorer</a> app on mac OS:</p>
-<p><img alt="alt text" src="/img/butler-publish-mqtt-message-1.png" title="MQTT messages created from Qlik Sense load script."></p>
+<p><img alt="MQTT messages created from Qlik Sense load script." src="/img/butler-publish-mqtt-message-1.png" title="MQTT messages created from Qlik Sense load script."></p>
 <p>The demo app is available in the <a href="https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps">GitHub repository</a>.</p>
 <h2 id="seeing-is-believing">Seeing is believing</h2>
 <p>The video below is available at <a href="https://www.youtube.com/channel/UCpQblhippq-KfWkXEEYFHTQ">Ptarmigan Labs&rsquo; YouTube channel</a> and also in the <a href="https://www.youtube.com/playlist?list=PLUuyY5OOOsz3XX5YT2QEwa7dzaBT1kOCP">Butler playlist</a>.</p>

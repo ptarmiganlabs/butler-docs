@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.135.0">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/examples/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/examples/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -511,7 +511,7 @@ Two good ones are:</p>
 <p>Create, query, edit and delete task reload schedules using Butler&rsquo;s scheduling API.</p>
 <p>When wathcing the video below, you will notice there are two pre-defined schedules.<br>
 One of them fires every 30 seconds and this is also visible in the Butler logs:</p>
-<p><img alt="alt text" src="/docs/examples/openapi-docs/butler-running-schedules-firing-1.png" title="Active user sessions"></p>
+<p><img alt="Active user sessions" src="/docs/examples/openapi-docs/butler-running-schedules-firing-1.png" title="Active user sessions"></p>
 <div class="embed-responsive embed-responsive-16by9">
         <iframe src="https://www.youtube.com/embed/f-ZSUvXeFmw?enablejsapi=1"
                  allowfullscreen></iframe>
@@ -640,7 +640,7 @@ One of them fires every 30 seconds and this is also visible in the Butler logs:<
 </span></span><span style="display:flex;"><span><span style="color:#ce5c00;font-weight:bold">}</span>
 </span></span><span style="display:flex;"><span>➜  ~
 </span></span></code></pre></div><p>Looking in the Butler logs we see that the every-5-seconds schedule with an ID ending in &hellip;a300 indeed fires every 5 seconds:</p>
-<p><img alt="alt text" src="/docs/examples/scheduling/butler-logs-new-schedule-1.png" title="New schedule fires every 5 seconds"></p>
+<p><img alt="New schedule fires every 5 seconds" src="/docs/examples/scheduling/butler-logs-new-schedule-1.png" title="New schedule fires every 5 seconds"></p>
 <h2 id="starting-and-stopping-a-schedule">Starting and stopping a schedule</h2>
 <p>Let&rsquo;s stop the schedule we just created:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>➜  ~ curl -X <span style="color:#4e9a06">&#34;PUT&#34;</span> <span style="color:#4e9a06">&#34;http://192.168.1.168:8080/v4/schedules/b028d0a2-7116-41bf-b15a-4f01bd126464/stop&#34;</span> <span style="color:#000;font-weight:bold">|</span> json_pp
@@ -748,7 +748,7 @@ One of them fires every 30 seconds and this is also visible in the Butler logs:<
 Store the parameters in a disk file (CSV, QVD etc) in the first app, then load the parameters back into the second app when it is reloading.</p>
 <p>Butler offers a different approach: Store and manipulate named key-value pairs within Butler, using its REST API.</p>
 <p>It works like this:</p>
-<p><img alt="alt text" src="/docs/examples/reload-chaining/butler-key-value-store-1.png" title="Passing parameters between Sense apps using Butler"></p>
+<p><img alt="Passing parameters between Sense apps using Butler" src="/docs/examples/reload-chaining/butler-key-value-store-1.png" title="Passing parameters between Sense apps using Butler"></p>
 <p>Pretty easy, right?</p>
 <p>One more thing. There is an optional but useful property for each KV pair: TTL, or time-to-live.</p>
 <p>If a ttl is set (in milliseconds) for a KV pair, it will be automatically deleted when the ttl clock expire. This is an easy way to keep the Butler key-value store nice and tidy.</p>
@@ -756,7 +756,7 @@ Store the parameters in a disk file (CSV, QVD etc) in the first app, then load t
 <p>In order to call Butler&rsquo;s REST API you need a couple of REST data connections defined in Qlik Sense. The apps described in this example assumes <code>Butler_Get</code> and <code>Butler_POST</code> exists. They look like this:</p>
 <h4 id="butler_get">Butler_GET</h4>
 <p>This data connection is trivial. When creating it any REST API that responds to GET requests can be used. Later on (before the calls to the Butler API) the URL will be replaced with the correct one = host:port where Butler is running.</p>
-<p><img alt="alt text" src="/docs/examples/reload-chaining/butler-api-dc-get-1.png" title="GET data connection part "></p>
+<p><img alt="GET data connection part 1" src="/docs/examples/reload-chaining/butler-api-dc-get-1.png" title="GET data connection part 1"></p>
 <h4 id="butler_post">Butler_POST</h4>
 <p>This data connection is a bit more complex.</p>
 <p>First, in order to create the connection you need a REST endpoint that takes a POST with data passed in the body of the message. The data connection used by the apps in this example are found below. Note the http method, the request body and the <code>Content-Type</code> Query header. Any other settings can be ignored.</p>
@@ -765,9 +765,9 @@ Store the parameters in a disk file (CSV, QVD etc) in the first app, then load t
 <p>We still need a way to invoke PUT and DELETE endpoints from Sense load script.
 This is done in the script, by adding an extra http header in the call to Butler&rsquo;s API: <code>X-HTTP-Method-Override</code></p>
 <p>If <code>X-HTTP-Method-Override</code> is set to PUT in the call to Butler&rsquo;s API, the Butler will convert the call to a PUT call before it reaches the message dispatching within Butler. Same thing for DELETEs.</p>
-<p><img alt="alt text" src="/docs/examples/reload-chaining/butler-api-dc-post-1.png" title="POST data connection part 1"></p>
-<p><img alt="alt text" src="/docs/examples/reload-chaining/butler-api-dc-post-2.png" title="POST data connection part 2"></p>
-<p><img alt="alt text" src="/docs/examples/reload-chaining/butler-api-dc-post-3.png" title="POST data connection part 3"></p>
+<p><img alt="POST data connection part 1" src="/docs/examples/reload-chaining/butler-api-dc-post-1.png" title="POST data connection part 1"></p>
+<p><img alt="POST data connection part 2" src="/docs/examples/reload-chaining/butler-api-dc-post-2.png" title="POST data connection part 2"></p>
+<p><img alt="POST data connection part 3" src="/docs/examples/reload-chaining/butler-api-dc-post-3.png" title="POST data connection part 3"></p>
 <h2 id="parameter-passing-in-action">Parameter passing in action</h2>
 <p>The scenario is as follows:</p>
 <ul>
@@ -777,9 +777,9 @@ This is done in the script, by adding an extra http header in the call to Butler
 <li>When App 2 reloads it pulls the parameter from the KV store.</li>
 </ul>
 <p>When App 1 reloads the reload window looks like this. Note how the app has created a key-value pair within Butler.</p>
-<p><img alt="alt text" src="/docs/examples/reload-chaining/reload-chain-parameter-app-1-1.png" title="Reload log from App 1, first part of reload chain"></p>
+<p><img alt="Reload log from App 1, first part of reload chain" src="/docs/examples/reload-chaining/reload-chain-parameter-app-1-1.png" title="Reload log from App 1, first part of reload chain"></p>
 <p>App 2 is scheduled to reload when App 1 has finished reloading. Note that we get back the same value that was set by App 1. Mission accomplished.</p>
-<p><img alt="alt text" src="/docs/examples/reload-chaining/reload-chain-parameter-app-2-1.png" title="Reload log from App 2, second part of reload chain"></p>
+<p><img alt="Reload log from App 2, second part of reload chain" src="/docs/examples/reload-chaining/reload-chain-parameter-app-2-1.png" title="Reload log from App 2, second part of reload chain"></p>
 <h2 id="qlik-script-for-passing-parameters-between-apps">Qlik script for passing parameters between apps</h2>
 <p>Let&rsquo;s take a closer look at the two apps. The apps are available in the sense_apps directory of <a href="https://github.com/ptarmiganlabs/butler">the Butler repository on GitHub</a>.</p>
 <p>The apps are called <code>Butler 4.0 - Reload chain parameters, app 1.qvf</code> and <code>Butler 4.0 - Reload chain parameters, app 2.qvf</code>.</p>
@@ -1062,19 +1062,19 @@ A retention policy with its name controlled by the <code>Butler.influxDb.retenti
 <p>So far so good. Let&rsquo;s wait a few minutes and then verify that New Relic and/or InfluxDB has received a few dataspoints.<br>
 The interval between the uptime messages is controlled by the <code>Butler.uptimeMonitor.frequency</code> setting in the Butler config file.</p>
 <p>Using the InfluxDB command line client to connect to InfluxDB we can do a manual query:</p>
-<p><img alt="alt text" src="/docs/examples/monitoring-butler/butler-new-influxdb-2.png" title="Manual query of Butler data in InfluxDB"></p>
+<p><img alt="Manual query of Butler data in InfluxDB" src="/docs/examples/monitoring-butler/butler-new-influxdb-2.png" title="Manual query of Butler data in InfluxDB"></p>
 <p>Indeed, there are a few data points in InfluxDB. Butler&rsquo;s uptime monitor seems to be working.</p>
 <h2 id="butler--influxdb--grafana--">Butler + InfluxDB + Grafana = 🎉📈</h2>
 <p>Grafana has excellent support for InfluxDB, it&rsquo;s therefore a good way to visualise Butler memory use over time.</p>
 <p>To use the Grafana dashboard included in the Butler GitHub repository you first need to create a Grafana data source named <code>Butler ops metrics</code>, and point it to the InfluxDB database in which Butler stores its data.</p>
 <p>Once the Grafana data source is in place and working you can import the Grafana dashboard file <code>Butler operational metrics.json</code> (available in the docs/grafana folder in the GitHub repo).</p>
 <p>If everything works you&rsquo;ll see something like this:</p>
-<p><img alt="alt text" src="/docs/examples/monitoring-butler/butler-grafana-1.png" title="Butler memory metrics in Grafana"></p>
+<p><img alt="Butler memory metrics in Grafana" src="/docs/examples/monitoring-butler/butler-grafana-1.png" title="Butler memory metrics in Grafana"></p>
 <p>Looks like Butler is using ca 70 MByte here. This is pretty normal, memory usage is usually around 100 MByte, even when Butler has been running for days, weeks and months. Exact memory usage will vary depending on which features are enabled.</p>
 <p>Butler&rsquo;s version number is also included in the data sent to InfluxDB.</p>
 <p>This means that you can easily create a Grafana dashboard showing which Butler version is running on which server.<br>
 If you have multiple Butler instances running in your environment, this can be very useful.</p>
-<p><img alt="alt text" src="/docs/examples/monitoring-butler/butler-grafana-versions-1.png" title="Butler version number in Grafana"></p>
+<p><img alt="Butler version number in Grafana" src="/docs/examples/monitoring-butler/butler-grafana-versions-1.png" title="Butler version number in Grafana"></p>
 <h2 id="butler--new-relic--">Butler + New Relic = 😎🌟</h2>
 <p>While InfluxDB combined with Grafana is hard to beat when it comes to flexibility and look&rsquo;n&rsquo;feel of the dashboards, New Relic is outstanding when it comes to ease of setup.</p>
 <p>New Relic is a SaaS product which means you don&rsquo;t have to host neither databaes nor dashboard tool yourself.<br>
@@ -1084,9 +1084,9 @@ It&rsquo;s all there within New Relic.</p>
 But given that Butler will send <em>very little</em> data you are unlikely to ever reach the limit of New Relic&rsquo;s free tier.<br>
 There is thus a good chance you won&rsquo;t even have to pay for New Relic if you only use it to monitor Butler.</p>
 <p>A New Relic chart showing Butler memory usage can look like this:</p>
-<p><img alt="alt text" src="/img/butler-memory-usage-new-relic-1.png" title="Butler memory usage in Grafana dashboard"></p>
+<p><img alt="Butler memory usage in Grafana dashboard" src="/img/butler-memory-usage-new-relic-1.png" title="Butler memory usage in Grafana dashboard"></p>
 <p>Similarly to the Grafana dashboard, Butler&rsquo;s version number is also included in the data sent to New Relic, and can be used to create a chart showing which Butler version is running on which server:</p>
-<p><img alt="alt text" src="/docs/examples/monitoring-butler/butler-new-relic-versions-1.png" title="Butler version numbers in New Relic dashboard"></p>
+<p><img alt="Butler version numbers in New Relic dashboard" src="/docs/examples/monitoring-butler/butler-new-relic-versions-1.png" title="Butler version numbers in New Relic dashboard"></p>
 
 </div>
 
@@ -2253,7 +2253,7 @@ In QlikView that feature was easily available, but in QSEoW it&rsquo;s currently
 <li>The first app&rsquo;s load script uses the Butler API to do full and partial reloads of the second app.</li>
 <li>The second app loads 10 rows of data during a full reload and 5 rows during a partial reload.</li>
 </ul>
-<p><img alt="alt text" src="/docs/examples/sense-demo-apps/partial-loads/butler-demo-partial-reload-1.png" title="Partial app reloads using Butler."></p>
+<p><img alt="Partial app reloads using Butler." src="/docs/examples/sense-demo-apps/partial-loads/butler-demo-partial-reload-1.png" title="Partial app reloads using Butler."></p>
 <h2 id="video-showing-how-to-use-demo-apps">Video showing how to use demo apps</h2>
 <p>Available at <a href="https://www.youtube.com/channel/UCpQblhippq-KfWkXEEYFHTQ">Ptarmigan Labs&rsquo; YouTube channel</a> and also in the <a href="https://www.youtube.com/playlist?list=PLUuyY5OOOsz3XX5YT2QEwa7dzaBT1kOCP">Butler YouTube playlist</a>.</p>
 <div class="embed-responsive embed-responsive-16by9">
@@ -2299,7 +2299,7 @@ Call PostToSlack('#general', 'Butler the Bot', '👽 Greetings, we come in peace
 </code></pre>
 <p>Note how emojis can be used in the message and a message specific icon can be used (&quot;:ghost:&quot; above).</p>
 <p>The Slack message looks like this:</p>
-<p><img alt="alt text" src="/img/butler-slack-message-1.png" title="Slack message created from Qlik Sense load script."></p>
+<p><img alt="Slack message created from Qlik Sense load script." src="/img/butler-slack-message-1.png" title="Slack message created from Qlik Sense load script."></p>
 <p>The demo app is available in the <a href="https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps">GitHub repository</a>.</p>
 
 </div>
@@ -2345,7 +2345,7 @@ Load Chr(RecNo()+Ord('A')-1) as Alpha, RecNo() as Num autogenerate 26;
 Call PostToMQTT('butler/5.0/demo-reloading/status', 'reload done')
 </code></pre>
 <p>The MQTT messages look like this in the <a href="http://mqtt-explorer.com/">MQTT Explorer</a> app on mac OS:</p>
-<p><img alt="alt text" src="/img/butler-publish-mqtt-message-1.png" title="MQTT messages created from Qlik Sense load script."></p>
+<p><img alt="MQTT messages created from Qlik Sense load script." src="/img/butler-publish-mqtt-message-1.png" title="MQTT messages created from Qlik Sense load script."></p>
 <p>The demo app is available in the <a href="https://github.com/ptarmiganlabs/butler/tree/master/docs/sense_apps">GitHub repository</a>.</p>
 <h2 id="seeing-is-believing">Seeing is believing</h2>
 <p>The video below is available at <a href="https://www.youtube.com/channel/UCpQblhippq-KfWkXEEYFHTQ">Ptarmigan Labs&rsquo; YouTube channel</a> and also in the <a href="https://www.youtube.com/playlist?list=PLUuyY5OOOsz3XX5YT2QEwa7dzaBT1kOCP">Butler playlist</a>.</p>
@@ -2435,6 +2435,23 @@ Take note of the log file location.</p>
 If there are errors or warnings during startup, or if there are a lot of errors and warnings, then there is most likely a problem.</p>
 <p>You can also try increasing the log level to <code>verbose</code> or even <code>debug</code> to get more information about what&rsquo;s happening, and where in Butler the problem is occurring.</p>
 <p>Logging level is configured in the Butler configuration file or via the <code>--loglevel</code> command line parameter (which takes precedence over the configuration file).</p>
+<h2 id="incorrect-config-file">Incorrect config file</h2>
+<p>The Butler configuration file is a YAML file, and it is easy to make mistakes when editing it.</p>
+<p>Butler validates the configuration file when it starts and if there are any syntax errors in the file, Butler will not start.<br>
+It will also show what the error is.</p>
+<p>Can look like below, starting Butler 13.0 with a 12.x config file on Windows Server 2019:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>.\butler.exe --configfile .\config\butler-config.yaml
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>2024-10-15T06:42:34.564Z info: CONFIG: Influxdb enabled: true
+</span></span><span style="display:flex;"><span>2024-10-15T06:42:34.565Z info: CONFIG: Influxdb host IP: 10.11.12.13
+</span></span><span style="display:flex;"><span>2024-10-15T06:42:34.568Z info: CONFIG: Influxdb host port: 8086
+</span></span><span style="display:flex;"><span>2024-10-15T06:42:34.569Z info: CONFIG: Influxdb db name: butler
+</span></span><span style="display:flex;"><span>2024-10-15T06:42:35.512Z error: VERIFY CONFIG FILE: /Butler/scriptLog/storeOnDisk : must have required property &#39;clientMan
+</span></span><span style="display:flex;"><span>2024-10-15T06:42:35.513Z error: VERIFY CONFIG FILE: /Butler/scriptLog/storeOnDisk : must have required property &#39;qsCloud&#39;
+</span></span><span style="display:flex;"><span>2024-10-15T06:42:35.516Z error: VERIFY CONFIG FILE: /Butler/scriptLog/storeOnDisk : must NOT have additional properties
+</span></span></code></pre></div><p>Here Butler is complaining about missing required properties in the <code>scriptLog</code> section of the configuration file.<br>
+And indeed, that section has changed in version 13.0, and the configuration file needs to be updated.</p>
 <h2 id="feature-specific-issues">Feature specific issues</h2>
 <h3 id="failed-reload-alerts-not-working">Failed reload alerts not working</h3>
 <p>Butler offers quite comprehensive support for dealing with failed or aborted reloads tasks.<br>

@@ -40,4 +40,4 @@ Sending a message to Butler looks like this (with a fake IP address):
 
 The resulting Slack message looks like this:  
 
-![alt text](slack_failed_task_1.jpg "Slack failed task")
+![Slack failed task](slack_failed_task_1.jpg "Slack failed task")

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.135.0">
 <meta name="robots" content="index, follow">
 <script defer data-domain="butler.ptarmiganlabs.com" src="https://plausible.io/js/script.js"></script>
 
@@ -36,7 +36,7 @@
   <meta itemprop="name" content="Butler">
   <meta itemprop="description" content="An introduction to Butler.">
   <meta itemprop="dateModified" content="2023-06-13T15:01:58+02:00">
-  <meta itemprop="wordCount" content="287">
+  <meta itemprop="wordCount" content="354">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Butler">
   <meta name="twitter:description" content="An introduction to Butler.">
@@ -133,25 +133,43 @@
   <a href="/docs/getting-started/setup/minimal-config/" title="Minimal configuration to start Butler" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupminimal-config"><span class="">Minimal config</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupqlik-sense-server-settings-li">
   <a href="/docs/getting-started/setup/qlik-sense-server-settings/" title="Connecting to a Qlik Sense server" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupqlik-sense-server-settings"><span class="">Sense server settings</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupqlik-sense-cloud-settings-li">
+  <a href="/docs/getting-started/setup/qlik-sense-cloud-settings/" title="Connecting to Qlik Cloud" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupqlik-sense-cloud-settings"><span class="">Qlik Cloud settings</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetuprest-api-li">
   <a href="/docs/getting-started/setup/rest-api/" title="Configuring Butler&#39;s REST API" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetuprest-api"><span class="">REST API</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsgetting-startedsetupreload-alerts-li">
-  <a href="/docs/getting-started/setup/reload-alerts/" title="Reload related alerts" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alerts"><span class="">Reload alerts</span></a>
+  <a href="/docs/getting-started/setup/reload-alerts/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alerts"><span class="">Reload alerts</span></a>
   <ul class="ul-4 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-emails-li">
-  <a href="/docs/getting-started/setup/reload-alerts/alert-emails/" title="Reload alerts sent as emails" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-emails"><span class="">Email</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-influxdb-li">
-  <a href="/docs/getting-started/setup/reload-alerts/alert-influxdb/" title="Reload alerts in InfluxDB" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-influxdb"><span class="">InfluxDB</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-new-relic-li">
-  <a href="/docs/getting-started/setup/reload-alerts/alert-new-relic/" title="Reload alerts via New Relic" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-new-relic"><span class="">New Relic</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-slack-li">
-  <a href="/docs/getting-started/setup/reload-alerts/alert-slack/" title="Reload alerts via Slack" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-slack"><span class="">Slack</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-teams-li">
-  <a href="/docs/getting-started/setup/reload-alerts/alert-teams/" title="Reload alerts via Microsoft Teams" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-teams"><span class="">MS Teams</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-mqtt-li">
-  <a href="/docs/getting-started/setup/reload-alerts/alert-mqtt/" title="Reload alerts via MQTT" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-mqtt"><span class="">MQTT</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-webhook-out-li">
-  <a href="/docs/getting-started/setup/reload-alerts/alert-webhook-out/" title="Reload alerts via outgoing webhooks" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-webhook-out"><span class="">Webhook</span></a>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsgetting-startedsetupreload-alertsclient-managed-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/" title="Reload alerts for client-managed Qlik Sense" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managed"><span class="">Client-managed</span></a>
+  <ul class="ul-5 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-emails-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/alert-emails/" title="Reload alerts sent as emails" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-emails"><span class="">Email</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-influxdb-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/alert-influxdb/" title="Reload alerts in InfluxDB" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-influxdb"><span class="">InfluxDB</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-new-relic-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/alert-new-relic/" title="Reload alerts via New Relic" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-new-relic"><span class="">New Relic</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-slack-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/alert-slack/" title="Reload alerts via Slack" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-slack"><span class="">Slack</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-teams-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/alert-teams/" title="Reload alerts via Microsoft Teams" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-teams"><span class="">MS Teams</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-mqtt-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/alert-mqtt/" title="Reload alerts via MQTT" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-mqtt"><span class="">MQTT</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-webhook-out-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/alert-webhook-out/" title="Reload alerts via outgoing webhooks" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-webhook-out"><span class="">Webhook</span></a>
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsgetting-startedsetupreload-alertscloud-li">
+  <a href="/docs/getting-started/setup/reload-alerts/cloud/" title="Reload alerts for Qlik Sense Cloud" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertscloud"><span class="">Cloud</span></a>
+  <ul class="ul-5 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertscloudalert-emails-li">
+  <a href="/docs/getting-started/setup/reload-alerts/cloud/alert-emails/" title="Qlik Cloud reload alerts sent as emails" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertscloudalert-emails"><span class="">Email</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertscloudalert-slack-li">
+  <a href="/docs/getting-started/setup/reload-alerts/cloud/alert-slack/" title="Reload alerts via Slack" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertscloudalert-slack"><span class="">Slack</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertscloudalert-teams-li">
+  <a href="/docs/getting-started/setup/reload-alerts/cloud/alert-teams/" title="Reload alerts via Microsoft Teams" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertscloudalert-teams"><span class="">MS Teams</span></a>
+</li>
+  </ul>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-script-logs-li">
@@ -206,12 +224,14 @@
   <a href="/docs/getting-started/setup/docker-health-check/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupdocker-health-check"><span class="">Docker healthcheck</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupdata-connections-li">
   <a href="/docs/getting-started/setup/data-connections/" title="Creating Sense data connections" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupdata-connections"><span class="">Sense data connections</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupuser-events-li">
-  <a href="/docs/getting-started/setup/user-events/" title="Forwarding user activity events to Butler" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupuser-events"><span class="">User activity events</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupstart-task-filter-li">
   <a href="/docs/getting-started/setup/start-task-filter/" title="Control which tasks can be started via Butler&#39;s API" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupstart-task-filter"><span class="">Start task filter</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetuptelemetry-li">
   <a href="/docs/getting-started/setup/telemetry/" title="Configuring telemetry" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetuptelemetry"><span class="">Telemetry</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupvisualise-config-file-li">
+  <a href="/docs/getting-started/setup/visualise-config-file/" title="Visualise Butler&#39;s config file" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupvisualise-config-file"><span class="">Visualise config file</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupuser-events-li">
+  <a href="/docs/getting-started/setup/user-events/" title="Forwarding user activity events to Butler" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupuser-events"><span class="">User activity events</span></a>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsgetting-startedoperations-li">
@@ -284,8 +304,12 @@
   <a href="/docs/concepts/udp/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsudp"><span class="">UDP client</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptswindows-services-li">
   <a href="/docs/concepts/windows-services/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptswindows-services"><span class="">Monitor Windows services</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptssetting-up-teams-webhooks-li">
+  <a href="/docs/concepts/setting-up-teams-webhooks/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptssetting-up-teams-webhooks"><span class="">Sending messages to MS Teams</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptscustom-links-in-alerts-li">
+  <a href="/docs/concepts/custom-links-in-alerts/" title="Using custom links in alerts" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptscustom-links-in-alerts"><span class="">Custom links in alerts</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsreal-time-metrics-li">
-  <a href="/docs/concepts/real-time-metrics/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsreal-time-metrics"><span class="">Real-time metrics</span></a>
+  <a href="/docs/concepts/real-time-metrics/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsreal-time-metrics"><span class="">Real-time metrics (deprecated)</span></a>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsexamples-li">
@@ -349,10 +373,22 @@
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsreferencealert-template-fields-li">
   <a href="/docs/reference/alert-template-fields/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fields"><span class="">Alert template fields</span></a>
   <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencealert-template-fieldsreload-tasks-li">
-  <a href="/docs/reference/alert-template-fields/reload-tasks/" title="Alert template fields for failed/aborted reload tasks" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldsreload-tasks"><span class="">Reload tasks</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencealert-template-fieldswindows-services-li">
-  <a href="/docs/reference/alert-template-fields/windows-services/" title="Alert template fields for Windows services events" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldswindows-services"><span class="">Windows services</span></a>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsreferencealert-template-fieldsclient-managed-li">
+  <a href="/docs/reference/alert-template-fields/client-managed/" title="Client managed Qlik Sense Enterprise on Windows" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldsclient-managed"><span class="">Client-managed</span></a>
+  <ul class="ul-4 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencealert-template-fieldsclient-managedreload-tasks-li">
+  <a href="/docs/reference/alert-template-fields/client-managed/reload-tasks/" title="Alert template fields for failed/aborted reload tasks" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldsclient-managedreload-tasks"><span class="">Reload tasks</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencealert-template-fieldsclient-managedwindows-services-li">
+  <a href="/docs/reference/alert-template-fields/client-managed/windows-services/" title="Alert template fields for Windows services events" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldsclient-managedwindows-services"><span class="">Windows services</span></a>
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsreferencealert-template-fieldsqlik-sense-cloud-li">
+  <a href="/docs/reference/alert-template-fields/qlik-sense-cloud/" title="Qlik Sense Cloud" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldsqlik-sense-cloud"><span class="">QS Cloud</span></a>
+  <ul class="ul-4 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencealert-template-fieldsqlik-sense-cloudapp-reload-li">
+  <a href="/docs/reference/alert-template-fields/qlik-sense-cloud/app-reload/" title="Alert template fields for failed app reloads" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldsqlik-sense-cloudapp-reload"><span class="">Failed app reloads</span></a>
+</li>
+  </ul>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceinfluxdb-li">
@@ -411,19 +447,21 @@
 	<header class="article-meta">
 		
   </header>
-	<p>The Butler project is all about adding useful features to the client-managed version of Qlik Sense, also known as Qlik Sense Enterprise on Windows, QSEoW.<br>
-Some of the features can be used from Sense load scripts, other features provide integration with 3rd party systems.<br>
-Most of Butler&rsquo;s features try to make daily life for a Qlik Sense administrator a bit easier.</p>
+	<p>The Butler project is all about adding useful features to both the client-managed version of Qlik Sense, also known as Qlik Sense Enterprise on Windows (QSEoW) and Qlik Sense Cloud.</p>
+<p>Some of the features can be used from Sense load scripts, other features provide integration with 3rd party systems.<br>
+Most of Butler&rsquo;s features simply try to make daily life for a Qlik Sense administrator or developer a bit easier.</p>
+<p>Given Butler&rsquo;s history and the fact that it was originally developed for Qlik Sense Enterprise on Windows, most features are only available for that platform.<br>
+More and more Qlik Sense Cloud features are being added, for example the ability to send app reload failed alerts to email, Slack, Teams or script log on local disk.</p>
 <p>The goal is to integrate battle-proven concepts and best-of-breed open-source tools into Butler and thus make them available to developers of Sense apps or those responsible for running Sense clusters.<br>
-In some cases it might be possible to use these tools from within Sense also without Butler - in those cases Butler simply tries to make things easier, lowering the barriers to get started and get things done.</p>
+In some cases it might be possible to use these tools from within Sense also without Butler (for example sending messages to Teams or Slack) - in those cases Butler simply tries to make things easier, lowering the barriers to get started and get things done.</p>
 <p>There is also a clear goal that Butler should be very configurable. In practice this means that individual features can be turned on/off as needed, improving security and lowering memory usage.</p>
 <p>Butler is written in <a href="https://nodejs.org/en/">Node.js</a> and runs on most modern operating systems.<br>
-As of version 7.2 Butler offers pre-built binaries for Windows, macOS and Linux§, meaning that Node.js no longer has to be separately installed to use Butler.<br>
+There are pre-built binaries for Windows, macOS and Linux, meaning that Node.js does not have to be separately installed to use Butler.<br>
 This simplifies things - just download, configure and run.</p>
 <p>You can run Butler on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).</p>
 <p>Butler is a member of a group of tools collectively referred to as the &ldquo;Butler family&rdquo;, more info is available <a href="/docs/about/butler-family/">here</a>.</p>
 <p>This picture might be useful to understand what Butler does and how it fits into the larger system map around Qlik Sense:</p>
-<p><img alt="alt text" src="/img/butler-system-overview-1.png" title="Butler high level system overview"></p>
+<p><img alt="Butler high level system overview" src="/img/butler-system-overview-1.png" title="Butler high level system overview"></p>
 
 	<div class="td-page-meta__lastmod">
   Last modified June 13, 2023: <a href="https://github.com/ptarmiganlabs/butler-docs/commit/6ae13774642e07f575814ca782a2f50bd0b4373f">Update docs to Butler v9.0 (6ae1377)</a>

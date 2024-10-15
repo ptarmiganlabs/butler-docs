@@ -1,7 +1,7 @@
 ---
 title: "Configuring telemetry"
 linkTitle: "Telemetry"
-weight: 310
+weight: 350
 description:
 ---
 

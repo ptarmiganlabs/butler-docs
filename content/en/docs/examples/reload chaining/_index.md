@@ -21,7 +21,7 @@ Butler offers a different approach: Store and manipulate named key-value pairs w
 
 It works like this:
 
-![alt text](butler-key-value-store-1.png "Passing parameters between Sense apps using Butler")  
+![Passing parameters between Sense apps using Butler](butler-key-value-store-1.png "Passing parameters between Sense apps using Butler")  
 
 Pretty easy, right?
 
@@ -37,7 +37,7 @@ In order to call Butler's REST API you need a couple of REST data connections de
 
 This data connection is trivial. When creating it any REST API that responds to GET requests can be used. Later on (before the calls to the Butler API) the URL will be replaced with the correct one = host:port where Butler is running.
 
-![alt text](butler-api-dc-get-1.png "GET data connection part ")
+![GET data connection part 1](butler-api-dc-get-1.png "GET data connection part 1")
 
 #### Butler_POST
 
@@ -54,11 +54,11 @@ This is done in the script, by adding an extra http header in the call to Butler
 
 If `X-HTTP-Method-Override` is set to PUT in the call to Butler's API, the Butler will convert the call to a PUT call before it reaches the message dispatching within Butler. Same thing for DELETEs.
 
-![alt text](butler-api-dc-post-1.png "POST data connection part 1")  
+![POST data connection part 1](butler-api-dc-post-1.png "POST data connection part 1")  
 
-![alt text](butler-api-dc-post-2.png "POST data connection part 2")  
+![POST data connection part 2](butler-api-dc-post-2.png "POST data connection part 2")  
 
-![alt text](butler-api-dc-post-3.png "POST data connection part 3")  
+![POST data connection part 3](butler-api-dc-post-3.png "POST data connection part 3")  
 
 ## Parameter passing in action
 
@@ -71,11 +71,11 @@ The scenario is as follows:
 
 When App 1 reloads the reload window looks like this. Note how the app has created a key-value pair within Butler.
 
-![alt text](reload-chain-parameter-app-1-1.png "Reload log from App 1, first part of reload chain")  
+![Reload log from App 1, first part of reload chain](reload-chain-parameter-app-1-1.png "Reload log from App 1, first part of reload chain")  
 
 App 2 is scheduled to reload when App 1 has finished reloading. Note that we get back the same value that was set by App 1. Mission accomplished.
 
-![alt text](reload-chain-parameter-app-2-1.png "Reload log from App 2, second part of reload chain")  
+![Reload log from App 2, second part of reload chain](reload-chain-parameter-app-2-1.png "Reload log from App 2, second part of reload chain")  
 
 ## Qlik script for passing parameters between apps
 

@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.135.0">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/index.xml">
 <meta name="robots" content="index, follow">
 <script defer data-domain="butler.ptarmiganlabs.com" src="https://plausible.io/js/script.js"></script>
@@ -38,7 +38,7 @@
 
   <meta itemprop="name" content="Butler">
   <meta itemprop="description" content=" Butler: Adding superpowers to Qlik Sense ">
-  <meta itemprop="dateModified" content="2024-05-14T10:36:28+02:00">
+  <meta itemprop="dateModified" content="2024-09-02T19:11:54+02:00">
   <meta itemprop="wordCount" content="6">
   <meta itemprop="image" content="https://butler.ptarmiganlabs.com/featured-background.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -103,19 +103,13 @@
   Great looking alerts to Slack, Teams, email or New Relic when reloads fail, save all failed reload scripts, monitor Sense licenses, advanced task scheduling, task chaining with parameters, key-value store, start reload tasks from any system, extract app metadata, post to Slack/Teams, MQTT integration and more.<br><br>
  </p>
  <p style="font-size: 120%" ">
+  Several of the key features (like app reload failure notifications) are available <br>in both Qlik Sense client-managed and Qlik Sense Cloud environments.
+  <br>
+ </p>
+ <p style="font-size: 120%" ">
   No installation needed. Just download, configure and run.<br>
   Open source of course.<br><br>
  </p>
- <!-- <p class="lead mt-5" style="font-size: 120%" ">
-		Interested in beta testing (no cost) the new SIGNL4 integration for mobile reload alerts?<br>
-		Let us know via info -at- ptarmiganlabs -dot- com.
-			<div class="mx-auto w-50">
-				<div class="embed-responsive embed-responsive-16by9">
-				        <iframe src="https://www.youtube.com/embed/iC_zbgczvFY?enablejsapi=1"
-				                 allowfullscreen></iframe>
-				</div>
-			</div>
-		</p> -->
  <a class="btn btn-lg btn-primary mr-3 mb-4" href="/docs/">
   Documentation <i class="fas fa-arrow-alt-circle-right ml-2"></i>
  </a>
@@ -159,7 +153,25 @@
 You or your users?<br>
 Who was it that stopped that important 3-hour reload 5 minutes before it was done?</p>
 <p>Get notified when tasks fail or are stopped, with notifications sent to Slack, Microsoft Teams, email, InfluxDb, New Relic, Signl4 and other destinations.<br>
-Full support for HTML/Markdown formatting and 40+ template fields.</p>
+Full support for HTML/Markdown formatting and 50+ template fields.</p>
+<p>Both <strong>Qlik Sense client-managed</strong> and <strong>Qlik Sense Cloud</strong> supported, with alerts looking the same in both environments.</p>
+<p><a href="/docs/concepts/failed-reloads/">Read more&hellip;</a></p>
+
+</div>
+
+</div>
+
+
+
+<div class="col-lg-4 mb-5 mb-lg-0 text-center">
+<div class="mb-4 h1">
+  <i class="fas fa-envelope"></i>
+</div>
+<h4 class="h3">Task success notifications</h4>
+<div class="mb-0">
+<p>Knowing about failed reloads is important, but sometimes it&rsquo;s just as important to know when a reload has succeeded.</p>
+<p>Get emails when those important reloads have completed successfully.
+Nicely formatted with all the details you need.</p>
 <p><a href="/docs/concepts/failed-reloads/">Read more&hellip;</a></p>
 
 </div>
@@ -177,6 +189,7 @@ Full support for HTML/Markdown formatting and 40+ template fields.</p>
 <p>Finding the complete logs from failed reloads can be a pain.</p>
 <p>Butler can save these for you, sorted by date.<br>
 Finding what caused a reload to fail is now easier than ever!</p>
+<p>Both <strong>Qlik Sense client-managed</strong> and <strong>Qlik Sense Cloud</strong> supported.</p>
 <p><a href="/docs/concepts/failed-reloads/">Read more&hellip;</a></p>
 
 </div>
@@ -229,7 +242,6 @@ Monitor in real time - broken down by license type - and release licenses that a
 <div class="mb-0">
 <p>Continuously monitor the Qlik Sense server license and alert when it is about to expire.</p>
 <p>Store the data in InfluxDB for further analysis, or send to your alerting destination of choice.</p>
-<!--TODO-->
 <p><a href="/docs/concepts/qlik-sense-server-license/">Read more&hellip;</a></p>
 
 </div>
@@ -246,7 +258,6 @@ Monitor in real time - broken down by license type - and release licenses that a
 <div class="mb-0">
 <p>Continuously monitor the Qlik Sense server version and store the data in InfluxDB.</p>
 <p>Reduces the risk of running outdated versions of Sense, with associated security risks.</p>
-<!--TODO-->
 <p><a href="/docs/concepts/qlik-sense-server-version/">Read more&hellip;</a></p>
 
 </div>
@@ -434,10 +445,11 @@ Great for backup purposes!</p>
 <div class="mb-4 h1">
   <i class="fas fa-lightbulb"></i>
 </div>
-<h4 class="h3">Latest release: 12.4</h4>
+<h4 class="h3">Latest release: 13.0</h4>
 <div class="mb-0">
-<p>Monitor and alert when Qlik Sense server licenses are about to expire.</p>
-<p>Monitor Qlik Sense server version to make sure it is updated as needed.</p>
+<p>Qlik Sense Cloud support added. Yay! 🎉</p>
+<p>Get reload failed alerts to email, Slack, Teams or script log on local disk.</p>
+<p>Tons of updates to the reload failed alert templates, making them better looking than before, and also consistent across client-managed and Qlik Sense Cloud.</p>
 <p>Available on <a href="https://github.com/ptarmiganlabs/butler/releases">GitHub</a>.</p>
 
 </div>

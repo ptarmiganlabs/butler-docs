@@ -61,7 +61,7 @@ Each enabled endpoint will result in Butler using more memory and CPU. Thus only
 In some cases some extra configuration is needed to make an API endpoint function properly.  
 This information is configured in the `Butler.restServerEndpointsConfig` section in the config file.
 
-## Settings in main config file
+## Settings in config file
 
 ```yaml
 ---

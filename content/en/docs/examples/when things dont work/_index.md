@@ -35,6 +35,31 @@ You can also try increasing the log level to `verbose` or even `debug` to get mo
 
 Logging level is configured in the Butler configuration file or via the `--loglevel` command line parameter (which takes precedence over the configuration file).
 
+## Incorrect config file
+
+The Butler configuration file is a YAML file, and it is easy to make mistakes when editing it.
+
+Butler validates the configuration file when it starts and if there are any syntax errors in the file, Butler will not start.  
+It will also show what the error is.
+
+Can look like below, starting Butler 13.0 with a 12.x config file on Windows Server 2019:
+
+```text
+.\butler.exe --configfile .\config\butler-config.yaml
+...
+...
+2024-10-15T06:42:34.564Z info: CONFIG: Influxdb enabled: true
+2024-10-15T06:42:34.565Z info: CONFIG: Influxdb host IP: 10.11.12.13
+2024-10-15T06:42:34.568Z info: CONFIG: Influxdb host port: 8086
+2024-10-15T06:42:34.569Z info: CONFIG: Influxdb db name: butler
+2024-10-15T06:42:35.512Z error: VERIFY CONFIG FILE: /Butler/scriptLog/storeOnDisk : must have required property 'clientMan
+2024-10-15T06:42:35.513Z error: VERIFY CONFIG FILE: /Butler/scriptLog/storeOnDisk : must have required property 'qsCloud'
+2024-10-15T06:42:35.516Z error: VERIFY CONFIG FILE: /Butler/scriptLog/storeOnDisk : must NOT have additional properties
+```
+
+Here Butler is complaining about missing required properties in the `scriptLog` section of the configuration file.  
+And indeed, that section has changed in version 13.0, and the configuration file needs to be updated.
+
 ## Feature specific issues
 
 ### Failed reload alerts not working

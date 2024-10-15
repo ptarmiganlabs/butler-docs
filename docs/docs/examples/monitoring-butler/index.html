@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.135.0">
 <link rel="alternate" type="text/html" href="https://butler.ptarmiganlabs.com/docs/examples/monitoring-butler/printview/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/examples/monitoring-butler/index.xml">
 <meta name="robots" content="index, follow">
@@ -138,25 +138,43 @@ Here we look at how this works and how Grafana real-time charts can be created."
   <a href="/docs/getting-started/setup/minimal-config/" title="Minimal configuration to start Butler" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupminimal-config"><span class="">Minimal config</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupqlik-sense-server-settings-li">
   <a href="/docs/getting-started/setup/qlik-sense-server-settings/" title="Connecting to a Qlik Sense server" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupqlik-sense-server-settings"><span class="">Sense server settings</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupqlik-sense-cloud-settings-li">
+  <a href="/docs/getting-started/setup/qlik-sense-cloud-settings/" title="Connecting to Qlik Cloud" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupqlik-sense-cloud-settings"><span class="">Qlik Cloud settings</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetuprest-api-li">
   <a href="/docs/getting-started/setup/rest-api/" title="Configuring Butler&#39;s REST API" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetuprest-api"><span class="">REST API</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsgetting-startedsetupreload-alerts-li">
-  <a href="/docs/getting-started/setup/reload-alerts/" title="Reload related alerts" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alerts"><span class="">Reload alerts</span></a>
+  <a href="/docs/getting-started/setup/reload-alerts/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alerts"><span class="">Reload alerts</span></a>
   <ul class="ul-4 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-emails-li">
-  <a href="/docs/getting-started/setup/reload-alerts/alert-emails/" title="Reload alerts sent as emails" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-emails"><span class="">Email</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-influxdb-li">
-  <a href="/docs/getting-started/setup/reload-alerts/alert-influxdb/" title="Reload alerts in InfluxDB" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-influxdb"><span class="">InfluxDB</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-new-relic-li">
-  <a href="/docs/getting-started/setup/reload-alerts/alert-new-relic/" title="Reload alerts via New Relic" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-new-relic"><span class="">New Relic</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-slack-li">
-  <a href="/docs/getting-started/setup/reload-alerts/alert-slack/" title="Reload alerts via Slack" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-slack"><span class="">Slack</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-teams-li">
-  <a href="/docs/getting-started/setup/reload-alerts/alert-teams/" title="Reload alerts via Microsoft Teams" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-teams"><span class="">MS Teams</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-mqtt-li">
-  <a href="/docs/getting-started/setup/reload-alerts/alert-mqtt/" title="Reload alerts via MQTT" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-mqtt"><span class="">MQTT</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsalert-webhook-out-li">
-  <a href="/docs/getting-started/setup/reload-alerts/alert-webhook-out/" title="Reload alerts via outgoing webhooks" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsalert-webhook-out"><span class="">Webhook</span></a>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsgetting-startedsetupreload-alertsclient-managed-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/" title="Reload alerts for client-managed Qlik Sense" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managed"><span class="">Client-managed</span></a>
+  <ul class="ul-5 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-emails-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/alert-emails/" title="Reload alerts sent as emails" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-emails"><span class="">Email</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-influxdb-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/alert-influxdb/" title="Reload alerts in InfluxDB" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-influxdb"><span class="">InfluxDB</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-new-relic-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/alert-new-relic/" title="Reload alerts via New Relic" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-new-relic"><span class="">New Relic</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-slack-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/alert-slack/" title="Reload alerts via Slack" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-slack"><span class="">Slack</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-teams-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/alert-teams/" title="Reload alerts via Microsoft Teams" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-teams"><span class="">MS Teams</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-mqtt-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/alert-mqtt/" title="Reload alerts via MQTT" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-mqtt"><span class="">MQTT</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-webhook-out-li">
+  <a href="/docs/getting-started/setup/reload-alerts/client-managed/alert-webhook-out/" title="Reload alerts via outgoing webhooks" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertsclient-managedalert-webhook-out"><span class="">Webhook</span></a>
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsgetting-startedsetupreload-alertscloud-li">
+  <a href="/docs/getting-started/setup/reload-alerts/cloud/" title="Reload alerts for Qlik Sense Cloud" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertscloud"><span class="">Cloud</span></a>
+  <ul class="ul-5 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertscloudalert-emails-li">
+  <a href="/docs/getting-started/setup/reload-alerts/cloud/alert-emails/" title="Qlik Cloud reload alerts sent as emails" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertscloudalert-emails"><span class="">Email</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertscloudalert-slack-li">
+  <a href="/docs/getting-started/setup/reload-alerts/cloud/alert-slack/" title="Reload alerts via Slack" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertscloudalert-slack"><span class="">Slack</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-alertscloudalert-teams-li">
+  <a href="/docs/getting-started/setup/reload-alerts/cloud/alert-teams/" title="Reload alerts via Microsoft Teams" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupreload-alertscloudalert-teams"><span class="">MS Teams</span></a>
+</li>
+  </ul>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupreload-script-logs-li">
@@ -211,12 +229,14 @@ Here we look at how this works and how Grafana real-time charts can be created."
   <a href="/docs/getting-started/setup/docker-health-check/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupdocker-health-check"><span class="">Docker healthcheck</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupdata-connections-li">
   <a href="/docs/getting-started/setup/data-connections/" title="Creating Sense data connections" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupdata-connections"><span class="">Sense data connections</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupuser-events-li">
-  <a href="/docs/getting-started/setup/user-events/" title="Forwarding user activity events to Butler" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupuser-events"><span class="">User activity events</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupstart-task-filter-li">
   <a href="/docs/getting-started/setup/start-task-filter/" title="Control which tasks can be started via Butler&#39;s API" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupstart-task-filter"><span class="">Start task filter</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetuptelemetry-li">
   <a href="/docs/getting-started/setup/telemetry/" title="Configuring telemetry" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetuptelemetry"><span class="">Telemetry</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupvisualise-config-file-li">
+  <a href="/docs/getting-started/setup/visualise-config-file/" title="Visualise Butler&#39;s config file" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupvisualise-config-file"><span class="">Visualise config file</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsgetting-startedsetupuser-events-li">
+  <a href="/docs/getting-started/setup/user-events/" title="Forwarding user activity events to Butler" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsgetting-startedsetupuser-events"><span class="">User activity events</span></a>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsgetting-startedoperations-li">
@@ -289,8 +309,12 @@ Here we look at how this works and how Grafana real-time charts can be created."
   <a href="/docs/concepts/udp/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsudp"><span class="">UDP client</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptswindows-services-li">
   <a href="/docs/concepts/windows-services/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptswindows-services"><span class="">Monitor Windows services</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptssetting-up-teams-webhooks-li">
+  <a href="/docs/concepts/setting-up-teams-webhooks/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptssetting-up-teams-webhooks"><span class="">Sending messages to MS Teams</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptscustom-links-in-alerts-li">
+  <a href="/docs/concepts/custom-links-in-alerts/" title="Using custom links in alerts" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptscustom-links-in-alerts"><span class="">Custom links in alerts</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsreal-time-metrics-li">
-  <a href="/docs/concepts/real-time-metrics/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsreal-time-metrics"><span class="">Real-time metrics</span></a>
+  <a href="/docs/concepts/real-time-metrics/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsreal-time-metrics"><span class="">Real-time metrics (deprecated)</span></a>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsexamples-li">
@@ -354,10 +378,22 @@ Here we look at how this works and how Grafana real-time charts can be created."
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsreferencealert-template-fields-li">
   <a href="/docs/reference/alert-template-fields/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fields"><span class="">Alert template fields</span></a>
   <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencealert-template-fieldsreload-tasks-li">
-  <a href="/docs/reference/alert-template-fields/reload-tasks/" title="Alert template fields for failed/aborted reload tasks" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldsreload-tasks"><span class="">Reload tasks</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencealert-template-fieldswindows-services-li">
-  <a href="/docs/reference/alert-template-fields/windows-services/" title="Alert template fields for Windows services events" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldswindows-services"><span class="">Windows services</span></a>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsreferencealert-template-fieldsclient-managed-li">
+  <a href="/docs/reference/alert-template-fields/client-managed/" title="Client managed Qlik Sense Enterprise on Windows" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldsclient-managed"><span class="">Client-managed</span></a>
+  <ul class="ul-4 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencealert-template-fieldsclient-managedreload-tasks-li">
+  <a href="/docs/reference/alert-template-fields/client-managed/reload-tasks/" title="Alert template fields for failed/aborted reload tasks" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldsclient-managedreload-tasks"><span class="">Reload tasks</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencealert-template-fieldsclient-managedwindows-services-li">
+  <a href="/docs/reference/alert-template-fields/client-managed/windows-services/" title="Alert template fields for Windows services events" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldsclient-managedwindows-services"><span class="">Windows services</span></a>
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child collapse" id="m-docsreferencealert-template-fieldsqlik-sense-cloud-li">
+  <a href="/docs/reference/alert-template-fields/qlik-sense-cloud/" title="Qlik Sense Cloud" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldsqlik-sense-cloud"><span class="">QS Cloud</span></a>
+  <ul class="ul-4 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferencealert-template-fieldsqlik-sense-cloudapp-reload-li">
+  <a href="/docs/reference/alert-template-fields/qlik-sense-cloud/app-reload/" title="Alert template fields for failed app reloads" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsreferencealert-template-fieldsqlik-sense-cloudapp-reload"><span class="">Failed app reloads</span></a>
+</li>
+  </ul>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsreferenceinfluxdb-li">
@@ -496,19 +532,19 @@ A retention policy with its name controlled by the <code>Butler.influxDb.retenti
 <p>So far so good. Let&rsquo;s wait a few minutes and then verify that New Relic and/or InfluxDB has received a few dataspoints.<br>
 The interval between the uptime messages is controlled by the <code>Butler.uptimeMonitor.frequency</code> setting in the Butler config file.</p>
 <p>Using the InfluxDB command line client to connect to InfluxDB we can do a manual query:</p>
-<p><img alt="alt text" src="/docs/examples/monitoring-butler/butler-new-influxdb-2.png" title="Manual query of Butler data in InfluxDB"></p>
+<p><img alt="Manual query of Butler data in InfluxDB" src="/docs/examples/monitoring-butler/butler-new-influxdb-2.png" title="Manual query of Butler data in InfluxDB"></p>
 <p>Indeed, there are a few data points in InfluxDB. Butler&rsquo;s uptime monitor seems to be working.</p>
 <h2 id="butler--influxdb--grafana--">Butler + InfluxDB + Grafana = 🎉📈</h2>
 <p>Grafana has excellent support for InfluxDB, it&rsquo;s therefore a good way to visualise Butler memory use over time.</p>
 <p>To use the Grafana dashboard included in the Butler GitHub repository you first need to create a Grafana data source named <code>Butler ops metrics</code>, and point it to the InfluxDB database in which Butler stores its data.</p>
 <p>Once the Grafana data source is in place and working you can import the Grafana dashboard file <code>Butler operational metrics.json</code> (available in the docs/grafana folder in the GitHub repo).</p>
 <p>If everything works you&rsquo;ll see something like this:</p>
-<p><img alt="alt text" src="/docs/examples/monitoring-butler/butler-grafana-1.png" title="Butler memory metrics in Grafana"></p>
+<p><img alt="Butler memory metrics in Grafana" src="/docs/examples/monitoring-butler/butler-grafana-1.png" title="Butler memory metrics in Grafana"></p>
 <p>Looks like Butler is using ca 70 MByte here. This is pretty normal, memory usage is usually around 100 MByte, even when Butler has been running for days, weeks and months. Exact memory usage will vary depending on which features are enabled.</p>
 <p>Butler&rsquo;s version number is also included in the data sent to InfluxDB.</p>
 <p>This means that you can easily create a Grafana dashboard showing which Butler version is running on which server.<br>
 If you have multiple Butler instances running in your environment, this can be very useful.</p>
-<p><img alt="alt text" src="/docs/examples/monitoring-butler/butler-grafana-versions-1.png" title="Butler version number in Grafana"></p>
+<p><img alt="Butler version number in Grafana" src="/docs/examples/monitoring-butler/butler-grafana-versions-1.png" title="Butler version number in Grafana"></p>
 <h2 id="butler--new-relic--">Butler + New Relic = 😎🌟</h2>
 <p>While InfluxDB combined with Grafana is hard to beat when it comes to flexibility and look&rsquo;n&rsquo;feel of the dashboards, New Relic is outstanding when it comes to ease of setup.</p>
 <p>New Relic is a SaaS product which means you don&rsquo;t have to host neither databaes nor dashboard tool yourself.<br>
@@ -518,9 +554,9 @@ It&rsquo;s all there within New Relic.</p>
 But given that Butler will send <em>very little</em> data you are unlikely to ever reach the limit of New Relic&rsquo;s free tier.<br>
 There is thus a good chance you won&rsquo;t even have to pay for New Relic if you only use it to monitor Butler.</p>
 <p>A New Relic chart showing Butler memory usage can look like this:</p>
-<p><img alt="alt text" src="/img/butler-memory-usage-new-relic-1.png" title="Butler memory usage in Grafana dashboard"></p>
+<p><img alt="Butler memory usage in Grafana dashboard" src="/img/butler-memory-usage-new-relic-1.png" title="Butler memory usage in Grafana dashboard"></p>
 <p>Similarly to the Grafana dashboard, Butler&rsquo;s version number is also included in the data sent to New Relic, and can be used to create a chart showing which Butler version is running on which server:</p>
-<p><img alt="alt text" src="/docs/examples/monitoring-butler/butler-new-relic-versions-1.png" title="Butler version numbers in New Relic dashboard"></p>
+<p><img alt="Butler version numbers in New Relic dashboard" src="/docs/examples/monitoring-butler/butler-new-relic-versions-1.png" title="Butler version numbers in New Relic dashboard"></p>
 
   <div class="section-index">
     

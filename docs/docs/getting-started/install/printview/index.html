@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.135.0">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/getting-started/install/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/getting-started/install/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -36,8 +36,8 @@
 
   <meta itemprop="name" content="Install">
   <meta itemprop="description" content="How to install Butler, including requirements and on what platforms Butler can be installed.">
-  <meta itemprop="dateModified" content="2023-06-13T15:01:58+02:00">
-  <meta itemprop="wordCount" content="633">
+  <meta itemprop="dateModified" content="2024-09-02T19:11:54+02:00">
+  <meta itemprop="wordCount" content="666">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Install">
   <meta name="twitter:description" content="How to install Butler, including requirements and on what platforms Butler can be installed.">
@@ -169,43 +169,52 @@ For that reason you should use the latest 1.x version of InfluxDB, which at the 
 <p>The instructions on the pages below should provide good guidance, if you still run into troubles you can always reach out via the <a href="https://github.com/ptarmiganlabs/butler/discussions">GitHub discussion forums</a>.</p>
 <h2 id="whats-required-to-use-butler">What&rsquo;s required to use Butler</h2>
 <ul>
-<li></li>
+<li>A Butler executable for your operating system</li>
 <li>A Butler config file adapted to your specific Qlik Sense environment</li>
-<li>Certificates exported from Qlik Sense Enterprise.</li>
+<li>A way to authenticate with Qlik Sense APIs
+<ul>
+<li>Certificates for Qlik Sense Enterprise on Windows</li>
+<li>JSON Web Token (JWT) for Qlik Sense Cloud</li>
+</ul>
+</li>
 </ul>
 <table>
-<thead>
-<tr>
-<th>What</th>
-<th>Comment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Qlik Sense Enterprise on Windows</td>
-<td><em>Mandatory.</em> Butler is developed with client-managed Qlik Sense Enterprise on Windows (QSEoW) in mind. <br>While some Butler features might also work with Sense Desktop or Sense cloud, you are on your own there.</td>
-</tr>
-<tr>
-<td>Butler executable</td>
-<td><em>Mandatory.</em> A Butler executable of some kind. This would be a) a stand-alone binary for the operating system you plan to use, b) a <a href="https://hub.docker.com/r/ptarmiganlabs/butler/tags">Docker image</a> from which a Butler container can be created or c) the Butler source code plus <a href="https://nodejs.org/en">Node.js</a> installed.</td>
-</tr>
-<tr>
-<td>MQTT broker</td>
-<td><em>Optional.</em> MQTT is used for both in- and out-bound pub-sub messaging. Butler assumes a working MQTT broker is available, the IP of which is defined in the Butler config file. <a href="https://mosquitto.org/">Mosquitto</a> is a great open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&hellip; instance is enough, if you want a dedicated MQTT server. If you don&rsquo;t care about the pubsub features of Butler, you don&rsquo;t need a MQTT broker. In this case you can disable the MQTT features in the config YAML file.</td>
-</tr>
-<tr>
-<td><a href="https://www.influxdata.com/time-series-platform/">InfluxDB</a></td>
-<td><em>Optional.</em> A database for realtime information, used to store metrics around Butler&rsquo;s own memory usage over time (if this feature is enabled).</td>
-</tr>
-<tr>
-<td><a href="https://newrelic.com">New Relic</a></td>
-<td><em>Optional.</em> A commercial online service offering a vast set of observability features of which Butler uses just a few. Reload failure alerts are for example very nicely handled in New Relic as you get access to the script logs (similar to what can be done with InfluxDB + Grafana) right in the New Relic UI. New Relic&rsquo;s free tier usually goes a long way towards the need of SenseOps and Butler use cases, so it&rsquo;s easy to try out New Relic.</td>
-</tr>
-<tr>
-<td><a href="https://www.signl4.com">Signl4</a></td>
-<td><em>Optional.</em> A smaller but very nice, mobible-first incident management service. Using Signl4 it&rsquo;s easy to get failed reload alerts to your phone. The service also makes it easy to set up on-call schedules, escalate incidents if needed etc.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">What</th>
+          <th style="text-align: left">Comment</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Qlik Sense Enterprise on Windows</td>
+          <td style="text-align: left">Most Butler features target client-managed Qlik Sense Enterprise on Windows (QSEoW).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Qlik Sense Cloud</td>
+          <td style="text-align: left">Some features are available for Qlik Sense Cloud, for example the ability to send app reload failed alerts to email, Slack, Teams or script log on local disk.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Butler executable</td>
+          <td style="text-align: left"><em>Mandatory.</em> A Butler executable of some kind. This would be a) a stand-alone binary for the operating system you plan to use, b) a <a href="https://hub.docker.com/r/ptarmiganlabs/butler/tags">Docker image</a> from which a Butler container can be created or c) the Butler source code plus <a href="https://nodejs.org/en">Node.js</a> installed.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">MQTT broker</td>
+          <td style="text-align: left"><em>Optional.</em> MQTT is used for both in- and out-bound pub-sub messaging. Butler assumes a working MQTT broker is available, the IP of which is defined in the Butler config file. <a href="https://mosquitto.org/">Mosquitto</a> is a great open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/&hellip; instance is enough, if you want a dedicated MQTT server. If you don&rsquo;t care about the pubsub features of Butler, you don&rsquo;t need a MQTT broker. In this case you can disable the MQTT features in the config YAML file.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a href="https://www.influxdata.com/time-series-platform/">InfluxDB</a></td>
+          <td style="text-align: left"><em>Optional.</em> A database for realtime information, used to store metrics around Butler&rsquo;s own memory usage over time (if this feature is enabled).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a href="https://newrelic.com">New Relic</a></td>
+          <td style="text-align: left"><em>Optional.</em> A commercial online service offering a vast set of observability features of which Butler uses just a few. Reload failure alerts are for example very nicely handled in New Relic as you get access to the script logs (similar to what can be done with InfluxDB + Grafana) right in the New Relic UI. New Relic&rsquo;s free tier usually goes a long way towards the need of SenseOps and Butler use cases, so it&rsquo;s easy to try out New Relic.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><a href="https://www.signl4.com">Signl4</a></td>
+          <td style="text-align: left"><em>Optional.</em> A smaller but very nice, mobible-first incident management service. Using Signl4 it&rsquo;s easy to get failed reload alerts to your phone. The service also makes it easy to set up on-call schedules, escalate incidents if needed etc.</td>
+      </tr>
+  </tbody>
 </table>
 
 </div>
@@ -321,6 +330,7 @@ This means you may see a warning the first time you start Butler, but after that
 <p>The following steps give some guidance on how to get Butler running on Docker.<br>
 Here Mac OS was used, things will look different on Linux and Windows.</p>
 <p>Note: While the console logs below refer to an older version of Butler&rsquo;s Docker image, the steps involved are the same also for current/most recent version of Butler.</p>
+<!-- TODO Update with 13.0 Docker image -->
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>proton:~ goran$ mkdir /Users/goran/butler
 </span></span><span style="display:flex;"><span>proton:~ goran$ <span style="color:#204a87">cd</span> /Users/goran/butler
 </span></span><span style="display:flex;"><span>proton:butler goran$ mkdir -p config/certificate

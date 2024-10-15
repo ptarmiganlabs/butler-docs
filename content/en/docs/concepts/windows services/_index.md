@@ -33,7 +33,7 @@ Butler can send service related alerts to InfluxDB, and Grafana can then be used
 A Grafana "state timeline" chart showing the status of Qlik Sense services across 4 servers can look like below.  
 Note the red bar indicating that all Qlik Sense services were restarted at one point, but also note that a couple of the servers had additional, shorter outages:
 
-![alt text](./butler-grafana-windows-service-1.png "Grafana Sense services")
+![Grafana Sense services](./butler-grafana-windows-service-1.png "Grafana Sense services")
 
 With the above in place, Grafana alerts can be created that will trigger when a service stops, sending messages to incident management systems such as PagerDuty, OpsGenie and VictorOps - or to Slack, Teams, email etc.
 
@@ -54,7 +54,7 @@ This should be done on all remote servers that Butler will monitor services on.
 Butler uses a state machine to keep track of the status of each service.  
 The available states and the possible transitions between them are:
 
-![alt text](./butler-windows-service-state-machine-1.png "Butler Windows service state machine")
+![Butler Windows service state machine](./butler-windows-service-state-machine-1.png "Butler Windows service state machine")
 
 When a service check reveals that a service has changed state compared to the state stored in the state machine, Butler will send an alert message to the configured destinations.
 

@@ -57,7 +57,7 @@ If the task for some reason is re-created its ID will change.
 
 Still, there are certainly cases where task IDs are relevant and the easiest option to use and set up.
 
-![alt text](start-tasks-using-taskid-1.png "Finding task IDs in the QMC")  
+![Finding task IDs in the QMC](start-tasks-using-taskid-1.png "Finding task IDs in the QMC")  
 
 ### Start tasks by tags
 
@@ -65,7 +65,7 @@ Given the example below, **a single call** to Butlers API could start all four o
 Or the three tasks tagged `startTask1`.  
 Or all of those tasks, if both tags were passed to the Butler API.
 
-![alt text](start-tasks-using-tag-1.png "Finding tags in the QMC")  
+![Finding tags in the QMC](start-tasks-using-tag-1.png "Finding tags in the QMC")  
 
 ### Start tasks by custom properties
 
@@ -74,4 +74,4 @@ The main difference is that the caller must know the name of the custom property
 
 In the example below, calling the Butler API with parameters `taskGroup=tasks2` would result in all tasks having the `taskGroup` custom property set to `tasks2` to be started.
 
-![alt text](start-tasks-using-cp-1.png "Finding a task's custom property values in the QMC")  
+![Finding a task's custom property values in the QMC](start-tasks-using-cp-1.png "Finding a task's custom property values in the QMC")  

@@ -41,14 +41,16 @@ The instructions on the pages below should provide good guidance, if you still r
 
 ## What's required to use Butler
 
-* 
+* A Butler executable for your operating system
 * A Butler config file adapted to your specific Qlik Sense environment
-* Certificates exported from Qlik Sense Enterprise.
-
+* A way to authenticate with Qlik Sense APIs
+  * Certificates for Qlik Sense Enterprise on Windows
+  * JSON Web Token (JWT) for Qlik Sense Cloud
 
 | What | Comment |
 |---- | ------- |
-| Qlik Sense Enterprise on Windows | *Mandatory.* Butler is developed with client-managed Qlik Sense Enterprise on Windows (QSEoW) in mind. <br>While some Butler features might also work with Sense Desktop or Sense cloud, you are on your own there. |
+| Qlik Sense Enterprise on Windows | Most Butler features target client-managed Qlik Sense Enterprise on Windows (QSEoW). |
+| Qlik Sense Cloud | Some features are available for Qlik Sense Cloud, for example the ability to send app reload failed alerts to email, Slack, Teams or script log on local disk. |
 | Butler executable | *Mandatory.* A Butler executable of some kind. This would be a) a stand-alone binary for the operating system you plan to use, b) a [Docker image](https://hub.docker.com/r/ptarmiganlabs/butler/tags) from which a Butler container can be created or c) the Butler source code plus [Node.js](https://nodejs.org/en) installed. |
 | MQTT broker | *Optional.* MQTT is used for both in- and out-bound pub-sub messaging. Butler assumes a working MQTT broker is available, the IP of which is defined in the Butler config file. [Mosquitto](https://mosquitto.org/) is a great open source broker. It requires very little hardware to run, even the smallest (usually free) Amazon/Google/Microsoft/... instance is enough, if you want a dedicated MQTT server. If you don't care about the pubsub features of Butler, you don't need a MQTT broker. In this case you can disable the MQTT features in the config YAML file. |
 | [InfluxDB](https://www.influxdata.com/time-series-platform/) | *Optional.* A database for realtime information, used to store metrics around Butler's own memory usage over time (if this feature is enabled). |

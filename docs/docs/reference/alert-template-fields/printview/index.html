@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.135.0">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/reference/alert-template-fields/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/reference/alert-template-fields/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -108,7 +108,22 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>1: <a href="#pg-256549f01c30baa13a7b12cad4c2ecd6">Alert template fields for failed/aborted reload tasks</a></li>
+<li>1: <a href="#pg-992d9bf7ad58eb436a277127b724df94">Client managed Qlik Sense Enterprise on Windows</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>1.1: <a href="#pg-612b38590af124235e0805b3b8ac8669">Alert template fields for failed/aborted reload tasks</a></li>
 
 
     
@@ -127,7 +142,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>2: <a href="#pg-de4574faf55327363573635d5028a3d4">Alert template fields for Windows services events</a></li>
+<li>1.2: <a href="#pg-82225d53043484bead40fd488a27dd06">Alert template fields for Windows services events</a></li>
 
 
     
@@ -138,6 +153,48 @@ This is the multi-page printable view of this section.
   
   
 
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>2: <a href="#pg-9b83dca8152b07062d7495fea676a466">Qlik Sense Cloud</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>2.1: <a href="#pg-be9255d6c753896338d383dc1c1ad4d2">Alert template fields for failed app reloads</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
   
 
     </ul>
@@ -174,306 +231,524 @@ For example, the template fields available for reload alerts are different from 
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-256549f01c30baa13a7b12cad4c2ecd6">1 - Alert template fields for failed/aborted reload tasks</h1>
+	<h1 id="pg-992d9bf7ad58eb436a277127b724df94">1 - Client managed Qlik Sense Enterprise on Windows</h1>
+    <div class="lead">List of template fields available in alert messages for client-managed Qlik Sense Enterprise on Windows.</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-612b38590af124235e0805b3b8ac8669">1.1 - Alert template fields for failed/aborted reload tasks</h1>
     <div class="lead">List of template fields available in Butler&rsquo;s reload failed/aborted alert messages.</div>
 	<h2 id="template-fields">Template fields</h2>
 <p>Butler uses the <a href="https://handlebarsjs.com/">Handlebars</a> library for templating work.</p>
 <p>Handlebars offers a lot of useful features (nested template fields, evaluation context, template comments) and it&rsquo;s recommended that you browse through at least the <a href="https://handlebarsjs.com/guide/#installation">language features</a> section of their getting started guide to get a feeling for what&rsquo;s possible.</p>
-
-
-<div class="alert alert-warning" role="alert">
-<h4 class="alert-heading">Warning</h4>
-
-    <p>Only some alert destinations support template files, namely</p>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice warning" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#warning-notice"></use></svg></span>Warning</p><p>Only some alert destinations support template files, namely</p>
 <ul>
 <li>Email</li>
 <li>Teams</li>
 <li>Slack</li>
 </ul>
-<p>Please see the <a href="/docs/concepts/">Concepts</a> and <a href="/docs/getting-started/setup/reload-alerts/">Getting started</a> sections for more information about which alert types support templates.</p>
+<p>Please see the <a href="/docs/concepts/">Concepts</a> and <a href="/docs/getting-started/setup/reload-alerts/">Getting started</a> sections for more information about which alert types support templates.</p></div>
 
-
-</div>
-
-<p>If a template field is used for an alert type where that field is not supported, the field will simply be blank. No errors will occur.</p>
+<p>If a template field is used for an alert type where that field is not supported, the field will simply be blank. No errors will occur, but it can still be tricky to debug if you&rsquo;re not aware of this.</p>
 <p>The following template fields are available in alert messages.</p>
-<p>Note that some fields are usually (always?) empty, for example the script log for stopped messages.<br>
+<p>Note that some fields are sometimes (often, even) empty, for example the script log for stopped messages.<br>
 This is simply how Sense works - the template fields just forward the information retrieved from the Sense APIs.</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:center">Failed<br>reload</th>
-<th style="text-align:center">Stopped<br>reload</th>
-<th>Field name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>hostName</td>
-<td>Server on which a reload or other event took place.</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>user</td>
-<td><strong>Reload failures:</strong> User ID for use doing the reload. Typically <code>sa_scheduler</code>.<br><strong>Reload stopped:</strong> User ID of user stopping the reload.</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>taskId</td>
-<td>ID of reload task that failed/was stopped.</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>appName</td>
-<td>Name of Sense whose reload failed/was stopped.</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>appId</td>
-<td>ID of Sense app whose reload failed/was stopped.</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>appOwnerName</td>
-<td>Name of app owner (if this is available in the metadata provided by the Sense server)</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>appOwnerUserDirectory</td>
-<td>App owner user&rsquo;s user directory (if this is available in the metadata provided by the Sense server)</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>appOwnerUserId</td>
-<td>App owner user&rsquo;s user id (if this is available in the metadata provided by the Sense server)</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>appOwnerEmail</td>
-<td>App owner email (if this is available in the metadata provided by the Sense server)</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>logTimeStamp</td>
-<td>Timestamp as recorded in the Sense logs</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>logLevel</td>
-<td>Log level of the Sense log file entry causing the alert</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>logMessage</td>
-<td>Log message from the Sense log files</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executingNodeName</td>
-<td>Name of the server where the reload took place</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionDuration.hours</td>
-<td>executionDuration is a JSON object.<br>Duration of reload (hours part)</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionDuration.minutes</td>
-<td>Duration of reload (minutes part)</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionDuration.seconds</td>
-<td>Duration of reload (seconds part)</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionStartTime.startTimeUTC</td>
-<td>JSON object.<br>UTC timestamp for reload start</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionStartTime.startTimeLocal1</td>
-<td>Reload start timestamp, format 1</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionStartTime.startTimeLocal2</td>
-<td>Reload start timestamp, format 2</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionStartTime.startTimeLocal3</td>
-<td>Reload start timestamp, format 3</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionStartTime.startTimeLocal4</td>
-<td>Reload start timestamp, format 4</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionStartTime.startTimeLocal5</td>
-<td>Reload start timestamp, format 5</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionStopTime.stopTimeUTC</td>
-<td>JSON object.<br>UTC timestamp for reload end</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionStopTime.stopTimeLocal1</td>
-<td>Reload end timestamp, format 1</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionStopTime.stopTimeLocal2</td>
-<td>Reload end timestamp, format 2</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionStopTime.stopTimeLocal3</td>
-<td>Reload end timestamp, format 3</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionStopTime.stopTimeLocal4</td>
-<td>Reload end timestamp, format 4</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionStopTime.stopTimeLocal5</td>
-<td>Reload end timestamp, format 5</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionStatusNum</td>
-<td>Final reload task status code</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionStatusText</td>
-<td>Final reload task status message</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionDetails[].timestampUTC</td>
-<td>executionDetails is an array of status updates for the reload task, similar to the one found in the QMC&rsquo;s task view.<br>UTC timestamp of the task status</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionDetails[].timestampLocal1</td>
-<td>Task status timestamp, format 1</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionDetails[].timestampLocal2</td>
-<td>Task status timestamp, format 2</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionDetails[].timestampLocal3</td>
-<td>Task status timestamp, format 3</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionDetails[].timestampLocal4</td>
-<td>Task status timestamp, format 4</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionDetails[].timestampLocal5</td>
-<td>Task status timestamp, format 5</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionDetails[].detailsType</td>
-<td>Task status timestamp, format 1</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>executionDetails[].message</td>
-<td>Task status message</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>scriptLogHeadCount</td>
-<td>Number of lines extracted from the start of the script log</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>scriptLogHead</td>
-<td>The first x lines from the reload&rsquo;s script log</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>scriptLogTail</td>
-<td>Number of lines extracted from the end of the script log</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>scriptLogTailCount</td>
-<td>The first y lines from the reload&rsquo;s script log</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>qliksSenseQMC</td>
-<td>Links to QMC, as defined in main config file</td>
-</tr>
-<tr>
-<td style="text-align:center">✅</td>
-<td style="text-align:center">✅</td>
-<td>qliksSenseHub</td>
-<td>Links to Hub, as defined in main config file</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: center">Failed<br>reload</th>
+          <th style="text-align: center">Stopped<br>reload</th>
+          <th style="text-align: center">Successful<br>reload</th>
+          <th style="text-align: left">Field name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">hostName</td>
+          <td style="text-align: left">Server on which a reload or other event took place.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">user</td>
+          <td style="text-align: left"><strong>Reload failures:</strong> User ID for use doing the reload. Typically <code>sa_scheduler</code>.<br><strong>Reload stopped:</strong> User ID of user stopping the reload.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">taskId</td>
+          <td style="text-align: left">ID of reload task.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">taskName</td>
+          <td style="text-align: left">Name of reload task.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appId</td>
+          <td style="text-align: left">ID of Sense app.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appName</td>
+          <td style="text-align: left">Name of app.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appDescription</td>
+          <td style="text-align: left">Description of app.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appFileSize</td>
+          <td style="text-align: left">Size of app file (on disk).</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appLastSuccessfulReload</td>
+          <td style="text-align: left">Date of last successful reload.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appLastModifiedDate</td>
+          <td style="text-align: left">Date/time of last modification of app.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appLastModifiedByUserName</td>
+          <td style="text-align: left">User who last modified the app.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appPublishTime</td>
+          <td style="text-align: left">Date/time when app was published.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appPublished</td>
+          <td style="text-align: left">Is the app published? (true/false)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appStreamName</td>
+          <td style="text-align: left">Name of stream where app is published.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appCustomProperties</td>
+          <td style="text-align: left">Custom properties that are present on the app.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appTags</td>
+          <td style="text-align: left">Tags that are present on the app.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appUrl</td>
+          <td style="text-align: left">URL to the app.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">taskCustomProperties</td>
+          <td style="text-align: left">Custom properties that are present on the reload task.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">taskTags</td>
+          <td style="text-align: left">Tags that are present on the reload task.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">taskIsPartialReload</td>
+          <td style="text-align: left">Does the reload task perform a partial reload? (true/false)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">taskMaxRetries</td>
+          <td style="text-align: left">Maximum number of retries for the reload task.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">taskModifiedByUsername</td>
+          <td style="text-align: left">User who last modified the reload task.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">taskModifiedDate</td>
+          <td style="text-align: left">Date when the reload task was last modified.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">taskSessionTimeout</td>
+          <td style="text-align: left">Session timeout for the reload task, i.e how long the reload task will run before it is cancelled.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">taskNextExecution</td>
+          <td style="text-align: left">Next scheduled execution of the reload task.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appOwnerName</td>
+          <td style="text-align: left">Name of app owner (if this is available in the metadata provided by the Sense server)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appOwnerUserDirectory</td>
+          <td style="text-align: left">App owner user&rsquo;s user directory (if this is available in the metadata provided by the Sense server)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appOwnerUserId</td>
+          <td style="text-align: left">App owner user&rsquo;s user id (if this is available in the metadata provided by the Sense server)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appOwnerEmail</td>
+          <td style="text-align: left">App owner email (if this is available in the metadata provided by the Sense server)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">logTimeStamp</td>
+          <td style="text-align: left">Timestamp as recorded in the Sense logs</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">logLevel</td>
+          <td style="text-align: left">Log level of the Sense log file entry causing the alert</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">logMessage</td>
+          <td style="text-align: left">Log message from the Sense log files</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executingNodeName</td>
+          <td style="text-align: left">Name of the server where the reload took place</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionDuration.hours</td>
+          <td style="text-align: left">executionDuration is a JSON object.<br>Duration of reload (hours part)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionDuration.minutes</td>
+          <td style="text-align: left">Duration of reload (minutes part)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionDuration.seconds</td>
+          <td style="text-align: left">Duration of reload (seconds part)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStartTime.startTimeUTC</td>
+          <td style="text-align: left">JSON object.<br>UTC timestamp for reload start</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStartTime.startTimeLocal1</td>
+          <td style="text-align: left">Reload start timestamp, format 1</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStartTime.startTimeLocal2</td>
+          <td style="text-align: left">Reload start timestamp, format 2</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStartTime.startTimeLocal3</td>
+          <td style="text-align: left">Reload start timestamp, format 3</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStartTime.startTimeLocal4</td>
+          <td style="text-align: left">Reload start timestamp, format 4</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStartTime.startTimeLocal5</td>
+          <td style="text-align: left">Reload start timestamp, format 5</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStopTime.stopTimeUTC</td>
+          <td style="text-align: left">JSON object.<br>UTC timestamp for reload end</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStopTime.stopTimeLocal1</td>
+          <td style="text-align: left">Reload end timestamp, format 1</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStopTime.stopTimeLocal2</td>
+          <td style="text-align: left">Reload end timestamp, format 2</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStopTime.stopTimeLocal3</td>
+          <td style="text-align: left">Reload end timestamp, format 3</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStopTime.stopTimeLocal4</td>
+          <td style="text-align: left">Reload end timestamp, format 4</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStopTime.stopTimeLocal5</td>
+          <td style="text-align: left">Reload end timestamp, format 5</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStatusNum</td>
+          <td style="text-align: left">Final reload task status code</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStatusText</td>
+          <td style="text-align: left">Final reload task status message</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionDetails[].timestampUTC</td>
+          <td style="text-align: left">executionDetails is an array of status updates for the reload task, similar to the one found in the QMC&rsquo;s task view.<br>UTC timestamp of the task status</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionDetails[].timestampLocal1</td>
+          <td style="text-align: left">Task status timestamp, format 1</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionDetails[].timestampLocal2</td>
+          <td style="text-align: left">Task status timestamp, format 2</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionDetails[].timestampLocal3</td>
+          <td style="text-align: left">Task status timestamp, format 3</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionDetails[].timestampLocal4</td>
+          <td style="text-align: left">Task status timestamp, format 4</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionDetails[].timestampLocal5</td>
+          <td style="text-align: left">Task status timestamp, format 5</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionDetails[].detailsType</td>
+          <td style="text-align: left">Task status timestamp, format 1</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionDetails[].message</td>
+          <td style="text-align: left">Task status message</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">scriptLogSize</td>
+          <td style="text-align: left">Size of the reload&rsquo;s script log (characters)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">scriptLogHeadCount</td>
+          <td style="text-align: left">Number of lines extracted from the start of the script log</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">scriptLogTailCount</td>
+          <td style="text-align: left">The first y lines from the reload&rsquo;s script log</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">scriptLogHead</td>
+          <td style="text-align: left">The first x lines from the reload&rsquo;s script log</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">scriptLogTail</td>
+          <td style="text-align: left">Number of lines extracted from the end of the script log</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">qliksSenseQMC</td>
+          <td style="text-align: left">Links to QMC, as defined in main config file</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">qliksSenseHub</td>
+          <td style="text-align: left">Links to Hub, as defined in main config file</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">genericUrls</td>
+          <td style="text-align: left">Links to other systems, as defined in main config file</td>
+      </tr>
+  </tbody>
 </table>
 
 </div>
@@ -502,7 +777,7 @@ This is simply how Sense works - the template fields just forward the informatio
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-de4574faf55327363573635d5028a3d4">2 - Alert template fields for Windows services events</h1>
+	<h1 id="pg-82225d53043484bead40fd488a27dd06">1.2 - Alert template fields for Windows services events</h1>
     <div class="lead">List of template fields available in Butler&rsquo;s Windows services alert messages.</div>
 	<h2 id="email-slack-and-teams">Email, Slack and Teams</h2>
 <p>Butler uses the <a href="https://handlebarsjs.com/">Handlebars</a> library for templating work.<br>
@@ -530,73 +805,73 @@ This gives a lot of flexibility in how alert messages are formatted for the dest
 <p>Note that some fields are usually (always?) empty, for example the script log for stopped messages.<br>
 This is simply how Sense works - the template fields just forward the information retrieved from the Sense APIs.</p>
 <table>
-<thead>
-<tr>
-<th>Email</th>
-<th>Slack</th>
-<th>Teams</th>
-<th>Field name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td><code>{{host}}</code></td>
-<td>The hostname of the server where the service is running</td>
-</tr>
-<tr>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td><code>{{serviceStatus}}</code></td>
-<td>The status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code></td>
-</tr>
-<tr>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td><code>{{servicePrevStatus}}</code></td>
-<td>The previous status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code></td>
-</tr>
-<tr>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td><code>{{serviceName}}</code></td>
-<td>The name of the service as defined in Windows</td>
-</tr>
-<tr>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td><code>{{serviceDisplayName}}</code></td>
-<td>The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName.</td>
-</tr>
-<tr>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td><code>{{serviceFriendlyName}}</code></td>
-<td>The display name of the service as defined in the Butler config file. Used to give the service a good name when both serviceName and serviceDisplayName are unsuitable for use in for example Grafana dashboards.</td>
-</tr>
-<tr>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td><code>{{serviceStartType}}</code></td>
-<td>The startup mode of the service, e.g. <code>Automatic</code> or <code>Manual</code></td>
-</tr>
-<tr>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td><code>{{serviceExePath}}</code></td>
-<td>The path to the executable of the service</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Email</th>
+          <th style="text-align: left">Slack</th>
+          <th style="text-align: left">Teams</th>
+          <th style="text-align: left">Field name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left"><code>{{host}}</code></td>
+          <td style="text-align: left">The hostname of the server where the service is running</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left"><code>{{serviceStatus}}</code></td>
+          <td style="text-align: left">The status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left"><code>{{servicePrevStatus}}</code></td>
+          <td style="text-align: left">The previous status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left"><code>{{serviceName}}</code></td>
+          <td style="text-align: left">The name of the service as defined in Windows</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left"><code>{{serviceDisplayName}}</code></td>
+          <td style="text-align: left">The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left"><code>{{serviceFriendlyName}}</code></td>
+          <td style="text-align: left">The display name of the service as defined in the Butler config file. Used to give the service a good name when both serviceName and serviceDisplayName are unsuitable for use in for example Grafana dashboards.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left"><code>{{serviceStartType}}</code></td>
+          <td style="text-align: left">The startup mode of the service, e.g. <code>Automatic</code> or <code>Manual</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left">✅</td>
+          <td style="text-align: left"><code>{{serviceExePath}}</code></td>
+          <td style="text-align: left">The path to the executable of the service</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="influxdb">InfluxDB</h2>
 <p>Window service data will be stored in the InfluxDB database specified in the config file <code>Butler.influxdb.dbName</code> setting.</p>
@@ -604,210 +879,210 @@ This is simply how Sense works - the template fields just forward the informatio
 <h3 id="fieldsmetrics">Fields/metrics</h3>
 <p>The following metrics will be stored in a measurement named <code>win_service_state</code>, for each Windows service:</p>
 <table>
-<thead>
-<tr>
-<th>Field name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>state_num</td>
-<td>A numeric representation of the Windows service&rsquo;s current state.</td>
-</tr>
-<tr>
-<td>state_text</td>
-<td>The Windows service&rsquo;s current state (textual representation).</td>
-</tr>
-<tr>
-<td>startup_mode_num</td>
-<td>A numeric representation of the Windows service&rsquo;s startup mode.</td>
-</tr>
-<tr>
-<td>startup_mode_text</td>
-<td>The Windows service&rsquo;s startup mode (textual representation).</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">state_num</td>
+          <td style="text-align: left">A numeric representation of the Windows service&rsquo;s current state.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">state_text</td>
+          <td style="text-align: left">The Windows service&rsquo;s current state (textual representation).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">startup_mode_num</td>
+          <td style="text-align: left">A numeric representation of the Windows service&rsquo;s startup mode.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">startup_mode_text</td>
+          <td style="text-align: left">The Windows service&rsquo;s startup mode (textual representation).</td>
+      </tr>
+  </tbody>
 </table>
 <p>Mapping of <code>state_num</code> to <code>state_text</code>:</p>
 <table>
-<thead>
-<tr>
-<th>state_num</th>
-<th>state_text</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>STOPPED</td>
-</tr>
-<tr>
-<td>2</td>
-<td>START_PENDING</td>
-</tr>
-<tr>
-<td>3</td>
-<td>STOP_PENDING</td>
-</tr>
-<tr>
-<td>4</td>
-<td>RUNNING</td>
-</tr>
-<tr>
-<td>5</td>
-<td>CONTINUE_PENDING</td>
-</tr>
-<tr>
-<td>6</td>
-<td>PAUSE_PENDING</td>
-</tr>
-<tr>
-<td>7</td>
-<td>PAUSED</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">state_num</th>
+          <th style="text-align: left">state_text</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">STOPPED</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2</td>
+          <td style="text-align: left">START_PENDING</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">3</td>
+          <td style="text-align: left">STOP_PENDING</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">4</td>
+          <td style="text-align: left">RUNNING</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">5</td>
+          <td style="text-align: left">CONTINUE_PENDING</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">6</td>
+          <td style="text-align: left">PAUSE_PENDING</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">7</td>
+          <td style="text-align: left">PAUSED</td>
+      </tr>
+  </tbody>
 </table>
 <p>Mapping of <code>startup_mode_num</code> to <code>startup_mode_text</code>:</p>
 <table>
-<thead>
-<tr>
-<th>startup_mode_num</th>
-<th>startup_mode_text</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>Automatic</td>
-</tr>
-<tr>
-<td>1</td>
-<td>Automatic (delayed start)</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Manual</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Disabled</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">startup_mode_num</th>
+          <th style="text-align: left">startup_mode_text</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">Automatic</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">Automatic (delayed start)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2</td>
+          <td style="text-align: left">Manual</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">3</td>
+          <td style="text-align: left">Disabled</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="tags">Tags</h3>
 <p>The following tags will be attached to all Windows service data stored in InfluxDB:</p>
 <table>
-<thead>
-<tr>
-<th>Tag name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>butler_instance</td>
-<td>The value in <code>Butler.influxDb.instanceTag</code>. Can be used to differentiate several Butler instances running in parallel.</td>
-</tr>
-<tr>
-<td>host</td>
-<td>Host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
-</tr>
-<tr>
-<td>service_name</td>
-<td>The name of the Windows service, as defined in Windows.</td>
-</tr>
-<tr>
-<td>service_display_name</td>
-<td>The display name of the Windows service, as defined in Windows.</td>
-</tr>
-<tr>
-<td>service_friendly_name</td>
-<td>The friendly name of the Windows service, as defined in the Butler config file <code>Butler.serviceMonitor.monitor.&lt;host&gt;.services.&lt;friendlyName&gt;</code>.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Tag name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">butler_instance</td>
+          <td style="text-align: left">The value in <code>Butler.influxDb.instanceTag</code>. Can be used to differentiate several Butler instances running in parallel.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">Host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">service_name</td>
+          <td style="text-align: left">The name of the Windows service, as defined in Windows.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">service_display_name</td>
+          <td style="text-align: left">The display name of the Windows service, as defined in Windows.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">service_friendly_name</td>
+          <td style="text-align: left">The friendly name of the Windows service, as defined in the Butler config file <code>Butler.serviceMonitor.monitor.&lt;host&gt;.services.&lt;friendlyName&gt;</code>.</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="new-relic">New Relic</h2>
 <p>Butler will create New Relic events and/or log entries when a monitored Windows service changes state, for example from <code>RUNNING</code> to <code>STOPPED</code>.</p>
 <h3 id="events">Events</h3>
 <p>Events sent to New Relic will have these attributes attached:</p>
 <table>
-<thead>
-<tr>
-<th>Attribute name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>eventType</td>
-<td>Always set to <code>qs_serviceStateEvent</code></td>
-</tr>
-<tr>
-<td>butler_serviceHost</td>
-<td>The host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
-</tr>
-<tr>
-<td>butler_serviceName</td>
-<td>The name of the Windows service, as defined in Windows.</td>
-</tr>
-<tr>
-<td>butler_serviceDisplayName</td>
-<td>The display name of the Windows service, as defined in Windows.</td>
-</tr>
-<tr>
-<td>butler_serviceStatus</td>
-<td>The status of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
-</tr>
-<tr>
-<td>&hellip;</td>
-<td>Any static and dynamic attributes defined in <code>Butler.incidentTool.newRelic.serviceMonitor.destination.event.attribute</code>.</td>
-</tr>
-<tr>
-<td>&hellip;</td>
-<td>Any static attributes defined in <code>Butler.incidentTool.newRelic.serviceMonitor.sharedSettings.attribute.static</code>.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Attribute name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">eventType</td>
+          <td style="text-align: left">Always set to <code>qs_serviceStateEvent</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butler_serviceHost</td>
+          <td style="text-align: left">The host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butler_serviceName</td>
+          <td style="text-align: left">The name of the Windows service, as defined in Windows.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butler_serviceDisplayName</td>
+          <td style="text-align: left">The display name of the Windows service, as defined in Windows.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butler_serviceStatus</td>
+          <td style="text-align: left">The status of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">&hellip;</td>
+          <td style="text-align: left">Any static and dynamic attributes defined in <code>Butler.incidentTool.newRelic.serviceMonitor.destination.event.attribute</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">&hellip;</td>
+          <td style="text-align: left">Any static attributes defined in <code>Butler.incidentTool.newRelic.serviceMonitor.sharedSettings.attribute.static</code>.</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="log-entries">Log entries</h3>
 <p>Log entries sent to New Relic will have these attributes attached:</p>
 <table>
-<thead>
-<tr>
-<th>Attribute name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>logType</td>
-<td>Always set to <code>qs_serviceStateLog</code></td>
-</tr>
-<tr>
-<td>butler_serviceHost</td>
-<td>The host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
-</tr>
-<tr>
-<td>butler_serviceName</td>
-<td>The name of the Windows service, as defined in Windows.</td>
-</tr>
-<tr>
-<td>butler_serviceDisplayName</td>
-<td>The display name of the Windows service, as defined in Windows.</td>
-</tr>
-<tr>
-<td>butler_serviceStatus</td>
-<td>The status of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
-</tr>
-<tr>
-<td>&hellip;</td>
-<td>Any static and dynamic attributes defined in <code>Butler.incidentTool.newRelic.serviceMonitor.destination.log.attribute</code>.</td>
-</tr>
-<tr>
-<td>&hellip;</td>
-<td>Any static attributes defined in <code>Butler.incidentTool.newRelic.serviceMonitor.sharedSettings.attribute.static</code>.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Attribute name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">logType</td>
+          <td style="text-align: left">Always set to <code>qs_serviceStateLog</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butler_serviceHost</td>
+          <td style="text-align: left">The host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butler_serviceName</td>
+          <td style="text-align: left">The name of the Windows service, as defined in Windows.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butler_serviceDisplayName</td>
+          <td style="text-align: left">The display name of the Windows service, as defined in Windows.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">butler_serviceStatus</td>
+          <td style="text-align: left">The status of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">&hellip;</td>
+          <td style="text-align: left">Any static and dynamic attributes defined in <code>Butler.incidentTool.newRelic.serviceMonitor.destination.log.attribute</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">&hellip;</td>
+          <td style="text-align: left">Any static attributes defined in <code>Butler.incidentTool.newRelic.serviceMonitor.sharedSettings.attribute.static</code>.</td>
+      </tr>
+  </tbody>
 </table>
 <p>The log message will be one of the following:</p>
 <ul>
@@ -824,126 +1099,126 @@ This is simply how Sense works - the template fields just forward the informatio
 <p>Butler will ALSO send an MQTT message to the topics specified in <code>Butler.mqttConfig.serviceRunningTopic</code> and <code>Butler.mqttConfig.serviceStoppedTopic</code> when a Windows service is stopped or started.</p>
 <p>Message payload for continuously sent messages is a JSON object with these properties:</p>
 <table>
-<thead>
-<tr>
-<th>Property name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>host</td>
-<td>The host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
-</tr>
-<tr>
-<td>serviceName</td>
-<td>The name of the Windows service, as defined in Windows.</td>
-</tr>
-<tr>
-<td>serviceFriendlyName</td>
-<td>The friendly name of the Windows service, as defined in the Butler config file <code>Butler.serviceMonitor.monitor.&lt;host&gt;.services.&lt;friendlyName&gt;</code>.</td>
-</tr>
-<tr>
-<td>serviceStatus</td>
-<td>The status of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
-</tr>
-<tr>
-<td>serviceDetails</td>
-<td>The details of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Property name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">The host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">serviceName</td>
+          <td style="text-align: left">The name of the Windows service, as defined in Windows.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">serviceFriendlyName</td>
+          <td style="text-align: left">The friendly name of the Windows service, as defined in the Butler config file <code>Butler.serviceMonitor.monitor.&lt;host&gt;.services.&lt;friendlyName&gt;</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">serviceStatus</td>
+          <td style="text-align: left">The status of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">serviceDetails</td>
+          <td style="text-align: left">The details of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+      </tr>
+  </tbody>
 </table>
 <p>Message payload for start/stop messages is a JSON object with these properties:</p>
 <table>
-<thead>
-<tr>
-<th>Property name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>host</td>
-<td>The host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
-</tr>
-<tr>
-<td>serviceName</td>
-<td>The name of the Windows service, as defined in Windows.</td>
-</tr>
-<tr>
-<td>serviceFriendlyName</td>
-<td>The friendly name of the Windows service, as defined in the Butler config file <code>Butler.serviceMonitor.monitor.&lt;host&gt;.services.&lt;friendlyName&gt;</code>.</td>
-</tr>
-<tr>
-<td>serviceStatus</td>
-<td>The status of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
-</tr>
-<tr>
-<td>serviceDetails</td>
-<td>The details of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
-</tr>
-<tr>
-<td>prevState</td>
-<td>The previous state of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
-</tr>
-<tr>
-<td>currState</td>
-<td>The current state of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
-</tr>
-<tr>
-<td>stateChanged</td>
-<td><code>true</code> if the Windows service changed state, <code>false</code> if not.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Property name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">The host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">serviceName</td>
+          <td style="text-align: left">The name of the Windows service, as defined in Windows.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">serviceFriendlyName</td>
+          <td style="text-align: left">The friendly name of the Windows service, as defined in the Butler config file <code>Butler.serviceMonitor.monitor.&lt;host&gt;.services.&lt;friendlyName&gt;</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">serviceStatus</td>
+          <td style="text-align: left">The status of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">serviceDetails</td>
+          <td style="text-align: left">The details of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">prevState</td>
+          <td style="text-align: left">The previous state of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">currState</td>
+          <td style="text-align: left">The current state of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">stateChanged</td>
+          <td style="text-align: left"><code>true</code> if the Windows service changed state, <code>false</code> if not.</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="outbound-webhooks">Outbound webhooks</h2>
 <p>Outbound webhooks (=http calls) are sent when a Windows service changes state, for example from <code>RUNNING</code> to <code>STOPPED</code>.</p>
 <p>The payload for PUT and POST http calls is sent in the message body as a JSON object with these properties:</p>
 <table>
-<thead>
-<tr>
-<th>Property name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event</td>
-<td>Always set to <code>Windows service monitor</code></td>
-</tr>
-<tr>
-<td>host</td>
-<td>The host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
-</tr>
-<tr>
-<td>serviceStatus</td>
-<td>The status of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
-</tr>
-<tr>
-<td>serviceName</td>
-<td>The name of the Windows service, as defined in Windows.</td>
-</tr>
-<tr>
-<td>serviceDisplayName</td>
-<td>The display name of the Windows service, as defined in Windows.</td>
-</tr>
-<tr>
-<td>serviceStartType</td>
-<td>The startup mode of the service, e.g. <code>Automatic</code> or <code>Manual</code></td>
-</tr>
-<tr>
-<td>prevState</td>
-<td>The previous state of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
-</tr>
-<tr>
-<td>currState</td>
-<td>The current state of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
-</tr>
-<tr>
-<td>stateChanged</td>
-<td><code>true</code> if the Windows service changed state, <code>false</code> if not.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Property name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">event</td>
+          <td style="text-align: left">Always set to <code>Windows service monitor</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">The host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">serviceStatus</td>
+          <td style="text-align: left">The status of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">serviceName</td>
+          <td style="text-align: left">The name of the Windows service, as defined in Windows.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">serviceDisplayName</td>
+          <td style="text-align: left">The display name of the Windows service, as defined in Windows.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">serviceStartType</td>
+          <td style="text-align: left">The startup mode of the service, e.g. <code>Automatic</code> or <code>Manual</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">prevState</td>
+          <td style="text-align: left">The previous state of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">currState</td>
+          <td style="text-align: left">The current state of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">stateChanged</td>
+          <td style="text-align: left"><code>true</code> if the Windows service changed state, <code>false</code> if not.</td>
+      </tr>
+  </tbody>
 </table>
 <p>The payload for GET http calls is sent as query parameters with the same properties as above, but with the  property names being all lowercase letters.</p>
 <p>A typical GET webhook URL would look like this:</p>
@@ -963,6 +1238,389 @@ This is simply how Sense works - the template fields just forward the informatio
   
   
 
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-9b83dca8152b07062d7495fea676a466">2 - Qlik Sense Cloud</h1>
+    <div class="lead">List of template fields available in alert messages for Qlik Sense Cloud.</div>
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-be9255d6c753896338d383dc1c1ad4d2">2.1 - Alert template fields for failed app reloads</h1>
+    <div class="lead">List of template fields available in Butler&rsquo;s failed app reload alert messages.</div>
+	<h2 id="template-fields">Template fields</h2>
+<p>Butler uses the <a href="https://handlebarsjs.com/">Handlebars</a> library for templating work.</p>
+<p>Handlebars offers a lot of useful features (nested template fields, evaluation context, template comments) and it&rsquo;s recommended that you browse through at least the <a href="https://handlebarsjs.com/guide/#installation">language features</a> section of their getting started guide to get a feeling for what&rsquo;s possible.</p>
+<p>If a template field is used for an alert type where that field is not supported, the field will simply be blank. No errors will occur, but it can still be tricky to debug if you&rsquo;re not aware of this.</p>
+<p>The following template fields are available in alert messages.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Failed app reload</th>
+          <th style="text-align: left">Field name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">tenantId</td>
+          <td style="text-align: left">ID of the tenant where the reload took place.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">tenantComment</td>
+          <td style="text-align: left">Comment for the tenant, as entered in Qlik Cloud.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">tenantUrl</td>
+          <td style="text-align: left">URL to the tenant.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">userId</td>
+          <td style="text-align: left">ID of the user who triggered the reload.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">userName</td>
+          <td style="text-align: left">Name of the user who triggered the reload.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appId</td>
+          <td style="text-align: left">ID of Sense app.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appName</td>
+          <td style="text-align: left">Name of app.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appDescription</td>
+          <td style="text-align: left">Description of app.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appUrl</td>
+          <td style="text-align: left">URL to the app.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appHasSectionAccess</td>
+          <td style="text-align: left">Does the app have section access? (true/false)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅ </td>
+          <td style="text-align: left">appIsPublished</td>
+          <td style="text-align: left">Is the app published? (true/false)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅ </td>
+          <td style="text-align: left">appPublishTime</td>
+          <td style="text-align: left">Date/time when app was published.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appThumbnail</td>
+          <td style="text-align: left">URL to the app thumbnail.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appOwnerName</td>
+          <td style="text-align: left">Name of app owner.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appOwnerUserId</td>
+          <td style="text-align: left">App owner user&rsquo;s user id.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appOwnerPicture</td>
+          <td style="text-align: left">URL to the app owner&rsquo;s profile picture.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appOwnerEmail</td>
+          <td style="text-align: left">App owner email.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">reloadTrigger</td>
+          <td style="text-align: left">What triggered the reload? Manually, scheduled etc.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">source</td>
+          <td style="text-align: left">Source of the reload. Usually <code>com.qlik/engine</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">eventType</td>
+          <td style="text-align: left">Type of QS Cloud event. For example <code>com.qlik.v1.app.reload.finished</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">eventTypeVersion</td>
+          <td style="text-align: left">Version of the event type.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">endedWithMemoryConstraint</td>
+          <td style="text-align: left">Did the reload end due to a memory constraint? (true/false)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">isDirectQueryMode</td>
+          <td style="text-align: left">Is the app in Direct Query mode? (true/false)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">isPartialReload</td>
+          <td style="text-align: left">Was the reload a partial reload? (true/false)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">isSessionApp</td>
+          <td style="text-align: left">Is the app a session app? (true/false)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">isSkipStore</td>
+          <td style="text-align: left">Should storing (to disk) the reloaded app be skipped? (true/false)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">reloadId</td>
+          <td style="text-align: left">ID of the reload.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">rowLimit</td>
+          <td style="text-align: left">Row limit for the reload.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">statements[]</td>
+          <td style="text-align: left">Array of statements from the engine.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">status</td>
+          <td style="text-align: left">Status of the reload. For example <code>error</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">usageDuration</td>
+          <td style="text-align: left">Duration of the reload.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">peakMemoryBytes</td>
+          <td style="text-align: left">Peak memory usage during the reload.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">sizeMemoryBytes</td>
+          <td style="text-align: left">Memory usage during the reload.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">appFileSize</td>
+          <td style="text-align: left">Size of app file (on disk).</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">errorCode</td>
+          <td style="text-align: left">Error code for the reload. For example <code>&quot;EngineReloadScriptError&quot;</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">errorMessage</td>
+          <td style="text-align: left">Error message for the reload. For example <code>&quot;error in app script or datasource&quot;</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">logMessage</td>
+          <td style="text-align: left">Log message from the Sense log files.<br>Example:<br> <code>&quot;ReloadID: 670e1df04cf4e529c035c902\r\nStarted loading data\r\n(A detailed script progress log can be downloaded when the reload is finished)\r\nCharacters &lt;&lt; AUTOGENERATE(26) 26 Lines fetched\r\nASCII &lt;&lt; AUTOGENERATE(255) 191 Lines fetched\r\nTransactions &lt;&lt; AUTOGENERATE(1000) 2,027 Lines fetched\r\n\r\nData has not been loaded. Please correct the error and try loading again.\r\nThe following error occurred:\r\nUnknown statement: ThisFailsForSure...\r\n \r\nThe engine error code: EDC_ERROR:11002\r\nThe error occurred here:\r\nThisFailsForSure...\r\n \r\n&quot;</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionDuration.hours</td>
+          <td style="text-align: left">executionDuration is a JSON object.<br>Duration of reload (hours part)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionDuration.minutes</td>
+          <td style="text-align: left">Duration of reload (minutes part)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionDuration.seconds</td>
+          <td style="text-align: left">Duration of reload (seconds part)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStartTime.startTimeUTC</td>
+          <td style="text-align: left">JSON object.<br>UTC timestamp for reload start</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStartTime.startTimeLocal1</td>
+          <td style="text-align: left">Reload start timestamp, format 1</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStartTime.startTimeLocal2</td>
+          <td style="text-align: left">Reload start timestamp, format 2</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStartTime.startTimeLocal3</td>
+          <td style="text-align: left">Reload start timestamp, format 3</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStartTime.startTimeLocal4</td>
+          <td style="text-align: left">Reload start timestamp, format 4</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStartTime.startTimeLocal5</td>
+          <td style="text-align: left">Reload start timestamp, format 5</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStopTime.stopTimeUTC</td>
+          <td style="text-align: left">JSON object.<br>UTC timestamp for reload end</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStopTime.stopTimeLocal1</td>
+          <td style="text-align: left">Reload end timestamp, format 1</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStopTime.stopTimeLocal2</td>
+          <td style="text-align: left">Reload end timestamp, format 2</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStopTime.stopTimeLocal3</td>
+          <td style="text-align: left">Reload end timestamp, format 3</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStopTime.stopTimeLocal4</td>
+          <td style="text-align: left">Reload end timestamp, format 4</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStopTime.stopTimeLocal5</td>
+          <td style="text-align: left">Reload end timestamp, format 5</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">executionStatusText</td>
+          <td style="text-align: left">Final reload task status message, for example <code>FAILED</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">scriptLogSize</td>
+          <td style="text-align: left">Size of the reload&rsquo;s script log (characters)</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">scriptLogHeadCount</td>
+          <td style="text-align: left">Number of lines extracted from the start of the script log</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">scriptLogTailCount</td>
+          <td style="text-align: left">The first y lines from the reload&rsquo;s script log</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">scriptLogHead</td>
+          <td style="text-align: left">The first x lines from the reload&rsquo;s script log</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">scriptLogTail</td>
+          <td style="text-align: left">Number of lines extracted from the end of the script log</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">qliksSenseQMC</td>
+          <td style="text-align: left">Links to QMC, as defined in main config file</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">qliksSenseHub</td>
+          <td style="text-align: left">Links to Hub, as defined in main config file</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">✅</td>
+          <td style="text-align: left">genericUrls</td>
+          <td style="text-align: left">Links to other systems, as defined in main config file</td>
+      </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
   
 
     

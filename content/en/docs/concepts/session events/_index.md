@@ -49,9 +49,9 @@ Butler will then use this information and take either of several possible action
 
 Messages sent to Slack and Teams can look like this:
 
-![alt text](/img/user-events-slack-1.png "User activity events in Slack")  
+![User activity events in Slack](/img/user-events-slack-1.png "User activity events in Slack")  
 
-![alt text](/img/user-events-teams-1.png "User activity events in Teams")  
+![User activity events in Teams](/img/user-events-teams-1.png "User activity events in Teams")  
 
 ## Enabling Slack, Teams and MQTT messages
 

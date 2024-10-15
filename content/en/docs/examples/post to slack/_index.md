@@ -34,8 +34,8 @@ With this taken care of, we can call any other Butler API.
     CALL PostToSlack('sense-reload-info', subfield(OSUser(),'UserId=',2) & ' on server: ' & ComputerName(), '*Reloaded by: ' & subfield(OSUser(),'UserId=',2) & '* <App name>: Reload starting', ':test:');  
 
 This will result in the following Slack entries:  
-![alt text](post_to_slack_1.png "Posting to Slack")  
-![alt text](post_to_slack_2.png "Posting to Slack")  
+![Posting to Slack](post_to_slack_1.png "Posting to Slack")  
+![Posting to Slack](post_to_slack_2.png "Posting to Slack")  
 
 ### Start a Sense task
 
@@ -90,21 +90,22 @@ Create a data connection (for example called "Sense app extract") using Qlik's R
 This will generate several thousands lines of code in the Sense script editor, modelling a Sense app's internal data model. 
 The Butler endpoint returns a JSON, which the REST connector then transforms into a Sense data model.
 To dynamically control which app is serialized you can use the "with connection" syntax.
-    
-    LIB CONNECT TO 'Sense app extract';
 
-    let vAppId = 'abcd1234-5678-abcd-1234-abcd1234abcd';
+```sql
+LIB CONNECT TO 'Sense app extract';
 
-    RestConnectorMasterTable:
-    SQL SELECT 
-	"loadScript",
-    ...
-    FROM JSON (wrap on) "root" PK "__KEY_root"
-    WITH CONNECTION (
-    QUERY "guid" "$(vAppId)");
-    ...
+let vAppId = 'abcd1234-5678-abcd-1234-abcd1234abcd';
 
+RestConnectorMasterTable:
+SQL SELECT 
+"loadScript",
+...
+FROM JSON (wrap on) "root" PK "__KEY_root"
+WITH CONNECTION (
+QUERY "guid" "$(vAppId)");
+...
+```
 
 Here is what the Sense data model can look like for a Sense app:
 
-![alt text](data_model_of_a_qlik_sense_app.png "Qlik Sense app data model")  
+![Qlik Sense app data model](data_model_of_a_qlik_sense_app.png "Qlik Sense app data model")  

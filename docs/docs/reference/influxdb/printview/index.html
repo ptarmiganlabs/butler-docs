@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.135.0">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/reference/influxdb/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/reference/influxdb/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -114,423 +114,423 @@ This is the multi-page printable view of this section.
 <p>Measurement: <code>reload_task_failed</code></p>
 <h3 id="tags">Tags</h3>
 <table>
-<thead>
-<tr>
-<th>Tag name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>host</td>
-<td>Server on which the reload took place.</td>
-</tr>
-<tr>
-<td>user</td>
-<td>Full user info (directory + ID) for user doing the reload. Typically <code>sa_scheduler</code> for tasks started via scheduler. For manually started (from QMC) tasks the actual user starting the task is used.</td>
-</tr>
-<tr>
-<td>task_id</td>
-<td>ID of reload task that failed.</td>
-</tr>
-<tr>
-<td>task_name</td>
-<td>Name of reload task that failed.</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>ID of Sense app whose reload failed.</td>
-</tr>
-<tr>
-<td>app_name</td>
-<td>Name of Sense app whose reload failed.</td>
-</tr>
-<tr>
-<td>log_level</td>
-<td>Log level of the Sense log file entry causing the alert</td>
-</tr>
-<tr>
-<td>task_executingNodeName</td>
-<td>Name of node where the reload task was executed.</td>
-</tr>
-<tr>
-<td>task_executionStatusNum</td>
-<td>Reload task&rsquo;s execution result code (numeric).</td>
-</tr>
-<tr>
-<td>task_executionStatusText</td>
-<td>Reload task&rsquo;s execution result (text).</td>
-</tr>
-<tr>
-<td>appTag_&lt;app tag name 1 from Qlik Sense&gt;</td>
-<td>App tag defined in the QMC for the Qlik Sense app.</td>
-</tr>
-<tr>
-<td>appTag_&lt;app tag name 2 from Qlik Sense&gt;</td>
-<td>App tag defined in the QMC for the Qlik Sense app.</td>
-</tr>
-<tr>
-<td>taskTag_&lt;reload task tag name 1 from Qlik Sense&gt;</td>
-<td>Task tag defined in the QMC for the Qlik Sense reload task.</td>
-</tr>
-<tr>
-<td>taskTag_&lt;reload task tag name 2 from Qlik Sense&gt;</td>
-<td>Task tag defined in the QMC for the Qlik Sense reload task.</td>
-</tr>
-<tr>
-<td>static-tag-1</td>
-<td>Static tag specified in the Butler configuration file.</td>
-</tr>
-<tr>
-<td>static-tag-2</td>
-<td>Static tag specified in the Butler configuration file.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Tag name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">Server on which the reload took place.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user</td>
+          <td style="text-align: left">Full user info (directory + ID) for user doing the reload. Typically <code>sa_scheduler</code> for tasks started via scheduler. For manually started (from QMC) tasks the actual user starting the task is used.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_id</td>
+          <td style="text-align: left">ID of reload task that failed.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_name</td>
+          <td style="text-align: left">Name of reload task that failed.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">app_id</td>
+          <td style="text-align: left">ID of Sense app whose reload failed.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">app_name</td>
+          <td style="text-align: left">Name of Sense app whose reload failed.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">log_level</td>
+          <td style="text-align: left">Log level of the Sense log file entry causing the alert</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_executingNodeName</td>
+          <td style="text-align: left">Name of node where the reload task was executed.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_executionStatusNum</td>
+          <td style="text-align: left">Reload task&rsquo;s execution result code (numeric).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_executionStatusText</td>
+          <td style="text-align: left">Reload task&rsquo;s execution result (text).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">appTag_&lt;app tag name 1 from Qlik Sense&gt;</td>
+          <td style="text-align: left">App tag defined in the QMC for the Qlik Sense app.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">appTag_&lt;app tag name 2 from Qlik Sense&gt;</td>
+          <td style="text-align: left">App tag defined in the QMC for the Qlik Sense app.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">taskTag_&lt;reload task tag name 1 from Qlik Sense&gt;</td>
+          <td style="text-align: left">Task tag defined in the QMC for the Qlik Sense reload task.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">taskTag_&lt;reload task tag name 2 from Qlik Sense&gt;</td>
+          <td style="text-align: left">Task tag defined in the QMC for the Qlik Sense reload task.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">static-tag-1</td>
+          <td style="text-align: left">Static tag specified in the Butler configuration file.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">static-tag-2</td>
+          <td style="text-align: left">Static tag specified in the Butler configuration file.</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="fields">Fields</h3>
 <table>
-<thead>
-<tr>
-<th>Field name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>log_timestamp</td>
-<td>Timestamp of the Sense log file entry that triggered the event.</td>
-</tr>
-<tr>
-<td>execution_id</td>
-<td> Execution ID of the reload task.</td>
-</tr>
-<tr>
-<td>log_message</td>
-<td>Raw message from the Sense log file entry that triggered the alert.</td>
-</tr>
-<tr>
-<td>task_executionStartTime_json</td>
-<td>Start time of the reload task. Stringified JSON with seconds, minutes, hours.</td>
-</tr>
-<tr>
-<td>task_executionStopTime_json</td>
-<td>Stop time of the reload task. Stringified JSON with seconds, minutes, hours.</td>
-</tr>
-<tr>
-<td>task_executionDuration_json</td>
-<td>Duration of the reload task. Stringified JSON with seconds, minutes, hours.</td>
-</tr>
-<tr>
-<td>task_executionDuration_sec</td>
-<td>Duration of the reload task in seconds.</td>
-</tr>
-<tr>
-<td>task_executionDuration_min</td>
-<td>Duration of the reload task in minutes.</td>
-</tr>
-<tr>
-<td>task_executionDuration_h</td>
-<td>Duration of the reload task in hours.</td>
-</tr>
-<tr>
-<td>task_scriptLogSize</td>
-<td>Size (number of characters) of the reload script log associated with the event.</td>
-</tr>
-<tr>
-<td>task_scriptLogTailCount</td>
-<td>Number of lines from the end of the reload script log that are included in the event.</td>
-</tr>
-<tr>
-<td>reload_log</td>
-<td>Last few lines of the reload script log associated with the event.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">log_timestamp</td>
+          <td style="text-align: left">Timestamp of the Sense log file entry that triggered the event.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">execution_id</td>
+          <td style="text-align: left"> Execution ID of the reload task.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">log_message</td>
+          <td style="text-align: left">Raw message from the Sense log file entry that triggered the alert.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_executionStartTime_json</td>
+          <td style="text-align: left">Start time of the reload task. Stringified JSON with seconds, minutes, hours.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_executionStopTime_json</td>
+          <td style="text-align: left">Stop time of the reload task. Stringified JSON with seconds, minutes, hours.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_executionDuration_json</td>
+          <td style="text-align: left">Duration of the reload task. Stringified JSON with seconds, minutes, hours.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_executionDuration_sec</td>
+          <td style="text-align: left">Duration of the reload task in seconds.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_executionDuration_min</td>
+          <td style="text-align: left">Duration of the reload task in minutes.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_executionDuration_h</td>
+          <td style="text-align: left">Duration of the reload task in hours.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_scriptLogSize</td>
+          <td style="text-align: left">Size (number of characters) of the reload script log associated with the event.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_scriptLogTailCount</td>
+          <td style="text-align: left">Number of lines from the end of the reload script log that are included in the event.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">reload_log</td>
+          <td style="text-align: left">Last few lines of the reload script log associated with the event.</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="successful-reload-tasks">Successful reload tasks</h2>
 <p>Measurement: <code>reload_task_success</code></p>
 <h3 id="tags-1">Tags</h3>
 <table>
-<thead>
-<tr>
-<th>Tag name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>host</td>
-<td>Server on which the reload took place.</td>
-</tr>
-<tr>
-<td>user</td>
-<td>Full user info (directory + ID) for user doing the reload. Typically <code>sa_scheduler</code> for tasks started via scheduler. For manually started (from QMC) tasks the actual user starting the task is used.</td>
-</tr>
-<tr>
-<td>task_id</td>
-<td>ID of reload task.</td>
-</tr>
-<tr>
-<td>task_name</td>
-<td>Name of reload task.</td>
-</tr>
-<tr>
-<td>app_id</td>
-<td>ID of Sense app that was reloaded.</td>
-</tr>
-<tr>
-<td>app_name</td>
-<td>Name of Sense app that was reloaded.</td>
-</tr>
-<tr>
-<td>log_level</td>
-<td>Log level of the Sense log file entry causing the event</td>
-</tr>
-<tr>
-<td>task_executingNodeName</td>
-<td>Name of node where the reload task was executed.</td>
-</tr>
-<tr>
-<td>task_executionStatusNum</td>
-<td>Reload task&rsquo;s execution result code (numeric).</td>
-</tr>
-<tr>
-<td>task_executionStatusText</td>
-<td>Reload task&rsquo;s execution result (text).</td>
-</tr>
-<tr>
-<td>appTag_&lt;app tag name 1 from Qlik Sense&gt;</td>
-<td>App tag defined in the QMC for the Qlik Sense app.</td>
-</tr>
-<tr>
-<td>appTag_&lt;app tag name 2 from Qlik Sense&gt;</td>
-<td>App tag defined in the QMC for the Qlik Sense app.</td>
-</tr>
-<tr>
-<td>taskTag_&lt;reload task tag name 1 from Qlik Sense&gt;</td>
-<td>Task tag defined in the QMC for the Qlik Sense reload task.</td>
-</tr>
-<tr>
-<td>taskTag_&lt;reload task tag name 2 from Qlik Sense&gt;</td>
-<td>Task tag defined in the QMC for the Qlik Sense reload task.</td>
-</tr>
-<tr>
-<td>static-tag-1</td>
-<td>Static tag specified in the Butler configuration file.</td>
-</tr>
-<tr>
-<td>static-tag-2</td>
-<td>Static tag specified in the Butler configuration file.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Tag name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">Server on which the reload took place.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">user</td>
+          <td style="text-align: left">Full user info (directory + ID) for user doing the reload. Typically <code>sa_scheduler</code> for tasks started via scheduler. For manually started (from QMC) tasks the actual user starting the task is used.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_id</td>
+          <td style="text-align: left">ID of reload task.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_name</td>
+          <td style="text-align: left">Name of reload task.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">app_id</td>
+          <td style="text-align: left">ID of Sense app that was reloaded.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">app_name</td>
+          <td style="text-align: left">Name of Sense app that was reloaded.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">log_level</td>
+          <td style="text-align: left">Log level of the Sense log file entry causing the event</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_executingNodeName</td>
+          <td style="text-align: left">Name of node where the reload task was executed.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_executionStatusNum</td>
+          <td style="text-align: left">Reload task&rsquo;s execution result code (numeric).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_executionStatusText</td>
+          <td style="text-align: left">Reload task&rsquo;s execution result (text).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">appTag_&lt;app tag name 1 from Qlik Sense&gt;</td>
+          <td style="text-align: left">App tag defined in the QMC for the Qlik Sense app.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">appTag_&lt;app tag name 2 from Qlik Sense&gt;</td>
+          <td style="text-align: left">App tag defined in the QMC for the Qlik Sense app.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">taskTag_&lt;reload task tag name 1 from Qlik Sense&gt;</td>
+          <td style="text-align: left">Task tag defined in the QMC for the Qlik Sense reload task.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">taskTag_&lt;reload task tag name 2 from Qlik Sense&gt;</td>
+          <td style="text-align: left">Task tag defined in the QMC for the Qlik Sense reload task.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">static-tag-1</td>
+          <td style="text-align: left">Static tag specified in the Butler configuration file.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">static-tag-2</td>
+          <td style="text-align: left">Static tag specified in the Butler configuration file.</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="fields-1">Fields</h3>
 <table>
-<thead>
-<tr>
-<th>Field name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>log_timestamp</td>
-<td>Timestamp of the Sense log file entry that triggered the event.</td>
-</tr>
-<tr>
-<td>execution_id</td>
-<td> Execution ID of the reload task.</td>
-</tr>
-<tr>
-<td>log_message</td>
-<td>Raw message from the Sense log file entry that triggered the event.</td>
-</tr>
-<tr>
-<td>task_executionStartTime_json</td>
-<td>Start time of the reload task. Stringified JSON with seconds, minutes, hours.</td>
-</tr>
-<tr>
-<td>task_executionStopTime_json</td>
-<td>Stop time of the reload task. Stringified JSON with seconds, minutes, hours.</td>
-</tr>
-<tr>
-<td>task_executionDuration_json</td>
-<td>Duration of the reload task. Stringified JSON with seconds, minutes, hours.</td>
-</tr>
-<tr>
-<td>task_executionDuration_sec</td>
-<td>Duration of the reload task in seconds.</td>
-</tr>
-<tr>
-<td>task_executionDuration_min</td>
-<td>Duration of the reload task in minutes.</td>
-</tr>
-<tr>
-<td>task_executionDuration_h</td>
-<td>Duration of the reload task in hours.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">log_timestamp</td>
+          <td style="text-align: left">Timestamp of the Sense log file entry that triggered the event.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">execution_id</td>
+          <td style="text-align: left"> Execution ID of the reload task.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">log_message</td>
+          <td style="text-align: left">Raw message from the Sense log file entry that triggered the event.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_executionStartTime_json</td>
+          <td style="text-align: left">Start time of the reload task. Stringified JSON with seconds, minutes, hours.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_executionStopTime_json</td>
+          <td style="text-align: left">Stop time of the reload task. Stringified JSON with seconds, minutes, hours.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_executionDuration_json</td>
+          <td style="text-align: left">Duration of the reload task. Stringified JSON with seconds, minutes, hours.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_executionDuration_sec</td>
+          <td style="text-align: left">Duration of the reload task in seconds.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_executionDuration_min</td>
+          <td style="text-align: left">Duration of the reload task in minutes.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">task_executionDuration_h</td>
+          <td style="text-align: left">Duration of the reload task in hours.</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="windows-service-info">Windows service info</h2>
 <p>Measurement: <code>win_service_state</code></p>
 <h3 id="tags-2">Tags</h3>
 <table>
-<thead>
-<tr>
-<th>Tag name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>butler_instance</td>
-<td>Name of the Butler instance, from config file.</td>
-</tr>
-<tr>
-<td>host</td>
-<td>Server on which the reload took place.</td>
-</tr>
-<tr>
-<td>service_name</td>
-<td>Name of the Windows service.</td>
-</tr>
-<tr>
-<td>display_name</td>
-<td>Display name of the Windows service.</td>
-</tr>
-<tr>
-<td>friendly_name</td>
-<td>Friendly name of the Windows service (as defined in the Butler config file).</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Tag name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">butler_instance</td>
+          <td style="text-align: left">Name of the Butler instance, from config file.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">host</td>
+          <td style="text-align: left">Server on which the reload took place.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">service_name</td>
+          <td style="text-align: left">Name of the Windows service.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">display_name</td>
+          <td style="text-align: left">Display name of the Windows service.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">friendly_name</td>
+          <td style="text-align: left">Friendly name of the Windows service (as defined in the Butler config file).</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="fields-2">Fields</h3>
 <table>
-<thead>
-<tr>
-<th>Field name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>state_num</td>
-<td>State of the Windows service (numeric).</td>
-</tr>
-<tr>
-<td>state_text</td>
-<td>State of the Windows service (text).</td>
-</tr>
-<tr>
-<td>startup_mode_num</td>
-<td>Startup mode of the Windows service (numeric).</td>
-</tr>
-<tr>
-<td>startup_mode_text</td>
-<td>Startup mode of the Windows service (text).</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">state_num</td>
+          <td style="text-align: left">State of the Windows service (numeric).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">state_text</td>
+          <td style="text-align: left">State of the Windows service (text).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">startup_mode_num</td>
+          <td style="text-align: left">Startup mode of the Windows service (numeric).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">startup_mode_text</td>
+          <td style="text-align: left">Startup mode of the Windows service (text).</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="qlik-sense-server-version-info">Qlik Sense server version info</h2>
 <p>Measurement: <code>qlik_sense_version</code></p>
 <h3 id="tags-3">Tags</h3>
 <table>
-<thead>
-<tr>
-<th>Tag name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>butler_instance</td>
-<td>Name of the Butler instance, from <code>Butler.influxDb.instanceTag</code> in config file.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Tag name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">butler_instance</td>
+          <td style="text-align: left">Name of the Butler instance, from <code>Butler.influxDb.instanceTag</code> in config file.</td>
+      </tr>
+  </tbody>
 </table>
 <p>In addition to above, all tags defined in <code>Butler.qlikSenseVersion.versionMonitor.destination.influxDb.tag.static</code> in the config file are added to each datapoint that is sent to InfluxDB.</p>
 <h3 id="fields-3">Fields</h3>
 <table>
-<thead>
-<tr>
-<th>Field name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>content_hash</td>
-<td>Content hash, as returned from the Sense version API.</td>
-</tr>
-<tr>
-<td>sense_id</td>
-<td>Sense ID, as returned from the Sense version API. This is usually on the form <code>qliksenseserver:&lt;version&gt;</code></td>
-</tr>
-<tr>
-<td>product_name</td>
-<td>Sense product name, for example <code>Qlik Sense</code></td>
-</tr>
-<tr>
-<td>deployment_type</td>
-<td>Sense deployment type, for example <code>QlikSenseServer</code></td>
-</tr>
-<tr>
-<td>version</td>
-<td>Sense version, for example <code>14.173.4</code></td>
-</tr>
-<tr>
-<td>release_label</td>
-<td>Sense release label, for example <code>February 2024 Patch 1</code></td>
-</tr>
-<tr>
-<td>deprecated_product_version</td>
-<td>Sense old/deprecated product version, for example <code>4.0.x</code></td>
-</tr>
-<tr>
-<td>copyright_year_range</td>
-<td>Sense copyright year range, for example <code>1993-2024</code></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">content_hash</td>
+          <td style="text-align: left">Content hash, as returned from the Sense version API.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">sense_id</td>
+          <td style="text-align: left">Sense ID, as returned from the Sense version API. This is usually on the form <code>qliksenseserver:&lt;version&gt;</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">product_name</td>
+          <td style="text-align: left">Sense product name, for example <code>Qlik Sense</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">deployment_type</td>
+          <td style="text-align: left">Sense deployment type, for example <code>QlikSenseServer</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">version</td>
+          <td style="text-align: left">Sense version, for example <code>14.173.4</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">release_label</td>
+          <td style="text-align: left">Sense release label, for example <code>February 2024 Patch 1</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">deprecated_product_version</td>
+          <td style="text-align: left">Sense old/deprecated product version, for example <code>4.0.x</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">copyright_year_range</td>
+          <td style="text-align: left">Sense copyright year range, for example <code>1993-2024</code></td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="qlik-sense-server-license-info">Qlik Sense server license info</h2>
 <p>Measurement: <code>qlik_sense_server_license</code></p>
 <h3 id="tags-4">Tags</h3>
 <table>
-<thead>
-<tr>
-<th>Tag name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>butler_instance</td>
-<td>Name of the Butler instance, from <code>Butler.influxDb.instanceTag</code> in config file.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Tag name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">butler_instance</td>
+          <td style="text-align: left">Name of the Butler instance, from <code>Butler.influxDb.instanceTag</code> in config file.</td>
+      </tr>
+  </tbody>
 </table>
 <p>In addition to above, all tags defined in <code>Butler.qlikSenseLicense.serverLicenseMonitor.destination.influxDb.tag.static</code> in the config file are added to each datapoint that is sent to InfluxDB.</p>
 <h3 id="fields-4">Fields</h3>
 <table>
-<thead>
-<tr>
-<th>Field name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>license_expired</td>
-<td>Whether the Sense license has expired. true/false.</td>
-</tr>
-<tr>
-<td>expiry_date</td>
-<td>Expiry date of the Sense server license, <code>YYYY-MM-DD</code> formaat.</td>
-</tr>
-<tr>
-<td>days_until_expiry</td>
-<td>Number of days until the Sense server license expires. If expiration date has passed this number will be negative.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">license_expired</td>
+          <td style="text-align: left">Whether the Sense license has expired. true/false.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">expiry_date</td>
+          <td style="text-align: left">Expiry date of the Sense server license, <code>YYYY-MM-DD</code> formaat.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">days_until_expiry</td>
+          <td style="text-align: left">Number of days until the Sense server license expires. If expiration date has passed this number will be negative.</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="qlik-sense-end-user-access-license-info">Qlik Sense end user access license info</h2>
 <p>The access license information returned by the Qlik Sense API is not very well documented by Qlik.<br>
@@ -549,199 +549,199 @@ This is highlighted for each affected field below.</p>
 <p>The tags are the same for all license types, but the fields differ as follows.</p>
 <h3 id="tags-5">Tags</h3>
 <table>
-<thead>
-<tr>
-<th>Tag name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>butler_instance</td>
-<td>Name of the Butler instance, from <code>Butler.influxDb.instanceTag</code> in config file.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Tag name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">butler_instance</td>
+          <td style="text-align: left">Name of the Butler instance, from <code>Butler.influxDb.instanceTag</code> in config file.</td>
+      </tr>
+  </tbody>
 </table>
 <p>In addition to above, all tags defined in <code>Butler.qlikSenseLicense.licenseMonitor.destination.influxDb.tag.static</code> in the config file are added to each datapoint that is sent to InfluxDB.</p>
 <h3 id="license-types-professional-and-analyzer">License types &ldquo;professional&rdquo; and &ldquo;analyzer&rdquo;</h3>
 <table>
-<thead>
-<tr>
-<th>Field name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>allocated</td>
-<td>Number of allocated professional licenses.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>Number of available professional licenses.</td>
-</tr>
-<tr>
-<td>excess</td>
-<td>Number of excess professional licenses. <em>Unclear what this means.</em></td>
-</tr>
-<tr>
-<td>quarantined</td>
-<td>Number of quarantined professional licenses.</td>
-</tr>
-<tr>
-<td>total</td>
-<td>Total number of professional licenses included in the installed Qlik Sense license.</td>
-</tr>
-<tr>
-<td>used</td>
-<td>Number of professional licenses in use right now.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">allocated</td>
+          <td style="text-align: left">Number of allocated professional licenses.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">available</td>
+          <td style="text-align: left">Number of available professional licenses.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">excess</td>
+          <td style="text-align: left">Number of excess professional licenses. <em>Unclear what this means.</em></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">quarantined</td>
+          <td style="text-align: left">Number of quarantined professional licenses.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">total</td>
+          <td style="text-align: left">Total number of professional licenses included in the installed Qlik Sense license.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">used</td>
+          <td style="text-align: left">Number of professional licenses in use right now.</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="license-type-analyzer_capacity">License type &ldquo;analyzer_capacity&rdquo;</h3>
 <table>
-<thead>
-<tr>
-<th>Field name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>allocated_minutes</td>
-<td>Total number of analyzer capacity minutes available in the installed Qlik Sense license.</td>
-</tr>
-<tr>
-<td>unavailable_minutes</td>
-<td>Number of analyzer capacity minutes that are currently unavailable. <em>Unclear what this means.</em></td>
-</tr>
-<tr>
-<td>used_minutes</td>
-<td>Number of analyzer capacity minutes used so far this month.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">allocated_minutes</td>
+          <td style="text-align: left">Total number of analyzer capacity minutes available in the installed Qlik Sense license.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">unavailable_minutes</td>
+          <td style="text-align: left">Number of analyzer capacity minutes that are currently unavailable. <em>Unclear what this means.</em></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">used_minutes</td>
+          <td style="text-align: left">Number of analyzer capacity minutes used so far this month.</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="license-type-token_login">License type &ldquo;token_login&rdquo;</h3>
 <table>
-<thead>
-<tr>
-<th>Field name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>allocated_tokens</td>
-<td><em>Unclear what this means.</em></td>
-</tr>
-<tr>
-<td>token_cost</td>
-<td><em>Unclear what this means.</em></td>
-</tr>
-<tr>
-<td>unavailable_tokens</td>
-<td><em>Unclear what this means.</em></td>
-</tr>
-<tr>
-<td>used_tokens</td>
-<td><em>Unclear what this means.</em></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">allocated_tokens</td>
+          <td style="text-align: left"><em>Unclear what this means.</em></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">token_cost</td>
+          <td style="text-align: left"><em>Unclear what this means.</em></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">unavailable_tokens</td>
+          <td style="text-align: left"><em>Unclear what this means.</em></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">used_tokens</td>
+          <td style="text-align: left"><em>Unclear what this means.</em></td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="license-type-token_user">License type &ldquo;token_user&rdquo;</h3>
 <table>
-<thead>
-<tr>
-<th>Field name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>allocated_tokens</td>
-<td><em>Unclear what this means.</em></td>
-</tr>
-<tr>
-<td>quarantined_tokens</td>
-<td><em>Unclear what this means.</em></td>
-</tr>
-<tr>
-<td>token_cost</td>
-<td><em>Unclear what this means.</em></td>
-</tr>
-<tr>
-<td>used_tokens</td>
-<td><em>Unclear what this means.</em></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">allocated_tokens</td>
+          <td style="text-align: left"><em>Unclear what this means.</em></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">quarantined_tokens</td>
+          <td style="text-align: left"><em>Unclear what this means.</em></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">token_cost</td>
+          <td style="text-align: left"><em>Unclear what this means.</em></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">used_tokens</td>
+          <td style="text-align: left"><em>Unclear what this means.</em></td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="license-type-tokens_available">License type &ldquo;tokens_available&rdquo;</h3>
 <p>This license type contains aggregated token information.</p>
 <table>
-<thead>
-<tr>
-<th>Field name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>available_tokens</td>
-<td>Number of tokens available. <em>Unclear what this means.</em></td>
-</tr>
-<tr>
-<td>total_tokens</td>
-<td>Total number of tokens included in the installed Qlik Sense license. <em>Unclear what this means.</em></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">available_tokens</td>
+          <td style="text-align: left">Number of tokens available. <em>Unclear what this means.</em></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">total_tokens</td>
+          <td style="text-align: left">Total number of tokens included in the installed Qlik Sense license. <em>Unclear what this means.</em></td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="butler-uptime-info">Butler uptime info</h2>
 <p>Measurement: <code>butler_memory_usage</code></p>
 <h3 id="tags-6">Tags</h3>
 <table>
-<thead>
-<tr>
-<th>Tag name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>butler_instance</td>
-<td>Name of the Butler instance, from config file.</td>
-</tr>
-<tr>
-<td>version</td>
-<td>Version of Butler.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Tag name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">butler_instance</td>
+          <td style="text-align: left">Name of the Butler instance, from config file.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">version</td>
+          <td style="text-align: left">Version of Butler.</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="fields-5">Fields</h3>
 <table>
-<thead>
-<tr>
-<th>Field name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>heap_used</td>
-<td>Amount of heap memory used by Butler.</td>
-</tr>
-<tr>
-<td>heap_total</td>
-<td>Total amount of heap memory available to Butler.</td>
-</tr>
-<tr>
-<td>external</td>
-<td>Amount of external memory used by Butler.</td>
-</tr>
-<tr>
-<td>process_memory</td>
-<td>Amount of memory used by the Butler process.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Field name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">heap_used</td>
+          <td style="text-align: left">Amount of heap memory used by Butler.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">heap_total</td>
+          <td style="text-align: left">Total amount of heap memory available to Butler.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">external</td>
+          <td style="text-align: left">Amount of external memory used by Butler.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">process_memory</td>
+          <td style="text-align: left">Amount of memory used by the Butler process.</td>
+      </tr>
+  </tbody>
 </table>
 
 </div>

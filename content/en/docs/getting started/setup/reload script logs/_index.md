@@ -6,41 +6,58 @@ description: >
     Butler can detect, capture and store all script logs of reload tasks that failed.  
 
     This makes it much easier to find and analyse the script logs of faile reloads.
+
+
+    Works with both client-managed Qlik Sense and Qlik Sense Cloud.
 ---
 
 ## What's this?
 
-The idea is to save the full script logs of failed app reloads.  
+The idea is to save the full script logs of failed reloads.  
 Having access to the full logs can sometimes be what's needed to understand what caused the failure.
 
-* The logs are store in separate directories for each date.
-* The file name of the script log consists of timestamp of the reload failure, app ID and task ID.
+* Log files from client-managed Qlik Sense are stored in one directory hierarchy, while logs from Qlik Sense Cloud are stored in another.
+* The files are store in separate directories for each date.
+* The file name of the script log consists of
+  * Client-managed: `<timestamp of the reload failure>_<app ID>_<task ID>.log`
+  * Qlik Sense Cloud: `<timestamp of the reload failure>_<app ID>_<reload ID>`
 
-Using a standalone Butler executable on Windows Server it can look like this:
+Could look like this:
 
 ```bash
 .
-├── butler.exe
-├── log
-│   └── butler.2022-04-07.log
-├── production.yaml
 └── scriptlog
-    ├── 2022-04-06
-    │   ├── 2022-04-06_15-36-12_appId=deba4bcf-47e4-472e-97b2-4fe8d6498e11_taskId=0d815a99-1ca3-4131-a398-6878bd735fd8.log
-    │   └── 2022-04-06_22-42-35_appId=66bc109d-286a-415b-8355-1422abb22133_taskId=e959f40a-67be-4a5b-ae83-a292f96ba078.log
-    └── 2022-04-07
-        └── 2022-04-07_05-49-16_appId=deba4bcf-47e4-472e-97b2-4fe8d6498e11_taskId=0d815a99-1ca3-4131-a398-6878bd735fd8.log
+    ├── qscloud
+    │   └── 2024-10-14
+    │       └── 2024-10-14T11-41-31_appId=86ee4ae7-7ae7-4dd4-98a1-ebea989f78fb_reloadId=670d0369dededd0781e18ade.log
+    └── qseow
+        └── 2024-10-10
+            └── 2024-10-10_15-35-25_appId=8f1d1ecf-97a6-4eb5-8f47-f9156300b854_taskId=22b106a8-e7ed-4466-b700-014f060bef16.log
+
+5 directories, 2 files
 ```
 
 ## How it works
+
+### Client-managed Qlik Sense
 
 This feature relies on the same Qlik Sense log appenders that the [reload alerts](/docs/getting-started/setup/reload-alerts/) uses. Please see that page for an in-depth discussion on how log appenders work and how to set them up.
 
 ![Butler high level system overview](/img/butler-failed-reload-log-1.png 'Butler high level system overview')
 
 {{< notice warning >}}
-The log appenders that catch failed reloads in the Qlik Sense scheduler must be set up on all Qlik Sense servers where reloads are happening for this feature to work.
+The log appenders that catch failed reloads in the Qlik Sense scheduler must be set up on all Qlik Sense servers where reloads are happening for this feature to reliably capture *all* failed reloads.
 {{< /notice >}}
+
+### Qlik Sense Cloud
+
+Storing script logs on disk is closely associated with sending alerts about failed reloads.
+
+Those alerts (email, Slack, Teams) can include the first and last few lines of the script log, whereas the full log is stored on disk using the feature described on this page.
+
+![Butler and Qlik Sense Cloud overview](/img/butler-cloud-app-reload-failed-alert-1.png 'Butler and Qlik Sense Cloud overview')
+
+Butler listens to the Qlik Sense Cloud event stream and captures the script logs of failed reloads.
 
 ## Settings in config file
 
@@ -51,11 +68,17 @@ Butler:
   ...
   # Store script logs of failed reloads on disk.
   # The script logs will be stored in daily directories under the specified main directory below
+  # NOTE: Use an absolute path when running Butler as a standalone executable! 
   scriptLog:
     storeOnDisk:
-      reloadTaskFailure:
-        enable: false
-        logDirectory: /path/to/scriptlogs
+      clientManaged:
+        reloadTaskFailure:
+          enable: false
+          logDirectory: /path/to/scriptlogs/qseow
+      qsCloud:
+        appReloadFailure:
+          enable: false
+          logDirectory: /path/to/scriptlogs/qscloud
   ...
   ...
 ```

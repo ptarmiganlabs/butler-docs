@@ -13,6 +13,7 @@ Here Mac OS was used, things will look different on Linux and Windows.
 
 Note: While the console logs below refer to an older version of Butler's Docker image, the steps involved are the same also for current/most recent version of Butler.
 
+<!-- TODO Update with 13.0 Docker image -->
 ```bash
 proton:~ goran$ mkdir /Users/goran/butler
 proton:~ goran$ cd /Users/goran/butler
