@@ -24,23 +24,31 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>Failed/aborted reloads | Butler</title>
-<meta name="description" content="Overview of the actions Butler can take when a reload task fails or is aborted.
+<title>Reload alerts | Butler</title>
+<meta name="description" content="Overview of the actions Butler can take when a reload task fails, is aborted or succeeds.
+
+Note that client-managed and cloud versions of Qlik Sense 
 ">
 <meta property="og:url" content="https://butler.ptarmiganlabs.com/docs/concepts/failed-reloads/">
   <meta property="og:site_name" content="Butler">
-  <meta property="og:title" content="Failed/aborted reloads">
-  <meta property="og:description" content="Overview of the actions Butler can take when a reload task fails or is aborted.">
+  <meta property="og:title" content="Reload alerts">
+  <meta property="og:description" content="Overview of the actions Butler can take when a reload task fails, is aborted or succeeds.
+
+Note that client-managed and cloud versions of Qlik Sense ">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
 
-  <meta itemprop="name" content="Failed/aborted reloads">
-  <meta itemprop="description" content="Overview of the actions Butler can take when a reload task fails or is aborted.">
+  <meta itemprop="name" content="Reload alerts">
+  <meta itemprop="description" content="Overview of the actions Butler can take when a reload task fails, is aborted or succeeds.
+
+Note that client-managed and cloud versions of Qlik Sense ">
   <meta itemprop="dateModified" content="2024-04-12T11:41:58+02:00">
-  <meta itemprop="wordCount" content="31">
+  <meta itemprop="wordCount" content="37">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Failed/aborted reloads">
-  <meta name="twitter:description" content="Overview of the actions Butler can take when a reload task fails or is aborted.">
+  <meta name="twitter:title" content="Reload alerts">
+  <meta name="twitter:description" content="Overview of the actions Butler can take when a reload task fails, is aborted or succeeds.
+
+Note that client-managed and cloud versions of Qlik Sense ">
 
 
 
@@ -258,24 +266,40 @@
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconceptsscheduler-li">
   <a href="/docs/concepts/scheduler/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsscheduler"><span class="">Scheduler</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docsconceptsfailed-reloads-li">
-  <a href="/docs/concepts/failed-reloads/" class="align-left ps-0 active td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reloads"><span class="td-sidebar-nav-active-item">Failed/aborted reloads</span></a>
+  <a href="/docs/concepts/failed-reloads/" title="Reload alerts" class="align-left ps-0 active td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reloads"><span class="td-sidebar-nav-active-item">Reloads alerts</span></a>
   <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconceptsfailed-reloadsalert-emails-li">
-  <a href="/docs/concepts/failed-reloads/alert-emails/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reloadsalert-emails"><span class="">Alert emails</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconceptsfailed-reloadsalerts-slack-teams-li">
-  <a href="/docs/concepts/failed-reloads/alerts-slack-teams/" title="Alerts via Slack and Microsoft Teams" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reloadsalerts-slack-teams"><span class="">Alerts via Slack/Teams</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconceptsfailed-reloadsfailed-logs-storage-li">
-  <a href="/docs/concepts/failed-reloads/failed-logs-storage/" title="Storing script logs of failed reloads to disk" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reloadsfailed-logs-storage"><span class="">Store failed reload logs</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconceptsfailed-reloadsinfluxdb-li">
-  <a href="/docs/concepts/failed-reloads/influxdb/" title="InfluxDB" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reloadsinfluxdb"><span class="">InfluxDB </span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconceptsfailed-reloadsnew-relic-li">
-  <a href="/docs/concepts/failed-reloads/new-relic/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reloadsnew-relic"><span class="">New Relic</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconceptsfailed-reloadsmqtt-li">
-  <a href="/docs/concepts/failed-reloads/mqtt/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reloadsmqtt"><span class="">MQTT</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconceptsfailed-reloadssignl4-li">
-  <a href="/docs/concepts/failed-reloads/signl4/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reloadssignl4"><span class="">Signl4</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconceptsfailed-reloadswebhook-li">
-  <a href="/docs/concepts/failed-reloads/webhook/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reloadswebhook"><span class="">Webhooks</span></a>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconceptsfailed-reloadsclient-managed-li">
+  <a href="/docs/concepts/failed-reloads/client-managed/" title="Client-managed Qlik Sense" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reloadsclient-managed"><span class="">Client-managed</span></a>
+  <ul class="ul-4 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsfailed-reloadsclient-managedalert-emails-li">
+  <a href="/docs/concepts/failed-reloads/client-managed/alert-emails/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reloadsclient-managedalert-emails"><span class="">Alert emails</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsfailed-reloadsclient-managedalerts-slack-teams-li">
+  <a href="/docs/concepts/failed-reloads/client-managed/alerts-slack-teams/" title="Alerts via Slack and Microsoft Teams" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reloadsclient-managedalerts-slack-teams"><span class="">Alerts via Slack/Teams</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsfailed-reloadsclient-managedfailed-logs-storage-li">
+  <a href="/docs/concepts/failed-reloads/client-managed/failed-logs-storage/" title="Storing script logs of failed reloads to disk" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reloadsclient-managedfailed-logs-storage"><span class="">Store failed reload logs</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsfailed-reloadsclient-managedinfluxdb-li">
+  <a href="/docs/concepts/failed-reloads/client-managed/influxdb/" title="InfluxDB" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reloadsclient-managedinfluxdb"><span class="">InfluxDB </span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsfailed-reloadsclient-managednew-relic-li">
+  <a href="/docs/concepts/failed-reloads/client-managed/new-relic/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reloadsclient-managednew-relic"><span class="">New Relic</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsfailed-reloadsclient-managedmqtt-li">
+  <a href="/docs/concepts/failed-reloads/client-managed/mqtt/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reloadsclient-managedmqtt"><span class="">MQTT</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsfailed-reloadsclient-managedsignl4-li">
+  <a href="/docs/concepts/failed-reloads/client-managed/signl4/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reloadsclient-managedsignl4"><span class="">Signl4</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsfailed-reloadsclient-managedwebhook-li">
+  <a href="/docs/concepts/failed-reloads/client-managed/webhook/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reloadsclient-managedwebhook"><span class="">Webhooks</span></a>
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-docsconceptsfailed-reloadscloud-li">
+  <a href="/docs/concepts/failed-reloads/cloud/" title="Qlik Sense Cloud" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reloadscloud"><span class="">Cloud</span></a>
+  <ul class="ul-4 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsfailed-reloadscloudalert-emails-li">
+  <a href="/docs/concepts/failed-reloads/cloud/alert-emails/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reloadscloudalert-emails"><span class="">Alert emails</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsfailed-reloadscloudalerts-slack-teams-li">
+  <a href="/docs/concepts/failed-reloads/cloud/alerts-slack-teams/" title="Alerts via Slack and Microsoft Teams" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reloadscloudalerts-slack-teams"><span class="">Alerts via Slack/Teams</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child collapse" id="m-docsconceptsfailed-reloadscloudfailed-logs-storage-li">
+  <a href="/docs/concepts/failed-reloads/cloud/failed-logs-storage/" title="Storing script logs of failed reloads to disk" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsconceptsfailed-reloadscloudfailed-logs-storage"><span class="">Store failed reload logs</span></a>
+</li>
+  </ul>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsconceptssuccessful-reloads-li">
@@ -417,7 +441,7 @@
 <a href="https://github.com/ptarmiganlabs/butler-docs/tree/main/content/en/docs/concepts/failed%20reloads/_index.md" class="td-page-meta--view td-page-meta__view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
   <a href="https://github.com/ptarmiganlabs/butler-docs/edit/main/content/en/docs/concepts/failed%20reloads/_index.md" class="td-page-meta--edit td-page-meta__edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
   <a href="https://github.com/ptarmiganlabs/butler-docs/new/main/content/en/docs/concepts/failed%20reloads?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child td-page-meta__child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
-  <a href="https://github.com/ptarmiganlabs/butler-docs/issues/new?title=Failed/aborted%20reloads" class="td-page-meta--issue td-page-meta__issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a>
+  <a href="https://github.com/ptarmiganlabs/butler-docs/issues/new?title=Reload%20alerts" class="td-page-meta--issue td-page-meta__issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a>
   <a href="https://github.com/ptarmiganlabs/butler/issues/new" class="td-page-meta--project td-page-meta__project-issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create project issue</a>
   <a id="print" href="/docs/concepts/failed-reloads/printview/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
 
@@ -438,18 +462,23 @@
   <li class="breadcrumb-item">
     <a href="/docs/concepts/">Concepts</a></li>
   <li class="breadcrumb-item active" aria-current="page">
-    Failed/aborted reloads</li>
+    Reloads alerts</li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>Failed/aborted reloads</h1>
-  <div class="lead">Overview of the actions Butler can take when a reload task fails or is aborted.</div>
+	<h1>Reload alerts</h1>
+  <div class="lead"><p>Overview of the actions Butler can take when a reload task fails, is aborted or succeeds.</p>
+<p>Note that client-managed and cloud versions of Qlik Sense</p>
+</div>
 	<header class="article-meta">
 		
   </header>
-	<p>Below follows a list of destinations to which Butler can send notifications when a reload task fails or is aborted.</p>
-<p>A comparison of the different alert destinations can be found <a href="/docs/getting-started/setup/reload-alerts/#alert-destinations-and-options">here</a>.</p>
+	<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>Client-managed and cloud versions of Qlik Sense support different source triggers (reload failed/stopped/succeeded) and alert destinations (email, Teams, Slack, etc).</p>
+<p>Check each section below for information about which triggers and destinations are supported for each version.</p></div>
+
 
   <div class="section-index">
     
@@ -457,56 +486,19 @@
     <hr class="panel-line">
         <div class="entry">
                 <h5>
-                    <a href="/docs/concepts/failed-reloads/alert-emails/">Alert emails</a>
-                </h5>
-                <p>Overview of the various kinds of alert emails Butler can send.</p>
-            </div>
-        <div class="entry">
-                <h5>
-                    <a href="/docs/concepts/failed-reloads/alerts-slack-teams/">Alerts via Slack and Microsoft Teams</a>
-                </h5>
-                <p>Sending alerts to IM services like Slack and Microsoft Teams can be a great way to quickly notify people about urgent issues.</p>
-            </div>
-        <div class="entry">
-                <h5>
-                    <a href="/docs/concepts/failed-reloads/failed-logs-storage/">Storing script logs of failed reloads to disk</a>
-                </h5>
-                <p>When investigating reload failures it can often be useful to have access to the entire reload log.<br> Butler detects failed reloads and can store the entire reload log into easy to find and analyse files on disk.</p>
-            </div>
-        <div class="entry">
-                <h5>
-                    <a href="/docs/concepts/failed-reloads/influxdb/">InfluxDB</a>
-                </h5>
-                <p>Storing information about failed reloads in InfluxDB can be useful for monitoring and analysis purposes.<br>
-Once the data is in InfluxDB it can be visualized in Grafana or similar tools.</p>
-            </div>
-        <div class="entry">
-                <h5>
-                    <a href="/docs/concepts/failed-reloads/new-relic/">New Relic</a>
+                    <a href="/docs/concepts/failed-reloads/client-managed/">Client-managed Qlik Sense</a>
                 </h5>
                 <p></p>
             </div>
         <div class="entry">
                 <h5>
-                    <a href="/docs/concepts/failed-reloads/mqtt/">MQTT</a>
+                    <a href="/docs/concepts/failed-reloads/cloud/">Qlik Sense Cloud</a>
                 </h5>
                 <p></p>
-            </div>
-        <div class="entry">
-                <h5>
-                    <a href="/docs/concepts/failed-reloads/signl4/">Signl4</a>
-                </h5>
-                <p>Signl4 is a mobile alerting app that offers an easy way to get started with monitoring and alerting in general,<br> including Qlik Sense reloads via Butler&rsquo;s integration with Signl4.</p>
-            </div>
-        <div class="entry">
-                <h5>
-                    <a href="/docs/concepts/failed-reloads/webhook/">Webhooks</a>
-                </h5>
-                <p>Webhooks provide a generic way to send information about failed/aborted reloads to any system that can receive HTTP POST/PUT/GET requests.<br></p>
             </div>
         </div>
 <div class="td-page-meta__lastmod">
-  Last modified April 12, 2024: <a href="https://github.com/ptarmiganlabs/butler-docs/commit/bdea1fdfcccaba7c399ceb59759b7697275011f8">11.2 (bdea1fd)</a>
+  Last modified April 12, 2024: <a href="https://github.com/ptarmiganlabs/butler-docs/commit/bdea1fdfcccaba7c399ceb59759b7697275011f8">11.2 (bdea1fdf)</a>
 </div>
 </div>
 

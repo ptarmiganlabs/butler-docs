@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Alerts via Slack and Microsoft Teams on Butler</title>
+    <link>https://butler.ptarmiganlabs.com/docs/concepts/failed-reloads/client-managed/alerts-slack-teams/</link>
+    <description>Recent content in Alerts via Slack and Microsoft Teams on Butler</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="https://butler.ptarmiganlabs.com/docs/concepts/failed-reloads/client-managed/alerts-slack-teams/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

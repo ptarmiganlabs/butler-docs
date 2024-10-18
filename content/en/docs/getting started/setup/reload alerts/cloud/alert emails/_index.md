@@ -93,6 +93,10 @@ Some configuration in Sense is needed to make this work:
 2. In Qlik Cloud, tag the apps that should cause alert emails when they fail reloading.
    1. Use the same tag as specified in the config file.
 
+Looks like this in Qlik Sense Cloud:
+
+![Tagging apps for reload failed alerts in Qlik Sense Cloud](/img/butler-qscloud-app-reload-failed-app-tag-1.png "Tagging apps for reload failed alerts in Qlik Sense Cloud")
+
 ## How it works
 
 The concept is the same for all alert types, see the [this page](/docs/getting-started/setup/reload-alerts/cloud/#how-it-works) for details.

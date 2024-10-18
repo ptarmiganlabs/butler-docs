@@ -21,16 +21,15 @@ The reload logs are stored in the directory configured in the Butler config file
 
 ```bash
 .
-├── butler.exe
-├── log
-│   └── butler.2022-04-07.log
-├── production.yaml
 └── scriptlog
-    ├── 2022-04-06
-    │   ├── 2022-04-06_15-36-12_appId=deba4bcf-47e4-472e-97b2-4fe8d6498e11_taskId=0d815a99-1ca3-4131-a398-6878bd735fd8.log
-    │   └── 2022-04-06_22-42-35_appId=66bc109d-286a-415b-8355-1422abb22133_taskId=e959f40a-67be-4a5b-ae83-a292f96ba078.log
-    └── 2022-04-07
-        └── 2022-04-07_05-49-16_appId=deba4bcf-47e4-472e-97b2-4fe8d6498e11_taskId=0d815a99-1ca3-4131-a398-6878bd735fd8.log
+    ├── qscloud
+    │   └── 2024-10-14
+    │       └── 2024-10-14T11-41-31_appId=86ee4ae7-7ae7-4dd4-98a1-ebea989f78fb_reloadId=670d0369dededd0781e18ade.log
+    └── qseow
+        └── 2024-10-10
+            └── 2024-10-10_15-35-25_appId=8f1d1ecf-97a6-4eb5-8f47-f9156300b854_taskId=22b106a8-e7ed-4466-b700-014f060bef16.log
+
+5 directories, 2 files
 ```
 
 All in all this makes it a lot easier to find log files for failed reloads.

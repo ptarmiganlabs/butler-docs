@@ -1271,7 +1271,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3.3: <a href="#pg-2eacc0a085abb47e5414dfd9fb8120b3">Failed/aborted reloads</a></li>
+<li>3.3: <a href="#pg-2eacc0a085abb47e5414dfd9fb8120b3">Reload alerts</a></li>
 
 
     
@@ -1286,7 +1286,22 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3.3.1: <a href="#pg-b122b0663c6199cf05ed239edede06e7">Alert emails</a></li>
+<li>3.3.1: <a href="#pg-bba538ade87be30a8b5a8a8c7ad8c9f0">Client-managed Qlik Sense</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>3.3.1.1: <a href="#pg-e9bb668c9849d57292ab8eb06d0a0f79">Alert emails</a></li>
 
 
     
@@ -1305,7 +1320,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3.3.2: <a href="#pg-a50a38f6834b0485b50aa321ea429862">Alerts via Slack and Microsoft Teams</a></li>
+<li>3.3.1.2: <a href="#pg-e27c0d99a5fab2425d039a3e5c49b05d">Alerts via Slack and Microsoft Teams</a></li>
 
 
     
@@ -1324,7 +1339,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3.3.3: <a href="#pg-1487bc32760b32de8c233d20e06b2981">Storing script logs of failed reloads to disk</a></li>
+<li>3.3.1.3: <a href="#pg-26109a6cc05959967df37ecdb5f58476">Storing script logs of failed reloads to disk</a></li>
 
 
     
@@ -1343,7 +1358,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3.3.4: <a href="#pg-2572b5d0bb912bb2fe6598f2112aa5c4">InfluxDB</a></li>
+<li>3.3.1.4: <a href="#pg-4d16deb2889b9bdd96ed13c19a5658ae">InfluxDB</a></li>
 
 
     
@@ -1362,7 +1377,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3.3.5: <a href="#pg-bb0b42e65c84552525f295e8402fc090">New Relic</a></li>
+<li>3.3.1.5: <a href="#pg-054e9b19c206fbbb78f3c7cf0d636dd2">New Relic</a></li>
 
 
     
@@ -1381,7 +1396,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3.3.6: <a href="#pg-ae3289abc4fde74201ada2090f471d10">MQTT</a></li>
+<li>3.3.1.6: <a href="#pg-ee7a82b5f5fba567bd07aa7978334221">MQTT</a></li>
 
 
     
@@ -1400,7 +1415,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3.3.7: <a href="#pg-da76efdcdc38f4b3df6afb92ec23202c">Signl4</a></li>
+<li>3.3.1.7: <a href="#pg-dab8e90804e84951424e7efbbc39d86d">Signl4</a></li>
 
 
     
@@ -1419,7 +1434,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3.3.8: <a href="#pg-047e1db6b8a4141a89e5a2106def9fa3">Webhooks</a></li>
+<li>3.3.1.8: <a href="#pg-48075e94d5ca07cbe03fc4b0172f08b9">Webhooks</a></li>
 
 
     
@@ -1430,6 +1445,86 @@ This is the multi-page printable view of this section.
   
   
 
+  
+
+    </ul>
+    
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3.3.2: <a href="#pg-05acf177dd5e6e0a9fabf2cb91c08c57">Qlik Sense Cloud</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+    
+    
+	
+<li>3.3.2.1: <a href="#pg-c11f815b1843a54707c6d4af2edfebf0">Alert emails</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3.3.2.2: <a href="#pg-ff11be09a5ecece5772cf0abb7ec493d">Alerts via Slack and Microsoft Teams</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>3.3.2.3: <a href="#pg-2e6762b95c0fd42926521f605bc69fcc">Storing script logs of failed reloads to disk</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
   
 
     </ul>
@@ -6923,6 +7018,8 @@ I.e. some apps should result in alert emails when they fail reloading, but other
 </ol>
 </li>
 </ol>
+<p>Looks like this in Qlik Sense Cloud:</p>
+<p><img alt="Tagging apps for reload failed alerts in Qlik Sense Cloud" src="/img/butler-qscloud-app-reload-failed-app-tag-1.png" title="Tagging apps for reload failed alerts in Qlik Sense Cloud"></p>
 <h2 id="how-it-works">How it works</h2>
 <p>The concept is the same for all alert types, see the <a href="/docs/getting-started/setup/reload-alerts/cloud/#how-it-works">this page</a> for details.</p>
 <h2 id="settings-in-config-file">Settings in config file</h2>
@@ -10507,8 +10604,40 @@ Cron has been the standard scheduler for decades in most Linux systems, it&rsquo
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-2eacc0a085abb47e5414dfd9fb8120b3">3.3 - Failed/aborted reloads</h1>
-    <div class="lead">Overview of the actions Butler can take when a reload task fails or is aborted.</div>
+	<h1 id="pg-2eacc0a085abb47e5414dfd9fb8120b3">3.3 - Reload alerts</h1>
+    <div class="lead"><p>Overview of the actions Butler can take when a reload task fails, is aborted or succeeds.</p>
+<p>Note that client-managed and cloud versions of Qlik Sense</p>
+</div>
+	<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice info" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#info-notice"></use></svg></span>Info</p><p>Client-managed and cloud versions of Qlik Sense support different source triggers (reload failed/stopped/succeeded) and alert destinations (email, Teams, Slack, etc).</p>
+<p>Check each section below for information about which triggers and destinations are supported for each version.</p></div>
+
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-bba538ade87be30a8b5a8a8c7ad8c9f0">3.3.1 - Client-managed Qlik Sense</h1>
+    
 	<p>Below follows a list of destinations to which Butler can send notifications when a reload task fails or is aborted.</p>
 <p>A comparison of the different alert destinations can be found <a href="/docs/getting-started/setup/reload-alerts/#alert-destinations-and-options">here</a>.</p>
 
@@ -10534,7 +10663,7 @@ Cron has been the standard scheduler for decades in most Linux systems, it&rsquo
 
 <div class="td-content" style="">
     
-	<h1 id="pg-b122b0663c6199cf05ed239edede06e7">3.3.1 - Alert emails</h1>
+	<h1 id="pg-e9bb668c9849d57292ab8eb06d0a0f79">3.3.1.1 - Alert emails</h1>
     <div class="lead">Overview of the various kinds of alert emails Butler can send.</div>
 	<h2 id="scheduled-vs-manual-app-reloads">Scheduled vs manual app reloads</h2>
 <p>It might not be obvious at first, but there are several kinds of reloads in Qlik Sense Enterprise on Windows:</p>
@@ -10564,7 +10693,7 @@ There&rsquo;s no reason an alert email can&rsquo;t look good!</p>
   <tbody>
       <tr>
           <td style="text-align: left"><figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 283px">
-<img class="card-img-top" src="/docs/concepts/failed-reloads/alert-emails/reload-fail-alert-email-mobile-1_hu4885082042632949329.png" width="273" height="600">
+<img class="card-img-top" src="/docs/concepts/failed-reloads/client-managed/alert-emails/reload-fail-alert-email-mobile-1_hu4885082042632949329.png" width="273" height="600">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -10574,7 +10703,7 @@ Failed reload alert email on mobile home screen.
 </figure>
 </td>
           <td style="text-align: left"><figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 283px">
-<img class="card-img-top" src="/docs/concepts/failed-reloads/alert-emails/reload-fail-alert-email-mobile-2_hu18022836765164921548.png" width="273" height="600">
+<img class="card-img-top" src="/docs/concepts/failed-reloads/client-managed/alert-emails/reload-fail-alert-email-mobile-2_hu18022836765164921548.png" width="273" height="600">
 <figcaption class="card-body px-0 pt-2 pb-0">
 <p class="card-text">
 
@@ -10588,7 +10717,7 @@ Failed reload alert email viewed on mobile.
 </table>
 <p>In a regular email client a reload failed email could look like below.</p>
 <p><em><strong>Note the end of the script</strong></em> - the last few lines of the reload log are often very useful when it comes to understanding what caused the reload failure.</p>
-<p><img alt="Reload failed alert email" src="/docs/concepts/failed-reloads/alert-emails/failed_reload_email_1.png" title="Reload failed alert email"></p>
+<p><img alt="Reload failed alert email" src="/docs/concepts/failed-reloads/client-managed/alert-emails/failed_reload_email_2.png" title="Reload failed alert email"></p>
 <h3 id="basic-alert-emails-also-possible">Basic alert emails also possible</h3>
 <p>Qlik Sense Enterprise on Windows uses the log4net logging framework to create log files. Log4net is quite flexible and can - among other things - send emails when events such as reload failures occur. There is however little flexibility when it comes to layout and contents of those emails. They are text only (no formatting, tables, different fonts, colors etc) and the email subjects cannot contain any dynamic fields (for example the name of the failed reload task).</p>
 <p>The goal of Butler&rsquo;s alert emails is to address these limitations and offer a flexible foundation not only for emails, but for all kinds of alerts.</p>
@@ -10599,7 +10728,7 @@ Other companies set the developer as app owner also for published apps.</p>
 <p>In the latter case it might be relevant to send the app owner a notification email when a reload task fails or is aborted. That way the developer is immediately made aware of the issue and can act on it as needed.</p>
 <p>This feature assumes the app owner&rsquo;s user account (in the Sense user directory) has an email address associated with it. When syncing users from Active Directory the users&rsquo; emails are often brought along into Sense, but there is no guarantee for this.</p>
 <p><em>If</em> an email address is available for a Sense user, the QMC user section can look like this:</p>
-<p><img alt="Email address available for Qlik Sense user" src="/docs/concepts/failed-reloads/alert-emails/qlik_sense_user_email_address_1.png" title="Email address available for Qlik Sense user"></p>
+<p><img alt="Email address available for Qlik Sense user" src="/docs/concepts/failed-reloads/client-managed/alert-emails/qlik_sense_user_email_address_1.png" title="Email address available for Qlik Sense user"></p>
 <h2 id="alert-emails-only-for-some-tasks">Alert emails only for some tasks</h2>
 <p>Sometimes there is a desire to only have email alerts for <em>some</em> tasks.<br>
 One example can be a Sense cluster that hosts both development and production apps, maybe separated on different servers.</p>
@@ -10617,8 +10746,8 @@ One example can be a Sense cluster that hosts both development and production ap
 <p>Instructions for how to configure this feature is available <a href="/docs/getting-started/setup/reload-alerts/alert-emails/#send-alerts-to-specific-people-for-some-tasks">here</a>.</p>
 <p>Note: This feature is similar to - but independent from - the &ldquo;alert emails only for some tasks&rdquo; feature below. Either feature can be enabled or disabled independently of the other in Butler&rsquo;s config file.</p>
 <h2 id="how-it-works">How it works</h2>
-<p>Butler uses a templating engine called <a href="https://handlebarsjs.com/guide/">Handlebars</a>. It is used when sending all kinds of alert emails supported by Butler.</p>
-<p>Slack, MS Teams and MQTT messages are currently not using the templating engine - this is however likely to change in coming Butler versions. Feel free to <a href="https://github.com/ptarmiganlabs/butler/issues">add (or +1) a request on GitHub</a> if this is of interest to you!</p>
+<p>Butler uses a templating engine called <a href="https://handlebarsjs.com/guide/">Handlebars</a>. It is used when Butler sense alert emails.</p>
+<p>The high-level system overview below shows how email (and other alert types) are sent by Butler:</p>
 <p><img alt="Butler high level system overview" src="/img/butler-log4net-appenders-1.png" title="Butler high level system overview"></p>
 <h3 id="template-fields">Template fields</h3>
 <p>The Handlebars templating engine looks for <em>template fields</em> in the template files you create.</p>
@@ -10680,7 +10809,7 @@ This is an intentional design decision.</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-a50a38f6834b0485b50aa321ea429862">3.3.2 - Alerts via Slack and Microsoft Teams</h1>
+	<h1 id="pg-e27c0d99a5fab2425d039a3e5c49b05d">3.3.1.2 - Alerts via Slack and Microsoft Teams</h1>
     <div class="lead">Sending alerts to IM services like Slack and Microsoft Teams can be a great way to quickly notify people about urgent issues.</div>
 	<h2 id="teams-slack-and-email-notifications">Teams, Slack and email notifications</h2>
 <p>Microsoft Teams, Slack and email are all notification <em><strong>destinations</strong></em>.</p>
@@ -10738,7 +10867,7 @@ Each notification destination has its own set of template files. It&rsquo;s ther
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-1487bc32760b32de8c233d20e06b2981">3.3.3 - Storing script logs of failed reloads to disk</h1>
+	<h1 id="pg-26109a6cc05959967df37ecdb5f58476">3.3.1.3 - Storing script logs of failed reloads to disk</h1>
     <div class="lead">When investigating reload failures it can often be useful to have access to the entire reload log.<br> Butler detects failed reloads and can store the entire reload log into easy to find and analyse files on disk.</div>
 	<h2 id="reload-script-logs">Reload script logs</h2>
 <p>When doing a scheduled reload or a reload started from the QMC, Sense will create a detailed log file that includes all the commands executed during the reload.</p>
@@ -10747,16 +10876,15 @@ Each notification destination has its own set of template files. It&rsquo;s ther
 <p>Using the same mechanism used by <a href="/docs/concepts/alert-emails/">reload failure alerts</a> in general, Butler can be configured to store the reload logs of all failed reloads to disk.</p>
 <p>The reload logs are stored in the directory configured in the Butler config file, with separate directories for each date:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>.
-</span></span><span style="display:flex;"><span>├── butler.exe
-</span></span><span style="display:flex;"><span>├── log
-</span></span><span style="display:flex;"><span>│   └── butler.2022-04-07.log
-</span></span><span style="display:flex;"><span>├── production.yaml
 </span></span><span style="display:flex;"><span>└── scriptlog
-</span></span><span style="display:flex;"><span>    ├── 2022-04-06
-</span></span><span style="display:flex;"><span>    │   ├── 2022-04-06_15-36-12_appId<span style="color:#ce5c00;font-weight:bold">=</span>deba4bcf-47e4-472e-97b2-4fe8d6498e11_taskId<span style="color:#ce5c00;font-weight:bold">=</span>0d815a99-1ca3-4131-a398-6878bd735fd8.log
-</span></span><span style="display:flex;"><span>    │   └── 2022-04-06_22-42-35_appId<span style="color:#ce5c00;font-weight:bold">=</span>66bc109d-286a-415b-8355-1422abb22133_taskId<span style="color:#ce5c00;font-weight:bold">=</span>e959f40a-67be-4a5b-ae83-a292f96ba078.log
-</span></span><span style="display:flex;"><span>    └── 2022-04-07
-</span></span><span style="display:flex;"><span>        └── 2022-04-07_05-49-16_appId<span style="color:#ce5c00;font-weight:bold">=</span>deba4bcf-47e4-472e-97b2-4fe8d6498e11_taskId<span style="color:#ce5c00;font-weight:bold">=</span>0d815a99-1ca3-4131-a398-6878bd735fd8.log
+</span></span><span style="display:flex;"><span>    ├── qscloud
+</span></span><span style="display:flex;"><span>    │   └── 2024-10-14
+</span></span><span style="display:flex;"><span>    │       └── 2024-10-14T11-41-31_appId<span style="color:#ce5c00;font-weight:bold">=</span>86ee4ae7-7ae7-4dd4-98a1-ebea989f78fb_reloadId<span style="color:#ce5c00;font-weight:bold">=</span>670d0369dededd0781e18ade.log
+</span></span><span style="display:flex;"><span>    └── qseow
+</span></span><span style="display:flex;"><span>        └── 2024-10-10
+</span></span><span style="display:flex;"><span>            └── 2024-10-10_15-35-25_appId<span style="color:#ce5c00;font-weight:bold">=</span>8f1d1ecf-97a6-4eb5-8f47-f9156300b854_taskId<span style="color:#ce5c00;font-weight:bold">=</span>22b106a8-e7ed-4466-b700-014f060bef16.log
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0000cf;font-weight:bold">5</span> directories, <span style="color:#0000cf;font-weight:bold">2</span> files
 </span></span></code></pre></div><p>All in all this makes it a lot easier to find log files for failed reloads.</p>
 <p>Configuration of this feature is described <a href="/docs/getting-started/setup/reload-script-logs/">here</a>.</p>
 
@@ -10786,7 +10914,7 @@ Each notification destination has its own set of template files. It&rsquo;s ther
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-2572b5d0bb912bb2fe6598f2112aa5c4">3.3.4 - InfluxDB</h1>
+	<h1 id="pg-4d16deb2889b9bdd96ed13c19a5658ae">3.3.1.4 - InfluxDB</h1>
     <div class="lead">Storing information about failed reloads in InfluxDB can be useful for monitoring and analysis purposes.<br>
 Once the data is in InfluxDB it can be visualized in Grafana or similar tools.</div>
 	<h2 id="visualising-failed-reloads-in-grafana">Visualising failed reloads in Grafana</h2>
@@ -10826,7 +10954,7 @@ This makes it easy to right away see what went wrong, especially when dealing wi
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-bb0b42e65c84552525f295e8402fc090">3.3.5 - New Relic</h1>
+	<h1 id="pg-054e9b19c206fbbb78f3c7cf0d636dd2">3.3.1.5 - New Relic</h1>
     
 	<h2 id="view-reload-alerts-in-new-relic">View reload alerts in New Relic</h2>
 <p>When investigating reload failures it can often be useful to have access to the entire reload log, as this usually tells immediately what went wrong.<br>
@@ -10864,7 +10992,7 @@ It is thus possible to get started with monitoring Sense reloads in New Relic wi
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-ae3289abc4fde74201ada2090f471d10">3.3.6 - MQTT</h1>
+	<h1 id="pg-ee7a82b5f5fba567bd07aa7978334221">3.3.1.6 - MQTT</h1>
     
 	<h2 id="mqtt-as-unified-message-bus">MQTT as unified message bus</h2>
 <p>When a reload fails, Butler can send information about the failed reload to an MQTT broker.</p>
@@ -10904,7 +11032,7 @@ This makes MQTT a great way to integrate different systems in a publish/subscrib
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-da76efdcdc38f4b3df6afb92ec23202c">3.3.7 - Signl4</h1>
+	<h1 id="pg-dab8e90804e84951424e7efbbc39d86d">3.3.1.7 - Signl4</h1>
     <div class="lead">Signl4 is a mobile alerting app that offers an easy way to get started with monitoring and alerting in general,<br> including Qlik Sense reloads via Butler&rsquo;s integration with Signl4.</div>
 	<h2 id="mobile-alerting">Mobile alerting</h2>
 <p>Signl4 has a great mobile app that can be used to receive reload-failed alerts from Butler.</p>
@@ -10940,7 +11068,7 @@ This makes MQTT a great way to integrate different systems in a publish/subscrib
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-047e1db6b8a4141a89e5a2106def9fa3">3.3.8 - Webhooks</h1>
+	<h1 id="pg-48075e94d5ca07cbe03fc4b0172f08b9">3.3.1.8 - Webhooks</h1>
     <div class="lead">Webhooks provide a generic way to send information about failed/aborted reloads to any system that can receive HTTP POST/PUT/GET requests.<br></div>
 	<h2 id="when-nothing-else-works">When nothing else works</h2>
 <p>Webhooks may be somewhat limited in terms of what they can do, but their simplicity is also their strength.</p>
@@ -10975,6 +11103,205 @@ This is useful when integrating with systems that use self-signed certificates a
   
   
 
+  
+
+    
+	
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-05acf177dd5e6e0a9fabf2cb91c08c57">3.3.2 - Qlik Sense Cloud</h1>
+    
+	
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+    
+    
+	
+    
+
+<div class="td-content" style="">
+    
+	<h1 id="pg-c11f815b1843a54707c6d4af2edfebf0">3.3.2.1 - Alert emails</h1>
+    <div class="lead">Overview of the various kinds of alert emails Butler can send when app reloads fail in Qlik Sense Cloud.</div>
+	<h2 id="scheduled-vs-manual-app-reloads">Scheduled vs manual app reloads</h2>
+<p>Qlik Sense Cloud has a few different ways to reload apps:</p>
+<ol>
+<li><strong>Scheduled reloads:</strong> Apps can be set to reload at specific times, for example every night at 3am.</li>
+<li><strong>Manually started reload:</strong> Right clicking an app in the Qlik Cloud web UI, then select &ldquo;Reload now&rdquo;. This is a manual reload and is not managed by the Sense scheduling service.</li>
+<li><strong>Manual reloads started from the script editor:</strong> When developing apps in the Sense client/script editor you usually reload the apps from there. This triggers an app reload too, but in a slightly different way than previous example. Instead the reload is done directly in the engine service. Butler is not notified in this case, so no alert emails are sent for these reloads.</li>
+</ol>
+<style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
+<svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/></symbol></svg><div class="notice note" >
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>The reload failure notifications described here work in all cases except the &ldquo;manual reloads started from the script editor&rdquo;.<br>
+There is currently no way around that, it&rsquo;s just how Qlik Cloud works.</p></div>
+
+<h2 id="alert-emails">Alert emails</h2>
+<p>Butler can send the following alert emails:</p>
+<ul>
+<li>When an app reload fails.</li>
+</ul>
+<p>Alert emails can be formatted using HTML, use CSS styling, emojis etc.<br>
+There&rsquo;s no reason an alert email can&rsquo;t look good!</p>
+<p>Here is an example of how a failed reload alert email could look like:</p>
+<p><img alt="Reload failed alert email" src="/img/butler-qscloud-app-reload-failed-email-2.png" title="Reload failed alert email"></p>
+<h2 id="alert-emails-to-app-owners">Alert emails to app owners</h2>
+<p>All apps in Qlik Sense Cloud has an app owner, typically the user who created the app.</p>
+<p>If there is an email address associated with the app owner, Butler can send an alert email to the app owner when a reload task fails or is aborted.<br>
+This feature can be turned on/off in the Butler config file.<br>
+It is also possible to only send alert emails to some app owners but not others, <a href="/docs/getting-started/setup/reload-alerts/cloud/alert-emails/#sending-alert-emails-to-app-owners">this page</a> describes how to configure that.</p>
+<h2 id="alert-emails-only-for-some-apps">Alert emails only for some apps</h2>
+<p>Sometimes there is a desire to only have email alerts for <em>some</em> aps.<br>
+Maybe some apps are critical and should always trigger an alert email when they fail, while other apps are less critical and should not trigger any alert emails.</p>
+<p>This is possible using a tag set on apps in Qlik Sense Cloud:</p>
+<p><img alt="Tagging apps for reload failed alerts in Qlik Sense Cloud" src="/img/butler-qscloud-app-reload-failed-app-tag-1.png" title="Tagging apps for reload failed alerts in Qlik Sense Cloud"></p>
+<p>More info in the <a href="/docs/getting-started/setup/reload-alerts/cloud/alert-emails/#send-alerts-only-for-some-apps">setup section</a>.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>Butler uses a templating engine called <a href="https://handlebarsjs.com/guide/">Handlebars</a>. It is used when sending all kinds of alert emails supported by Butler.</p>
+<p>For an overview of how Butler deals with alert messages for Qlik Sense Cloud, please see the <a href="/docs/getting-started/setup/reload-alerts/cloud/#how-it-works">setup section</a>.</p>
+<h3 id="template-fields">Template fields</h3>
+<p>The Handlebars templating engine looks for <em>template fields</em> in the template files you create.</p>
+<p>A complete list of template fields - including descriptions - is available in the <a href="/docs/reference/alert-template-fields/">Reference</a> section.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-ff11be09a5ecece5772cf0abb7ec493d">3.3.2.2 - Alerts via Slack and Microsoft Teams</h1>
+    <div class="lead">Sending alerts to IM services like Slack and Microsoft Teams can be a great way to quickly notify people about urgent issues.</div>
+	<h2 id="teams-slack-and-email-notifications">Teams, Slack and email notifications</h2>
+<p>Microsoft Teams, Slack and email are all notification <em><strong>destinations</strong></em>.</p>
+<p>Alert messages/notifications come in two variants: &ldquo;basic&rdquo; and &ldquo;formatted&rdquo;.</p>
+<h3 id="formatted-messages">Formatted messages</h3>
+<p>These messages take full advantage of the formatting available in each notification destination.</p>
+<p>Slack has its own way for creating messages with rich layout and formatting - as does Teams and email.</p>
+<p>Formatted messages are created using template files.<br>
+Each notification destination has its own set of template files. It&rsquo;s therefore possible to take advantage of each destination&rsquo;s specific features when it comes to formatting the messages sent by Butler.</p>
+<p>Message templates can include &ldquo;template fields&rdquo;. These are placeholders that are replaced with actual event values before the message is sent.</p>
+<p>The GitHub repository includes fully functional template files for all destinations.</p>
+<h3 id="basic-messages">Basic messages</h3>
+<p>Basic message formats are available for all notification destinations.</p>
+<p>This message type is useful if you only want a short, basic notification that a task failed or was aborted. The basic formats are pre-defined and are thus easy to set up.</p>
+<h2 id="microsoft-teams-notifications">Microsoft Teams notifications</h2>
+<p>Basic and formatted reload task failure notifications can look like this in Teams:</p>
+<p><img alt="Basic failed reload notification in Microsoft Teams" src="/img/failed-reload-teams-basic_1.png" title="Basic failed reload notification in Microsoft Teams"></p>
+<p><img alt="Formatted failed reload notification in Microsoft Teams" src="/img/failed-reload-teams-formatted_1.png" title="Formatted failed reload notification in Microsoft Teams"></p>
+<p>The configuration needed for setting this up is described <a href="/docs/getting-started/setup/reload-alerts/alert-teams/">here</a>.</p>
+<h2 id="slack-notifications">Slack notifications</h2>
+<p>Basic and formatted reload task failure notifications can look like this in Teams:</p>
+<p><img alt="Basic failed reload notification in Microsoft Teams" src="/img/failed-reload-slack-basic_1.png" title="Basic failed reload notification in Microsoft Teams"></p>
+<p><img alt="Formatted failed reload notification in Microsoft Teams" src="/img/failed-reload-slack-formatted_1.png" title="Formatted failed reload notification in Microsoft Teams"></p>
+<p>The configuration needed for setting this up is described <a href="/docs/getting-started/setup/reload-alerts/alert-slack/">here</a>.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-2e6762b95c0fd42926521f605bc69fcc">3.3.2.3 - Storing script logs of failed reloads to disk</h1>
+    <div class="lead"><p>When investigating reload failures it can often be useful to have access to the entire reload log.</p>
+<p>Butler can store complete script logs for failed app reloads on local disk, making it easy to figure out what happened without having to log into Qlik Cloud.</p>
+</div>
+	<h2 id="reload-script-logs">Reload script logs</h2>
+<p>Butler can be configured to retrieve and store the reload logs of all failed app reloads to disk.</p>
+<p>The feature is identical to that of client-managed Qlik Sense, but those features can be individually enabled/disabled and configured.</p>
+<p>The reload logs are stored in the directory configured in the Butler config file, with separate directories for each date:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>└── scriptlog
+</span></span><span style="display:flex;"><span>    ├── qscloud
+</span></span><span style="display:flex;"><span>    │   └── 2024-10-14
+</span></span><span style="display:flex;"><span>    │       └── 2024-10-14T11-41-31_appId<span style="color:#ce5c00;font-weight:bold">=</span>86ee4ae7-7ae7-4dd4-98a1-ebea989f78fb_reloadId<span style="color:#ce5c00;font-weight:bold">=</span>670d0369dededd0781e18ade.log
+</span></span><span style="display:flex;"><span>    └── qseow
+</span></span><span style="display:flex;"><span>        └── 2024-10-10
+</span></span><span style="display:flex;"><span>            └── 2024-10-10_15-35-25_appId<span style="color:#ce5c00;font-weight:bold">=</span>8f1d1ecf-97a6-4eb5-8f47-f9156300b854_taskId<span style="color:#ce5c00;font-weight:bold">=</span>22b106a8-e7ed-4466-b700-014f060bef16.log
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#0000cf;font-weight:bold">5</span> directories, <span style="color:#0000cf;font-weight:bold">2</span> files
+</span></span></code></pre></div><p>All in all this makes it a lot easier to find log files for failed reloads.</p>
+<p>Configuration of this feature is described <a href="/docs/getting-started/setup/reload-script-logs/">here</a>.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
   
 
     

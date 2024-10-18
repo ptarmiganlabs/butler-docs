@@ -38,7 +38,7 @@ In a regular email client a reload failed email could look like below.
 
 ***Note the end of the script*** - the last few lines of the reload log are often very useful when it comes to understanding what caused the reload failure.
 
-![Reload failed alert email](failed_reload_email_1.png "Reload failed alert email")  
+![Reload failed alert email](failed_reload_email_2.png "Reload failed alert email")  
 
 ### Basic alert emails also possible
 
@@ -88,16 +88,15 @@ Conceptually it works like this:
 
 ![Task specific alert email recipients](/img/butler-different-recipients-alert-emails-1.png "Task specific alert email recipients")
 
-
 Instructions for how to configure this feature is available [here](/docs/getting-started/setup/reload-alerts/alert-emails/#send-alerts-to-specific-people-for-some-tasks).
 
 Note: This feature is similar to - but independent from - the "alert emails only for some tasks" feature below. Either feature can be enabled or disabled independently of the other in Butler's config file.
 
 ## How it works
 
-Butler uses a templating engine called [Handlebars](https://handlebarsjs.com/guide/). It is used when sending all kinds of alert emails supported by Butler.
+Butler uses a templating engine called [Handlebars](https://handlebarsjs.com/guide/). It is used when Butler sense alert emails.
 
-Slack, MS Teams and MQTT messages are currently not using the templating engine - this is however likely to change in coming Butler versions. Feel free to [add (or +1) a request on GitHub](https://github.com/ptarmiganlabs/butler/issues) if this is of interest to you!
+The high-level system overview below shows how email (and other alert types) are sent by Butler:
 
 ![Butler high level system overview](/img/butler-log4net-appenders-1.png "Butler high level system overview")  
 
