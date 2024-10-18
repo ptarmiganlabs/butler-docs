@@ -63,11 +63,21 @@ See [this page](/docs/getting-started/setup/reload-alerts/#adding-a-log-appender
 In the case of successful reload tasks, the UDP server will determine which app was reloaded, the duration of the reload task, who started the task etc.  
 Butler will then send this information to the enabled destinations.
 
+## Email notifications
+
+Butler can be configured to send email notifications when a reload task completes successfully.  
+The concept is the same as for failed/aborted reload tasks (described [here](/docs/concepts/failed-reloads/client-managed/alert-emails/)), except that emails are never sent to app owners for successfully completed reload tasks.
+
+Can look like this:
+
+![Email notification when reload task completes successfully](/img/butler-qseow-reload-task-success-email-1.png "Email notification when reload task completes successfully")
+
 ## Supported destinations
 
 The following destinations are supported:
 
 - InfluxDB
+- Email
 
 ### Config file settings
 
@@ -96,7 +106,50 @@ Butler:
           useAppTags: true      # Should app tags be sent to InfluxDb as tags?
           useTaskTags: true     # Should task tags be sent to InfluxDb as tags?
   ...
-  ...          
+  ...
+  # Settings needed to send email notifications when for example reload tasks fail.
+  # Reload failure notifications assume a log appender is configured in Sense AND that the UDP server in Butler is running.
+  emailNotification:
+    enable: false
+    reloadTaskSuccess:
+      enable: false
+      # Custom property used to control which task successes will cause alert emails to be sent
+      # If this setting is true, alerts will not be sent for all tasks, but *only* for tasks with the CP set to the enabledValue.
+      # If this setting is false, alerts will be sent for all failed reload tasks.
+      alertEnableByCustomProperty:
+        enable: false
+        customPropertyName: 'Butler_SuccessAlertEnableEmail'
+        enabledValue: 'Yes'
+      # Custom property used to say that alerts for a certain task should be sent to zero or more recipients
+      # These alerts will be sent irrespective of the alertEnableByCustomProperty.enable setting.
+      alertEnabledByEmailAddress:
+        customPropertyName: 'Butler_SuccessAlertSendToEmail'
+      rateLimit: 60              # Min seconds between emails for a given taskID/recipient combo. Defaults to 5 minutes.
+      headScriptLogLines: 15
+      tailScriptLogLines: 25
+      priority: high              # high/normal/low
+      subject: '✅ Qlik Sense reload success: "{{taskName}}"'
+      bodyFileDirectory: path/to/email_templates
+      htmlTemplateFile: success-reload-qseow
+      fromAddress: Qlik Sense (no-reply) <qliksense-noreply@ptarmiganlabs.com>
+      recipients:
+        - <Email address 1>
+        - <Email address 2>
+    ...
+    ...
+    smtp:                                             # Email server settings. See https://nodemailer.com/smtp/ for details on the meaning of these fields.
+      host: <FQDN or IP or email server, e.g. smtp.gmail.com>
+      port: <port on which SMTP server is listening>
+      secure: true                                    # true/false
+      tls:
+        serverName:                                   # If specified the serverName field will be used for TLS verification instead of the host field.
+        ignoreTLS: false
+        requireTLS: true
+        rejectUnauthorized: false
+      auth:
+        enable: true
+        user: <Username, email address etc>
+        password: <your-secret-password>
 ```
 
 

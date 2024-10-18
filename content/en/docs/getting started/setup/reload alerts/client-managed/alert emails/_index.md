@@ -14,7 +14,7 @@ Butler can send two kinds of alert emails:
 - When a running reload task is somehow stopped/aborted.
 - When a reload task completes successfully. 
 
-See the [Concepts section](/docs/concepts/alert-emails/) for additional details and sample alert emails.
+See the [Concepts section](/docs/concepts/failed-reloads/client-managed/) for additional details and sample alert emails.
 
 ## Basic vs formatted email alerts
 
