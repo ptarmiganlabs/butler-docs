@@ -18,6 +18,7 @@ Upgrading Butler is usually a smooth process:
 - Stop the Butler process/service.
 - Replace the Butler binary with the new version.
 - Start the process/service.
+- Verify that Butler is running as expected.
 - 🥳 Celebrate!
 
 ## Then: The details

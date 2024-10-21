@@ -90,6 +90,8 @@ This is simply how Sense works - the template fields just forward the informatio
 | ✅ | ✅ | ✅ | executionDetails[].detailsType | Task status timestamp, format 1 |
 | ✅ | ✅ | ✅ | executionDetails[].message | Task status message |
 | ✅ | ✅ | ✅ | scriptLogSize | Size of the reload's script log (characters) |
+| ✅ | ✅ | ✅ | scriptLogSizeRows | Size of the reload's script log (rows) |
+| ✅ | ✅ | ✅ | scriptLogSizeCharacters | Size of the reload's script log (characters) |
 | ✅ | ✅ | ✅ | scriptLogHeadCount | Number of lines extracted from the start of the script log |
 | ✅ | ✅ | ✅ | scriptLogTailCount | The first y lines from the reload's script log |
 | ✅ | ✅ | ✅ | scriptLogHead | The first x lines from the reload's script log |

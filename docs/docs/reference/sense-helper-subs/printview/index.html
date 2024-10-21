@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.135.0">
+<meta name="generator" content="Hugo 0.136.2">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/reference/sense-helper-subs/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/reference/sense-helper-subs/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -135,90 +135,90 @@ This is the multi-page printable view of this section.
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Sub name</th>
-          <th style="text-align: left">Description</th>
+          <th>Sub name</th>
+          <th>Description</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">NiceTrace</td>
-          <td style="text-align: left">Prints timestamped messages in the reload log.</td>
+          <td>NiceTrace</td>
+          <td>Prints timestamped messages in the reload log.</td>
       </tr>
       <tr>
-          <td style="text-align: left">ButlerInit</td>
-          <td style="text-align: left">Initializes some data structures used by Butler. Right now there isn&rsquo;t much done in this sub, but this may change in future versions.</td>
+          <td>ButlerInit</td>
+          <td>Initializes some data structures used by Butler. Right now there isn&rsquo;t much done in this sub, but this may change in future versions.</td>
       </tr>
       <tr>
-          <td style="text-align: left">GetEnabledButlerAPIEndpoints</td>
-          <td style="text-align: left">Gets a list of which Butler API endpoints are enabled.</td>
+          <td>GetEnabledButlerAPIEndpoints</td>
+          <td>Gets a list of which Butler API endpoints are enabled.</td>
       </tr>
       <tr>
-          <td style="text-align: left">ReloadSenseApp</td>
-          <td style="text-align: left">Does a full or partial app reload in the engine. No reload tasks are involved in the actual reload, but when the reload is done different reload tasks can be started depending on whether the reload was successful or not.</td>
+          <td>ReloadSenseApp</td>
+          <td>Does a full or partial app reload in the engine. No reload tasks are involved in the actual reload, but when the reload is done different reload tasks can be started depending on whether the reload was successful or not.</td>
       </tr>
       <tr>
-          <td style="text-align: left">StartTask_KeyValue</td>
-          <td style="text-align: left">Same as above, but a key-value pair can also be included via the extra parameters. This KV pair is saved in Butler&rsquo;s KV store (assuming it&rsquo;s enabled). Any Sense app (or other system) can then query the KV store for these parameters. It&rsquo;s thus an easy but effective way of passing arbitrary parameters to Sense tasks (or rather to the associated app&rsquo;s load scripts).</td>
+          <td>StartTask_KeyValue</td>
+          <td>Same as above, but a key-value pair can also be included via the extra parameters. This KV pair is saved in Butler&rsquo;s KV store (assuming it&rsquo;s enabled). Any Sense app (or other system) can then query the KV store for these parameters. It&rsquo;s thus an easy but effective way of passing arbitrary parameters to Sense tasks (or rather to the associated app&rsquo;s load scripts).</td>
       </tr>
       <tr>
-          <td style="text-align: left">StartTask</td>
-          <td style="text-align: left">Start a single or many reload tasks. Tasks can be selected using task IDs, tags and custom properties.<br>Full freedom to use any number of task IDs, tags and custom properties to specify what tasks should be started.<br>Any number of key-value pairs can be passed along as parameters.</td>
+          <td>StartTask</td>
+          <td>Start a single or many reload tasks. Tasks can be selected using task IDs, tags and custom properties.<br>Full freedom to use any number of task IDs, tags and custom properties to specify what tasks should be started.<br>Any number of key-value pairs can be passed along as parameters.</td>
       </tr>
       <tr>
-          <td style="text-align: left">CopyFile</td>
-          <td style="text-align: left">Copy a file or directory in a file system that&rsquo;s accessible to Butler and also approved in the config file.</td>
+          <td>CopyFile</td>
+          <td>Copy a file or directory in a file system that&rsquo;s accessible to Butler and also approved in the config file.</td>
       </tr>
       <tr>
-          <td style="text-align: left">MoveFile</td>
-          <td style="text-align: left">Move a file or directory in a file system that&rsquo;s accessible to Butler and also approved in the config file.</td>
+          <td>MoveFile</td>
+          <td>Move a file or directory in a file system that&rsquo;s accessible to Butler and also approved in the config file.</td>
       </tr>
       <tr>
-          <td style="text-align: left">DeleteFile</td>
-          <td style="text-align: left">Delete a file in a file system that&rsquo;s accessible to Butler and also approved in the config file.</td>
+          <td>DeleteFile</td>
+          <td>Delete a file in a file system that&rsquo;s accessible to Butler and also approved in the config file.</td>
       </tr>
       <tr>
-          <td style="text-align: left">CreateDir</td>
-          <td style="text-align: left">Create new directory anywhere Butler has access. <em><strong>Warning!</strong></em> If Butler is running with admin privileges there is no stopping a user from creating directories <em>anywhere</em>.</td>
+          <td>CreateDir</td>
+          <td>Create new directory anywhere Butler has access. <em><strong>Warning!</strong></em> If Butler is running with admin privileges there is no stopping a user from creating directories <em>anywhere</em>.</td>
       </tr>
       <tr>
-          <td style="text-align: left">CreateDirQVD</td>
-          <td style="text-align: left">Create a directory somewhere under the QVD folder specified in the config file&rsquo;s <code>Butler.configDirectories.qvdPath</code>. This is less of a security concern than the previous call, of course.</td>
+          <td>CreateDirQVD</td>
+          <td>Create a directory somewhere under the QVD folder specified in the config file&rsquo;s <code>Butler.configDirectories.qvdPath</code>. This is less of a security concern than the previous call, of course.</td>
       </tr>
       <tr>
-          <td style="text-align: left">AddKeyValue</td>
-          <td style="text-align: left">Add a key-value pair to a namespace in the Key-Value (KV) store.</td>
+          <td>AddKeyValue</td>
+          <td>Add a key-value pair to a namespace in the Key-Value (KV) store.</td>
       </tr>
       <tr>
-          <td style="text-align: left">GetKeyValue</td>
-          <td style="text-align: left">Get KV pair in a namespace.</td>
+          <td>GetKeyValue</td>
+          <td>Get KV pair in a namespace.</td>
       </tr>
       <tr>
-          <td style="text-align: left">DeleteKeyValue</td>
-          <td style="text-align: left">Delete a KV pair in a namespace.</td>
+          <td>DeleteKeyValue</td>
+          <td>Delete a KV pair in a namespace.</td>
       </tr>
       <tr>
-          <td style="text-align: left">ExistsKeyValue</td>
-          <td style="text-align: left">Tests if a KV pair exists in a namespace.</td>
+          <td>ExistsKeyValue</td>
+          <td>Tests if a KV pair exists in a namespace.</td>
       </tr>
       <tr>
-          <td style="text-align: left">DeleteKeyValueNamespace</td>
-          <td style="text-align: left">Delete a namespace and all KV pairs in it.</td>
+          <td>DeleteKeyValueNamespace</td>
+          <td>Delete a namespace and all KV pairs in it.</td>
       </tr>
       <tr>
-          <td style="text-align: left">GetKeyValueNamespaces</td>
-          <td style="text-align: left">Get all namespaces.</td>
+          <td>GetKeyValueNamespaces</td>
+          <td>Get all namespaces.</td>
       </tr>
       <tr>
-          <td style="text-align: left">GetKeyValueNamespaces</td>
-          <td style="text-align: left">Get all keys in a specifi namespace.</td>
+          <td>GetKeyValueNamespaces</td>
+          <td>Get all keys in a specifi namespace.</td>
       </tr>
       <tr>
-          <td style="text-align: left">PostToMQTT</td>
-          <td style="text-align: left">Post a message to a MQTT topic.</td>
+          <td>PostToMQTT</td>
+          <td>Post a message to a MQTT topic.</td>
       </tr>
       <tr>
-          <td style="text-align: left">PostToSlack</td>
-          <td style="text-align: left">Post a basic message to Slack.</td>
+          <td>PostToSlack</td>
+          <td>Post a basic message to Slack.</td>
       </tr>
   </tbody>
 </table>
@@ -227,38 +227,38 @@ This is the multi-page printable view of this section.
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Sub name</th>
-          <th style="text-align: left">Description</th>
+          <th>Sub name</th>
+          <th>Description</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">AddSchedule</td>
-          <td style="text-align: left">Add a new task reload schedule to Butler&rsquo;s scheduler.</td>
+          <td>AddSchedule</td>
+          <td>Add a new task reload schedule to Butler&rsquo;s scheduler.</td>
       </tr>
       <tr>
-          <td style="text-align: left">GetSchedule</td>
-          <td style="text-align: left">Get information about an existing Butler task schedule.</td>
+          <td>GetSchedule</td>
+          <td>Get information about an existing Butler task schedule.</td>
       </tr>
       <tr>
-          <td style="text-align: left">UpdateSchedule</td>
-          <td style="text-align: left">Modify an existing Butler task schedule.</td>
+          <td>UpdateSchedule</td>
+          <td>Modify an existing Butler task schedule.</td>
       </tr>
       <tr>
-          <td style="text-align: left">DeleteSchedule</td>
-          <td style="text-align: left">Delete a Butler task schedule.</td>
+          <td>DeleteSchedule</td>
+          <td>Delete a Butler task schedule.</td>
       </tr>
       <tr>
-          <td style="text-align: left">StartSchedule</td>
-          <td style="text-align: left">Enable a Butler task schedule.</td>
+          <td>StartSchedule</td>
+          <td>Enable a Butler task schedule.</td>
       </tr>
       <tr>
-          <td style="text-align: left">StopSchedule</td>
-          <td style="text-align: left">Disable/pause a Butler task schedule.</td>
+          <td>StopSchedule</td>
+          <td>Disable/pause a Butler task schedule.</td>
       </tr>
       <tr>
-          <td style="text-align: left">PostToTeams</td>
-          <td style="text-align: left">Make it easy to post basic messages to MS Teams.</td>
+          <td>PostToTeams</td>
+          <td>Make it easy to post basic messages to MS Teams.</td>
       </tr>
   </tbody>
 </table>

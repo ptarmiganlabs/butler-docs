@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.135.0">
+<meta name="generator" content="Hugo 0.136.2">
 <link rel="alternate" type="text/html" href="https://butler.ptarmiganlabs.com/docs/reference/alert-template-fields/client-managed/windows-services/printview/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/reference/alert-template-fields/client-managed/windows-services/index.xml">
 <meta name="robots" content="index, follow">
@@ -30,17 +30,17 @@
 <meta property="og:url" content="https://butler.ptarmiganlabs.com/docs/reference/alert-template-fields/client-managed/windows-services/">
   <meta property="og:site_name" content="Butler">
   <meta property="og:title" content="Alert template fields for Windows services events">
-  <meta property="og:description" content="List of template fields available in Butler&#39;s Windows services alert messages. ">
+  <meta property="og:description" content="List of template fields available in Butler&#39;s Windows services alert messages.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="Alert template fields for Windows services events">
-  <meta itemprop="description" content="List of template fields available in Butler&#39;s Windows services alert messages. ">
+  <meta itemprop="description" content="List of template fields available in Butler&#39;s Windows services alert messages.">
   <meta itemprop="dateModified" content="2024-10-15T22:03:00+02:00">
   <meta itemprop="wordCount" content="1239">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Alert template fields for Windows services events">
-  <meta name="twitter:description" content="List of template fields available in Butler&#39;s Windows services alert messages. ">
+  <meta name="twitter:description" content="List of template fields available in Butler&#39;s Windows services alert messages.">
 
 
 
@@ -517,69 +517,69 @@ This is simply how Sense works - the template fields just forward the informatio
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Email</th>
-          <th style="text-align: left">Slack</th>
-          <th style="text-align: left">Teams</th>
-          <th style="text-align: left">Field name</th>
-          <th style="text-align: left">Description</th>
+          <th>Email</th>
+          <th>Slack</th>
+          <th>Teams</th>
+          <th>Field name</th>
+          <th>Description</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left"><code>{{host}}</code></td>
-          <td style="text-align: left">The hostname of the server where the service is running</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td><code>{{host}}</code></td>
+          <td>The hostname of the server where the service is running</td>
       </tr>
       <tr>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left"><code>{{serviceStatus}}</code></td>
-          <td style="text-align: left">The status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code></td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td><code>{{serviceStatus}}</code></td>
+          <td>The status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code></td>
       </tr>
       <tr>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left"><code>{{servicePrevStatus}}</code></td>
-          <td style="text-align: left">The previous status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code></td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td><code>{{servicePrevStatus}}</code></td>
+          <td>The previous status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code></td>
       </tr>
       <tr>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left"><code>{{serviceName}}</code></td>
-          <td style="text-align: left">The name of the service as defined in Windows</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td><code>{{serviceName}}</code></td>
+          <td>The name of the service as defined in Windows</td>
       </tr>
       <tr>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left"><code>{{serviceDisplayName}}</code></td>
-          <td style="text-align: left">The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName.</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td><code>{{serviceDisplayName}}</code></td>
+          <td>The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName.</td>
       </tr>
       <tr>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left"><code>{{serviceFriendlyName}}</code></td>
-          <td style="text-align: left">The display name of the service as defined in the Butler config file. Used to give the service a good name when both serviceName and serviceDisplayName are unsuitable for use in for example Grafana dashboards.</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td><code>{{serviceFriendlyName}}</code></td>
+          <td>The display name of the service as defined in the Butler config file. Used to give the service a good name when both serviceName and serviceDisplayName are unsuitable for use in for example Grafana dashboards.</td>
       </tr>
       <tr>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left"><code>{{serviceStartType}}</code></td>
-          <td style="text-align: left">The startup mode of the service, e.g. <code>Automatic</code> or <code>Manual</code></td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td><code>{{serviceStartType}}</code></td>
+          <td>The startup mode of the service, e.g. <code>Automatic</code> or <code>Manual</code></td>
       </tr>
       <tr>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left">✅</td>
-          <td style="text-align: left"><code>{{serviceExePath}}</code></td>
-          <td style="text-align: left">The path to the executable of the service</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td><code>{{serviceExePath}}</code></td>
+          <td>The path to the executable of the service</td>
       </tr>
   </tbody>
 </table>
@@ -591,26 +591,26 @@ This is simply how Sense works - the template fields just forward the informatio
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Field name</th>
-          <th style="text-align: left">Description</th>
+          <th>Field name</th>
+          <th>Description</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">state_num</td>
-          <td style="text-align: left">A numeric representation of the Windows service&rsquo;s current state.</td>
+          <td>state_num</td>
+          <td>A numeric representation of the Windows service&rsquo;s current state.</td>
       </tr>
       <tr>
-          <td style="text-align: left">state_text</td>
-          <td style="text-align: left">The Windows service&rsquo;s current state (textual representation).</td>
+          <td>state_text</td>
+          <td>The Windows service&rsquo;s current state (textual representation).</td>
       </tr>
       <tr>
-          <td style="text-align: left">startup_mode_num</td>
-          <td style="text-align: left">A numeric representation of the Windows service&rsquo;s startup mode.</td>
+          <td>startup_mode_num</td>
+          <td>A numeric representation of the Windows service&rsquo;s startup mode.</td>
       </tr>
       <tr>
-          <td style="text-align: left">startup_mode_text</td>
-          <td style="text-align: left">The Windows service&rsquo;s startup mode (textual representation).</td>
+          <td>startup_mode_text</td>
+          <td>The Windows service&rsquo;s startup mode (textual representation).</td>
       </tr>
   </tbody>
 </table>
@@ -618,38 +618,38 @@ This is simply how Sense works - the template fields just forward the informatio
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">state_num</th>
-          <th style="text-align: left">state_text</th>
+          <th>state_num</th>
+          <th>state_text</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">1</td>
-          <td style="text-align: left">STOPPED</td>
+          <td>1</td>
+          <td>STOPPED</td>
       </tr>
       <tr>
-          <td style="text-align: left">2</td>
-          <td style="text-align: left">START_PENDING</td>
+          <td>2</td>
+          <td>START_PENDING</td>
       </tr>
       <tr>
-          <td style="text-align: left">3</td>
-          <td style="text-align: left">STOP_PENDING</td>
+          <td>3</td>
+          <td>STOP_PENDING</td>
       </tr>
       <tr>
-          <td style="text-align: left">4</td>
-          <td style="text-align: left">RUNNING</td>
+          <td>4</td>
+          <td>RUNNING</td>
       </tr>
       <tr>
-          <td style="text-align: left">5</td>
-          <td style="text-align: left">CONTINUE_PENDING</td>
+          <td>5</td>
+          <td>CONTINUE_PENDING</td>
       </tr>
       <tr>
-          <td style="text-align: left">6</td>
-          <td style="text-align: left">PAUSE_PENDING</td>
+          <td>6</td>
+          <td>PAUSE_PENDING</td>
       </tr>
       <tr>
-          <td style="text-align: left">7</td>
-          <td style="text-align: left">PAUSED</td>
+          <td>7</td>
+          <td>PAUSED</td>
       </tr>
   </tbody>
 </table>
@@ -657,26 +657,26 @@ This is simply how Sense works - the template fields just forward the informatio
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">startup_mode_num</th>
-          <th style="text-align: left">startup_mode_text</th>
+          <th>startup_mode_num</th>
+          <th>startup_mode_text</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">0</td>
-          <td style="text-align: left">Automatic</td>
+          <td>0</td>
+          <td>Automatic</td>
       </tr>
       <tr>
-          <td style="text-align: left">1</td>
-          <td style="text-align: left">Automatic (delayed start)</td>
+          <td>1</td>
+          <td>Automatic (delayed start)</td>
       </tr>
       <tr>
-          <td style="text-align: left">2</td>
-          <td style="text-align: left">Manual</td>
+          <td>2</td>
+          <td>Manual</td>
       </tr>
       <tr>
-          <td style="text-align: left">3</td>
-          <td style="text-align: left">Disabled</td>
+          <td>3</td>
+          <td>Disabled</td>
       </tr>
   </tbody>
 </table>
@@ -685,30 +685,30 @@ This is simply how Sense works - the template fields just forward the informatio
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Tag name</th>
-          <th style="text-align: left">Description</th>
+          <th>Tag name</th>
+          <th>Description</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">butler_instance</td>
-          <td style="text-align: left">The value in <code>Butler.influxDb.instanceTag</code>. Can be used to differentiate several Butler instances running in parallel.</td>
+          <td>butler_instance</td>
+          <td>The value in <code>Butler.influxDb.instanceTag</code>. Can be used to differentiate several Butler instances running in parallel.</td>
       </tr>
       <tr>
-          <td style="text-align: left">host</td>
-          <td style="text-align: left">Host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
+          <td>host</td>
+          <td>Host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
       </tr>
       <tr>
-          <td style="text-align: left">service_name</td>
-          <td style="text-align: left">The name of the Windows service, as defined in Windows.</td>
+          <td>service_name</td>
+          <td>The name of the Windows service, as defined in Windows.</td>
       </tr>
       <tr>
-          <td style="text-align: left">service_display_name</td>
-          <td style="text-align: left">The display name of the Windows service, as defined in Windows.</td>
+          <td>service_display_name</td>
+          <td>The display name of the Windows service, as defined in Windows.</td>
       </tr>
       <tr>
-          <td style="text-align: left">service_friendly_name</td>
-          <td style="text-align: left">The friendly name of the Windows service, as defined in the Butler config file <code>Butler.serviceMonitor.monitor.&lt;host&gt;.services.&lt;friendlyName&gt;</code>.</td>
+          <td>service_friendly_name</td>
+          <td>The friendly name of the Windows service, as defined in the Butler config file <code>Butler.serviceMonitor.monitor.&lt;host&gt;.services.&lt;friendlyName&gt;</code>.</td>
       </tr>
   </tbody>
 </table>
@@ -719,38 +719,38 @@ This is simply how Sense works - the template fields just forward the informatio
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Attribute name</th>
-          <th style="text-align: left">Description</th>
+          <th>Attribute name</th>
+          <th>Description</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">eventType</td>
-          <td style="text-align: left">Always set to <code>qs_serviceStateEvent</code></td>
+          <td>eventType</td>
+          <td>Always set to <code>qs_serviceStateEvent</code></td>
       </tr>
       <tr>
-          <td style="text-align: left">butler_serviceHost</td>
-          <td style="text-align: left">The host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
+          <td>butler_serviceHost</td>
+          <td>The host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butler_serviceName</td>
-          <td style="text-align: left">The name of the Windows service, as defined in Windows.</td>
+          <td>butler_serviceName</td>
+          <td>The name of the Windows service, as defined in Windows.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butler_serviceDisplayName</td>
-          <td style="text-align: left">The display name of the Windows service, as defined in Windows.</td>
+          <td>butler_serviceDisplayName</td>
+          <td>The display name of the Windows service, as defined in Windows.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butler_serviceStatus</td>
-          <td style="text-align: left">The status of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+          <td>butler_serviceStatus</td>
+          <td>The status of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
       </tr>
       <tr>
-          <td style="text-align: left">&hellip;</td>
-          <td style="text-align: left">Any static and dynamic attributes defined in <code>Butler.incidentTool.newRelic.serviceMonitor.destination.event.attribute</code>.</td>
+          <td>&hellip;</td>
+          <td>Any static and dynamic attributes defined in <code>Butler.incidentTool.newRelic.serviceMonitor.destination.event.attribute</code>.</td>
       </tr>
       <tr>
-          <td style="text-align: left">&hellip;</td>
-          <td style="text-align: left">Any static attributes defined in <code>Butler.incidentTool.newRelic.serviceMonitor.sharedSettings.attribute.static</code>.</td>
+          <td>&hellip;</td>
+          <td>Any static attributes defined in <code>Butler.incidentTool.newRelic.serviceMonitor.sharedSettings.attribute.static</code>.</td>
       </tr>
   </tbody>
 </table>
@@ -759,38 +759,38 @@ This is simply how Sense works - the template fields just forward the informatio
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Attribute name</th>
-          <th style="text-align: left">Description</th>
+          <th>Attribute name</th>
+          <th>Description</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">logType</td>
-          <td style="text-align: left">Always set to <code>qs_serviceStateLog</code></td>
+          <td>logType</td>
+          <td>Always set to <code>qs_serviceStateLog</code></td>
       </tr>
       <tr>
-          <td style="text-align: left">butler_serviceHost</td>
-          <td style="text-align: left">The host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
+          <td>butler_serviceHost</td>
+          <td>The host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butler_serviceName</td>
-          <td style="text-align: left">The name of the Windows service, as defined in Windows.</td>
+          <td>butler_serviceName</td>
+          <td>The name of the Windows service, as defined in Windows.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butler_serviceDisplayName</td>
-          <td style="text-align: left">The display name of the Windows service, as defined in Windows.</td>
+          <td>butler_serviceDisplayName</td>
+          <td>The display name of the Windows service, as defined in Windows.</td>
       </tr>
       <tr>
-          <td style="text-align: left">butler_serviceStatus</td>
-          <td style="text-align: left">The status of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+          <td>butler_serviceStatus</td>
+          <td>The status of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
       </tr>
       <tr>
-          <td style="text-align: left">&hellip;</td>
-          <td style="text-align: left">Any static and dynamic attributes defined in <code>Butler.incidentTool.newRelic.serviceMonitor.destination.log.attribute</code>.</td>
+          <td>&hellip;</td>
+          <td>Any static and dynamic attributes defined in <code>Butler.incidentTool.newRelic.serviceMonitor.destination.log.attribute</code>.</td>
       </tr>
       <tr>
-          <td style="text-align: left">&hellip;</td>
-          <td style="text-align: left">Any static attributes defined in <code>Butler.incidentTool.newRelic.serviceMonitor.sharedSettings.attribute.static</code>.</td>
+          <td>&hellip;</td>
+          <td>Any static attributes defined in <code>Butler.incidentTool.newRelic.serviceMonitor.sharedSettings.attribute.static</code>.</td>
       </tr>
   </tbody>
 </table>
@@ -811,30 +811,30 @@ This is simply how Sense works - the template fields just forward the informatio
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Property name</th>
-          <th style="text-align: left">Description</th>
+          <th>Property name</th>
+          <th>Description</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">host</td>
-          <td style="text-align: left">The host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
+          <td>host</td>
+          <td>The host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
       </tr>
       <tr>
-          <td style="text-align: left">serviceName</td>
-          <td style="text-align: left">The name of the Windows service, as defined in Windows.</td>
+          <td>serviceName</td>
+          <td>The name of the Windows service, as defined in Windows.</td>
       </tr>
       <tr>
-          <td style="text-align: left">serviceFriendlyName</td>
-          <td style="text-align: left">The friendly name of the Windows service, as defined in the Butler config file <code>Butler.serviceMonitor.monitor.&lt;host&gt;.services.&lt;friendlyName&gt;</code>.</td>
+          <td>serviceFriendlyName</td>
+          <td>The friendly name of the Windows service, as defined in the Butler config file <code>Butler.serviceMonitor.monitor.&lt;host&gt;.services.&lt;friendlyName&gt;</code>.</td>
       </tr>
       <tr>
-          <td style="text-align: left">serviceStatus</td>
-          <td style="text-align: left">The status of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+          <td>serviceStatus</td>
+          <td>The status of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
       </tr>
       <tr>
-          <td style="text-align: left">serviceDetails</td>
-          <td style="text-align: left">The details of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+          <td>serviceDetails</td>
+          <td>The details of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
       </tr>
   </tbody>
 </table>
@@ -842,42 +842,42 @@ This is simply how Sense works - the template fields just forward the informatio
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Property name</th>
-          <th style="text-align: left">Description</th>
+          <th>Property name</th>
+          <th>Description</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">host</td>
-          <td style="text-align: left">The host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
+          <td>host</td>
+          <td>The host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
       </tr>
       <tr>
-          <td style="text-align: left">serviceName</td>
-          <td style="text-align: left">The name of the Windows service, as defined in Windows.</td>
+          <td>serviceName</td>
+          <td>The name of the Windows service, as defined in Windows.</td>
       </tr>
       <tr>
-          <td style="text-align: left">serviceFriendlyName</td>
-          <td style="text-align: left">The friendly name of the Windows service, as defined in the Butler config file <code>Butler.serviceMonitor.monitor.&lt;host&gt;.services.&lt;friendlyName&gt;</code>.</td>
+          <td>serviceFriendlyName</td>
+          <td>The friendly name of the Windows service, as defined in the Butler config file <code>Butler.serviceMonitor.monitor.&lt;host&gt;.services.&lt;friendlyName&gt;</code>.</td>
       </tr>
       <tr>
-          <td style="text-align: left">serviceStatus</td>
-          <td style="text-align: left">The status of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+          <td>serviceStatus</td>
+          <td>The status of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
       </tr>
       <tr>
-          <td style="text-align: left">serviceDetails</td>
-          <td style="text-align: left">The details of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+          <td>serviceDetails</td>
+          <td>The details of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
       </tr>
       <tr>
-          <td style="text-align: left">prevState</td>
-          <td style="text-align: left">The previous state of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+          <td>prevState</td>
+          <td>The previous state of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
       </tr>
       <tr>
-          <td style="text-align: left">currState</td>
-          <td style="text-align: left">The current state of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+          <td>currState</td>
+          <td>The current state of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
       </tr>
       <tr>
-          <td style="text-align: left">stateChanged</td>
-          <td style="text-align: left"><code>true</code> if the Windows service changed state, <code>false</code> if not.</td>
+          <td>stateChanged</td>
+          <td><code>true</code> if the Windows service changed state, <code>false</code> if not.</td>
       </tr>
   </tbody>
 </table>
@@ -887,46 +887,46 @@ This is simply how Sense works - the template fields just forward the informatio
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Property name</th>
-          <th style="text-align: left">Description</th>
+          <th>Property name</th>
+          <th>Description</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">event</td>
-          <td style="text-align: left">Always set to <code>Windows service monitor</code></td>
+          <td>event</td>
+          <td>Always set to <code>Windows service monitor</code></td>
       </tr>
       <tr>
-          <td style="text-align: left">host</td>
-          <td style="text-align: left">The host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
+          <td>host</td>
+          <td>The host name where the Windows service is running. Comes from <code>Butler.serviceMonitor.monitor.&lt;host&gt;</code>.</td>
       </tr>
       <tr>
-          <td style="text-align: left">serviceStatus</td>
-          <td style="text-align: left">The status of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+          <td>serviceStatus</td>
+          <td>The status of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
       </tr>
       <tr>
-          <td style="text-align: left">serviceName</td>
-          <td style="text-align: left">The name of the Windows service, as defined in Windows.</td>
+          <td>serviceName</td>
+          <td>The name of the Windows service, as defined in Windows.</td>
       </tr>
       <tr>
-          <td style="text-align: left">serviceDisplayName</td>
-          <td style="text-align: left">The display name of the Windows service, as defined in Windows.</td>
+          <td>serviceDisplayName</td>
+          <td>The display name of the Windows service, as defined in Windows.</td>
       </tr>
       <tr>
-          <td style="text-align: left">serviceStartType</td>
-          <td style="text-align: left">The startup mode of the service, e.g. <code>Automatic</code> or <code>Manual</code></td>
+          <td>serviceStartType</td>
+          <td>The startup mode of the service, e.g. <code>Automatic</code> or <code>Manual</code></td>
       </tr>
       <tr>
-          <td style="text-align: left">prevState</td>
-          <td style="text-align: left">The previous state of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+          <td>prevState</td>
+          <td>The previous state of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
       </tr>
       <tr>
-          <td style="text-align: left">currState</td>
-          <td style="text-align: left">The current state of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
+          <td>currState</td>
+          <td>The current state of the Windows service, e.g. <code>RUNNING</code> or <code>STOPPED</code>.</td>
       </tr>
       <tr>
-          <td style="text-align: left">stateChanged</td>
-          <td style="text-align: left"><code>true</code> if the Windows service changed state, <code>false</code> if not.</td>
+          <td>stateChanged</td>
+          <td><code>true</code> if the Windows service changed state, <code>false</code> if not.</td>
       </tr>
   </tbody>
 </table>

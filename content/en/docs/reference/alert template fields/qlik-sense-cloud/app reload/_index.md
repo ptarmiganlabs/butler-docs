@@ -72,6 +72,8 @@ The following template fields are available in alert messages.
 | ✅ | executionStopTime.stopTimeLocal5 | Reload end timestamp, format 5 |
 | ✅ | executionStatusText | Final reload task status message, for example `FAILED`. |
 | ✅ | scriptLogSize | Size of the reload's script log (characters) |
+| ✅ | scriptLogSizeRows | Size of the reload's script log (rows) |
+| ✅ | scriptLogSizeCharacters | Size of the reload's script log (characters) |
 | ✅ | scriptLogHeadCount | Number of lines extracted from the start of the script log |
 | ✅ | scriptLogTailCount | The first y lines from the reload's script log |
 | ✅ | scriptLogHead | The first x lines from the reload's script log |

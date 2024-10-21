@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.135.0">
+<meta name="generator" content="Hugo 0.136.2">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/client-managed/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/client-managed/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -266,7 +266,7 @@ Each destination can be individually enabled/disabled in the config file.</p>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Destination</th>
+          <th>Destination</th>
           <th style="text-align: center">Reload task failure</th>
           <th style="text-align: center">Reload task aborted</th>
           <th style="text-align: center">Reload task success</th>
@@ -274,12 +274,12 @@ Each destination can be individually enabled/disabled in the config file.</p>
           <th style="text-align: center">Per reload task alert recipients</th>
           <th style="text-align: center">Flexible formatting</th>
           <th style="text-align: center">Basic formatting</th>
-          <th style="text-align: left">Comment</th>
+          <th>Comment</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">Email</td>
+          <td>Email</td>
           <td style="text-align: center">✅</td>
           <td style="text-align: center">✅</td>
           <td style="text-align: center">✅</td>
@@ -287,10 +287,10 @@ Each destination can be individually enabled/disabled in the config file.</p>
           <td style="text-align: center">✅</td>
           <td style="text-align: center">✅</td>
           <td style="text-align: center">✅</td>
-          <td style="text-align: left">Basic emails can be sent using a <a href="/docs/getting-started/setup/reload-alerts/#sending-basic-alert-emails-from-log4net">log appender</a>.</td>
+          <td>Basic emails can be sent using a <a href="/docs/getting-started/setup/reload-alerts/#sending-basic-alert-emails-from-log4net">log appender</a>.</td>
       </tr>
       <tr>
-          <td style="text-align: left">InfluxDB</td>
+          <td>InfluxDB</td>
           <td style="text-align: center">✅</td>
           <td style="text-align: center">✅</td>
           <td style="text-align: center">✅</td>
@@ -298,10 +298,10 @@ Each destination can be individually enabled/disabled in the config file.</p>
           <td style="text-align: center"></td>
           <td style="text-align: center">✅</td>
           <td style="text-align: center"></td>
-          <td style="text-align: left">The failed reload&rsquo;s script log is available in InfluxDb.</td>
+          <td>The failed reload&rsquo;s script log is available in InfluxDb.</td>
       </tr>
       <tr>
-          <td style="text-align: left">New Relic</td>
+          <td>New Relic</td>
           <td style="text-align: center">✅</td>
           <td style="text-align: center">✅</td>
           <td style="text-align: center"></td>
@@ -309,10 +309,10 @@ Each destination can be individually enabled/disabled in the config file.</p>
           <td style="text-align: center"></td>
           <td style="text-align: center">✅</td>
           <td style="text-align: center"></td>
-          <td style="text-align: left">The failed reload&rsquo;s script log is available in New Relic.</td>
+          <td>The failed reload&rsquo;s script log is available in New Relic.</td>
       </tr>
       <tr>
-          <td style="text-align: left">Signl4</td>
+          <td>Signl4</td>
           <td style="text-align: center">✅</td>
           <td style="text-align: center">✅</td>
           <td style="text-align: center"></td>
@@ -320,10 +320,10 @@ Each destination can be individually enabled/disabled in the config file.</p>
           <td style="text-align: center"></td>
           <td style="text-align: center">✅</td>
           <td style="text-align: center"></td>
-          <td style="text-align: left">Alerts are presented in Signl4&rsquo;s own format in their mobile app.</td>
+          <td>Alerts are presented in Signl4&rsquo;s own format in their mobile app.</td>
       </tr>
       <tr>
-          <td style="text-align: left">Slack</td>
+          <td>Slack</td>
           <td style="text-align: center">✅</td>
           <td style="text-align: center">✅</td>
           <td style="text-align: center"></td>
@@ -331,10 +331,10 @@ Each destination can be individually enabled/disabled in the config file.</p>
           <td style="text-align: center"></td>
           <td style="text-align: center">✅</td>
           <td style="text-align: center">✅</td>
-          <td style="text-align: left"></td>
+          <td></td>
       </tr>
       <tr>
-          <td style="text-align: left">MS Teams</td>
+          <td>MS Teams</td>
           <td style="text-align: center">✅</td>
           <td style="text-align: center">✅</td>
           <td style="text-align: center"></td>
@@ -342,10 +342,10 @@ Each destination can be individually enabled/disabled in the config file.</p>
           <td style="text-align: center"></td>
           <td style="text-align: center">✅</td>
           <td style="text-align: center">✅</td>
-          <td style="text-align: left"></td>
+          <td></td>
       </tr>
       <tr>
-          <td style="text-align: left">Outgoing webhook</td>
+          <td>Outgoing webhook</td>
           <td style="text-align: center">✅</td>
           <td style="text-align: center">✅</td>
           <td style="text-align: center"></td>
@@ -353,10 +353,10 @@ Each destination can be individually enabled/disabled in the config file.</p>
           <td style="text-align: center"></td>
           <td style="text-align: center"></td>
           <td style="text-align: center"></td>
-          <td style="text-align: left">Formatting is not relevant for webhooks</td>
+          <td>Formatting is not relevant for webhooks</td>
       </tr>
       <tr>
-          <td style="text-align: left">MQTT</td>
+          <td>MQTT</td>
           <td style="text-align: center">✅</td>
           <td style="text-align: center">✅</td>
           <td style="text-align: center"></td>
@@ -364,7 +364,7 @@ Each destination can be individually enabled/disabled in the config file.</p>
           <td style="text-align: center"></td>
           <td style="text-align: center"></td>
           <td style="text-align: center"></td>
-          <td style="text-align: left">Formatting is not relevant for MQTT messages</td>
+          <td>Formatting is not relevant for MQTT messages</td>
       </tr>
   </tbody>
 </table>
@@ -1750,54 +1750,54 @@ If the server uses a self-signed certificate, the corresponding root CA certific
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Field</th>
-          <th style="text-align: left">Description</th>
+          <th>Field</th>
+          <th>Description</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">event</td>
-          <td style="text-align: left">Type of event, for example <code>Qlik Sense reload failed</code>.</td>
+          <td>event</td>
+          <td>Type of event, for example <code>Qlik Sense reload failed</code>.</td>
       </tr>
       <tr>
-          <td style="text-align: left">hostName</td>
-          <td style="text-align: left">Name of server where the event took place.</td>
+          <td>hostName</td>
+          <td>Name of server where the event took place.</td>
       </tr>
       <tr>
-          <td style="text-align: left">user</td>
-          <td style="text-align: left">User directory/userId of user causing the event. For task failures this will be the user account used to do the reload. For aborts it will be the user stopping/aborting the task.</td>
+          <td>user</td>
+          <td>User directory/userId of user causing the event. For task failures this will be the user account used to do the reload. For aborts it will be the user stopping/aborting the task.</td>
       </tr>
       <tr>
-          <td style="text-align: left">taskName</td>
-          <td style="text-align: left">Task name</td>
+          <td>taskName</td>
+          <td>Task name</td>
       </tr>
       <tr>
-          <td style="text-align: left">taskId</td>
-          <td style="text-align: left">Task ID</td>
+          <td>taskId</td>
+          <td>Task ID</td>
       </tr>
       <tr>
-          <td style="text-align: left">appName</td>
-          <td style="text-align: left">App name</td>
+          <td>appName</td>
+          <td>App name</td>
       </tr>
       <tr>
-          <td style="text-align: left">appId</td>
-          <td style="text-align: left">App ID</td>
+          <td>appId</td>
+          <td>App ID</td>
       </tr>
       <tr>
-          <td style="text-align: left">logTimeStamp</td>
-          <td style="text-align: left">Timestamp entry in the Qlik Sense log files when the event took place.</td>
+          <td>logTimeStamp</td>
+          <td>Timestamp entry in the Qlik Sense log files when the event took place.</td>
       </tr>
       <tr>
-          <td style="text-align: left">logLevel</td>
-          <td style="text-align: left">Log level used in the Qlik Sense log file in which the event was detected by the log appender.</td>
+          <td>logLevel</td>
+          <td>Log level used in the Qlik Sense log file in which the event was detected by the log appender.</td>
       </tr>
       <tr>
-          <td style="text-align: left">executionId</td>
-          <td style="text-align: left">Execution ID of the failed/aborted task.</td>
+          <td>executionId</td>
+          <td>Execution ID of the failed/aborted task.</td>
       </tr>
       <tr>
-          <td style="text-align: left">logMessage</td>
-          <td style="text-align: left">Message in Qlik Sense log file that triggered the event.</td>
+          <td>logMessage</td>
+          <td>Message in Qlik Sense log file that triggered the event.</td>
       </tr>
   </tbody>
 </table>

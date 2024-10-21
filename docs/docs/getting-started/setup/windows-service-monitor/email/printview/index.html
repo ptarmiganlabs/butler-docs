@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.135.0">
+<meta name="generator" content="Hugo 0.136.2">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/email/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/email/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -121,42 +121,42 @@ The available values are:</p>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Value</th>
-          <th style="text-align: left">Description</th>
+          <th>Value</th>
+          <th>Description</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left"><code>{{host}}</code></td>
-          <td style="text-align: left">The hostname of the server where the service is running</td>
+          <td><code>{{host}}</code></td>
+          <td>The hostname of the server where the service is running</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>{{serviceStatus}}</code></td>
-          <td style="text-align: left">The status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code></td>
+          <td><code>{{serviceStatus}}</code></td>
+          <td>The status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code></td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>{{servicePrevStatus}}</code></td>
-          <td style="text-align: left">The previous status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code></td>
+          <td><code>{{servicePrevStatus}}</code></td>
+          <td>The previous status of the service, e.g. <code>RUNNING</code> or <code>STOPPED</code></td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>{{serviceName}}</code></td>
-          <td style="text-align: left">The name of the service as defined in Windows</td>
+          <td><code>{{serviceName}}</code></td>
+          <td>The name of the service as defined in Windows</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>{{serviceDisplayName}}</code></td>
-          <td style="text-align: left">The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName.</td>
+          <td><code>{{serviceDisplayName}}</code></td>
+          <td>The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>{{serviceFriendlyName}}</code></td>
-          <td style="text-align: left">The display name of the service as defined in the Butler config file. Used to give the service a good name when both serviceName and serviceDisplayName are unsuitable for use in for example Grafana dashboards.</td>
+          <td><code>{{serviceFriendlyName}}</code></td>
+          <td>The display name of the service as defined in the Butler config file. Used to give the service a good name when both serviceName and serviceDisplayName are unsuitable for use in for example Grafana dashboards.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>{{serviceStartType}}</code></td>
-          <td style="text-align: left">The startup mode of the service, e.g. <code>Automatic</code> or <code>Manual</code></td>
+          <td><code>{{serviceStartType}}</code></td>
+          <td>The startup mode of the service, e.g. <code>Automatic</code> or <code>Manual</code></td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>{{serviceExePath}}</code></td>
-          <td style="text-align: left">The path to the executable of the service</td>
+          <td><code>{{serviceExePath}}</code></td>
+          <td>The path to the executable of the service</td>
       </tr>
   </tbody>
 </table>

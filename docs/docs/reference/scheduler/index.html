@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.135.0">
+<meta name="generator" content="Hugo 0.136.2">
 <link rel="alternate" type="text/html" href="https://butler.ptarmiganlabs.com/docs/reference/scheduler/printview/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/reference/scheduler/index.xml">
 <meta name="robots" content="index, follow">
@@ -30,17 +30,17 @@
 <meta property="og:url" content="https://butler.ptarmiganlabs.com/docs/reference/scheduler/">
   <meta property="og:site_name" content="Butler">
   <meta property="og:title" content="Scheduler">
-  <meta property="og:description" content="Details about the Butler scheduler. ">
+  <meta property="og:description" content="Details about the Butler scheduler.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="Scheduler">
-  <meta itemprop="description" content="Details about the Butler scheduler. ">
+  <meta itemprop="description" content="Details about the Butler scheduler.">
   <meta itemprop="dateModified" content="2021-11-03T14:09:22+01:00">
   <meta itemprop="wordCount" content="897">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Scheduler">
-  <meta name="twitter:description" content="Details about the Butler scheduler. ">
+  <meta name="twitter:description" content="Details about the Butler scheduler.">
 
 
 
@@ -484,36 +484,36 @@
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Feature</th>
-          <th style="text-align: left">Qlik Sense scheduler</th>
-          <th style="text-align: left">Butler scheduler</th>
+          <th>Feature</th>
+          <th>Qlik Sense scheduler</th>
+          <th>Butler scheduler</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">Tasks should run same time each day.</td>
-          <td style="text-align: left">Yes</td>
-          <td style="text-align: left">Yes</td>
+          <td>Tasks should run same time each day.</td>
+          <td>Yes</td>
+          <td>Yes</td>
       </tr>
       <tr>
-          <td style="text-align: left">Tasks should run only some days of the month/wek (ex 1st day of the month or on Wednesdays and Fridays).</td>
-          <td style="text-align: left">Yes</td>
-          <td style="text-align: left">Yes</td>
+          <td>Tasks should run only some days of the month/wek (ex 1st day of the month or on Wednesdays and Fridays).</td>
+          <td>Yes</td>
+          <td>Yes</td>
       </tr>
       <tr>
-          <td style="text-align: left">Tasks should run only between certain hours during the day (e.g. every 5 minutes during the first 30 minutes of each hour, between 08.00 and 18.00).</td>
-          <td style="text-align: left">Yes, with lots of manual work</td>
-          <td style="text-align: left">Yes</td>
+          <td>Tasks should run only between certain hours during the day (e.g. every 5 minutes during the first 30 minutes of each hour, between 08.00 and 18.00).</td>
+          <td>Yes, with lots of manual work</td>
+          <td>Yes</td>
       </tr>
       <tr>
-          <td style="text-align: left">Tasks can be chained together, with one task starting when the previous has finished.</td>
-          <td style="text-align: left">Yes</td>
-          <td style="text-align: left">-</td>
+          <td>Tasks can be chained together, with one task starting when the previous has finished.</td>
+          <td>Yes</td>
+          <td>-</td>
       </tr>
       <tr>
-          <td style="text-align: left">Task definitions can be stored in Git and managed by a DevOps workflow.</td>
-          <td style="text-align: left">Yes, with lots of work.</td>
-          <td style="text-align: left">Yes, out of the box</td>
+          <td>Task definitions can be stored in Git and managed by a DevOps workflow.</td>
+          <td>Yes, with lots of work.</td>
+          <td>Yes, out of the box</td>
       </tr>
   </tbody>
 </table>
@@ -524,56 +524,56 @@
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Field name</th>
-          <th style="text-align: left">Descriptions</th>
-          <th style="text-align: left">Example</th>
+          <th>Field name</th>
+          <th>Descriptions</th>
+          <th>Example</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">name</td>
-          <td style="text-align: left">Descriptive name for the schedule.</td>
-          <td style="text-align: left">Every 2 hours</td>
+          <td>name</td>
+          <td>Descriptive name for the schedule.</td>
+          <td>Every 2 hours</td>
       </tr>
       <tr>
-          <td style="text-align: left">cronSchedule</td>
-          <td style="text-align: left">Cron string. 5 or 6 postitions allowed. If 5 positions used a <code>0</code> will be used for seconds. <a href="https://crontab.guru/">crontab.guru</a> and similar sites are useful for creating the cron string.</td>
-          <td style="text-align: left">0 */2 * * *</td>
+          <td>cronSchedule</td>
+          <td>Cron string. 5 or 6 postitions allowed. If 5 positions used a <code>0</code> will be used for seconds. <a href="https://crontab.guru/">crontab.guru</a> and similar sites are useful for creating the cron string.</td>
+          <td>0 */2 * * *</td>
       </tr>
       <tr>
-          <td style="text-align: left">timezone</td>
-          <td style="text-align: left">Timezone in which the schedule will execute. List of available timezones <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">here</a>.</td>
-          <td style="text-align: left">Europe/London</td>
+          <td>timezone</td>
+          <td>Timezone in which the schedule will execute. List of available timezones <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">here</a>.</td>
+          <td>Europe/London</td>
       </tr>
       <tr>
-          <td style="text-align: left">qlikSenseTaskId</td>
-          <td style="text-align: left">Qlik Sense task that will be started. The task ID can be found in the task view in the QMC.</td>
-          <td style="text-align: left">0fe447a9-ba1f-44a9-ac23-68c3a1d88d8b</td>
+          <td>qlikSenseTaskId</td>
+          <td>Qlik Sense task that will be started. The task ID can be found in the task view in the QMC.</td>
+          <td>0fe447a9-ba1f-44a9-ac23-68c3a1d88d8b</td>
       </tr>
       <tr>
-          <td style="text-align: left">startupState</td>
-          <td style="text-align: left">Controls whether this task should be started or left stopped when Butler starts up. <br> If set to &ldquo;start&rdquo; or &ldquo;started&rdquo;, the schedule will be started upon creation. Otherwise it will remain in stopped state.</td>
-          <td style="text-align: left">started</td>
+          <td>startupState</td>
+          <td>Controls whether this task should be started or left stopped when Butler starts up. <br> If set to &ldquo;start&rdquo; or &ldquo;started&rdquo;, the schedule will be started upon creation. Otherwise it will remain in stopped state.</td>
+          <td>started</td>
       </tr>
       <tr>
-          <td style="text-align: left">tags</td>
-          <td style="text-align: left">Array of tags, can be used to categorise schedules. Optional.</td>
-          <td style="text-align: left">[ finace ETL, abc 123 ]</td>
+          <td>tags</td>
+          <td>Array of tags, can be used to categorise schedules. Optional.</td>
+          <td>[ finace ETL, abc 123 ]</td>
       </tr>
       <tr>
-          <td style="text-align: left">id</td>
-          <td style="text-align: left">Schedule ID. Free text string, can be set to anything as long as it is unique. Schedules created via the REST API will have a GUID as id.</td>
-          <td style="text-align: left">2f7a6c38-46df-416d-83de-44bdea5cedaa</td>
+          <td>id</td>
+          <td>Schedule ID. Free text string, can be set to anything as long as it is unique. Schedules created via the REST API will have a GUID as id.</td>
+          <td>2f7a6c38-46df-416d-83de-44bdea5cedaa</td>
       </tr>
       <tr>
-          <td style="text-align: left">created</td>
-          <td style="text-align: left">Timestamp the schedule was created. Optional when manually adding schedules to schedule file.</td>
-          <td style="text-align: left">2020-09-29T17:14:35.154Z</td>
+          <td>created</td>
+          <td>Timestamp the schedule was created. Optional when manually adding schedules to schedule file.</td>
+          <td>2020-09-29T17:14:35.154Z</td>
       </tr>
       <tr>
-          <td style="text-align: left">lastKnownState</td>
-          <td style="text-align: left">The schedule&rsquo;s last known state. Optional when manually adding schedules to schedule file.</td>
-          <td style="text-align: left">started </td>
+          <td>lastKnownState</td>
+          <td>The schedule&rsquo;s last known state. Optional when manually adding schedules to schedule file.</td>
+          <td>started </td>
       </tr>
   </tbody>
 </table>
