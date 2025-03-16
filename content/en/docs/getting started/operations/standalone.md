@@ -1,10 +1,10 @@
 ---
-title: 'Standalone app'
-linkTitle: 'Standalone app'
+title: "Standalone app"
+linkTitle: "Standalone app"
 weight: 10
 description: >
-    Running Butler as a standalone app is in most cases the easiest way to use Butler. <br>
-    Pre-built executables are available for Windows, macOS and Linux.
+  Running Butler as a standalone app is in most cases the easiest way to use Butler. <br>
+  Pre-built executables are available for Windows, macOS and Linux.
 ---
 
 <!-- {{% pageinfo %}}
@@ -130,7 +130,7 @@ The available options are exactly the same as for Windows.
 The exact way of auto-starting apps when a computer boots varies between different versions of macOS and Linux.  
 If you want to do this Google is your friend.
 
-That said, [PM2](https://github.com/Unitech/pm2) and [Forever](https://github.com/foreverjs/forever) are two process monitors that both have been successfully tested with Butler. These tools bascially monitor what processes are running and restart them if they for some reason fail.
+That said, [PM2](https://github.com/Unitech/pm2) and [Forever](https://github.com/foreverjs/forever) are two process monitors that both have been successfully tested with Butler. These tools basically monitor what processes are running and restart them if they for some reason fail.
 
 ## Command line options
 
@@ -148,11 +148,11 @@ The `--configfile` option is a must-have as it's the only way to tell the standa
 
 ### \-\-loglevel, -l
 
-The `--loglevel` option can be quite useful when you want to temporarily switch from the `info` level logging set in the config file, to a more detailed `verbose` or `debug` level logging while investigating some problem.  
+The `--loglevel` option can be quite useful when you want to temporarily switch from the `info` level logging set in the config file, to a more detailed `verbose` or `debug` level logging while investigating some problem.
 
 ### \-\-new-relic-account-name
 
-A list of New Relic account names to which data can be sent from Butler.  
+A list of New Relic account names to which data can be sent from Butler.
 
 The arguments to this option consists of one or more strings enclosed in single or double quotes (depending on which operating system is used), separated by a space.  
 For example `--new-relic-account-name "First NR account" "Second NR account"`.

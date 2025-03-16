@@ -1,9 +1,9 @@
 ---
-title: 'Sending Windows service alerts to Microsoft Teams'
-linkTitle: 'MS Teams'
+title: "Sending Windows service alerts to Microsoft Teams"
+linkTitle: "MS Teams"
 weight: 50
 description: >
-    This page contains information on how to configure Butler to send alerts messages to Microsoft Teams when Windows services stop or start.
+  This page contains information on how to configure Butler to send alerts messages to Microsoft Teams when Windows services stop or start.
 ---
 
 ## What's this?
@@ -32,24 +32,24 @@ Check out the [handlebars documentation](https://handlebarsjs.com/) for more inf
 
 A formatted Teams message can look something like this:
 
-![Teams message when a Windows service has stopped](butler-win-svc-monitor-teams-1.png 'Teams message when a Windows service has stopped')
+![Teams message when a Windows service has stopped](butler-win-svc-monitor-teams-1.png "Teams message when a Windows service has stopped")
 
-### Information availble in formatted Teams messages
+### Information available in formatted Teams messages
 
 Similar to how failed-reload email notifications work, the templating engine [Handlebars](https://handlebarsjs.com/) is used to format the Teams messages.
 
 The following information is available in formatted Teams messages:
 
-| Handlebars variable | Description |
-| --- | --- |
-| `{{host}}` | The hostname of the server where the service is running. |
-| `{{serviceStatus}}` | The status of the service, e.g. `RUNNING` or `STOPPED`. |
-| `{{servicePrevStatus}}` | The previous status of the service, e.g. `RUNNING` or `STOPPED`. |
-| `{{serviceName}}` | The name of the service as defined in Windows. |
-| `{{serviceDisplayName}}` | The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName. |
-| `{{serviceFriendlyName}}` | The friendly name of the service as defined in the config file. |
-| `{{serviceStartType}}` | The start type of the service, e.g. `AUTO_START` or `DEMAND_START`. |
-| `{{serviceExePath}}` | The path to the service executable. |
+| Handlebars variable       | Description                                                                                                             |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `{{host}}`                | The hostname of the server where the service is running.                                                                |
+| `{{serviceStatus}}`       | The status of the service, e.g. `RUNNING` or `STOPPED`.                                                                 |
+| `{{servicePrevStatus}}`   | The previous status of the service, e.g. `RUNNING` or `STOPPED`.                                                        |
+| `{{serviceName}}`         | The name of the service as defined in Windows.                                                                          |
+| `{{serviceDisplayName}}`  | The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName. |
+| `{{serviceFriendlyName}}` | The friendly name of the service as defined in the config file.                                                         |
+| `{{serviceStartType}}`    | The start type of the service, e.g. `AUTO_START` or `DEMAND_START`.                                                     |
+| `{{serviceExePath}}`      | The path to the service executable.                                                                                     |
 
 ## Creating a MS Teams webhook
 
@@ -76,6 +76,6 @@ Butler:
       basicMsgTemplate: 'Windows service started: "{{serviceName}}" on host "{{host}}"'       # Only needed if message type = basic
       rateLimit: 30                   # Min seconds between messages for a given Windows service. Defaults to 5 minutes.
       templateFile: /path/to/teams/template/directory/service-started.handlebars
-  ...  
+  ...
   ...
 ```

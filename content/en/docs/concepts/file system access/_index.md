@@ -11,7 +11,7 @@ description: >
 Qlik Sense locked down things quite a bit compared to its QlikView predecessor.
 
 In QlikView your app scripts could do almost anything with any file on the server's disks as long as the QlikView service account had access to the file.  
-This was not ideal from a security perspective and Qlik Sense therefore introduced the concept of [folder data connetions](https://help.qlik.com/en-US/sense/August2021/Subsystems/Hub/Content/Sense_Hub/LoadData/connect-data-sources-data-load-editor.htm) and in general much stricter [file system access restrictions](https://help.qlik.com/en-US/sense/August2021/Subsystems/Hub/Content/Sense_Hub/LoadData/file-system-access-restriction.htm).
+This was not ideal from a security perspective and Qlik Sense therefore introduced the concept of [folder data connections](https://help.qlik.com/en-US/sense/August2021/Subsystems/Hub/Content/Sense_Hub/LoadData/connect-data-sources-data-load-editor.htm) and in general much stricter [file system access restrictions](https://help.qlik.com/en-US/sense/August2021/Subsystems/Hub/Content/Sense_Hub/LoadData/file-system-access-restriction.htm).
 
 With this change Qlik Sense had a much better position with respect to security, as access to files was now boxed by the folder data connection the access used (by means of lib:// statements).  
 It's also possible to [include .qvs script files](https://help.qlik.com/en-US/sense/August2021/Subsystems/Hub/Content/Sense_Hub/Scripting/SystemVariables/Include.htm) via the same mechanism.
@@ -19,7 +19,7 @@ It's also possible to [include .qvs script files](https://help.qlik.com/en-US/se
 The problem now is that it's no longer possible to do file level operations on individual or groups of files.  
 No more deleting, copying or moving of files from within the load script.
 
-Now - there is a per-server setting that disables this new "standard mode" and reverts back to what's known as "legacy mode", which is essentially how QlikView worked (and still works). But then the Sense environment is once again vulerable to badly written or even malicious Sense apps.
+Now - there is a per-server setting that disables this new "standard mode" and reverts back to what's known as "legacy mode", which is essentially how QlikView worked (and still works). But then the Sense environment is once again vulnerable to badly written or even malicious Sense apps.
 
 ## Butler adds controlled file system access to Qlik Sense Enterprise
 

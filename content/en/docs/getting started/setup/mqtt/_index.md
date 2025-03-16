@@ -30,7 +30,7 @@ A concrete example could be that a system that Sense read data from is located i
 
 The Azure Event Grid option is also useful if you want to use Butler's MQTT features in a hybrid environment, where some of the systems are on-prem and some are in the cloud.
 
-The Butler consfig file controls which kind of MQTT broker Butler will connect to.
+The Butler config file controls which kind of MQTT broker Butler will connect to.
 
 - If `Butler.mqttConfig.enable` is set to `true` and `Butler.mqttConfig.azureEventGrid.enable` is set to `false`, Butler will connect the standard MQTT broker defined in `Butler.mqttConfig.brokerHost` and `Butler.mqttConfig.brokerPort`. No authentication is supported in this case.
 - If `Butler.mqttConfig.enable` is set to `true` and `Butler.mqttConfig.azureEventGrid.enable` is set to `true`, Butler will connect to an Azure Event Grid MQTT broker, using the settings defined in `Butler.mqttConfig.azureEventGrid` to authenticate with Azure.
@@ -46,7 +46,7 @@ Check the [Azure pricing page](https://azure.microsoft.com/en-us/pricing/details
 ## Using MQTT to get evens from Qlik Sense Cloud
 
 Butler can use MQTT as a transport layer for events from Qlik Sense Cloud, for example app reload failure events.
-A separate MQTT configiration section in the config file is used for this, see below.
+A separate MQTT configuration section in the config file is used for this, see below.
 
 ## Settings in config file
 
@@ -66,7 +66,7 @@ Butler:
     brokerHost: <FQDN or IP of MQTT server>
     brokerPort: 1883
     azureEventGrid:
-      enable: false              # If set to true, Butler will connect to an Azure Event Grid MQTT Broker, using brokerHost and brokerPort above 
+      enable: false              # If set to true, Butler will connect to an Azure Event Grid MQTT Broker, using brokerHost and brokerPort above
       clientId: <client ID>
       clientCertFile: <path to client certificate file>
       clientKeyFile: <path to client key file>
@@ -85,7 +85,7 @@ Butler:
     qlikSenseServerLicenseTopic: qliksense/qliksense_server_license          # Topic to which Sense server license info is published
     qlikSenseServerLicenseExpireTopic: qliksense/qliksense_server_license_expire # Topic to which Sense server license expiration alerts are published
     qlikSenseCloud:                                                   # MQTT settings for Qlik Sense Cloud integration
-      event:                                                          
+      event:
         mqttForward:                                                  # QS Cloud events forwarded to MQTT topics, which Butler will subscribe to
           enable: false
           broker:                                                     # Settings for MQTT broker to which QS Cloud events are forwarded

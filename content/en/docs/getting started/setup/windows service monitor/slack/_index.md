@@ -1,9 +1,9 @@
 ---
-title: 'Sending Windows service alerts to Slack'
-linkTitle: 'Slack'
+title: "Sending Windows service alerts to Slack"
+linkTitle: "Slack"
 weight: 40
 description: >
-    This page contains information on how to configure Butler to send alerts messages to Slack when Windows services stop or start.
+  This page contains information on how to configure Butler to send alerts messages to Slack when Windows services stop or start.
 ---
 
 ## What's this?
@@ -32,24 +32,24 @@ Check out the [handlebars documentation](https://handlebarsjs.com/) for more inf
 
 A formatted Slack message can look something like this:
 
-![Slack message when a Windows service has stopped](butler-win-svc-monitor-slack-1.png 'Slack message when a Windows service has stopped')
+![Slack message when a Windows service has stopped](butler-win-svc-monitor-slack-1.png "Slack message when a Windows service has stopped")
 
-### Information availble in formatted Slack messages
+### Information available in formatted Slack messages
 
 Similar to how failed-reload email notifications work, the templating engine [Handlebars](https://handlebarsjs.com/) is used to format the Slack messages.
 
 The following information is available in formatted Slack messages:
 
-| Handlebars variable | Description |
-| --- | --- |
-| `{{host}}` | The hostname of the server where the service is running |
-| `{{serviceStatus}}` | The status of the service, e.g. `RUNNING` or `STOPPED` |
-| `{{servicePrevStatus}}` | The previous status of the service, e.g. `RUNNING` or `STOPPED` |
-| `{{serviceName}}` | The name of the service as defined in Windows |
-| `{{serviceDisplayName}}` | The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName. |
-| `{{serviceFriendlyName}}` | The friendly name of the service as defined in the config file. |
-| `{{serviceStartType}}` | The start type of the service, e.g. `AUTO_START` or `DEMAND_START` |
-| `{{serviceExePath}}` | The path to the service executable |
+| Handlebars variable       | Description                                                                                                             |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `{{host}}`                | The hostname of the server where the service is running                                                                 |
+| `{{serviceStatus}}`       | The status of the service, e.g. `RUNNING` or `STOPPED`                                                                  |
+| `{{servicePrevStatus}}`   | The previous status of the service, e.g. `RUNNING` or `STOPPED`                                                         |
+| `{{serviceName}}`         | The name of the service as defined in Windows                                                                           |
+| `{{serviceDisplayName}}`  | The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName. |
+| `{{serviceFriendlyName}}` | The friendly name of the service as defined in the config file.                                                         |
+| `{{serviceStartType}}`    | The start type of the service, e.g. `AUTO_START` or `DEMAND_START`                                                      |
+| `{{serviceExePath}}`      | The path to the service executable                                                                                      |
 
 ## Settings in config file
 
@@ -78,6 +78,6 @@ Butler:
       templateFile: /path/to/slack/template/directory/service-started.handlebars
       fromUser: Qlik Sense
       iconEmoji: ':ghost:'
-  ...  
+  ...
   ...
 ```

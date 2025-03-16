@@ -20,15 +20,15 @@ This means that its very easy to try out and get familiar with the various API e
 
 If Butler's config file contains the settings below, the API will be available at http://192.168.1.168:8080.
 
-  ```yaml
-  ...
-  restServerConfig:
-    enable: true
-    serverHost: 192.168.1.168
-    serverPort: 8080
-    backgroundServerPort: 8083
-  ...
-  ```
+```yaml
+
+---
+restServerConfig:
+  enable: true
+  serverHost: 192.168.1.168
+  serverPort: 8080
+  backgroundServerPort: 8083
+```
 
 In addition to the API endpoints, the API documentation will be available at http://192.168.1.168:8080/documentation.  
 The beauty of the Swagger docs is that you can also test drive the API itself. If you have Butler running it's thus super easy to test the various REST API endpoints.
@@ -42,9 +42,9 @@ The API doc page looks like this:
 If the OpenAPI interface to Butler's API feels limited, there are lots of tools dedicated to this task.  
 Two good ones are:
 
-* [Paw](https://paw.cloud/) is Mac only, costs a bit of money, but is very, very good. Highly recommended.
-* [Postman](https://www.postman.com/) is also good and cross platform.
-{{% /alert %}}
+- [Paw](https://paw.cloud/) is Mac only, costs a bit of money, but is very, very good. Highly recommended.
+- [Postman](https://www.postman.com/) is also good and cross platform.
+  {{% /alert %}}
 
 ### Butler ping
 
@@ -70,10 +70,10 @@ Create and query key-value pairs.
 
 Create, query, edit and delete task reload schedules using Butler's scheduling API.
 
-When wathcing the video below, you will notice there are two pre-defined schedules.  
+When watching the video below, you will notice there are two pre-defined schedules.  
 One of them fires every 30 seconds and this is also visible in the Butler logs:
 
-![Active user sessions](butler-running-schedules-firing-1.png "Active user sessions")  
+![Active user sessions](butler-running-schedules-firing-1.png "Active user sessions")
 
 {{< youtube id="f-ZSUvXeFmw" modestbranding=true color="red">}}
 

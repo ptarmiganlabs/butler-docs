@@ -8,7 +8,7 @@ description: >
 
   This means that a Power Automate webhook is needed in order for Butler to send messages to Teams.  
 
-  
+
   This page describes both how to create new channels in Teams and how to set up new webhooks that can be used to send messages to the new channel.
 ---
 
@@ -44,7 +44,7 @@ Existing workflow are listed, for all channels the user has access to.
 
 ![Create new workflow](/img/butler-teams-create-webhook-2.png "Create new workflow")
 
-Create a new workflow by clicking the "New flow" button in upper right corner.  
+Create a new workflow by clicking the "New flow" button in upper right corner.
 
 ![Open the workflow view](/img/butler-teams-create-webhook-3.png "Open the workflow view")
 
@@ -54,7 +54,7 @@ The one we need is called "Post to a channel when a webhook request is received"
 ![Search for workflow templates related to webhooks](/img/butler-teams-create-webhook-4.png "Search for workflow templates related to webhooks")
 
 Give the workflow a name and sign in.  
-In most cases you will already be signed in, which shows by the green checkmark to the right of the "Microsoft Teams" text.
+In most cases you will already be signed in, which shows by the green check mark to the right of the "Microsoft Teams" text.
 
 ![Give the workflow a name](/img/butler-teams-create-webhook-5.png "Give the workflow a name")
 

@@ -3,10 +3,10 @@ title: "Controlled and secure file system operations"
 linkTitle: "File system operations"
 weight: 60
 description: >
-    For security reasons Qlik Sense does not offer direct access to the file system from load scripts.
-    Using lib:// constructs files can be read and written, but not copied, moved or deleted.
-      
-    Butler has APIs that enabled file copy/move/delete in a secure, controlled way.
+  For security reasons Qlik Sense does not offer direct access to the file system from load scripts.
+  Using lib:// constructs files can be read and written, but not copied, moved or deleted.
+    
+  Butler has APIs that enabled file copy/move/delete in a secure, controlled way.
 ---
 
 ## Goal: Copy, move and delete files from Sense load scripts
@@ -20,9 +20,9 @@ These steps are needed to achieve the goal:
 4. Call the Butler APIs directly or use the subs included in the GitHub repo to do the desired file operations.
 
 {{% alert title="Warning: UNC paths only on Windows" color="warning" %}}
-UNC paths (i.e. "\\\\host\\fileshare\\folder1\\folder2") is a Windows-only feature and as such only supported when Butler is running on Windows.  
+UNC paths (i.e. "\\\\host\\fileshare\\folder1\\folder2") is a Windows-only feature and as such only supported when Butler is running on Windows.
 
-If Butler is running on a non-Windows operating system and directories on network file shares should be accessible via Butler's RESR API, those directories must be mounted on the server using the standard OS mechanisms, then accessed via the server's local file system.
+If Butler is running on a non-Windows operating system and directories on network file shares should be accessible via Butler's REST API, those directories must be mounted on the server using the standard OS mechanisms, then accessed via the server's local file system.
 
 Butler will warn in the console and file logs if UNC paths are specified in the config file, and Butler is NOT running on Windows.
 {{% /alert %}}
@@ -45,35 +45,35 @@ Note that all subdirectories of the directories listed in the config file are al
 A few examples show how to deal with some common scenarios:
 
 ```yaml
-  fileCopyApprovedDirectories:
-    - fromDirectory: /data1/qvd           # Butler running on Linux, with either a local directory in /data1, or a remote fileshare mounted into /data1
-      toDirectory: /data2/qvd_archive
-    - fromDirectory: e:\data3\qvd         # Butler running on Windows Server, accessing files/directories in the local file system
-      toDirectory: e:\data4\qvd_archive
-    - fromDirectory: //server1.my.domain/fileshare1/data1   # Butler running on Windows server, accessing a SMB file share (which can be on a Windows or Linux server)
-      toDirectory: //server1.my.domain/fileshare1/data2
-    - fromDirectory: \\server1.my.domain\fileshare1\data1
-      toDirectory: \\server1.my.domain\fileshare1\data2
+fileCopyApprovedDirectories:
+  - fromDirectory: /data1/qvd # Butler running on Linux, with either a local directory in /data1, or a remote fileshare mounted into /data1
+    toDirectory: /data2/qvd_archive
+  - fromDirectory: e:\data3\qvd # Butler running on Windows Server, accessing files/directories in the local file system
+    toDirectory: e:\data4\qvd_archive
+  - fromDirectory: //server1.my.domain/fileshare1/data1 # Butler running on Windows server, accessing a SMB file share (which can be on a Windows or Linux server)
+    toDirectory: //server1.my.domain/fileshare1/data2
+  - fromDirectory: \\server1.my.domain\fileshare1\data1
+    toDirectory: \\server1.my.domain\fileshare1\data2
 
-  fileMoveApprovedDirectories:
-    - fromDirectory: /data7/qvd
-      toDirectory: /data8/qvd_archive
-    - fromDirectory: e:\data9\qvd
-      toDirectory: e:\data10\qvd_archive
-    - fromDirectory: //server2.my.domain/data1/qvd
-      toDirectory: //server2.my.domain/data1/qvd_archive
+fileMoveApprovedDirectories:
+  - fromDirectory: /data7/qvd
+    toDirectory: /data8/qvd_archive
+  - fromDirectory: e:\data9\qvd
+    toDirectory: e:\data10\qvd_archive
+  - fromDirectory: //server2.my.domain/data1/qvd
+    toDirectory: //server2.my.domain/data1/qvd_archive
 
-  fileDeleteApprovedDirectories:
-    - /data1/qvd_archive
-    - e:\data1\qvd_archive
-    - //server3.my.domain/data1/qvd_archive
-    - \\server3.my.domain\data1\qvd_archive
+fileDeleteApprovedDirectories:
+  - /data1/qvd_archive
+  - e:\data1\qvd_archive
+  - //server3.my.domain/data1/qvd_archive
+  - \\server3.my.domain\data1\qvd_archive
 ```
 
 This configuration (for example) means:
 
-- Copying can be done from `e:\data3\qvd` to `e:\data4\qvd_archive`, but *not* from `e:\data3\qvd` to `e:\data6\qvd_archive`
-- Moving files can be done from `/data7/qvd` to `/data8/qvd_archive`, but *not* from `/data7/qvd` to `e:\data9\qvd`
+- Copying can be done from `e:\data3\qvd` to `e:\data4\qvd_archive`, but _not_ from `e:\data3\qvd` to `e:\data6\qvd_archive`
+- Moving files can be done from `/data7/qvd` to `/data8/qvd_archive`, but _not_ from `/data7/qvd` to `e:\data9\qvd`
 - Files can be deleted in the directories `/data1/qvd_archive`, `e:\data1\qvd_archive` and (using UNC notation) `\\server3.my.domain\data1\qvd_archive`.
 
 ### 3. Create Sense data connections used to call Butler's REST API
@@ -110,11 +110,11 @@ If you prefer to call the REST API directly, the DeleteFile sub might provide so
 // ------------------------------------------------------------
 // ** Delete file **
 //
-// Files can only be deleted in folders (and subfolders of) directories that 
+// Files can only be deleted in folders (and subfolders of) directories that
 // have been approved in the Butler config file.
 //
-// Paramaters:
-// vFile                : File to be deleted. 
+// Parameters:
+// vFile                : File to be deleted.
 // ------------------------------------------------------------
 sub DeleteFile(vFile)
     let vFile = Replace('$(vFile)', '\', '/');
@@ -125,7 +125,7 @@ sub DeleteFile(vFile)
     LIB CONNECT TO 'Butler_POST';
 
     RestConnectorMasterTable:
-    SQL SELECT 
+    SQL SELECT
         "vFile"
     FROM JSON (wrap on) "root"
     WITH CONNECTION (
@@ -142,11 +142,11 @@ end sub
 
 Note how the HTTP operation is set using the X-HTTP-Method-Override HTTP header.
 
-This is a way to work around a limitation of Qlik's REST connector, as it only supports GET and POST operations. The extra HTTP header tells Butler what kind of HTTP operation should *really* be carried out.
+This is a way to work around a limitation of Qlik's REST connector, as it only supports GET and POST operations. The extra HTTP header tells Butler what kind of HTTP operation should _really_ be carried out.
 
 ## Examples using UNC paths
 
-When specifying UNC paths in the Butler config file and running Butler on a non-Windows operating system, you will get warnings like the ones below.  
+When specifying UNC paths in the Butler config file and running Butler on a non-Windows operating system, you will get warnings like the ones below.
 
 The approved directories sections of the config file look like this:
 
@@ -187,4 +187,3 @@ http error returned when trying to delete a file via a UNC path, and Butler is r
 {{< imgproc butler-unc-path-on-macos-2 Resize "900x" >}}
 Warnings in log for the previous scenario.
 {{< /imgproc >}}
-

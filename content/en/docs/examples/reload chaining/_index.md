@@ -3,7 +3,7 @@ title: "Reload task chaining with parameters"
 linkTitle: "Reload chaining"
 weight: 30
 description: >
-    Examples showing how to use Butler's key-value store to pass parameters between apps in a reload chain, using calls to Butler's API.
+  Examples showing how to use Butler's key-value store to pass parameters between apps in a reload chain, using calls to Butler's API.
 ---
 
 ## Reload chaining with parameters à la Butler
@@ -21,7 +21,7 @@ Butler offers a different approach: Store and manipulate named key-value pairs w
 
 It works like this:
 
-![Passing parameters between Sense apps using Butler](butler-key-value-store-1.png "Passing parameters between Sense apps using Butler")  
+![Passing parameters between Sense apps using Butler](butler-key-value-store-1.png "Passing parameters between Sense apps using Butler")
 
 Pretty easy, right?
 
@@ -45,7 +45,7 @@ This data connection is a bit more complex.
 
 First, in order to create the connection you need a REST endpoint that takes a POST with data passed in the body of the message. The data connection used by the apps in this example are found below. Note the http method, the request body and the `Content-Type` Query header. Any other settings can be ignored.
 
-Secondly, Qlik Sense's REST connector only supports GET and POST methods over http. That's fine in this particular case, because we'll use a POST to create a new key-value pair. On a generel levels it's however really quite bad that Qlik's REST connector only supports GET and POST: PUT, DELETE and other http methods are certainly also used out there on the Internet, and should be supported too.
+Secondly, Qlik Sense's REST connector only supports GET and POST methods over http. That's fine in this particular case, because we'll use a POST to create a new key-value pair. On a general levels it's however really quite bad that Qlik's REST connector only supports GET and POST: PUT, DELETE and other http methods are certainly also used out there on the Internet, and should be supported too.
 
 Some of the Butler API endpoints use PUT or DELETE methods, which is nothing strange at all - rather the opposite. Butler tries to follow best practices when it comes to using GET, POST, PUT and DELETE at the appropriate times.
 
@@ -54,28 +54,28 @@ This is done in the script, by adding an extra http header in the call to Butler
 
 If `X-HTTP-Method-Override` is set to PUT in the call to Butler's API, the Butler will convert the call to a PUT call before it reaches the message dispatching within Butler. Same thing for DELETEs.
 
-![POST data connection part 1](butler-api-dc-post-1.png "POST data connection part 1")  
+![POST data connection part 1](butler-api-dc-post-1.png "POST data connection part 1")
 
-![POST data connection part 2](butler-api-dc-post-2.png "POST data connection part 2")  
+![POST data connection part 2](butler-api-dc-post-2.png "POST data connection part 2")
 
-![POST data connection part 3](butler-api-dc-post-3.png "POST data connection part 3")  
+![POST data connection part 3](butler-api-dc-post-3.png "POST data connection part 3")
 
 ## Parameter passing in action
 
 The scenario is as follows:
 
-* App 1 needs to pass a parameter called "Paramater 1" to App 2
-* App 2 is scheduled to reload either directly or in some later stage after App 1.
-* App 1 stores the parameter in Butler's key-value store during reload of App 1.
-* When App 2 reloads it pulls the parameter from the KV store.
+- App 1 needs to pass a parameter called "Parameter 1" to App 2
+- App 2 is scheduled to reload either directly or in some later stage after App 1.
+- App 1 stores the parameter in Butler's key-value store during reload of App 1.
+- When App 2 reloads it pulls the parameter from the KV store.
 
 When App 1 reloads the reload window looks like this. Note how the app has created a key-value pair within Butler.
 
-![Reload log from App 1, first part of reload chain](reload-chain-parameter-app-1-1.png "Reload log from App 1, first part of reload chain")  
+![Reload log from App 1, first part of reload chain](reload-chain-parameter-app-1-1.png "Reload log from App 1, first part of reload chain")
 
 App 2 is scheduled to reload when App 1 has finished reloading. Note that we get back the same value that was set by App 1. Mission accomplished.
 
-![Reload log from App 2, second part of reload chain](reload-chain-parameter-app-2-1.png "Reload log from App 2, second part of reload chain")  
+![Reload log from App 2, second part of reload chain](reload-chain-parameter-app-2-1.png "Reload log from App 2, second part of reload chain")
 
 ## Qlik script for passing parameters between apps
 
@@ -126,10 +126,10 @@ Here we define two subs: One to get a bit more friendly looking trace messages, 
 // ------------------------------------------------------------
 // ** Time stamped trace messages **
 //
-// Get nice trace lines in the reload log by calling the line with 
+// Get nice trace lines in the reload log by calling the line with
 // CALL NiceTrace('My trace message. Variable value=$(vVariableName)');
 //
-// Paramaters:
+// Parameters:
 // vMsg                  : Message sent to reload log
 // ------------------------------------------------------------
 sub NiceTrace(vMsg)
@@ -145,7 +145,7 @@ end sub
 // ------------------------------------------------------------
 // ** Add key-value pair to a namespace **
 //
-// Paramaters:
+// Parameters:
 // vNamespace            : Namespace in which the KV pair will be stored
 // vKey                  : Key name
 // vValue                : Value to store together with key
@@ -161,11 +161,11 @@ sub AddKeyValue(vNamespace, vKey, vValue, vTimeToLive)
         let vRequestBody = '{"key": "$(vKey)", "value": "$(vValue)"}';
     end if
 
-    // Escape " in request body 
+    // Escape " in request body
     let vRequestBody = replace(vRequestBody,'"', chr(34)&chr(34));
 
     RestConnectorMasterTable:
-    SQL SELECT 
+    SQL SELECT
         "namespace",
         "key",
         "value",
@@ -186,7 +186,7 @@ end sub
 Finally, the code needed to actually store the parameter in Butler is just a few lines:
 
 ```
-// Create key-value pair in Butler's key-value store. 
+// Create key-value pair in Butler's key-value store.
 
 Call NiceTrace('---------------------------')
 Call NiceTrace('Writing parameter to Butler key-value store. No time-to-live (ttl).')
@@ -240,7 +240,7 @@ Here we define a NiceTrace sub, and a sub for retrieving key-value pairs from Bu
 // Get nice trace lines in the reload log by calling the line with
 // CALL NiceTrace('My trace message. Variable value=$(vVariableName)');
 //
-// Paramaters:
+// Parameters:
 // vMsg                  : Message sent to reload log
 // ------------------------------------------------------------
 sub NiceTrace(vMsg)
@@ -256,7 +256,7 @@ end sub
 // ------------------------------------------------------------
 // ** Get key-value pair from a namespace **
 //
-// Paramaters:
+// Parameters:
 // vNamespace            : Namespace in which the KV pair will be stored
 // vKey                  : Key name
 // vResultVarName        : Name of variable in wich value will be placed
@@ -265,7 +265,7 @@ sub GetKeyValue(vNamespace, vKey, vResultVarName)
     LIB CONNECT TO 'Butler_GET';
 
     RestConnectorMasterTable:
-    SQL SELECT 
+    SQL SELECT
         "key",
         "value"
     FROM JSON (wrap on) "root"

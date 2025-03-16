@@ -4,7 +4,6 @@ description = "How can Butler be used?"
 weight = 10
 +++
 
-
 - [Instant notifications when reload tasks fail or are stopped](#instant-notifications-when-reload-tasks-fail-or-are-stopped)
 - [Forward failed reload events to incident management systems (New Relic, Signl4)](#forward-failed-reload-events-to-incident-management-systems-new-relic-signl4)
 - [Send alerts when reload tasks succeed](#send-alerts-when-reload-tasks-succeed)
@@ -40,7 +39,7 @@ For email alerts both subject and body of the email can be templated.
 
 For both Slack and Teams there are options to use more flexible/configurable alert formats and more basic pre-configured alerts.
 
-The result is a very poweful tool for both QSEoW sysadmins and those responsible for Qlik Cloud tenants, who both want to be notified when reloads fail.
+The result is a very powerful tool for both QSEoW sysadmins and those responsible for Qlik Cloud tenants, who both want to be notified when reloads fail.
 
 More info [here](/docs/getting-started/setup/reload-alerts/).
 
@@ -71,7 +70,7 @@ More info [here](/docs/concepts/successful-reloads/).
 
 ## Use InfluxDB/Grafana or New Relic to track Butler memory usage
 
-Butler can be configured to log its own memory usage to [InfluxDB](https://www.influxdata.com/products/), from where it can be visualised using [Grafana](https://grafana.com).
+Butler can be configured to log its own memory usage to [InfluxDB](https://www.influxdata.com/products/), from where it can be visualized using [Grafana](https://grafana.com).
 
 If you prefer using [New Relic One](https://newrelic.com) that's possible too - sending Butler memory metrics to New Relic is super simple: Just add your New Relic credentials in the YAML config file or as command line options when starting Butler and you're set.
 
@@ -90,7 +89,7 @@ No matter what the cause is, as a Sense administrator you probably want to inves
 Butler can send notifications (Slack, Teams, email, webhooks, ...) when reloads fail.  
 These notifications can include the last 20-30-40 lines of the script log and this usually gives a good idea of what caused the reload to fail.
 
-But what if you want to look at the *complete* reload log of that failed app reload?
+But what if you want to look at the _complete_ reload log of that failed app reload?
 
 So far you would have to dig into the log directory on the Sense server (for client-managed Sense) and find that specific reload log file among potentially thousands of other log files. Not very effective.
 For Sense Cloud you would have to download the log file from the Sense Cloud hub. Doable, but could be easier.
@@ -130,9 +129,9 @@ More info in [Concepts](/docs/concepts/start-sense-tasks/) and [Examples](/docs/
 Sometimes you just want to reload an app without also having to create a reload task.  
 When it comes to partial app reloads it's not even possible to do these from a Sense reload task.
 
-Butler's API makes prvovides a solution: Just pass in an app ID to reload together with task IDs of the tasks that should be started when the app is done reloading (different tasks can be started depending on app reload success or failure).
+Butler's API makes provides a solution: Just pass in an app ID to reload together with task IDs of the tasks that should be started when the app is done reloading (different tasks can be started depending on app reload success or failure).
 
-The partial reload feature is of special interest as it can be used to trigger faster  incremental execution of of Extract-Transform reload chains. Great for keeping data in Sense apps updated during the course of a day!
+The partial reload feature is of special interest as it can be used to trigger faster incremental execution of of Extract-Transform reload chains. Great for keeping data in Sense apps updated during the course of a day!
 
 More info [here](/docs/examples/sense-demo-apps/partial-loads/).
 
@@ -141,7 +140,7 @@ More info [here](/docs/examples/sense-demo-apps/partial-loads/).
 Using the scheduler built into Qlik Sense you can't for example create schedules that are limited to a parts of a day.  
 This is a pretty common scenario though - you want to reload an app hourly from say 3 am to 3 pm.
 
-You *can* set this up in Sense, but it involves creating *a lot* of triggers for the reload task, which becomes a nightmare to maintain.
+You _can_ set this up in Sense, but it involves creating _a lot_ of triggers for the reload task, which becomes a nightmare to maintain.
 
 [Butler's task scheduler](/docs/concepts/scheduler) is built on Cron, which has been used in Linux for decades. Battle proven and very flexible.
 
@@ -183,7 +182,7 @@ In "standard mode" apps reloading in Qlik Sense Enterprise on Windows can't acce
 
 From time to time you need to delete temp QVDs though, or copy or move data files from one directory to another.
 
-Butler has REST API endpoints for these use cases, but as those endpoints are locked down to only work on specific, configurable directiories they don't result in the same security issues as seen in for example QlikView or Sense running in legacy mode.
+Butler has REST API endpoints for these use cases, but as those endpoints are locked down to only work on specific, configurable directories they don't result in the same security issues as seen in for example QlikView or Sense running in legacy mode.
 
 More info [here](/docs/examples/file-copy-move-delete/).
 
@@ -198,7 +197,7 @@ The [REST API documentation](/docs/reference/rest-api-1/?operationsSorter=alpha)
 Slack messages can include full formatting (web links, text formatting etc), as well as "poking" users.  
 I.e. notifying specific Slack users that they have a new message.
 
-Can for example be used to notify user(s) that an app has reloaded with new data, or that some error condition has occured.
+Can for example be used to notify user(s) that an app has reloaded with new data, or that some error condition has occurred.
 
 More info [here](/docs/examples/sense-demo-apps/post-to-slack/).
 

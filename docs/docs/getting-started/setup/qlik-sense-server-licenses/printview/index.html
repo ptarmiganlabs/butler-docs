@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.136.2">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/qlik-sense-server-licenses/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/qlik-sense-server-licenses/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -25,37 +25,32 @@
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
 <title>Qlik Sense server license | Butler</title>
-<meta name="description" content="Butler can monitor the Qlik Sense server license that is used to run client-managed Qlik Sense (=Qlik Sense Enterrise on Windows).  
+<meta name="description" content="Butler can monitor the Qlik Sense server license that is used to run client-managed Qlik Sense (=Qlik Sense Enterprise on Windows).  
 - Check license expiration date and alert a configurable number of days before expiration.
 - Send license status and expiration alerts to InfluxDB, webhooks and MQTT.
 ">
 <meta property="og:url" content="https://butler.ptarmiganlabs.com/docs/getting-started/setup/qlik-sense-server-licenses/">
   <meta property="og:site_name" content="Butler">
   <meta property="og:title" content="Qlik Sense server license">
-  <meta property="og:description" content="Butler can monitor the Qlik Sense server license that is used to run client-managed Qlik Sense (=Qlik Sense Enterrise on Windows).  
+  <meta property="og:description" content="Butler can monitor the Qlik Sense server license that is used to run client-managed Qlik Sense (=Qlik Sense Enterprise on Windows).  
 - Check license expiration date and alert a configurable number of days before expiration.
 - Send license status and expiration alerts to InfluxDB, webhooks and MQTT.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
 
   <meta itemprop="name" content="Qlik Sense server license">
-  <meta itemprop="description" content="Butler can monitor the Qlik Sense server license that is used to run client-managed Qlik Sense (=Qlik Sense Enterrise on Windows).  
+  <meta itemprop="description" content="Butler can monitor the Qlik Sense server license that is used to run client-managed Qlik Sense (=Qlik Sense Enterprise on Windows).  
 - Check license expiration date and alert a configurable number of days before expiration.
 - Send license status and expiration alerts to InfluxDB, webhooks and MQTT.">
   <meta itemprop="dateModified" content="2024-05-14T10:36:28+02:00">
   <meta itemprop="wordCount" content="475">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qlik Sense server license">
-  <meta name="twitter:description" content="Butler can monitor the Qlik Sense server license that is used to run client-managed Qlik Sense (=Qlik Sense Enterrise on Windows).  
+  <meta name="twitter:description" content="Butler can monitor the Qlik Sense server license that is used to run client-managed Qlik Sense (=Qlik Sense Enterprise on Windows).  
 - Check license expiration date and alert a configurable number of days before expiration.
 - Send license status and expiration alerts to InfluxDB, webhooks and MQTT.">
-
-
-
-
-<link rel="preload" href="/scss/main.min.8417a35ffb98bbed910815944d48e397f372ece67ebd9e12a20adf60be811900.css" as="style">
-<link href="/scss/main.min.8417a35ffb98bbed910815944d48e397f372ece67ebd9e12a20adf60be811900.css" rel="stylesheet" integrity="">
-
+<link rel="preload" href="/scss/main.min.48c25d0a5a23a1e8cae94d6c5e7622061e5345cf098171b1d6ee41d8e309e6c8.css" as="style" integrity="sha256-SMJdClojoejK6U1sXnYiBh5TRc8JgXGx1u5B2OMJ5sg=" crossorigin="anonymous">
+<link href="/scss/main.min.48c25d0a5a23a1e8cae94d6c5e7622061e5345cf098171b1d6ee41d8e309e6c8.css" rel="stylesheet" integrity="sha256-SMJdClojoejK6U1sXnYiBh5TRc8JgXGx1u5B2OMJ5sg=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
@@ -100,7 +95,7 @@ This is the multi-page printable view of this section.
 
 
 <h1 class="title">Qlik Sense server license</h1>
-<div class="lead"><p>Butler can monitor the Qlik Sense server license that is used to run client-managed Qlik Sense (=Qlik Sense Enterrise on Windows).</p>
+<div class="lead"><p>Butler can monitor the Qlik Sense server license that is used to run client-managed Qlik Sense (=Qlik Sense Enterprise on Windows).</p>
 <ul>
 <li>Check license expiration date and alert a configurable number of days before expiration.</li>
 <li>Send license status and expiration alerts to InfluxDB, webhooks and MQTT.</li>
@@ -153,14 +148,14 @@ It uses the <a href="https://bunkat.github.io/later/">later.js</a> syntax, for e
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">frequency</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">every 24 hours      </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># https://bunkat.github.io/later/parsers.html#text</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">alert</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                          </span><span style="color:#8f5902;font-style:italic"># Alert if the number of days left on the license is below the threshold</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                      </span><span style="color:#8f5902;font-style:italic"># License expiry alerts on a global level are enabled here, then configured on </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                      </span><span style="color:#8f5902;font-style:italic"># License expiry alerts on a global level are enabled here, then configured on</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                      </span><span style="color:#8f5902;font-style:italic"># a per-destination basis elsewhere in this config file.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">thresholdDays</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">60</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">destination</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">influxDb</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                     </span><span style="color:#8f5902;font-style:italic"># Store license data in InfluxDB</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">tag</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> 
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">static</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                   </span><span style="color:#8f5902;font-style:italic"># Static attributes/tags to attach to the data sent to InflixDB</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">tag</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">static</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                   </span><span style="color:#8f5902;font-style:italic"># Static attributes/tags to attach to the data sent to InfluxDB</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">              </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">foo</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">bar</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">mqtt</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -173,7 +168,7 @@ It uses the <a href="https://bunkat.github.io/later/">later.js</a> syntax, for e
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">sendRecurring</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">              </span><span style="color:#8f5902;font-style:italic"># Send license data to webhook(s) at the frequency specified above</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">sendAlert</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Send alert to webhook(s) if the number of days left on the license is below </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">sendAlert</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                  </span><span style="color:#8f5902;font-style:italic"># Send alert to webhook(s) if the number of days left on the license is below</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                      </span><span style="color:#8f5902;font-style:italic"># the threshold or the license has already expired</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -255,7 +250,7 @@ It uses the <a href="https://bunkat.github.io/later/">later.js</a> syntax, for e
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/docs/about/">About</a></p>
       </div>
     </div>

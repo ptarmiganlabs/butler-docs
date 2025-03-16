@@ -3,18 +3,17 @@ title: "Reload alerts in InfluxDB"
 linkTitle: "InfluxDB"
 weight: 20
 description: >
-  Description of how information of how successful and failed reload tasks can be stored in InfluxDB.  
+  Description of how information of how successful and failed reload tasks can be stored in InfluxDB.
 ---
-
 
 ## What's this?
 
 Butler can store information about both successful and failed reload tasks in InfluxDB.
 
-- If enabled, Butler will store information about *all* failed reload tasks to InfluxDB.
+- If enabled, Butler will store information about _all_ failed reload tasks to InfluxDB.
 - For successful reload tasks, there are two options:
-  - Store information about *all* successful reload tasks to InfluxDB.
-  - Store information about *some* successful reload tasks to InfluxDB.  
+  - Store information about _all_ successful reload tasks to InfluxDB.
+  - Store information about _some_ successful reload tasks to InfluxDB.  
     Which tasks to store information about is controlled using a custom property on the reload task.
 
 Once the information about the reload task is in InfluxDB it can be used in Grafana dashboards.
@@ -22,7 +21,7 @@ Once the information about the reload task is in InfluxDB it can be used in Graf
 This way it is possible to get a good, continuous overview of the reload activity in your Qlik Sense environment.  
 You can also use the information to create alerts in Grafana using it's comprehensive alerting capabilities, including alerting to Slack, Teams, email, etc.
 
-Please note that InflixDB must be enabled and correctly configured in the Butler config file for the below features to work.
+Please note that InfluxDB must be enabled and correctly configured in the Butler config file for the below features to work.
 
 ## Monitor failed reload tasks
 
@@ -82,13 +81,13 @@ Butler:
     reloadTaskFailure:
       enable: true
       tailScriptLogLines: 20
-      tag: 
-        static:                 # Static tags to attach to data stored in InflixDB
+      tag:
+        static:                 # Static tags to attach to data stored in InfluxDB
           - name: butler_instance
             value: prod-1
         dynamic:
           useAppTags: true      # Should app tags be stored in InfluxDB as tags?
-          useTaskTags: true     # Should task tags be stored in InfluxDB as tags?      
+          useTaskTags: true     # Should task tags be stored in InfluxDB as tags?
     reloadTaskSuccess:
       enable: true
       allReloadTasks:
@@ -97,7 +96,7 @@ Butler:
         enable: true
         customPropertyName: 'Butler_SuccessReloadTask_InfluxDB'
         enabledValue: 'Yes'
-      tag: 
+      tag:
         static:                 # Static attributes/dimensions to attach to events sent to InfluxDb
           # - name: event-specific-tag 1
           #   value: abc 123

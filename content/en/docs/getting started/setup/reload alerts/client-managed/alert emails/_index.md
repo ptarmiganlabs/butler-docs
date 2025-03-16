@@ -12,7 +12,7 @@ Butler can send two kinds of alert emails:
 
 - When a reload task fails during execution.
 - When a running reload task is somehow stopped/aborted.
-- When a reload task completes successfully. 
+- When a reload task completes successfully.
 
 See the [Concepts section](/docs/concepts/failed-reloads/client-managed/) for additional details and sample alert emails.
 
@@ -22,7 +22,7 @@ If you want Butler to send email alerts you must provide an email template file.
 
 For some other alert destinations (Slack and Teams) Butler offers a "basic" option. A fixed format alert is then sent by Butler.  
 The closest thing available for emails is to use the mail log appender described [here](/docs/getting-started/setup/reload-alerts/#sending-basic-alert-emails-from-log4net), but if you set up a log appender AND have Butler running, you might as well use the formatted email option as it provides **much** more flexibility than log4net's email appender.
-  
+
 ## Rate limiting and de-duplication
 
 Butler has rate limiting feature to ensure alert recipients are not spammed with too many alert emails.
@@ -73,7 +73,7 @@ If the settings in the config file's `Butler.emailNotification.smtp` section are
 
 The resulting email looks like this:
 
-![Test email from Butler](/img/butler-test-email-1.png 'Test email from Butler')
+![Test email from Butler](/img/butler-test-email-1.png "Test email from Butler")
 
 ## Sending alert emails to app owners
 
@@ -86,18 +86,19 @@ This is typically the case if the Qlik Sense user directory has been synced from
 If there is no email available for an app owner, he/she will simply not receive any alert emails.
 {{< /notice >}}
 
-This feature is controlled by the config file properties `Butler.emailNotification.reloadTaskAborted.appOwnerAlert.enable` and  `Butler.emailNotification.reloadTaskFailure.appOwnerAlert.enable`.
+This feature is controlled by the config file properties `Butler.emailNotification.reloadTaskAborted.appOwnerAlert.enable` and `Butler.emailNotification.reloadTaskFailure.appOwnerAlert.enable`.
 
-If set to `true` the app owner will be added to the send list of alert emails, in addition to the recipients specied in `Butler.emailNotification.reloadTaskAborted.recipients` and `Butler.emailNotification.reloadTaskFailure.recipients`.
+If set to `true` the app owner will be added to the send list of alert emails, in addition to the recipients specified in `Butler.emailNotification.reloadTaskAborted.recipients` and `Butler.emailNotification.reloadTaskFailure.recipients`.
 
 The sections of the config file dealing with app owner notification emails looks like this:
 
 ```yaml
 appOwnerAlert:
-  enable: true              # Should app owner get notification email (assuming email address is available in Sense user directory)
+  enable: true # Should app owner get notification email (assuming email address is available in Sense user directory)
   includeOwner:
-    includeAll: true                            # true = Send notification to all app owners except those in exclude list
-                                                # false = Send notification to all app owners in the include list
+    includeAll:
+      true # true = Send notification to all app owners except those in exclude list
+      # false = Send notification to all app owners in the include list
     user:
       - directory: <Sense user directory>
         userId: <userId>
@@ -116,7 +117,7 @@ It works like this:
 - If `appOwnerAlert.enable` is set to `false` no app owner emails will be sent. If it's set to `true` the rules below apply.
 - If `appOwnerAlert.includeOwner.includeAll` is set to `true` all app owners will get notification emails when apps the own fail/are aborted...
   - ... except those app owners listed in the `appOwnerAlert.excludeOwner.user` array.
-  - That array thus provides a way to exclude some app owners (e.g. system accounts) to receive notifcation emails.
+  - That array thus provides a way to exclude some app owners (e.g. system accounts) to receive notification emails.
 - If `appOwnerAlert.includeOwner.includeAll` is set to `false` it's still possible to add individual app owners to the `appOwnerAlert.includeOwner.user` array.  
   Those users will then receive notification emails for apps they own.
 
@@ -132,10 +133,10 @@ The concept described below is the same for failed, aborted and successful reloa
 Each of these three types of tasks have their own settings in the config file.
 {{< /notice >}}
 
-- If the config file setting `Butler.emailNotification.reloadTaskFailure.alertEnableByCustomProperty.enable` is set to `false`, *all* failed reload tasks will cause alert emails.
+- If the config file setting `Butler.emailNotification.reloadTaskFailure.alertEnableByCustomProperty.enable` is set to `false`, _all_ failed reload tasks will cause alert emails.
 - If that setting is `true` only some tasks will cause alert emails:
   - If a task has the value specified in `Butler.emailNotification.reloadTaskFailure.alertEnableByCustomProperty.enabledValue` set for the custom property named as specified in `Butler.emailNotification.reloadTaskFailure.alertEnableByCustomProperty.customPropertyName`, the alert will be sent.
-  - If a task *does not* have that custom property set, no alert will be sent for that task.
+  - If a task _does not_ have that custom property set, no alert will be sent for that task.
     - A task can still cause an alert to be sent if a specific email address is specified for the task, see [below](/docs/getting-started/setup/reload-alerts-qseow/client-managed/alert-emails/#send-alerts-to-specific-people-for-some-tasks) for details.
 
 Some configuration is needed to make this work:
@@ -146,7 +147,7 @@ Some configuration is needed to make this work:
    2. The custom property should be available on reload tasks.
 3. Set the custom property for reload tasks for which alert emails should be sent.
 
-*Aborted* reload tasks (as compared to the *failed* reload tasks described above) are handled the same way, with their own settings in the config file.
+_Aborted_ reload tasks (as compared to the _failed_ reload tasks described above) are handled the same way, with their own settings in the config file.
 
 In the QMC the custom property can look like this:
 
@@ -165,9 +166,9 @@ Each of these three types of tasks have their own settings in the config file.
 
 These config setting `Butler.emailNotification.reloadTaskFailure.alertEnableByEmailAddress.customPropertyName` controls which custom property is used to store email addresses for failed reload tasks.
 
-Email specific alert recpients is independent from the feature where alerts can be switched on/off for individual tasks (see [above](/docs/getting-started/setup/reload-alerts-qseow/client-managed/alert-emails/#send-alerts-only-for-some-reload-tasks)).
+Email specific alert recipients is independent from the feature where alerts can be switched on/off for individual tasks (see [above](/docs/getting-started/setup/reload-alerts-qseow/client-managed/alert-emails/#send-alerts-only-for-some-reload-tasks)).
 
-In other words: If an email address has been designated as recipient of alert emails, that address will always receive alert emails for *all* failed reload tasks.
+In other words: If an email address has been designated as recipient of alert emails, that address will always receive alert emails for _all_ failed reload tasks.
 
 Having set two different (blurred out) recipients of alert emails for a reload task:
 
@@ -334,14 +335,14 @@ Alert emails use standard HTML formatting. Inline CSS can be used (if so desired
 
 Butler's process for sending alert emails is
 
-1. Figure out which *email body template file* should be used. This is determine by two set of fields in the main config file:
-   1. For *reload failure emails* these config file properties are used:
+1. Figure out which _email body template file_ should be used. This is determine by two set of fields in the main config file:
+   1. For _reload failure emails_ these config file properties are used:
       `Butler.emailNotification.reladTaskFailure.bodyFileDirectory` and
       `Butler.emailNotification.reladTaskFailure.htmlTemplateFile`. A `.handlebars` extension is assumed.
-   2. For *aborted reload emails* these config file properties are used:
+   2. For _aborted reload emails_ these config file properties are used:
       `Butler.emailNotification.reloadTaskAborted.bodyFileDirectory` and
       `Butler.emailNotification.reloadTaskAborted.htmlTemplateFile`. A `.handlebars` extension is assumed.
-   3. For *successful reload emails* these config file properties are used:
+   3. For _successful reload emails_ these config file properties are used:
       `Butler.emailNotification.reloadTaskSuccess.bodyFileDirectory` and
       `Butler.emailNotification.reloadTaskSuccess.htmlTemplateFile`. A `.handlebars` extension is assumed.
 2. For email subjects, these config properties are used:

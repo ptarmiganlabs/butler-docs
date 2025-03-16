@@ -30,11 +30,11 @@ There's no reason an alert email can't look good!
 
 Here is an example of how a failed reload alert email could look like:
 
-![Reload failed alert email](/img/butler-qscloud-app-reload-failed-email-2.png "Reload failed alert email")  
+![Reload failed alert email](/img/butler-qscloud-app-reload-failed-email-2.png "Reload failed alert email")
 
 ## Alert emails to app owners
 
-All apps in Qlik Sense Cloud has an app owner, typically the user who created the app.  
+All apps in Qlik Sense Cloud has an app owner, typically the user who created the app.
 
 If there is an email address associated with the app owner, Butler can send an alert email to the app owner when a reload task fails or is aborted.  
 This feature can be turned on/off in the Butler config file.  
@@ -42,7 +42,7 @@ It is also possible to only send alert emails to some app owners but not others,
 
 ## Alert emails only for some apps
 
-Sometimes there is a desire to only have email alerts for *some* aps.  
+Sometimes there is a desire to only have email alerts for _some_ apps.  
 Maybe some apps are critical and should always trigger an alert email when they fail, while other apps are less critical and should not trigger any alert emails.
 
 This is possible using a tag set on apps in Qlik Sense Cloud:
@@ -59,6 +59,6 @@ For an overview of how Butler deals with alert messages for Qlik Sense Cloud, pl
 
 ### Template fields
 
-The Handlebars templating engine looks for *template fields* in the template files you create.
+The Handlebars templating engine looks for _template fields_ in the template files you create.
 
 A complete list of template fields - including descriptions - is available in the [Reference](/docs/reference/alert-template-fields) section.

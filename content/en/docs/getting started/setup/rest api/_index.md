@@ -2,13 +2,13 @@
 title: "Configuring Butler's REST API"
 linkTitle: "REST API"
 weight: 30
-alias: 
- - /docs/getting-started/setup/api-endpoints/
+alias:
+  - /docs/getting-started/setup/api-endpoints/
 description: >
   Butler's REST API can be enabled/disabled in itself.  
   If the API is enabled, individual API endpoints can then be enabled/disabled as needed.
 
-  By only enabling the endpoints needed for your Qlik Sense environment, memory usage is minimised and security maximised.
+  By only enabling the endpoints needed for your Qlik Sense environment, memory usage is minimized and security maximized.
 ---
 
 ## What's this?
@@ -38,7 +38,7 @@ Similarly, the host name Butler listens at is defined by the `Butler.restServerC
 
 Note that Butler uses two ports for its REST API: One external facing port and one used internally. Both must be dedicated to Butler on the computer where Butler is running.
 
-Using two ports (one external facing and one internal) is not ideal, but it was an easy yet stable way of solving some technical challenges around Butler's use of the `X-HTTP-Method-Override` [HTTP header](/docs/getting-started/setup/data-connections/). 
+Using two ports (one external facing and one internal) is not ideal, but it was an easy yet stable way of solving some technical challenges around Butler's use of the `X-HTTP-Method-Override` [HTTP header](/docs/getting-started/setup/data-connections/).
 Just make sure that the two settings `Butler.restServerConfig.serverPort` and `Butler.restServerConfig.backgroundServerPort` aren't the same and aren't already in use, and all should be fine.
 
 {{< imgproc butler-ports-1.png Resize "x180" >}} Ports used by Butler {{< /imgproc >}}
@@ -96,7 +96,7 @@ Butler:
     senseAppDump: false
     senseListApps: false
     senseStartTask: false
-    slackPostMessage: false 
+    slackPostMessage: false
 
   restServerEndpointsConfig:
     newRelic:
@@ -111,7 +111,7 @@ Butler:
         header:                   # Custom http headers
           - name: X-My-Header
             value: Header value
-        attribute: 
+        attribute:
           static:                   # Static attributes/dimensions to attach to the metrics data sent to New Relic.
             - name: env
               value: prod
@@ -122,12 +122,12 @@ Butler:
         # Note that the URL path should *not* be included in the url setting below!
         # As of this writing the valid options are
         # https://insights-collector.eu01.nr-data.net
-        # https://insights-collector.newrelic.com 
+        # https://insights-collector.newrelic.com
         url: https://insights-collector.eu01.nr-data.net/
         header:                   # Custom http headers
           - name: X-My-Header
             value: Header value
-        attribute: 
+        attribute:
           static:                   # Static attributes/dimensions to attach to the metrics data sent to New Relic.
             - name: env
               value: prod

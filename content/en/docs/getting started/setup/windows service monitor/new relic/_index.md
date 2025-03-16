@@ -1,9 +1,9 @@
 ---
-title: 'Sending Windows service alerts to New Relic'
-linkTitle: 'New Relic'
+title: "Sending Windows service alerts to New Relic"
+linkTitle: "New Relic"
 weight: 20
 description: >
-    This page contains information on how to configure Butler to send alerts messages to New Relic when Windows services stop or start.
+  This page contains information on how to configure Butler to send alerts messages to New Relic when Windows services stop or start.
 ---
 
 ## What's this?
@@ -25,19 +25,19 @@ If in doubt, send both - that will give you the freedom to choose later which to
 
 Windows service events will be sent to New Relic with the name of `qs_serviceStateEvent`.
 
-The static attributes attached to events sents to New Relic events are the ones defined in the config file.  
+The static attributes attached to events sent to New Relic events are the ones defined in the config file.  
 These can be used to identify which of potentially several Butler instances the message originated from, and to filter and group messages in New Relic.
 
 The values of dynamic attributes are determined at runtime and can be enabled or disabled in the config file:
 
-| Dynamic attribute name in New Relic | Description |
-| --- | --- |
-| butler_serviceHost | The hostname of the server where the service is running |
-| butler_serviceName | The name of the service as defined in Windows |
-| butler_serviceDisplayName | The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName. |
-| butler_serviceStatus | The status of the service, e.g. `RUNNING` or `STOPPED` |
+| Dynamic attribute name in New Relic | Description                                                                                                             |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| butler_serviceHost                  | The hostname of the server where the service is running                                                                 |
+| butler_serviceName                  | The name of the service as defined in Windows                                                                           |
+| butler_serviceDisplayName           | The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName. |
+| butler_serviceStatus                | The status of the service, e.g. `RUNNING` or `STOPPED`                                                                  |
 
-![New Relic event for a Windows service alert message](butler-win-svc-monitor-new-relic-event-1.png 'New Relic event for a Windows service alert message')
+![New Relic event for a Windows service alert message](butler-win-svc-monitor-new-relic-event-1.png "New Relic event for a Windows service alert message")
 
 ### New Relic log entries
 
@@ -47,8 +47,7 @@ Static and dynamic attributes are handled in the same way as for events.
 
 The raw data of a New Relic lg entry will look something like this:
 
-![New Relic log entry for a Windows service alert message](butler-win-svc-monitor-new-relic-log-1.png 'New Relic log entry for a Windows service alert message')
-
+![New Relic log entry for a Windows service alert message](butler-win-svc-monitor-new-relic-log-1.png "New Relic log entry for a Windows service alert message")
 
 ## Settings in config file
 
@@ -57,16 +56,16 @@ The raw data of a New Relic lg entry will look something like this:
 Butler:
   ...
   ...
-  incidentTool: 
+  incidentTool:
     newRelic:
       serviceMonitor:
         destination:
-          event: 
+          event:
             enable: false
             sendToAccount:                # Windows service events are sent to these New Relic accounts
               - First NR account
               - Second NR account
-            attribute: 
+            attribute:
               static:                     # Static attributes/dimensions to attach to events sent to New Relic.
                 - name: event-specific-attribute
                   value: abc 123
@@ -80,7 +79,7 @@ Butler:
             sendToAccount:                # Windows service log entries are sent to these New Relic accounts
               - First NR account
               - Second NR account
-            attribute: 
+            attribute:
               static:                     # Static attributes/dimensions to attach to events sent to New Relic.
                 - name: log-specific-attribute
                   value: def 456
@@ -99,12 +98,12 @@ Butler:
           header:                         # Custom http headers
             - name: X-My-Header           # Example
               value: Header value 2       # Example
-          attribute: 
+          attribute:
             static:                       # Static attributes/dimensions to attach to events sent to New Relic.
               - name: service             # Example
                 value: butler             # Example
               - name: environment         # Example
                 value: prod               # Example
-  ...  
+  ...
   ...
 ```

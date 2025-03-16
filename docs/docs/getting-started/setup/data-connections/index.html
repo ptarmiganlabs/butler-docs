@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.136.2">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="alternate" type="text/html" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/data-connections/printview/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/data-connections/index.xml">
 <meta name="robots" content="index, follow">
@@ -45,13 +45,8 @@ A couple of them are mandatory, one is optional.">
   <meta name="twitter:title" content="Creating Sense data connections">
   <meta name="twitter:description" content="If you intend to call Butler&#39;s REST API from the load script of Sense apps, you must create a few data connections first.
 A couple of them are mandatory, one is optional.">
-
-
-
-
-<link rel="preload" href="/scss/main.min.8417a35ffb98bbed910815944d48e397f372ece67ebd9e12a20adf60be811900.css" as="style">
-<link href="/scss/main.min.8417a35ffb98bbed910815944d48e397f372ece67ebd9e12a20adf60be811900.css" rel="stylesheet" integrity="">
-
+<link rel="preload" href="/scss/main.min.48c25d0a5a23a1e8cae94d6c5e7622061e5345cf098171b1d6ee41d8e309e6c8.css" as="style" integrity="sha256-SMJdClojoejK6U1sXnYiBh5TRc8JgXGx1u5B2OMJ5sg=" crossorigin="anonymous">
+<link href="/scss/main.min.48c25d0a5a23a1e8cae94d6c5e7622061e5345cf098171b1d6ee41d8e309e6c8.css" rel="stylesheet" integrity="sha256-SMJdClojoejK6U1sXnYiBh5TRc8JgXGx1u5B2OMJ5sg=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
@@ -499,7 +494,7 @@ It is used to <a href="https://www.w3schools.com/tags/ref_urlencode.ASP">URL enc
 </div>
 
 <p>This is a basic &ldquo;web file&rdquo; connector pointing to <code>http://www.w3schools.com/tags/ref_urlencode.asp</code>:</p>
-<p><img alt="Creating the URL encode table data connection" src="/docs/getting-started/setup/data-connections/url_encode-1.png" title="Creating the URL encode table data connection"></p>
+<p><img src="/docs/getting-started/setup/data-connections/url_encode-1.png" alt="Creating the URL encode table data connection" title="Creating the URL encode table data connection"></p>
 
 
 <div class="alert alert-warning" role="alert">
@@ -522,7 +517,7 @@ It is used to <a href="https://www.w3schools.com/tags/ref_urlencode.ASP">URL enc
 
 <p>With Butler running, create a new REST data connection called &ldquo;Butler_GET&rdquo;.<br>
 It&rsquo;s URL should point to Butler&rsquo;s host/port.</p>
-<p>When createing REST data connections it&rsquo;s always a good idea to verify they work.<br>
+<p>When creating REST data connections it&rsquo;s always a good idea to verify they work.<br>
 Using the <code>/v4/butlerping</code> endpoint is an easy way to do this (assuming that endpoint is enabled in Butler&rsquo;s config file):</p>
 <p>Creating the data connection can look like this:</p>
 <table>
@@ -534,19 +529,19 @@ Using the <code>/v4/butlerping</code> endpoint is an easy way to do this (assumi
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: center"><img alt="Creating the Butler_GET data connection" src="/docs/getting-started/setup/data-connections/butler_get-1.png" title="Creating the Butler_GET data connection"></td>
-          <td style="text-align: center"><img alt="Creating the Butler_GET data connection" src="/docs/getting-started/setup/data-connections/butler_get-2.png" title="Creating the Butler_GET data connection"></td>
+          <td style="text-align: center"><img src="/docs/getting-started/setup/data-connections/butler_get-1.png" alt="Creating the Butler_GET data connection" title="Creating the Butler_GET data connection"></td>
+          <td style="text-align: center"><img src="/docs/getting-started/setup/data-connections/butler_get-2.png" alt="Creating the Butler_GET data connection" title="Creating the Butler_GET data connection"></td>
       </tr>
       <tr>
-          <td style="text-align: center"><img alt="Creating the Butler_GET data connection" src="/docs/getting-started/setup/data-connections/butler_get-3.png" title="Creating the Butler_GET data connection"></td>
-          <td style="text-align: center"><img alt="Creating the Butler_GET data connection" src="/docs/getting-started/setup/data-connections/butler_get-4.png" title="Creating the Butler_GET data connection"></td>
+          <td style="text-align: center"><img src="/docs/getting-started/setup/data-connections/butler_get-3.png" alt="Creating the Butler_GET data connection" title="Creating the Butler_GET data connection"></td>
+          <td style="text-align: center"><img src="/docs/getting-started/setup/data-connections/butler_get-4.png" alt="Creating the Butler_GET data connection" title="Creating the Butler_GET data connection"></td>
       </tr>
   </tbody>
 </table>
 <p>No special settings are needed - just make sure the REST connector finds Butler as it should.<br>
-The actual URL of the data connection will be modified on the fly every time you call the Butler APIs, it&rsquo;s thus not really important which URL is entered during the setup phase. But the <code>/v4/butlerping</code> endpoint is a conveneint way to check that the data connection works.</p>
+The actual URL of the data connection will be modified on the fly every time you call the Butler APIs, it&rsquo;s thus not really important which URL is entered during the setup phase. But the <code>/v4/butlerping</code> endpoint is a convenient way to check that the data connection works.</p>
 <p>Test the connection before creating it:</p>
-<p><img alt="Testing the Butler_GET data connection" src="/docs/getting-started/setup/data-connections/butler_get_connection-test-succeeded-1.png" title="Testing the Butler_GET data connection"></p>
+<p><img src="/docs/getting-started/setup/data-connections/butler_get_connection-test-succeeded-1.png" alt="Testing the Butler_GET data connection" title="Testing the Butler_GET data connection"></p>
 
 
 <div class="alert alert-warning" role="alert">
@@ -571,7 +566,7 @@ The actual URL of the data connection will be modified on the fly every time you
 Its configuration is similar to that of Butler_GET, except that a message body is also needed for the POST to work.</p>
 <p>Assuming Butler&rsquo;s <a href="/docs/getting-started/setup/key-value-store/">key-value store is enabled</a> in the main config file, you can create a dummy key-value pair using a POST command with the following payload.</p>
 <p>The effect is that the data connection is created and can be used for future POST/PUT/DELETE operations against Butler&rsquo;s API.<br>
-The fact that is was created against the key-value store doesn&rsquo;t matter, the data conncetion details will be replaced each time it is used.</p>
+The fact that is was created against the key-value store doesn&rsquo;t matter, the data connection details will be replaced each time it is used.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;key&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;abc&#34;</span><span style="color:#000;font-weight:bold">,</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;value&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;123&#34;</span><span style="color:#000;font-weight:bold">,</span>
@@ -587,17 +582,17 @@ The fact that is was created against the key-value store doesn&rsquo;t matter, t
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: center"><img alt="Creating the Butler_POST data connection" src="/docs/getting-started/setup/data-connections/butler_post-1.png" title="Creating the Butler_POST data connection"></td>
-          <td style="text-align: center"><img alt="Creating the Butler_POST data connection" src="/docs/getting-started/setup/data-connections/butler_post-2.png" title="Creating the Butler_POST data connection"></td>
+          <td style="text-align: center"><img src="/docs/getting-started/setup/data-connections/butler_post-1.png" alt="Creating the Butler_POST data connection" title="Creating the Butler_POST data connection"></td>
+          <td style="text-align: center"><img src="/docs/getting-started/setup/data-connections/butler_post-2.png" alt="Creating the Butler_POST data connection" title="Creating the Butler_POST data connection"></td>
       </tr>
       <tr>
-          <td style="text-align: center"><img alt="Creating the Butler_POST data connection" src="/docs/getting-started/setup/data-connections/butler_post-3.png" title="Creating the Butler_POST data connection"></td>
-          <td style="text-align: center"><img alt="Creating the Butler_POST data connection" src="/docs/getting-started/setup/data-connections/butler_post-4.png" title="Creating the Butler_POST data connection"></td>
+          <td style="text-align: center"><img src="/docs/getting-started/setup/data-connections/butler_post-3.png" alt="Creating the Butler_POST data connection" title="Creating the Butler_POST data connection"></td>
+          <td style="text-align: center"><img src="/docs/getting-started/setup/data-connections/butler_post-4.png" alt="Creating the Butler_POST data connection" title="Creating the Butler_POST data connection"></td>
       </tr>
   </tbody>
 </table>
-<p>&hellip; and test the connection before creting it.</p>
-<p><img alt="Testing the Butler_POST data connection" src="/docs/getting-started/setup/data-connections/butler_post_connection-test-succeeded-1.png" title="Testing the Butler_POST data connection"></p>
+<p>&hellip; and test the connection before creating it.</p>
+<p><img src="/docs/getting-started/setup/data-connections/butler_post_connection-test-succeeded-1.png" alt="Testing the Butler_POST data connection" title="Testing the Butler_POST data connection"></p>
 
 
 <div class="alert alert-warning" role="alert">
@@ -678,7 +673,7 @@ The fact that is was created against the key-value store doesn&rsquo;t matter, t
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/docs/about/">About</a></p>
       </div>
     </div>

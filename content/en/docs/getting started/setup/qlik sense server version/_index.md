@@ -8,16 +8,16 @@ description: >
   - Check server version at regular intervals.
 
   - Save version to InfluxDB.
-  
-  - Makes it easy to keep track of versions running on different Qlik Sense environments, for example PROD, TEST and DEV. 
+
+  - Makes it easy to keep track of versions running on different Qlik Sense environments, for example PROD, TEST and DEV.
 ---
 
 ## What's this?
 
-As with most software, client-mananged Qlik Senwse is updated regularly.
+As with most software, client-managed Qlik Sense is updated regularly.
 
 Butler can monitor the server version of the Qlik Sense environment that Butler is connected to and store this information in InfluxDB.  
-Having this information in InflixDB makes it easy to visualize it in a Grafana dashboard, or similar tool.
+Having this information in InfluxDB makes it easy to visualize it in a Grafana dashboard, or similar tool.
 
 If you are running multiple Qlik Sense environments, for example PROD, TEST and DEV, you probably have one Butler instance running for each environment.  
 By storing the server version in InfluxDB, you can easily keep track of which Sense version is running on which environment.
@@ -51,14 +51,14 @@ Butler:
     versionMonitor:
       enable: false                   # Should Qlik Sense version info be retrieved?
       frequency: every 24 hours       # https://bunkat.github.io/later/parsers.html#text
-      host: <FQDN or IP of Qlik Sense central node>         
+      host: <FQDN or IP of Qlik Sense central node>
       rejectUnauthorized: false       # Set to false to ignore warnings/errors caused by Qlik Sense's self-signed certificates.
       destination:
         influxDb:                     # Store version data in InfluxDB.
                                       # If enabled, version info will be stored as measurements in InfluxDB.
           enable: false
-          tag: 
-            static:                   # Static attributes/tags to attach to the data sent to InflixDB
+          tag:
+            static:                   # Static attributes/tags to attach to the data sent to InfluxDB
               - name: foo
                 value: bar
   ...

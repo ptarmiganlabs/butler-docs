@@ -70,7 +70,7 @@ The telemetry data includes the following:
    _Why: Same as above. Knowing which features are used (and are thus important) allows the Butler developers to better plan future work._
 3. **Information about Butler's execution environment** (operating system, hardware architecture, Node.js version etc).  
     _Why: Ideally the Butler developers want to use as modern versions of Node.js as possible. But if telemetry shows that lots os Butler instances use old Node.js versions or run on some (yet) untested/unverified Linux version - then maybe those older Node.js/Linux versions must be supported for yet some time._
-{{% /alert %}}
+   {{% /alert %}}
 
 {{% alert title="What's not shared" color="warning" %}}
 The telemetry data will never include:
@@ -78,7 +78,7 @@ The telemetry data will never include:
 1. Data that can identify your Sense environment or the server on which Butler runs. This includes IP/MAC addresses or other network information, server names, Docker container metadata or similar.
 2. Any actual data sent via Butler APIs.
 3. Qlik Sense or other certificates or credentials in any shape or form.
-{{% /alert %}}
+   {{% /alert %}}
 
 ### Where is telemetry data sent
 
@@ -258,12 +258,12 @@ A telemetry message from Butler (with all features enabled!) contains the inform
 
 #### Creating an anonymous ID field
 
-The `id` field deserves a bit more explanation.  
+The `id` field deserves a bit more explanation.
 
 It's purpose is to uniquely identify the Butler instance - nothing else.  
-If Butler is stopped and started agagin the same ID will be used.
+If Butler is stopped and started again the same ID will be used.
 
-Some sensitive information is used to create the ID, but as the ID is anonymized using a one-way hash function before sent as part of the telemetry data, *no sensitive information leaves your servers*.  
+Some sensitive information is used to create the ID, but as the ID is anonymized using a one-way hash function before sent as part of the telemetry data, _no sensitive information leaves your servers_.
 
 The ID field is created as follows:
 
@@ -279,6 +279,7 @@ The ID field is created as follows:
    The bottom line is that it's impossible to reverse the process and get your the IP, host name etc used in step 1 above.  
    Then again - this is cryptography and things change.  
    But if you trust the certificates securing Sense itself, then the ID anonymization used by Butler should be ok too.
+
 3. The result is a string that uniquely identifies the Butler instance at hand, without giving away any sensitive data about the system where Butler is running.
 
 See below for an example of what the `id` field looks like.  
@@ -308,7 +309,6 @@ The `id` field is shown during Butler startup as "Instance ID".
 2023-12-08T13:15:21.938Z info: API rate limit : 100
 2023-12-08T13:15:21.938Z info: --------------------------------------
 ```
-
 
 ## Telemetry FAQ
 

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.136.2">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="alternate" type="text/html" href="https://butler.ptarmiganlabs.com/docs/concepts/mqtt/printview/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/concepts/mqtt/index.xml">
 <meta name="robots" content="index, follow">
@@ -41,13 +41,8 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="MQTT integration">
   <meta name="twitter:description" content="Details about how Qlik Sense can use Butler to send pub-sub messages using MQTT.">
-
-
-
-
-<link rel="preload" href="/scss/main.min.8417a35ffb98bbed910815944d48e397f372ece67ebd9e12a20adf60be811900.css" as="style">
-<link href="/scss/main.min.8417a35ffb98bbed910815944d48e397f372ece67ebd9e12a20adf60be811900.css" rel="stylesheet" integrity="">
-
+<link rel="preload" href="/scss/main.min.48c25d0a5a23a1e8cae94d6c5e7622061e5345cf098171b1d6ee41d8e309e6c8.css" as="style" integrity="sha256-SMJdClojoejK6U1sXnYiBh5TRc8JgXGx1u5B2OMJ5sg=" crossorigin="anonymous">
+<link href="/scss/main.min.48c25d0a5a23a1e8cae94d6c5e7622061e5345cf098171b1d6ee41d8e309e6c8.css" rel="stylesheet" integrity="sha256-SMJdClojoejK6U1sXnYiBh5TRc8JgXGx1u5B2OMJ5sg=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
@@ -500,9 +495,9 @@ Using Node.RED together with Qlik Sense and Butler, it is possible to interface 
 </li>
 </ul>
 <h2 id="incoming-mqtt---subscribe">Incoming MQTT - subscribe</h2>
-<p>Butler subscribes to all MQTT messages in the topic specied in the config setting <code>Butler.mqttConfig.subscriptionRootTopic</code>.<br>
+<p>Butler subscribes to all MQTT messages in the topic specified in the config setting <code>Butler.mqttConfig.subscriptionRootTopic</code>.<br>
 Which in MQTT lingo means &ldquo;listen to all messages in the this topic, as well as in any subtopics&rdquo;.</p>
-<p>When Butler gets a message as a result of this subscription it is analysed and if the topic matches any of the predefined topics with special meaning, the associated tasks are carried out.</p>
+<p>When Butler gets a message as a result of this subscription it is analyzed and if the topic matches any of the predefined topics with special meaning, the associated tasks are carried out.</p>
 <p>Topics with special meaning are:</p>
 <ul>
 <li>Start Sense task. The exact topic is defined in config property <code>Butler.mqttConfig.taskStartTopic</code>.<br>
@@ -580,7 +575,7 @@ Starts the Sense task identified by the ID sent in the message body. More info i
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/docs/about/">About</a></p>
       </div>
     </div>

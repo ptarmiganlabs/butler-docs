@@ -13,11 +13,10 @@ All the examples assume Butler is exposing it's API on 192.168.1.168:8080.
 
 ## Using convenience subs
 
-There are a set of [convencience subs](https://github.com/ptarmiganlabs/butler/blob/master/docs/sense_script/butler_subs.qvs) available in the GitHub repository. These make it easier to call Butler's REST API, including the scheduling endpoints. 
+There are a set of [convenience subs](https://github.com/ptarmiganlabs/butler/blob/master/docs/sense_script/butler_subs.qvs) available in the GitHub repository. These make it easier to call Butler's REST API, including the scheduling endpoints.
 
 ## Using direct calls to REST API endpoints
 
 ### List all defined schedules
-
 
 ### Get a specific schedule

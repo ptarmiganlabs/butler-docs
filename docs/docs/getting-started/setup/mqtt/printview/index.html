@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.136.2">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/mqtt/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/mqtt/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -41,13 +41,8 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Setting up MQTT messaging">
   <meta name="twitter:description" content="Butler can use MQTT as a channel for pub-sub style M2M (machine to machine) messages. This page describes how to configure MQTT in Butler.">
-
-
-
-
-<link rel="preload" href="/scss/main.min.8417a35ffb98bbed910815944d48e397f372ece67ebd9e12a20adf60be811900.css" as="style">
-<link href="/scss/main.min.8417a35ffb98bbed910815944d48e397f372ece67ebd9e12a20adf60be811900.css" rel="stylesheet" integrity="">
-
+<link rel="preload" href="/scss/main.min.48c25d0a5a23a1e8cae94d6c5e7622061e5345cf098171b1d6ee41d8e309e6c8.css" as="style" integrity="sha256-SMJdClojoejK6U1sXnYiBh5TRc8JgXGx1u5B2OMJ5sg=" crossorigin="anonymous">
+<link href="/scss/main.min.48c25d0a5a23a1e8cae94d6c5e7622061e5345cf098171b1d6ee41d8e309e6c8.css" rel="stylesheet" integrity="sha256-SMJdClojoejK6U1sXnYiBh5TRc8JgXGx1u5B2OMJ5sg=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
@@ -125,7 +120,7 @@ This is the multi-page printable view of this section.
 <p>The latter is useful if you want to use Butler&rsquo;s MQTT related features outside of the local network, for example in a cloud environment.<br>
 A concrete example could be that a system that Sense read data from is located in the cloud, and that system should trigger reload tasks in Sense when new data is available.</p>
 <p>The Azure Event Grid option is also useful if you want to use Butler&rsquo;s MQTT features in a hybrid environment, where some of the systems are on-prem and some are in the cloud.</p>
-<p>The Butler consfig file controls which kind of MQTT broker Butler will connect to.</p>
+<p>The Butler config file controls which kind of MQTT broker Butler will connect to.</p>
 <ul>
 <li>If <code>Butler.mqttConfig.enable</code> is set to <code>true</code> and <code>Butler.mqttConfig.azureEventGrid.enable</code> is set to <code>false</code>, Butler will connect the standard MQTT broker defined in <code>Butler.mqttConfig.brokerHost</code> and <code>Butler.mqttConfig.brokerPort</code>. No authentication is supported in this case.</li>
 <li>If <code>Butler.mqttConfig.enable</code> is set to <code>true</code> and <code>Butler.mqttConfig.azureEventGrid.enable</code> is set to <code>true</code>, Butler will connect to an Azure Event Grid MQTT broker, using the settings defined in <code>Butler.mqttConfig.azureEventGrid</code> to authenticate with Azure.</li>
@@ -137,7 +132,7 @@ At the time of this writing, Azure Event Grid has a generous free tier that shou
 Check the <a href="https://azure.microsoft.com/en-us/pricing/details/event-grid/">Azure pricing page</a> for the latest information.</p>
 <h2 id="using-mqtt-to-get-evens-from-qlik-sense-cloud">Using MQTT to get evens from Qlik Sense Cloud</h2>
 <p>Butler can use MQTT as a transport layer for events from Qlik Sense Cloud, for example app reload failure events.
-A separate MQTT configiration section in the config file is used for this, see below.</p>
+A separate MQTT configuration section in the config file is used for this, see below.</p>
 <h2 id="settings-in-config-file">Settings in config file</h2>
 <p>The config file contains several settings related to MQTT:</p>
 <ol>
@@ -154,7 +149,7 @@ A separate MQTT configiration section in the config file is used for this, see b
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">brokerHost</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;FQDN or IP of MQTT server&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">brokerPort</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">1883</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">azureEventGrid</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">              </span><span style="color:#8f5902;font-style:italic"># If set to true, Butler will connect to an Azure Event Grid MQTT Broker, using brokerHost and brokerPort above </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">              </span><span style="color:#8f5902;font-style:italic"># If set to true, Butler will connect to an Azure Event Grid MQTT Broker, using brokerHost and brokerPort above</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">clientId</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;client ID&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">clientCertFile</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;path to client certificate file&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">clientKeyFile</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;path to client key file&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -173,7 +168,7 @@ A separate MQTT configiration section in the config file is used for this, see b
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">qlikSenseServerLicenseTopic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qliksense/qliksense_server_license         </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Topic to which Sense server license info is published</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">qlikSenseServerLicenseExpireTopic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">qliksense/qliksense_server_license_expire</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Topic to which Sense server license expiration alerts are published</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">qlikSenseCloud</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                                                   </span><span style="color:#8f5902;font-style:italic"># MQTT settings for Qlik Sense Cloud integration</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">event</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                                                          
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">event</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">mqttForward</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                                                  </span><span style="color:#8f5902;font-style:italic"># QS Cloud events forwarded to MQTT topics, which Butler will subscribe to</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">broker</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                                                     </span><span style="color:#8f5902;font-style:italic"># Settings for MQTT broker to which QS Cloud events are forwarded</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -263,7 +258,7 @@ A separate MQTT configiration section in the config file is used for this, see b
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/docs/about/">About</a></p>
       </div>
     </div>

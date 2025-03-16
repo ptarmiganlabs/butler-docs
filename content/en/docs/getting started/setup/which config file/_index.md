@@ -121,8 +121,8 @@ services:
     container_name: butler
     restart: always
     ports:
-      - "8080:8080"       # REST API available on port 8180 to services outside the container
-      - "9998:9998/udp"   # UDP port for task failure events
+      - "8080:8080" # REST API available on port 8180 to services outside the container
+      - "9998:9998/udp" # UDP port for task failure events
     volumes:
       # Make config file accessible outside of container
       - "./config:/nodeapp/config"
@@ -161,4 +161,4 @@ On Windows: `set NODE_ENV=production`
 
 Mac OS or Linux: `export NODE_ENV=production`
 
-If using Docker, the NODE_ENV environment varible is set in the docker-compose.yml file (as already done in the [template docker-compose file](https://github.com/ptarmiganlabs/butler/blob/master/docs/docker-compose/docker-compose.yaml).)
+If using Docker, the NODE_ENV environment variable is set in the docker-compose.yml file (as already done in the [template docker-compose file](https://github.com/ptarmiganlabs/butler/blob/master/docs/docker-compose/docker-compose.yaml).)

@@ -1,9 +1,8 @@
 ---
-title: 'Node.js app'
-linkTitle: 'Node.js app'
+title: "Node.js app"
+linkTitle: "Node.js app"
 weight: 30
 description: >
-    
 ---
 
 <!-- {{% pageinfo %}}
@@ -12,7 +11,7 @@ This is a placeholder page that shows you how to use this template site.
 
 ## Running Butler as Node.js app
 
-If the Butler source code has been installed in `d:\tools\butler`, starting Butler as a Node.js app on Windows could look like this:  
+If the Butler source code has been installed in `d:\tools\butler`, starting Butler as a Node.js app on Windows could look like this:
 
     d:
     cd \tools\butler\src
@@ -24,7 +23,7 @@ The commands above assume there is a `d:\tools\butler\src\config` directory in w
 The name of that config file should match the value set to the `NODE_ENV` environment variable.  
 For example, if `NODE_ENV=dev` the config file should be `d:\tools\butler\src\config\dev.yaml`.
 
-The command line options introduced in Butler 7.2 are available also when running Buter as a Node.js app.  
+The command line options introduced in Butler 7.2 are available also when running Butler as a Node.js app.  
 Use the `--help` command line option to show what options are available:
 
 ```powershell
@@ -48,7 +47,7 @@ Options:
   -h, --help                           display help for command
 ```
 
-Looking at the above, it's actually possible to use the `--configfile` to specify which config file to use.  
+Looking at the above, it's actually possible to use the `--configfile` to specify which config file to use.
 
 Similarly the `--loglevel` option can be used to control Butler's logging.
 

@@ -70,7 +70,7 @@ To avoid that, you can specify the New Relic credentials on the command line usi
 ### --new-relic-account-name
 
 List of New Relic account names. Used within Butler to differentiate between different target New Relic accounts to which data can be sent. This name has nothing to do with the account name used in New Relic - it's purely for Butler's internal use.  
-Specifically, it's at multiple places in the config file where you can specificy to which New Relic account to send data.
+Specifically, it's at multiple places in the config file where you can specify to which New Relic account to send data.
 
 Enclose account names in quotes if they contain spaces.  
 Separate multiple account names with a space.
@@ -95,7 +95,7 @@ Separate multiple account IDs with a space. Note that the order of the account I
 
 ## Send test email
 
-Butler has several alerting features for sending emails when some event happens (typoically something failing...) in Sense.
+Butler has several alerting features for sending emails when some event happens (typically something failing...) in Sense.
 
 To verify that the email settings in the config file are correct, you can send a test email using the following options.
 

@@ -4,8 +4,8 @@ linkTitle: "Custom links in alerts"
 weight: 220
 description: >
   Email, Slack and MS Teams alert messages can include custom links to external systems.
- 
-  
+
+
   This pages describes how to set this up.
 ---
 
@@ -17,11 +17,9 @@ This can be used to link to external systems, such as a ticketing system or a mo
 The links defined in the config file are available as template variables in the alert messages.  
 Documentation for the alert message templates is available [here](/docs/reference/alert-template-fields/).
 
-
-
 ## Differences between client-managed and Qlik Sense Cloud
 
-Standardised links relating to client-managed Qlik Sense alerts are set in this section of the config file:
+Standardized links relating to client-managed Qlik Sense alerts are set in this section of the config file:
 
 ```yaml
 Butler:
@@ -88,12 +86,12 @@ Butler:
         tenant:
           id: tenant.region.qlikcloud.com
           tenantUrl: https://tenant.region.qlikcloud.com
-          authType: jwt             # Authentication type used to connect to the tenant. Valid options are "jwt"  
+          authType: jwt             # Authentication type used to connect to the tenant. Valid options are "jwt"
           auth:
             jwt:
               token: <JWT token>    # JWT token used to authenticate Butler when connecting to the tenant
           # Qlik Sense Cloud related links used in notification messages
           qlikSenseUrls:
             qmc: <URL to QMC in Qlik Sense Cloud>
-            hub: <URL to Hub in Qlik Sense Cloud>  
+            hub: <URL to Hub in Qlik Sense Cloud>
 ```

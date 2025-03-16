@@ -30,15 +30,15 @@ There's no reason an alert email can't look good!
 
 Alert emails viewed on a mobile phone give direct insight into what has happened:
 
-|  |  |
-|-|-|
+|                                                                                                                                    |                                                                                                                               |
+| ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | {{< imgproc reload-fail-alert-email-mobile-1.png Fit "600x600" >}}Failed reload alert email on mobile home screen.{{< /imgproc >}} | {{< imgproc reload-fail-alert-email-mobile-2.png Fit "600x600" >}}Failed reload alert email viewed on mobile.{{< /imgproc >}} |
 
 In a regular email client a reload failed email could look like below.
 
-***Note the end of the script*** - the last few lines of the reload log are often very useful when it comes to understanding what caused the reload failure.
+**_Note the end of the script_** - the last few lines of the reload log are often very useful when it comes to understanding what caused the reload failure.
 
-![Reload failed alert email](failed_reload_email_2.png "Reload failed alert email")  
+![Reload failed alert email](failed_reload_email_2.png "Reload failed alert email")
 
 ### Basic alert emails also possible
 
@@ -57,13 +57,13 @@ In the latter case it might be relevant to send the app owner a notification ema
 
 This feature assumes the app owner's user account (in the Sense user directory) has an email address associated with it. When syncing users from Active Directory the users' emails are often brought along into Sense, but there is no guarantee for this.
 
-*If* an email address is available for a Sense user, the QMC user section can look like this:
+_If_ an email address is available for a Sense user, the QMC user section can look like this:
 
 ![Email address available for Qlik Sense user](./qlik_sense_user_email_address_1.png "Email address available for Qlik Sense user")
 
 ## Alert emails only for some tasks
 
-Sometimes there is a desire to only have email alerts for *some* tasks.  
+Sometimes there is a desire to only have email alerts for _some_ tasks.  
 One example can be a Sense cluster that hosts both development and production apps, maybe separated on different servers.
 
 As of Butler 7.4.0 it is possible to control per task if an alert email should be sent when the task fails or is aborted from the QMC.
@@ -78,11 +78,11 @@ Note: This feature is similar to - but independent from - the "task specific ema
 
 ## Task specific email recipients
 
-They may be cases where all alert emails should normally go to for example a Sense administrator, but *some* alerts should instead (or also) go to some other recipients.
+They may be cases where all alert emails should normally go to for example a Sense administrator, but _some_ alerts should instead (or also) go to some other recipients.
 
 An example could be a sales related Sense app. If it fails reloading the standard alert email should go to the Sense administrator, but there should also be an alert email sent to the sales operations team, to notify them that they won't find updated numbers in the Sales app.
 
-Butler handles this scenario by using a custome propperty (its name is configurable in the Butler config file) to set alert email recipients on a per-task basis.
+Butler handles this scenario by using a custom property (its name is configurable in the Butler config file) to set alert email recipients on a per-task basis.
 
 Conceptually it works like this:
 
@@ -98,11 +98,11 @@ Butler uses a templating engine called [Handlebars](https://handlebarsjs.com/gui
 
 The high-level system overview below shows how email (and other alert types) are sent by Butler:
 
-![Butler high level system overview](/img/butler-log4net-appenders-1.png "Butler high level system overview")  
+![Butler high level system overview](/img/butler-log4net-appenders-1.png "Butler high level system overview")
 
 ### Template fields
 
-The Handlebars templating engine looks for *template fields* in the template files you create.
+The Handlebars templating engine looks for _template fields_ in the template files you create.
 
 A complete list of template fields - including descriptions - is available in the [Reference](/docs/reference/alert-template-fields) section.
 
@@ -110,24 +110,24 @@ A complete list of template fields - including descriptions - is available in th
 
 While not obvious at first, there are different kinds of reloads taking place in a Qlik Sense Enterprise environment:
 
-- Reloads started by the Sense Scheduler service. These reloads always have a *task* associated with them.
+- Reloads started by the Sense Scheduler service. These reloads always have a _task_ associated with them.
 
-- Reloads started from Sense's standard script editor. These reloads are *not* started by the Sense scheduler, but rather directly in the Sense engine. Progress for such reloads will therefore go to the *engine logs*.
+- Reloads started from Sense's standard script editor. These reloads are _not_ started by the Sense scheduler, but rather directly in the Sense engine. Progress for such reloads will therefore go to the _engine logs_.
 
 The log appenders that drive Butler's alerts rely on the Scheduler logs - not the engine logs.  
 This is an intentional design decision.
 
-It is certainly possible to add log appenders also for engine logs and that way get notified when *any* reload fail. The question is whether that's an interesting use case. In most cases sys admins aren't very interested in reloads that fail during app development - they only care about failures caused by apps in production - i.e. app reload tasks managed by the Sense Scheduler. Thus, Butler currently doesn't deal with reload failures reported from the Sense engine.
+It is certainly possible to add log appenders also for engine logs and that way get notified when _any_ reload fail. The question is whether that's an interesting use case. In most cases sys admins aren't very interested in reloads that fail during app development - they only care about failures caused by apps in production - i.e. app reload tasks managed by the Sense Scheduler. Thus, Butler currently doesn't deal with reload failures reported from the Sense engine.
 
 ## References
 
-- [Qlik's documenation](https://help.qlik.com/en-US/sense-admin/September2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders.htm) around log appenders and how to hook into the Sense logs is somewhat brief, but does provide a starting point if you want to dive deeper into this topic.
+- [Qlik's documentation](https://help.qlik.com/en-US/sense-admin/September2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders.htm) around log appenders and how to hook into the Sense logs is somewhat brief, but does provide a starting point if you want to dive deeper into this topic.
 
 - The main [log4net documentation](https://logging.apache.org/log4net/) (log4net is the logging framework used by Qlik Sense Enterprise) can also be useful.
 
-These links describe how emails can be sent from the log4net logging framework itself, directly to the recipient. Butler includes sameple XML files for this use case too, but Butler takes things further by using the data in the Sense logs to pull in more data around the failed or stopped reload.
+These links describe how emails can be sent from the log4net logging framework itself, directly to the recipient. Butler includes sample XML files for this use case too, but Butler takes things further by using the data in the Sense logs to pull in more data around the failed or stopped reload.
 
-In other words - Butler's alert emails are significantly more flexible and contain information (such as script logs) that are not availble using purely log4net.
+In other words - Butler's alert emails are significantly more flexible and contain information (such as script logs) that are not available using purely log4net.
 
 ## Seeing is believing
 

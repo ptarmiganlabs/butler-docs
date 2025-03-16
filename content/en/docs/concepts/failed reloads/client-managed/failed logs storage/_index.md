@@ -4,7 +4,7 @@ linkTitle: "Store failed reload logs"
 weight: 50
 description: >
   When investigating reload failures it can often be useful to have access to the entire reload log.<br>
-  Butler detects failed reloads and can store the entire reload log into easy to find and analyse files on disk. 
+  Butler detects failed reloads and can store the entire reload log into easy to find and analyze files on disk.
 ---
 
 ## Reload script logs
@@ -13,7 +13,7 @@ When doing a scheduled reload or a reload started from the QMC, Sense will creat
 
 If a reload for reason fails it can be very useful to look at these reload logs.
 
-The *latest* reload log file for each reload task is available via the QMC, but logs for previous reload attempts are not available via the QMC.
+The _latest_ reload log file for each reload task is available via the QMC, but logs for previous reload attempts are not available via the QMC.
 
 Using the same mechanism used by [reload failure alerts](/docs/concepts/alert-emails/) in general, Butler can be configured to store the reload logs of all failed reloads to disk.
 

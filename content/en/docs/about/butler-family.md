@@ -1,11 +1,11 @@
 ---
 title: "The Butler family"
-description: "Please meet the Butlers. They're a nice, wild bunch!" 
+description: "Please meet the Butlers. They're a nice, wild bunch!"
 weight: 20
 ---
 
 Butler started out with a very specific need to start Sense reloads from outside systems.  
-Back in those days the cloud wasn't a thing, and Sense was only available on Windows servers.  
+Back in those days the cloud wasn't a thing, and Sense was only available on Windows servers.
 
 Over the years a few projects (for example Butler SOS, which simplifies day 2 operations of client-managed Sense ([[1](https://www.infoworld.com/article/3442754/why-de-risking-day-2-operations-is-a-smart-business-strategy.html)], [[2](https://dzone.com/articles/defining-day-2-operations)]) have spun off from the original Butler project, and still other projects have been created from scratch to solve specific challenges around developing Sense apps and running Qlik Sense server environments or developing apps for Qlik Sense Cloud.
 
@@ -28,7 +28,7 @@ Simplifies day 2 operations of client-managed Sense.
 
 Butler SOS makes it possible to detect and alert on issues as they happen, rather than in retrospect much later.
 
-Several storage and visualisation options available, including [InfluxDB](https://www.influxdata.com) + [Grafana](https://grafana.com), and [New Relic](https://newrelic.com).
+Several storage and visualization options available, including [InfluxDB](https://www.influxdata.com) + [Grafana](https://grafana.com), and [New Relic](https://newrelic.com).
 
 [butler-sos.ptarmiganlabs.com](https://butler-sos.ptarmiganlabs.com)
 
@@ -37,7 +37,7 @@ Several storage and visualisation options available, including [InfluxDB](https:
 Automates the creation of sheet icons for both Qlik Sense Cloud and client-managed Qlik Sense Enterprise on Windows (QSEoW) applications.
 
 It's a cross platform command line tool which given the correct Sense credentials will take screen shots of all sheets in a Sense app (or all apps on a Sense server!), then create thumbnail versions of those screenshots.  
-Finally those thumbnails will be set as sheet icons.  
+Finally those thumbnails will be set as sheet icons.
 
 No more manual screenshot taking, resizing images, navigating hundreds of sheets in dozens of apps.  
 Start Butler Sheet Icons instead and go get a nice [fika](https://www.swedishfood.com/fika).

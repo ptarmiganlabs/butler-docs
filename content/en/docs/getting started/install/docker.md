@@ -14,6 +14,7 @@ Here Mac OS was used, things will look different on Linux and Windows.
 Note: While the console logs below refer to an older version of Butler's Docker image, the steps involved are the same also for current/most recent version of Butler.
 
 <!-- TODO Update with 13.0 Docker image -->
+
 ```bash
 proton:~ goran$ mkdir /Users/goran/butler
 proton:~ goran$ cd /Users/goran/butler
@@ -60,11 +61,11 @@ proton:butler goran$
 
 At this point you should
 
-1. Export certificates from the Qlik Sense QMC. Export a full set of certificates in PEM format, no psasword on the certificates.
+1. Export certificates from the Qlik Sense QMC. Export a full set of certificates in PEM format, no password on the certificates.
 2. Copy the certificates to the `./config/certificate` directory.
 3. Copy the [template config file](https://github.com/ptarmiganlabs/butler/blob/master/src/config/production_template.yaml) from the GitHub repository to the ./config directory, modify it as needed based on your system(s) and which Butler features you want enabled, and rename it to for example `production.yaml`.  
-You can name the config file anything, but its name has to match the NODE_ENV environment variable, as set it the `docker-compose.yaml` file.
-4. *Optional.* Copy the [template schedule file](https://github.com/ptarmiganlabs/butler/blob/master/src/config/schedule_template.yaml) to the location specified in Butler's config file. This is only needed if you manually want to add schedules. If using the API to create schedules, there is no need to first manually create a schedules file (the schedule file will be created by Butler in this case).
+   You can name the config file anything, but its name has to match the NODE_ENV environment variable, as set it the `docker-compose.yaml` file.
+4. _Optional._ Copy the [template schedule file](https://github.com/ptarmiganlabs/butler/blob/master/src/config/schedule_template.yaml) to the location specified in Butler's config file. This is only needed if you manually want to add schedules. If using the API to create schedules, there is no need to first manually create a schedules file (the schedule file will be created by Butler in this case).
 
 When done, you should see something like this:
 

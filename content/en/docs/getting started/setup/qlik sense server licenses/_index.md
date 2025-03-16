@@ -3,10 +3,10 @@ title: "Qlik Sense server license"
 linkTitle: "Server license"
 weight: 114
 description: >
-  Butler can monitor the Qlik Sense server license that is used to run client-managed Qlik Sense (=Qlik Sense Enterrise on Windows).  
+  Butler can monitor the Qlik Sense server license that is used to run client-managed Qlik Sense (=Qlik Sense Enterprise on Windows).  
 
   - Check license expiration date and alert a configurable number of days before expiration.
-  
+
   - Send license status and expiration alerts to InfluxDB, webhooks and MQTT.
 ---
 
@@ -59,14 +59,14 @@ Butler:
       enable: false
       frequency: every 24 hours       # https://bunkat.github.io/later/parsers.html#text
       alert:                          # Alert if the number of days left on the license is below the threshold
-                                      # License expiry alerts on a global level are enabled here, then configured on 
+                                      # License expiry alerts on a global level are enabled here, then configured on
                                       # a per-destination basis elsewhere in this config file.
         thresholdDays: 60
       destination:
         influxDb:                     # Store license data in InfluxDB
           enable: false
-          tag: 
-            static:                   # Static attributes/tags to attach to the data sent to InflixDB
+          tag:
+            static:                   # Static attributes/tags to attach to the data sent to InfluxDB
               - name: foo
                 value: bar
         mqtt:
@@ -79,7 +79,7 @@ Butler:
           enable: false
           sendRecurring:              # Send license data to webhook(s) at the frequency specified above
             enable: true
-          sendAlert:                  # Send alert to webhook(s) if the number of days left on the license is below 
+          sendAlert:                  # Send alert to webhook(s) if the number of days left on the license is below
                                       # the threshold or the license has already expired
             enable: true
   ...

@@ -7,5 +7,5 @@ description: >
 
   Butler can integrate with such tools, for example forwarding information about failed reloads.
   <br><br>
-  Below you find instuctions for configuring the currently supported incident management tools. 
+  Below you find instructions for configuring the currently supported incident management tools.
 ---

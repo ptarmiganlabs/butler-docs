@@ -1,12 +1,12 @@
 ---
-title: 'Session and other user activity events'
-linkTitle: 'Session events'
+title: "Session and other user activity events"
+linkTitle: "Session events"
 weight: 140
 draft: true
 description: >
-    Somewhat of a nieche use case, but still interesting:  
-    
-    By having Sense forward events to Butler when a user (for example) starts a session, Butler can then forward this event to other tools and systems that need to take action when users start or stop using Sense.  
+  Somewhat of a niche use case, but still interesting:  
+
+  By having Sense forward events to Butler when a user (for example) starts a session, Butler can then forward this event to other tools and systems that need to take action when users start or stop using Sense.
 ---
 
 The features described on this page use the same concept as email notifications on reload failures, i.e. UDP messages sent from Sense to Butler when certain log events occur.
@@ -24,7 +24,7 @@ Green light, someone opens a Sense app. Red light, someone closes a Sense app.
 {{% alert title="Remember" color="primary" %}}
 The text below assumes the [log appenders have been set up](/docs/getting-started/setup/user-events/) for user activity notifications.
 
-Make extra sure the log appender XML file contains the correct IP/port info specified in Butler's UDP server config settings. 
+Make extra sure the log appender XML file contains the correct IP/port info specified in Butler's UDP server config settings.
 {{% /alert %}}
 
 The user events log appender that's included with Butler ([GitHub link](https://github.com/ptarmiganlabs/butler/blob/master/docs/log4net_user-audit-event/LocalLogConfig.xml)) captures the following events:
@@ -34,7 +34,7 @@ The user events log appender that's included with Butler ([GitHub link](https://
 - **Connection open**: When a user opens a new app or does a browser refresh of a Sense app.
 - **Connection close**: When a user does a browser refresh of a Sense app or closes a browser window or tab in which a Sense app was open.
 
-The response time is usually quite good, typically Butler gets the notifiction from Sense within a few seconds of the actual event taking place.
+The response time is usually quite good, typically Butler gets the notification from Sense within a few seconds of the actual event taking place.
 
 The information sent to Butler is
 
@@ -49,13 +49,13 @@ Butler will then use this information and take either of several possible action
 
 Messages sent to Slack and Teams can look like this:
 
-![User activity events in Slack](/img/user-events-slack-1.png "User activity events in Slack")  
+![User activity events in Slack](/img/user-events-slack-1.png "User activity events in Slack")
 
-![User activity events in Teams](/img/user-events-teams-1.png "User activity events in Teams")  
+![User activity events in Teams](/img/user-events-teams-1.png "User activity events in Teams")
 
 ## Enabling Slack, Teams and MQTT messages
 
-The message destinations can be indidually enabled or disabled.
+The message destinations can be individually enabled or disabled.
 
 - To enable Slack messages, `Butler.slackNotification.enable` and `Butler.slackNotification.userSessionEvents.enable` should both be `true`.
 - To enable Teams messages, `Butler.teamsNotification.enable` and `Butler.teamsNotification.userSessionEvents.enable` should both be `true`.
@@ -72,6 +72,6 @@ The MQTT message is a bit different as it looks at the "command" field in the UD
 
 ## References
 
-- [Qlik's documenation](https://help.qlik.com/en-US/sense-admin/September2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders.htm) around log appenders and how to hook into the Sense logs is somewhat brief, but does provide a starting point if you want to dive deeper into this topic.
+- [Qlik's documentation](https://help.qlik.com/en-US/sense-admin/September2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders.htm) around log appenders and how to hook into the Sense logs is somewhat brief, but does provide a starting point if you want to dive deeper into this topic.
 
 - The main [log4net documentation](https://logging.apache.org/log4net/) (log4net is the logging framework used by Qlik Sense Enterprise) can also be useful.

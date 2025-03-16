@@ -6,7 +6,7 @@ description: >
   Butler can monitor Qlik Sense user access licenses.  
 
   - High level metrics per user license type (professional, analyzer etc) are gathered and stored in your database of choice (at the time of writing, InfluxDB is supported).
-  
+
   - User licenses can be released automatically after a certain period of inactivity, allowing them to be used by other users.
 ---
 
@@ -74,13 +74,13 @@ Butler:
       destination:
         influxDb:                     # Store license data in InfluxDB
           enable: false
-          tag: 
-            static:                   # Static attributes/tags to attach to the data sent to InflixDB
+          tag:
+            static:                   # Static attributes/tags to attach to the data sent to InfluxDB
               - name: foo
                 value: bar
     licenseRelease:                   # Release unused Qlik Sense access licenses
       enable: false                   # true/false. If true, Butler will release unused licenses according to settings below
-      dryRun: true                    # true/false. If true, Butler will not actually release any licenses, just log what it would have done. 
+      dryRun: true                    # true/false. If true, Butler will not actually release any licenses, just log what it would have done.
       frequency: every 24 hours        # https://bunkat.github.io/later/parsers.html#text
       neverRelease:                   # Various ways of defining which users should never have their licenses released
         user:                         # Users who should never have their licenses released
@@ -101,12 +101,12 @@ Butler:
           - ADMIN
         inactive: Ignore              # Ignore/Yes/No. The value is case insensitive
                                       #   No = Don't release licenses for users marked as "Inactive=No" in the QMC
-                                      #   Yes = Don't release licenses for users marked as "Inactive=Yes" in the QMC 
+                                      #   Yes = Don't release licenses for users marked as "Inactive=Yes" in the QMC
                                       #   Ignore = Disregard this setting
         blocked: Ignore               # Ignore/Yes/No, No = Don't release licenses for users marked as "Blocked=No" in the QMC
         removedExternally: ignore     # Ignore/Yes/No, No = Don't release licenses for users marked as "Removed externally=No" in the QMC
       licenseType:                    # License types to monitor and release
-        analyzer:                     
+        analyzer:
           enable: true                # Monitor and release Analyzer licenses
           releaseThresholdDays: 30    # Number of days a license can be unused before it is released
         professional:
@@ -115,8 +115,8 @@ Butler:
       destination:
         influxDb:                     # Store info about released licenses in InfluxDB
           enable: false
-          tag: 
-            static:                   # Static attributes/tags to attach to the data sent to InflixDB
+          tag:
+            static:                   # Static attributes/tags to attach to the data sent to InfluxDB
               - name: foo
                 value: bar
   ...

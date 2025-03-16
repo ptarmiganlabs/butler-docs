@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.136.2">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/concepts/failed-reloads/cloud/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/concepts/failed-reloads/cloud/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -39,13 +39,8 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Qlik Sense Cloud">
   <meta name="twitter:description" content="Butler documentation">
-
-
-
-
-<link rel="preload" href="/scss/main.min.8417a35ffb98bbed910815944d48e397f372ece67ebd9e12a20adf60be811900.css" as="style">
-<link href="/scss/main.min.8417a35ffb98bbed910815944d48e397f372ece67ebd9e12a20adf60be811900.css" rel="stylesheet" integrity="">
-
+<link rel="preload" href="/scss/main.min.48c25d0a5a23a1e8cae94d6c5e7622061e5345cf098171b1d6ee41d8e309e6c8.css" as="style" integrity="sha256-SMJdClojoejK6U1sXnYiBh5TRc8JgXGx1u5B2OMJ5sg=" crossorigin="anonymous">
+<link href="/scss/main.min.48c25d0a5a23a1e8cae94d6c5e7622061e5345cf098171b1d6ee41d8e309e6c8.css" rel="stylesheet" integrity="sha256-SMJdClojoejK6U1sXnYiBh5TRc8JgXGx1u5B2OMJ5sg=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
@@ -208,17 +203,17 @@ There is currently no way around that, it&rsquo;s just how Qlik Cloud works.</p>
 <p>Alert emails can be formatted using HTML, use CSS styling, emojis etc.<br>
 There&rsquo;s no reason an alert email can&rsquo;t look good!</p>
 <p>Here is an example of how a failed reload alert email could look like:</p>
-<p><img alt="Reload failed alert email" src="/img/butler-qscloud-app-reload-failed-email-2.png" title="Reload failed alert email"></p>
+<p><img src="/img/butler-qscloud-app-reload-failed-email-2.png" alt="Reload failed alert email" title="Reload failed alert email"></p>
 <h2 id="alert-emails-to-app-owners">Alert emails to app owners</h2>
 <p>All apps in Qlik Sense Cloud has an app owner, typically the user who created the app.</p>
 <p>If there is an email address associated with the app owner, Butler can send an alert email to the app owner when a reload task fails or is aborted.<br>
 This feature can be turned on/off in the Butler config file.<br>
 It is also possible to only send alert emails to some app owners but not others, <a href="/docs/getting-started/setup/reload-alerts/cloud/alert-emails/#sending-alert-emails-to-app-owners">this page</a> describes how to configure that.</p>
 <h2 id="alert-emails-only-for-some-apps">Alert emails only for some apps</h2>
-<p>Sometimes there is a desire to only have email alerts for <em>some</em> aps.<br>
+<p>Sometimes there is a desire to only have email alerts for <em>some</em> apps.<br>
 Maybe some apps are critical and should always trigger an alert email when they fail, while other apps are less critical and should not trigger any alert emails.</p>
 <p>This is possible using a tag set on apps in Qlik Sense Cloud:</p>
-<p><img alt="Tagging apps for reload failed alerts in Qlik Sense Cloud" src="/img/butler-qscloud-app-reload-failed-app-tag-1.png" title="Tagging apps for reload failed alerts in Qlik Sense Cloud"></p>
+<p><img src="/img/butler-qscloud-app-reload-failed-app-tag-1.png" alt="Tagging apps for reload failed alerts in Qlik Sense Cloud" title="Tagging apps for reload failed alerts in Qlik Sense Cloud"></p>
 <p>More info in the <a href="/docs/getting-started/setup/reload-alerts/cloud/alert-emails/#send-alerts-only-for-some-apps">setup section</a>.</p>
 <h2 id="how-it-works">How it works</h2>
 <p>Butler uses a templating engine called <a href="https://handlebarsjs.com/guide/">Handlebars</a>. It is used when sending all kinds of alert emails supported by Butler.</p>
@@ -270,13 +265,13 @@ Each notification destination has its own set of template files. It&rsquo;s ther
 <p>This message type is useful if you only want a short, basic notification that a task failed or was aborted. The basic formats are pre-defined and are thus easy to set up.</p>
 <h2 id="microsoft-teams-notifications">Microsoft Teams notifications</h2>
 <p>Basic and formatted reload task failure notifications can look like this in Teams:</p>
-<p><img alt="Basic failed reload notification in Microsoft Teams" src="/img/failed-reload-teams-basic_1.png" title="Basic failed reload notification in Microsoft Teams"></p>
-<p><img alt="Formatted failed reload notification in Microsoft Teams" src="/img/failed-reload-teams-formatted_1.png" title="Formatted failed reload notification in Microsoft Teams"></p>
+<p><img src="/img/failed-reload-teams-basic_1.png" alt="Basic failed reload notification in Microsoft Teams" title="Basic failed reload notification in Microsoft Teams"></p>
+<p><img src="/img/failed-reload-teams-formatted_1.png" alt="Formatted failed reload notification in Microsoft Teams" title="Formatted failed reload notification in Microsoft Teams"></p>
 <p>The configuration needed for setting this up is described <a href="/docs/getting-started/setup/reload-alerts/alert-teams/">here</a>.</p>
 <h2 id="slack-notifications">Slack notifications</h2>
 <p>Basic and formatted reload task failure notifications can look like this in Teams:</p>
-<p><img alt="Basic failed reload notification in Microsoft Teams" src="/img/failed-reload-slack-basic_1.png" title="Basic failed reload notification in Microsoft Teams"></p>
-<p><img alt="Formatted failed reload notification in Microsoft Teams" src="/img/failed-reload-slack-formatted_1.png" title="Formatted failed reload notification in Microsoft Teams"></p>
+<p><img src="/img/failed-reload-slack-basic_1.png" alt="Basic failed reload notification in Microsoft Teams" title="Basic failed reload notification in Microsoft Teams"></p>
+<p><img src="/img/failed-reload-slack-formatted_1.png" alt="Formatted failed reload notification in Microsoft Teams" title="Formatted failed reload notification in Microsoft Teams"></p>
 <p>The configuration needed for setting this up is described <a href="/docs/getting-started/setup/reload-alerts/alert-slack/">here</a>.</p>
 
 </div>
@@ -408,7 +403,7 @@ Each notification destination has its own set of template files. It&rsquo;s ther
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/docs/about/">About</a></p>
       </div>
     </div>

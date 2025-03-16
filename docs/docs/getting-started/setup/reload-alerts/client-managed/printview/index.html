@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.136.2">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/client-managed/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/reload-alerts/client-managed/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -49,13 +49,8 @@ Learn how to set up the desired features, the alert layout, formatting and more.
   <meta name="twitter:description" content="Butler offers a lot of flexibility when it comes to alerts when reloads fail, are aborted or succeed in Qlik Sense Enterprise on Windows (QSEoW).
 
 Learn how to set up the desired features, the alert layout, formatting and more.">
-
-
-
-
-<link rel="preload" href="/scss/main.min.8417a35ffb98bbed910815944d48e397f372ece67ebd9e12a20adf60be811900.css" as="style">
-<link href="/scss/main.min.8417a35ffb98bbed910815944d48e397f372ece67ebd9e12a20adf60be811900.css" rel="stylesheet" integrity="">
-
+<link rel="preload" href="/scss/main.min.48c25d0a5a23a1e8cae94d6c5e7622061e5345cf098171b1d6ee41d8e309e6c8.css" as="style" integrity="sha256-SMJdClojoejK6U1sXnYiBh5TRc8JgXGx1u5B2OMJ5sg=" crossorigin="anonymous">
+<link href="/scss/main.min.48c25d0a5a23a1e8cae94d6c5e7622061e5345cf098171b1d6ee41d8e309e6c8.css" rel="stylesheet" integrity="sha256-SMJdClojoejK6U1sXnYiBh5TRc8JgXGx1u5B2OMJ5sg=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
@@ -373,7 +368,7 @@ Each destination can be individually enabled/disabled in the config file.</p>
 This is achieved by adding a <strong><em>log appender</em></strong> to Qlik Sense Enterprise on Windows.</p>
 <p>Log appenders offer a way to hook into Qlik Sense&rsquo;s logging subsystem, which is called <a href="https://help.qlik.com/en-US/sense-admin/May2024/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders-QSRollingFileAppender-Built-in-Appenders.htm">log4net</a>.</p>
 <p>By adding a carefully crafted .xml file in the right location on the Sense server(s), you can make Sense notify Butler by means of UDP messages when the events of interest occur. Conceptually it looks like this:</p>
-<p><img alt="Butler high level system overview" src="/img/butler-log4net-appenders-1.png" title="Butler high level system overview"></p>
+<p><img src="/img/butler-log4net-appenders-1.png" alt="Butler high level system overview" title="Butler high level system overview"></p>
 <p>So what happens when a scheduled reload task fails?<br>
 Let&rsquo;s look at the steps:</p>
 <ol>
@@ -423,7 +418,7 @@ Those sample .xml files are also included in the release Zip files available on 
 <p>Sense will eventually detect and load the new xml file, but it might take a while (minutes). Restarting the Qlik Sense Scheduler Windows service will make the changes take effect immediately.</p>
 </li>
 </ol>
-<p><img alt="log4net log appender on Windows Server" src="/docs/getting-started/setup/reload-alerts/client-managed/reload-failure-notification-win-config-1.png" title="log4net log appender on Windows Server"></p>
+<p><img src="/docs/getting-started/setup/reload-alerts/client-managed/reload-failure-notification-win-config-1.png" alt="log4net log appender on Windows Server" title="log4net log appender on Windows Server"></p>
 <h3 id="forwarding-reload-task-events-to-butler">Forwarding reload task events to Butler</h3>
 <p>Here&rsquo;s the XML that should go into <code>C:\ProgramData\Qlik\Sense\Scheduler\LocalLogConfig.xml</code> to enable the various kinds of Butler task reload alerts.</p>
 <ul>
@@ -437,7 +432,7 @@ Those sample .xml files are also included in the release Zip files available on 
 <p>The first appender looks for the text &ldquo;Max retries reached&rdquo; in the <code>System.Scheduler.Scheduler.Master.Task.TaskSession</code> log stream. That log entry will be created when a reload task has failed and also carried out all its retries. Once the search string is found a UDP message will be sent to port 9998 on IP 10.11.12.13.</p>
 </li>
 <li>
-<p>The second appender looks for &ldquo;Execution State Change to Aborting&rdquo; in the <code>System.Scheduler.Scheduler.Master.Task.TaskSession</code> log stream. That log entry occurs when a user stops a running reload from the QMC&rsquo;s task view, or using the Sense APIs. When the search string is found a UDP message is once again sent to 10.11.12.13:9998, but with a different messsage (as specified in the <code>conversionpattern</code> property of the appender).</p>
+<p>The second appender looks for &ldquo;Execution State Change to Aborting&rdquo; in the <code>System.Scheduler.Scheduler.Master.Task.TaskSession</code> log stream. That log entry occurs when a user stops a running reload from the QMC&rsquo;s task view, or using the Sense APIs. When the search string is found a UDP message is once again sent to 10.11.12.13:9998, but with a different message (as specified in the <code>conversionpattern</code> property of the appender).</p>
 </li>
 <li>
 <p>The third appender looks for &ldquo;Reload complete&rdquo; in the <code>System.Scheduler.Scheduler.Slave.Tasks.ReloadTask</code> log stream.<br>
@@ -514,7 +509,7 @@ That log entry occurs when a reload task has completed successfully.</p>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">&lt;/configuration&gt;</span>
 </span></span></code></pre></div><p>The above configuration is enough to support all task reload alerts currently supported by Butler.</p>
 <h3 id="sending-basic-alert-emails-from-qlik-senselog4net">Sending basic alert emails from Qlik Sense/log4net</h3>
-<p>If you are happy with the more basic/limited reload-failed alert emails provided by log4net, you can add a SMTP appender like this (the example below is for sending emails using Google GMail, customise as needed).</p>
+<p>If you are happy with the more basic/limited reload-failed alert emails provided by log4net, you can add a SMTP appender like this (the example below is for sending emails using Google GMail, customize as needed).</p>
 <div class="notice note" >
 <p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#note-notice"></use></svg></span>Note</p><p>If sending alert emails from Log4Net you will not get any of the nice formatting, script logs or other features that Butler provides in its alerts.</p>
 <p>The email will instead just tell you that a task failed, and include some basic information about the task (task name, specifically).</p></div>
@@ -554,14 +549,14 @@ That log entry occurs when a reload task has completed successfully.</p>
 </span></span></code></pre></div><h3 id="references">References</h3>
 <ul>
 <li>
-<p><a href="https://help.qlik.com/en-US/sense-admin/November2023/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders.htm">Qlik&rsquo;s documenation</a> around log appenders and how to hook into the Sense logs is somewhat brief, but does provide a starting point if you want to dive deeper into this topic.</p>
+<p><a href="https://help.qlik.com/en-US/sense-admin/November2023/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders.htm">Qlik&rsquo;s documentation</a> around log appenders and how to hook into the Sense logs is somewhat brief, but does provide a starting point if you want to dive deeper into this topic.</p>
 </li>
 <li>
 <p>The main <a href="https://logging.apache.org/log4net/">log4net documentation</a> (log4net is the logging framework used by Qlik Sense Enterprise) can also be useful.</p>
 </li>
 </ul>
-<p>These links describe how emails can be sent from the log4net logging framework itself, directly to the recipient. Butler includes sameple XML files for this use case too, but Butler takes things further by using the data in the Sense logs to pull in more data around the failed or stopped reload.</p>
-<p>In other words - Butler&rsquo;s alert emails are significantly more flexible and contain information (such as script logs) that are not availble using purely log4net.</p>
+<p>These links describe how emails can be sent from the log4net logging framework itself, directly to the recipient. Butler includes sample XML files for this use case too, but Butler takes things further by using the data in the Sense logs to pull in more data around the failed or stopped reload.</p>
+<p>In other words - Butler&rsquo;s alert emails are significantly more flexible and contain information (such as script logs) that are not available using purely log4net.</p>
 
 </div>
 </div>
@@ -633,7 +628,7 @@ The sender of the test email can be specified with <code>--test-email-from-addre
 </span></span></code></pre></div><p>If the settings in the config file&rsquo;s <code>Butler.emailNotification.smtp</code> section are valid and correct a command like this can be used:<br>
 <code>butler.exe -c ./config/production.yaml --test-email-address myname@somedomain.com</code>. Adapt config file location and email address as needed.</p>
 <p>The resulting email looks like this:</p>
-<p><img alt="Test email from Butler" src="/img/butler-test-email-1.png" title="Test email from Butler"></p>
+<p><img src="/img/butler-test-email-1.png" alt="Test email from Butler" title="Test email from Butler"></p>
 <h2 id="sending-alert-emails-to-app-owners">Sending alert emails to app owners</h2>
 <p>Butler can optionally send alert emails to the owner of apps that fail reloading/were aborted.</p>
 <style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}</style>
@@ -642,14 +637,15 @@ The sender of the test email can be specified with <code>--test-email-from-addre
 This is typically the case if the Qlik Sense user directory has been synced from a Microsoft Active Directory - but there is no guarantee this is the case.</p>
 <p>If there is no email available for an app owner, he/she will simply not receive any alert emails.</p></div>
 
-<p>This feature is controlled by the config file properties <code>Butler.emailNotification.reloadTaskAborted.appOwnerAlert.enable</code> and  <code>Butler.emailNotification.reloadTaskFailure.appOwnerAlert.enable</code>.</p>
-<p>If set to <code>true</code> the app owner will be added to the send list of alert emails, in addition to the recipients specied in <code>Butler.emailNotification.reloadTaskAborted.recipients</code> and <code>Butler.emailNotification.reloadTaskFailure.recipients</code>.</p>
+<p>This feature is controlled by the config file properties <code>Butler.emailNotification.reloadTaskAborted.appOwnerAlert.enable</code> and <code>Butler.emailNotification.reloadTaskFailure.appOwnerAlert.enable</code>.</p>
+<p>If set to <code>true</code> the app owner will be added to the send list of alert emails, in addition to the recipients specified in <code>Butler.emailNotification.reloadTaskAborted.recipients</code> and <code>Butler.emailNotification.reloadTaskFailure.recipients</code>.</p>
 <p>The sections of the config file dealing with app owner notification emails looks like this:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">appOwnerAlert</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">              </span><span style="color:#8f5902;font-style:italic"># Should app owner get notification email (assuming email address is available in Sense user directory)</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Should app owner get notification email (assuming email address is available in Sense user directory)</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">includeOwner</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">includeAll</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                            </span><span style="color:#8f5902;font-style:italic"># true = Send notification to all app owners except those in exclude list</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">                                                </span><span style="color:#8f5902;font-style:italic"># false = Send notification to all app owners in the include list</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">includeAll</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># true = Send notification to all app owners except those in exclude list</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># false = Send notification to all app owners in the include list</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">user</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span>- <span style="color:#204a87;font-weight:bold">directory</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;Sense user directory&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">userId</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;userId&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -667,7 +663,7 @@ This is typically the case if the Qlik Sense user directory has been synced from
 <li>If <code>appOwnerAlert.includeOwner.includeAll</code> is set to <code>true</code> all app owners will get notification emails when apps the own fail/are aborted&hellip;
 <ul>
 <li>&hellip; except those app owners listed in the <code>appOwnerAlert.excludeOwner.user</code> array.</li>
-<li>That array thus provides a way to exclude some app owners (e.g. system accounts) to receive notifcation emails.</li>
+<li>That array thus provides a way to exclude some app owners (e.g. system accounts) to receive notification emails.</li>
 </ul>
 </li>
 <li>If <code>appOwnerAlert.includeOwner.includeAll</code> is set to <code>false</code> it&rsquo;s still possible to add individual app owners to the <code>appOwnerAlert.includeOwner.user</code> array.<br>
@@ -707,7 +703,7 @@ Each of these three types of tasks have their own settings in the config file.</
 </ol>
 <p><em>Aborted</em> reload tasks (as compared to the <em>failed</em> reload tasks described above) are handled the same way, with their own settings in the config file.</p>
 <p>In the QMC the custom property can look like this:</p>
-<p><img alt="QMC custom property for controlling reload alerts" src="/img/enable-reload-alert-for-specific-task-1.png" title="QMC custom property for controlling reload alerts"></p>
+<p><img src="/img/enable-reload-alert-for-specific-task-1.png" alt="QMC custom property for controlling reload alerts" title="QMC custom property for controlling reload alerts"></p>
 <h2 id="send-alerts-to-specific-people-for-some-tasks">Send alerts to specific people, for some tasks</h2>
 <p>It&rsquo;s possible to send alert emails to specific email addresses and control this on a per-task basis.</p>
 <p>This is achieved by using a Sense custom property that contains the email addresses alerts should be sent to, for the task in question.</p>
@@ -716,10 +712,10 @@ Each of these three types of tasks have their own settings in the config file.</
 Each of these three types of tasks have their own settings in the config file.</p></div>
 
 <p>These config setting <code>Butler.emailNotification.reloadTaskFailure.alertEnableByEmailAddress.customPropertyName</code> controls which custom property is used to store email addresses for failed reload tasks.</p>
-<p>Email specific alert recpients is independent from the feature where alerts can be switched on/off for individual tasks (see <a href="/docs/getting-started/setup/reload-alerts-qseow/client-managed/alert-emails/#send-alerts-only-for-some-reload-tasks">above</a>).</p>
+<p>Email specific alert recipients is independent from the feature where alerts can be switched on/off for individual tasks (see <a href="/docs/getting-started/setup/reload-alerts-qseow/client-managed/alert-emails/#send-alerts-only-for-some-reload-tasks">above</a>).</p>
 <p>In other words: If an email address has been designated as recipient of alert emails, that address will always receive alert emails for <em>all</em> failed reload tasks.</p>
 <p>Having set two different (blurred out) recipients of alert emails for a reload task:</p>
-<p><img alt="QMC custom property for sending alert emails to specific email addresses" src="/img/set-email-recipient-per-reload-task-1.png" title="QMC custom property for sending alert emails to specific email addresses"></p>
+<p><img src="/img/set-email-recipient-per-reload-task-1.png" alt="QMC custom property for sending alert emails to specific email addresses" title="QMC custom property for sending alert emails to specific email addresses"></p>
 <h2 id="settings-in-config-file">Settings in config file</h2>
 <div class="notice warning" >
 <p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#warning-notice"></use></svg></span>Warning</p><p>Don&rsquo;t forget to create the log appender .xml files on the Sense server(s).<br>
@@ -945,7 +941,7 @@ Which tasks to store information about is controlled using a custom property on 
 <p>Once the information about the reload task is in InfluxDB it can be used in Grafana dashboards.</p>
 <p>This way it is possible to get a good, continuous overview of the reload activity in your Qlik Sense environment.<br>
 You can also use the information to create alerts in Grafana using it&rsquo;s comprehensive alerting capabilities, including alerting to Slack, Teams, email, etc.</p>
-<p>Please note that InflixDB must be enabled and correctly configured in the Butler config file for the below features to work.</p>
+<p>Please note that InfluxDB must be enabled and correctly configured in the Butler config file for the below features to work.</p>
 <h2 id="monitor-failed-reload-tasks">Monitor failed reload tasks</h2>
 <p>If enabled using the <code>Butler.influxDb.reloadTaskFailure.enable</code> setting, Butler will store information about all failed reload tasks in InfluxDB.</p>
 <p>The information stored includes (among other things):</p>
@@ -987,13 +983,13 @@ An example of a static tag could be the name of the Qlik Sense server that Butle
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">reloadTaskFailure</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">tailScriptLogLines</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">20</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">tag</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> 
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">static</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                 </span><span style="color:#8f5902;font-style:italic"># Static tags to attach to data stored in InflixDB</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">tag</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">static</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                 </span><span style="color:#8f5902;font-style:italic"># Static tags to attach to data stored in InfluxDB</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span>- <span style="color:#204a87;font-weight:bold">name</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">butler_instance</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">            </span><span style="color:#204a87;font-weight:bold">value</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">prod-1</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">dynamic</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">useAppTags</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#8f5902;font-style:italic"># Should app tags be stored in InfluxDB as tags?</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">useTaskTags</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">     </span><span style="color:#8f5902;font-style:italic"># Should task tags be stored in InfluxDB as tags?      </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#204a87;font-weight:bold">useTaskTags</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">     </span><span style="color:#8f5902;font-style:italic"># Should task tags be stored in InfluxDB as tags?</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">reloadTaskSuccess</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">allReloadTasks</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1002,7 +998,7 @@ An example of a static tag could be the name of the Qlik Sense server that Butle
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">customPropertyName</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#39;Butler_SuccessReloadTask_InfluxDB&#39;</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">enabledValue</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#39;Yes&#39;</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">tag</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> 
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">tag</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#204a87;font-weight:bold">static</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                 </span><span style="color:#8f5902;font-style:italic"># Static attributes/dimensions to attach to events sent to InfluxDb</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#8f5902;font-style:italic"># - name: event-specific-tag 1</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">          </span><span style="color:#8f5902;font-style:italic">#   value: abc 123</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1334,7 +1330,7 @@ You can also add buttons to the message that can be used to open any URL you wan
 Each of these have their own settings in the config file.</p></div>
 
 <p>A &ldquo;reload task failed&rdquo; Slack message using the custom formatting option could look like this:</p>
-<p><img alt="Reload failed alert email" src="/img/failed-reload-slack-formatted_1.png" title="Reload failed alert email"></p>
+<p><img src="/img/failed-reload-slack-formatted_1.png" alt="Reload failed alert email" title="Reload failed alert email"></p>
 <p>Here&rsquo;s how to set this up:</p>
 <ol>
 <li>
@@ -1360,7 +1356,7 @@ The <code>basicMsgTemplate</code> property is not used with formatted messages a
 Each of these have their own settings in the config file.</p></div>
 
 <p>A &ldquo;reload task failed&rdquo; Slack message with basic formatting could look like this:</p>
-<p><img alt="Reload failed alert email" src="/img/failed-reload-slack-basic_1.png" title="Reload failed alert email"></p>
+<p><img src="/img/failed-reload-slack-basic_1.png" alt="Reload failed alert email" title="Reload failed alert email"></p>
 <p>To set it up:</p>
 <ol>
 <li>
@@ -1384,14 +1380,14 @@ Behind the scenes Slack messages are constructed from blocks defined in a JSON o
 <ul>
 <li>The handlebars syntax itself must be correct. If incorrect no Slack JSON object will be created. And no Slack messages sent.</li>
 <li>The handlebars template must result in a JSON object that adheres to Slack&rsquo;s API specifications.<br>
-If the JSON syntax is somehow invaid the Slack API will return errors and no messages sent. JSON can be pretty sensitive to details, there should for example not be any trailing commas in properly formatted JSON objects.</li>
+If the JSON syntax is somehow invalid the Slack API will return errors and no messages sent. JSON can be pretty sensitive to details, there should for example not be any trailing commas in properly formatted JSON objects.</li>
 </ul>
 <p>Some useful links to Slacks&rsquo;s documentation:</p>
 <ul>
 <li><a href="https://api.slack.com/messaging/composing/layouts">Creating rich message layouts</a>: General info on how messages are structured and created..</li>
 <li><a href="https://api.slack.com/reference/surfaces/formatting">Formatting text for app surfaces</a>: How to use markdown, formatting of links, escaping text etc..</li>
 <li><a href="https://api.slack.com/reference/block-kit/blocks">Reference: Layout blocks</a>: The official docs for creating Slack messages.</li>
-<li><a href="https://app.slack.com/block-kit-builder/">Block Kit Builder</a>: Great sandbox wtih readily available examples of different message layouts, syntax and more. Note: You must be logged into your Slack account to use this tool.</li>
+<li><a href="https://app.slack.com/block-kit-builder/">Block Kit Builder</a>: Great sandbox with readily available examples of different message layouts, syntax and more. Note: You must be logged into your Slack account to use this tool.</li>
 </ul>
 <h3 id="using-custom-links-in-templates">Using custom links in templates</h3>
 <p>It is also possible to define custom links in the config file, and use them in Slack templates.<br>
@@ -1411,8 +1407,8 @@ This is described here: <a href="/docs/concepts/custom-links-in-alerts/">Custom 
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#8f5902;font-style:italic"># Settings for notifications and messages sent to Slack</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">slackNotification</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">restMessage</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                      
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">webhookURL</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;web hook URL from Slack&gt;  </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Webhook to use when sending basic Slack messages via Butler&#39;s REST API </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">restMessage</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">webhookURL</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;web hook URL from Slack&gt;  </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Webhook to use when sending basic Slack messages via Butler&#39;s REST API</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">    </span><span style="color:#204a87;font-weight:bold">reloadTaskFailure</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">                </span><span style="color:#8f5902;font-style:italic"># Reload task failed in QSEoW</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">false</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">webhookURL</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">&lt;web hook URL from Slack&gt;</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1498,7 +1494,7 @@ You can also add buttons to the message that can be used to open any URL you wan
 Each of these have their own settings in the config file.</p></div>
 
 <p>A &ldquo;reload task failed&rdquo; Teams message using the custom formatting option could look like this:</p>
-<p><img alt="Reload failed alert Teams message" src="/img/failed-reload-teams-formatted_1.png" title="Reload failed alert Teams message"></p>
+<p><img src="/img/failed-reload-teams-formatted_1.png" alt="Reload failed alert Teams message" title="Reload failed alert Teams message"></p>
 <p>Here&rsquo;s how to set it up:</p>
 <ol>
 <li>
@@ -1524,14 +1520,14 @@ The <code>basicMsgTemplate</code> property is not used with formatted messages a
 Each of these have their own settings in the config file.</p></div>
 
 <p>A &ldquo;reload task failed&rdquo; Teams message with basic formatting could look like this:</p>
-<p><img alt="Reload failed alert Teams message" src="/img/failed-reload-teams-basic_1.png" title="Reload failed alert Teams message"></p>
+<p><img src="/img/failed-reload-teams-basic_1.png" alt="Reload failed alert Teams message" title="Reload failed alert Teams message"></p>
 <p>To set it up:</p>
 <ol>
 <li>
 <p>Create an incoming webhook in Teams if you don&rsquo;t already have one, take note of its URL (you will need it in step 2 below).</p>
 </li>
 <li>
-<p>Edit the Teams section of the config file i.e. the settings in <code>Butler.teamsNotification.reloadTaskFailure</code> and/or <code>Butler.teamsNotification.reloadTaskAborted</code> sections of the confi file.</p>
+<p>Edit the Teams section of the config file i.e. the settings in <code>Butler.teamsNotification.reloadTaskFailure</code> and/or <code>Butler.teamsNotification.reloadTaskAborted</code> sections of the config file.</p>
 <p>The <code>messageType</code> property should be set to <code>basic</code>.<br>
 The <code>basicMsgTemplate</code> property is the message that will be sent via Teams. <a href="/docs/reference/alert-template-fields/">Template fields</a> can be used.</p>
 </li>
@@ -1541,14 +1537,14 @@ The <code>basicMsgTemplate</code> property is the message that will be sent via 
 </ol>
 <h2 id="customizing-teams-messages">Customizing Teams messages</h2>
 <p>When using the formatted Teams alerts you have full freedom to create the alert <em>you</em> need.<br>
-Behind the scenes Teams messages are constructed as &ldquo;Adaptive Cards&rdquo;, which is standardised JSON format that Teams understands.
+Behind the scenes Teams messages are constructed as &ldquo;Adaptive Cards&rdquo;, which is standardized JSON format that Teams understands.
 More information on Adaptive Cards can be found <a href="https://learn.microsoft.com/en-us/power-automate/overview-adaptive-cards">here</a>, <a href="https://adaptivecards.io">here</a> and <a href="https://learn.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/cards/design-effective-cards?tabs=design">here</a>.</p>
 <p>When it comes to Butler, it uses the <a href="https://handlebarsjs.com/">Handlebars</a> templating engine to render a template file into an adaptive card JSON object that is then sent to the workflow webhook.</p>
 <p>A few things to keep in mind when creating custom Teams messages:</p>
 <ul>
 <li>The handlebars syntax itself must be correct. If incorrect no Teams JSON object will be created. And no Teams message sent.</li>
 <li>The handlebars template must result in a JSON object that adheres to Teams&rsquo;s specifications for JSON payloads.<br>
-If the JSON syntax is somehow invaid the Teams API will return errors and no messages sent. JSON can be pretty sensitive to details, there should for example not be any trailing commas in properly formatted JSON objects.</li>
+If the JSON syntax is somehow invalid the Teams API will return errors and no messages sent. JSON can be pretty sensitive to details, there should for example not be any trailing commas in properly formatted JSON objects.</li>
 </ul>
 <h3 id="using-custom-links-in-templates">Using custom links in templates</h3>
 <p>It is also possible to define custom links in the config file, and use them in Teams templates.<br>
@@ -1634,13 +1630,13 @@ This is described here: <a href="/docs/concepts/custom-links-in-alerts/">Custom 
 <p>The MQTT message will be sent on the MQTT topic defined in the config file property <code>Butler.mqttConfig.taskAbortedTopic</code> or <code>Butler.mqttConfig.taskFailureTopic</code>, depending on the event type.<br>
 The task name will be sent in the message body.</p>
 <p>The basic message looks like this when viewed in the MQTTLens app:</p>
-<p><img alt="A basic reload task failed message sent via MQTT" src="/docs/getting-started/setup/reload-alerts/client-managed/alert-mqtt/mqtt_failed_task_basic_1.png" title="A basic reload task failed message sent via MQTT"></p>
+<p><img src="/docs/getting-started/setup/reload-alerts/client-managed/alert-mqtt/mqtt_failed_task_basic_1.png" alt="A basic reload task failed message sent via MQTT" title="A basic reload task failed message sent via MQTT"></p>
 <h3 id="complete-message">Complete message</h3>
 <p>Optionally a larger, more complete message is also sent if <code>Butler.mqttConfig.taskFailureSendFull</code> or <code>Butler.mqttConfig.taskFailureSendFull</code> are set to true.<br>
 This message contains a stringified JSON of all available information about the failed/aborted task.<br>
 The message is sent on the <code>Butler.mqttConfig.taskFailureFullTopic</code> or <code>Butler.mqttConfig.taskAbortedFullTopic</code> topics.</p>
 <p>That message can look like this:</p>
-<p><img alt="A complete reload task failed message sent via MQTT" src="/docs/getting-started/setup/reload-alerts/client-managed/alert-mqtt/mqtt_failed_task_full_1.png" title="A complete reload task failed message sent via MQTT"></p>
+<p><img src="/docs/getting-started/setup/reload-alerts/client-managed/alert-mqtt/mqtt_failed_task_full_1.png" alt="A complete reload task failed message sent via MQTT" title="A complete reload task failed message sent via MQTT"></p>
 
 
 <div class="alert alert-warning" role="alert">
@@ -1722,7 +1718,7 @@ The message is sent on the <code>Butler.mqttConfig.taskFailureFullTopic</code> o
 </ul>
 <h2 id="how-it-works">How it works</h2>
 <p>Outgoing webhooks is a concept where Butler will do a GET, POST or PUT HTTP call to a specific URL when a task fails or is aborted/stopped.<br>
-The use case is to interface with currently unkown third party systems in a generic way.<br>
+The use case is to interface with currently unknown third party systems in a generic way.<br>
 Both http and https calls are supported, including the use of self-signed certificates and untrusted certificates.</p>
 <p>As the call will include information about the failed/aborted task, the typical (and arguably most correct) way of doing this would be via a PUT call.</p>
 <p>But some systems only handle GET calls - and Butler should still be able to notify them using webhooks.<br>
@@ -1737,12 +1733,12 @@ If https is used and the server being called uses a publicly trusted certificate
 If the server uses a self-signed certificate, the corresponding root CA certificate must be provided to Butler in order to avoid certificate validation errors.</p>
 <p>Each webhook has its own certificate configuration, so Butler can be integrated with many systems, each using their own publicly verified or self-signed certificates - or just plain http without any certificates at all.</p>
 <p>The certificate configuration is done in the Butler config file and looks like this for each webhook:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">---</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">cert</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">                    </span><span style="color:#8f5902;font-style:italic"># Set to true to use a custom CA certificate when calling the webhookURL</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">rejectUnauthorized</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">        </span><span style="color:#8f5902;font-style:italic"># Set to false to ignore warnings/errors caused by self-signed certificates used on the webhooks server.</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">certCA</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/path/to/ca-certificate.pem      </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Path to the CA certificate file</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">enable</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Set to true to use a custom CA certificate when calling the webhookURL</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">rejectUnauthorized</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Set to false to ignore warnings/errors caused by self-signed certificates used on the webhooks server.</span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#204a87;font-weight:bold">certCA</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/path/to/ca-certificate.pem</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Path to the CA certificate file</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div><p>If <code>...cert.enable</code> is set to <code>true</code> Butler will use the certificate specified in <code>...cert.certCA</code> when calling the webhook.</p>
 <p>If <code>...cert.rejectUnauthorized</code> is set to <code>false</code> Butler will ignore warnings/errors caused by self-signed certificates being used on the webhook server.</p>
 <h2 id="data-included-in-outgoing-webhooks">Data included in outgoing webhooks</h2>
@@ -1813,8 +1809,20 @@ If the server uses a self-signed certificate, the corresponding root CA certific
 <li>The string is sent in the POST/PUT call&rsquo;s body.</li>
 </ol>
 <p>The same event as above looks like this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span><span style="color:#204a87;font-weight:bold">&#34;event&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;Qlik Sense reload failed&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#204a87;font-weight:bold">&#34;hostName&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;pro2-win1&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#204a87;font-weight:bold">&#34;user&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;LAB\\goran&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#204a87;font-weight:bold">&#34;taskName&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;Manually triggered reload of Test failing reloads 2&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#204a87;font-weight:bold">&#34;taskId&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;dec2a02a-1680-44ef-8dc2-e2bfb180af87&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#204a87;font-weight:bold">&#34;appName&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;Test failing reloads 2&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#204a87;font-weight:bold">&#34;appId&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;e7af59a0-c243-480d-9571-08727551a66f&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#204a87;font-weight:bold">&#34;logTimeStamp&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;2021-02-16 09:24:59,099&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#204a87;font-weight:bold">&#34;logLevel&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;INFO&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#204a87;font-weight:bold">&#34;executionId&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;14a81bf5-f81c-4047-b1a1-193b0920de28&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#204a87;font-weight:bold">&#34;logMessage&#34;</span><span style="color:#000;font-weight:bold">:</span><span style="color:#4e9a06">&#34;Max retries reached&#34;</span><span style="color:#000;font-weight:bold">}</span>
-</span></span></code></pre></div><h2 id="settings-in--config-file">Settings in  config file</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;event&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Qlik Sense reload failed&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;hostName&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;pro2-win1&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;user&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;LAB\\goran&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;taskName&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Manually triggered reload of Test failing reloads 2&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;taskId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;dec2a02a-1680-44ef-8dc2-e2bfb180af87&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;appName&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Test failing reloads 2&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;appId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;e7af59a0-c243-480d-9571-08727551a66f&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;logTimeStamp&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;2021-02-16 09:24:59,099&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;logLevel&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;INFO&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;executionId&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;14a81bf5-f81c-4047-b1a1-193b0920de28&#34;</span><span style="color:#000;font-weight:bold">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#204a87;font-weight:bold">&#34;logMessage&#34;</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Max retries reached&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><h2 id="settings-in-config-file">Settings in config file</h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#000">---</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline"></span><span style="color:#204a87;font-weight:bold">Butler</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
@@ -1955,7 +1963,7 @@ If the server uses a self-signed certificate, the corresponding root CA certific
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/docs/about/">About</a></p>
       </div>
     </div>

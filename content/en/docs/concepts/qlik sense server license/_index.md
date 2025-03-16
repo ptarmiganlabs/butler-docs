@@ -7,7 +7,7 @@ description: >
 
   - Check server license status at regular, configurable intervals.
    
-  - Store license status in InfluxDB, then visualize in Grafana. Or send licens status to webhooks or MQTT.
+  - Store license status in InfluxDB, then visualize in Grafana. Or send license status to webhooks or MQTT.
 
   - Alert via InfluxDB/Grafana, webhooks or MQTT when the license is about to expire.
 ---
@@ -29,7 +29,7 @@ If the license is about to expire, Butler will send an alert to the configured a
 
 The alert will be sent a configurable number of days before the license expires, giving you time to renew the license.
 
-Continusly storing info in InfluxDB and sending to other destinations, as well as sending alerts, can be individually enabled/disabled for each destination using the `sendRecurring` and `sendAlert` settings for each destination in the config file.
+Continuously storing info in InfluxDB and sending to other destinations, as well as sending alerts, can be individually enabled/disabled for each destination using the `sendRecurring` and `sendAlert` settings for each destination in the config file.
 
 ## Information stored in InfluxDB
 

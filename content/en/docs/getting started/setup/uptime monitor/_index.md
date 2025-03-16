@@ -29,7 +29,7 @@ You will rarely if ever need to know how much memory Butler used a month ago... 
 
 Another option for storing the memory usage data is New Relic.
 
-This is a SaaS solution that does not require a local InfluxDB databse and can thus be easier to get started with compared to InfluxDB.  
+This is a SaaS solution that does not require a local InfluxDB database and can thus be easier to get started with compared to InfluxDB.  
 That said, InfluxDB does offer more flexibility with respect to what kinds of data can be stored.
 
 The uptime related data sent to New Relic is:
@@ -37,7 +37,7 @@ The uptime related data sent to New Relic is:
 - Timestamp
 - Dimensions
   - All static attributes/dimensions defined in the Butler config file
-  - Version of the Butler app, if enabled in Butler's config file.  
+  - Version of the Butler app, if enabled in Butler's config file.
 - Metrics
   - qs_butlerHeapUsed
   - qs_butlerHeapTotal
@@ -57,7 +57,7 @@ Butler:
     enable: false                   # Should uptime messages be written to the console and log files?
     frequency: every 15 minutes     # https://bunkat.github.io/later/parsers.html
     logLevel: verbose               # Starting at what log level should uptime messages be shown?
-    storeInInfluxdb: 
+    storeInInfluxdb:
       enable: false                 # Should Butler memory usage be logged to InfluxDB?
     storeNewRelic:
       enable: false
@@ -68,7 +68,7 @@ Butler:
       # The available URLs are listed here: https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/choose-your-data-center/
       # As of this writing the options for the New Relic metrics API are
       # https://insights-collector.eu01.nr-data.net/metric/v1
-      # https://metric-api.newrelic.com/metric/v1 
+      # https://metric-api.newrelic.com/metric/v1
       url: https://insights-collector.eu01.nr-data.net/metric/v1   # Where should uptime data be sent?
       header:                       # Custom http headers
         - name: X-My-Header
@@ -79,7 +79,7 @@ Butler:
             enable: true            # Should Butler's memory/RAM usage be sent to New Relic?
           butlerUptime:
             enable: true            # Should Butler's uptime (how long since it was started) be sent to New Relic?
-      attribute: 
+      attribute:
         static:                     # Static attributes/dimensions to attach to the data sent to New Relic.
           - name: metricType
             value: butler-uptime
@@ -88,7 +88,7 @@ Butler:
           - name: environment
             value: prod
         dynamic:
-          butlerVersion: 
+          butlerVersion:
             enable: true            # Should the Butler version be included in the data sent to New Relic?
   ...
   ...

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.136.2">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/about/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/about/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -55,13 +55,8 @@ Don&#39;t hesitate to post your thoughts in the [Butler forums](https://github.c
 
 Are you stuck on something while setting up Butler? Got ideas for new features?  
 Don&#39;t hesitate to post your thoughts in the [Butler forums](https://github.com/ptarmiganlabs/butler/discussions).">
-
-
-
-
-<link rel="preload" href="/scss/main.min.8417a35ffb98bbed910815944d48e397f372ece67ebd9e12a20adf60be811900.css" as="style">
-<link href="/scss/main.min.8417a35ffb98bbed910815944d48e397f372ece67ebd9e12a20adf60be811900.css" rel="stylesheet" integrity="">
-
+<link rel="preload" href="/scss/main.min.48c25d0a5a23a1e8cae94d6c5e7622061e5345cf098171b1d6ee41d8e309e6c8.css" as="style" integrity="sha256-SMJdClojoejK6U1sXnYiBh5TRc8JgXGx1u5B2OMJ5sg=" crossorigin="anonymous">
+<link href="/scss/main.min.48c25d0a5a23a1e8cae94d6c5e7622061e5345cf098171b1d6ee41d8e309e6c8.css" rel="stylesheet" integrity="sha256-SMJdClojoejK6U1sXnYiBh5TRc8JgXGx1u5B2OMJ5sg=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
@@ -231,7 +226,7 @@ This simplifies things - just download, configure and run.</p>
 <p>You can run Butler on the same server as Qlik Sense, in a Docker container on a Linux server, in Kubernetes, on Mac OS, on Raspberry Pi (not a good idea.. but possible and proven to work).</p>
 <p>Butler is a member of a group of tools collectively referred to as the &ldquo;Butler family&rdquo;, more info is available <a href="/docs/about/butler-family/">here</a>.</p>
 <p>This picture might be useful to understand what Butler does and how it fits into the larger system map around Qlik Sense:</p>
-<p><img alt="Butler high level system overview" src="/img/butler-system-overview-1.png" title="Butler high level system overview"></p>
+<p><img src="/img/butler-system-overview-1.png" alt="Butler high level system overview" title="Butler high level system overview"></p>
 
 </div>
 
@@ -282,7 +277,7 @@ This simplifies things - just download, configure and run.</p>
 <p>Email, Slack and MS Teams notifications all use a templating concept where HTML/Markdown template files describe what the alert message should look like. Before the alert is sent the template is populated with actual data from the failed reload task (client-managed Sense) or app reload (Sense Cloud).</p>
 <p>For email alerts both subject and body of the email can be templated.</p>
 <p>For both Slack and Teams there are options to use more flexible/configurable alert formats and more basic pre-configured alerts.</p>
-<p>The result is a very poweful tool for both QSEoW sysadmins and those responsible for Qlik Cloud tenants, who both want to be notified when reloads fail.</p>
+<p>The result is a very powerful tool for both QSEoW sysadmins and those responsible for Qlik Cloud tenants, who both want to be notified when reloads fail.</p>
 <p>More info <a href="/docs/getting-started/setup/reload-alerts/">here</a>.</p>
 <h2 id="forward-failed-reload-events-to-incident-management-systems-new-relic-signl4">Forward failed reload events to incident management systems (New Relic, Signl4)</h2>
 <p>Butler offers advanced failed reload alerts via Slack, Teams, email and outgoing webhooks.<br>
@@ -300,7 +295,7 @@ Nicely formatted with all the details you need.</p>
 <p>Controlling which tasks should send success alerts is done using custom properties or via Butler&rsquo;s config file.</p>
 <p>More info <a href="/docs/concepts/successful-reloads/">here</a>.</p>
 <h2 id="use-influxdbgrafana-or-new-relic-to-track-butler-memory-usage">Use InfluxDB/Grafana or New Relic to track Butler memory usage</h2>
-<p>Butler can be configured to log its own memory usage to <a href="https://www.influxdata.com/products/">InfluxDB</a>, from where it can be visualised using <a href="https://grafana.com">Grafana</a>.</p>
+<p>Butler can be configured to log its own memory usage to <a href="https://www.influxdata.com/products/">InfluxDB</a>, from where it can be visualized using <a href="https://grafana.com">Grafana</a>.</p>
 <p>If you prefer using <a href="https://newrelic.com">New Relic One</a> that&rsquo;s possible too - sending Butler memory metrics to New Relic is super simple: Just add your New Relic credentials in the YAML config file or as command line options when starting Butler and you&rsquo;re set.</p>
 <h2 id="save-a-copy-of-the-complete-reload-log-for-all-failed-reload-tasks">Save a copy of the complete reload log for all failed reload tasks</h2>
 <div class="notice tip" >
@@ -333,8 +328,8 @@ This both makes it easier for 3rd party systems to start Qlik Sense tasks and ea
 <h2 id="trigger-fullpartial-app-reloads-from-load-script-or-upstream-systems">Trigger full/partial app reloads from load script or upstream systems</h2>
 <p>Sometimes you just want to reload an app without also having to create a reload task.<br>
 When it comes to partial app reloads it&rsquo;s not even possible to do these from a Sense reload task.</p>
-<p>Butler&rsquo;s API makes prvovides a solution: Just pass in an app ID to reload together with task IDs of the tasks that should be started when the app is done reloading (different tasks can be started depending on app reload success or failure).</p>
-<p>The partial reload feature is of special interest as it can be used to trigger faster  incremental execution of of Extract-Transform reload chains. Great for keeping data in Sense apps updated during the course of a day!</p>
+<p>Butler&rsquo;s API makes provides a solution: Just pass in an app ID to reload together with task IDs of the tasks that should be started when the app is done reloading (different tasks can be started depending on app reload success or failure).</p>
+<p>The partial reload feature is of special interest as it can be used to trigger faster incremental execution of of Extract-Transform reload chains. Great for keeping data in Sense apps updated during the course of a day!</p>
 <p>More info <a href="/docs/examples/sense-demo-apps/partial-loads/">here</a>.</p>
 <h2 id="flexible-scheduling-of-app-reloads-in-qlik-sense-enterprise-on-windows">Flexible scheduling of app reloads in Qlik Sense Enterprise on Windows</h2>
 <p>Using the scheduler built into Qlik Sense you can&rsquo;t for example create schedules that are limited to a parts of a day.<br>
@@ -361,7 +356,7 @@ MQTT (and the pubsub concept in general) is a great way for systems to communica
 <h2 id="create-directories-copymovedelete-files">Create directories, copy/move/delete files</h2>
 <p>In &ldquo;standard mode&rdquo; apps reloading in Qlik Sense Enterprise on Windows can&rsquo;t access the file system of the Sense servers. This is a good thing because it adds a lot of security.</p>
 <p>From time to time you need to delete temp QVDs though, or copy or move data files from one directory to another.</p>
-<p>Butler has REST API endpoints for these use cases, but as those endpoints are locked down to only work on specific, configurable directiories they don&rsquo;t result in the same security issues as seen in for example QlikView or Sense running in legacy mode.</p>
+<p>Butler has REST API endpoints for these use cases, but as those endpoints are locked down to only work on specific, configurable directories they don&rsquo;t result in the same security issues as seen in for example QlikView or Sense running in legacy mode.</p>
 <p>More info <a href="/docs/examples/file-copy-move-delete/">here</a>.</p>
 <h2 id="extract-metadata-for-apps">Extract metadata for apps</h2>
 <p>Exporting apps as JSON can be very useful for backup purposes. Doing regular snapshots of all apps in a Sense cluster is a fast and space-effective way of keeping point-in-time backups.</p>
@@ -369,7 +364,7 @@ MQTT (and the pubsub concept in general) is a great way for systems to communica
 <h2 id="easily-post-messages-to-slack">Easily post messages to Slack</h2>
 <p>Slack messages can include full formatting (web links, text formatting etc), as well as &ldquo;poking&rdquo; users.<br>
 I.e. notifying specific Slack users that they have a new message.</p>
-<p>Can for example be used to notify user(s) that an app has reloaded with new data, or that some error condition has occured.</p>
+<p>Can for example be used to notify user(s) that an app has reloaded with new data, or that some error condition has occurred.</p>
 <p>More info <a href="/docs/examples/sense-demo-apps/post-to-slack/">here</a>.</p>
 <h2 id="monitor-windows-services">Monitor Windows services</h2>
 <p>If Butler is running on Windows (server or even desktop) it can monitor one or more Windows services.<br>
@@ -465,7 +460,7 @@ Back in those days the cloud wasn&rsquo;t a thing, and Sense was only available 
 <p>Real-time operational metrics for Qlik Sense. A must-have if you are responsible for a Sense environment with more than a dozen or so users.<br>
 Simplifies day 2 operations of client-managed Sense.</p>
 <p>Butler SOS makes it possible to detect and alert on issues as they happen, rather than in retrospect much later.</p>
-<p>Several storage and visualisation options available, including <a href="https://www.influxdata.com">InfluxDB</a> + <a href="https://grafana.com">Grafana</a>, and <a href="https://newrelic.com">New Relic</a>.</p>
+<p>Several storage and visualization options available, including <a href="https://www.influxdata.com">InfluxDB</a> + <a href="https://grafana.com">Grafana</a>, and <a href="https://newrelic.com">New Relic</a>.</p>
 <p><a href="https://butler-sos.ptarmiganlabs.com">butler-sos.ptarmiganlabs.com</a></p>
 <h3 id="butler-sheet-icons">Butler Sheet Icons</h3>
 <p>Automates the creation of sheet icons for both Qlik Sense Cloud and client-managed Qlik Sense Enterprise on Windows (QSEoW) applications.</p>
@@ -572,7 +567,7 @@ Note 2: If a version of 5.2 is mentioned, this implicitly means 5.2.0.</p>
 
 <p>Butler is developed in <a href="https://nodejs.org">Node.js</a>, with support from various <a href="https://www.npmjs.com/">NPM</a> modules.</p>
 <p>We use <a href="https://gohugo.io/">Hugo</a> to format and generate this documentation site, the <a href="https://github.com/google/docsy">Docsy</a> theme for styling and site structure.<br>
-Hugo is an open-source static site generator that provides us with templates, content organisation in a standard directory structure, and a website generation engine. You write the pages in Markdown (or HTML if you want), and Hugo wraps them up into a website.</p>
+Hugo is an open-source static site generator that provides us with templates, content organization in a standard directory structure, and a website generation engine. You write the pages in Markdown (or HTML if you want), and Hugo wraps them up into a website.</p>
 <p>All submissions, including submissions by project members, require review. We use GitHub pull requests for this purpose. Consult <a href="https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/about-pull-requests">GitHub Help</a> for more information on using pull requests.</p>
 <h2 id="creating-an-issue">Creating an issue</h2>
 <p>If you&rsquo;ve found a problem - or have a feature suggestion - with Butler itself or the documentation, but you&rsquo;re not sure how to fix it yourself, please create an issue in the <a href="https://github.com/ptarmiganlabs/butler/issues/new">Butler repo</a>. You can also create an issue about a specific doc page by clicking the <strong>Create Issue</strong> button in the top right hand corner of the page.</p>
@@ -846,7 +841,7 @@ Or the fact that Qlik released some new feature in Sense and Butler was a way to
 </span></span></code></pre></div><h4 id="creating-an-anonymous-id-field">Creating an anonymous ID field</h4>
 <p>The <code>id</code> field deserves a bit more explanation.</p>
 <p>It&rsquo;s purpose is to uniquely identify the Butler instance - nothing else.<br>
-If Butler is stopped and started agagin the same ID will be used.</p>
+If Butler is stopped and started again the same ID will be used.</p>
 <p>Some sensitive information is used to create the ID, but as the ID is anonymized using a one-way hash function before sent as part of the telemetry data, <em>no sensitive information leaves your servers</em>.</p>
 <p>The ID field is created as follows:</p>
 <ol>
@@ -981,7 +976,7 @@ Longer answer: No information about your Sense environment is sent as part of te
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/docs/about/">About</a></p>
       </div>
     </div>

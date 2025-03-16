@@ -3,7 +3,6 @@ title: "New Relic"
 linkTitle: "New Relic"
 weight: 70
 description: >
-
 ---
 
 ## View reload alerts in New Relic
@@ -13,9 +12,8 @@ Butler forwards a very comprehensive set of data to New Relic when a reload fail
 
 This means that companies using New Relic as their enterprise monitoring solution can now also use it to monitor their Qlik Sense reloads, as well as all the Sense real-time metrics provided by Butler's sibling tool [Butler SOS](https://butler-sos.ptarmiganlabs.com).
 
-As of this wrtiting, New Relic also offers a free tier that will be more than enough for most Butler users.  
+As of this writing, New Relic also offers a free tier that will be more than enough for most Butler users.  
 It is thus possible to get started with monitoring Sense reloads in New Relic without any additional cost.
-
 
 More information about how Butler integrates with New Relic can be found [here](/docs/concepts/incident-mgmt-tools/new-relic/).
 

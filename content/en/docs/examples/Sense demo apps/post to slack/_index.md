@@ -3,7 +3,7 @@ title: "Post message to Slack"
 linkTitle: "Post to Slack"
 weight: 30
 description: >
-    Demo app showing how to post message to Slack from Qlik Sense load script.
+  Demo app showing how to post message to Slack from Qlik Sense load script.
 ---
 
 ## Load script
@@ -11,12 +11,12 @@ description: >
 Assuming the [.qvs helper subs](/docs/reference/sense-helper-subs/) are used, only one line of script is needed to send a Slack message:
 
     // -------------------------------------------
-    // Post messsage to Slack
+    // Post message to Slack
     // -------------------------------------------
     // Post a basic message to Slack
     Call PostToSlack('#general', 'Butler the Bot', '👽 Greetings, we come in peace.' , ':ghost:')
 
-Note how emojis can be used in the message and a message specific icon can be used (":ghost:" above). 
+Note how emojis can be used in the message and a message specific icon can be used (":ghost:" above).
 
 The Slack message looks like this:
 

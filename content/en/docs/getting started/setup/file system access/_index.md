@@ -19,10 +19,10 @@ By using the these APIs you can do file system operations from within Sense load
 
 There are three supported file system operations: copy, move and delete:
 
-* For copy and move operations you specify which source and destination directories are allowed.
-* For delete operations you specify which directories file delete operations are allowed in.
-* Wilcards are supported.
-* Butler will try to clean up paths when loading them from the config file. See below for example.
+- For copy and move operations you specify which source and destination directories are allowed.
+- For delete operations you specify which directories file delete operations are allowed in.
+- Wildcards are supported.
+- Butler will try to clean up paths when loading them from the config file. See below for example.
 
 As the config file is only read when Butler starts, you must restart Butler in order for any config changes to take effect.
 
@@ -35,7 +35,7 @@ Butler:
   ...
   # List of directories between which file copying via the REST API can be done.
   # Butler will try to clean up messy paths like this one, which resolves to /Users/goran/butler-test-dir1
-  # How? First you have /Users/goran/butler-test-dir1//abc which cleans up to /Users/goran/butler-test-dir1/abc, 
+  # How? First you have /Users/goran/butler-test-dir1//abc which cleans up to /Users/goran/butler-test-dir1/abc,
   # then up one level (..).
   fileCopyApprovedDirectories:
     - fromDirectory: /Users/goran/butler-test-dir1//abc//..

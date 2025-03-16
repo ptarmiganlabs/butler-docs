@@ -8,7 +8,7 @@ description: >
 
 First things first:
 
-If you intend to use the various Qlik script snippets included in the GithHub repository, you first need to initialize things.
+If you intend to use the various Qlik script snippets included in the GitHub repository, you first need to initialize things.
 
 Initializing Butler in an app's load script is easy, just call the `ButlerInit` function.
 
@@ -17,4 +17,3 @@ In the example below this shared data connection is simply called "Butler script
 
     $(Must_Include=[lib://Butler scripts/butler_init.qvs]);
     CALL ButlerInit;
-

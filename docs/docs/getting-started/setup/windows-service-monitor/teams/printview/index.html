@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.136.2">
+<meta name="generator" content="Hugo 0.143.1">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/teams/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/windows-service-monitor/teams/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -41,13 +41,8 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Sending Windows service alerts to Microsoft Teams">
   <meta name="twitter:description" content="This page contains information on how to configure Butler to send alerts messages to Microsoft Teams when Windows services stop or start.">
-
-
-
-
-<link rel="preload" href="/scss/main.min.8417a35ffb98bbed910815944d48e397f372ece67ebd9e12a20adf60be811900.css" as="style">
-<link href="/scss/main.min.8417a35ffb98bbed910815944d48e397f372ece67ebd9e12a20adf60be811900.css" rel="stylesheet" integrity="">
-
+<link rel="preload" href="/scss/main.min.48c25d0a5a23a1e8cae94d6c5e7622061e5345cf098171b1d6ee41d8e309e6c8.css" as="style" integrity="sha256-SMJdClojoejK6U1sXnYiBh5TRc8JgXGx1u5B2OMJ5sg=" crossorigin="anonymous">
+<link href="/scss/main.min.48c25d0a5a23a1e8cae94d6c5e7622061e5345cf098171b1d6ee41d8e309e6c8.css" rel="stylesheet" integrity="sha256-SMJdClojoejK6U1sXnYiBh5TRc8JgXGx1u5B2OMJ5sg=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
@@ -128,8 +123,8 @@ They are used in addition to the general Windows Service monitoring settings in 
 <p>Check out the <a href="https://handlebarsjs.com/">handlebars documentation</a> for more information on how to do this.</p></div>
 
 <p>A formatted Teams message can look something like this:</p>
-<p><img alt="Teams message when a Windows service has stopped" src="/docs/getting-started/setup/windows-service-monitor/teams/butler-win-svc-monitor-teams-1.png" title="Teams message when a Windows service has stopped"></p>
-<h3 id="information-availble-in-formatted-teams-messages">Information availble in formatted Teams messages</h3>
+<p><img src="/docs/getting-started/setup/windows-service-monitor/teams/butler-win-svc-monitor-teams-1.png" alt="Teams message when a Windows service has stopped" title="Teams message when a Windows service has stopped"></p>
+<h3 id="information-available-in-formatted-teams-messages">Information available in formatted Teams messages</h3>
 <p>Similar to how failed-reload email notifications work, the templating engine <a href="https://handlebarsjs.com/">Handlebars</a> is used to format the Teams messages.</p>
 <p>The following information is available in formatted Teams messages:</p>
 <table>
@@ -195,7 +190,7 @@ They are used in addition to the general Windows Service monitoring settings in 
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">basicMsgTemplate: &#39;Windows service started</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;{{serviceName}}&#34;</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">on</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">host &#34;{{host}}&#34;&#39;      </span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#8f5902;font-style:italic"># Only needed if message type = basic</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">rateLimit</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#0000cf;font-weight:bold">30</span><span style="color:#f8f8f8;text-decoration:underline">                   </span><span style="color:#8f5902;font-style:italic"># Min seconds between messages for a given Windows service. Defaults to 5 minutes.</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">      </span><span style="color:#204a87;font-weight:bold">templateFile</span><span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#000">/path/to/teams/template/directory/service-started.handlebars</span><span style="color:#f8f8f8;text-decoration:underline">
-</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...  </span><span style="color:#f8f8f8;text-decoration:underline">
+</span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span><span style="display:flex;"><span><span style="color:#f8f8f8;text-decoration:underline">  </span><span style="color:#000">...</span><span style="color:#f8f8f8;text-decoration:underline">
 </span></span></span></code></pre></div>
 </div>
@@ -274,7 +269,7 @@ They are used in addition to the general Windows Service monitoring settings in 
 
       </div><div class="td-footer__center col-12 col-sm-4 py-2 order-sm-2">
         <span class="td-footer__copyright">&copy;
-    2018&ndash;2024
+    2018&ndash;2025
     <span class="td-footer__authors">Ptarmigan Labs AB</span></span><span class="td-footer__all_rights_reserved">All Rights Reserved</span><p class="td-footer__about mt-2"><a href="/docs/about/">About</a></p>
       </div>
     </div>

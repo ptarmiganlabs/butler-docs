@@ -30,7 +30,7 @@ Which option to go for depends on whether you want just a notification that some
 
 An "app reload failed" Teams message using the custom formatting option could look like this:
 
-![Reload failed alert Teams message](/img/butler-cloud-failed-reload-teams-formatted_1.png "Reload failed alert Teams message")  
+![Reload failed alert Teams message](/img/butler-cloud-failed-reload-teams-formatted_1.png "Reload failed alert Teams message")
 
 Here's how to set it up:
 
@@ -39,18 +39,20 @@ Here's how to set it up:
 
    The `messageType` property should be set to `formatted`.  
    The `basicMsgTemplate` property is not used with formatted messages and can thus be left empty,
+
 3. Edit the template file if/as needed, the file is specified in `Butler.qlikSenseCloud.event.mqtt.tenant.alert.teamsNotification.reloadAppFailure.templateFile`.It uses the Handlebars templating engine, to which Butler provides template fields with actual values.
 
    The available template fields are described [here](/docs/reference/alert-template-fields/).
 
    Sample template files are included in the release Zip file, and are also available in the GitHub repository's [src/config/teams_templates](https://github.com/ptarmiganlabs/butler/tree/master/src/config/teams_templates) directory.
+
 4. Restart Butler if it's already running.
 
 ### Sample message with basic formatting
 
 A "reload task failed" Teams message with basic formatting could look like this:
 
-![Reload failed alert Teams message](/img/failed-reload-teams-basic_1.png "Reload failed alert Teams message")  
+![Reload failed alert Teams message](/img/failed-reload-teams-basic_1.png "Reload failed alert Teams message")
 
 To set it up:
 
@@ -59,12 +61,13 @@ To set it up:
 
    The `messageType` property should be set to `basic`.  
    The `basicMsgTemplate` property is the message that will be sent via Teams. [Template fields](/docs/reference/alert-template-fields/) can be used.
+
 3. Restart Butler if it's already running.
 
 ## Customizing Teams messages
 
-When using the formatted Teams alerts you have full freedom to create the alert *you* need.  
-Behind the scenes Teams messages are constructed as "Adaptive Cards", which is standardised JSON format that Teams understands.
+When using the formatted Teams alerts you have full freedom to create the alert _you_ need.  
+Behind the scenes Teams messages are constructed as "Adaptive Cards", which is standardized JSON format that Teams understands.
 
 More information on Adaptive Cards can be found [here](https://learn.microsoft.com/en-us/power-automate/overview-adaptive-cards), [here](https://adaptivecards.io) and [here](https://learn.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/cards/design-effective-cards?tabs=design).
 
@@ -74,7 +77,7 @@ A few things to keep in mind when creating custom Teams messages:
 
 - The handlebars syntax itself must be correct. If incorrect no Teams JSON object will be created. And no Teams message sent.
 - The handlebars template must result in a JSON object that adheres to Teams's specifications for JSON payloads.  
-  If the JSON syntax is somehow invaid the Teams API will return errors and no messages sent. JSON can be pretty sensitive to details, there should for example not be any trailing commas in properly formatted JSON objects.
+  If the JSON syntax is somehow invalid the Teams API will return errors and no messages sent. JSON can be pretty sensitive to details, there should for example not be any trailing commas in properly formatted JSON objects.
 
 ### Using custom links in templates
 
@@ -97,7 +100,7 @@ Butler:
     ...
     ...
     qlikSenseCloud:                                                   # MQTT settings for Qlik Sense Cloud integration
-      event:                                                          
+      event:
         mqttForward:                                                  # QS Cloud events forwarded to MQTT topics, which Butler will subscribe to
           enable: false
           broker:                                                     # Settings for MQTT broker to which QS Cloud events are forwarded
@@ -117,7 +120,7 @@ Butler:
         tenant:
           id: tenant.region.qlikcloud.com
           tenantUrl: https://tenant.region.qlikcloud.com
-          authType: jwt             # Authentication type used to connect to the tenant. Valid options are "jwt"  
+          authType: jwt             # Authentication type used to connect to the tenant. Valid options are "jwt"
           auth:
             jwt:
               token: <JWT token>    # JWT token used to authenticate Butler when connecting to the tenant

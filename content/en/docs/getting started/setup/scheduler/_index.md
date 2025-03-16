@@ -3,7 +3,7 @@ title: "Configuring the Butler scheduler"
 linkTitle: "Scheduler"
 weight: 118
 description: >
-  Butler's scheduler complements the Qlik Sense built-in scheduler with more flexible triggers and a devops friendly API/file format for storing scheduling data.
+  Butler's scheduler complements the Qlik Sense built-in scheduler with more flexible triggers and a DevOps friendly API/file format for storing scheduling data.
 ---
 
 ## What's this?
@@ -29,27 +29,27 @@ The Butler GitHub repository has a sample schedule file in the config directory,
 
 It's important to understand when schedules are stored to and loaded from disk:
 
-* The schedule file is read from disk when Butler starts.
-* When schedules are added, changed or deleted using the APIs, the set of schedules currently in Butler's memory will be written to the schedule YAML file on disk.
+- The schedule file is read from disk when Butler starts.
+- When schedules are added, changed or deleted using the APIs, the set of schedules currently in Butler's memory will be written to the schedule YAML file on disk.
 
 ## Schedule file format
 
 The schedule file contains an array of zero or more schedule entries.
 
-* The cron pattern in the `cronSchedule` property can be either 6 positions (left-most character is seconds) or 5 positions (left-most character is minutes).
-* `qlikSenseTaskId` is the id of the task to be started. The Task view in the QMC is useful for getting these IDs. 
-* The `name` propery is for reference only. There may in theory be multiple schedule entries with the same (probably not a good idea though).
-* The `id` property must be unique. If a schedule is created using the API, the schedule id will be a GUID - but any unique string can be used.
-* `startupState` determines whether the schedule will be started or remain stopped when Butler starts.
-* `lastKnownState` is the the schedule's last known state (running/stopped) known to Butler at the time when the schedule file was written to disk.
-* `tags` are purely are way to categorise schedules. Not used by Butler in any way, nor are they related to Qlik Sense tags in any way.
+- The cron pattern in the `cronSchedule` property can be either 6 positions (left-most character is seconds) or 5 positions (left-most character is minutes).
+- `qlikSenseTaskId` is the id of the task to be started. The Task view in the QMC is useful for getting these IDs.
+- The `name` property is for reference only. There may in theory be multiple schedule entries with the same (probably not a good idea though).
+- The `id` property must be unique. If a schedule is created using the API, the schedule id will be a GUID - but any unique string can be used.
+- `startupState` determines whether the schedule will be started or remain stopped when Butler starts.
+- `lastKnownState` is the the schedule's last known state (running/stopped) known to Butler at the time when the schedule file was written to disk.
+- `tags` are purely are way to categorize schedules. Not used by Butler in any way, nor are they related to Qlik Sense tags in any way.
 
-A 6 postition schedule that starts a task every 30 seconds can look like this:
+A 6 position schedule that starts a task every 30 seconds can look like this:
 
 ```yaml
 butlerSchedule:
   - name: Every 30 sec
-    cronSchedule: '*/30 * * * * *'
+    cronSchedule: "*/30 * * * * *"
     timezone: Europe/Stockholm
     qlikSenseTaskId: 0fe447a9-ba1f-44a9-ac23-68c3a1d88d8b
     startupState: started

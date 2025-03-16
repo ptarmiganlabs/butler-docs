@@ -6,13 +6,13 @@ description: >
   Butler makes it both easier to develop Qlik Sense apps and run client-managed Qlik Sense clusters.  
     
   This page gives you the general steps to get started with Butler.  
-  
+
   It also explains how Butler relates to and uses other tools and services.
 ---
 
 ## Getting started: 1-2-3
 
-![Butler high level system overview](/img/butler-system-overview-1.png "Butler high level system overview")  
+![Butler high level system overview](/img/butler-system-overview-1.png "Butler high level system overview")
 
 The main components of Butler are outlined in the system diagram above.
 
@@ -24,7 +24,7 @@ If you're unsure what each REST API endpoint does, the [API docs](/docs/referenc
 
 ### 1. Installation
 
-Follow the [installation instructions](/docs/getting-started/install) - they will guide through the setup process, including requirements and customisation.
+Follow the [installation instructions](/docs/getting-started/install) - they will guide through the setup process, including requirements and customization.
 
 ### 2. Setup
 
