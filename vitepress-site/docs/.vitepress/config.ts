@@ -12,7 +12,9 @@ export default defineConfig({
       'data-domain': 'butler.ptarmiganlabs.com', 
       src: 'https://plausible.io/js/script.js' 
     }],
-    ['link', { rel: 'icon', href: '/favicon.ico' }]
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' }]
   ],
 
   // Enable Vue component processing
@@ -22,8 +24,27 @@ export default defineConfig({
 
   themeConfig: {
     // https://vitepress.vuejs.org/config/theme-configs
+    logo: '/logo.svg',
+    
     nav: [
-      { text: 'Documentation', link: '/docs/' },
+      { text: 'Guide', link: '/docs/' },
+      { 
+        text: 'v13.1.2',
+        items: [
+          {
+            text: 'Releases',
+            link: 'https://github.com/ptarmiganlabs/butler/releases'
+          },
+          {
+            text: 'Issues',
+            link: 'https://github.com/ptarmiganlabs/butler/issues'
+          },
+          {
+            text: 'Discussions',
+            link: 'https://github.com/ptarmiganlabs/butler/discussions'
+          }
+        ]
+      },
       { text: 'GitHub', link: 'https://github.com/ptarmiganlabs/butler' }
     ],
 
@@ -59,6 +80,7 @@ export default defineConfig({
           text: 'Reference',
           collapsed: true,
           items: [
+            { text: 'Overview', link: '/docs/reference/' },
             { text: 'Config File', link: '/docs/reference/config-file/' },
             { text: 'REST API', link: '/docs/reference/rest-api/' }
           ]
