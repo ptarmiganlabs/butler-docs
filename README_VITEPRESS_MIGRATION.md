@@ -14,6 +14,7 @@ This document outlines the migration plan from Hugo (with Docsy theme) to VitePr
 ### Migration Status
 
 ✅ **Completed**
+
 - [x] VitePress site scaffolding
 - [x] Basic configuration and branding
 - [x] GitHub Pages deployment setup
@@ -22,11 +23,13 @@ This document outlines the migration plan from Hugo (with Docsy theme) to VitePr
 - [x] Build and deployment automation
 
 🚧 **In Progress**
+
 - [ ] Custom Vue components for remaining Hugo shortcodes
 - [ ] Batch content migration
 - [ ] Theme customization
 
 ⏳ **Planned**
+
 - [ ] Complete content migration (140+ pages)
 - [ ] Custom CSS styling to match Butler branding
 - [ ] Advanced features (print views, advanced search)
@@ -36,25 +39,25 @@ This document outlines the migration plan from Hugo (with Docsy theme) to VitePr
 
 ### Features Maintained in VitePress
 
-| Feature | Hugo/Docsy | VitePress | Status |
-|---------|------------|-----------|---------|
-| Responsive design | ✅ | ✅ | ✅ Maintained |
-| Search functionality | ✅ (Local) | ✅ (Local) | ✅ Maintained |
-| Navigation/Sidebar | ✅ | ✅ | ✅ Maintained |
-| Analytics (Plausible) | ✅ | ✅ | ✅ Maintained |
-| GitHub Pages deployment | ✅ | ✅ | ✅ Maintained |
-| Markdown support | ✅ | ✅ | ✅ Maintained |
-| Custom domain | ✅ | ✅ | ✅ Maintained |
+| Feature                 | Hugo/Docsy | VitePress  | Status        |
+| ----------------------- | ---------- | ---------- | ------------- |
+| Responsive design       | ✅         | ✅         | ✅ Maintained |
+| Search functionality    | ✅ (Local) | ✅ (Local) | ✅ Maintained |
+| Navigation/Sidebar      | ✅         | ✅         | ✅ Maintained |
+| Analytics (Plausible)   | ✅         | ✅         | ✅ Maintained |
+| GitHub Pages deployment | ✅         | ✅         | ✅ Maintained |
+| Markdown support        | ✅         | ✅         | ✅ Maintained |
+| Custom domain           | ✅         | ✅         | ✅ Maintained |
 
 ### Features Replaced/Improved
 
-| Feature | Hugo/Docsy | VitePress Equivalent | Notes |
-|---------|------------|---------------------|-------|
-| `{{< notice >}}` shortcode | Custom shortcode | `::: tip/warning/info` or Vue component | Native VitePress containers |
-| `{{% pageinfo %}}` shortcode | Custom shortcode | Custom Vue component | Need to create |
-| `{{< blocks/feature >}}` | Docsy shortcode | Hero feature cards | Modern layout |
-| Print views | Built-in | Custom implementation needed | Lower priority |
-| Multiple output formats | Hugo feature | Single format (HTML) | Simplified |
+| Feature                      | Hugo/Docsy       | VitePress Equivalent                    | Notes                       |
+| ---------------------------- | ---------------- | --------------------------------------- | --------------------------- |
+| `{{< notice >}}` shortcode   | Custom shortcode | `::: tip/warning/info` or Vue component | Native VitePress containers |
+| `{{% pageinfo %}}` shortcode | Custom shortcode | Custom Vue component                    | Need to create              |
+| `{{< blocks/feature >}}`     | Docsy shortcode  | Hero feature cards                      | Modern layout               |
+| Print views                  | Built-in         | Custom implementation needed            | Lower priority              |
+| Multiple output formats      | Hugo feature     | Single format (HTML)                    | Simplified                  |
 
 ### Features Lost (Acceptable Trade-offs)
 
@@ -73,6 +76,7 @@ This document outlines the migration plan from Hugo (with Docsy theme) to VitePr
 ## Directory Structure
 
 ### Current Hugo Structure
+
 ```
 /
 ├── content/en/docs/           # Markdown content
@@ -84,6 +88,7 @@ This document outlines the migration plan from Hugo (with Docsy theme) to VitePr
 ```
 
 ### New VitePress Structure
+
 ```
 vitepress-site/
 ├── docs/
@@ -100,6 +105,7 @@ vitepress-site/
 ## Migration Process
 
 ### Phase 1: Foundation (Completed)
+
 1. ✅ Scaffold VitePress site using `npm init vitepress@latest`
 2. ✅ Configure basic settings (title, description, base URL)
 3. ✅ Set up navigation and sidebar structure
@@ -107,12 +113,14 @@ vitepress-site/
 5. ✅ Migrate 3 proof-of-concept pages
 
 ### Phase 2: Infrastructure (Completed)
+
 1. ✅ Set up GitHub Actions workflows for deployment
 2. ✅ Configure custom domain (butler.ptarmiganlabs.com)
 3. ✅ Add analytics integration (Plausible)
 4. ✅ Set up local search functionality
 
 ### Phase 3: Content Migration (In Progress)
+
 1. 🚧 Create Vue components for Hugo shortcodes
 2. ⏳ Batch migrate content files (priority order):
    - Getting Started section
@@ -123,12 +131,14 @@ vitepress-site/
 4. ⏳ Migrate images and static assets
 
 ### Phase 4: Customization (Planned)
+
 1. ⏳ Custom CSS theme to match Butler branding
 2. ⏳ Advanced components (if needed)
 3. ⏳ Performance optimization
 4. ⏳ SEO optimization
 
 ### Phase 5: Testing & Launch (Planned)
+
 1. ⏳ Comprehensive link checking
 2. ⏳ Performance comparison with Hugo site
 3. ⏳ User acceptance testing
@@ -139,7 +149,9 @@ vitepress-site/
 ### Hugo Shortcode Mapping
 
 #### Notice Blocks
+
 **Hugo:**
+
 ```hugo
 {{< notice tip >}}
 This is a tip notice.
@@ -147,6 +159,7 @@ This is a tip notice.
 ```
 
 **VitePress:**
+
 ```markdown
 ::: tip
 This is a tip notice.
@@ -154,7 +167,9 @@ This is a tip notice.
 ```
 
 #### Page Info Blocks
+
 **Hugo:**
+
 ```hugo
 {{% pageinfo %}}
 Important page information here.
@@ -162,6 +177,7 @@ Important page information here.
 ```
 
 **VitePress:**
+
 ```vue
 <Notice type="info" title="Page Info">
 Important page information here.
@@ -169,6 +185,7 @@ Important page information here.
 ```
 
 ### Link Updates
+
 - Hugo: `/docs/section/page/` → VitePress: `/docs/section/page`
 - Remove trailing slashes from internal links
 - Update relative links as needed
@@ -178,20 +195,23 @@ Important page information here.
 ### GitHub Actions Workflows
 
 1. **VitePress Deployment** (`deploy-vitepress.yml`)
+
    - Triggers on changes to `vitepress-site/**`
    - Builds and deploys VitePress site to GitHub Pages
 
-2. **Hugo Deployment** (`deploy-hugo.yml`) 
+2. **Hugo Deployment** (`deploy-hugo.yml`)
    - Maintains current Hugo site as fallback
    - Triggers on changes outside `vitepress-site/`
 
 ### Custom Domain
+
 - CNAME file included in VitePress build
 - Same domain (butler.ptarmiganlabs.com) maintained
 
 ## Build Commands
 
 ### Development
+
 ```bash
 cd vitepress-site
 npm install
@@ -199,12 +219,14 @@ npm run dev
 ```
 
 ### Production Build
+
 ```bash
 cd vitepress-site
 npm run build
 ```
 
 ### Preview Build
+
 ```bash
 cd vitepress-site
 npm run serve
@@ -213,12 +235,14 @@ npm run serve
 ## Performance Benefits
 
 ### Expected Improvements
+
 - **Faster build times**: Vite is typically faster than Hugo for complex sites
 - **Better development experience**: Hot reload, instant updates
 - **Modern JavaScript**: Tree-shaking, efficient bundling
 - **Optimized assets**: Automatic optimization and compression
 
 ### Benchmarks (To be measured)
+
 - [ ] Build time comparison
 - [ ] Page load speed comparison
 - [ ] Bundle size comparison
@@ -227,12 +251,14 @@ npm run serve
 ## Migration Checklist
 
 ### Pre-Migration
+
 - [x] Analyze current Hugo site structure
 - [x] Identify all shortcodes and custom features
 - [x] Plan VitePress equivalent implementations
 - [x] Set up development environment
 
 ### Migration Execution
+
 - [x] Scaffold VitePress site
 - [x] Configure basic settings and navigation
 - [x] Create deployment automation
@@ -243,6 +269,7 @@ npm run serve
 - [ ] Migrate static assets and images
 
 ### Post-Migration
+
 - [ ] Comprehensive testing
 - [ ] Performance optimization
 - [ ] SEO validation
@@ -252,17 +279,20 @@ npm run serve
 ## Risk Assessment
 
 ### Low Risk
+
 - ✅ Basic Markdown content migration
 - ✅ Static asset handling
 - ✅ GitHub Pages deployment
 - ✅ Custom domain setup
 
 ### Medium Risk
+
 - 🚧 Complex shortcode replacements
 - 🚧 Maintaining exact styling/branding
 - 🚧 Search functionality equivalency
 
 ### High Risk (Mitigated)
+
 - ✅ GitHub Pages compatibility (validated)
 - ✅ Build process automation (implemented)
 - ✅ Content structure preservation (proven)
@@ -278,6 +308,7 @@ npm run serve
 ## Rollback Plan
 
 If issues arise:
+
 1. Hugo deployment workflow remains active
 2. Can switch back by updating GitHub Pages source
 3. No data loss - both sites coexist during migration

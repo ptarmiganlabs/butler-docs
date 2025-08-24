@@ -4,7 +4,7 @@ layout: home
 hero:
   name: "Butler"
   text: "Adding superpowers to Qlik Sense"
-  tagline: "Great looking alerts, advanced scheduling, task chaining, key-value store, MQTT integration and more. Open source and ready to use."
+  tagline: "Great looking alerts, advanced scheduling, task chaining, key-value store, Sense license monitoring, MQTT integration and more. Open source and ready to use."
   actions:
     - theme: brand
       text: Documentation
@@ -35,4 +35,34 @@ features:
   - icon: 🗃️
     title: Key-Value Store
     details: Send parameters between reload tasks. Stash parameters in the first task and pull them in following tasks. Optional TTL support.
+  - icon: 👥
+    title: Monitor and Release User Licenses
+    details: Monitor license usage in real time by license type and automatically release licenses that are no longer used.
+  - icon: 🪪
+    title: Monitor and Alert on Sense Server License
+    details: Continuously track the server license and alert before it expires. Store metrics in InfluxDB or send to your alerting tool of choice.
+  - icon: 🖥️
+    title: Monitor Sense Server Version
+    details: Record Sense server versions over time in InfluxDB to reduce the risk of running outdated, insecure releases.
+  - icon: 🔗
+    title: Task Chaining with Parameters
+    details: Create chained app reloads and pass any number of parameters between apps.
+  - icon: ▶️
+    title: Start Tasks via REST API or MQTT
+    details: Start reloads from scripts or upstream systems via REST or MQTT. Include key–value parameters, or target tasks by tag or custom property.
+  - icon: 🔁
+    title: Partial App Reloads
+    details: Trigger full or partial app reloads using Butler’s REST API when only subsets of data need updating.
+  - icon: 🧾
+    title: App Metadata Extract
+    details: Extract metadata for one or all apps in a cluster—useful for backups and operational checks.
+  - icon: 📣
+    title: Keep Your Users in the Know
+    details: Automatically inform Slack or Teams channels when new data is available.
+  - icon: 🌍
+    title: Runs Anywhere
+    details: Windows, Linux, Docker, Kubernetes, or macOS. Standalone binaries—no installation required.
+  - icon: 🔌
+    title: Integrations
+    details: Send events to New Relic and Signl4. Monitor Butler itself with InfluxDB/Grafana or New Relic. MQTT and webhooks supported.
 ---
