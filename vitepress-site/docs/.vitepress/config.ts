@@ -15,6 +15,11 @@ export default defineConfig({
     ['link', { rel: 'icon', href: '/favicon.ico' }]
   ],
 
+  // Enable Vue component processing
+  vue: {
+    reactivityTransform: true
+  },
+
   themeConfig: {
     // https://vitepress.vuejs.org/config/theme-configs
     nav: [
@@ -31,7 +36,7 @@ export default defineConfig({
             { text: 'Overview', link: '/docs/' },
             { text: 'Installation', link: '/docs/getting-started/install/' },
             { text: 'Setup', link: '/docs/getting-started/setup/' },
-            { text: 'Upgrade', link: '/docs/getting-started/upgrade/' }
+            { text: 'Upgrade', link: '/docs/getting-started/upgrade' }
           ]
         },
         {
