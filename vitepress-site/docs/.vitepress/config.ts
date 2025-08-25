@@ -61,12 +61,28 @@ export default defineConfig({
           ]
         },
         {
+          text: 'About',
+          collapsed: true,
+          items: [
+            { text: 'Overview', link: '/docs/about/' },
+            { text: 'Butler', link: '/docs/about/butler' },
+            { text: 'Butler Family', link: '/docs/about/butler-family' },
+            { text: 'Use Cases', link: '/docs/about/use-cases/' },
+            { text: 'Telemetry', link: '/docs/about/telemetry' },
+            { text: 'Contributing', link: '/docs/about/contributing' },
+            { text: 'Versioning', link: '/docs/about/versioning' }
+          ]
+        },
+        {
           text: 'Concepts',
           collapsed: false,
           items: [
             { text: 'Overview', link: '/docs/concepts/' },
             { text: 'Key-Value Store', link: '/docs/concepts/key-value/' },
-            { text: 'File System Access', link: '/docs/concepts/file-system-access/' }
+            { text: 'File System Access', link: '/docs/concepts/file-system-access/' },
+            { text: 'Reload Alerts', link: '/docs/concepts/failed-reloads/' },
+            { text: 'Scheduler', link: '/docs/concepts/scheduler/' },
+            { text: 'MQTT Integration', link: '/docs/concepts/mqtt/' }
           ]
         },
         {
