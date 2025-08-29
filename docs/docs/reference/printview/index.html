@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="generator" content="Hugo 0.143.1">
+<meta name="generator" content="Hugo 0.146.4">
 <link rel="canonical" type="text/html" href="https://butler.ptarmiganlabs.com/docs/reference/">
 <link rel="alternate" type="application/rss&#43;xml" href="https://butler.ptarmiganlabs.com/docs/reference/index.xml">
 <meta name="robots" content="noindex, nofollow">
@@ -36,12 +36,12 @@
 
   <meta itemprop="name" content="Reference docs">
   <meta itemprop="description" content="Detailed, more technical descriptions of Butler&#39;s REST API and other parts of Butler.">
-  <meta itemprop="dateModified" content="2021-04-22T21:58:55+02:00">
+  <meta itemprop="dateModified" content="2025-03-16T10:13:32+01:00">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Reference docs">
   <meta name="twitter:description" content="Detailed, more technical descriptions of Butler&#39;s REST API and other parts of Butler.">
-<link rel="preload" href="/scss/main.min.48c25d0a5a23a1e8cae94d6c5e7622061e5345cf098171b1d6ee41d8e309e6c8.css" as="style" integrity="sha256-SMJdClojoejK6U1sXnYiBh5TRc8JgXGx1u5B2OMJ5sg=" crossorigin="anonymous">
-<link href="/scss/main.min.48c25d0a5a23a1e8cae94d6c5e7622061e5345cf098171b1d6ee41d8e309e6c8.css" rel="stylesheet" integrity="sha256-SMJdClojoejK6U1sXnYiBh5TRc8JgXGx1u5B2OMJ5sg=" crossorigin="anonymous">
+<link rel="preload" href="/scss/main.min.8d9fc392f483ddcfc12deab0c7339579a28bf9668f42018b93887d57cf8a63f4.css" as="style" integrity="sha256-jZ/DkvSD3c/BLeqwxzOVeaKL&#43;WaPQgGLk4h9V8&#43;KY/Q=" crossorigin="anonymous">
+<link href="/scss/main.min.8d9fc392f483ddcfc12deab0c7339579a28bf9668f42018b93887d57cf8a63f4.css" rel="stylesheet" integrity="sha256-jZ/DkvSD3c/BLeqwxzOVeaKL&#43;WaPQgGLk4h9V8&#43;KY/Q=" crossorigin="anonymous">
 <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
@@ -447,9 +447,9 @@ Looks like this:</p>
 </span></span><span style="display:flex;"><span>  --api-rate-limit                     <span style="color:#204a87">set</span> the API rate limit, per minute. Default is <span style="color:#0000cf;font-weight:bold">100</span> calls/minute. Set to <span style="color:#0000cf;font-weight:bold">0</span> to disable rate limiting.
 </span></span><span style="display:flex;"><span>  --skip-config-verification           Disable config file verification <span style="color:#ce5c00;font-weight:bold">(</span>default: <span style="color:#204a87">false</span><span style="color:#ce5c00;font-weight:bold">)</span>
 </span></span><span style="display:flex;"><span>  -h, --help                           display <span style="color:#204a87">help</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#204a87">command</span>
-</span></span></code></pre></div><h2 id="-v---version">-V, &ndash;version</h2>
+</span></span></code></pre></div><h2 id="-v-version">-V, &ndash;version</h2>
 <p>Output the version number of Butler.</p>
-<h2 id="-c---configfile">-c, &ndash;configfile</h2>
+<h2 id="-c-configfile">-c, &ndash;configfile</h2>
 <p>Specifies the configuration file to use.</p>
 <p>Valid values: A path to a configuration file.</p>
 <p>Default: Whatever is specified in the <code>NODE_ENV</code> environment variable, with a .yaml extension added. Butler will look for that file in the <code>./config</code> directory.</p>
@@ -457,7 +457,7 @@ Looks like this:</p>
 <ul>
 <li><code>-c</code> or <code>--configfile</code> are not specified. <code>NODE_ENV</code> is set to <code>production</code>. Butler will try to read settings from <code>./config/production.yaml</code>.</li>
 </ul>
-<h2 id="-l---loglevel">-l, &ndash;loglevel</h2>
+<h2 id="-l-loglevel">-l, &ndash;loglevel</h2>
 <p>Specifies the log level to use.<br>
 When set, this overrides the log level specified in the configuration file.</p>
 <p>Valid values: &rsquo;error&rsquo;, &lsquo;warn&rsquo;, &lsquo;info&rsquo;, &lsquo;verbose&rsquo;, &lsquo;debug&rsquo;, &lsquo;silly&rsquo;</p>
@@ -465,43 +465,43 @@ When set, this overrides the log level specified in the configuration file.</p>
 <h2 id="new-relic-related-options">New Relic related options</h2>
 <p>When using New Relic as backend for storing logs, information about failed reloads etc, you can specify New Relic credentials in the config file - but that is not ideal from a security perspective.</p>
 <p>To avoid that, you can specify the New Relic credentials on the command line using the following options.</p>
-<h3 id="--new-relic-account-name">&ndash;new-relic-account-name</h3>
+<h3 id="new-relic-account-name">&ndash;new-relic-account-name</h3>
 <p>List of New Relic account names. Used within Butler to differentiate between different target New Relic accounts to which data can be sent. This name has nothing to do with the account name used in New Relic - it&rsquo;s purely for Butler&rsquo;s internal use.<br>
 Specifically, it&rsquo;s at multiple places in the config file where you can specify to which New Relic account to send data.</p>
 <p>Enclose account names in quotes if they contain spaces.<br>
 Separate multiple account names with a space.</p>
 <p>Example: <code>--new-relic-account-name &quot;Account 1&quot; &quot;Account 2&quot;</code></p>
-<h3 id="--new-relic-api-key">&ndash;new-relic-api-key</h3>
+<h3 id="new-relic-api-key">&ndash;new-relic-api-key</h3>
 <p>List of New Relic API keys. Used to authenticate with New Relic.</p>
 <p>Enclose API keys in quotes if they contain spaces.<br>
 Separate multiple API keys with a space. Note that the order of the API keys must match the order of the account names, i.e. the first API key corresponds to the first account name, the second API key corresponds to the second account name, and so on.</p>
 <p>Example: <code>--new-relic-api-key &quot;API key 1&quot; &quot;API key 2&quot;</code></p>
-<h3 id="--new-relic-account-id">&ndash;new-relic-account-id</h3>
+<h3 id="new-relic-account-id">&ndash;new-relic-account-id</h3>
 <p>List of New Relic account IDs. Used to identify the New Relic account to which data should be sent.</p>
 <p>Enclose account IDs in quotes if they contain spaces.<br>
 Separate multiple account IDs with a space. Note that the order of the account IDs must match the order of the account names, i.e. the first account ID corresponds to the first account name, the second account ID corresponds to the second account name, and so on.</p>
 <h2 id="send-test-email">Send test email</h2>
 <p>Butler has several alerting features for sending emails when some event happens (typically something failing&hellip;) in Sense.</p>
 <p>To verify that the email settings in the config file are correct, you can send a test email using the following options.</p>
-<h3 id="--test-email-address">&ndash;test-email-address</h3>
+<h3 id="test-email-address">&ndash;test-email-address</h3>
 <p>Send a test email to this address, using the SMTP configuration in the config file.<br>
 Used to verify email settings in the config file.</p>
 <p>This is the destination address for the test email.</p>
-<h3 id="--test-email-from-address">&ndash;test-email-from-address</h3>
+<h3 id="test-email-from-address">&ndash;test-email-from-address</h3>
 <p>Send a test email to this address, using the SMTP configuration in the config file.<br>
 Used to verify email settings in the config file.</p>
 <p>This is the sender address for the test email. Only relevant when the SMTP server allows the from address to be set.</p>
-<h2 id="--no-qs-connection">&ndash;no-qs-connection</h2>
+<h2 id="no-qs-connection">&ndash;no-qs-connection</h2>
 <p>Don&rsquo;t connect to Qlik Sense server at all. Run in isolated mode.</p>
 <p>This is probably only relevant when you&rsquo;re developing Butler and don&rsquo;t have a Qlik Sense server available, or when you want to automatically exporting the API docs for Butler&rsquo;s REST API (this is done during the build process).</p>
-<h2 id="--api-rate-limit">&ndash;api-rate-limit</h2>
+<h2 id="api-rate-limit">&ndash;api-rate-limit</h2>
 <p>Set the rate limit of Butler&rsquo;s REST API, per minute. Default is 100 calls/minute. Set to 0 to disable rate limiting.</p>
 <p>Useful when you want to ensure that Butler (or the server it runs on) doesn&rsquo;t get overloaded with requests.</p>
-<h2 id="--skip-config-verification">&ndash;skip-config-verification</h2>
+<h2 id="skip-config-verification">&ndash;skip-config-verification</h2>
 <p>Disable config file verification.</p>
 <p>By default, Butler verifies the config file when it starts. If the config file is invalid, Butler will log an error and exit.<br>
 Use this option to disable config file verification.</p>
-<h2 id="-h---help">-h, &ndash;help</h2>
+<h2 id="-h-help">-h, &ndash;help</h2>
 <p>Display help for command.</p>
 
 </div>
@@ -5248,7 +5248,7 @@ This is highlighted for each affected field below.</p>
 </footer>
 
     </div>
-    <script src="/js/main.min.396e2c20b60fb738131ce6f0037b7e2bdd97cae674e8fe1dc1749c8e34f01a96.js" integrity="sha256-OW4sILYPtzgTHObwA3t&#43;K92XyuZ06P4dwXScjjTwGpY=" crossorigin="anonymous"></script>
+    <script src="/js/main.min.5679c5e7eb3961a33079e99a2a258b8b859293b42c8159433f370ec0918478d6.js" integrity="sha256-VnnF5&#43;s5YaMweemaKiWLi4WSk7QsgVlDPzcOwJGEeNY=" crossorigin="anonymous"></script>
 <script src='/js/prism.js'></script>
 <script src='/js/tabpane-persist.js'></script>
 
