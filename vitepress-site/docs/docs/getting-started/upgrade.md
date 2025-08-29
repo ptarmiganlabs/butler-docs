@@ -68,7 +68,7 @@ There are other config files too, containing for example scheduling information.
 
 ### InfluxDB considerations
 
-Some versions include changes to the InfluxDB schema, meaning that you need to do some manual work in order to upgrade to the new schema.
+Some Butler versions include changes to the InfluxDB schema, meaning that you need to do some manual work in order to upgrade to the new schema.
 
 The easiest way to do this is to delete the InfluxDB database used by Butler, then let Butler re-create it using the new schema.  
 If the InfluxDB database specified in the Butler config file does not exist, Butler will automatically create it for you.
@@ -96,7 +96,7 @@ A consequence of this is that all settings are now mandatory, even if you don't 
 3. Compare your existing main config file with the [template config file](https://raw.githubusercontent.com/ptarmiganlabs/butler/master/src/config/production_template.yaml) available on GitHub.  
    This comparison is a manual process and can be a bit tedious, but knowing your config file is really needed in order to make full and correct use of Butler.
    1. That file is also included in the Butler ZIP file available on the [download page](https://github.com/ptarmiganlabs/butler/releases).
-   2. A more in-depth description of the config file is available in the Reference docs > Config file syntax section of the documentation (coming soon).
+   2. A more in-depth description of the config file is available in the Reference docs > Config file syntax section of the documentation (TODO).
 4. The result of the comparison will show you what parts of the config file are new (for medium-sized upgrades) and which parts have changed in a significant way (for major upgrades).
 5. Get the binaries for the new Butler version from the [download page](https://github.com/ptarmiganlabs/butler/releases).
 6. Start the new Butler version and let it run for a few minutes.
@@ -108,8 +108,8 @@ A consequence of this is that all settings are now mandatory, even if you don't 
 
 By far the most common problem when upgrading to a new Butler version (or doing a fresh install) is an incorrect config file.
 
-All config entries are mandatory, even if you don't use them.  
-This may seem a bit harsh, but this way Butler can tell you exactly what is missing in the config file.
+> If some feature in the config file is disabled, its associated settings **are not** mandatory and will not be checked/verified.  
+> If a feature is enabled, its associated settings **are** mandatory.
 
 Butler is pretty good at figuring out what is wrong with the config file, but there may be cases where it's not obvious what is wrong.
 

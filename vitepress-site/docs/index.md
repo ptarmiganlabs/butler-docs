@@ -40,7 +40,7 @@ features:
     details: Monitor license usage in real time by license type and automatically release licenses that are no longer used.
   - icon: 🪪
     title: Monitor and Alert on Sense Server License
-    details: Continuously track the server license and alert before it expires. Store metrics in InfluxDB or send to your alerting tool of choice.
+    details: Continuously track the server license and alert before it expires.
   - icon: 🖥️
     title: Monitor Sense Server Version
     details: Record Sense server versions over time in InfluxDB to reduce the risk of running outdated, insecure releases.

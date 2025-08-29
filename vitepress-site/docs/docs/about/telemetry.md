@@ -36,9 +36,10 @@ That's all good but today Butler is a rather significant tool with features span
 This multitude of features is also one of the core reasons for adding telemetry to Butler:
 
 ::: tip Key Questions
+
 - Which Butler APIs and features are actually used out there?
 - Which operating systems, Node.js versions and hardware platforms is Butler running on?
-:::
+  :::
 
 Without this information the Butler developers will keep working in the dark, not really knowing where to focus their efforts.
 
@@ -51,7 +52,7 @@ On the other hand - **with** access to telemetry data a lot of possibilities ope
 
 ### Configuring Butler's telemetry
 
-Instructions [here](/docs/getting-started/setup/telemetry/).
+Instructions [here](/docs/getting-started/setup/telemetry/). TODO
 
 ## The details
 
@@ -64,7 +65,7 @@ The telemetry data includes the following:
    _Why: Same as above. Knowing which features are used (and are thus important) allows the Butler developers to better plan future work._
 3. **Information about Butler's execution environment** (operating system, hardware architecture, Node.js version etc).  
     _Why: Ideally the Butler developers want to use as modern versions of Node.js as possible. But if telemetry shows that lots os Butler instances use old Node.js versions or run on some (yet) untested/unverified Linux version - then maybe those older Node.js/Linux versions must be supported for yet some time._
-:::
+   :::
 
 ::: warning What's not shared
 The telemetry data will never include:
@@ -72,7 +73,7 @@ The telemetry data will never include:
 1. Data that can identify your Sense environment or the server on which Butler runs. This includes IP/MAC addresses or other network information, server names, Docker container metadata or similar.
 2. Any actual data sent via Butler APIs.
 3. Qlik Sense or other certificates or credentials in any shape or form.
-:::
+   :::
 
 ### Where is telemetry data sent
 
@@ -80,13 +81,13 @@ The telemetry data is sent to the [PostHog](https://posthog.com) service, using 
 
 ### Deleting telemetry data
 
-Even though no-one (not even the Butler developers or Ptarmigan Labs who manage the telemetry database!) has any way of ever connecting the data sent by _your_ Butler instance to _you_ (it's all anonymized, remember?), there can be cases where telemetry data must be deleted.
+Even though no-one (not even the Butler developers or Ptarmigan Labs who manage the telemetry database) has any way of ever connecting the data sent by _your_ Butler instance to _you_ (it's all anonymized, remember?), there can be cases where telemetry data must be deleted.
 
-The [legal page](/docs/legal-stuff/#telemetry-data) has more information about this.
+The [legal page](/docs/legal-stuff/#telemetry-data) TODO has more information about this.
 
 ### Field level description of telemetry data
 
-A telemetry message from Butler (with all features enabled!) contains the information below as of Butler 13.0.
+A telemetry message from Butler (with all features enabled) contains the information below as of Butler 13.0.
 
 ```json
 {
@@ -255,7 +256,7 @@ A telemetry message from Butler (with all features enabled!) contains the inform
 The `id` field deserves a bit more explanation.
 
 It's purpose is to uniquely identify the Butler instance - nothing else.  
-If Butler is stopped and started again the same ID will be used.
+If Butler is stopped and started again on the same server, the same ID will be used.
 
 Some sensitive information is used to create the ID, but as the ID is anonymized using a one-way hash function before sent as part of the telemetry data, _no sensitive information leaves your servers_.
 

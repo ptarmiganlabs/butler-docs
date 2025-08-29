@@ -12,9 +12,16 @@ export default defineConfig({
       'data-domain': 'butler.ptarmiganlabs.com', 
       src: 'https://plausible.io/js/script.js' 
     }],
-    ['link', { rel: 'icon', href: '/favicon.ico' }],
-    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' }],
-    ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' }]
+  // Root-level favicons copied to docs/public
+  ['link', { rel: 'icon', href: '/favicon.ico' }],
+  ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' }],
+  ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' }],
+  // Additional platform icons under /favicons
+  ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicons/apple-touch-icon-180x180.png' }],
+  ['link', { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/favicons/pwa-192x192.png' }],
+  ['link', { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/favicons/pwa-512x512.png' }],
+  ['link', { rel: 'manifest', href: '/site.webmanifest' }],
+  ['meta', { name: 'theme-color', content: '#aa0000' }]
   ],
 
   // Enable Vue component processing
@@ -24,7 +31,8 @@ export default defineConfig({
 
   themeConfig: {
     // https://vitepress.vuejs.org/config/theme-configs
-    logo: '/logo.svg',
+  // Logo served from docs/public
+  logo: '/logo.svg',
     
     nav: [
       { text: 'Guide', link: '/docs/' },
@@ -45,11 +53,22 @@ export default defineConfig({
           }
         ]
       },
-      { text: 'GitHub', link: 'https://github.com/ptarmiganlabs/butler' }
     ],
 
     sidebar: {
       '/docs/': [
+        {
+          text: 'About',
+          collapsed: true,
+          items: [
+            { text: 'Butler', link: '/docs/about/butler' },
+            { text: 'Butler Family', link: '/docs/about/butler-family' },
+            { text: 'Use Cases', link: '/docs/about/use-cases/' },
+            { text: 'Versioning', link: '/docs/about/versioning' },
+            { text: 'Contributing', link: '/docs/about/contributing' },
+            { text: 'Telemetry', link: '/docs/about/telemetry' }
+          ]
+        },
         {
           text: 'Getting Started',
           collapsed: false,
@@ -57,20 +76,8 @@ export default defineConfig({
             { text: 'Overview', link: '/docs/' },
             { text: 'Installation', link: '/docs/getting-started/install/' },
             { text: 'Setup', link: '/docs/getting-started/setup/' },
+            { text: 'Day 2 operations', link: '/docs/getting-started/day2-operations' },
             { text: 'Upgrade', link: '/docs/getting-started/upgrade' }
-          ]
-        },
-        {
-          text: 'About',
-          collapsed: true,
-          items: [
-            { text: 'Overview', link: '/docs/about/' },
-            { text: 'Butler', link: '/docs/about/butler' },
-            { text: 'Butler Family', link: '/docs/about/butler-family' },
-            { text: 'Use Cases', link: '/docs/about/use-cases/' },
-            { text: 'Telemetry', link: '/docs/about/telemetry' },
-            { text: 'Contributing', link: '/docs/about/contributing' },
-            { text: 'Versioning', link: '/docs/about/versioning' }
           ]
         },
         {
@@ -108,13 +115,10 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/ptarmiganlabs/butler' }
     ],
 
-    footer: {
+  footer: {
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2018–2025 Ptarmigan Labs AB'
     },
 
-    search: {
-      provider: 'local'
-    }
   }
 })

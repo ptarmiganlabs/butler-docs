@@ -2,7 +2,7 @@
 
 How to contribute to Butler.
 
-::: info
+::: tip Open source
 Butler is an open source project, using the [MIT license](https://choosealicense.com/licenses/mit/).
 
 This means that all source code, documentation etc is available as-is, at no cost.
@@ -15,7 +15,7 @@ Butler is developed in [Node.js](https://nodejs.org), with support from various 
 We use [VitePress](https://vitepress.vuejs.org/) to format and generate this documentation site.  
 VitePress is a Vue.js-powered static site generator that provides us with templates, content organization in a standard directory structure, and a website generation engine. You write the pages in Markdown (or HTML if you want), and VitePress wraps them up into a website.
 
-All submissions, including submissions by project members, require review. We use GitHub pull requests for this purpose. Consult [GitHub Help](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/about-pull-requests) for more information on using pull requests.
+All submissions to Butler or this doc site, including submissions by project members, require review. We use GitHub pull requests for this purpose. Consult [GitHub Help](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/about-pull-requests) for more information on using pull requests.
 
 ## Creating an issue
 

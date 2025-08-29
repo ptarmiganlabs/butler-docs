@@ -13,67 +13,74 @@ All members of the Butler family are available on [Ptarmigan Labs' GitHub page](
 
 The following tools are actively maintained and have a production grade release status.
 
-### Butler
+---
+
+### ![Butler Logo](/img/butler-family/butler.png){width=80 style="float: left; margin-right: 20px; margin-bottom: 10px;"} Butler
 
 The original Butler. Offers various utilities that make it easier to develop Sense apps, as well as simplifying day 2 operations.
 
-[butler.ptarmiganlabs.com](https:/butler.ptarmiganlabs.com). (This site!)
+**[Visit Site →](https://butler.ptarmiganlabs.com)**
 
-### Butler SOS
+---
 
-Real-time operational metrics for Qlik Sense. A must-have if you are responsible for a Sense environment with more than a dozen or so users.  
-Simplifies day 2 operations of client-managed Sense.
+### ![Butler SOS Logo](/img/butler-family/butler-sos.png){width=80 style="float: left; margin-right: 20px; margin-bottom: 10px;"} Butler SOS
+
+Real-time operational metrics for Qlik Sense. A must-have if you are responsible for a Sense environment with more than a dozen or so users. Simplifies day 2 operations of client-managed Sense.
 
 Butler SOS makes it possible to detect and alert on issues as they happen, rather than in retrospect much later.
 
 Several storage and visualization options available, including [InfluxDB](https://www.influxdata.com) + [Grafana](https://grafana.com), and [New Relic](https://newrelic.com).
 
-[butler-sos.ptarmiganlabs.com](https://butler-sos.ptarmiganlabs.com)
+**[Visit Site →](https://butler-sos.ptarmiganlabs.com)**
 
-### Butler Sheet Icons
+---
+
+### ![Butler Sheet Icons Logo](/img/butler-family/butler-sheet-icons.png){width=80 style="float: left; margin-right: 20px; margin-bottom: 10px;"} Butler Sheet Icons
 
 Automates the creation of sheet icons for both Qlik Sense Cloud and client-managed Qlik Sense Enterprise on Windows (QSEoW) applications.
 
-It's a cross platform command line tool which given the correct Sense credentials will take screen shots of all sheets in a Sense app (or all apps on a Sense server!), then create thumbnail versions of those screenshots.  
-Finally those thumbnails will be set as sheet icons.
+It's a cross platform command line tool which given the correct Sense credentials will take screen shots of all sheets in a Sense app (or all apps on a Sense server!), then create thumbnail versions of those screenshots. Finally those thumbnails will be set as sheet icons.
 
-No more manual screenshot taking, resizing images, navigating hundreds of sheets in dozens of apps.  
-Start Butler Sheet Icons instead and go get a nice [fika](https://www.swedishfood.com/fika).
+No more manual screenshot taking, resizing images, navigating hundreds of sheets in dozens of apps. Start Butler Sheet Icons instead and go get a nice [fika](https://www.swedishfood.com/fika).
 
 The tool can be used stand-along or as part of an automated release process.
 
-[https://github.com/ptarmiganlabs/butler-sheet-icons](https://github.com/ptarmiganlabs/butler-sheet-icons)
+**[View on GitHub →](https://github.com/ptarmiganlabs/butler-sheet-icons)**
 
-### Ctrl-Q
+---
 
-Given the name of this tool it doesn't sound like a member of the Butler family.  
-Let's say Ctrl-Q is a sibling of the Butler bunch.
+### ![Ctrl-Q Logo](/img/butler-family/ctrl-q.png){width=80 style="float: left; margin-right: 20px; margin-bottom: 10px;"} Ctrl-Q
+
+Given the name of this tool it doesn't sound like a member of the Butler family. Let's say Ctrl-Q is a sibling of the Butler bunch.
 
 While the Butler tools are (usually) intended to solve and simplify rather specific use cases, Ctrl-Q is aimed at being the lazy Qlik developer's best friend.
 
-Let's say there is some manual, tedious, time consuming and error prone activity that a Qlik Sense developer is faced with.  
-For example importing dozens of apps from QVF files and creating a hundred associated reload tasks.  
-Ctrl-Q lets you do this with a single command, using definitions in an Excel file. Instead of spending a day on this the actual execution takes a minute or so.
+Let's say there is some manual, tedious, time consuming and error prone activity that a Qlik Sense developer is faced with. For example importing dozens of apps from QVF files and creating a hundred associated reload tasks. Ctrl-Q lets you do this with a single command, using definitions in an Excel file. Instead of spending a day on this the actual execution takes a minute or so.
 
 In other words: Ctrl-Q focus on high-value use cases that are difficult or impossible to solve using other tools.
 
-[github.com/ptarmiganlabs/ctrl-q](https://github.com/ptarmiganlabs/ctrl-q)
+**[View on GitHub →](https://github.com/ptarmiganlabs/ctrl-q)**
+
+---
 
 ## Projects with not-so-active status
 
-The following tools are no longer actively maintained, but they are still available on GitHub.  
-If you find them useful, feel free to use them.
+The following tools are no longer actively maintained, but they are still available on GitHub. If you find them useful, feel free to use them.
 
-### Butler CW
+---
+
+### ![Butler CW Logo](/img/butler-family/butler%20cw.png){width=80 style="float: left; margin-right: 20px; margin-bottom: 10px;"} Butler CW
 
 Butler Cache Warmer. Cache warming is the process of proactively forcing Sense apps to be loaded into RAM, so they are readily available when users open them.  
 Using Butler CW is an easy way to make your end users' experience of Sense a little better.
 
 Now that client-managed Qlik Sense has its own cache warming feature (as of 1st half 2024), Butler CW will eventually be phased out.
 
-[github.com/ptarmiganlabs/butler-cw](https://github.com/ptarmiganlabs/butler-cw)
+**[View on GitHub →](https://github.com/ptarmiganlabs/butler-cw)**
 
-### Butler App Duplicator
+---
+
+### ![Butler App Duplicator Logo](/img/butler-family/butler%20app%20duplicator.png){width=80 style="float: left; margin-right: 20px; margin-bottom: 10px;"} Butler App Duplicator
 
 No matter if you are a single developer creating Sense apps, or have lots of developers doing this, having app templates is a good idea:
 
@@ -81,26 +88,32 @@ No matter if you are a single developer creating Sense apps, or have lots of dev
 - Productivity boost when developing Sense apps.
 - Encouraging a common coding standard across all apps.
 
-[github.com/ptarmiganlabs/butler-app-duplicator](https://github.com/ptarmiganlabs/butler-app-duplicator)
+**[View on GitHub →](https://github.com/ptarmiganlabs/butler-app-duplicator)**
 
-### Butler Spyglass
+---
+
+### ![Butler Spyglass Logo](/img/butler-family/butler%20spyglass.png){width=80 style="float: left; margin-right: 20px; margin-bottom: 10px;"} Butler Spyglass
 
 This tool is mainly of interest if you have lots of QVDs and apps, but when that's the case it's of paramount importance to understand what apps use which QVDs. In other words what data lineage looks like.
 
 Butler Spyglass also extracts full load scripts for all Sense apps, creating a historical record of all load scripts for all Sense apps.
 
-[github.com/ptarmiganlabs/butler-spyglass](https://github.com/ptarmiganlabs/butler-spyglass)
+**[View on GitHub →](https://github.com/ptarmiganlabs/butler-spyglass)**
 
-### Butler Notifier
+---
+
+### ![Butler Notifier Logo](/img/butler-family/butler.png){width=80 style="float: left; margin-right: 20px; margin-bottom: 10px;"} Butler Notifier
 
 This tool makes it easy to tap into the Qlik Sense notification API. From there you can get all kinds of notifications, including task reload failures and changes in session state (user login/logout etc).
 
-[github.com/ptarmiganlabs/butler-notifier](https://github.com/ptarmiganlabs/butler-notifier)
+**[View on GitHub →](https://github.com/ptarmiganlabs/butler-notifier)**
 
-### Butler Icon Uploader
+---
+
+### ![Butler Icon Uploader Logo](/img/butler-family/butler.png){width=80 style="float: left; margin-right: 20px; margin-bottom: 10px;"} Butler Icon Uploader
 
 Visual looks is important when it comes to analytics, and this holds true also for Sense apps.
 
 The Butler Icon Uploader makes it easy to upload icon libraries (for example Font Awesome) to Qlik Sense Enterprise. With such icons available it is then easy for app developers to use professional quality sheet and app icons in their Sense apps.
 
-[github.com/ptarmiganlabs/butler-icon-upload](https://github.com/ptarmiganlabs/butler-icon-upload)
+**[View on GitHub →](https://github.com/ptarmiganlabs/butler-icon-upload)**
