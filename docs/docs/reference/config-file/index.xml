@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Config file syntax on Butler</title>
-    <link>https://butler.ptarmiganlabs.com/docs/reference/config-file/</link>
+    <link>http://localhost:1313/docs/reference/config-file/</link>
     <description>Recent content in Config file syntax on Butler</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="https://butler.ptarmiganlabs.com/docs/reference/config-file/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/docs/reference/config-file/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Swagger UI: Try out the Butler API using the API docs on Butler</title>
-    <link>https://butler.ptarmiganlabs.com/docs/examples/openapi-docs/</link>
+    <link>http://localhost:1313/docs/examples/openapi-docs/</link>
     <description>Recent content in Swagger UI: Try out the Butler API using the API docs on Butler</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="https://butler.ptarmiganlabs.com/docs/examples/openapi-docs/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/docs/examples/openapi-docs/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

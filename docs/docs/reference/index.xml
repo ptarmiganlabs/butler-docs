@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Reference docs on Butler</title>
-    <link>https://butler.ptarmiganlabs.com/docs/reference/</link>
+    <link>http://localhost:1313/docs/reference/</link>
     <description>Recent content in Reference docs on Butler</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="https://butler.ptarmiganlabs.com/docs/reference/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/docs/reference/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

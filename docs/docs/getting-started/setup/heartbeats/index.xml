@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Configuring Butler heartbeats on Butler</title>
-    <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/heartbeats/</link>
+    <link>http://localhost:1313/docs/getting-started/setup/heartbeats/</link>
     <description>Recent content in Configuring Butler heartbeats on Butler</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/heartbeats/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/docs/getting-started/setup/heartbeats/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
