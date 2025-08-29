@@ -2,44 +2,44 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>About on Butler</title>
-    <link>http://localhost:1313/docs/about/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/about/</link>
     <description>Recent content in About on Butler</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:1313/docs/about/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://butler.ptarmiganlabs.com/docs/about/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Butler</title>
-      <link>http://localhost:1313/docs/about/butler/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/about/butler/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/about/butler/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/about/butler/</guid>
       <description>&lt;p&gt;The Butler project is all about adding useful features to both the client-managed version of Qlik Sense, also known as Qlik Sense Enterprise on Windows (QSEoW) and Qlik Sense Cloud.&lt;/p&gt;&#xA;&lt;p&gt;Some of the features can be used from Sense load scripts, other features provide integration with 3rd party systems.&lt;br&gt;&#xA;Most of Butler&amp;rsquo;s features simply try to make daily life for a Qlik Sense administrator or developer a bit easier.&lt;/p&gt;&#xA;&lt;p&gt;Given Butler&amp;rsquo;s history and the fact that it was originally developed for Qlik Sense Enterprise on Windows, most features are only available for that platform.&lt;br&gt;&#xA;More and more Qlik Sense Cloud features are being added, for example the ability to send app reload failed alerts to email, Slack, Teams or script log on local disk.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Butler family</title>
-      <link>http://localhost:1313/docs/about/butler-family/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/about/butler-family/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/about/butler-family/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/about/butler-family/</guid>
       <description>&lt;p&gt;Butler started out with a very specific need to start Sense reloads from outside systems.&lt;br&gt;&#xA;Back in those days the cloud wasn&amp;rsquo;t a thing, and Sense was only available on Windows servers.&lt;/p&gt;&#xA;&lt;p&gt;Over the years a few projects (for example Butler SOS, which simplifies day 2 operations of client-managed Sense ([&lt;a href=&#34;https://www.infoworld.com/article/3442754/why-de-risking-day-2-operations-is-a-smart-business-strategy.html&#34;&gt;1&lt;/a&gt;], [&lt;a href=&#34;https://dzone.com/articles/defining-day-2-operations&#34;&gt;2&lt;/a&gt;]) have spun off from the original Butler project, and still other projects have been created from scratch to solve specific challenges around developing Sense apps and running Qlik Sense server environments or developing apps for Qlik Sense Cloud.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Versions</title>
-      <link>http://localhost:1313/docs/about/versioning/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/about/versioning/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/about/versioning/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/about/versioning/</guid>
       <description>&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;&#xA;&lt;p&gt;In the spirit of not copying information to several places, the version history is kept as annotations of each release on the &lt;a href=&#34;https://github.com/ptarmiganlabs/butler/releases&#34;&gt;GitHub release page&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Version numbers include up to 3 levels, for example version 4.6.2 (which is a fictitious version):&lt;/p&gt;&#xA;&lt;p&gt;4 is the &lt;strong&gt;major&lt;/strong&gt; version. It is increased when Butler has added major new features, or in other ways changed in major ways. If following this principle, breaking changes should always result in a bumped major version.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Contribution guidelines</title>
-      <link>http://localhost:1313/docs/about/contributing/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/about/contributing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/about/contributing/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/about/contributing/</guid>
       <description>&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;&#xA;&lt;p&gt;Butler is an open source project, using the &lt;a href=&#34;https://choosealicense.com/licenses/mit/&#34;&gt;MIT license&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This means that all source code, documentation etc is available as-is, at no cost.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;It however also means that anyone interested can - and is encouraged to - contribute to the project!&lt;/strong&gt;&lt;/p&gt;&#xA;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;p&gt;Butler is developed in &lt;a href=&#34;https://nodejs.org&#34;&gt;Node.js&lt;/a&gt;, with support from various &lt;a href=&#34;https://www.npmjs.com/&#34;&gt;NPM&lt;/a&gt; modules.&lt;/p&gt;&#xA;&lt;p&gt;We use &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; to format and generate this documentation site, the &lt;a href=&#34;https://github.com/google/docsy&#34;&gt;Docsy&lt;/a&gt; theme for styling and site structure.&lt;br&gt;&#xA;Hugo is an open-source static site generator that provides us with templates, content organization in a standard directory structure, and a website generation engine. You write the pages in Markdown (or HTML if you want), and Hugo wraps them up into a website.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Telemetry</title>
-      <link>http://localhost:1313/docs/about/telemetry/</link>
+      <link>https://butler.ptarmiganlabs.com/docs/about/telemetry/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/about/telemetry/</guid>
+      <guid>https://butler.ptarmiganlabs.com/docs/about/telemetry/</guid>
       <description>&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;&#xA;&lt;p&gt;Sharing telemetry data from Butler is optional.&lt;br&gt;&#xA;You can use all Butler features without sharing telemetry data.&lt;/p&gt;&#xA;&lt;p&gt;That said, if you find the Butler tool useful you are &lt;strong&gt;strongly encouraged&lt;/strong&gt; to leave Butler&amp;rsquo;s telemetry feature turned on.&lt;br&gt;&#xA;Having access to this data greatly helps the Butler developers when they design new features, fix bugs etc.&lt;/p&gt;&#xA;&lt;p&gt;The Butler developers care about you - sharing telemetry data is your way of showing you care about them.&lt;/p&gt;</description>
     </item>
   </channel>

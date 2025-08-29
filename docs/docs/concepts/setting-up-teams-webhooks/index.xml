@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sending messages to MS Teams on Butler</title>
-    <link>http://localhost:1313/docs/concepts/setting-up-teams-webhooks/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/concepts/setting-up-teams-webhooks/</link>
     <description>Recent content in Sending messages to MS Teams on Butler</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:1313/docs/concepts/setting-up-teams-webhooks/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://butler.ptarmiganlabs.com/docs/concepts/setting-up-teams-webhooks/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

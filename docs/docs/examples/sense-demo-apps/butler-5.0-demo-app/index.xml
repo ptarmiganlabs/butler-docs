@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Using Butler APIs from Sense load script on Butler</title>
-    <link>http://localhost:1313/docs/examples/sense-demo-apps/butler-5.0-demo-app/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/examples/sense-demo-apps/butler-5.0-demo-app/</link>
     <description>Recent content in Using Butler APIs from Sense load script on Butler</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:1313/docs/examples/sense-demo-apps/butler-5.0-demo-app/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://butler.ptarmiganlabs.com/docs/examples/sense-demo-apps/butler-5.0-demo-app/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

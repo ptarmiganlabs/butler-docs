@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sense apps that explain and highlight various Butler features on Butler</title>
-    <link>http://localhost:1313/docs/examples/sense-demo-apps/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/examples/sense-demo-apps/</link>
     <description>Recent content in Sense apps that explain and highlight various Butler features on Butler</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:1313/docs/examples/sense-demo-apps/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://butler.ptarmiganlabs.com/docs/examples/sense-demo-apps/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

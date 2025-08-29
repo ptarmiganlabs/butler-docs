@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker healthcheck on Butler</title>
-    <link>http://localhost:1313/docs/getting-started/setup/docker-health-check/</link>
+    <link>https://butler.ptarmiganlabs.com/docs/getting-started/setup/docker-health-check/</link>
     <description>Recent content in Docker healthcheck on Butler</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="http://localhost:1313/docs/getting-started/setup/docker-health-check/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://butler.ptarmiganlabs.com/docs/getting-started/setup/docker-health-check/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
