@@ -7,3 +7,4 @@ tech-doc-hugo
 
 .DS_Store
 content/en/docs/.DS_Store
+hugo_extended_*.tar.gz
