@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# VitePress cache
+.vitepress/cache/
+.vitepress/dist/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
