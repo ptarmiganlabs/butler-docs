@@ -41,7 +41,7 @@ Running Butler as a standalone app is in most cases the easiest way to use Butle
 
 ### Windows
 
-Running standalone Butler on Windows Server 2016 looks like this:
+Running standalone Butler on Windows Server looks like this:
 
 ```powershell
 PS C:\tools\butler> .\butler.exe
@@ -223,14 +223,6 @@ Options:
 Looking at the above, it's actually possible to use the `--configfile` to specify which config file to use.
 
 Similarly the `--loglevel` option can be used to control Butler's logging.
-
-::: tip
-Any option given on the command line will override the same setting in the config file
-:::
-
-### Windows services
-
-On Windows you can use the excellent [Nssm](https://nssm.cc/) tool to make Node.js (and also the Butler app) run as a Windows Service, with all the benefits that follow (can be monitored using operations tools, automatic restarts etc).
 
 ## Command line options
 

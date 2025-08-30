@@ -8,8 +8,8 @@
     "serve": "vitepress serve docs"
   },
   "devDependencies": {
-    "vue": "3.2.44",
-    "vitepress": "1.0.0-alpha.28"
+    "vitepress": "^1.6.4",
+    "vue": "^3.5.20"
   },
   "pnpm": {
     "peerDependencyRules": {
@@ -17,5 +17,10 @@
         "@algolia/client-search"
       ]
     }
+  },
+  "dependencies": {
+    "swagger-ui-dist": "^5.28.0",
+    "swagger-ui-react": "^5.28.0",
+    "vitepress-openapi": "^0.1.9"
   }
 }
