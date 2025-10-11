@@ -2,42 +2,72 @@
  * Custom CSS for Butler documentation
  * 
  * Makes the site wider to better accommodate tables and content
+ * by expanding the overall layout and utilizing more screen width
  */
 
-/* Increase the maximum width of the documentation content area */
+/* Increase the maximum width of the overall layout */
 :root {
-  /* Default VitePress max-widths are too narrow for our tables */
-  --vp-layout-max-width: 1440px;
+  /* Increase overall layout max-width significantly */
+  --vp-layout-max-width: 1920px;
 }
 
-/* Widen the main documentation content area */
-/* Using high specificity to override VitePress defaults without !important */
-/* Note: .VPDoc and .vp-doc are part of VitePress's theme API and stable across versions */
+/* Widen the main container to use most of the screen */
+.VPDoc .container,
+.VPContent .container {
+  max-width: 1920px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Widen the main documentation content area significantly */
 .VPDoc .vp-doc {
-  /* Default is 688px (43rem). Increasing to allow tables to breathe */
-  max-width: 90rem; /* 1440px */
+  /* Increase from default 688px to much wider */
+  max-width: none !important;
 }
 
-/* Ensure the content container can use the full width */
+/* KEY FIX: Adjust the flex layout to give more space to content */
 .VPDoc.has-aside .content-container {
-  max-width: none;
+  max-width: none !important;
 }
 
-/* Make the container use more of the available space */
-.VPDoc .container {
-  max-width: var(--vp-layout-max-width);
+/* Give the content area more flex space */
+.VPDoc.has-aside .content {
+  flex-grow: 3 !important;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
-/* Responsive adjustments - keep reasonable width on smaller screens */
-@media (max-width: 1440px) {
+/* Reduce sidebar flex to give content more room */
+.VPSidebar {
+  flex-shrink: 0 !important;
+  width: 256px !important;
+}
+
+/* Reduce right sidebar (On this page) to give content more room */
+.VPDocAside {
+  flex-shrink: 0 !important;
+  width: 200px !important;
+}
+
+/* For really wide screens */
+@media (min-width: 1680px) {
   .VPDoc .vp-doc {
-    max-width: 85vw;
+    max-width: none !important;
+  }
+  
+  .VPSidebar {
+    width: 280px !important;
+  }
+  
+  .VPDocAside {
+    width: 240px !important;
   }
 }
 
+/* Responsive adjustments - keep reasonable width on smaller screens */
 @media (max-width: 960px) {
   .VPDoc .vp-doc {
-    max-width: 95vw;
+    max-width: 95vw !important;
   }
 }
 
