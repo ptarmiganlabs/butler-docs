@@ -1,17 +1,29 @@
 ---
-title: "Reload alerts via Slack"
+title: "Task alerts via Slack"
 linkTitle: "Slack"
 weight: 40
 description: >
-  Description of how reload alerts can be sent as Slack messages.
+  Description of how task alerts can be sent as Slack messages.
 ---
 
 ## What's this?
 
-Butler can send two kinds of alert messages via Slack:
+Butler can send alert messages via Slack for **reload tasks only**:
 
-- When a reload task fails.
-- When a reload task is stopped/aborted.
+- When a reload task fails
+- When a reload task is stopped/aborted
+
+::: info Task type limitation
+Slack notifications are **only available for reload tasks** (failed and aborted).  
+This feature is not supported for:
+- Distribute tasks
+- Preload tasks
+- External program tasks
+- User sync tasks
+- Successful reload tasks
+
+For these task types, use [Email alerts](/docs/getting-started/setup/reload-alerts/client-managed/alert-emails/) or [InfluxDB metrics](/docs/getting-started/setup/reload-alerts/client-managed/alert-influxdb/) instead.
+:::
 
 See the [Concepts section](/docs/concepts/setting-up-teams-webhooks/) for additional details.
 
@@ -19,7 +31,7 @@ A complete reference to the config file format is found [here](/docs/reference/c
 
 ## Basic vs formatted Slack alerts
 
-Slack alerts come in two forms:
+Slack alerts for reload tasks come in two forms:
 
 - Customizable formatting using a template concept. A standard template that will fit most use cases is included with Butler. Using this option the first and last parts of the script log can be included in the message, allowing you to tell from the Slack message what caused the reload to fail.  
   You can also add buttons to the message that can be used to open any URL you want, or open the app that failed reloading.
@@ -115,6 +127,10 @@ Those xml files are the foundation on top of which all Butler alerts are built -
 The concept is the same for all alert types, see the [email alerts](/docs/getting-started/setup/reload-alerts/#how-it-works) for details.
 
 ## Settings in config file
+
+::: info
+The configuration below is for **reload tasks only**. Slack notifications are not available for other task types (distribute, preload, external program, user sync).
+:::
 
 ```yaml
 ---
