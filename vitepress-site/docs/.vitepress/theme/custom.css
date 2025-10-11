@@ -12,6 +12,7 @@
 
 /* Widen the main documentation content area */
 /* Using high specificity to override VitePress defaults without !important */
+/* Note: .VPDoc and .vp-doc are part of VitePress's theme API and stable across versions */
 .VPDoc .vp-doc {
   /* Default is 688px (43rem). Increasing to allow tables to breathe */
   max-width: 90rem; /* 1440px */
