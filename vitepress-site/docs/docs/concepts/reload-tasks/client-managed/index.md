@@ -1,12 +1,12 @@
 # Client-managed Qlik Sense
 
-Below follows a list of destinations to which Butler can send notifications when a reload task fails or is aborted.
+Butler can send notifications to various destinations when a reload task fails, succeeds or is aborted in client-managed Qlik Sense.
 
-A comparison of the different alert destinations can be options can be found in the [setup documentation](/docs/getting-started/setup/reload-alerts/).
+A comparison of the different destinations is available in the [setup documentation](/docs/getting-started/setup/reload-alerts/client-managed/).
 
 ## Alert Destinations
 
-Butler supports multiple notification channels for reload failures in client-managed Qlik Sense:
+Butler supports several notification channels for reload task notifications in client-managed Qlik Sense:
 
 ### Email Notifications
 
@@ -33,7 +33,7 @@ Butler supports multiple notification channels for reload failures in client-man
 
 ## Key Features
 
-All alert destinations support:
+The exact data sent to each destination varies, with the general features being:
 
 - **Rich Context**: Include app metadata, error details, and script log excerpts
 - **Custom Templates**: Handlebars-based templating for personalized alert content
@@ -43,11 +43,11 @@ All alert destinations support:
 
 ## Configuration Overview
 
-Each alert destination can be configured independently with:
+Alert destinations can be configured with:
 
-- **Trigger Conditions**: When to send alerts (failed, aborted, or both)
+- **Trigger Conditions**: When to send alerts (failed, aborted, succeeded)
 - **Content Formatting**: What information to include in alerts
 - **Recipient Targeting**: Who should receive alerts for different scenarios
 - **Delivery Options**: How and when alerts are delivered
 
-For detailed configuration instructions, see the [setup documentation](/docs/getting-started/setup/reload-alerts/).
+For detailed configuration instructions, see the [setup documentation](/docs/getting-started/setup/reload-alerts/client-managed/).

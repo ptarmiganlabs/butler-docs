@@ -16,13 +16,14 @@ Butler's reload alerting capabilities vary depending on your Qlik Sense deployme
 
 **[Client-managed Qlik Sense](/docs/concepts/failed-reloads/client-managed/)** environments provide the most comprehensive alerting capabilities through Butler's integration with the Qlik Sense logging system.
 
-**Available Alert Destinations**:
+**Available Alert/Data Destinations**:
 
 - **[Email Notifications](/docs/concepts/failed-reloads/client-managed/alert-emails/)** - Rich HTML emails with script logs and custom formatting
 - **[Slack & Teams](/docs/concepts/failed-reloads/client-managed/alerts-slack-teams/)** - Real-time messages to collaboration platforms
 - **[Incident Management](/docs/concepts/incident-management/)** - Integration with New Relic, Signl4, and other platforms
 - **Data Storage** - InfluxDB metrics and MQTT publishing
 - **File System** - Automated script log storage and webhooks
+- **Webhooks** - Send HTTP callbacks to custom endpoints
 
 **Trigger Events**:
 
@@ -43,7 +44,7 @@ For Qlik Sense Cloud (SaaS) deployments, Butler's alerting capabilities are more
 **Limitations**:
 
 - No direct access to Qlik Sense logs
-- Reduced real-time event detection
+- No real-time event detection
 - Limited customization options
 
 ## Key Capabilities
@@ -93,6 +94,8 @@ graph LR
     E --> F[Email/Slack/Teams]
     E --> G[Incident Management]
     E --> H[Data Storage]
+    E --> I[Script Logs to File System]
+    E --> J[Webhooks]
 ```
 
 ### Alert Processing Flow
@@ -102,76 +105,6 @@ graph LR
 3. **Context Enrichment**: Additional metadata retrieved from Qlik Sense APIs
 4. **Template Processing**: Handlebars templates populated with event data
 5. **Multi-Channel Delivery**: Alerts sent to configured destinations
-6. **Acknowledgment Tracking**: Monitor delivery status and retries
-
-## Configuration Overview
-
-### Basic Configuration
-
-```yaml
-Butler:
-  # Enable reload failure alerts
-  alerting:
-    reloadTaskFailure:
-      enable: true
-      destinations: ["email", "slack", "teams"]
-
-    reloadTaskAborted:
-      enable: true
-      destinations: ["email", "teams"]
-
-  # Email configuration
-  emailNotification:
-    enable: true
-    smtp:
-      host: "smtp.company.com"
-      port: 587
-    from: "Butler <butler@company.com>"
-    to: ["ops@company.com"]
-
-  # Slack configuration
-  slackNotification:
-    enable: true
-    webhook: "https://hooks.slack.com/services/..."
-    channel: "#qlik-alerts"
-
-  # Teams configuration
-  teamsNotification:
-    enable: true
-    webhook: "https://company.webhook.office.com/..."
-```
-
-### Advanced Configuration
-
-```yaml
-Butler:
-  # Conditional alerting
-  alerting:
-    conditions:
-      # Only alert for production apps
-      productionOnly:
-        enable: true
-        customProperty: "Environment"
-        requiredValue: "Production"
-
-      # Skip test tasks
-      excludeTestTasks:
-        enable: true
-        taskNameFilter: ["*test*", "*dev*"]
-
-    # Rate limiting
-    rateLimit:
-      enable: true
-      maxAlertsPerHour: 20
-      groupSimilarAlerts: true
-
-  # Custom templates
-  templates:
-    reloadFailure:
-      email: "/templates/reload-failed-email.html"
-      slack: "/templates/reload-failed-slack.json"
-      teams: "/templates/reload-failed-teams.json"
-```
 
 ## Best Practices
 
@@ -233,22 +166,8 @@ Butler:
 - Review rate limiting and throttling settings
 - Optimize template complexity and size
 
-### Debug Configuration
-
-```yaml
-Butler:
-  # Enable debug logging
-  logLevel: debug
-
-  # Log all alert processing
-  alerting:
-    debug: true
-    logTemplateProcessing: true
-    logDestinationResponses: true
-```
-
 ::: tip Getting Started
-Start with basic email or Slack notifications for reload failures, then gradually add more destinations and customize templates based on your team's workflow and requirements.
+Start with InfluxDB or email notifications for reload failures, then gradually add more destinations and customize templates based on your team's workflow and requirements.
 :::
 
 ::: warning Log Appender Dependency
