@@ -203,6 +203,7 @@ export default defineConfig({
                   ]
                 },
                 { text: 'Start task filter', link: '/docs/getting-started/setup/start-task-filter/' },
+                { text: 'System information', link: '/docs/getting-started/setup/system-info/' },
                 { text: 'Telemetry', link: '/docs/getting-started/setup/telemetry/' },
                 { text: 'Visualise config file', link: '/docs/getting-started/setup/visualise-config-file/' }
               ]
