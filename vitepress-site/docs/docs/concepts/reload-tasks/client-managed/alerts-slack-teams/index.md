@@ -30,9 +30,19 @@ This message type is useful if you only want a short, basic notification that a 
 
 Basic and formatted reload task failure notifications can look like this in Teams:
 
-![Basic failed reload notification in Microsoft Teams](/img/failed-reload-teams-basic_1.png)
+<ResponsiveImage 
+  src="/img/failed-reload-teams-basic_1.png" 
+  alt="Basic failed reload notification in Microsoft Teams"
+  maxWidth="700px"
+  caption="Basic reload failure alert in Teams showing essential information"
+/>
 
-![Formatted failed reload notification in Microsoft Teams](/img/failed-reload-teams-formatted_1.png)
+<ResponsiveImage 
+  src="/img/failed-reload-teams-formatted_1.png" 
+  alt="Formatted failed reload notification in Microsoft Teams"
+  maxWidth="700px"
+  caption="Formatted reload failure alert with rich card layout and detailed information"
+/>
 
 ### Teams Configuration Example
 
@@ -71,9 +81,19 @@ Butler:
 
 Basic and formatted reload task failure notifications can look like this in Slack:
 
-![Basic failed reload notification in Slack](/img/failed-reload-slack-basic_1.png)
+<ResponsiveImage 
+  src="/img/failed-reload-slack-basic_1.png" 
+  alt="Basic failed reload notification in Slack"
+  maxWidth="700px"
+  caption="Basic reload failure alert in Slack"
+/>
 
-![Formatted failed reload notification in Slack](/img/failed-reload-slack-formatted_1.png)
+<ResponsiveImage 
+  src="/img/failed-reload-slack-formatted_1.png" 
+  alt="Formatted failed reload notification in Slack"
+  maxWidth="700px"
+  caption="Formatted reload failure alert with rich formatting and script log"
+/>
 
 ### Slack Configuration Example
 

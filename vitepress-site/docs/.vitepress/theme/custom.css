@@ -1,0 +1,53 @@
+/* Custom styles for Butler documentation */
+
+/* Global image constraints for markdown images */
+.vp-doc img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: zoom-in;
+}
+
+.vp-doc img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Constrain very large images */
+.vp-doc p > img {
+  max-width: 900px;
+  display: block;
+  margin: 1.5rem auto;
+}
+
+/* Dark mode support */
+.dark .vp-doc img {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dark .vp-doc img:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Medium zoom overlay styles */
+.medium-zoom-overlay {
+  z-index: 100;
+}
+
+.medium-zoom-image--opened {
+  z-index: 101;
+  cursor: zoom-out;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .vp-doc img {
+    border-radius: 4px;
+  }
+  
+  .vp-doc p > img {
+    margin: 1rem auto;
+  }
+}

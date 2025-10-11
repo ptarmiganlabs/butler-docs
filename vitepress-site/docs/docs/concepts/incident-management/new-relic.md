@@ -69,27 +69,57 @@ Butler provides rich operational dashboards when integrated with New Relic:
 
 ### Light Mode Dashboard
 
-![New Relic metrics & incident dashboard (light mode)](/img/concepts/incident-mgmt-tools/new-relic/new-relic-dashboard-1.png)
+<ResponsiveImage 
+  src="/img/concepts/incident-mgmt-tools/new-relic/new-relic-dashboard-1.png" 
+  alt="New Relic metrics & incident dashboard (light mode)"
+  maxWidth="900px"
+  caption="New Relic dashboard showing Butler metrics and incidents in light mode"
+/>
 
 ### Dark Mode Dashboard with Different Time Range
 
-![New Relic metrics & incident dashboard (dark mode)](/img/new-relic-senseops-1.png)
+<ResponsiveImage 
+  src="/img/new-relic-senseops-1.png" 
+  alt="New Relic metrics & incident dashboard (dark mode)"
+  maxWidth="900px"
+  caption="New Relic dashboard with different time range in dark mode"
+/>
 
 ### Detailed Failure Information
 
-![Detailed information about failed reloads with script logs](/img/new-relic-senseops-2.png)
+<ResponsiveImage 
+  src="/img/new-relic-senseops-2.png" 
+  alt="Detailed information about failed reloads with script logs"
+  maxWidth="900px"
+  caption="Detailed failed reload information including script logs"
+/>
 
 ### Butler SOS Metrics Integration
 
-![Butler SOS metrics in dark mode New Relic dashboard](/img/new-relic-senseops-3.png)
+<ResponsiveImage 
+  src="/img/new-relic-senseops-3.png" 
+  alt="Butler SOS metrics in dark mode New Relic dashboard"
+  maxWidth="900px"
+  caption="Butler SOS operational metrics integrated with New Relic"
+/>
 
 ### Incidents Overview
 
-![New Relic incidents overview page (dark mode)](/img/new-relic-alert-overview-1.png)
+<ResponsiveImage 
+  src="/img/new-relic-alert-overview-1.png" 
+  alt="New Relic incidents overview page (dark mode)"
+  maxWidth="900px"
+  caption="New Relic incidents overview showing alert history"
+/>
 
 ### Alert Conditions Management
 
-![New Relic alert conditions (dark mode)](/img/new-relic-alert-conditions-1.png)
+<ResponsiveImage 
+  src="/img/new-relic-alert-conditions-1.png" 
+  alt="New Relic alert conditions (dark mode)"
+  maxWidth="900px"
+  caption="Configuration of alert conditions in New Relic"
+/>
 
 ## Slack Integration Examples
 
@@ -97,11 +127,21 @@ New Relic can send formatted alerts to Slack channels:
 
 ### Basic Slack Alert
 
-![Basic New Relic Slack alert (dark mode)](/img/new-relic-slack-alert-1.png)
+<ResponsiveImage 
+  src="/img/new-relic-slack-alert-1.png" 
+  alt="Basic New Relic Slack alert (dark mode)"
+  maxWidth="600px"
+  caption="Basic New Relic alert notification in Slack"
+/>
 
 ### Comprehensive Slack Alert
 
-![More comprehensive New Relic Slack alert (dark mode)](/img/new-relic-slack-alert-2.png)
+<ResponsiveImage 
+  src="/img/new-relic-slack-alert-2.png" 
+  alt="More comprehensive New Relic Slack alert (dark mode)"
+  maxWidth="600px"
+  caption="Comprehensive New Relic alert with detailed information in Slack"
+/>
 
 ## Configuration Requirements
 

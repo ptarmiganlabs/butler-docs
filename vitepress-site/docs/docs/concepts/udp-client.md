@@ -155,7 +155,12 @@ When testing failed reload notifications with Slack enabled, you might see a res
 
 Sending a test message from a simple test script to Slack:
 
-![Slack Test Message](/img/slack_failed_task_1.jpg)
+<ResponsiveImage 
+  src="/img/slack_failed_task_1.jpg" 
+  alt="Slack Test Message"
+  maxWidth="600px"
+  caption="Test message sent from UDP client displayed in Slack"
+/>
 
 The UDP client message triggers Butler's notification pipeline, resulting in formatted messages in your configured destinations.
 

@@ -79,13 +79,19 @@ The data stored in InfluxDB enables powerful Grafana visualizations:
 
 ### Sample Visualizations
 
-![Successful Reload Analytics](/img/butler-grafana-successful-reloads-1.png)
+<ResponsiveImage 
+  src="/img/butler-grafana-successful-reloads-1.png" 
+  alt="Successful Reload Analytics"
+  maxWidth="900px"
+  caption="Dashboard showing reload duration distribution and frequency patterns"
+/>
 
-Example dashboard showing reload duration distribution and frequency patterns
-
-![Reload Task Metadata](/img/butler-grafana-successful-reloads-2.png)
-
-Detailed view showing available metadata for each reload task
+<ResponsiveImage 
+  src="/img/butler-grafana-successful-reloads-2.png" 
+  alt="Reload Task Metadata"
+  maxWidth="900px"
+  caption="Detailed view showing available metadata for each reload task"
+/>
 
 ## Email Notifications
 
@@ -101,9 +107,12 @@ Unlike failed reload notifications, successful reload emails are never automatic
 
 ### Email Example
 
-![Successful Reload Email](/img/butler-qseow-reload-task-success-email-1.png)
-
-Sample email notification for successful reload completion
+<ResponsiveImage 
+  src="/img/butler-qseow-reload-task-success-email-1.png" 
+  alt="Successful Reload Email"
+  maxWidth="800px"
+  caption="Sample email notification for successful reload completion"
+/>
 
 ## Technical Implementation
 

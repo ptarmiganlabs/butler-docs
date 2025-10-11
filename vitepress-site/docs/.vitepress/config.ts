@@ -18,7 +18,7 @@ export default withMermaid({
   sitemap: {
     hostname: "https://butler-sheet-icons.ptarmiganlabs.com",
   },
-  ignoreDeadLinks: true,
+  ignoreDeadLinks: true, // Set to true to ignore dead links and build anyway. False will fail the build if there are any dead links.
   
   head: [
     ["link", { rel: "icon", href: "/favicon.ico" }],
@@ -123,7 +123,7 @@ export default withMermaid({
         },
         {
           text: 'Getting Started',
-          collapsed: false,
+          collapsed: true,
           items: [
             { text: 'Overview', link: '/docs/' },
             { text: 'Installation', link: '/docs/getting-started/install/' },
@@ -314,12 +314,6 @@ export default withMermaid({
                   ]
                 }
               ]
-            },
-            {
-              text: 'Legacy Features',
-              items: [
-                { text: 'Real-time Metrics (Deprecated)', link: '/docs/concepts/real-time-metrics-deprecated' }
-              ]
             }
           ]
         },
@@ -332,7 +326,7 @@ export default withMermaid({
         },
         {
           text: 'Reference',
-          collapsed: false,
+          collapsed: true,
           items: [
             { text: 'Overview', link: '/docs/reference/' },
             { text: 'Config File', link: '/docs/reference/config-file/' },

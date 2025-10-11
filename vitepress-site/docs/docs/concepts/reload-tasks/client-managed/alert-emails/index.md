@@ -27,17 +27,37 @@ Alert emails can be formatted using HTML, use CSS styling, emojis etc. There's n
 
 Alert emails viewed on a mobile phone give direct insight into what has happened:
 
-![Failed reload alert email on mobile home screen](/img/reload-fail-alert-email-mobile-1.png)
-
-![Failed reload alert email viewed on mobile](/img/reload-fail-alert-email-mobile-2.png)
+<div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+  <div style="flex: 1; min-width: 300px; max-width: 400px;">
+    <ResponsiveImage 
+      src="/img/reload-fail-alert-email-mobile-1.png" 
+      alt="Failed reload alert email on mobile home screen"
+      maxWidth="400px"
+      caption="Alert notification displayed on mobile device home screen"
+    />
+  </div>
+  <div style="flex: 1; min-width: 300px; max-width: 400px;">
+    <ResponsiveImage 
+      src="/img/reload-fail-alert-email-mobile-2.png" 
+      alt="Failed reload alert email viewed on mobile"
+      maxWidth="400px"
+      caption="Full alert email viewed on mobile device"
+    />
+  </div>
+</div>
 
 ### Desktop Email Clients
 
 In a regular email client a reload failed email could look like below.
 
-**Note the end of the script** - the last few lines of the reload log are often very useful when it comes to understanding what caused the reload failure.
+Note the end of the script - the last few lines of the reload log are often very useful when it comes to understanding what caused the reload failure.
 
-![Reload failed alert email](/img/failed_reload_email_2.png)
+<ResponsiveImage 
+  src="/img/failed_reload_email_2.png" 
+  alt="Reload failed alert email"
+  maxWidth="800px"
+  caption="Reload failure alert email showing script log excerpt"
+/>
 
 ## Basic Alert Emails vs Butler Enhanced
 
@@ -61,7 +81,12 @@ This feature assumes the app owner's user account (in the Sense user directory) 
 
 _If_ an email address is available for a Sense user, the QMC user section can look like this:
 
-![Email address available for Qlik Sense user](/img/qlik_sense_user_email_address_1.png)
+<ResponsiveImage 
+  src="/img/qlik_sense_user_email_address_1.png" 
+  alt="Email address available for Qlik Sense user"
+  maxWidth="700px"
+  caption="Email address field in Qlik Sense QMC user configuration"
+/>
 
 ## Selective Alert Configuration
 
@@ -73,7 +98,12 @@ As of Butler 7.4.0 it is possible to control per task if an alert email should b
 
 Conceptually it works like this:
 
-![Switching alert emails on/off per reload task](/img/butler-alert-emails-on-off-per-task-1.png)
+<ResponsiveImage 
+  src="/img/butler-alert-emails-on-off-per-task-1.png" 
+  alt="Switching alert emails on/off per reload task"
+  maxWidth="650px"
+  caption="Flow diagram showing selective email alert configuration"
+/>
 
 Instructions for how to configure this feature is available in the [setup documentation](/docs/getting-started/setup/task-alerts/alert-emails/#send-alerts-only-for-some-tasks).
 
@@ -91,7 +121,12 @@ Butler handles this scenario by using a custom property (its name is configurabl
 
 Conceptually it works like this:
 
-![Task specific alert email recipients](/img/butler-different-recipients-alert-emails-1.png)
+<ResponsiveImage 
+  src="/img/butler-different-recipients-alert-emails-1.png" 
+  alt="Task specific alert email recipients"
+  maxWidth="650px"
+  caption="Conceptual diagram of task-specific email routing"
+/>
 
 Instructions for how to configure this feature is available in the [setup documentation](/docs/getting-started/setup/task-alerts/alert-emails/#send-alerts-to-specific-people-for-some-tasks).
 
@@ -105,7 +140,12 @@ Butler uses a templating engine called [Handlebars](https://handlebarsjs.com/gui
 
 The high-level system overview below shows how email (and other alert types) are sent by Butler:
 
-![Butler high level system overview](/img/butler-log4net-appenders-1.png)
+<ResponsiveImage 
+  src="/img/butler-log4net-appenders-1.png" 
+  alt="Butler high level system overview"
+  maxWidth="900px"
+  caption="High-level architecture showing Butler's alert email flow"
+/>
 
 ### Template Fields
 

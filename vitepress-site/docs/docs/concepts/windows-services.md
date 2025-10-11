@@ -27,7 +27,12 @@ Butler can send service status data to InfluxDB, enabling powerful Grafana dashb
 
 ### Service Timeline Visualization
 
-![Qlik Sense Services Timeline](/img/butler-grafana-windows-service-1.png)
+<ResponsiveImage 
+  src="/img/butler-grafana-windows-service-1.png" 
+  alt="Qlik Sense Services Timeline"
+  maxWidth="900px"
+  caption="Grafana state timeline showing Qlik Sense service status across 4 servers over time"
+/>
 
 This Grafana "state timeline" chart shows Qlik Sense service status across 4 servers over time. The red bars indicate when all services were restarted, with additional shorter outages visible on some servers.
 
@@ -43,7 +48,12 @@ With service data in InfluxDB, you can create Grafana alerts that trigger when s
 
 Butler uses an internal state machine to track service status and detect changes:
 
-![Service State Machine](/img/butler-windows-service-state-machine-1.png)
+<ResponsiveImage 
+  src="/img/butler-windows-service-state-machine-1.png" 
+  alt="Service State Machine"
+  maxWidth="650px"
+  caption="State machine diagram showing service state transitions"
+/>
 
 ### State Transitions
 

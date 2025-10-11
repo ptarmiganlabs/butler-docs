@@ -25,6 +25,7 @@
     }
   },
   "dependencies": {
+    "medium-zoom": "^1.1.0",
     "swagger-ui-dist": "^5.29.4",
     "swagger-ui-react": "^5.29.4",
     "vitepress-openapi": "^0.1.9"
