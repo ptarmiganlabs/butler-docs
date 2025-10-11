@@ -3,11 +3,14 @@
 Please meet the Butlers. They're a nice, wild bunch!
 
 Butler started out with a very specific need to start Sense reloads from outside systems.  
-Back in those days the cloud wasn't a thing, and Sense was only available on Windows servers.
+Back in those days (early 2010s) the cloud wasn't really a thing, and Sense was only available on Windows servers.
 
-Over the years a few projects (for example Butler SOS, which simplifies day 2 operations of client-managed Sense ([[1](https://www.infoworld.com/article/3442754/why-de-risking-day-2-operations-is-a-smart-business-strategy.html)], [[2](https://dzone.com/articles/defining-day-2-operations)]) have spun off from the original Butler project, and still other projects have been created from scratch to solve specific challenges around developing Sense apps and running Qlik Sense server environments or developing apps for Qlik Sense Cloud.
+Over the years a few projects (for example Butler SOS, which provides real-time monitoring of client-managed Qlik Sense environments) have spun off from the original Butler project, and still other projects have been created from scratch to solve specific challenges around developing Sense apps and running Qlik Sense server environments or developing apps for Qlik Sense Cloud.
 
-All members of the Butler family are available on [Ptarmigan Labs' GitHub page](https://github.com/ptarmiganlabs).
+Butler and Butler SOS both focus on enhancing the operational aspects of Qlik Sense deployments, especially Butler SOS focus on day 2 operations ([[1](https://www.infoworld.com/article/3442754/why-de-risking-day-2-operations-is-a-smart-business-strategy.html)], [[2](https://dzone.com/articles/defining-day-2-operations)]).
+
+All members of the Butler family are available on [Ptarmigan Labs' GitHub page](https://github.com/ptarmiganlabs).  
+There are also a rich set of blog posts covering various topics related to Butler and its ecosystem over at [ptarmiganlabs.com](https://ptarmiganlabs.com).
 
 ## Projects with production grade release status
 
@@ -43,7 +46,7 @@ It's a cross platform command line tool which given the correct Sense credential
 
 No more manual screenshot taking, resizing images, navigating hundreds of sheets in dozens of apps. Start Butler Sheet Icons instead and go get a nice [fika](https://www.swedishfood.com/fika).
 
-The tool can be used stand-along or as part of an automated release process.
+The tool can be used stand-alone or as part of an automated release process.
 
 **[View on GitHub →](https://github.com/ptarmiganlabs/butler-sheet-icons)**
 
@@ -55,7 +58,7 @@ Given the name of this tool it doesn't sound like a member of the Butler family.
 
 While the Butler tools are (usually) intended to solve and simplify rather specific use cases, Ctrl-Q is aimed at being the lazy Qlik developer's best friend.
 
-Let's say there is some manual, tedious, time consuming and error prone activity that a Qlik Sense developer is faced with. For example importing dozens of apps from QVF files and creating a hundred associated reload tasks. Ctrl-Q lets you do this with a single command, using definitions in an Excel file. Instead of spending a day on this the actual execution takes a minute or so.
+Let's say there is some manual, tedious, time consuming and error prone activity that a Qlik Sense developer or admin is faced with. For example importing dozens of apps from QVF files and creating a hundred associated reload tasks. Ctrl-Q lets you do this with a single command, using definitions in an Excel file. Instead of spending a day on this the actual execution takes a minute or so.
 
 In other words: Ctrl-Q focus on high-value use cases that are difficult or impossible to solve using other tools.
 

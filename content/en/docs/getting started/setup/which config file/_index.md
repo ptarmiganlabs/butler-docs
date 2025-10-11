@@ -25,15 +25,15 @@ As of Butler 9.0 the config file's structure will be validated when Butler start
 This means that all config file entries are mandatory. If some feature is not use the corresponding entry can be left empty.
 {{% /alert %}}
 
-Finally, Butler must somehow be given instructions about where to look for the config file.  
-This can be done in several ways depending on how Butler is used, see below.
+Finally, Butler must be given instructions about where to look for the config file.  
+As of newer Butler versions the -c/--configfile option is mandatory in all run modes, see below.
 
 ### Config file for stand-alone Butler
 
-Let's run Butler on a Windows Server using PowerShell, without any options or parameters:
+Let's show the built-in help to see available options:
 
 ```powershell
-PS C:\tools\butler> .\butler.exe
+PS C:\tools\butler> .\butler.exe --help
 Usage: butler [options]
 
 Butler gives superpowers to client-managed Qlik Sense Enterprise on Windows!
@@ -54,7 +54,11 @@ Options:
 PS C:\tools\butler>
 ```
 
-There is an option `--configfile` (or its short version `-c`) that let us control which config file to use.  
+{{% alert title="Mandatory -c/--configfile" color="warning" %}}
+You must specify `--configfile` (or its short version `-c`) to tell Butler which config file to use.
+{{% /alert %}}
+
+There is an option `--configfile` (or its short version `-c`) that lets us control which config file to use.  
 In this example the config file `.\config\butler-config.yaml` is used.  
 Let's try again with the `-c` option:
 

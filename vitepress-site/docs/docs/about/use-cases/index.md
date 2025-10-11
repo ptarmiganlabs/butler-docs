@@ -37,9 +37,9 @@ For email alerts both subject and body of the email can be templated.
 
 For both Slack and Teams there are options to use more flexible/configurable alert formats and more basic pre-configured alerts.
 
-The result is a very powerful tool for both QSEoW sysadmins and those responsible for Qlik Cloud tenants, who both want to be notified when reloads fail.
+The result is a very powerfulk tool for both QSEoW sysadmins and those responsible for Qlik Cloud tenants, who both want to be notified when reloads fail.
 
-More info [here](/docs/getting-started/setup/reload-alerts/). TODO
+More info in the [Concepts section](/docs/concepts/failed-reloads/).
 
 ## Forward failed reload events to incident management systems (New Relic, Signl4)
 
@@ -55,6 +55,8 @@ Both offer incident management features on both the web and via mobile clients.
 Information about failed/aborted reloads can be sent to one or more New Relic accounts.  
 Tags for the reload task and associated app is sent to New Relic as metadata for the event/log entry that's created there.
 
+More info in the [Concepts section](/docs/concepts/failed-reloads/). TODO
+
 ## Send alerts when reload tasks succeed
 
 Knowing about failed reloads is important, but sometimes it's just as important to know when a reload has succeeded.
@@ -64,11 +66,12 @@ Nicely formatted with all the details you need.
 
 Controlling which tasks should send success alerts is done using custom properties or via Butler's config file.
 
-More info [here](/docs/concepts/successful-reloads/). TODO
+More info in the [Concepts section](/docs/concepts/successful-reloads.html).
 
 ## Use InfluxDB/Grafana or New Relic to track Butler memory usage
 
-Butler can be configured to log its own memory usage to [InfluxDB](https://www.influxdata.com/products/), from where it can be visualized using [Grafana](https://grafana.com).
+Butler can be configured to log its own memory usage to [InfluxDB](https://www.influxdata.com/products/), from where it can be visualized using [Grafana](https://grafana.com).  
+This is useful for understanding the resource consumption of Butler and ensuring it operates efficiently.
 
 If you prefer using [New Relic](https://newrelic.com) that's possible too - sending Butler memory metrics to New Relic is super simple: Just add your New Relic credentials in the YAML config file or as command line options when starting Butler and you're set.
 
@@ -85,7 +88,7 @@ This can happen due to lots of reasons, from uncontrollable events that are impo
 No matter what the cause is, as a Sense administrator you probably want to investigate the script reload logs.
 
 Butler can send notifications (Slack, Teams, email, webhooks, ...) when reloads fail.  
-These notifications can include the last 20-30-40 lines of the script log and this usually gives a good idea of what caused the reload to fail.
+These notifications can include the last 20-30-40 (configurable!) lines of the script log and this usually gives a good idea of what caused the reload to fail.
 
 But what if you want to look at the _complete_ reload log of that failed app reload?
 

@@ -18,7 +18,7 @@ This is a placeholder page that shows you how to use this template site.
 Running standalone Butler on Windows Server 2016 looks like this:
 
 ```powershell
-PS C:\tools\butler> .\butler.exe
+PS C:\tools\butler> .\butler.exe --help
 Usage: butler [options]
 
 Butler gives superpowers to client-managed Qlik Sense Enterprise on Windows!
@@ -38,6 +38,10 @@ Options:
   -h, --help                           display help for command
 PS C:\tools\butler>
 ```
+
+{{< notice warning >}}
+The -c/--configfile option is now mandatory. Always provide a path to a valid Butler YAML config file when starting Butler.
+{{< /notice >}}
 
 Adding the `--configfile` option and pointing it to a valid config file gives Butler everything needed to start.
 
@@ -102,7 +106,7 @@ A step-by-step tutorial for running Butler as a Windows service is available ove
 Running the standalone Butler tool without any parameters gives you a help text that explains which commands and options are available:
 
 ```bash
-➜  butler ./butler
+➜  butler ./butler --help
 Usage: butler [options]
 
 Butler gives superpowers to client-managed Qlik Sense Enterprise on Windows!

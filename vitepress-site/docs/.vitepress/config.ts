@@ -1,27 +1,58 @@
 import { defineConfig } from 'vitepress'
 
+// Generated at build time by scripts/fetch-butler-version.mjs
+import { version as butlerVersion } from "./version.js";
+
+
 // https://vitepress.vuejs.org/config/app-configs
 export default defineConfig({
   title: 'Butler',
   description: 'Butler documentation',
   base: '/',
+  lang: "en-US",
+  cleanUrls: true,
+  sitemap: {
+    hostname: "https://butler-sheet-icons.ptarmiganlabs.com",
+  },
   
   head: [
-    ['script', { 
-      defer: '', 
-      'data-domain': 'butler.ptarmiganlabs.com', 
-      src: 'https://plausible.io/js/script.js' 
-    }],
-  // Root-level favicons copied to docs/public
-  ['link', { rel: 'icon', href: '/favicon.ico' }],
-  ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' }],
-  ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' }],
-  // Additional platform icons under /favicons
-  ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicons/apple-touch-icon-180x180.png' }],
-  ['link', { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/favicons/pwa-192x192.png' }],
-  ['link', { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/favicons/pwa-512x512.png' }],
-  ['link', { rel: 'manifest', href: '/site.webmanifest' }],
-  ['meta', { name: 'theme-color', content: '#aa0000' }]
+    ["link", { rel: "icon", href: "/favicon.ico" }],
+    ["meta", { property: "og:type", content: "website" }],
+    [
+      "meta",
+      { property: "og:title", content: "Butler Documentation" },
+    ],
+    [
+      "meta",
+      {
+        property: "og:description",
+        content: "Superpowers for Qlik Sense",
+      },
+    ],
+    [
+      "script",
+      {
+        defer: "",
+        "data-domain": "butler.ptarmiganlabs.com",
+        src: "https://plausible.io/js/script.file-downloads.outbound-links.js",
+      },
+    ],
+    [
+      "script",
+      {},
+      `window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }`,
+    ],
+
+    // Root-level favicons copied to docs/public
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' }],
+    // Additional platform icons under /favicons
+    ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicons/apple-touch-icon-180x180.png' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/favicons/pwa-192x192.png' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/favicons/pwa-512x512.png' }],
+    ['link', { rel: 'manifest', href: '/site.webmanifest' }],
+    ['meta', { name: 'theme-color', content: '#aa0000' }]
   ],
 
   // Enable Vue component processing
@@ -48,20 +79,24 @@ export default defineConfig({
     nav: [
       { text: 'Guide', link: '/docs/' },
       { 
-        text: 'v13.1.2',
+        text: butlerVersion,
         items: [
           {
-            text: 'Releases',
-            link: 'https://github.com/ptarmiganlabs/butler/releases'
+            text: "Downloads",
+            link: "https://github.com/ptarmiganlabs/butler/releases",
           },
           {
-            text: 'Issues',
-            link: 'https://github.com/ptarmiganlabs/butler/issues'
+            text: "Issues",
+            link: "https://github.com/ptarmiganlabs/butler/issues",
           },
           {
-            text: 'Discussions',
-            link: 'https://github.com/ptarmiganlabs/butler/discussions'
-          }
+            text: "Discussions",
+            link: "https://github.com/ptarmiganlabs/butler/discussions",
+          },
+          {
+            text: "Ptarmigan Labs main site",
+            link: "https://ptarmiganlabs.com",
+          },
         ]
       },
     ],
@@ -263,6 +298,19 @@ export default defineConfig({
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2018–2025 Ptarmigan Labs AB'
     },
+
+    search: {
+      provider: "local",
+    },
+
+    lastUpdated: {
+      text: "Updated at",
+      formatOptions: {
+        dateStyle: "full",
+        timeStyle: "medium",
+      },
+    },
+
 
   }
 })

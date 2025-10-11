@@ -90,7 +90,7 @@ A few things to note:
 
 ## Manual vs API created schedules
 
-Schedules are stored in a YAML file on disk. This file is loaded each time Butler is started.
+Schedules are stored in a YAML file on disk. This file is loaded each time Butler is started. The schedule file must use the .yaml extension (.yml is not supported).
 
 When a new schedule is created using the APIs, all schedule definitions and their current state is written to the schedule YAML file. Thus, if Butler is stopped or restarted, it will also restart all schedules in the same state they were in before the Butler stop/restart.
 

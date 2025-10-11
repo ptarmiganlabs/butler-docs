@@ -15,7 +15,7 @@ Advanced reload failure alerts, task scheduler, key-value store, file system acc
 
 Options:
   -V, --version                        output the version number
-  -c, --configfile <file>              path to config file
+  -c, --configfile <file>              path to config file (REQUIRED)
   -l, --loglevel <level>               log level (choices: "error", "warn", "info", "verbose", "debug", "silly")
   --new-relic-account-name  <name...>  New Relic account name. Used within Butler to differentiate between different target New Relic accounts
   --new-relic-api-key <key...>         insert API key to use with New Relic
@@ -26,6 +26,15 @@ Options:
   --api-rate-limit                     set the API rate limit, per minute. Default is 100 calls/minute. Set to 0 to disable rate limiting.
   --skip-config-verification           Disable config file verification (default: false)
   -h, --help                           display help for command
+
+Configuration File:
+  Butler requires a configuration file to run. You must specify one using the -c option.
+
+  Example config files can be found in:
+    ./src/config/production_template.yaml
+    ./src/config/schedule_template.yaml
+
+  For more information visit: https://butler.ptarmiganlabs.com
 ```
 
 ## -V, --version
@@ -34,15 +43,16 @@ Output the version number of Butler.
 
 ## -c, --configfile
 
-Specifies the configuration file to use.
+Specifies the configuration file to use. This option is mandatory.
 
-Valid values: A path to a configuration file.
+Valid values: A path to a YAML configuration file. The file extension must be .yaml (.yml is not supported).
 
-Default: Whatever is specified in the `NODE_ENV` environment variable, with a .yaml extension added. Butler will look for that file in the `./config` directory.
+Default: None. You must provide this option.
 
-Example:
+Examples:
 
-- `-c` or `--configfile` are not specified. `NODE_ENV` is set to `production`. Butler will try to read settings from `./config/production.yaml`.
+- `-c ./config/butler-config.yaml`
+- `-c .\config\butler-config.yaml`
 
 ## -l, --loglevel
 

@@ -6,6 +6,10 @@ Description of Butler's config file.
 
 The `production_template.yaml` config file looks like this (sorry for the incorrect syntax coloring, the issue is noted and is being worked on):
 
+::: warning
+Only YAML configuration files with the .yaml extension are supported by Butler. Files using .yml are not supported.
+:::
+
 ::: info
 Starting with Butler version 9.0 there is a check that the config file has the correct format.
 
