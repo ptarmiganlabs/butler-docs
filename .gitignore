@@ -1,6 +1,7 @@
 # Dependency directories
 # themes/
 public/
+!vitepress-site/docs/public/
 resources/
 node_modules/
 tech-doc-hugo
