@@ -19,16 +19,22 @@ Update it as needed (see the [config file reference page](/docs/reference/config
 
 Trying to run Butler with the default config file (the one on GitHub) will not work - you must adapt it to your server environment. For example, you need to enter the IP or host name of you Sense server(s), the IP or host name where Butler is running etc.
 
-::: warning All config entries are mandatory
-As of Butler 9.0 the config file's structure will be validated when Butler starts. If there are any errors (missing entries etc) in the config file, Butler will not start.
+The `production_template.yaml` file begins with a checklist of items that you must update in the config file before using it:
 
-This means that all config file entries are mandatory. If some feature is not use the corresponding entry can be left empty.
+> - Butler will start using the settings in this file if the follwing settings are set first:
+> - Butler.cert.clientCert: Set to the path of the client certificate file. If relative paths cause issues, use an absolute path.
+> - Butler.cert.clientCertKey: Set to the path of the client key file. If relative paths cause issues, use an absolute path.
+> - Butler.cert.clientCertCA: Set to the path of the CA certificate file. If relative paths cause issues, use an absolute path.
+> - Butler.configEngine.host: Set to the IP or FQDN of the host where the Sense engine service is running.
+> - Butler.configEngine.port: Set to the port where the Sense engine service is listening.
+> - Butler.configQRS.host: Set to the IP or FQDN of the host where the Qlik Repository Service (QRS) is running.
+> - Butler.configQRS.port: Set to the port where the Qlik Repository Service (QRS) is listening.
+
+::: warning All config entries are mandatory
+Butler verifies the config file's structure when starting. If there are any errors (missing entries etc) in the config file, Butler will not start, but rather show an error message and exit.
 :::
 
-Finally, Butler must be given instructions about where to look for the config file.  
-As of newer Butler versions the -c/--configfile option is mandatory in all run modes, see below.
-
-### Config file for stand-alone Butler
+### Config file when starting Butler
 
 Let's show the built-in help to see available options:
 
@@ -55,7 +61,7 @@ PS C:\tools\butler>
 ```
 
 ::: warning Mandatory -c/--configfile
-You must specify `--configfile` (or its short version `-c`) to tell Butler which config file to use.
+You **MUST** specify `--configfile` (or its short version `-c`) to tell Butler which config file to use.
 :::
 
 There is an option `--configfile` (or its short version `-c`) that lets us control which config file to use.  
@@ -101,17 +107,6 @@ When using the standalone Butler executables you can use an absolute or a relati
 
 For example, `c:\tools\butler\config\butler-config.yaml` is an absolute path, while `.\config\butler-config.yaml` would be a relative path.
 :::
-
-### Config file when running Butler as a Node.js app
-
-When running Butler as a Node.js app, i.e. starting it with `node butler.js`, Butler will look for a config file in the `./config` subdirectory.
-
-The name of the config file matters.  
-Butler looks for an environment variable called “NODE_ENV” and then tries to load a config file named with the value found in NODE_ENV.
-
-Example: `NODE_ENV=production`
-
-Butler will look for a config file config/production.yaml.
 
 ### Config file when running Butler in a Docker container
 

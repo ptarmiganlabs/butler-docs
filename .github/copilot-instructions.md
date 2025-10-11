@@ -5,7 +5,7 @@ Butler documentation site documents [Butler](https://github.com/ptarmiganlabs/bu
 **IMPORTANT**: This repository uses VitePress for documentation:
 
 - **Production site**: VitePress-based (all content in `/vitepress-site`)
-- **Legacy Hugo files**: May still exist but are no longer maintained. Should only be used for migrating old content to VitePress.
+- **Legacy Hugo files**: Still exist at `content/en` in the repository but are no longer maintained. Should only be used for migrating old content to VitePress.
 - **All work**: Must be done in the `/vitepress-site` directory
 
 Always reference these instructions first and fallback to search or bash commands only when you encounter unexpected information that does not match the info here.
