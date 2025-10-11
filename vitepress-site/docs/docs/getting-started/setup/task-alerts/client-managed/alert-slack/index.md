@@ -8,17 +8,23 @@ description: >
 
 ## What's this?
 
-Butler can send alert messages via Slack for **reload tasks only**:
+Butler can send alert messages via Slack for:
 
+**Task monitoring:**
 - When a reload task fails
 - When a reload task is stopped/aborted
 
-::: info Task type limitation
-Slack notifications are **only available for reload tasks** (failed and aborted).  
-This feature is not supported for:
+**Windows service monitoring:**
+- When a Windows service stops
+- When a Windows service starts
+
+::: info Task type limitation for task alerts
+For **task alerts**, Slack notifications are only available for **reload tasks** (failed and aborted).  
+
+They are **not supported** for:
 - Distribute tasks
 - Preload tasks
-- External program tasks
+- External program tasks  
 - User sync tasks
 - Successful reload tasks
 
@@ -31,7 +37,7 @@ A complete reference to the config file format is found [here](/docs/reference/c
 
 ## Basic vs formatted Slack alerts
 
-Slack alerts for reload tasks come in two forms:
+Slack alerts for both **reload tasks** and **Windows services** support two formatting options:
 
 - Customizable formatting using a template concept. A standard template that will fit most use cases is included with Butler. Using this option the first and last parts of the script log can be included in the message, allowing you to tell from the Slack message what caused the reload to fail.  
   You can also add buttons to the message that can be used to open any URL you want, or open the app that failed reloading.
@@ -128,9 +134,7 @@ The concept is the same for all alert types, see the [email alerts](/docs/gettin
 
 ## Settings in config file
 
-::: info
-The configuration below is for **reload tasks only**. Slack notifications are not available for other task types (distribute, preload, external program, user sync).
-:::
+Slack notifications are configured for both **reload tasks** and **Windows services**:
 
 ```yaml
 ---
@@ -164,6 +168,24 @@ Butler:
       headScriptLogLines: 10
       tailScriptLogLines: 10
       templateFile: /path/to/slack/template/directory/aborted-reload-qseow.handlebars
+      fromUser: Qlik Sense
+      iconEmoji: ':ghost:'
+    serviceStopped:                   # Windows service stopped
+      webhookURL: <web hook URL from Slack>
+      channel: qliksense-service-alert  # Slack channel to which Windows service stopped notifications are sent
+      messageType: formatted          # formatted / basic. Formatted means that template file below will be used to create the message.
+      basicMsgTemplate: 'Windows service stopped: "{{serviceName}}" on host "{{host}}"'  # Only needed if message type = basic
+      rateLimit: 30                   # Min seconds between messages for a given Windows service. Defaults to 5 minutes.
+      templateFile: /path/to/slack/template/directory/service-stopped.handlebars
+      fromUser: Qlik Sense
+      iconEmoji: ':ghost:'
+    serviceStarted:                   # Windows service started
+      webhookURL: <web hook URL from Slack>
+      channel: qliksense-service-alert  # Slack channel to which Windows service started notifications are sent
+      messageType: formatted          # formatted / basic. Formatted means that template file below will be used to create the message.
+      basicMsgTemplate: 'Windows service started: "{{serviceName}}" on host "{{host}}"'  # Only needed if message type = basic
+      rateLimit: 30                   # Min seconds between messages for a given Windows service. Defaults to 5 minutes.
+      templateFile: /path/to/slack/template/directory/service-started.handlebars
       fromUser: Qlik Sense
       iconEmoji: ':ghost:'
 
