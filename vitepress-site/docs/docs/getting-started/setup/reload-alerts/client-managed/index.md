@@ -1,25 +1,52 @@
 ---
-title: "Reload alerts for client-managed Qlik Sense"
+title: "Task alerts for client-managed Qlik Sense"
 linkTitle: "Client-managed"
 weight: 100
 description: >
-  Butler offers a lot of flexibility when it comes to alerts when reloads fail, are aborted or succeed in Qlik Sense Enterprise on Windows (QSEoW).
+  Butler offers comprehensive monitoring and alerting for all task types in Qlik Sense Enterprise on Windows (QSEoW): reload, distribute, preload, external program, and user sync tasks.
 
 
-  Learn how to set up the desired features, the alert layout, formatting and more.
+  Learn how to set up alerts for task failures, successes, and aborts across all supported task types.
 ---
 
 ## Alert types
 
-These alert types are available:
+Butler supports alerts for multiple task types in Qlik Sense Enterprise on Windows (QSEoW):
 
-- Reload task failure. Send alerts when reload tasks fail, no matter if they were started on schedule or manually from the QMC.
-- Reload task aborted. Send alerts when reload tasks are manually aborted in the QMC.
-- Reload task success. Send alerts when reload tasks complete successfully.
+### Reload tasks
+- **Reload task failure**: Send alerts when reload tasks fail, no matter if they were started on schedule or manually from the QMC.
+- **Reload task aborted**: Send alerts when reload tasks are manually aborted in the QMC.
+- **Reload task success**: Send alerts when reload tasks complete successfully.
 
-## Alert destinations and options
+### Distribute tasks  
+- **Distribute task failure**: Send alerts when app distribution tasks fail.
+- **Distribute task success**: Send alerts when app distribution tasks complete successfully.
 
-Alerts can be sent to these destinations, with different options available for each destination.  
+### Preload tasks
+- **Preload task failure**: Send alerts when app preload tasks fail.
+- **Preload task success**: Send alerts when app preload tasks complete successfully.
+
+### External program tasks
+- **External program task failure**: Send alerts when external program tasks fail.
+- **External program task success**: Send alerts when external program tasks complete successfully.
+
+### User sync tasks
+- **User sync task success**: Send alerts when user directory sync tasks complete successfully.
+
+::: tip Task type support
+Butler automatically detects the task type and routes notifications to the appropriate handlers. The task types are:
+- **Type 0**: Reload tasks
+- **Type 1**: External program tasks
+- **Type 2**: User sync tasks
+- **Type 3**: Distribute tasks (app distribution)
+- **Type 4**: Preload tasks (app preloading)
+:::
+
+## Alert destinations and options by task type
+
+### Reload tasks
+
+Alerts can be sent to these destinations for reload tasks, with different options available for each destination.  
 Each destination can be individually enabled/disabled in the config file.
 
 | Destination      | Reload task failure | Reload task aborted | Reload task success | Enable/disable alert per reload task | Per reload task alert recipients | Flexible formatting | Basic formatting | Comment                                                                                                                              |
@@ -33,9 +60,47 @@ Each destination can be individually enabled/disabled in the config file.
 | Signl4           |         ✅          |         ✅          |                     |                  ✅                  |                                  |         ✅          |                  | Alerts are presented in Signl4's own format in their mobile app.                                                                     |
 | Outgoing webhook |         ✅          |         ✅          |                     |                                      |                                  |                     |                  | HTTP POST to custom webhooks. Formatting is not relevant - sends structured JSON data.                                               |
 
+### Distribute tasks (app distribution)
+
+Alert destinations for distribute tasks:
+
+| Destination | Distribute task failure | Distribute task success | Comment                                                  |
+| ----------- | :---------------------: | :---------------------: | -------------------------------------------------------- |
+| Email       |           ✅            |           ✅            | Customizable email notifications with task details.       |
+| InfluxDB    |           ✅            |           ✅            | Metrics stored for visualization in Grafana or similar.  |
+
+### Preload tasks (app preloading)
+
+Alert destinations for preload tasks:
+
+| Destination | Preload task failure | Preload task success | Comment                                                  |
+| ----------- | :------------------: | :------------------: | -------------------------------------------------------- |
+| Email       |          ✅          |          ✅          | Customizable email notifications with task details.       |
+| InfluxDB    |                      |          ✅          | Metrics stored for visualization in Grafana or similar.  |
+
+### External program tasks
+
+Alert destinations for external program tasks:
+
+| Destination | External program task failure | External program task success | Comment                                                  |
+| ----------- | :---------------------------: | :---------------------------: | -------------------------------------------------------- |
+| InfluxDB    |              ✅               |              ✅               | Metrics stored for visualization in Grafana or similar.  |
+
+### User sync tasks (user directory synchronization)
+
+Alert destinations for user sync tasks:
+
+| Destination | User sync task success | Comment                                                  |
+| ----------- | :--------------------: | -------------------------------------------------------- |
+| InfluxDB    |           ✅           | Metrics stored for visualization in Grafana or similar.  |
+
+::: info Limited notification channels for non-reload tasks
+Currently, non-reload task types (distribute, preload, external program, user sync) have more limited notification channel support compared to reload tasks. This is because these task types are less commonly used and have different monitoring requirements. Email and InfluxDB provide the core monitoring capabilities for these task types.
+:::
+
 ## How it works
 
-In order for Butler initiated alerts to become a reality, Butler must somehow be notified that the event of interest (for example a failed reload task) has occurred.  
+In order for Butler initiated alerts to become a reality, Butler must somehow be notified that the event of interest (for example a failed task) has occurred.  
 This is achieved by adding a **_log appender_** to Qlik Sense Enterprise on Windows.
 
 Log appenders offer a way to hook into Qlik Sense's logging subsystem, which is called [log4net](https://help.qlik.com/en-US/sense-admin/May2024/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders-QSRollingFileAppender-Built-in-Appenders.htm).
@@ -44,32 +109,34 @@ By adding a carefully crafted .xml file in the right location on the Sense serve
 
 ![Butler high level system overview](/img/butler-log4net-appenders-1.png "Butler high level system overview")
 
-So what happens when a scheduled reload task fails?  
+So what happens when a scheduled task fails?  
 Let's look at the steps:
 
-1. A reload task is started by the Sense scheduler, either on a time schedule, as a result of some other task(s) finishing or manually by a user in the QMC or from the Hub.
+1. A task is started by the Sense scheduler, either on a time schedule, as a result of some other task(s) finishing or manually by a user in the QMC or from the Hub.
 
 2. When the task's state changes, entries are written to the Sense scheduler's log files using log4net (which is built into Qlik Sense). If the filter defined in the log appender (= the .xml file on the Sense server) matches the log entry at hand, the associated action in the log appender will be carried out.
 
 3. Log appenders can do all kinds of things, everything from writing custom log files, sending basic emails, writing to databases and [much more](https://help.qlik.com/en-US/sense-admin/May2024/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders-QSRollingFileAppender-Built-in-Appenders.htm).  
    Here we're interested in the log appender sending a UDP message from Qlik Sense to Butler.
 
-4. The log appender provided as part of Butler will make log4net send a UDP message to Butler, including various info (reload task ID, timestamp, host name etc) about the reload task that just failed or was stopped/aborted.
+4. The log appender provided as part of Butler will make log4net send a UDP message to Butler, including various info (task ID, task type, timestamp, host name etc) about the task that just failed, succeeded, or was stopped/aborted.
 
 5. Butler will look at the incoming event and determine what it is about.  
-   For example: Is the event about a reload task failure, a reload that has been aborted/stopped, or something else?  
-   Butler thus first works as a dispatcher. In a second step, after the initial dispatch, the event is sent to the relevant handler function within Butler.
+   For example: Is the event about a task failure, success, or abort? What type of task is it (reload, distribute, preload, external program, user sync)?  
+   Butler thus first works as a dispatcher. In a second step, after the initial dispatch, the event is sent to the relevant handler function within Butler based on both the event type and task type.
 
-Response times are usually very good - Butler will typically get the UDP message within a few seconds after (for example) the reload failing, with alerts going out shortly thereafter.
+Response times are usually very good - Butler will typically get the UDP message within a few seconds after (for example) a task failing, with alerts going out shortly thereafter.
 
 ::: warning
-The log appenders that catch failed and aborted reloads in the Qlik Sense engine and scheduler must be set up on all Qlik Sense servers where reloads are happening for this feature to work.
+The log appenders that catch task events in the Qlik Sense scheduler must be set up on all Qlik Sense servers where tasks are running for this feature to work.
 
-Failing to do so will result in Butler not being notified about some reload failures/aborted reloads.
+Failing to do so will result in Butler not being notified about some task failures/successes/aborts.
 :::
 
-::: tip
-The concept above is the same also for aborted and successful reload tasks.
+::: tip Multi-task type support
+The same log appender mechanism works for all task types. Butler automatically detects the task type from the incoming UDP message and routes it to the appropriate handler. This means:
+- **Reload tasks** (type 0) get the full range of notification options
+- **Distribute, preload, external program, and user sync tasks** (types 1-4) get email and/or InfluxDB notifications based on task type
 :::
 
 ## Adding a log appender
