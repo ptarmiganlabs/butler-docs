@@ -77,7 +77,7 @@ Mode                 LastWriteTime         Length Name
 
 PS C:\tools\butler> .\butler.exe -c .\config\butler-config.yaml
 2023-12-10T13:46:32.939Z info: Enabled API endpoints: [
-  "apiListEnbledEndpoints",
+  "apiListEnabledEndpoints",
   "base62ToBase16",
   "base16ToBase62",
   "butlerping",

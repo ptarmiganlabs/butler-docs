@@ -70,7 +70,7 @@ Butler:
   ...
   # Enable/disable individual REST API endpoints. Set config item below to true to enable that endpoint.
   restServerEndpointsEnable:
-    apiListEnbledEndpoints: false
+    apiListEnabledEndpoints: false
     base62ToBase16: false
     base16ToBase62: false
     butlerping: false

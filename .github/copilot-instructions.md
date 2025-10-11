@@ -20,7 +20,7 @@ Always reference these instructions first and fallback to search or bash command
 - Configuration is in `/vitepress-site/docs/.vitepress/config.ts`
 - Custom components are in `/vitepress-site/docs/.vitepress/components/`
 - Theme customization is in `/vitepress-site/docs/.vitepress/theme/`
-- **Source code repository**: The main Butler project is at github.com/ptarmiganlabs/butler, and included in this VS Code workspace. The doc site shall correctly reflect the current state of that project, i.e. create content that describe the current features, configuration options, and behavior of Butler.
+- **Source code repository**: The main Butler project is at github.com/ptarmiganlabs/butler. The doc site shall correctly reflect the current state of that project, i.e. create content that describe the current features, configuration options, and behavior of Butler.
 
 ### VitePress System
 

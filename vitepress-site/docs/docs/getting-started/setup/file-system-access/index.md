@@ -11,7 +11,7 @@ description: >
 For (good) security reasons Qlik Sense does not allow direct access to the file system.  
 In QlikView this was possible, but also resulted in risks and potential attack vectors for poorly written or even malicious QlikView apps.
 
-Still, from time to time you need to delete old QVDs, move config files from an inbox directory to a staging ditto etc. Butler solves this by allowing file copy/move/delete operations between pre-defined directories.
+Still, from time to time you need to use Qlik script to delete old QVDs, move config files from an inbox directory to a staging ditto etc. Butler solves this by allowing file copy/move/delete operations between pre-defined directories.
 
 By using the these APIs you can do file system operations from within Sense load scripts.
 

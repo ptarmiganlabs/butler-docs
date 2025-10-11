@@ -13,7 +13,7 @@ The key-value has several use cases:
 - Pass parameters between apps in a reload chain
 - Share state or other data between app reloads
 - Share state between extensions, mashups or other web apps.
-- Store data with a time-to-live property. Can be used to create timeouts in app reload chains.,
+- Store data with a time-to-live property. Can be used to create timeouts in app reload chains.
 
 ## How it works
 

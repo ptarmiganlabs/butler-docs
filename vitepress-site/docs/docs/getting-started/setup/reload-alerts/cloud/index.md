@@ -39,7 +39,7 @@ Each destination can be individually enabled/disabled in the config file.
 
 Somehow Butler needs to be notified when a reload task in Qlik Sense Cloud fails.
 
-The only way to do this is currently (2024 October) to use Qlik Cloud's outgoing webhooks, and have them triggered when the app reload fails.
+The only reasonable way to do this is currently (2025 October) to use Qlik Cloud's outgoing webhooks, and have them triggered when the app reload fails.
 
 So, the outbound webhook should call some URL it can reach.  
 In practice this means a URL on the public Internet.
