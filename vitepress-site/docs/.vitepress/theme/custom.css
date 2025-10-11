@@ -11,9 +11,10 @@
 }
 
 /* Widen the main documentation content area */
-.vp-doc {
+/* Using high specificity to override VitePress defaults without !important */
+.VPDoc .vp-doc {
   /* Default is 688px (43rem). Increasing to allow tables to breathe */
-  max-width: 90rem !important; /* 1440px */
+  max-width: 90rem; /* 1440px */
 }
 
 /* Ensure the content container can use the full width */
@@ -28,14 +29,14 @@
 
 /* Responsive adjustments - keep reasonable width on smaller screens */
 @media (max-width: 1440px) {
-  .vp-doc {
-    max-width: 85vw !important;
+  .VPDoc .vp-doc {
+    max-width: 85vw;
   }
 }
 
 @media (max-width: 960px) {
-  .vp-doc {
-    max-width: 95vw !important;
+  .VPDoc .vp-doc {
+    max-width: 95vw;
   }
 }
 
