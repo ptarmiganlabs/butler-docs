@@ -30,6 +30,7 @@ Use the `--help` command line option to show what options are available:
 
 ```powershell
 PS D:\tools\butler\src> node butler.js --help
+Running in non-packaged environment. Executable path: /Users/goran/code/butler
 Usage: butler [options]
 
 Butler gives superpowers to client-managed Qlik Sense Enterprise on Windows!
@@ -37,7 +38,7 @@ Advanced reload failure alerts, task scheduler, key-value store, file system acc
 
 Options:
   -V, --version                        output the version number
-  -c, --configfile <file>              path to config file
+  -c, --configfile <file>              path to config file (REQUIRED)
   -l, --loglevel <level>               log level (choices: "error", "warn", "info", "verbose", "debug", "silly")
   --new-relic-account-name  <name...>  New Relic account name. Used within Butler to differentiate between different target New Relic accounts
   --new-relic-api-key <key...>         insert API key to use with New Relic
@@ -46,7 +47,17 @@ Options:
   --test-email-from-address <address>  send test email from this address. Only relevant when SMTP server allows from address to be set.
   --no-qs-connection                   don't connect to Qlik Sense server at all. Run in isolated mode
   --api-rate-limit                     set the API rate limit, per minute. Default is 100 calls/minute. Set to 0 to disable rate limiting.
+  --skip-config-verification           Disable config file verification (default: false)
   -h, --help                           display help for command
+
+Configuration File:
+  Butler requires a configuration file to run. You must specify one using the -c option.
+
+  Example config files are included in the distribution ZIP file, as well as online at:
+    https://github.com/ptarmiganlabs/butler/tree/master/src/config
+
+
+  For more information visit: https://butler.ptarmiganlabs.com
 ```
 
 Looking at the above, you must use `--configfile` to specify which config file to use.
@@ -60,3 +71,5 @@ Any option given on the command line will override the same setting in the confi
 ## Windows services
 
 On Windows you can use the excellent [Nssm](https://nssm.cc/) tool to make Node.js (and also the Butler app) run as a Windows Service, with all the benefits that follow (can be monitored using operations tools, automatic restarts etc).
+
+But - as there are also binaries available for Windows - running the Node.js version of Butler as a Windows service using Nssm is not really needed.

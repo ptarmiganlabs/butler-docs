@@ -4,14 +4,13 @@ Deep dive into the various components that make up Butler.
 
 ## Core Concepts
 
-Butler provides several key features that extend Qlik Sense Enterprise capabilities:
+Butler provides several key features that extend primarily client-managed Qlik Sense with additional capabilities, but some features can also be used with Qlik Sense Cloud.
 
 ### Monitoring & Alerting
 
 - **[Failed Reloads](/docs/concepts/failed-reloads/)** - Get notified when reload tasks fail
 - **[Successful Reloads](/docs/concepts/successful-reloads)** - Track successful task completions for performance insights
 - **[Windows Services](/docs/concepts/windows-services)** - Monitor critical Qlik Sense services across multiple servers
-- **[Session Events](/docs/concepts/session-events)** - Monitor user session activity and connection events
 - **[Server Version](/docs/concepts/server-version)** - Track Qlik Sense server versions for compliance and planning
 
 ### License Management
@@ -41,19 +40,6 @@ Butler provides several key features that extend Qlik Sense Enterprise capabilit
 ### File Operations
 
 - **[File System Access](/docs/concepts/file-system-access)** - Secure file copy, move, and delete operations
-
-### Architecture & Configuration
-
-- **[Real-time Metrics](/docs/concepts/real-time-metrics-deprecated)** - Stream metrics to external systems (deprecated feature)
-
-## Architecture
-
-Butler acts as a bridge between Qlik Sense Enterprise and external systems, providing:
-
-1. **Event-driven architecture** - React to Qlik Sense events in real-time
-2. **REST API** - Programmatic access to Butler features
-3. **Secure communication** - Certificate-based authentication with Qlik Sense
-4. **Flexible configuration** - YAML-based configuration for all features
 
 ## Getting Started
 

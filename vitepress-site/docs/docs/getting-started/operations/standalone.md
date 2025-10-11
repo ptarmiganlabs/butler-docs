@@ -12,10 +12,11 @@ Pre-built executables are available for Windows, macOS and Linux.
 
 ### Windows
 
-Running standalone Butler on Windows Server 2016 looks like this:
+Running standalone Butler on Windows Server looks like this:
 
 ```powershell
 PS C:\tools\butler> .\butler.exe --help
+Running as standalone app. Executable path: D:/tools/insider-build/butler
 Usage: butler [options]
 
 Butler gives superpowers to client-managed Qlik Sense Enterprise on Windows!
@@ -23,7 +24,7 @@ Advanced reload failure alerts, task scheduler, key-value store, file system acc
 
 Options:
   -V, --version                        output the version number
-  -c, --configfile <file>              path to config file
+  -c, --configfile <file>              path to config file (REQUIRED)
   -l, --loglevel <level>               log level (choices: "error", "warn", "info", "verbose", "debug", "silly")
   --new-relic-account-name  <name...>  New Relic account name. Used within Butler to differentiate between different target New Relic accounts
   --new-relic-api-key <key...>         insert API key to use with New Relic
@@ -32,7 +33,17 @@ Options:
   --test-email-from-address <address>  send test email from this address. Only relevant when SMTP server allows from address to be set.
   --no-qs-connection                   don't connect to Qlik Sense server at all. Run in isolated mode
   --api-rate-limit                     set the API rate limit, per minute. Default is 100 calls/minute. Set to 0 to disable rate limiting.
+  --skip-config-verification           Disable config file verification (default: false)
   -h, --help                           display help for command
+
+Configuration File:
+  Butler requires a configuration file to run. You must specify one using the -c option.
+
+  Example config files are included in the distribution ZIP file, as well as online at:
+    https://github.com/ptarmiganlabs/butler/tree/master/src/config
+
+
+  For more information visit: https://butler.ptarmiganlabs.com
 PS C:\tools\butler>
 ```
 
@@ -45,49 +56,43 @@ Adding the `--configfile` option and pointing it to a valid config file gives Bu
 All other options are optional.
 
 ```powershell
-PS C:\tools\butler> dir
-
-
-    Directory: C:\tools\butler
-
-
-Mode                LastWriteTime         Length Name
-----                -------------         ------ ----
-d-----       11/25/2023  11:58 PM                config
-d-----       12/10/2023   2:46 PM                log
--a----        12/6/2023   8:31 PM       70614688 butler.exe
-
-
-PS C:\tools\butler> .\butler.exe -c .\config\butler-config.yaml -l info
+PS C:\tools\butler> .\butler.exe -c .\config\butler-config.yaml --loglevel info
 ...
 ...
-2023-12-10T21:35:39.447Z info: CONFIG: Influxdb enabled: true
-2023-12-10T21:35:39.452Z info: CONFIG: Influxdb host IP: 10.11.12.13
-2023-12-10T21:35:39.453Z info: CONFIG: Influxdb host port: 8086
-2023-12-10T21:35:39.454Z info: CONFIG: Influxdb db name: butler
-2023-12-10T21:35:39.722Z info: CONFIG: Found InfluxDB database: butler
-2023-12-10T21:35:45.938Z info: --------------------------------------
-2023-12-10T21:35:45.939Z info: Starting Butler
-2023-12-10T21:35:45.942Z info: Log level      : info
-2023-12-10T21:35:45.943Z info: App version    : 9.3.0
-2023-12-10T21:35:45.944Z info: Instance ID    : f024dc47...
-2023-12-10T21:35:45.945Z info:
-2023-12-10T21:35:45.945Z info: Node version   : v18.5.0
-2023-12-10T21:35:45.946Z info: Architecture   : x64
-2023-12-10T21:35:45.947Z info: Platform       : Windows
-2023-12-10T21:35:45.948Z info: Release        : 10.0.14393
-2023-12-10T21:35:45.949Z info: Distro         : Microsoft Windows Server 2016 Standard
-2023-12-10T21:35:45.949Z info: Codename       :
-2023-12-10T21:35:45.950Z info: Virtual        : true
-2023-12-10T21:35:45.951Z info: Processors     : 2
-2023-12-10T21:35:45.955Z info: Physical cores : 4
-2023-12-10T21:35:45.956Z info: Cores          : 8
-2023-12-10T21:35:45.957Z info: Docker arch.   : undefined
-2023-12-10T21:35:45.958Z info: Total memory   : 34359267328
-2023-12-10T21:35:45.959Z info:
-2023-12-10T21:35:45.959Z info: Config file    : C:/tools/butler/config/butler-config.yaml
-2023-12-10T21:35:45.960Z info: API rate limit : 100
-2023-12-10T21:35:45.961Z info: --------------------------------------
+2025-10-11T16:41:06.448Z info: Enabled API endpoints: []
+2025-10-11T16:41:11.650Z info: CONFIG: Influxdb enabled: false
+2025-10-11T16:41:13.199Z info: VERIFY CONFIG FILE: Your config file at D:/tools/insider-build/butler/config/config-insider-build.yaml is valid, good work!
+2025-10-11T16:41:13.201Z info: MAIN: Config file structure is correct - all good.
+2025-10-11T16:41:13.210Z info: MAIN: Application-specific config validation passed - all good.
+2025-10-11T16:41:13.212Z info: MAIN: Conditional config validation passed - all good.
+2025-10-11T16:41:13.213Z info: MAIN: Config file contains required email data - all good.
+2025-10-11T16:41:13.220Z info: MAIN: Config file contains required New Relic data - all good.
+2025-10-11T16:41:13.222Z info: MAIN: Config file contains required InfluxDb data - all good.
+2025-10-11T16:41:13.226Z info: MAIN: Config file contains required Qlik Sense data - all good.
+2025-10-11T16:41:13.227Z info: START: Globals initialised - all good.
+2025-10-11T16:41:13.255Z info: CONFIG: InfluxDB disabled, not connecting to InfluxDB
+2025-10-11T16:41:18.770Z info: --------------------------------------
+2025-10-11T16:41:18.770Z info: Starting Butler
+2025-10-11T16:41:18.778Z info: Log level         : info
+2025-10-11T16:41:18.779Z info: App version       : 14.2.0
+2025-10-11T16:41:18.780Z info: Instance ID       : b7ab7b35...
+2025-10-11T16:41:18.781Z info: Running in Docker : false
+2025-10-11T16:41:18.782Z info:
+2025-10-11T16:41:18.783Z info: Node version      : v23.1.0
+2025-10-11T16:41:18.784Z info: Architecture      : x64
+2025-10-11T16:41:18.785Z info: Platform          : Windows
+2025-10-11T16:41:18.786Z info: Release           : 10.0.17763
+2025-10-11T16:41:18.787Z info: Distro            : Microsoft Windows Server 2019 Standard
+2025-10-11T16:41:18.788Z info: Codename          :
+2025-10-11T16:41:18.789Z info: Virtual           : true
+2025-10-11T16:41:18.799Z info: Processors        : 1
+2025-10-11T16:41:18.800Z info: Physical cores    : 8
+2025-10-11T16:41:18.801Z info: Cores             : 8
+2025-10-11T16:41:18.802Z info: Total memory      : 51539017728
+2025-10-11T16:41:18.803Z info:
+2025-10-11T16:41:18.804Z info: Config file       : C:/tools/butler/config/butler-config.yaml
+2025-10-11T16:41:18.805Z info: API rate limit    : 100 calls per minute
+2025-10-11T16:41:18.806Z info: --------------------------------------
 ...
 ...
 ```
@@ -104,6 +109,7 @@ Running the standalone Butler tool without any parameters gives you a help text 
 
 ```bash
 ➜  butler ./butler --help
+Running as standalone app. Executable path: D:/tools/insider-build/butler
 Usage: butler [options]
 
 Butler gives superpowers to client-managed Qlik Sense Enterprise on Windows!
@@ -111,7 +117,7 @@ Advanced reload failure alerts, task scheduler, key-value store, file system acc
 
 Options:
   -V, --version                        output the version number
-  -c, --configfile <file>              path to config file
+  -c, --configfile <file>              path to config file (REQUIRED)
   -l, --loglevel <level>               log level (choices: "error", "warn", "info", "verbose", "debug", "silly")
   --new-relic-account-name  <name...>  New Relic account name. Used within Butler to differentiate between different target New Relic accounts
   --new-relic-api-key <key...>         insert API key to use with New Relic
@@ -120,7 +126,17 @@ Options:
   --test-email-from-address <address>  send test email from this address. Only relevant when SMTP server allows from address to be set.
   --no-qs-connection                   don't connect to Qlik Sense server at all. Run in isolated mode
   --api-rate-limit                     set the API rate limit, per minute. Default is 100 calls/minute. Set to 0 to disable rate limiting.
+  --skip-config-verification           Disable config file verification (default: false)
   -h, --help                           display help for command
+
+Configuration File:
+  Butler requires a configuration file to run. You must specify one using the -c option.
+
+  Example config files are included in the distribution ZIP file, as well as online at:
+    https://github.com/ptarmiganlabs/butler/tree/master/src/config
+
+
+  For more information visit: https://butler.ptarmiganlabs.com
 ➜  butler
 ```
 
@@ -195,6 +211,10 @@ Example: `--test-email-from-address "User Anna <anna@company.com>"`
 
 When running Butler in standalone mode it's possible to disable the connection to the Qlik Sense server.
 This is used when Butler is executed to provide a Swagger/OpenAPI specification file for the Butler API, i.e. not for any production use-cases.
+
+### --skip-config-verification
+
+The `--skip-config-verification` option can be used to disable config file verification. By default config file verification is enabled and Butler will refuse to start if the config file is not valid.
 
 ### --api-rate-limit
 

@@ -1,6 +1,6 @@
 ---
-title: 'Day 2 operations'
-description: 'Options for running Butler.'
+title: "Day 2 operations"
+description: "Options for running Butler."
 ---
 
 # Day 2 operations
@@ -22,7 +22,7 @@ Butler will log its own memory usage to InfluxDB if
 1. The config file's `Butler.uptimeMonitor.enable` and `Butler.uptimeMonitor.storeInInfluxdb.enable` properties are both set to `true`.
 2. The remaining InfluxDB properties of the config file are correctly configured.
 
-Similarly, uptime metrics will be sent to New Relic if 
+Similarly, uptime metrics will be sent to New Relic if
 
 1. The config file's `Butler.uptimeMonitor.enable` and `Butler.uptimeMonitor.storeNewRelic.enable` properties are both set to `true`.
 2. The remaining New Relic properties of the config file are correctly configured.
@@ -32,10 +32,10 @@ You can also set up alerts in Grafana if so desired, with notifications going to
 
 A Grafana dashboard can look like this. Note that one of the available metrics (`external`) is not used in this particular dashboard. It's still logged to InfluxDB though.
 
-![Butler memory usage in Grafana dashboard](/img/butler-memory-usage-grafana-1.png "Butler memory usage in Grafana dashboard")  
+![Butler memory usage in Grafana dashboard](/img/butler-memory-usage-grafana-1.png "Butler memory usage in Grafana dashboard")
 
 There is a [sample Grafana dashboard](https://github.com/ptarmiganlabs/butler/tree/master/docs/grafana) in Butler's GitHub repo.
 
 A New Relic graph covering the same information (but a different time range!) can look like this:
 
-![Butler memory usage in New Relic dashboard](/img/butler-memory-usage-new-relic-1.png "Butler memory usage in New Relic dashboard")  
+![Butler memory usage in New Relic dashboard](/img/butler-memory-usage-new-relic-1.png "Butler memory usage in New Relic dashboard")

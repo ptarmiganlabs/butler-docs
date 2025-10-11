@@ -28,7 +28,7 @@ Butler's reload alerting capabilities vary depending on your Qlik Sense deployme
 
 - Reload task failures
 - Reload task aborts
-- Reload task successes (optional)
+- Reload task successes
 
 ### Qlik Sense Cloud
 

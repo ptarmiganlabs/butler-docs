@@ -79,11 +79,11 @@ The data stored in InfluxDB enables powerful Grafana visualizations:
 
 ### Sample Visualizations
 
-![Successful Reload Analytics](butler-grafana-successful-reloads-1.png)
+![Successful Reload Analytics](/img/butler-grafana-successful-reloads-1.png)
 
 Example dashboard showing reload duration distribution and frequency patterns
 
-![Reload Task Metadata](butler-grafana-successful-reloads-2.png)
+![Reload Task Metadata](/img/butler-grafana-successful-reloads-2.png)
 
 Detailed view showing available metadata for each reload task
 
