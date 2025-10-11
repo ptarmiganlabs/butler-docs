@@ -1,18 +1,37 @@
 ---
-title: "Reload alerts via New Relic"
+title: "Task and service alerts via New Relic"
 linkTitle: "New Relic"
 weight: 30
 description: >
-  Description of how reload alerts can be sent to New Relic as events and log messages.
+  Description of how task and Windows service alerts can be sent to New Relic as events and log messages.
 ---
 
 
 ## What's this?
 
-Butler can send two kinds of messages to New Relic:
+Butler can send messages to New Relic for:
 
-- When a scheduled or started from the QMC reload task fails.
-- When a scheduled or started from the QMC reload task is somehow stopped/aborted.
+**Task monitoring:**
+- When a scheduled or started from the QMC reload task fails
+- When a scheduled or started from the QMC reload task is stopped/aborted
+
+**Windows service monitoring:**
+- When a Windows service stops
+- When a Windows service starts
+- Service status information
+
+::: info Task type limitation for task monitoring
+For **task monitoring**, New Relic notifications are only available for **reload tasks** (failed and aborted).  
+
+They are **not supported** for:
+- Distribute tasks
+- Preload tasks
+- External program tasks  
+- User sync tasks
+- Successful reload tasks
+
+For these task types, use [Email alerts](/docs/getting-started/setup/task-alerts/client-managed/alert-emails/) or [InfluxDB metrics](/docs/getting-started/setup/task-alerts/client-managed/alert-influxdb/) instead.
+:::
 
 See the [Concepts section](/docs/concepts/incident-mgmt-tools/new-relic/) for examples on what a New Relic alert can look like.
 

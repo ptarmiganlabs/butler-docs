@@ -1,17 +1,36 @@
 ---
-title: "Reload alerts via MQTT"
+title: "Task and service alerts via MQTT"
 linkTitle: "MQTT"
 weight: 60
 description: >
-  Description of how reload alerts can be sent as MQTT messages.
+  Description of how task and Windows service alerts can be sent as MQTT messages.
 ---
 
 ## What's this?
 
-Butler can send two kinds of alert messages as MQTT messages:
+Butler can send alert messages as MQTT messages for:
 
-- When a scheduled, running reload task fails.
-- When a scheduled, running reload task is somehow stopped.
+**Task monitoring:**
+- When a scheduled, running reload task fails
+- When a scheduled, running reload task is stopped/aborted
+
+**Windows service monitoring:**
+- When a Windows service is running
+- When a Windows service stops
+- Service status information
+
+::: info Task type limitation for task alerts
+For **task alerts**, MQTT notifications are only available for **reload tasks** (failed and aborted).  
+
+They are **not supported** for:
+- Distribute tasks
+- Preload tasks
+- External program tasks  
+- User sync tasks
+- Successful reload tasks
+
+For these task types, use [Email alerts](/docs/getting-started/setup/task-alerts/client-managed/alert-emails/) or [InfluxDB metrics](/docs/getting-started/setup/task-alerts/client-managed/alert-influxdb/) instead.
+:::
 
 ## How it works
 
@@ -45,6 +64,8 @@ The concept is more or less the same as for [alert emails](../alert-emails/#how-
 
 ## Settings in config file
 
+MQTT messages are configured for both **reload tasks** and **Windows services**:
+
 ```yaml
 ---
 Butler:
@@ -68,6 +89,9 @@ Butler:
     taskFailureServerStatusTopic: qliksense/butler/task_failure_server
     taskAbortedTopic: qliksense/task_aborted
     taskAbortedFullTopic: qliksense/task_aborted_full
+    serviceRunningTopic: qliksense/service_running                      # Topic for Windows service running notifications
+    serviceStoppedTopic: qliksense/service_stopped                      # Topic for Windows service stopped notifications
+    serviceStatusTopic: qliksense/service_status                        # Topic for Windows service status information
   ...
   ...
   udpServerConfig:

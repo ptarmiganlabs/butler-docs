@@ -1,20 +1,33 @@
 ---
-title: "Reload alerts in InfluxDB"
+title: "Task and service monitoring in InfluxDB"
 linkTitle: "InfluxDB"
 weight: 20
 description: >
-  Description of how information of how successful and failed reload tasks can be stored in InfluxDB.
+  Description of how information about reload tasks and Windows services can be stored in InfluxDB.
 ---
 
 ## What's this?
 
-Butler can store information about both successful and failed reload tasks in InfluxDB.
+Butler can store information about reload tasks and Windows services in InfluxDB:
 
-- If enabled, Butler will store information about _all_ failed reload tasks to InfluxDB.
-- For successful reload tasks, there are two options:
-  - Store information about _all_ successful reload tasks to InfluxDB.
-  - Store information about _some_ successful reload tasks to InfluxDB.  
-    Which tasks to store information about is controlled using a custom property on the reload task.
+**Task monitoring:**
+- Failed reload tasks - All failed reload tasks are stored
+- Successful reload tasks - Either all or selected tasks (controlled via custom property)
+
+**Windows service monitoring:**
+- Service status information
+- Service state changes (running/stopped)
+
+::: info Task type limitation for task monitoring
+For **task monitoring**, InfluxDB storage is available for:
+- **Reload tasks**: Failed and successful tasks
+- **Distribute tasks**: Failed and successful tasks  
+- **Preload tasks**: Successful tasks only
+- **External program tasks**: Failed and successful tasks
+- **User sync tasks**: Successful tasks only
+
+Aborted tasks are **not stored** in InfluxDB.
+:::
 
 Once the information about the reload task is in InfluxDB it can be used in Grafana dashboards.
 

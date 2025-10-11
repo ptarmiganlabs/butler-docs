@@ -1,17 +1,35 @@
 ---
-title: "Reload alerts via Microsoft Teams"
+title: "Task alerts via Microsoft Teams"
 linkTitle: "MS Teams"
 weight: 50
 description: >
-  Description of how reload alerts can be sent as Microsoft Teams messages.
+  Description of how task alerts and Windows service notifications can be sent as Microsoft Teams messages.
 ---
 
 ## What's this?
 
-Butler can send two kinds of alert messages via Teams:
+Butler can send alert messages via Teams for:
 
-- When a reload task fails.
-- When a reload task is somehow stopped/aborted.
+**Task monitoring:**
+- When a reload task fails
+- When a reload task is stopped/aborted
+
+**Windows service monitoring:**
+- When a Windows service stops
+- When a Windows service starts
+
+::: info Task type limitation for task alerts
+For **task alerts**, Teams notifications are only available for **reload tasks** (failed and aborted).  
+
+They are **not supported** for:
+- Distribute tasks
+- Preload tasks
+- External program tasks  
+- User sync tasks
+- Successful reload tasks
+
+For these task types, use [Email alerts](/docs/getting-started/setup/task-alerts/client-managed/alert-emails/) or [InfluxDB metrics](/docs/getting-started/setup/task-alerts/client-managed/alert-influxdb/) instead.
+:::
 
 See the [Concepts section](/docs/concepts/setting-up-teams-webhooks/) for additional details.
 
@@ -19,7 +37,7 @@ A complete reference to the config file format is found [here](/docs/reference/c
 
 ## Basic vs formatted Teams alerts
 
-Teams alerts come in two forms:
+Teams alerts for both **reload tasks** and **Windows services** support two formatting options:
 
 - Customizable formatting using a template concept. A standard template that will fit most use cases is included with Butler. With this option the first and last parts of the script log can be included in the message, allowing you to tell from the Teams message what caused the reload to fail.  
   You can also add buttons to the message that can be used to open any URL you want, or open the app that failed reloading.
@@ -108,6 +126,8 @@ The concept is the same as for [all alert types](/docs/getting-started/setup/tas
 
 ## Settings in config file
 
+Teams notifications are configured for both **reload tasks** and **Windows services**:
+
 ```yaml
 ---
 Butler:
@@ -134,6 +154,18 @@ Butler:
       headScriptLogLines: 10
       tailScriptLogLines: 10
       templateFile: /path/to/teams/template/directory/aborted-reload-qseow.handlebars
+    serviceStopped:              # Windows service stopped
+      webhookURL: <web hook URL from MS Teams>
+      messageType: formatted     # formatted / basic. Formatted means that template file below will be used to create the message.
+      basicMsgTemplate: 'Windows service stopped: "{{serviceName}}" on host "{{host}}"'  # Only needed if message type = basic
+      rateLimit: 30              # Min seconds between messages for a given Windows service. Defaults to 5 minutes.
+      templateFile: /path/to/teams/template/directory/service-stopped.handlebars
+    serviceStarted:              # Windows service started
+      webhookURL: <web hook URL from MS Teams>
+      messageType: formatted     # formatted / basic. Formatted means that template file below will be used to create the message.
+      basicMsgTemplate: 'Windows service started: "{{serviceName}}" on host "{{host}}"'  # Only needed if message type = basic
+      rateLimit: 30              # Min seconds between messages for a given Windows service. Defaults to 5 minutes.
+      templateFile: /path/to/teams/template/directory/service-started.handlebars
   ...
   ...
   udpServerConfig:

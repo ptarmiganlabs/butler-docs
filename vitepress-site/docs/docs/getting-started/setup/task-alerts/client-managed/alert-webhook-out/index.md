@@ -1,17 +1,35 @@
 ---
-title: "Reload alerts via outgoing webhooks"
+title: "Task and service alerts via outgoing webhooks"
 linkTitle: "Webhook"
 weight: 70
 description: >
-  Description of how reload alerts can be sent via outgoing webhooks.
+  Description of how task and Windows service alerts can be sent via outgoing webhooks.
 ---
 
 ## What's this?
 
-Butler can send two kinds of alert messages as outgoing webhooks:
+Butler can send alert messages as outgoing webhooks for:
 
-- When a scheduled, running reload task fails.
-- When a scheduled, running reload task is somehow stopped/aborted.
+**Task monitoring:**
+- When a scheduled, running reload task fails
+- When a scheduled, running reload task is stopped/aborted
+
+**Windows service monitoring:**
+- When a Windows service stops
+- When a Windows service starts
+
+::: info Task type limitation for task monitoring
+For **task monitoring**, outgoing webhook notifications are only available for **reload tasks** (failed and aborted).  
+
+They are **not supported** for:
+- Distribute tasks
+- Preload tasks
+- External program tasks  
+- User sync tasks
+- Successful reload tasks
+
+For these task types, use [Email alerts](/docs/getting-started/setup/task-alerts/client-managed/alert-emails/) or [InfluxDB metrics](/docs/getting-started/setup/task-alerts/client-managed/alert-influxdb/) instead.
+:::
 
 ## How it works
 
