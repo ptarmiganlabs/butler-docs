@@ -1,0 +1,54 @@
+/**
+ * Custom CSS for Butler documentation
+ * 
+ * Makes the site wider to better accommodate tables and content
+ */
+
+/* Increase the maximum width of the documentation content area */
+:root {
+  /* Default VitePress max-widths are too narrow for our tables */
+  --vp-layout-max-width: 1440px;
+}
+
+/* Widen the main documentation content area */
+.vp-doc {
+  /* Default is 688px (43rem). Increasing to allow tables to breathe */
+  max-width: 90rem !important; /* 1440px */
+}
+
+/* Ensure the content container can use the full width */
+.VPDoc.has-aside .content-container {
+  max-width: none;
+}
+
+/* Make the container use more of the available space */
+.VPDoc .container {
+  max-width: var(--vp-layout-max-width);
+}
+
+/* Responsive adjustments - keep reasonable width on smaller screens */
+@media (max-width: 1440px) {
+  .vp-doc {
+    max-width: 85vw !important;
+  }
+}
+
+@media (max-width: 960px) {
+  .vp-doc {
+    max-width: 95vw !important;
+  }
+}
+
+/* Ensure tables can use the full width when needed */
+.vp-doc table {
+  display: table;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Better table wrapping for content */
+.vp-doc td,
+.vp-doc th {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
