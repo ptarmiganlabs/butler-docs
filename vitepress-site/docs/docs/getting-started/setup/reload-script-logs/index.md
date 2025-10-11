@@ -14,7 +14,7 @@ description: >
 ## What's this?
 
 The idea is to save the full script logs of failed reloads.  
-Having access to the full logs can sometimes be what's needed to understand what caused the failure.
+Having access to the full logs can sometimes be what's needed to understand what caused a reload failure.
 
 - Log files from client-managed Qlik Sense are stored in one directory hierarchy, while logs from Qlik Sense Cloud are stored in another.
 - The files are store in separate directories for each date.

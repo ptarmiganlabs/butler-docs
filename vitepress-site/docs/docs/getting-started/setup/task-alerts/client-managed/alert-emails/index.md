@@ -10,26 +10,28 @@ description: >
 
 Butler can send alert emails for multiple task types in Qlik Sense Enterprise on Windows (QSEoW):
 
-### Reload tasks (type 0)
+### Reload tasks
+
 - When a reload task fails during execution
 - When a running reload task is stopped/aborted
 - When a reload task completes successfully
 
-### Distribute tasks (type 3)
+### Distribute tasks
+
 - When an app distribution task fails
 - When an app distribution task completes successfully
 
-### Preload tasks (type 4)
+### Preload tasks
+
 - When an app preload task fails
 - When an app preload task completes successfully
 
 ::: info Task type support
-Email notifications are **not available** for:
-- External program tasks (type 1) - only InfluxDB metrics
-- User sync tasks (type 2) - only InfluxDB metrics for success
+Email notifications are **currently not available** for:
 
-This is because these task types are less commonly used and have different monitoring requirements.
-:::
+- External program tasks - only InfluxDB metrics
+- User sync tasks - only InfluxDB metrics for success
+  :::
 
 See the [Concepts section](/docs/concepts/failed-reloads/client-managed/) for additional details and sample alert emails for reload tasks.
 
@@ -38,7 +40,7 @@ See the [Concepts section](/docs/concepts/failed-reloads/client-managed/) for ad
 If you want Butler to send email alerts you must provide an email template file.
 
 For some other alert destinations (Slack and Teams) Butler offers a "basic" option. A fixed format alert is then sent by Butler.  
-The closest thing available for emails is to use the mail log appender described [here](/docs/getting-started/setup/task-alerts/#sending-basic-alert-emails-from-log4net), but if you set up a log appender AND have Butler running, you might as well use the formatted email option as it provides **much** more flexibility than log4net's email appender.
+The closest thing available for emails is to use the mail log appender described [here](/docs/getting-started/setup/reload-alerts/#sending-basic-alert-emails-from-log4net), but if you set up a log appender AND have Butler running, you might as well use the formatted email option as it provides **much** more flexibility than log4net's email appender.
 
 ## Rate limiting and de-duplication
 
@@ -152,16 +154,17 @@ Butler controls which tasks to send alerts for by looking at a specific Qlik Sen
 
 ::: tip Task type support
 The concept described below applies to:
+
 - **Reload tasks**: Failed, aborted, and successful tasks (each with separate config settings)
-- **Distribute tasks**: Failed and successful tasks (each with separate config settings)  
+- **Distribute tasks**: Failed and successful tasks (each with separate config settings)
 - **Preload tasks**: Failed and successful tasks (each with separate config settings)
-:::
+  :::
 
 - If the config file setting `Butler.emailNotification.reloadTaskFailure.alertEnableByCustomProperty.enable` is set to `false`, _all_ failed reload tasks will cause alert emails.
 - If that setting is `true` only some tasks will cause alert emails:
   - If a task has the value specified in `Butler.emailNotification.reloadTaskFailure.alertEnableByCustomProperty.enabledValue` set for the custom property named as specified in `Butler.emailNotification.reloadTaskFailure.alertEnableByCustomProperty.customPropertyName`, the alert will be sent.
   - If a task _does not_ have that custom property set, no alert will be sent for that task.
-    - A task can still cause an alert to be sent if a specific email address is specified for the task, see [below](/docs/getting-started/setup/task-alerts/client-managed/alert-emails/#send-alerts-to-specific-people-for-some-tasks) for details.
+    - A task can still cause an alert to be sent if a specific email address is specified for the task, see [below](/docs/getting-started/setup/reload-alerts/client-managed/alert-emails/#send-alerts-to-specific-people-for-some-tasks) for details.
 
 The same logic applies to other task types (distribute, preload) with their respective configuration settings.
 
@@ -185,18 +188,20 @@ This is achieved by using a Sense custom property that contains the email addres
 
 ::: tip Task type support
 The concept described below applies to:
+
 - **Reload tasks**: Failed, aborted, and successful tasks (each with separate config settings)
 - **Distribute tasks**: Failed and successful tasks (each with separate config settings)
 - **Preload tasks**: Failed and successful tasks (each with separate config settings)
-:::
+  :::
 
 These config settings control which custom property is used to store email addresses for different task types:
+
 - `Butler.emailNotification.reloadTaskFailure.alertEnableByEmailAddress.customPropertyName` for failed reload tasks
 - `Butler.emailNotification.reloadTaskAborted.alertEnableByEmailAddress.customPropertyName` for aborted reload tasks
 - `Butler.emailNotification.reloadTaskSuccess.alertEnableByEmailAddress.customPropertyName` for successful reload tasks
 - Similar settings exist for distribute and preload tasks
 
-Email specific alert recipients is independent from the feature where alerts can be switched on/off for individual tasks (see [above](/docs/getting-started/setup/task-alerts/client-managed/alert-emails/#send-alerts-only-for-some-tasks)).
+Email specific alert recipients is independent from the feature where alerts can be switched on/off for individual tasks (see [above](/docs/getting-started/setup/reload-alerts/client-managed/alert-emails/#send-alerts-only-for-some-tasks)).
 
 In other words: If an email address has been designated as recipient of alert emails, that address will always receive alert emails for the configured task type and outcome.
 
@@ -209,12 +214,13 @@ Having set two different (blurred out) recipients of alert emails for a reload t
 ::: warning
 
 Don't forget to create the log appender .xml files on the Sense server(s).  
-[This page](/docs/getting-started/setup/task-alerts/#adding-a-log-appender) describes how.
+[This page](/docs/getting-started/setup/reload-alerts/#adding-a-log-appender) describes how. TODO
 
 Those xml files are the foundation on top of which all Butler task alerts are built - without them the alerts described on this page won't work.
 :::
 
 The configuration examples below show settings for **reload tasks**. Similar configuration sections exist for:
+
 - **Distribute tasks**: `Butler.emailNotification.distributeTaskFailure` and `Butler.emailNotification.distributeTaskSuccess`
 - **Preload tasks**: `Butler.emailNotification.preloadTaskFailure` and `Butler.emailNotification.preloadTaskSuccess`
 
@@ -376,6 +382,7 @@ Alert emails use standard HTML formatting. Inline CSS can be used (if so desired
 Butler's process for sending alert emails is:
 
 1. Figure out which _email body template file_ should be used. This is determined by configuration settings in the main config file for each task type and outcome:
+
    1. **Reload tasks**:
       - For _reload failure emails_: `Butler.emailNotification.reloadTaskFailure.bodyFileDirectory` and `Butler.emailNotification.reloadTaskFailure.htmlTemplateFile`
       - For _aborted reload emails_: `Butler.emailNotification.reloadTaskAborted.bodyFileDirectory` and `Butler.emailNotification.reloadTaskAborted.htmlTemplateFile`
@@ -386,7 +393,7 @@ Butler's process for sending alert emails is:
    3. **Preload tasks**:
       - For _preload failure emails_: `Butler.emailNotification.preloadTaskFailure.bodyFileDirectory` and `Butler.emailNotification.preloadTaskFailure.htmlTemplateFile`
       - For _preload success emails_: `Butler.emailNotification.preloadTaskSuccess.bodyFileDirectory` and `Butler.emailNotification.preloadTaskSuccess.htmlTemplateFile`
-   
+
    A `.handlebars` extension is assumed for all template files.
 
 2. For email subjects, corresponding config properties are used for each task type and outcome (e.g., `Butler.emailNotification.reloadTaskFailure.subject`, `Butler.emailNotification.distributeTaskSuccess.subject`, etc.).

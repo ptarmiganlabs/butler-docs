@@ -11,25 +11,26 @@ description: >
 Butler can send alert messages via Slack for:
 
 **Task monitoring:**
+
 - When a reload task fails
 - When a reload task is stopped/aborted
 
 **Windows service monitoring:**
+
 - When a Windows service stops
 - When a Windows service starts
 
 ::: info Task type limitation for task alerts
-For **task alerts**, Slack notifications are only available for **reload tasks** (failed and aborted).  
+For **task alerts**, Slack notifications are only available for **reload tasks** (failed and aborted).
 
-They are **not supported** for:
+They are **currently not available** for:
+
 - Distribute tasks
 - Preload tasks
-- External program tasks  
+- External program tasks
 - User sync tasks
 - Successful reload tasks
-
-For these task types, use [Email alerts](/docs/getting-started/setup/task-alerts/client-managed/alert-emails/) or [InfluxDB metrics](/docs/getting-started/setup/task-alerts/client-managed/alert-influxdb/) instead.
-:::
+  :::
 
 See the [Concepts section](/docs/concepts/setting-up-teams-webhooks/) for additional details.
 

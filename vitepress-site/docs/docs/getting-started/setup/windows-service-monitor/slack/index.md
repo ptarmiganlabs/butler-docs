@@ -40,16 +40,16 @@ Similar to how failed-reload email notifications work, the templating engine [Ha
 
 The following information is available in formatted Slack messages:
 
-| Handlebars variable       | Description                                                                                                             |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `{{host}}`                | The hostname of the server where the service is running                                                                 |
-| `{{serviceStatus}}`       | The status of the service, e.g. `RUNNING` or `STOPPED`                                                                  |
-| `{{servicePrevStatus}}`   | The previous status of the service, e.g. `RUNNING` or `STOPPED`                                                         |
-| `{{serviceName}}`         | The name of the service as defined in Windows                                                                           |
-| `{{serviceDisplayName}}`  | The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName. |
-| `{{serviceFriendlyName}}` | The friendly name of the service as defined in the config file.                                                         |
-| `{{serviceStartType}}`    | The start type of the service, e.g. `AUTO_START` or `DEMAND_START`                                                      |
-| `{{serviceExePath}}`      | The path to the service executable                                                                                      |
+| Handlebars variable                        | Description                                                                                                             |
+| ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| <code v-pre>{{host}}</code>                | The hostname of the server where the service is running                                                                 |
+| <code v-pre>{{serviceStatus}}</code>       | The status of the service, e.g. `RUNNING` or `STOPPED`                                                                  |
+| <code v-pre>{{servicePrevStatus}}</code>   | The previous status of the service, e.g. `RUNNING` or `STOPPED`                                                         |
+| <code v-pre>{{serviceName}}</code>         | The name of the service as defined in Windows                                                                           |
+| <code v-pre>{{serviceDisplayName}}</code>  | The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName. |
+| <code v-pre>{{serviceFriendlyName}}</code> | The friendly name of the service as defined in the config file.                                                         |
+| <code v-pre>{{serviceStartType}}</code>    | The start type of the service, e.g. `AUTO_START` or `DEMAND_START`                                                      |
+| <code v-pre>{{serviceExePath}}</code>      | The path to the service executable                                                                                      |
 
 ## Settings in config file
 

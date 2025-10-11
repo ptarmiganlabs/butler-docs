@@ -11,25 +11,26 @@ description: >
 Butler can send alert messages as outgoing webhooks for:
 
 **Task monitoring:**
+
 - When a scheduled, running reload task fails
 - When a scheduled, running reload task is stopped/aborted
 
 **Windows service monitoring:**
+
 - When a Windows service stops
 - When a Windows service starts
 
 ::: info Task type limitation for task monitoring
-For **task monitoring**, outgoing webhook notifications are only available for **reload tasks** (failed and aborted).  
+For **task monitoring**, outgoing webhook notifications are only available for **reload tasks** (failed and aborted).
 
-They are **not supported** for:
+They are **currently not supported** for:
+
 - Distribute tasks
 - Preload tasks
-- External program tasks  
+- External program tasks
 - User sync tasks
 - Successful reload tasks
-
-For these task types, use [Email alerts](/docs/getting-started/setup/task-alerts/client-managed/alert-emails/) or [InfluxDB metrics](/docs/getting-started/setup/task-alerts/client-managed/alert-influxdb/) instead.
-:::
+  :::
 
 ## How it works
 
@@ -60,7 +61,6 @@ Each webhook has its own certificate configuration, so Butler can be integrated 
 The certificate configuration is done in the Butler config file and looks like this for each webhook:
 
 ```yaml
-
 ---
 cert:
   enable: true # Set to true to use a custom CA certificate when calling the webhookURL

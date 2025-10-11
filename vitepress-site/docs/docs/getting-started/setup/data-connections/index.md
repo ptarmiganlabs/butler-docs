@@ -49,17 +49,17 @@ Using the `/v4/butlerping` endpoint is an easy way to do this (assuming that end
 
 Creating the data connection can look like this:
 
-|                                                                                                        |                                                                                                        |
-| :----------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: |
-| ![Creating the Butler_GET data connection](/img/getting-started/setup/data-connections/butler_get-1.png Creating the Butler_GET data connection) | ![Creating the Butler_GET data connection](/img/getting-started/setup/data-connections/butler_get-2.png Creating the Butler_GET data connection) |
-| ![Creating the Butler_GET data connection](/img/getting-started/setup/data-connections/butler_get-3.png Creating the Butler_GET data connection) | ![Creating the Butler_GET data connection](/img/getting-started/setup/data-connections/butler_get-4.png Creating the Butler_GET data connection) |
+|                                                                                                             |                                                                                                             |
+| :---------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------: |
+| ![Creating the Butler_GET data connection](/img/butler_get-1.png "Creating the Butler_GET data connection") | ![Creating the Butler_GET data connection](/img/butler_get-2.png "Creating the Butler_GET data connection") |
+| ![Creating the Butler_GET data connection](/img/butler_get-3.png "Creating the Butler_GET data connection") | ![Creating the Butler_GET data connection](/img/butler_get-4.png "Creating the Butler_GET data connection") |
 
 No special settings are needed - just make sure the REST connector finds Butler as it should.  
 The actual URL of the data connection will be modified on the fly every time you call the Butler APIs, it's thus not really important which URL is entered during the setup phase. But the `/v4/butlerping` endpoint is a convenient way to check that the data connection works.
 
 Test the connection before creating it:
 
-![Testing the Butler_GET data connection](/img/getting-started/setup/data-connections/butler_get_connection-test-succeeded-1.png Testing the Butler_GET data connection)
+![Testing the Butler_GET data connection](/img/butler_get_connection-test-succeeded-1.png "Testing the Butler_GET data connection")
 
 ::: warning Remember!
 As with all new data connections, Sense will change the name your new connection (adding your username as a suffix).  
@@ -90,14 +90,14 @@ The fact that is was created against the key-value store doesn't matter, the dat
 
 Creating the data connection can look like this:
 
-|                                                                                                           |                                                                                                           |
-| :-------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------: |
-| ![Creating the Butler_POST data connection](/img/getting-started/setup/data-connections/butler_post-1.png Creating the Butler_POST data connection) | ![Creating the Butler_POST data connection](/img/getting-started/setup/data-connections/butler_post-2.png Creating the Butler_POST data connection) |
-| ![Creating the Butler_POST data connection](/img/getting-started/setup/data-connections/butler_post-3.png Creating the Butler_POST data connection) | ![Creating the Butler_POST data connection](/img/getting-started/setup/data-connections/butler_post-4.png Creating the Butler_POST data connection) |
+|                                                                                                                |                                                                                                                |
+| :------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------: |
+| ![Creating the Butler_POST data connection](/img/butler_post-1.png "Creating the Butler_POST data connection") | ![Creating the Butler_POST data connection](/img/butler_post-2.png "Creating the Butler_POST data connection") |
+| ![Creating the Butler_POST data connection](/img/butler_post-3.png "Creating the Butler_POST data connection") | ![Creating the Butler_POST data connection](/img/butler_post-4.png "Creating the Butler_POST data connection") |
 
 ... and test the connection before creating it.
 
-![Testing the Butler_POST data connection](/img/getting-started/setup/data-connections/butler_post_connection-test-succeeded-1.png Testing the Butler_POST data connection)
+![Testing the Butler_POST data connection](/img/butler_post_connection-test-succeeded-1.png "Testing the Butler_POST data connection")
 
 ::: warning Remember!
 As with all new data connections, Sense will change the name your new connection (adding your username as a suffix).  

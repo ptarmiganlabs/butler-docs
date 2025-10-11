@@ -6,32 +6,32 @@ description: >
   Description of how task and Windows service alerts can be sent to New Relic as events and log messages.
 ---
 
-
 ## What's this?
 
 Butler can send messages to New Relic for:
 
 **Task monitoring:**
+
 - When a scheduled or started from the QMC reload task fails
 - When a scheduled or started from the QMC reload task is stopped/aborted
 
 **Windows service monitoring:**
+
 - When a Windows service stops
 - When a Windows service starts
 - Service status information
 
 ::: info Task type limitation for task monitoring
-For **task monitoring**, New Relic notifications are only available for **reload tasks** (failed and aborted).  
+For **task monitoring**, New Relic notifications are only available for **reload tasks** (failed and aborted).
 
-They are **not supported** for:
+They are **currently not supported** for:
+
 - Distribute tasks
 - Preload tasks
-- External program tasks  
+- External program tasks
 - User sync tasks
 - Successful reload tasks
-
-For these task types, use [Email alerts](/docs/getting-started/setup/task-alerts/client-managed/alert-emails/) or [InfluxDB metrics](/docs/getting-started/setup/task-alerts/client-managed/alert-influxdb/) instead.
-:::
+  :::
 
 See the [Concepts section](/docs/concepts/incident-mgmt-tools/new-relic/) for examples on what a New Relic alert can look like.
 
@@ -110,12 +110,12 @@ Butler:
   ...
   ...
   thirdPartyToolsCredentials:
-    newRelic:         # Array of New Relic accounts/insert keys. Any data sent to New Relic will be sent to both accounts. 
+    newRelic:         # Array of New Relic accounts/insert keys. Any data sent to New Relic will be sent to both accounts.
       - accountName: First NR account
-        insertApiKey: <API key 1 (with insert permissions) from New Relic> 
+        insertApiKey: <API key 1 (with insert permissions) from New Relic>
         accountId: <New Relic account ID 1>
       - accountName: Second NR account
-        insertApiKey: <API key 2 (with insert permissions) from New Relic> 
+        insertApiKey: <API key 2 (with insert permissions) from New Relic>
         accountId: <New Relic account ID 2>
   ...
   ...
@@ -135,16 +135,16 @@ Butler:
       url:
         # As of this writing the valid options are
         # https://insights-collector.eu01.nr-data.net
-        # https://insights-collector.newrelic.com 
+        # https://insights-collector.newrelic.com
         event: https://insights-collector.eu01.nr-data.net
 
         # Valid options are (1) EU/rest of world and 2) US)
         # https://log-api.eu.newrelic.com/log/v1
-        # https://log-api.newrelic.com/log/v1 
+        # https://log-api.newrelic.com/log/v1
         log: https://log-api.eu.newrelic.com/log/v1
       reloadTaskFailure:
         destination:
-          event: 
+          event:
             enable: false
             sendToAccount:              # Which reload task failures are sent to New Relic as events
               byCustomProperty:
@@ -152,10 +152,10 @@ Butler:
                 customPropertyName: 'Butler_FailedTask_Event_NewRelicAccount'
               always:
                 enable: false            # Controls which New Relic accounts ALL failed reload tasks are sent to (as events)
-                account: 
+                account:
                   - First NR account
                   - Second NR account
-            attribute: 
+            attribute:
               static:                 # Static attributes/dimensions to attach to events sent to New Relic.
                 - name: event-specific-attribute 1  # Example
                   value: abc 123                    # Example
@@ -171,10 +171,10 @@ Butler:
                 customPropertyName: 'Butler_FailedTask_Log_NewRelicAccount'
               always:
                 enable: false            # Controls which New Relic accounts ALL failed reload tasks are sent to (as logs)
-                account: 
+                account:
                   - First NR account
                   - Second NR account
-            attribute: 
+            attribute:
               static:                 # Static attributes/dimensions to attach to events sent to New Relic.
                 - name: log-specific-attribute 1    # Example
                   value: def 123                    # Example
@@ -186,7 +186,7 @@ Butler:
           header:                   # Custom http headers
             - name: X-My-Header     # Example
               value: Header value 1 # Example
-          attribute: 
+          attribute:
             static:                 # Static attributes/dimensions to attach to events sent to New Relic.
               - name: service       # Example
                 value: butler       # Example
@@ -194,7 +194,7 @@ Butler:
                 value: prod         # Example
       reloadTaskAborted:
         destination:
-          event: 
+          event:
             enable: false
             sendToAccount:              # Which reload task aborts are sent to New Relic as events
               byCustomProperty:
@@ -202,10 +202,10 @@ Butler:
                 customPropertyName: 'Butler_AbortedTask_Event_NewRelicAccount'
               always:
                 enable: false            # Controls which New Relic accounts ALL aborted reload tasks are sent to (as events)
-                account: 
+                account:
                   - First NR account
                   - Second NR account
-            attribute: 
+            attribute:
               static:                 # Static attributes/dimensions to attach to events sent to New Relic.
                 - name: event-specific-attribute 2  # Example
                   value: abc 123                    # Example
@@ -221,10 +221,10 @@ Butler:
                 customPropertyName: 'Butler_AbortedTask_Log_NewRelicAccount'
               always:
                 enable: false          # Controls which New Relic accounts ALL aborted reload tasks are sent to (as logs)
-                account: 
+                account:
                   - First NR account
                   - Second NR account
-            attribute: 
+            attribute:
               static:                 # Static attributes/dimensions to attach to events sent to New Relic.
                 - name: log-specific-attribute 2    # Example
                   value: def 123                    # Example
@@ -236,7 +236,7 @@ Butler:
           header:                   # Custom http headers
             - name: X-My-Header     # Example
               value: Header value 2 # Example
-          attribute: 
+          attribute:
             static:                 # Static attributes/dimensions to attach to events sent to New Relic.
               - name: service       # Example
                 value: butler       # Example
@@ -244,12 +244,12 @@ Butler:
                 value: prod         # Example
       serviceMonitor:
         destination:
-          event: 
+          event:
             enable: false
             sendToAccount:                # Windows service events are sent to these New Relic accounts
               - First NR account
               - Second NR account
-            attribute: 
+            attribute:
               static:                     # Static attributes/dimensions to attach to events sent to New Relic.
                 - name: event-specific-attribute
                   value: abc 123
@@ -263,7 +263,7 @@ Butler:
             sendToAccount:                # Windows service log entries are sent to these New Relic accounts
               - First NR account
               - Second NR account
-            attribute: 
+            attribute:
               static:                     # Static attributes/dimensions to attach to events sent to New Relic.
                 - name: log-specific-attribute
                   value: def 456
@@ -282,7 +282,7 @@ Butler:
           header:                         # Custom http headers
             - name: X-My-Header           # Example
               value: Header value 2       # Example
-          attribute: 
+          attribute:
             static:                       # Static attributes/dimensions to attach to events sent to New Relic.
               - name: service             # Example
                 value: butler             # Example

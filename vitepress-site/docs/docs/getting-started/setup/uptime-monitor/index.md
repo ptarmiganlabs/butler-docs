@@ -13,9 +13,9 @@ description: >
 
 In some cases - especially when investigating issues or bugs - it can be useful to get log messages telling how long Butler has been running and how much memory it uses.
 
-This feature is called "uptime monitoring" and can be enabled in the main config file.
+This feature is called "uptime monitoring" and can be enabled in the config file.
 
-The logging interval is configurable, as is the log level required for uptime messages to be shown.
+The logging interval is configurable, as is the log level required for uptime messages to be shown in Butler's log files.
 
 ### InfluxDB
 

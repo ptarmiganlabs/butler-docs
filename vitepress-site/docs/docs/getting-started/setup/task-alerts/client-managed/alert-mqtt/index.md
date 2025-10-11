@@ -11,26 +11,27 @@ description: >
 Butler can send alert messages as MQTT messages for:
 
 **Task monitoring:**
+
 - When a scheduled, running reload task fails
 - When a scheduled, running reload task is stopped/aborted
 
 **Windows service monitoring:**
+
 - When a Windows service is running
 - When a Windows service stops
 - Service status information
 
 ::: info Task type limitation for task alerts
-For **task alerts**, MQTT notifications are only available for **reload tasks** (failed and aborted).  
+For **task alerts**, MQTT notifications are only available for **reload tasks** (failed and aborted).
 
-They are **not supported** for:
+They are **currently not supported** for:
+
 - Distribute tasks
 - Preload tasks
-- External program tasks  
+- External program tasks
 - User sync tasks
 - Successful reload tasks
-
-For these task types, use [Email alerts](/docs/getting-started/setup/task-alerts/client-managed/alert-emails/) or [InfluxDB metrics](/docs/getting-started/setup/task-alerts/client-managed/alert-influxdb/) instead.
-:::
+  :::
 
 ## How it works
 
@@ -41,7 +42,7 @@ The task name will be sent in the message body.
 
 The basic message looks like this when viewed in the MQTTLens app:
 
-![A basic reload task failed message sent via MQTT](/img/getting-started/setup/task-alerts/client-managed/alert-mqtt/mqtt_failed_task_basic_1.png A basic reload task failed message sent via MQTT)  
+![A basic reload task failed message sent via MQTT](/img/getting-started/setup/task-alerts/client-managed/alert-mqtt/mqtt_failed_task_basic_1.png A basic reload task failed message sent via MQTT)
 
 ### Complete message
 
@@ -51,7 +52,7 @@ The message is sent on the `Butler.mqttConfig.taskFailureFullTopic` or `Butler.m
 
 That message can look like this:
 
-![A complete reload task failed message sent via MQTT](/img/getting-started/setup/task-alerts/client-managed/alert-mqtt/mqtt_failed_task_full_1.png A complete reload task failed message sent via MQTT)  
+![A complete reload task failed message sent via MQTT](/img/getting-started/setup/task-alerts/client-managed/alert-mqtt/mqtt_failed_task_full_1.png A complete reload task failed message sent via MQTT)
 
 ::: warning Remember
 Don't forget to create the log appender .xml files on the Sense server(s).  
@@ -76,7 +77,7 @@ Butler:
     brokerHost: <FQDN or IP of MQTT server>
     brokerPort: 1883
     azureEventGrid:
-      enable: false              # If set to true, Butler will connect to an Azure Event Grid MQTT Broker, using brokerHost and brokerPort above 
+      enable: false              # If set to true, Butler will connect to an Azure Event Grid MQTT Broker, using brokerHost and brokerPort above
       clientId: <client ID>
       clientCertFile: <path to client certificate file>
       clientKeyFile: <path to client key file>

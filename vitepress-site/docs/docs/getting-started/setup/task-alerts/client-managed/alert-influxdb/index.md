@@ -11,17 +11,20 @@ description: >
 Butler can store information about reload tasks and Windows services in InfluxDB:
 
 **Task monitoring:**
+
 - Failed reload tasks - All failed reload tasks are stored
 - Successful reload tasks - Either all or selected tasks (controlled via custom property)
 
 **Windows service monitoring:**
+
 - Service status information
 - Service state changes (running/stopped)
 
 ::: info Task type limitation for task monitoring
 For **task monitoring**, InfluxDB storage is available for:
+
 - **Reload tasks**: Failed and successful tasks
-- **Distribute tasks**: Failed and successful tasks  
+- **Distribute tasks**: Failed and successful tasks
 - **Preload tasks**: Successful tasks only
 - **External program tasks**: Failed and successful tasks
 - **User sync tasks**: Successful tasks only

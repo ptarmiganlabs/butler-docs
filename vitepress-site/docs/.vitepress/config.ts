@@ -204,8 +204,7 @@ export default defineConfig({
                 },
                 { text: 'Start task filter', link: '/docs/getting-started/setup/start-task-filter/' },
                 { text: 'Telemetry', link: '/docs/getting-started/setup/telemetry/' },
-                { text: 'Visualise config file', link: '/docs/getting-started/setup/visualise-config-file/' },
-                { text: 'User events', link: '/docs/getting-started/setup/user-events/' }
+                { text: 'Visualise config file', link: '/docs/getting-started/setup/visualise-config-file/' }
               ]
             },
             { text: 'Day 2 operations', link: '/docs/getting-started/day2-operations' },
