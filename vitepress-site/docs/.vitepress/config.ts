@@ -188,7 +188,15 @@ export default defineConfig({
                 { text: 'User events', link: '/docs/getting-started/setup/user-events/' }
               ]
             },
-            { text: 'Day 2 operations', link: '/docs/getting-started/day2-operations' },
+            { 
+              text: 'Day 2 operations', 
+              link: '/docs/getting-started/operations/',
+              items: [
+                { text: 'Standalone app', link: '/docs/getting-started/operations/standalone' },
+                { text: 'Docker', link: '/docs/getting-started/operations/docker' },
+                { text: 'Node.js app', link: '/docs/getting-started/operations/nodejs' }
+              ]
+            },
             { text: 'Upgrade', link: '/docs/getting-started/upgrade' }
           ]
         },

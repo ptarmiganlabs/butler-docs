@@ -1,18 +1,21 @@
-# Day 2 operations
+---
+title: "Standalone app"
+description: "Running Butler as a standalone app is in most cases the easiest way to use Butler. Pre-built executables are available for Windows, macOS and Linux."
+---
 
-Options for running Butler.
+# Standalone app
+
+Running Butler as a standalone app is in most cases the easiest way to use Butler.  
+Pre-built executables are available for Windows, macOS and Linux.
 
 ## Running Butler as standalone, native app
 
-Running Butler as a standalone app is in most cases the easiest way to use Butler. Pre-built executables are available for Windows, macOS and Linux.
-
 ### Windows
 
-Running standalone Butler on Windows Server looks like this:
+Running standalone Butler on Windows Server 2016 looks like this:
 
 ```powershell
-PS C:\tools\butler> .\butler.exe
-Running in non-packaged environment. Executable path: /Users/goran/code/butler
+PS C:\tools\butler> .\butler.exe --help
 Usage: butler [options]
 
 Butler gives superpowers to client-managed Qlik Sense Enterprise on Windows!
@@ -20,7 +23,7 @@ Advanced reload failure alerts, task scheduler, key-value store, file system acc
 
 Options:
   -V, --version                        output the version number
-  -c, --configfile <file>              path to config file (REQUIRED)
+  -c, --configfile <file>              path to config file
   -l, --loglevel <level>               log level (choices: "error", "warn", "info", "verbose", "debug", "silly")
   --new-relic-account-name  <name...>  New Relic account name. Used within Butler to differentiate between different target New Relic accounts
   --new-relic-api-key <key...>         insert API key to use with New Relic
@@ -29,21 +32,12 @@ Options:
   --test-email-from-address <address>  send test email from this address. Only relevant when SMTP server allows from address to be set.
   --no-qs-connection                   don't connect to Qlik Sense server at all. Run in isolated mode
   --api-rate-limit                     set the API rate limit, per minute. Default is 100 calls/minute. Set to 0 to disable rate limiting.
-  --skip-config-verification           Disable config file verification (default: false)
   -h, --help                           display help for command
-
-Configuration File:
-  Butler requires a configuration file to run. You must specify one using the -c option.
-
-  Example config files can be found in:
-    ./src/config/production_template.yaml
-    ./src/config/schedule_template.yaml
-
-  For more information visit: https://butler.ptarmiganlabs.com
+PS C:\tools\butler>
 ```
 
 ::: warning
-The -c/--configfile option is mandatory. Always provide a path to a valid Butler YAML config file when starting Butler. The file extension must be .yaml (.yml is not supported).
+The -c/--configfile option is now mandatory. Always provide a path to a valid Butler YAML config file when starting Butler.
 :::
 
 Adding the `--configfile` option and pointing it to a valid config file gives Butler everything needed to start.
@@ -63,7 +57,6 @@ d-----       11/25/2023  11:58 PM                config
 d-----       12/10/2023   2:46 PM                log
 -a----        12/6/2023   8:31 PM       70614688 butler.exe
 
-TODO update...
 
 PS C:\tools\butler> .\butler.exe -c .\config\butler-config.yaml -l info
 ...
@@ -107,11 +100,10 @@ A step-by-step tutorial for running Butler as a Windows service is available ove
 
 ### macOS and Linux
 
-Running the standalone Butler tool without any parameters shows the same output as when using the `--help` option:
+Running the standalone Butler tool without any parameters gives you a help text that explains which commands and options are available:
 
 ```bash
-➜  butler ./butler
-Running in non-packaged environment. Executable path: /Users/goran/code/butler
+➜  butler ./butler --help
 Usage: butler [options]
 
 Butler gives superpowers to client-managed Qlik Sense Enterprise on Windows!
@@ -119,7 +111,7 @@ Advanced reload failure alerts, task scheduler, key-value store, file system acc
 
 Options:
   -V, --version                        output the version number
-  -c, --configfile <file>              path to config file (REQUIRED)
+  -c, --configfile <file>              path to config file
   -l, --loglevel <level>               log level (choices: "error", "warn", "info", "verbose", "debug", "silly")
   --new-relic-account-name  <name...>  New Relic account name. Used within Butler to differentiate between different target New Relic accounts
   --new-relic-api-key <key...>         insert API key to use with New Relic
@@ -128,17 +120,7 @@ Options:
   --test-email-from-address <address>  send test email from this address. Only relevant when SMTP server allows from address to be set.
   --no-qs-connection                   don't connect to Qlik Sense server at all. Run in isolated mode
   --api-rate-limit                     set the API rate limit, per minute. Default is 100 calls/minute. Set to 0 to disable rate limiting.
-  --skip-config-verification           Disable config file verification (default: false)
   -h, --help                           display help for command
-
-Configuration File:
-  Butler requires a configuration file to run. You must specify one using the -c option.
-
-  Example config files can be found in:
-    ./src/config/production_template.yaml
-    ./src/config/schedule_template.yaml
-
-  For more information visit: https://butler.ptarmiganlabs.com
 ➜  butler
 ```
 
@@ -150,82 +132,6 @@ The exact way of auto-starting apps when a computer boots varies between differe
 If you want to do this Google is your friend.
 
 That said, [PM2](https://github.com/Unitech/pm2) and [Forever](https://github.com/foreverjs/forever) are two process monitors that both have been successfully tested with Butler. These tools basically monitor what processes are running and restart them if they for some reason fail.
-
-## Running Butler in Docker
-
-First configure the `docker-compose.yml` file as needed, then start the Docker container in interactive mode (with output sent to the screen).  
-This is useful to ensure everything works as intended when first setting up Butler SOS.
-
-```bash
-docker-compose up
-```
-
-Once Butler has been verified to work as intended, hit `ctrl-c` to stop it.  
-Then start Butler in daemon (background) mode:
-
-```bash
-docker-compose up -d
-```
-
-From here on the Docker environment will make sure Butler is always running, including restarting it if it for some reason stops.
-
-::: tip
-There is a [sample docker-compose.yaml file](https://github.com/ptarmiganlabs/butler/blob/master/docs/docker-compose/docker-compose.yaml) available in the [Butler repository](https://github.com/ptarmiganlabs/butler) over at GitHub.
-:::
-
-## Running Butler as Node.js app
-
-If the Butler source code has been installed in `d:\tools\butler`, starting Butler as a Node.js app on Windows could look like this:
-
-```bash
-d:
-cd \tools\butler\src
-node butler.js -c .\config\dev.yaml
-```
-
-It is of course also possible to put those commands in a command file (.bat or .ps1 on Windows) file and execute that file instead.
-
-The commands above assume there is a `d:\tools\butler\src\config` directory in which there is a YAML config file.  
-With -c/--configfile now being mandatory, you must explicitly point to the YAML file to use (for example `dev.yaml` as shown). The file extension must be .yaml (.yml is not supported).
-
-The command line options introduced in Butler 7.2 are available also when running Butler as a Node.js app.  
-Use the `--help` command line option to show what options are available:
-
-```powershell
-PS D:\tools\butler\src> node butler.js --help
-Running in non-packaged environment. Executable path: /Users/goran/code/butler
-Usage: butler [options]
-
-Butler gives superpowers to client-managed Qlik Sense Enterprise on Windows!
-Advanced reload failure alerts, task scheduler, key-value store, file system access and much more.
-
-Options:
-  -V, --version                        output the version number
-  -c, --configfile <file>              path to config file (REQUIRED)
-  -l, --loglevel <level>               log level (choices: "error", "warn", "info", "verbose", "debug", "silly")
-  --new-relic-account-name  <name...>  New Relic account name. Used within Butler to differentiate between different target New Relic accounts
-  --new-relic-api-key <key...>         insert API key to use with New Relic
-  --new-relic-account-id <id...>       New Relic account ID
-  --test-email-address <address>       send test email to this address. Used to verify email settings in the config file.
-  --test-email-from-address <address>  send test email from this address. Only relevant when SMTP server allows from address to be set.
-  --no-qs-connection                   don't connect to Qlik Sense server at all. Run in isolated mode
-  --api-rate-limit                     set the API rate limit, per minute. Default is 100 calls/minute. Set to 0 to disable rate limiting.
-  --skip-config-verification           Disable config file verification (default: false)
-  -h, --help                           display help for command
-
-Configuration File:
-  Butler requires a configuration file to run. You must specify one using the -c option.
-
-  Example config files can be found in:
-    ./src/config/production_template.yaml
-    ./src/config/schedule_template.yaml
-
-  For more information visit: https://butler.ptarmiganlabs.com
-```
-
-Looking at the above, it's actually possible to use the `--configfile` to specify which config file to use.
-
-Similarly the `--loglevel` option can be used to control Butler's logging.
 
 ## Command line options
 
@@ -239,7 +145,7 @@ Shows Butler's version number.
 
 ### --configfile, -c
 
-The `--configfile` option is mandatory in all run modes (standalone binary, Docker, and Node.js). Use it to specify the path to Butler's YAML configuration file.
+The `--configfile` option is a must-have as it's the only way to tell the standalone Butler executable where to find its config file.
 
 ### --loglevel, -l
 
@@ -293,32 +199,3 @@ This is used when Butler is executed to provide a Swagger/OpenAPI specification 
 ### --api-rate-limit
 
 The `--api-rate-limit` option can be used to set the REST API rate limit, per minute. Default is 100 calls/minute. Set to 0 to disable rate limiting.
-
-## Monitoring Butler
-
-Once Butler is running it's a good idea to also monitor it. Otherwise you stand the risk of not getting notified if Butler for some reason misbehaves.
-
-Butler logs its own memory usage to the console and log files (if enabled), but can also send these metrics to an InfluxDB database and New Relic.
-
-Butler will log its own memory usage to InfluxDB if
-
-1. The config file's `Butler.uptimeMonitor.enable` and `Butler.uptimeMonitor.storeInInfluxdb.enable` properties are both set to `true`.
-2. The remaining InfluxDB properties of the config file are correctly configured.
-
-Similarly, uptime metrics will be sent to New Relic if
-
-1. The config file's `Butler.uptimeMonitor.enable` and `Butler.uptimeMonitor.storeNewRelic.enable` properties are both set to `true`.
-2. The remaining New Relic properties of the config file are correctly configured.
-
-Assuming everything is correctly set up, you can then create a Grafana dashboard showing Butler's memory use over time, using data from InfluxDB.
-You can also set up alerts in Grafana if so desired, with notifications going to most IM tools and email.
-
-A Grafana dashboard can look like this. Note that one of the available metrics (`external`) is not used in this particular dashboard. It's still logged to InfluxDB though.
-
-![Butler memory usage in Grafana dashboard](/img/butler-memory-usage-grafana-1.png "Butler memory usage in Grafana dashboard")
-
-There is a [sample Grafana dashboard](https://github.com/ptarmiganlabs/butler/tree/master/docs/grafana) in Butler's GitHub repo.
-
-A New Relic graph covering the same information (but a different time range!) can look like this:
-
-![Butler memory usage in Grafana dashboard](/img/butler-memory-usage-new-relic-1.png "Butler memory usage in Grafana dashboard")

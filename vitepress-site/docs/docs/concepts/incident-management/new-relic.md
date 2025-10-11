@@ -69,7 +69,7 @@ Butler provides rich operational dashboards when integrated with New Relic:
 
 ### Light Mode Dashboard
 
-![New Relic metrics & incident dashboard (light mode)](/img/new-relic-dashboard-1.png)
+![New Relic metrics & incident dashboard (light mode)](/img/concepts/incident-mgmt-tools/new-relic/new-relic-dashboard-1.png)
 
 ### Dark Mode Dashboard with Different Time Range
 
