@@ -33,7 +33,7 @@ Butler also has a de-duplication feature that ensure each email address that has
 
 ## Sending test emails to verify correct settings
 
-See the same section for [client-managed Qlik Sense](http://localhost:1313/docs/getting-started/setup/reload-alerts/client-managed/alert-emails/#sending-test-emails-to-verify-correct-settings).  
+See the same section for [client-managed Qlik Sense](http://localhost:1313/docs/getting-started/setup/task-alerts/client-managed/alert-emails/#sending-test-emails-to-verify-correct-settings).  
 The commands are identical.
 
 ## Sending alert emails to app owners
@@ -100,7 +100,7 @@ Looks like this in Qlik Sense Cloud:
 
 ## How it works
 
-The concept is the same for all alert types, see the [this page](/docs/getting-started/setup/reload-alerts/cloud/#how-it-works) for details.
+The concept is the same for all alert types, see the [this page](/docs/getting-started/setup/task-alerts/cloud/#how-it-works) for details.
 
 ## Settings in config file
 

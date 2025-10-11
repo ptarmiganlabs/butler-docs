@@ -257,7 +257,7 @@ Butler's client-managed alerting relies on proper log4net appender configuration
 
 ## Next Steps
 
-- **[Setup Guide](/docs/getting-started/setup/reload-alerts/)** - Complete configuration walkthrough
+- **[Setup Guide](/docs/getting-started/setup/task-alerts/)** - Complete configuration walkthrough
 - **[Client-Managed Alerts](/docs/concepts/failed-reloads/client-managed/)** - Detailed client-managed capabilities
 - **[Template Fields](/docs/reference/alert-template-fields/)** - Available template variables
 - **[Incident Management](/docs/concepts/incident-management/)** - Advanced alerting integrations

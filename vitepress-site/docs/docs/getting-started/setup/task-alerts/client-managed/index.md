@@ -51,7 +51,7 @@ Each destination can be individually enabled/disabled in the config file.
 
 | Destination      | Reload task failure | Reload task aborted | Reload task success | Enable/disable alert per reload task | Per reload task alert recipients | Flexible formatting | Basic formatting | Comment                                                                                                                              |
 | ---------------- | :-----------------: | :-----------------: | :-----------------: | :----------------------------------: | :------------------------------: | :-----------------: | :--------------: | ------------------------------------------------------------------------------------------------------------------------------------ |
-| Email            |         ✅          |         ✅          |         ✅          |                  ✅                  |                ✅                |         ✅          |        ✅        | Basic emails can be sent using a [log appender](/docs/getting-started/setup/reload-alerts/#sending-basic-alert-emails-from-log4net). |
+| Email            |         ✅          |         ✅          |         ✅          |                  ✅                  |                ✅                |         ✅          |        ✅        | Basic emails can be sent using a [log appender](/docs/getting-started/setup/task-alerts/#sending-basic-alert-emails-from-log4net). |
 | Slack            |         ✅          |         ✅          |                     |                                      |                                  |         ✅          |        ✅        |                                                                                                                                      |
 | MS Teams         |         ✅          |         ✅          |                     |                                      |                                  |         ✅          |        ✅        |                                                                                                                                      |
 | MQTT             |         ✅          |         ✅          |                     |                                      |                                  |                     |        ✅        | Basic: task name only. Full: Complete task details as JSON.                                                                          |
@@ -157,7 +157,7 @@ The steps are:
 
 3. Sense will eventually detect and load the new xml file, but it might take a while (minutes). Restarting the Qlik Sense Scheduler Windows service will make the changes take effect immediately.
 
-![log4net log appender on Windows Server](/img/getting-started/setup/reload-alerts/client-managed/reload-failure-notification-win-config-1.png log4net log appender on Windows Server)
+![log4net log appender on Windows Server](/img/getting-started/setup/task-alerts/client-managed/reload-failure-notification-win-config-1.png log4net log appender on Windows Server)
 
 ### Forwarding reload task events to Butler
 

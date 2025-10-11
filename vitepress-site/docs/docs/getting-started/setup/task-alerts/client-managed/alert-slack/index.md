@@ -22,7 +22,7 @@ This feature is not supported for:
 - User sync tasks
 - Successful reload tasks
 
-For these task types, use [Email alerts](/docs/getting-started/setup/reload-alerts/client-managed/alert-emails/) or [InfluxDB metrics](/docs/getting-started/setup/reload-alerts/client-managed/alert-influxdb/) instead.
+For these task types, use [Email alerts](/docs/getting-started/setup/task-alerts/client-managed/alert-emails/) or [InfluxDB metrics](/docs/getting-started/setup/task-alerts/client-managed/alert-influxdb/) instead.
 :::
 
 See the [Concepts section](/docs/concepts/setting-up-teams-webhooks/) for additional details.
@@ -119,12 +119,12 @@ This is described here: [Custom links in alerts](/docs/concepts/custom-links-in-
 ::: warning
 Don't forget to create the log appender .xml files on the Sense server(s).
 
-[This page](/docs/getting-started/setup/reload-alerts/client-managed/#adding-a-log-appender) describes how.
+[This page](/docs/getting-started/setup/task-alerts/client-managed/#adding-a-log-appender) describes how.
 
 Those xml files are the foundation on top of which all Butler alerts are built - without them the alerts described on this page won't work.
 :::
 
-The concept is the same for all alert types, see the [email alerts](/docs/getting-started/setup/reload-alerts/#how-it-works) for details.
+The concept is the same for all alert types, see the [email alerts](/docs/getting-started/setup/task-alerts/#how-it-works) for details.
 
 ## Settings in config file
 

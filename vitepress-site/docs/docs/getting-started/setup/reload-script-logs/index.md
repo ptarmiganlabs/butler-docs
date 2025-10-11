@@ -41,7 +41,7 @@ Could look like this:
 
 ### Client-managed Qlik Sense
 
-This feature relies on the same Qlik Sense log appenders that the [reload alerts](/docs/getting-started/setup/reload-alerts/) uses. Please see that page for an in-depth discussion on how log appenders work and how to set them up.
+This feature relies on the same Qlik Sense log appenders that the [reload alerts](/docs/getting-started/setup/task-alerts/) uses. Please see that page for an in-depth discussion on how log appenders work and how to set them up.
 
 ![Butler high level system overview](/img/butler-failed-reload-log-1.png "Butler high level system overview")
 

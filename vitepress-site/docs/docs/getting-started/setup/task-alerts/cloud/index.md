@@ -359,9 +359,9 @@ app.http("qscloudreload", {
 
 The alerts can be customized in the same ways as for Qlik Sense client-managed. More info at links below.
 
-- [Email alerts](/docs/getting-started/setup/reload-alerts/client-managed/alert-emails/)
-- [Slack alerts](/docs/getting-started/setup/reload-alerts/client-managed/alert-slack/)
-- [Teams alerts](/docs/getting-started/setup/reload-alerts/client-managed/alert-teams/)
+- [Email alerts](/docs/getting-started/setup/task-alerts/client-managed/alert-emails/)
+- [Slack alerts](/docs/getting-started/setup/task-alerts/client-managed/alert-slack/)
+- [Teams alerts](/docs/getting-started/setup/task-alerts/client-managed/alert-teams/)
 
 ### References
 

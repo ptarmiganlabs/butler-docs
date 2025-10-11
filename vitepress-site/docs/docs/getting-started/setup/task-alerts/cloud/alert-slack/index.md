@@ -93,7 +93,7 @@ This is described here: [Custom links in alerts](/docs/concepts/custom-links-in-
 
 ## How it works
 
-The concept is the same for all alert types, see the [this page](/docs/getting-started/setup/reload-alerts/cloud/#how-it-works) for details.
+The concept is the same for all alert types, see the [this page](/docs/getting-started/setup/task-alerts/cloud/#how-it-works) for details.
 
 ## Settings in config file
 

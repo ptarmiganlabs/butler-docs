@@ -2,7 +2,7 @@
 
 Below follows a list of destinations to which Butler can send notifications when a reload task fails or is aborted.
 
-A comparison of the different alert destinations can be options can be found in the [setup documentation](/docs/getting-started/setup/reload-alerts/).
+A comparison of the different alert destinations can be options can be found in the [setup documentation](/docs/getting-started/setup/task-alerts/).
 
 ## Alert Destinations
 
@@ -50,4 +50,4 @@ Each alert destination can be configured independently with:
 - **Recipient Targeting**: Who should receive alerts for different scenarios
 - **Delivery Options**: How and when alerts are delivered
 
-For detailed configuration instructions, see the [setup documentation](/docs/getting-started/setup/reload-alerts/).
+For detailed configuration instructions, see the [setup documentation](/docs/getting-started/setup/task-alerts/).
