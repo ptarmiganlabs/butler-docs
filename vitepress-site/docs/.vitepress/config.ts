@@ -139,11 +139,31 @@ export default withMermaid({
                 { text: 'File system access', link: '/docs/getting-started/setup/file-system-access/' },
                 { text: 'MQTT', link: '/docs/getting-started/setup/mqtt/' },
                 { 
-                  text: 'Reload alerts',
-                  link: '/docs/getting-started/setup/reload-alerts/',
+                  text: 'Task alerts',
+                  link: '/docs/getting-started/setup/task-alerts/',
                   items: [
-                    { text: 'Client-managed', link: '/docs/getting-started/setup/reload-alerts/client-managed/' },
-                    { text: 'Cloud', link: '/docs/getting-started/setup/reload-alerts/cloud/' }
+                    { 
+                      text: 'Client-managed', 
+                      link: '/docs/getting-started/setup/task-alerts/client-managed/',
+                      items: [
+                        { text: 'Email alerts', link: '/docs/getting-started/setup/task-alerts/client-managed/alert-emails/' },
+                        { text: 'Slack alerts', link: '/docs/getting-started/setup/task-alerts/client-managed/alert-slack/' },
+                        { text: 'Teams alerts', link: '/docs/getting-started/setup/task-alerts/client-managed/alert-teams/' },
+                        { text: 'MQTT alerts', link: '/docs/getting-started/setup/task-alerts/client-managed/alert-mqtt/' },
+                        { text: 'InfluxDB alerts', link: '/docs/getting-started/setup/task-alerts/client-managed/alert-influxdb/' },
+                        { text: 'New Relic alerts', link: '/docs/getting-started/setup/task-alerts/client-managed/alert-new-relic/' },
+                        { text: 'Webhook alerts', link: '/docs/getting-started/setup/task-alerts/client-managed/alert-webhook-out/' }
+                      ]
+                    },
+                    { 
+                      text: 'Cloud', 
+                      link: '/docs/getting-started/setup/task-alerts/cloud/',
+                      items: [
+                        { text: 'Email alerts', link: '/docs/getting-started/setup/task-alerts/cloud/alert-emails/' },
+                        { text: 'Slack alerts', link: '/docs/getting-started/setup/task-alerts/cloud/alert-slack/' },
+                        { text: 'Teams alerts', link: '/docs/getting-started/setup/task-alerts/cloud/alert-teams/' }
+                      ]
+                    }
                   ]
                 },
                 { text: 'Reload script logs', link: '/docs/getting-started/setup/reload-script-logs/' },
@@ -188,9 +208,9 @@ export default withMermaid({
                   ]
                 },
                 { text: 'Start task filter', link: '/docs/getting-started/setup/start-task-filter/' },
+                { text: 'System information', link: '/docs/getting-started/setup/system-info/' },
                 { text: 'Telemetry', link: '/docs/getting-started/setup/telemetry/' },
-                { text: 'Visualise config file', link: '/docs/getting-started/setup/visualise-config-file/' },
-                { text: 'User events', link: '/docs/getting-started/setup/user-events/' }
+                { text: 'Visualise config file', link: '/docs/getting-started/setup/visualise-config-file/' }
               ]
             },
             { 

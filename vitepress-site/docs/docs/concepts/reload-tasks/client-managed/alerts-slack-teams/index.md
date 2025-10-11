@@ -312,7 +312,7 @@ Butler:
     validateTemplates: true
 ```
 
-The configuration needed for setting this up is described in the [setup documentation](/docs/getting-started/setup/reload-alerts/).
+The configuration needed for setting this up is described in the [setup documentation](/docs/getting-started/setup/task-alerts/).
 
 ::: tip Quick Setup
 Both Teams and Slack provide webhook URLs that make integration straightforward. Start with basic notifications and gradually enhance with formatted templates as your team's needs evolve.
@@ -324,7 +324,7 @@ Store webhook URLs securely and rotate them regularly. Monitor webhook access lo
 
 ## Next Steps
 
-- **[Teams Setup Guide](/docs/getting-started/setup/reload-alerts/alert-teams/)** - Configure Microsoft Teams integration
-- **[Slack Setup Guide](/docs/getting-started/setup/reload-alerts/alert-slack/)** - Configure Slack integration
+- **[Teams Setup Guide](/docs/getting-started/setup/task-alerts/alert-teams/)** - Configure Microsoft Teams integration
+- **[Slack Setup Guide](/docs/getting-started/setup/task-alerts/alert-slack/)** - Configure Slack integration
 - **[Template Fields](/docs/reference/alert-template-fields/)** - Complete template variable reference
 - **[Email Alerts](/docs/concepts/failed-reloads/client-managed/alert-emails/)** - Alternative email notifications

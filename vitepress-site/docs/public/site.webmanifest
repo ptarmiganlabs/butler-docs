@@ -1,0 +1,22 @@
+{
+  "name": "Butler",
+  "short_name": "Butler",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0b0d10",
+  "theme_color": "#aa0000",
+  "description": "Butler documentation and resources",
+  "icons": [
+    {
+      "src": "/favicons/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicons/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

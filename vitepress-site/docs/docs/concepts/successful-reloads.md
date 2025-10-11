@@ -122,7 +122,7 @@ Butler uses a UDP server to receive reload success messages from Qlik Sense's Lo
 - Network connectivity between Sense servers and Butler
 
 ::: tip Setup Guide
-See the [reload alerts setup guide](/docs/getting-started/setup/reload-alerts/#adding-a-log-appender) for XML appender configuration details.
+See the [reload alerts setup guide](/docs/getting-started/setup/task-alerts/#adding-a-log-appender) for XML appender configuration details.
 :::
 
 ## Supported Destinations

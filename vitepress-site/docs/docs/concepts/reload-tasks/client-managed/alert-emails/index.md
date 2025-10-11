@@ -75,7 +75,7 @@ Conceptually it works like this:
 
 ![Switching alert emails on/off per reload task](/img/butler-alert-emails-on-off-per-task-1.png)
 
-Instructions for how to configure this feature is available in the [setup documentation](/docs/getting-started/setup/reload-alerts/alert-emails/#send-alerts-only-for-some-tasks).
+Instructions for how to configure this feature is available in the [setup documentation](/docs/getting-started/setup/task-alerts/alert-emails/#send-alerts-only-for-some-tasks).
 
 ::: info Feature Independence
 This feature is similar to - but independent from - the "task specific email recipients" feature below. Either feature can be enabled or disabled independently of the other in Butler's config file.
@@ -93,7 +93,7 @@ Conceptually it works like this:
 
 ![Task specific alert email recipients](/img/butler-different-recipients-alert-emails-1.png)
 
-Instructions for how to configure this feature is available in the [setup documentation](/docs/getting-started/setup/reload-alerts/alert-emails/#send-alerts-to-specific-people-for-some-tasks).
+Instructions for how to configure this feature is available in the [setup documentation](/docs/getting-started/setup/task-alerts/alert-emails/#send-alerts-to-specific-people-for-some-tasks).
 
 ::: info Feature Independence
 This feature is similar to - but independent from - the "alert emails only for some tasks" feature above. Either feature can be enabled or disabled independently of the other in Butler's config file.
@@ -206,6 +206,6 @@ Butler's email alerts depend on proper configuration of log4net appenders in you
 
 ## Next Steps
 
-- **[Setup Guide](/docs/getting-started/setup/reload-alerts/alert-emails/)** - Configure email alerts step-by-step
+- **[Setup Guide](/docs/getting-started/setup/task-alerts/alert-emails/)** - Configure email alerts step-by-step
 - **[Template Fields](/docs/reference/alert-template-fields/)** - Complete list of available template variables
 - **[Slack & Teams Alerts](/docs/concepts/failed-reloads/client-managed/alerts-slack-teams/)** - Alternative messaging platforms

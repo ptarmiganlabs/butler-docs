@@ -15,7 +15,7 @@ They are used in addition to the general Windows Service monitoring settings in 
 
 All settings are found in the `Butler.teamsNotification.serviceStopped` and `Butler.teamsNotification.serviceStarted` sections of the config file.
 
-Butler will send a Teams message to the channel associated with `Butler.teamsNotification.``<serviceStopped|servierStarted>``.webhookRL` in the config file when a Windows service stops or starts.
+Butler will send a Teams message to the channel associated with ` Butler.teamsNotification.``<serviceStopped|servierStarted>``.webhookRL ` in the config file when a Windows service stops or starts.
 
 Similarly to how reload-failed Teams alerts work, Butler can send two types of Teams messages:
 
@@ -40,16 +40,16 @@ Similar to how failed-reload email notifications work, the templating engine [Ha
 
 The following information is available in formatted Teams messages:
 
-| Handlebars variable       | Description                                                                                                             |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `{{host}}`                | The hostname of the server where the service is running.                                                                |
-| `{{serviceStatus}}`       | The status of the service, e.g. `RUNNING` or `STOPPED`.                                                                 |
-| `{{servicePrevStatus}}`   | The previous status of the service, e.g. `RUNNING` or `STOPPED`.                                                        |
-| `{{serviceName}}`         | The name of the service as defined in Windows.                                                                          |
-| `{{serviceDisplayName}}`  | The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName. |
-| `{{serviceFriendlyName}}` | The friendly name of the service as defined in the config file.                                                         |
-| `{{serviceStartType}}`    | The start type of the service, e.g. `AUTO_START` or `DEMAND_START`.                                                     |
-| `{{serviceExePath}}`      | The path to the service executable.                                                                                     |
+| Handlebars variable                        | Description                                                                                                             |
+| ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| <code v-pre>{{host}}</code>                | The hostname of the server where the service is running.                                                                |
+| <code v-pre>{{serviceStatus}}</code>       | The status of the service, e.g. `RUNNING` or `STOPPED`.                                                                 |
+| <code v-pre>{{servicePrevStatus}}</code>   | The previous status of the service, e.g. `RUNNING` or `STOPPED`.                                                        |
+| <code v-pre>{{serviceName}}</code>         | The name of the service as defined in Windows.                                                                          |
+| <code v-pre>{{serviceDisplayName}}</code>  | The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName. |
+| <code v-pre>{{serviceFriendlyName}}</code> | The friendly name of the service as defined in the config file.                                                         |
+| <code v-pre>{{serviceStartType}}</code>    | The start type of the service, e.g. `AUTO_START` or `DEMAND_START`.                                                     |
+| <code v-pre>{{serviceExePath}}</code>      | The path to the service executable.                                                                                     |
 
 ## Creating a MS Teams webhook
 
