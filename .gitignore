@@ -1,6 +1,8 @@
 # Dependency directories
 # themes/
 public/
+# Allow VitePress public folder for static assets
+!vitepress-site/docs/public/
 resources/
 node_modules/
 tech-doc-hugo
