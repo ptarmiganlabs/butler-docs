@@ -122,7 +122,72 @@ export default defineConfig({
           items: [
             { text: 'Overview', link: '/docs/' },
             { text: 'Installation', link: '/docs/getting-started/install/' },
-            { text: 'Setup', link: '/docs/getting-started/setup/' },
+            { 
+              text: 'Setup', 
+              link: '/docs/getting-started/setup/',
+              items: [
+                { text: 'Which config file?', link: '/docs/getting-started/setup/which-config-file/' },
+                { text: 'Minimal config', link: '/docs/getting-started/setup/minimal-config/' },
+                { text: 'REST API', link: '/docs/getting-started/setup/rest-api/' },
+                { text: 'Scheduler', link: '/docs/getting-started/setup/scheduler/' },
+                { text: 'Key-value store', link: '/docs/getting-started/setup/key-value-store/' },
+                { text: 'File system access', link: '/docs/getting-started/setup/file-system-access/' },
+                { text: 'MQTT', link: '/docs/getting-started/setup/mqtt/' },
+                { 
+                  text: 'Reload alerts',
+                  link: '/docs/getting-started/setup/reload-alerts/',
+                  items: [
+                    { text: 'Client-managed', link: '/docs/getting-started/setup/reload-alerts/client-managed/' },
+                    { text: 'Cloud', link: '/docs/getting-started/setup/reload-alerts/cloud/' }
+                  ]
+                },
+                { text: 'Reload script logs', link: '/docs/getting-started/setup/reload-script-logs/' },
+                { text: 'Heartbeats', link: '/docs/getting-started/setup/heartbeats/' },
+                { text: 'Uptime monitor', link: '/docs/getting-started/setup/uptime-monitor/' },
+                { text: 'Docker healthcheck', link: '/docs/getting-started/setup/docker-health-check/' },
+                { text: 'Data connections', link: '/docs/getting-started/setup/data-connections/' },
+                { 
+                  text: 'Qlik Sense licenses',
+                  items: [
+                    { text: 'Server licenses', link: '/docs/getting-started/setup/qlik-sense-licenses/server-licenses/' },
+                    { text: 'Access licenses', link: '/docs/getting-started/setup/qlik-sense-licenses/access-licenses/' }
+                  ]
+                },
+                { 
+                  text: 'Qlik Sense settings',
+                  items: [
+                    { text: 'Server settings', link: '/docs/getting-started/setup/qlik-sense-settings/server-settings/' },
+                    { text: 'Cloud settings', link: '/docs/getting-started/setup/qlik-sense-settings/cloud-settings/' },
+                    { text: 'Server version', link: '/docs/getting-started/setup/qlik-sense-settings/server-version/' }
+                  ]
+                },
+                { 
+                  text: 'Incident mgmt tools',
+                  link: '/docs/getting-started/setup/incident-mgmt-tools/',
+                  items: [
+                    { text: 'New Relic', link: '/docs/getting-started/setup/incident-mgmt-tools/new-relic/' },
+                    { text: 'Signl4', link: '/docs/getting-started/setup/incident-mgmt-tools/signl4/' }
+                  ]
+                },
+                { 
+                  text: 'Windows service monitor',
+                  link: '/docs/getting-started/setup/windows-service-monitor/',
+                  items: [
+                    { text: 'Email', link: '/docs/getting-started/setup/windows-service-monitor/email/' },
+                    { text: 'Slack', link: '/docs/getting-started/setup/windows-service-monitor/slack/' },
+                    { text: 'Teams', link: '/docs/getting-started/setup/windows-service-monitor/teams/' },
+                    { text: 'MQTT', link: '/docs/getting-started/setup/windows-service-monitor/mqtt/' },
+                    { text: 'InfluxDB', link: '/docs/getting-started/setup/windows-service-monitor/influxdb/' },
+                    { text: 'New Relic', link: '/docs/getting-started/setup/windows-service-monitor/new-relic/' },
+                    { text: 'Webhook', link: '/docs/getting-started/setup/windows-service-monitor/webhook-out/' }
+                  ]
+                },
+                { text: 'Start task filter', link: '/docs/getting-started/setup/start-task-filter/' },
+                { text: 'Telemetry', link: '/docs/getting-started/setup/telemetry/' },
+                { text: 'Visualise config file', link: '/docs/getting-started/setup/visualise-config-file/' },
+                { text: 'User events', link: '/docs/getting-started/setup/user-events/' }
+              ]
+            },
             { text: 'Day 2 operations', link: '/docs/getting-started/day2-operations' },
             { text: 'Upgrade', link: '/docs/getting-started/upgrade' }
           ]

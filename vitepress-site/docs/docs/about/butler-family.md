@@ -18,7 +18,7 @@ The following tools are actively maintained and have a production grade release 
 
 ---
 
-### ![Butler Logo](/img/butler-family/butler.png){width=80 style="float: left; margin-right: 20px; margin-bottom: 10px;"} Butler
+### Butler
 
 The original Butler. Offers various utilities that make it easier to develop Sense apps, as well as simplifying day 2 operations.
 
@@ -26,7 +26,7 @@ The original Butler. Offers various utilities that make it easier to develop Sen
 
 ---
 
-### ![Butler SOS Logo](/img/butler-family/butler-sos.png){width=80 style="float: left; margin-right: 20px; margin-bottom: 10px;"} Butler SOS
+### Butler SOS
 
 Real-time operational metrics for Qlik Sense. A must-have if you are responsible for a Sense environment with more than a dozen or so users. Simplifies day 2 operations of client-managed Sense.
 
@@ -38,7 +38,7 @@ Several storage and visualization options available, including [InfluxDB](https:
 
 ---
 
-### ![Butler Sheet Icons Logo](/img/butler-family/butler-sheet-icons.png){width=80 style="float: left; margin-right: 20px; margin-bottom: 10px;"} Butler Sheet Icons
+### Butler Sheet Icons
 
 Automates the creation of sheet icons for both Qlik Sense Cloud and client-managed Qlik Sense Enterprise on Windows (QSEoW) applications.
 
@@ -52,7 +52,7 @@ The tool can be used stand-alone or as part of an automated release process.
 
 ---
 
-### ![Ctrl-Q Logo](/img/butler-family/ctrl-q.png){width=80 style="float: left; margin-right: 20px; margin-bottom: 10px;"} Ctrl-Q
+### Ctrl-Q
 
 Given the name of this tool it doesn't sound like a member of the Butler family. Let's say Ctrl-Q is a sibling of the Butler bunch.
 
@@ -72,7 +72,7 @@ The following tools are no longer actively maintained, but they are still availa
 
 ---
 
-### ![Butler CW Logo](/img/butler-family/butler%20cw.png){width=80 style="float: left; margin-right: 20px; margin-bottom: 10px;"} Butler CW
+### Butler CW
 
 Butler Cache Warmer. Cache warming is the process of proactively forcing Sense apps to be loaded into RAM, so they are readily available when users open them.  
 Using Butler CW is an easy way to make your end users' experience of Sense a little better.
@@ -83,7 +83,7 @@ Now that client-managed Qlik Sense has its own cache warming feature (as of 1st 
 
 ---
 
-### ![Butler App Duplicator Logo](/img/butler-family/butler%20app%20duplicator.png){width=80 style="float: left; margin-right: 20px; margin-bottom: 10px;"} Butler App Duplicator
+### Butler App Duplicator
 
 No matter if you are a single developer creating Sense apps, or have lots of developers doing this, having app templates is a good idea:
 
@@ -95,7 +95,7 @@ No matter if you are a single developer creating Sense apps, or have lots of dev
 
 ---
 
-### ![Butler Spyglass Logo](/img/butler-family/butler%20spyglass.png){width=80 style="float: left; margin-right: 20px; margin-bottom: 10px;"} Butler Spyglass
+### Butler Spyglass
 
 This tool is mainly of interest if you have lots of QVDs and apps, but when that's the case it's of paramount importance to understand what apps use which QVDs. In other words what data lineage looks like.
 
@@ -105,7 +105,7 @@ Butler Spyglass also extracts full load scripts for all Sense apps, creating a h
 
 ---
 
-### ![Butler Notifier Logo](/img/butler-family/butler.png){width=80 style="float: left; margin-right: 20px; margin-bottom: 10px;"} Butler Notifier
+### Butler Notifier
 
 This tool makes it easy to tap into the Qlik Sense notification API. From there you can get all kinds of notifications, including task reload failures and changes in session state (user login/logout etc).
 
@@ -113,7 +113,7 @@ This tool makes it easy to tap into the Qlik Sense notification API. From there 
 
 ---
 
-### ![Butler Icon Uploader Logo](/img/butler-family/butler.png){width=80 style="float: left; margin-right: 20px; margin-bottom: 10px;"} Butler Icon Uploader
+### Butler Icon Uploader
 
 Visual looks is important when it comes to analytics, and this holds true also for Sense apps.
 

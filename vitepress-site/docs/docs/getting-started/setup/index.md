@@ -1,8 +1,15 @@
-# Setup
+---
+title: "Setup"
+linkTitle: "Setup"
+weight: 30
+description: >
+  Everything you wanted to know about Butler configuration but never dared to ask.`<br>``<br>`
 
-TODO
+  Things not working?`<br>`
+  Check out the [troubleshooting](/docs/examples/when-things-dont-work/) page.
+---
 
-Everything you wanted to know about Butler configuration but never dared to ask.
+<!-- ::: info
+This is a placeholder page that shows you how to use this template site.
+::: -->
 
-Things not working?  
-Check out the troubleshooting page in the examples section.

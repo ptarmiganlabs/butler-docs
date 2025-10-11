@@ -120,6 +120,8 @@ Custom links are available as template variables in alert messages. The exact us
 
 In HTML email templates:
 
+<div v-pre>
+
 ```html
 <p>Useful links:</p>
 <ul>
@@ -138,9 +140,13 @@ In HTML email templates:
 </ul>
 ```
 
+</div>
+
 ### Slack Templates
 
 In Slack message templates:
+
+<div v-pre>
 
 ```json
 {
@@ -156,9 +162,13 @@ In Slack message templates:
 }
 ```
 
+</div>
+
 ### Teams Templates
 
 In Microsoft Teams adaptive cards:
+
+<div v-pre>
 
 ```json
 {
@@ -177,6 +187,8 @@ In Microsoft Teams adaptive cards:
   ]
 }
 ```
+
+</div>
 
 ## Complete Configuration Example
 
@@ -257,6 +269,8 @@ For detailed information on using links in alert templates, see the [Alert Templ
 
 ### Template Variables Available
 
+<div v-pre>
+
 **Qlik Sense URLs:**
 
 - `{{qlikSenseUrls.qmc}}` - QMC URL
@@ -268,6 +282,8 @@ For detailed information on using links in alert templates, see the [Alert Templ
 - `{{genericUrls.<id>.url}}` - Custom link URL
 - `{{genericUrls.<id>.linkText}}` - Custom link display text
 - `{{genericUrls.<id>.comment}}` - Custom link description
+
+</div>
 
 ## Best Practices
 
