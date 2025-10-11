@@ -27,9 +27,9 @@ Alert emails can be formatted using HTML, use CSS styling, emojis etc. There's n
 
 Alert emails viewed on a mobile phone give direct insight into what has happened:
 
-![Failed reload alert email on mobile home screen](reload-fail-alert-email-mobile-1.png)
+![Failed reload alert email on mobile home screen](/img/reload-fail-alert-email-mobile-1.png)
 
-![Failed reload alert email viewed on mobile](reload-fail-alert-email-mobile-2.png)
+![Failed reload alert email viewed on mobile](/img/reload-fail-alert-email-mobile-2.png)
 
 ### Desktop Email Clients
 
@@ -37,7 +37,7 @@ In a regular email client a reload failed email could look like below.
 
 **Note the end of the script** - the last few lines of the reload log are often very useful when it comes to understanding what caused the reload failure.
 
-![Reload failed alert email](failed_reload_email_2.png)
+![Reload failed alert email](/img/failed_reload_email_2.png)
 
 ## Basic Alert Emails vs Butler Enhanced
 
@@ -61,7 +61,7 @@ This feature assumes the app owner's user account (in the Sense user directory) 
 
 _If_ an email address is available for a Sense user, the QMC user section can look like this:
 
-![Email address available for Qlik Sense user](qlik_sense_user_email_address_1.png)
+![Email address available for Qlik Sense user](/img/qlik_sense_user_email_address_1.png)
 
 ## Selective Alert Configuration
 

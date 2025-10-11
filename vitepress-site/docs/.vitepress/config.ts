@@ -1,11 +1,15 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from "vitepress-plugin-mermaid";
+
 
 // Generated at build time by scripts/fetch-butler-version.mjs
 import { version as butlerVersion } from "./version.js";
 
 
+
 // https://vitepress.vuejs.org/config/app-configs
-export default defineConfig({
+export default withMermaid({
+// export default defineConfig({
   title: 'Butler',
   description: 'Butler documentation',
   base: '/',
@@ -14,6 +18,7 @@ export default defineConfig({
   sitemap: {
     hostname: "https://butler-sheet-icons.ptarmiganlabs.com",
   },
+  ignoreDeadLinks: true,
   
   head: [
     ["link", { rel: "icon", href: "/favicon.ico" }],
@@ -208,7 +213,15 @@ export default defineConfig({
                 { text: 'Visualise config file', link: '/docs/getting-started/setup/visualise-config-file/' }
               ]
             },
-            { text: 'Day 2 operations', link: '/docs/getting-started/day2-operations' },
+            { 
+              text: 'Day 2 operations', 
+              link: '/docs/getting-started/operations/',
+              items: [
+                { text: 'Standalone app', link: '/docs/getting-started/operations/standalone' },
+                { text: 'Docker', link: '/docs/getting-started/operations/docker' },
+                { text: 'Node.js app', link: '/docs/getting-started/operations/nodejs' }
+              ]
+            },
             { text: 'Upgrade', link: '/docs/getting-started/upgrade' }
           ]
         },
@@ -223,10 +236,10 @@ export default defineConfig({
                 {
                   text: 'Reload Monitoring',
                   items: [
-                    { text: 'Failed Reloads', link: '/docs/concepts/failed-reloads/' },
-                    { text: 'Client-Managed', link: '/docs/concepts/failed-reloads/client-managed/' },
-                    { text: 'Alert Emails', link: '/docs/concepts/failed-reloads/client-managed/alert-emails/' },
-                    { text: 'Slack & Teams Alerts', link: '/docs/concepts/failed-reloads/client-managed/alerts-slack-teams/' },
+                    { text: 'Reloads Tasks', link: '/docs/concepts/reload-tasks/' },
+                    { text: 'Client-Managed', link: '/docs/concepts/reload-tasks/client-managed/' },
+                    { text: 'Alert Emails', link: '/docs/concepts/reload-tasks/client-managed/alert-emails/' },
+                    { text: 'Slack & Teams Alerts', link: '/docs/concepts/reload-tasks/client-managed/alerts-slack-teams/' },
                     { text: 'Successful Reloads', link: '/docs/concepts/successful-reloads' }
                   ]
                 },

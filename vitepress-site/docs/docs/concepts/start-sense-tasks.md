@@ -78,7 +78,7 @@ Start tasks based on custom property values:
 - Requires maintenance when tasks are modified
 - Brittle integration
 
-![Task IDs in QMC](start-tasks-using-taskid-1.png)
+![Task IDs in QMC](/img/start-tasks-using-taskid-1.png)
 
 Finding task IDs in the Qlik Management Console
 
@@ -101,7 +101,7 @@ Tags in QMC:
 
 A single API call with tag `Butler 5.0 demo` would start all 4 associated tasks.
 
-![Task Tags in QMC](start-tasks-using-tag-1.png)
+![Task Tags in QMC](/img/start-tasks-using-tag-1.png)
 
 Using tags to group related tasks in the QMC
 
@@ -125,7 +125,7 @@ Values:
 
 API call with `taskGroup=financial-reports` starts all financial reporting tasks.
 
-![Custom Properties in QMC](start-tasks-using-cp-1.png)
+![Custom Properties in QMC](/img/start-tasks-using-cp-1.png)
 
 Custom properties provide structured task categorization
 
