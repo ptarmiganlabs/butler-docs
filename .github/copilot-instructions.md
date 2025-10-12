@@ -4,9 +4,9 @@ Butler documentation site documents [Butler](https://github.com/ptarmiganlabs/bu
 
 **IMPORTANT**: This repository uses VitePress for documentation:
 
-- **Production site**: VitePress-based (all content in `/vitepress-site`)
-- **Legacy Hugo files**: May still exist but are no longer maintained. Should only be used for migrating old content to VitePress.
-- **All work**: Must be done in the `/vitepress-site` directory
+- **Production site**: VitePress-based (all content at repository root)
+- **Legacy Hugo files**: Archived in `/hugo-archive` directory. No longer maintained.
+- **All work**: Must be done in the repository root where VitePress files are located
 
 Always reference these instructions first and fallback to search or bash commands only when you encounter unexpected information that does not match the info here.
 
@@ -14,12 +14,12 @@ Always reference these instructions first and fallback to search or bash command
 
 **VitePress Documentation System:**
 
-- All documentation work is done in `/vitepress-site`
-- Content files are in `/vitepress-site/docs/docs/` organized by topic
-- Static assets (images, OpenAPI specs, etc.) are in `/vitepress-site/docs/public/`
-- Configuration is in `/vitepress-site/docs/.vitepress/config.ts`
-- Custom components are in `/vitepress-site/docs/.vitepress/components/`
-- Theme customization is in `/vitepress-site/docs/.vitepress/theme/`
+- All documentation work is done at repository root
+- Content files are in `/docs/docs/` organized by topic
+- Static assets (images, OpenAPI specs, etc.) are in `/docs/public/`
+- Configuration is in `/docs/.vitepress/config.ts`
+- Custom components are in `/docs/.vitepress/components/`
+- Theme customization is in `/docs/.vitepress/theme/`
 - **Source code repository**: The main Butler project is at github.com/ptarmiganlabs/butler, and included in this VS Code workspace. The doc site shall correctly reflect the current state of that project, i.e. create content that describe the current features, configuration options, and behavior of Butler.
 
 ### VitePress System
@@ -33,36 +33,36 @@ Bootstrap, build, and test the VitePress documentation:
 
 **Setup and Development:**
 
-- Navigate to VitePress directory: `cd /Users/goran/code/butler-docs/vitepress-site`
+- Navigate to repository root: `cd /Users/goran/code/butler-docs`
 - Install dependencies: `npm install` -- takes 10-20 seconds. Set timeout to 60+ seconds.
 - Fetch Butler version info: `npm run pre:version` -- fetches current Butler version from GitHub
 - Start development server: `npm run dev` -- takes 2-5 seconds, opens at http://localhost:5173
   - Development server includes hot reload for instant preview of changes
   - The pre:version script runs automatically before dev server starts
 - Build the site: `npm run build` -- takes 10-30 seconds depending on content size
-  - Builds static site to `/vitepress-site/docs/.vitepress/dist`
+  - Builds static site to `/docs/.vitepress/dist`
   - Includes automatic version fetching via pre:version script
 - Preview production build: `npm run serve` -- serves the built site locally
 - Deploy to GitHub Pages: `npm run deploy` -- builds and publishes to gh-pages branch
 
 **Working Directory:**
 
-- All VitePress commands should be run from `/vitepress-site` directory
-- Do not run VitePress commands from repository root
+- All VitePress commands should be run from repository root directory
+- Do not run VitePress commands from subdirectories
 
 ## Validation
 
 **VitePress System:**
 
-- ALWAYS validate documentation changes by running the development server: `npm run dev` (from `/vitepress-site` directory)
+- ALWAYS validate documentation changes by running the development server: `npm run dev` (from repository root)
 - Check that content renders correctly at http://localhost:5173
 - Verify navigation works and pages are accessible
 - For production validation: `npm run build` and check for build errors
-- Build output goes to `/vitepress-site/docs/.vitepress/dist`
+- Build output goes to `/docs/.vitepress/dist`
 - Verify build succeeds with exit code 0
 - Preview production build: `npm run serve` to test the built site
 - Check console for any errors or warnings during development
-- Validate images and static assets load correctly from `/vitepress-site/docs/public/`
+- Validate images and static assets load correctly from `/docs/public/`
 
 ## Build Details
 
@@ -72,7 +72,7 @@ Bootstrap, build, and test the VitePress documentation:
 - **Package Manager**: npm (package-lock.json present)
 - **Build Time**: 10-30 seconds depending on content size
 - **Dev Server**: Hot reload enabled, typically starts in 2-5 seconds
-- **Build Output**: Static files in `/vitepress-site/docs/.vitepress/dist`
+- **Build Output**: Static files in `/docs/.vitepress/dist`
 - **Dependencies**:
   - VitePress 1.6.4+ (static site generator)
   - Vue 3.5+ (component framework)
@@ -92,39 +92,36 @@ The following are outputs from frequently run commands to save time:
 ```
 butler-docs/
 ├── README.md
-├── VITEPRESS_MIGRATION_SUMMARY.md  # Migration documentation
-├── vitepress-site/           # VitePress documentation (ACTIVE)
-│   ├── package.json          # VitePress dependencies and scripts
-│   ├── docs/                 # Documentation root
-│   │   ├── index.md         # Homepage
-│   │   ├── .vitepress/      # VitePress configuration
-│   │   │   ├── config.ts    # Main site configuration
-│   │   │   ├── theme/       # Custom theme files
-│   │   │   ├── components/  # Vue components
-│   │   │   ├── cache/       # Build cache
-│   │   │   ├── dist/        # Build output (generated)
-│   │   │   └── version.js   # Butler version info (generated)
-│   │   ├── docs/            # Documentation content
-│   │   │   ├── getting-started/
-│   │   │   ├── concepts/
-│   │   │   ├── examples/
-│   │   │   ├── reference/
-│   │   │   ├── about/
-│   │   │   └── security.md
-│   │   └── public/          # Static assets
-│   │       ├── img/         # Images
-│   │       ├── openapi/     # OpenAPI specifications
-│   │       └── favicons/    # Site icons
-│   └── scripts/             # Build scripts
-│       └── fetch-butler-version.mjs
-├── content/                  # LEGACY Hugo content (not used)
-├── static/                   # LEGACY Hugo static files (not used)
-└── docs/                     # LEGACY Hugo build output (not used)
+├── package.json              # VitePress dependencies and scripts
+├── docs/                     # Documentation root
+│   ├── index.md             # Homepage
+│   ├── .vitepress/          # VitePress configuration
+│   │   ├── config.ts        # Main site configuration
+│   │   ├── theme/           # Custom theme files
+│   │   ├── components/      # Vue components
+│   │   ├── cache/           # Build cache
+│   │   ├── dist/            # Build output (generated)
+│   │   └── version.js       # Butler version info (generated)
+│   ├── docs/                # Documentation content
+│   │   ├── getting-started/
+│   │   ├── concepts/
+│   │   ├── examples/
+│   │   ├── reference/
+│   │   ├── about/
+│   │   └── security.md
+│   └── public/              # Static assets
+│       ├── img/             # Images
+│       ├── openapi/         # OpenAPI specifications
+│       └── favicons/        # Site icons
+├── scripts/                 # Build scripts
+│   └── fetch-butler-version.mjs
+├── hugo-archive/            # LEGACY Hugo files (archived)
+└── vitepress-migration-docs/ # Migration documentation
 ```
 
 ### Key commands
 
-**VitePress System (all commands run from `/vitepress-site` directory):**
+**VitePress System (all commands run from repository root):**
 
 - `npm install` - Install all dependencies (10-20 seconds)
 - `npm run pre:version` - Fetch current Butler version from GitHub
@@ -144,17 +141,17 @@ butler-docs/
 
 **VitePress System:**
 
-- `/vitepress-site/package.json` - Dependencies and npm scripts
-- `/vitepress-site/docs/.vitepress/config.ts` - Main site configuration (navigation, theme, plugins)
-- `/vitepress-site/docs/.vitepress/theme/index.ts` - Custom theme configuration
-- `/vitepress-site/scripts/fetch-butler-version.mjs` - Butler version fetching script
-- `/vitepress-site/docs/.vitepress/version.js` - Generated Butler version info (auto-created)
+- `/package.json` - Dependencies and npm scripts
+- `/docs/.vitepress/config.ts` - Main site configuration (navigation, theme, plugins)
+- `/docs/.vitepress/theme/index.ts` - Custom theme configuration
+- `/scripts/fetch-butler-version.mjs` - Butler version fetching script
+- `/docs/.vitepress/version.js` - Generated Butler version info (auto-created)
 
 ### Content structure
 
 **VitePress System:**
 
-The site uses a nested directory structure in `/vitepress-site/docs/docs/`:
+The site uses a nested directory structure in `/docs/docs/`:
 
 - `getting-started/` - Installation and setup guides
 - `concepts/` - Feature explanations and architectural concepts
@@ -182,15 +179,15 @@ The site uses a nested directory structure in `/vitepress-site/docs/docs/`:
 - **Changes don't appear**: VitePress has hot reload, but sometimes requires browser refresh
 - **Version info missing**: Run `npm run pre:version` manually to fetch Butler version
 - **Build output empty**: Check for errors in config.ts or content front matter syntax
-- **Images not loading**: Ensure images are in `/vitepress-site/docs/public/` and referenced with absolute paths (e.g., `/img/...`)
+- **Images not loading**: Ensure images are in `/docs/public/` and referenced with absolute paths (e.g., `/img/...`)
 - **Navigation not working**: Verify sidebar configuration in config.ts matches actual file structure
 - **Mermaid diagrams not rendering**: Ensure vitepress-plugin-mermaid is configured in config.ts
-- **Build takes too long**: Clear cache directory: `rm -rf /vitepress-site/docs/.vitepress/cache`
+- **Build takes too long**: Clear cache directory: `rm -rf /docs/.vitepress/cache`
 - **Module not found errors**: Delete node_modules and package-lock.json, then run `npm install`
 
 **General Tips:**
 
-- Always run VitePress commands from `/vitepress-site` directory
+- Always run VitePress commands from repository root
 - Check browser console for client-side errors
 - Use `npm run build` to catch production-only issues
 - Review VitePress documentation at https://vitepress.dev for advanced troubleshooting
@@ -198,11 +195,11 @@ The site uses a nested directory structure in `/vitepress-site/docs/docs/`:
 ## Important Notes
 
 - **Current System**: VitePress is the only active documentation system
-- **Legacy Files**: Hugo-related files (content/, static/, docs/, hugo.yaml, go.mod) may still exist but are not maintained
-- **Production Publishing**: Site builds to `/vitepress-site/docs/.vitepress/dist` and deploys via gh-pages branch
+- **Legacy Files**: Hugo-related files archived in `/hugo-archive` directory and migration docs in `/vitepress-migration-docs`
+- **Production Publishing**: Site builds to `/docs/.vitepress/dist` and deploys via gh-pages branch
 - **Version Management**: Butler version is automatically fetched from GitHub before each build/dev/serve command
 - **Hot Reload**: Development server provides instant feedback for content and configuration changes
-- **Static Assets**: All images, PDFs, and other assets must be in `/vitepress-site/docs/public/`
+- **Static Assets**: All images, PDFs, and other assets must be in `/docs/public/`
 - **Component Support**: Vue components can be created in `.vitepress/components/` and used in Markdown
 - **The main Butler project repository** is separate at github.com/ptarmiganlabs/butler
 
@@ -210,14 +207,14 @@ The site uses a nested directory structure in `/vitepress-site/docs/docs/`:
 
 **VitePress System:**
 
-- All content files are in `/vitepress-site/docs/docs/` with Markdown (.md) extension
+- All content files are in `/docs/docs/` with Markdown (.md) extension
 - Use standard Markdown syntax plus VitePress-specific features
 - Front matter includes title, description, and optional layout settings
-- Images and assets go in `/vitepress-site/docs/public/` directory
+- Images and assets go in `/docs/public/` directory
 - Reference images with absolute paths: `/img/my-image.png`
 - Vue components can be embedded directly in Markdown files
 - Mermaid diagrams: Use fenced code blocks with `mermaid` language tag
-- Always test content changes with `npm run dev` (from `/vitepress-site`)
+- Always test content changes with `npm run dev` (from repository root)
 - Validation: Start dev server and verify content renders correctly at http://localhost:5173
 
 **VitePress Features:**
@@ -231,7 +228,7 @@ The site uses a nested directory structure in `/vitepress-site/docs/docs/`:
 
 **OpenAPI Documentation:**
 
-- OpenAPI specs stored in `/vitepress-site/docs/public/openapi/`
+- OpenAPI specs stored in `/docs/public/openapi/`
 - Rendered using vitepress-openapi plugin
 - Configure in `.vitepress/config.ts` to integrate API docs
 
@@ -239,7 +236,7 @@ The site uses a nested directory structure in `/vitepress-site/docs/docs/`:
 
 **VitePress Theme:**
 
-- Custom theme files in `/vitepress-site/docs/.vitepress/theme/`
+- Custom theme files in `/docs/.vitepress/theme/`
 - Main theme entry: `theme/index.ts` - imports default theme and applies customizations
 - Custom CSS: Add styles in theme directory or import global CSS files
 - Custom Vue components: Create in `.vitepress/components/` directory
