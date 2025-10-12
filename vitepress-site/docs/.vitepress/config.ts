@@ -130,6 +130,7 @@ export default withMermaid({
             { 
               text: 'Setup', 
               link: '/docs/getting-started/setup/',
+              collapsed: true,
               items: [
                 { text: 'Which config file?', link: '/docs/getting-started/setup/which-config-file/' },
                 { text: 'Minimal config', link: '/docs/getting-started/setup/minimal-config/' },
@@ -141,6 +142,7 @@ export default withMermaid({
                 { 
                   text: 'Task alerts',
                   link: '/docs/getting-started/setup/task-alerts/',
+                  collapsed: true,
                   items: [
                     { 
                       text: 'Client-managed', 
@@ -173,6 +175,7 @@ export default withMermaid({
                 { text: 'Data connections', link: '/docs/getting-started/setup/data-connections/' },
                 { 
                   text: 'Qlik Sense licenses',
+                  collapsed: true,
                   items: [
                     { text: 'Server licenses', link: '/docs/getting-started/setup/qlik-sense-licenses/server-licenses/' },
                     { text: 'Access licenses', link: '/docs/getting-started/setup/qlik-sense-licenses/access-licenses/' }
@@ -180,6 +183,7 @@ export default withMermaid({
                 },
                 { 
                   text: 'Qlik Sense settings',
+                  collapsed: true,
                   items: [
                     { text: 'Server settings', link: '/docs/getting-started/setup/qlik-sense-settings/server-settings/' },
                     { text: 'Cloud settings', link: '/docs/getting-started/setup/qlik-sense-settings/cloud-settings/' },
@@ -189,6 +193,7 @@ export default withMermaid({
                 { 
                   text: 'Incident mgmt tools',
                   link: '/docs/getting-started/setup/incident-mgmt-tools/',
+                  collapsed: true,
                   items: [
                     { text: 'New Relic', link: '/docs/getting-started/setup/incident-mgmt-tools/new-relic/' },
                     { text: 'Signl4', link: '/docs/getting-started/setup/incident-mgmt-tools/signl4/' }
@@ -197,6 +202,7 @@ export default withMermaid({
                 { 
                   text: 'Windows service monitor',
                   link: '/docs/getting-started/setup/windows-service-monitor/',
+                  collapsed: true,
                   items: [
                     { text: 'Email', link: '/docs/getting-started/setup/windows-service-monitor/email/' },
                     { text: 'Slack', link: '/docs/getting-started/setup/windows-service-monitor/slack/' },
@@ -216,6 +222,7 @@ export default withMermaid({
             { 
               text: 'Day 2 operations', 
               link: '/docs/getting-started/operations/',
+              collapsed: true,
               items: [
                 { text: 'Standalone app', link: '/docs/getting-started/operations/standalone' },
                 { text: 'Docker', link: '/docs/getting-started/operations/docker' },
@@ -232,6 +239,7 @@ export default withMermaid({
             { text: 'Overview', link: '/docs/concepts/' },
             {
               text: 'Monitoring & Alerting',
+              collapsed: true,
               items: [
                 {
                   text: 'Task Monitoring',
@@ -254,6 +262,7 @@ export default withMermaid({
             },
             {
               text: 'Incident Management',
+              collapsed: true,
               items: [
                 { text: 'Overview', link: '/docs/concepts/incident-management/' },
                 {
@@ -267,6 +276,7 @@ export default withMermaid({
             },
             {
               text: 'License Management',
+              collapsed: true,
               items: [
                 {
                   text: 'Qlik Sense Licenses',
@@ -279,6 +289,7 @@ export default withMermaid({
             },
             {
               text: 'Communication & Integration',
+              collapsed: true,
               items: [
                 {
                   text: 'Messaging Platforms',
@@ -298,6 +309,7 @@ export default withMermaid({
             },
             {
               text: 'Task & File Operations',
+              collapsed: true,
               items: [
                 {
                   text: 'Task Management',
@@ -321,7 +333,37 @@ export default withMermaid({
           text: 'Examples',
           collapsed: true,
           items: [
-            { text: 'Overview', link: '/docs/examples/' }
+            { text: 'Overview', link: '/docs/examples/' },
+            { text: 'File Operations', link: '/docs/examples/file-operations' },
+            { text: 'Messaging from Load Script', link: '/docs/examples/messaging-from-load-script' },
+            { text: 'Sense App Introspection', link: '/docs/examples/sense-app-introspection' },
+            { text: 'Monitoring Butler', link: '/docs/examples/monitoring-butler' },
+            { text: 'Reload Chaining', link: '/docs/examples/reload-chaining' },
+            { text: 'Scheduling', link: '/docs/examples/scheduling' },
+            { text: 'Troubleshooting', link: '/docs/examples/troubleshooting' },
+            { text: 'OpenAPI Docs', link: '/docs/examples/openapi-docs' },
+            { text: 'Windows Service', link: '/docs/examples/butler-windows-service' },
+            { 
+              text: 'Start Sense Tasks',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/docs/examples/start-task/' },
+                { text: 'From REST API', link: '/docs/examples/start-task/start-task-from-rest' },
+                { text: 'From MQTT', link: '/docs/examples/start-task/start-task-from-mqtt' },
+                { text: 'From Load Script', link: '/docs/examples/start-task/start-task-from-script' }
+              ]
+            },
+            { 
+              text: 'Sense Demo Apps',
+              collapsed: true,
+              items: [
+                { text: 'Overview', link: '/docs/examples/sense-demo-apps/' },
+                { text: 'Butler API Demo', link: '/docs/examples/sense-demo-apps/butler-api-demo' },
+                { text: 'Partial App Reloads', link: '/docs/examples/sense-demo-apps/partial-loads' },
+                { text: 'Post to Slack', link: '/docs/examples/sense-demo-apps/post-to-slack' },
+                { text: 'Publish to MQTT', link: '/docs/examples/sense-demo-apps/publish-to-mqtt' }
+              ]
+            }
           ]
         },
         {
@@ -334,6 +376,7 @@ export default withMermaid({
             { 
               text: 'REST API', 
               link: '/docs/reference/rest-api/',
+              collapsed: true,
               items: [
                 { text: 'Overview', link: '/docs/reference/rest-api/' },
                 // { text: 'System & Configuration', link: '/docs/reference/rest-api/system' },

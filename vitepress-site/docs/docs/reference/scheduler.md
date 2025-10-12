@@ -10,13 +10,13 @@ The rationale for having a scheduler in Butler is mainly that Qlik Sense's built
 
 Put differently: Butler's scheduler is great for kicking off the first step if reload chains (or single app reloads), while the QMC scheduler is needed to link the individual parts of reload chains together.
 
-| Feature                                                                                                                                              | Qlik Sense scheduler          | Butler scheduler    |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | ------------------- |
-| Tasks should run same time each day.                                                                                                                 | Yes                           | Yes                 |
-| Tasks should run only some days of the month/week (ex 1st day of the month or on Wednesdays and Fridays).                                            | Yes                           | Yes                 |
-| Tasks should run only between certain hours during the day (e.g. every 5 minutes during the first 30 minutes of each hour, between 08.00 and 18.00). | Yes, with lots of manual work | Yes                 |
-| Tasks can be chained together, with one task starting when the previous has finished.                                                                | Yes                           | -                   |
-| Task definitions can be stored in Git and managed by a DevOps workflow.                                                                              | Yes, with lots of work.       | Yes, out of the box |
+| Feature                                                                                                                                              | Qlik Sense scheduler    | Butler scheduler    |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | ------------------- |
+| Tasks should run same time each day.                                                                                                                 | Yes                     | Yes                 |
+| Tasks should run only some days of the month/week (ex 1st day of the month or on Wednesdays and Fridays).                                            | Yes                     | Yes                 |
+| Tasks should run only between certain hours during the day (e.g. every 5 minutes during the first 30 minutes of each hour, between 08.00 and 18.00). | In most cases yes       | Yes                 |
+| Tasks can be chained together, with one task starting when the previous has finished.                                                                | Yes                     | -                   |
+| Task definitions can be stored in Git and managed by a DevOps workflow.                                                                              | Yes, with lots of work. | Yes, out of the box |
 
 ### Schedules
 
