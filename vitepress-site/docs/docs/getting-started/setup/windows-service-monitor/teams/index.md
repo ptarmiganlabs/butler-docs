@@ -32,7 +32,11 @@ Check out the [handlebars documentation](https://handlebarsjs.com/) for more inf
 
 A formatted Teams message can look something like this:
 
-![Teams message when a Windows service has stopped](/img/getting-started/setup/windows-service-monitor/teams/butler-win-svc-monitor-teams-1.png Teams message when a Windows service has stopped)
+<ResponsiveImage
+  src="/img/getting-started/setup/windows-service-monitor/teams/butler-win-svc-monitor-teams-1.png"
+  alt="Teams message when a Windows service has stopped"
+  caption="Teams message when a Windows service has stopped"
+/>
 
 ### Information available in formatted Teams messages
 

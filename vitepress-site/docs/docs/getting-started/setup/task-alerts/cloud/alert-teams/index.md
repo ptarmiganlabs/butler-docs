@@ -30,7 +30,11 @@ Which option to go for depends on whether you want just a notification that some
 
 An "app reload failed" Teams message using the custom formatting option could look like this:
 
-![Reload failed alert Teams message](/img/butler-cloud-failed-reload-teams-formatted_1.png "Reload failed alert Teams message")
+<ResponsiveImage
+  src="/img/butler-cloud-failed-reload-teams-formatted_1.png"
+  alt="Reload failed alert Teams message"
+  caption="Reload failed alert Teams message"
+/>
 
 Here's how to set it up:
 
@@ -52,7 +56,11 @@ Here's how to set it up:
 
 A "reload task failed" Teams message with basic formatting could look like this:
 
-![Reload failed alert Teams message](/img/failed-reload-teams-basic_1.png "Reload failed alert Teams message")
+<ResponsiveImage
+  src="/img/failed-reload-teams-basic_1.png"
+  alt="Reload failed alert Teams message"
+  caption="Reload failed alert Teams message"
+/>
 
 To set it up:
 

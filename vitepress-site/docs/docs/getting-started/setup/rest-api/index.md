@@ -41,7 +41,10 @@ Note that Butler uses two ports for its REST API: One external facing port and o
 Using two ports (one external facing and one internal) is not ideal, but it was an easy yet stable way of solving some technical challenges around Butler's use of the `X-HTTP-Method-Override` [HTTP header](/docs/getting-started/setup/data-connections/).
 Just make sure that the two settings `Butler.restServerConfig.serverPort` and `Butler.restServerConfig.backgroundServerPort` aren't the same and aren't already in use, and all should be fine.
 
-![ Ports used by Butler ](/img/getting-started/setup/rest-api/butler-ports-1.png)
+<ResponsiveImage
+  src="/img/getting-started/setup/rest-api/butler-ports-1.png"
+  alt=" Ports used by Butler "
+/>
 
 ## Rate limiting the REST API
 

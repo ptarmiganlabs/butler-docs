@@ -96,7 +96,12 @@ Some configuration in Sense is needed to make this work:
 
 Looks like this in Qlik Sense Cloud:
 
-![Tagging apps for reload failed alerts in Qlik Sense Cloud](/img/butler-qscloud-app-reload-failed-app-tag-1.png "Tagging apps for reload failed alerts in Qlik Sense Cloud")
+<ResponsiveImage
+  src="/img/butler-qscloud-app-reload-failed-app-tag-1.png"
+  alt="Tagging apps for reload failed alerts in Qlik Sense Cloud"
+  maxWidth="400px"
+  caption="Tagging apps for reload failed alerts in Qlik Sense Cloud"
+/>
 
 ## How it works
 

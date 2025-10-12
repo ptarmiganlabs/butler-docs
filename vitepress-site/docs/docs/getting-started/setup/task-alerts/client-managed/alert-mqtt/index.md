@@ -42,7 +42,11 @@ The task name will be sent in the message body.
 
 The basic message looks like this when viewed in the MQTTLens app:
 
-![A basic reload task failed message sent via MQTT](/img/getting-started/setup/task-alerts/client-managed/alert-mqtt/mqtt_failed_task_basic_1.png A basic reload task failed message sent via MQTT)
+<ResponsiveImage
+  src="/img/getting-started/setup/task-alerts/client-managed/alert-mqtt/mqtt_failed_task_basic_1.png"
+  alt="A basic reload task failed message sent via MQTT"
+  caption="A basic reload task failed message sent via MQTT"
+/>
 
 ### Complete message
 
@@ -52,7 +56,11 @@ The message is sent on the `Butler.mqttConfig.taskFailureFullTopic` or `Butler.m
 
 That message can look like this:
 
-![A complete reload task failed message sent via MQTT](/img/getting-started/setup/task-alerts/client-managed/alert-mqtt/mqtt_failed_task_full_1.png A complete reload task failed message sent via MQTT)
+<ResponsiveImage
+  src="/img/getting-started/setup/task-alerts/client-managed/alert-mqtt/mqtt_failed_task_full_1.png"
+  alt="A complete reload task failed message sent via MQTT"
+  caption="A complete reload task failed message sent via MQTT"
+/>
 
 ::: warning Remember
 Don't forget to create the log appender .xml files on the Sense server(s).  

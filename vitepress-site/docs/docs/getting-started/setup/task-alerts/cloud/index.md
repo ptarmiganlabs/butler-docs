@@ -71,13 +71,22 @@ Downsides include:
 
 The solution looks like this:
 
-![Sending app reload failure alerts from Qlik Cloud to Butler via an Azure function and MQTT](/img/butler-cloud-app-reload-failed-alert-1.png "Sending app reload failure alerts from Qlik Cloud to Butler via an Azure function and MQTT")
+<ResponsiveImage
+  src="/img/butler-cloud-app-reload-failed-alert-1.png"
+  alt="Sending app reload failure alerts from Qlik Cloud to Butler via an Azure function and MQTT"
+  maxWidth="400px"
+  caption="Sending app reload failure alerts from Qlik Cloud to Butler via an Azure function and MQTT"
+/>
 
 The webhook in Qlik Cloud is set up to call an Azure function when an app reload completes. The Azure function then sends an MQTT message to Butler.
 
 The webhook is defined like this:
 
-![Qlik Cloud webhook definition](/img/butler-cloud-appr-reload-webhook-1.png "Qlik Cloud webhook definition")
+<ResponsiveImage
+  src="/img/butler-cloud-appr-reload-webhook-1.png"
+  alt="Qlik Cloud webhook definition"
+  caption="Qlik Cloud webhook definition"
+/>
 
 The webhook secret can be used in the gateway to verify that the webhook call is coming from an approved Qlik Cloud tenant.
 

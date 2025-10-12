@@ -55,7 +55,11 @@ Each of these have their own settings in the config file.
 
 A "reload task failed" Teams message using the custom formatting option could look like this:
 
-![Reload failed alert Teams message](/img/failed-reload-teams-formatted_1.png "Reload failed alert Teams message")
+<ResponsiveImage
+  src="/img/failed-reload-teams-formatted_1.png"
+  alt="Reload failed alert Teams message"
+  caption="Reload failed alert Teams message"
+/>
 
 Here's how to set it up:
 
@@ -82,7 +86,11 @@ Each of these have their own settings in the config file.
 
 A "reload task failed" Teams message with basic formatting could look like this:
 
-![Reload failed alert Teams message](/img/failed-reload-teams-basic_1.png "Reload failed alert Teams message")
+<ResponsiveImage
+  src="/img/failed-reload-teams-basic_1.png"
+  alt="Reload failed alert Teams message"
+  caption="Reload failed alert Teams message"
+/>
 
 To set it up:
 

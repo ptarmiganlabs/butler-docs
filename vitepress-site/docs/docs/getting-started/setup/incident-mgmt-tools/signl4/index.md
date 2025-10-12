@@ -24,7 +24,11 @@ Signl4 exposes webhooks through which incidents can be created. The `Butler.inci
 
 To use Butler with Signl4 you must first create a Signl4 team. Then note the secret key for that team:
 
-![Signl4 team config ](/img/signl4-team-config-1.png "Signl4 team config")
+<ResponsiveImage
+  src="/img/signl4-team-config-1.png"
+  alt="Signl4 team config "
+  caption="Signl4 team config"
+/>
 
 More info about the webhooks can be found in [Signl4's developer docs](https://connect.signl4.com/webhook/docs/index.html).
 

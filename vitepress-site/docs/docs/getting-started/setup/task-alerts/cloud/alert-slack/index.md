@@ -30,7 +30,11 @@ Which option to go for depends on whether you want just a notification that some
 
 An "app reload failed" Slack message using the custom formatting option could look like this:
 
-![Reload failed alert Slack message](/img/butler-cloud-failed-reload-slack-formatted_1.png "Reload failed alert Slack message")
+<ResponsiveImage
+  src="/img/butler-cloud-failed-reload-slack-formatted_1.png"
+  alt="Reload failed alert Slack message"
+  caption="Reload failed alert Slack message"
+/>
 
 Here's how to set this up:
 
@@ -52,7 +56,11 @@ Here's how to set this up:
 
 A "reload task failed" Slack message with basic formatting could look like this:
 
-![Reload failed alert Slack message](/img/failed-reload-slack-basic_1.png "Reload failed alert Slack message")
+<ResponsiveImage
+  src="/img/failed-reload-slack-basic_1.png"
+  alt="Reload failed alert Slack message"
+  caption="Reload failed alert Slack message"
+/>
 
 To set it up:
 

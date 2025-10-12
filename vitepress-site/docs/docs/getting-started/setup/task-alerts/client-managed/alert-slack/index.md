@@ -55,7 +55,11 @@ Each of these have their own settings in the config file.
 
 A "reload task failed" Slack message using the custom formatting option could look like this:
 
-![Reload failed alert email](/img/failed-reload-slack-formatted_1.png "Reload failed alert email")
+<ResponsiveImage
+  src="/img/failed-reload-slack-formatted_1.png"
+  alt="Reload failed alert email"
+  caption="Reload failed alert email"
+/>
 
 Here's how to set this up:
 
@@ -82,7 +86,11 @@ Each of these have their own settings in the config file.
 
 A "reload task failed" Slack message with basic formatting could look like this:
 
-![Reload failed alert email](/img/failed-reload-slack-basic_1.png "Reload failed alert email")
+<ResponsiveImage
+  src="/img/failed-reload-slack-basic_1.png"
+  alt="Reload failed alert email"
+  caption="Reload failed alert email"
+/>
 
 To set it up:
 

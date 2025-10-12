@@ -92,7 +92,11 @@ If the settings in the config file's `Butler.emailNotification.smtp` section are
 
 The resulting email looks like this:
 
-![Test email from Butler](/img/butler-test-email-1.png "Test email from Butler")
+<ResponsiveImage
+  src="/img/butler-test-email-1.png"
+  alt="Test email from Butler"
+  caption="Test email from Butler"
+/>
 
 ## Sending alert emails to app owners
 
@@ -178,7 +182,11 @@ Some configuration is needed to make this work:
 
 In the QMC the custom property can look like this:
 
-![QMC custom property for controlling reload alerts](/img/enable-reload-alert-for-specific-task-1.png "QMC custom property for controlling reload alerts")
+<ResponsiveImage
+  src="/img/enable-reload-alert-for-specific-task-1.png"
+  alt="QMC custom property for controlling reload alerts"
+  caption="QMC custom property for controlling reload alerts"
+/>
 
 ## Send alerts to specific people, for some tasks
 
@@ -207,7 +215,11 @@ In other words: If an email address has been designated as recipient of alert em
 
 Having set two different (blurred out) recipients of alert emails for a reload task:
 
-![QMC custom property for sending alert emails to specific email addresses](/img/set-email-recipient-per-reload-task-1.png "QMC custom property for sending alert emails to specific email addresses")
+<ResponsiveImage
+  src="/img/set-email-recipient-per-reload-task-1.png"
+  alt="QMC custom property for sending alert emails to specific email addresses"
+  caption="QMC custom property for sending alert emails to specific email addresses"
+/>
 
 ## Settings in config file
 

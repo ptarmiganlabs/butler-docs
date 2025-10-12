@@ -14,10 +14,16 @@ This guide shows how to use the enhanced image features in Butler documentation.
 Regular markdown images automatically get zoom functionality and responsive behavior:
 
 ```markdown
-![Description](/img/example.png)
+<ResponsiveImage
+  src="/img/example.png"
+  alt="Description"
+/>
 ```
 
-![Reload failed alert email](/img/failed_reload_email_2.png)
+<ResponsiveImage
+  src="/img/failed_reload_email_2.png"
+  alt="Reload failed alert email"
+/>
 
 ## Using the ResponsiveImage Component
 

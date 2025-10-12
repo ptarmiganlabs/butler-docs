@@ -28,7 +28,11 @@ That said, if you plan to use the Slack, Teams, email, or webhook connectivity f
 
 This is a basic "web file" connector pointing to `http://www.w3schools.com/tags/ref_urlencode.asp`:
 
-![Creating the URL encode table data connection](/img/getting-started/setup/data-connections/url_encode-1.png Creating the URL encode table data connection)
+<ResponsiveImage
+  src="/img/getting-started/setup/data-connections/url_encode-1.png"
+  alt="Creating the URL encode table data connection"
+  caption="Creating the URL encode table data connection"
+/>
 
 ::: warning Remember!
 As with all new data connections, Sense will change the name your new connection (adding your username as a suffix).  
@@ -59,7 +63,11 @@ The actual URL of the data connection will be modified on the fly every time you
 
 Test the connection before creating it:
 
-![Testing the Butler_GET data connection](/img/butler_get_connection-test-succeeded-1.png "Testing the Butler_GET data connection")
+<ResponsiveImage
+  src="/img/butler_get_connection-test-succeeded-1.png"
+  alt="Testing the Butler_GET data connection"
+  caption="Testing the Butler_GET data connection"
+/>
 
 ::: warning Remember!
 As with all new data connections, Sense will change the name your new connection (adding your username as a suffix).  
@@ -97,7 +105,11 @@ Creating the data connection can look like this:
 
 ... and test the connection before creating it.
 
-![Testing the Butler_POST data connection](/img/butler_post_connection-test-succeeded-1.png "Testing the Butler_POST data connection")
+<ResponsiveImage
+  src="/img/butler_post_connection-test-succeeded-1.png"
+  alt="Testing the Butler_POST data connection"
+  caption="Testing the Butler_POST data connection"
+/>
 
 ::: warning Remember!
 As with all new data connections, Sense will change the name your new connection (adding your username as a suffix).  
