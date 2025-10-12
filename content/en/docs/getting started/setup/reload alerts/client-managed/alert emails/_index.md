@@ -47,7 +47,7 @@ The command line option is `--test-email-address <address>`.
 The sender of the test email can be specified with `--test-email-from-address <address>`.
 
 ```powershell
-PS C:\tools\butler> .\butler.exe
+PS C:\tools\butler> .\butler.exe --help
 Usage: butler [options]
 
 Butler gives superpowers to client-managed Qlik Sense Enterprise on Windows!
