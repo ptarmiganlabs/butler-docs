@@ -1,5 +1,4 @@
 # Test Cases
 
-Automated test cases are used to ensure that (mainly) Butler's REST API works as intended.
-
-All test cases are documented in an Excel file stored in the [tests directory](https://github.com/ptarmiganlabs/butler/tree/master/docs/tests) in the main Butler repository.
+Butler uses a set of automated test cases to ensure that (mainly) Butler's REST API works as intended.
+At the time of this writing, there are more than 1000 tests covering most parts of Butler's source code.
