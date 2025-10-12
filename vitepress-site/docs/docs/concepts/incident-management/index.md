@@ -241,6 +241,8 @@ Ensure incidents contain enough information for quick triage:
 - Test API endpoints independently
 - Verify network connectivity
 
+---
+
 ::: tip Getting Started
 
 1. **Choose Your Platform**: Evaluate New Relic vs Signl4 based on your needs

@@ -8,7 +8,7 @@ While the QMC provides a user interface for manually starting tasks, many scenar
 
 ### Automation Benefits
 
-- **Event-Driven Processing**: Start tasks when source data becomes available instead of polling
+- **Event-Driven Processing**: Start tasks when source data becomes available instead of polling via Sense app reload schedules
 - **External System Integration**: Allow upstream systems to trigger Qlik Sense processing
 - **Workflow Orchestration**: Include Qlik Sense reloads in broader data processing pipelines
 - **Conditional Logic**: Start tasks based on complex business rules or external conditions
@@ -32,7 +32,15 @@ Consider a financial ERP system that generates new data throughout the day:
 
 ## Task Identification Methods
 
-Butler provides flexible ways to identify which tasks to start:
+Butler provides flexible ways to identify which tasks to start.
+
+::: tip Remember
+Task IDs are permanent for a specific task, but if tasks are re-created they will get new task IDs.
+
+By specifying tasks using tags and/or custom properties instead, the outside systems that need to start tasks don’t have to deal with task IDs that may change.
+
+Lower risk for issues and less maintenance thus.
+:::
 
 ### 1. Task IDs (Direct)
 
@@ -157,8 +165,8 @@ PUT /v4/reloadtask/start
 # Start single task by ID
 POST /v4/reloadtask/{taskId}/start
 
-# Start multiple tasks (body contains additional IDs/criteria)
-POST /v4/reloadtask/start
+# Start multiple tasks (body contains additional IDs/tags/custom properties/criteria)
+POST /v4/reloadtask/-/start
 ```
 
 ## Request Examples
@@ -175,7 +183,7 @@ Content-Type: application/json
 ### Multiple Tasks by ID
 
 ```text
-POST /v4/reloadtask/start
+POST /v4/reloadtask/-/start
 Content-Type: application/json
 
 {
@@ -189,7 +197,7 @@ Content-Type: application/json
 ### Tasks by Tags
 
 ```text
-POST /v4/reloadtask/start
+POST /v4/reloadtask/-/start
 Content-Type: application/json
 
 {
@@ -203,7 +211,7 @@ Content-Type: application/json
 ### Tasks by Custom Properties
 
 ```text
-POST /v4/reloadtask/start
+POST /v4/reloadtask/-/start
 Content-Type: application/json
 
 {
@@ -223,7 +231,7 @@ Content-Type: application/json
 ### Combined Criteria
 
 ```text
-POST /v4/reloadtask/start
+POST /v4/reloadtask/-/start
 Content-Type: application/json
 
 {
@@ -276,11 +284,29 @@ Content-Type: application/json
 
 ```mermaid
 graph LR
-    A[Source System] --> B[Data Available Event]
-    B --> C[Butler API Call]
-    C --> D[Start Qlik Tasks]
-    D --> E[Process Data]
-    E --> F[Notify Completion]
+    subgraph upstream["Upstream System"]
+        A[Source System]
+        B[Data Available Event]
+    end
+
+    subgraph butler["Butler"]
+        C[Butler API Call]
+        D[Start Qlik Tasks]
+    end
+
+    subgraph sense["Qlik Sense"]
+        E[Process Data]
+    end
+
+    subgraph notify["Butler"]
+        F[Notify Completion]
+    end
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
 ```
 
 ### Webhook Integration
@@ -316,35 +342,6 @@ Topic: qliksense/task/start
 Payload: { "tag": ["daily-reports"] }
 ```
 
-## Security Considerations
-
-### Authentication
-
-Secure the Butler API with appropriate authentication:
-
-```yaml
-Butler:
-  restServer:
-    authentication:
-      enable: true
-      type: jwt
-      secret: your-secret-key
-```
-
-### Authorization
-
-Implement role-based access control:
-
-- **Read-Only**: Monitor task status
-- **Task Start**: Start specific task groups
-- **Full Admin**: Start any task
-
-### Network Security
-
-- **Internal Network**: Keep Butler API on internal network
-- **VPN Access**: Require VPN for external system access
-- **Firewall Rules**: Restrict access to authorized systems
-
 ## Best Practices
 
 ### Task Organization
@@ -374,35 +371,6 @@ Implement role-based access control:
 2. **Cleanup**: Remove obsolete tags and properties
 3. **Testing**: Test API integrations after Qlik Sense updates
 4. **Documentation**: Keep integration documentation current
-
-## Configuration Reference
-
-```yaml
-Butler:
-  # REST API server settings
-  restServer:
-    enable: true
-    host: 0.0.0.0
-    port: 8080
-    authentication:
-      enable: true
-      type: jwt
-      secret: your-jwt-secret
-
-  # Qlik Sense connection settings
-  qlikSense:
-    host: qlik-sense-server.company.com
-    port: 4747
-    certificateConfig:
-      clientCert: path/to/client.pem
-      clientKey: path/to/client_key.pem
-      rootCert: path/to/root.pem
-
-  # MQTT integration (optional)
-  mqttConfig:
-    enable: true
-    taskStartTopic: qliksense/task/start
-```
 
 ::: tip Integration Examples
 

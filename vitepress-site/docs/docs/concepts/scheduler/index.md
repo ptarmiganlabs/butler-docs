@@ -19,6 +19,12 @@ Specifically, it doesn't allow you to run a task certain hours of the day. At le
 
 This is a quite common scenario and thus Butler gets its own scheduler to solve the issue.
 
+::: info Modern Qlik Sense Scheduling Options
+Client-managed Qlik Sense today offers a built-in cron-like scheduler, which makes Butler's scheduler somewhat redundant for many use cases.
+
+However, if you need to store schedules in a separate file outside of the QMC for version control, backup, or infrastructure-as-code purposes, Butler's scheduler remains a valuable option.
+:::
+
 ## The Butler scheduler
 
 Butler's scheduler is based on [cron](https://en.wikipedia.org/wiki/Cron).  

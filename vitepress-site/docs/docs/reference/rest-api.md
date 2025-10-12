@@ -1,6 +1,6 @@
 # REST API Documentation
 
-Butler provides a comprehensive REST API that allows you to interact with its features programmatically.
+Butler provides a REST API that allows you to interact with some of its features programmatically.
 
 ::: warning Remember
 The "Try it out" feature of the API documentation below does not work when accessed from butler.ptarmiganlabs.com. This is only expected as this site does not know anything about where _your_ Butler instance is running.

@@ -49,30 +49,20 @@ Define allowed directories for each file operation in Butler's configuration:
 
 ```yaml
 Butler:
-  fileSystem:
-    enable: true
-    copy:
-      allowedPaths:
-        - path: 'e:\data\qvd\sales\incoming'
-          comment: "Incoming sales data files"
-        - path: 'e:\data\qvd\sales\processed'
-          comment: "Processed sales data files"
-        - path: '\\shared-server\data\exports'
-          comment: "Network share for data exports"
+  # List of directories between which file copying via the REST API can be done.
+  fileCopyApprovedDirectories:
+    - fromDirectory: C:\Users\joe\butler-test-dir1\abc\..
+      toDirectory: C:\Users\joe\butler-test-dir2
 
-    move:
-      allowedPaths:
-        - path: 'e:\data\qvd\temp'
-          comment: "Temporary file processing area"
-        - path: 'e:\data\archive'
-          comment: "Archive folder for old files"
+  # List of directories between which file moves via the REST API can be done.
+  fileMoveApprovedDirectories:
+    - fromDirectory: C:\Users\joe\butler-test-dir1\abc\..
+      toDirectory: C:\Users\joe\butler-test-dir2
 
-    delete:
-      allowedPaths:
-        - path: 'e:\data\qvd\temp'
-          comment: "Temporary files safe to delete"
-        - path: 'e:\logs\old'
-          comment: "Old log files cleanup"
+  # List of directories in which file deletes via the REST API can be done.
+  fileDeleteApprovedDirectories:
+    - C:\Users\joe\butler-test-dir1
+    - C:\Users\joe\butler-test-dir1\abc\..
 ```
 
 ## API Endpoints
@@ -116,258 +106,22 @@ Content-Type: application/json
 
 ## Integration with Load Scripts
 
-### Using Butler Convenience Subs
+There are a set of convenient Qlik Sense subroutines provided with Butler to simplify calling these APIs from load scripts.
 
-Butler provides pre-built Qlik Sense subroutines that simplify API calls:
-
-```qlik
-// Load Butler subroutines
-$(Include=lib://Butler/butler_subs.qvs);
-
-// Copy a file
-Call Butler_CopyFile('e:\data\qvd\sales\incoming\sales.qvd', 'e:\data\qvd\sales\processed\sales_$(date(today(), 'YYYY-MM-DD')).qvd')
-
-// Move a file
-Call Butler_MoveFile('e:\data\qvd\temp\processing.qvd', 'e:\data\archive\processed_$(timestamp(now(), 'YYYY-MM-DD_hhmm')).qvd')
-
-// Delete old files
-Call Butler_DeleteFile('e:\data\qvd\temp\old_temp.qvd')
-```
-
-### Direct REST API Calls
-
-For maximum control, call the Butler APIs directly:
-
-```qlik
-// Delete old QVD files from temp folder
-LET vFileToDelete = 'e:\data\qvd\temp\old_file.qvd';
-
-LOAD
-    StatusCode,
-    ResponseBody
-FROM JSON (
-    LOAD
-        '$(vFileToDelete)' as deleteFile
-    FROM "$(Join(Chr(123),''))") (jsonPath="$"))
-)
-URL "http://butler-server:8080/v4/filedelete",
-httpMethod "DELETE",
-httpHeader "Content-Type" "application/json";
-```
-
-## Common Use Cases
-
-### 1. QVD File Management
-
-**Scenario**: Clean up temporary QVD files after processing
-
-```qlik
-// Process data and create QVDs
-STORE TempTable INTO 'lib://Data/temp/processing.qvd';
-
-// Copy to final location
-Call Butler_CopyFile(
-    'e:\data\qvd\temp\processing.qvd',
-    'e:\data\qvd\final\$(vAppName)_$(vTimestamp).qvd'
-);
-
-// Clean up temporary file
-Call Butler_DeleteFile('e:\data\qvd\temp\processing.qvd');
-```
-
-### 2. File Archiving
-
-**Scenario**: Archive processed files with timestamps
-
-```qlik
-// Move processed file to archive
-LET vArchiveFile = 'e:\data\archive\sales_data_' & timestamp(now(), 'YYYY-MM-DD_hhmmss') & '.qvd';
-
-Call Butler_MoveFile('e:\data\qvd\sales\current.qvd', '$(vArchiveFile)');
-```
-
-### 3. Log File Cleanup
-
-**Scenario**: Remove old log files to manage disk space
-
-```qlik
-// Delete log files older than 30 days
-FOR vFile = 1 to NoOfRows('OldLogFiles')
-    LET vLogFile = Peek('FilePath', $(vFile)-1, 'OldLogFiles');
-    Call Butler_DeleteFile('$(vLogFile)');
-NEXT vFile;
-```
-
-### 4. Data Export Management
-
-**Scenario**: Copy data exports to network shares
-
-```qlik
-// Export data to CSV
-STORE DataTable INTO 'lib://Exports/temp/export.csv' (txt);
-
-// Copy to network share for external systems
-Call Butler_CopyFile(
-    'e:\data\exports\temp\export.csv',
-    '\\shared-server\data\exports\$(vExportName)_$(date(today(), "YYYY-MM-DD")).csv'
-);
-```
+The examples section shows how to use these subs - or call the Butler APIs directly.
 
 ## Security Best Practices
 
 ### 1. Principle of Least Privilege
 
-```yaml
-# Configure only necessary paths for each operation
-Butler:
-  fileSystem:
-    delete:
-      allowedPaths:
-        # Only allow deletion in temp/cache folders
-        - path: 'e:\data\temp'
-        - path: 'e:\cache\qvd'
-    copy:
-      allowedPaths:
-        # Allow copying between data processing folders
-        - path: 'e:\data\incoming'
-        - path: 'e:\data\processed'
-        - path: 'e:\data\exports'
-```
+- Configure only necessary paths for each operation
 
 ### 2. Path Validation
 
 - **Absolute Paths**: Use full paths to prevent directory traversal
-- **Restricted Extensions**: Consider limiting file types if needed
 - **Network Shares**: Be cautious with UNC paths and permissions
 
-### 3. Audit and Monitoring
-
-```yaml
-Butler:
-  fileSystem:
-    enable: true
-    auditLog:
-      enable: true
-      logLevel: info # Log all file operations
-```
-
-### 4. Error Handling
-
-```qlik
-// Check API response for errors
-IF StatusCode <> 200 THEN
-    TRACE File operation failed: $(ResponseBody);
-    Exit Script;
-END IF;
-```
-
-## Convenience Subroutines
-
-Butler includes pre-built subroutines available in the [butler_subs.qvs](https://github.com/ptarmiganlabs/butler/blob/master/docs/sense_script/butler_subs.qvs) file:
-
-### Available Subs
-
-- `Butler_CopyFile(fromPath, toPath)` - Copy a file
-- `Butler_MoveFile(fromPath, toPath)` - Move/rename a file
-- `Butler_DeleteFile(filePath)` - Delete a file
-- `Butler_FileExists(filePath)` - Check if file exists
-- `Butler_GetFileInfo(filePath)` - Get file metadata
-
-### Loading the Subs
-
-```qlik
-// Include Butler subroutines from data connection
-$(Include=lib://Butler/butler_subs.qvs);
-
-// Or include from local file
-$(Include=\\butler-server\butler\scripts\butler_subs.qvs);
-```
-
-## Error Handling and Responses
-
-### Success Response
-
-```json
-{
-  "status": "success",
-  "message": "File operation completed successfully",
-  "operation": "copy",
-  "fromFile": "e:\\data\\source.qvd",
-  "toFile": "e:\\data\\target.qvd"
-}
-```
-
-### Error Response
-
-```json
-{
-  "status": "error",
-  "message": "Source file not found",
-  "operation": "copy",
-  "fromFile": "e:\\data\\missing.qvd",
-  "errorCode": "FILE_NOT_FOUND"
-}
-```
-
-### Common Error Codes
-
-- `PATH_NOT_ALLOWED`: Specified path not in allowed directories
-- `FILE_NOT_FOUND`: Source file doesn't exist
-- `ACCESS_DENIED`: Insufficient permissions
-- `DISK_FULL`: Insufficient disk space
-- `FILE_IN_USE`: File locked by another process
-
-## Performance Considerations
-
-### Batch Operations
-
-For multiple file operations, consider grouping them:
-
-```qlik
-// Process multiple files efficiently
-FOR vFile = 1 to NoOfRows('FilesToProcess')
-    LET vSourceFile = Peek('SourcePath', $(vFile)-1, 'FilesToProcess');
-    LET vTargetFile = Peek('TargetPath', $(vFile)-1, 'FilesToProcess');
-
-    Call Butler_CopyFile('$(vSourceFile)', '$(vTargetFile)');
-NEXT vFile;
-```
-
-### Network Considerations
-
-- **Local Operations**: Fastest when source and target are on same server
-- **Network Copies**: Consider network bandwidth for large files
-- **Timeouts**: Configure appropriate timeouts for large file operations
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Path Not Allowed Error**
-
-   - Verify path is configured in Butler's allowed paths
-   - Check path format (use forward slashes or escaped backslashes)
-
-2. **Permission Denied**
-
-   - Ensure Butler service account has required file system permissions
-   - Check folder permissions for both source and target locations
-
-3. **File Not Found**
-   - Verify file path and name spelling
-   - Ensure file exists before attempting operation
-
-### Debug Logging
-
-Enable detailed logging to troubleshoot issues:
-
-```yaml
-Butler:
-  fileSystem:
-    enable: true
-    debug: true
-    logLevel: debug
-```
+---
 
 ::: tip Getting Started
 

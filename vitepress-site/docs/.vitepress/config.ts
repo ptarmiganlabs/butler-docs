@@ -336,11 +336,11 @@ export default withMermaid({
               link: '/docs/reference/rest-api/',
               items: [
                 { text: 'Overview', link: '/docs/reference/rest-api/' },
-                { text: 'System & Configuration', link: '/docs/reference/rest-api/system' },
-                { text: 'File Operations', link: '/docs/reference/rest-api/files' },
-                { text: 'Task Management', link: '/docs/reference/rest-api/tasks' },
-                { text: 'Key-Value Store', link: '/docs/reference/rest-api/key-value' },
-                { text: 'Messaging & Notifications', link: '/docs/reference/rest-api/messaging' }
+                // { text: 'System & Configuration', link: '/docs/reference/rest-api/system' },
+                // { text: 'File Operations', link: '/docs/reference/rest-api/files' },
+                // { text: 'Task Management', link: '/docs/reference/rest-api/tasks' },
+                // { text: 'Key-Value Store', link: '/docs/reference/rest-api/key-value' },
+                // { text: 'Messaging & Notifications', link: '/docs/reference/rest-api/messaging' }
               ]
             },
             { text: 'Sense Helper Subs', link: '/docs/reference/sense-helper-subs' },

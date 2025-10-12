@@ -127,6 +127,8 @@ Signl4's mobile apps provide incident management capabilities:
 - **On-Call Scheduling**: Balance workload and maintain coverage
 - **Training**: Ensure all team members understand the incident management process
 
+---
+
 ::: tip Getting Started
 
 1. **Create Signl4 Team**: Set up team account and add initial members

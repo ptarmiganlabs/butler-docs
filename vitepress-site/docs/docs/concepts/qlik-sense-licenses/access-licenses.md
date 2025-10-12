@@ -102,6 +102,8 @@ Butler uses publicly documented Qlik APIs for license management:
 
 These are the same APIs used by the QMC for manual license operations.
 
+---
+
 ::: tip Getting Started
 
 1. **Enable Monitoring First**: Start with license monitoring before enabling automatic release

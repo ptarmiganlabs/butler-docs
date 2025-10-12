@@ -21,15 +21,16 @@ Both key and value are strings in Butler's KV store. You must thus make sure to 
 
 There is also an optional, per KV-pair Time To Live (TTL) feature. If used it will auto-delete the KV pair when a certain time has passed from the KV-pair's last update.
 
-The API docs shows what methods are available to work with KV pairs (coming soon).
+The [API docs](/docs/reference/rest-api) shows what methods are available to work with KV pairs.
 
 ## How can a key-value store be used in Sense apps?
 
-As mentioned above - A KV store can be useful whenever you need to stash data away for a while and then get it back. I.e. keeping track of the state of something.
+As mentioned above - A KV store can be useful whenever you need to stash data away for a while and then get it back.  
+I.e. keeping track of the state of something.
 
 For example:
 
-### Easily pass parameters between apps in a reload chain
+### Pass parameters between apps in a reload chain
 
 Let's assume data is created when appA reloads as part of an hourly reload schedule. That data is needed in appB, which is triggered to reload when appA finishes its reload. But how do you get the data from appA to appB?
 
@@ -63,7 +64,7 @@ The KV store could even allow an extension to share state with its siblings in o
 
 ## Persistence of key-value data
 
-As of current Butler version (v4.0), KV pairs are not persisted to disk.  
+KV pairs are not persisted to disk.  
 Is this good or bad? It depends:
 
 - **Good** as it reduces complexity in Butler.
@@ -77,6 +78,8 @@ The KV store can be accessed via Butler's REST API. Common operations include:
 - `GET /v4/kvstore/{namespace}?key={key}` - Retrieve a value by key
 - `DELETE /v4/kvstore/{namespace}?key={key}` - Delete a specific key-value pair
 - `GET /v4/kvstore/{namespace}` - List all keys in a namespace
+
+---
 
 ::: tip Getting Started
 Check out the examples section for practical demonstrations of using the key-value store in your Qlik Sense apps (coming soon).

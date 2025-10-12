@@ -217,6 +217,8 @@ Regularly review your usage against the free tier limits to avoid unexpected cos
 - Test notification channels independently
 - Review incident management workflow
 
+---
+
 ::: tip Getting Started
 
 1. **Create New Relic Account**: Start with the free tier

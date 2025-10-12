@@ -168,27 +168,7 @@ Here the "Print Spooler" service was stopped and started again on a Windows serv
 
 ### Template Variables
 
-**Available Variables**:
-
-- **{{appName}}**: Application name
-- **{{taskName}}**: Reload task name
-- **{{errorMessage}}**: Error description
-- **{{serverName}}**: Qlik Sense server name
-- **{{timestamp}}**: Event timestamp
-- **{{environment}}**: Environment identifier
-- **{{severity}}**: Alert severity level
-- **{{scriptLog}}**: Script log excerpt
-- **{{qmcUrl}}**: QMC management link
-
-::: warning Security Considerations
-
-- Store webhook URLs securely using environment variables
-- Regularly rotate webhook URLs for security
-- Monitor webhook access logs for unauthorized usage
-- Use HTTPS for all webhook communications
-- Implement proper error handling to prevent information leakage
-
-:::
+The [reference section](/docs/reference/alert-template-fields/client-managed/) includes a complete list of available template variables.
 
 ## Getting Started Checklist
 
@@ -201,6 +181,16 @@ Here the "Print Spooler" service was stopped and started again on a Windows serv
 5. **Test Integration**: Send test messages to verify connectivity
 6. **Customize Templates**: Design message templates for your team's needs
 7. **Monitor Performance**: Track message delivery and team response
+
+:::
+
+::: warning Security Considerations
+
+- Store webhook URLs securely using environment variables
+- Regularly rotate webhook URLs for security
+- Monitor webhook access logs for unauthorized usage
+- Use HTTPS for all webhook communications
+- Implement proper error handling to prevent information leakage
 
 :::
 

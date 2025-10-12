@@ -166,6 +166,8 @@ graph LR
 - Review rate limiting and throttling settings
 - Optimize template complexity and size
 
+---
+
 ::: tip Getting Started
 Start with InfluxDB or email notifications for reload failures, then gradually add more destinations and customize templates based on your team's workflow and requirements.
 :::
