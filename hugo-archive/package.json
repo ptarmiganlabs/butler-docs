@@ -1,0 +1,24 @@
+{
+  "name": "butler-docs",
+  "version": "9.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ptarmiganlabs/butler-docs.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ptarmiganlabs/butler-docs/issues"
+  },
+  "homepage": "https://github.com/ptarmiganlabs/butler-docs#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "postcss-cli": "^10.1.0"
+  }
+}

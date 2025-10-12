@@ -5,8 +5,10 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'vitepress-site/**'
+    paths-ignore:
+      - 'hugo-archive/**'
+      - 'vitepress-migration-docs/**'
+      - '*.md'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -37,19 +39,16 @@ jobs:
         with:
           node-version: 20
           cache: npm
-          cache-dependency-path: vitepress-site/package-lock.json
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Install dependencies
         run: npm ci
-        working-directory: vitepress-site
       - name: Build with VitePress
         run: npm run build
-        working-directory: vitepress-site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: vitepress-site/docs/.vitepress/dist
+          path: docs/.vitepress/dist
 
   # Deployment job
   deploy:

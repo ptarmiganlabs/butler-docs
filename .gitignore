@@ -1,11 +1,15 @@
 # Dependency directories
-# themes/
-# Allow VitePress public folder for static assets
-resources/
 node_modules/
-tech-doc-hugo
 
+# VitePress build output and cache
+docs/.vitepress/cache
+docs/.vitepress/dist
+
+# Hugo archive resources (keep themes for functionality)
+hugo-archive/resources/
+
+# System files
 .DS_Store
-content/en/docs/.DS_Store
-vitepress-site/docs/.vitepress/cache
-vitepress-site/docs/.vitepress/dist
+
+# Legacy
+tech-doc-hugo
