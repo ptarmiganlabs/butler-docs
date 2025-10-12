@@ -22,7 +22,7 @@ Butler can forward several kinds of information to New Relic:
 - Generic New Relic events and metrics via Butler's REST API
 - Uptime and performance metrics from Butler itself
 
-Example [here](/docs/concepts/incident-mgmt-tools/new-relic/).
+Example [here](/docs/concepts/incident-management/new-relic).
 
 ## How it works
 

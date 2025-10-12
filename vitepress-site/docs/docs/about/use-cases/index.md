@@ -39,7 +39,7 @@ For both Slack and Teams there are options to use more flexible/configurable ale
 
 The result is a very powerfulk tool for both QSEoW sysadmins and those responsible for Qlik Cloud tenants, who both want to be notified when reloads fail.
 
-More info in the [Concepts section](/docs/concepts/failed-reloads/).
+More info in the [Concepts section](/docs/concepts/reload-tasks/).
 
 ## Forward failed reload events to incident management systems (New Relic, Signl4)
 
@@ -55,7 +55,7 @@ Both offer incident management features on both the web and via mobile clients.
 Information about failed/aborted reloads can be sent to one or more New Relic accounts.  
 Tags for the reload task and associated app is sent to New Relic as metadata for the event/log entry that's created there.
 
-More info in the [Concepts section](/docs/concepts/failed-reloads/). TODO
+More info in the [Concepts section](/docs/concepts/reload-tasks/). TODO
 
 ## Send alerts when reload tasks succeed
 
@@ -182,13 +182,13 @@ Qlik Sense apps contain lots of metadata that can be useful for governance, line
 
 Doing regular snapshots of all apps in a Sense cluster is a fast and space-effective way of keeping point-in-time backups.
 
-The [REST API documentation](https://butler.ptarmiganlabs.com/docs/reference/rest-api-1/?operationsSorter=alpha) TODO has full docs on this.
+The [REST API documentation](https://butler.ptarmiganlabs.com/docs/reference/rest-api/?operationsSorter=alpha) TODO has full docs on this.
 
 ## Easily post messages to Slack
 
 Posting messages to Slack is not exactly rocket science, but it's still convenient to have a clean REST API that can be called from Sense load scripts or other systems to send messages to Slack.
 
-More info [here](/docs/reference/rest-api/#post-to-slack). TODO
+More info [here](/docs/reference/rest-api). TODO
 
 ## Monitor Windows services
 
@@ -198,7 +198,7 @@ Butler can monitor the status of Windows services and send alert messages when s
 
 Butler can monitor the usage of Qlik Sense user licenses and store the data in InfluxDB, from where the license data can be visualized in Grafana. This makes it easy to track (and alert if needed) on the number of used licenses, how many are available and when it’s time to get more licenses.
 
-Butler can also automatically release Professional and Analyzer user licenses that have been inactive for a certain period of time. This is useful in environments where some users use Sense sporadically, for example only during certain times of the year. In such cases it’s a waste of resources to keep the license assigned to the user when it’s not being used.
+Butler can also automatically release Professional and Analyzer user licenses that have been inactive for a certain period of time. This is useful in environments where some users use Sense sporadically, for example only during certain times of the year. In such cases it's a waste of resources to keep the license assigned to the user when it's not being used.
 
 Works with Qlik Sense Enterprise on Windows.  
-More info [here](/docs/concepts/qlik-sense-access-licenses/). TODO
+More info [here](/docs/concepts/qlik-sense-licenses/access-licenses). TODO

@@ -1,168 +1,218 @@
-## Convenience Subroutines
+# Controlled and secure file system operations
 
-Butler includes pre-built subroutines available in the [butler_subs.qvs](https://github.com/ptarmiganlabs/butler/blob/master/docs/sense_script/butler_subs.qvs) file:
+For security reasons Qlik Sense does not offer direct access to the file system from load scripts.
+Using lib:// constructs files can be read and written, but not copied, moved or deleted.
 
-### Available Subs
+Butler has APIs that enabled file copy/move/delete in a secure, controlled way.
 
-- `Butler_CopyFile(fromPath, toPath)` - Copy a file
-- `Butler_MoveFile(fromPath, toPath)` - Move/rename a file
-- `Butler_DeleteFile(filePath)` - Delete a file
-- `Butler_FileExists(filePath)` - Check if file exists
-- `Butler_GetFileInfo(filePath)` - Get file metadata
+## Goal: Copy, move and delete files from Sense load scripts
 
-### Loading the Subs
+These steps are needed to achieve the goal:
 
-```qlik
-// Include Butler subroutines from data connection
-$(Include=lib://Butler/butler_subs.qvs);
+1. Install and configure Butler's general settings.
+2. Add the directories in which file operations should be allowed to Butler's config file.  
+   Make sure the account Butler runs under has the appropriate access to those directories.
+3. Make sure the [necessary Sense data connections](/docs/getting-started/setup/data-connections/) exist.
+4. Call the Butler APIs directly or use the subs included in the GitHub repo to do the desired file operations.
 
-// Or include from local file
-$(Include=\\butler-server\butler\scripts\butler_subs.qvs);
+::: warning Warning: UNC paths only on Windows
+UNC paths (i.e. "\\\\host\\fileshare\\folder1\\folder2") is a Windows-only feature and as such only supported when Butler is running on Windows.
+
+If Butler is running on a non-Windows operating system and directories on network file shares should be accessible via Butler's REST API, those directories must be mounted on the server using the standard OS mechanisms, then accessed via the server's local file system.
+
+Butler will warn in the console and file logs if UNC paths are specified in the config file, and Butler is NOT running on Windows.
+:::
+
+### 1. Install and configure Butler
+
+Described [here](https://butler.ptarmiganlabs.com/docs/getting-started/setup/).
+
+### 2. Add approved directories to Butler config file
+
+The general idea is:  
+For each file system operation (copy, move and delete) you can specify in which (or between which) directories that operation should be allowed.
+
+This is straight forward, but because Butler can run on different operating systems AND access file shares hosted by various OSs, things can get a bit complicated.  
+In most cases the paths to use are the expected ones, but when it comes to UNC paths they can for example either use forward slash "/" or back ditto "\\".  
+Both work as all paths are normalized into an internal, uniform format when loaded into Butler.
+
+Note that all subdirectories of the directories listed in the config file are also considered to be approved directories by Butler.
+
+A few examples show how to deal with some common scenarios:
+
+```yaml
+fileCopyApprovedDirectories:
+  - fromDirectory: /data1/qvd # Butler running on Linux, with either a local directory in /data1, or a remote fileshare mounted into /data1
+    toDirectory: /data2/qvd_archive
+  - fromDirectory: e:\data3\qvd # Butler running on Windows Server, accessing files/directories in the local file system
+    toDirectory: e:\data4\qvd_archive
+  - fromDirectory: //server1.my.domain/fileshare1/data1 # Butler running on Windows server, accessing a SMB file share (which can be on a Windows or Linux server)
+    toDirectory: //server1.my.domain/fileshare1/data2
+  - fromDirectory: \\server1.my.domain\fileshare1\data1
+    toDirectory: \\server1.my.domain\fileshare1\data2
+
+fileMoveApprovedDirectories:
+  - fromDirectory: /data7/qvd
+    toDirectory: /data8/qvd_archive
+  - fromDirectory: e:\data9\qvd
+    toDirectory: e:\data10\qvd_archive
+  - fromDirectory: //server2.my.domain/data1/qvd
+    toDirectory: //server2.my.domain/data1/qvd_archive
+
+fileDeleteApprovedDirectories:
+  - /data1/qvd_archive
+  - e:\data1\qvd_archive
+  - //server3.my.domain/data1/qvd_archive
+  - \\server3.my.domain\data1\qvd_archive
 ```
 
-### Using Butler Convenience Subs
+This configuration (for example) means:
 
-Butler provides pre-built Qlik Sense subroutines that simplify API calls:
+- Copying can be done from `e:\data3\qvd` to `e:\data4\qvd_archive`, but _not_ from `e:\data3\qvd` to `e:\data6\qvd_archive`
+- Moving files can be done from `/data7/qvd` to `/data8/qvd_archive`, but _not_ from `/data7/qvd` to `e:\data9\qvd`
+- Files can be deleted in the directories `/data1/qvd_archive`, `e:\data1\qvd_archive` and (using UNC notation) `\\server3.my.domain\data1\qvd_archive`.
 
-```qlik
-// Load Butler subroutines
-$(Include=lib://Butler/butler_subs.qvs);
+### 3. Create Sense data connections used to call Butler's REST API
 
-// Copy a file
-Call CopyFile('e:\data\qvd\sales\incoming\sales.qvd', 'e:\data\qvd\sales\processed\sales_$(date(today(), 'YYYY-MM-DD')).qvd')
+Described [here](/docs/getting-started/setup/data-connections/).
 
-// Move a file
-Call MoveFile('e:\data\qvd\temp\processing.qvd', 'e:\data\archive\processed_$(timestamp(now(), 'YYYY-MM-DD_hhmm')).qvd')
+### 4. Call the Butler APIs or use convenience subs
 
-// Delete old files
-Call DeleteFile('e:\data\qvd\temp\old_temp.qvd')
+Once you know what file path format to use (see above), using the helper subs is pretty easy:
+
+```text
+// Where is Butler running?
+let vButlerHost = 'http://10.11.12.13';
+let vButlerPort = 8080;
+
+// Delete files
+Call DeleteFile('/data1/qvd_archive/a.txt')
+Call DeleteFile('e:\data1\qvd_archive\a.txt')
+Call DeleteFile('//server3.my.domain/data1/qvd_archive\a.txt')
+
+// Copy files with options overwrite-if-exists=true and keep-source-timestamp=true
+Call CopyFile('/data1/qvd/a.txt', '/data2/qvd_archive/a.txt', 'true', 'true')
+Call CopyFile('e:\data5\qvd\a.txt', 'e:\data6\qvd_archive\a.txt', 'true', 'true')
+
+// Move files with option overwrite-if-exists=true
+Call MoveFile('/data7/qvd/a.txt', '/data8/qvd_archive/a.txt', 'true')
+Call MoveFile('e:\data9\qvd\a.txt', 'e:\data10\qvd_archive\a.txt', 'true')
 ```
 
-### Direct REST API Calls
+If you prefer to call the REST API directly, the DeleteFile sub might provide some inspiration:
 
-For maximum control, call the Butler APIs directly:
+```text
+// ------------------------------------------------------------
+// ** Delete file **
+//
+// Files can only be deleted in folders (and subfolders of) directories that
+// have been approved in the Butler config file.
+//
+// Parameters:
+// vFile                : File to be deleted.
+// ------------------------------------------------------------
+sub DeleteFile(vFile)
+    let vFile = Replace('$(vFile)', '\', '/');
+    let vFile = Replace('$(vFile)', '#', '%23');
 
-```qlik
-// Delete old QVD files from temp folder
-LET vFileToDelete = 'e:\data\qvd\temp\old_file.qvd';
+    let vRequestBody = '{""deleteFile"":""$(vFile)""}';
 
-LOAD
-    StatusCode,
-    ResponseBody
-FROM JSON (
-    LOAD
-        '$(vFileToDelete)' as deleteFile
-    FROM "$(Join(Chr(123),''))") (jsonPath="$"))
-)
-URL "http://butler-server:8080/v4/filedelete",
-httpMethod "DELETE",
-httpHeader "Content-Type" "application/json";
+    LIB CONNECT TO 'Butler_POST';
+
+    RestConnectorMasterTable:
+    SQL SELECT
+        "vFile"
+    FROM JSON (wrap on) "root"
+    WITH CONNECTION (
+    Url "$(vButlerHost):$(vButlerPort)/v4/filedelete",
+    BODY "$(vRequestBody)",
+    HTTPHEADER "X-HTTP-Method-Override" "DELETE"
+    );
+
+    set vFile=;
+    set vRequestBody=;
+    DROP TABLE RestConnectorMasterTable;
+end sub
 ```
 
-## Common Use Cases
+Note how the HTTP operation is set using the X-HTTP-Method-Override HTTP header.
 
-### 1. QVD File Management
+This is a way to work around a limitation of Qlik's REST connector, as it only supports GET and POST operations. The extra HTTP header tells Butler what kind of HTTP operation should _really_ be carried out.
 
-**Scenario**: Clean up temporary QVD files after processing
+## Create directories
 
-```qlik
-// Process data and create QVDs
-STORE TempTable INTO 'lib://Data/temp/processing.qvd';
+Butler can also create directories on disk from Sense load scripts. This is useful when you need to ensure target directories exist before writing files to them.
 
-// Copy to final location
-Call Butler_CopyFile(
-    'e:\data\qvd\temp\processing.qvd',
-    'e:\data\qvd\final\$(vAppName)_$(vTimestamp).qvd'
-);
+Both forward slashes and backslashes work in the path specification, and the path format follows the same rules as the file operations above.
 
-// Clean up temporary file
-Call Butler_DeleteFile('e:\data\qvd\temp\processing.qvd');
+```text
+$(Must_Include=[lib://Butler scripts/butler_init.qvs]);
+$(Must_Include=[lib://Butler scripts/create_directory.qvs]);
+
+CALL ButlerInit;
+CALL CreateDir('d:/abc/def/ghi');       // Note that forward slashes work
+CALL CreateDir('d:\123\456\789');       // Backslashes work too
 ```
 
-### 2. File Archiving
+The `CreateDir` helper function will:
 
-**Scenario**: Archive processed files with timestamps
+- Create all parent directories if they don't exist (similar to `mkdir -p` on Unix)
+- Return success if the directory already exists
+- Handle both local paths and UNC paths (on Windows)
 
-```qlik
-// Move processed file to archive
-LET vArchiveFile = 'e:\data\archive\sales_data_' & timestamp(now(), 'YYYY-MM-DD_hhmmss') & '.qvd';
+This is particularly useful when:
 
-Call Butler_MoveFile('e:\data\qvd\sales\current.qvd', '$(vArchiveFile)');
+- Dynamically creating date-based directory structures (e.g., `/archive/2025/10/12/`)
+- Ensuring export directories exist before writing QVD files
+- Setting up logging or backup directory structures
+- Creating temporary working directories during reload
+
+## Examples using UNC paths
+
+When specifying UNC paths in the Butler config file and running Butler on a non-Windows operating system, you will get warnings like the ones below.
+
+The approved directories sections of the config file look like this:
+
+```yaml
+Butler:
+  ....
+# List of directories between which file copying via the REST API can be done.
+  fileCopyApprovedDirectories:
+    - fromDirectory: /from/some/directory2
+      toDirectory: /to/some/directory2
+    - fromDirectory: //1.2.3.4/qlik/testdata/deletefile1
+      toDirectory: //1.2.3.4/qlik/testdata/deletefil2
+
+    # List of directories between which file moves via the REST API can be done.
+  fileMoveApprovedDirectories:
+    - fromDirectory: /from/some/directory3
+      toDirectory: /to/some/directory3
+    - fromDirectory: //1.2.3.4/qlik/testdata/deletefile1
+      toDirectory: //1.2.3.4/qlik/testdata/deletefil2
+
+  fileDeleteApprovedDirectories:
+    - /from/some/directory2
+    - \\1.2.3.4\qlik\testdata\deletefile3
 ```
 
-### 3. Log File Cleanup
+In this case Butler is running on macOS (with IP 192.168.1.168 on port 8081) and we get warnings in the logs when starting Butler:
 
-**Scenario**: Remove old log files to manage disk space
+<ResponsiveImage 
+  src="/img/examples/butler-unc-path-on-macos-1.png" 
+  alt="Startup warnings about non-compatible UNC paths when running Butler on macOS"
+  maxWidth="900px"
+/>
 
-```qlik
-// Delete log files older than 30 days
-FOR vFile = 1 to NoOfRows('OldLogFiles')
-    LET vLogFile = Peek('FilePath', $(vFile)-1, 'OldLogFiles');
-    Call Butler_DeleteFile('$(vLogFile)');
-NEXT vFile;
-```
+When trying to do a file operation (in this case a delete) using an UNC path (Butler is still running on macOS!) we get a warning in the logs and a http error returned to the Sense script:
 
-### 4. Data Export Management
+<ResponsiveImage 
+  src="/img/examples/butler-unc-path-on-macos-3.png" 
+  alt="http error returned when trying to delete a file via a UNC path, and Butler is running on macOS"
+  maxWidth="600px"
+/>
 
-**Scenario**: Copy data exports to network shares
-
-```qlik
-// Export data to CSV
-STORE DataTable INTO 'lib://Exports/temp/export.csv' (txt);
-
-// Copy to network share for external systems
-Call Butler_CopyFile(
-    'e:\data\exports\temp\export.csv',
-    '\\shared-server\data\exports\$(vExportName)_$(date(today(), "YYYY-MM-DD")).csv'
-);
-```
-
-## Error Handling and Responses
-
-### Success Response
-
-```json
-{
-  "status": "success",
-  "message": "File operation completed successfully",
-  "operation": "copy",
-  "fromFile": "e:\\data\\source.qvd",
-  "toFile": "e:\\data\\target.qvd"
-}
-```
-
-### Error Response
-
-```json
-{
-  "status": "error",
-  "message": "Source file not found",
-  "operation": "copy",
-  "fromFile": "e:\\data\\missing.qvd",
-  "errorCode": "FILE_NOT_FOUND"
-}
-```
-
-### Common Error Codes
-
-- `PATH_NOT_ALLOWED`: Specified path not in allowed directories
-- `FILE_NOT_FOUND`: Source file doesn't exist
-- `ACCESS_DENIED`: Insufficient permissions
-- `DISK_FULL`: Insufficient disk space
-- `FILE_IN_USE`: File locked by another process
-
-## Performance Considerations
-
-### Batch Operations
-
-For multiple file operations, consider grouping them:
-
-```qlik
-// Process multiple files efficiently
-FOR vFile = 1 to NoOfRows('FilesToProcess')
-    LET vSourceFile = Peek('SourcePath', $(vFile)-1, 'FilesToProcess');
-    LET vTargetFile = Peek('TargetPath', $(vFile)-1, 'FilesToProcess');
-
-    Call Butler_CopyFile('$(vSourceFile)', '$(vTargetFile)');
-NEXT vFile;
-```
+<ResponsiveImage 
+  src="/img/examples/butler-unc-path-on-macos-2.png" 
+  alt="Warnings in log for the previous scenario"
+  maxWidth="900px"
+/>

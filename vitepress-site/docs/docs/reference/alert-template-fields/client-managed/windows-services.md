@@ -12,7 +12,7 @@ Handlebars offers a lot of useful features (nested template fields, evaluation c
 ::: warning
 Not all alert destinations (MQTT, outgoing webhooks etc) support template fields.
 
-Please see the [Getting started](/docs/getting-started/setup/reload-alerts) sections for more information on how to set up alerts for each destination.
+Please see the [Getting started](/docs/getting-started/setup/windows-service-monitor/) sections for more information on how to set up alerts for each destination.
 :::
 
 If a template field is used for an alert type where that field is not supported, the field will simply be blank. No errors will occur.
@@ -28,16 +28,16 @@ The following template fields are available in alert messages.
 Note that some fields are usually (always?) empty, for example the script log for stopped messages.  
 This is simply how Sense works - the template fields just forward the information retrieved from the Sense APIs.
 
-| Email | Slack | Teams | Field name                | Description                                                                                                                                                                                                       |
-| ----- | ----- | ----- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ✅    | ✅    | ✅    | `{{host}}`                | The hostname of the server where the service is running                                                                                                                                                           |
-| ✅    | ✅    | ✅    | `{{serviceStatus}}`       | The status of the service, e.g. `RUNNING` or `STOPPED`                                                                                                                                                            |
-| ✅    | ✅    | ✅    | `{{servicePrevStatus}}`   | The previous status of the service, e.g. `RUNNING` or `STOPPED`                                                                                                                                                   |
-| ✅    | ✅    | ✅    | `{{serviceName}}`         | The name of the service as defined in Windows                                                                                                                                                                     |
-| ✅    | ✅    | ✅    | `{{serviceDisplayName}}`  | The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName.                                                                                           |
-| ✅    | ✅    | ✅    | `{{serviceFriendlyName}}` | The display name of the service as defined in the Butler config file. Used to give the service a good name when both serviceName and serviceDisplayName are unsuitable for use in for example Grafana dashboards. |
-| ✅    | ✅    | ✅    | `{{serviceStartType}}`    | The startup mode of the service, e.g. `Automatic` or `Manual`                                                                                                                                                     |
-| ✅    | ✅    | ✅    | `{{serviceExePath}}`      | The path to the executable of the service                                                                                                                                                                         |
+| Email | Slack | Teams | Field name            | Description                                                                                                                                                                                                       |
+| ----- | ----- | ----- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ✅    | ✅    | ✅    | `host`                | The hostname of the server where the service is running                                                                                                                                                           |
+| ✅    | ✅    | ✅    | `serviceStatus`       | The status of the service, e.g. `RUNNING` or `STOPPED`                                                                                                                                                            |
+| ✅    | ✅    | ✅    | `servicePrevStatus`   | The previous status of the service, e.g. `RUNNING` or `STOPPED`                                                                                                                                                   |
+| ✅    | ✅    | ✅    | `serviceName`         | The name of the service as defined in Windows                                                                                                                                                                     |
+| ✅    | ✅    | ✅    | `serviceDisplayName`  | The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName.                                                                                           |
+| ✅    | ✅    | ✅    | `serviceFriendlyName` | The display name of the service as defined in the Butler config file. Used to give the service a good name when both serviceName and serviceDisplayName are unsuitable for use in for example Grafana dashboards. |
+| ✅    | ✅    | ✅    | `serviceStartType`    | The startup mode of the service, e.g. `Automatic` or `Manual`                                                                                                                                                     |
+| ✅    | ✅    | ✅    | `serviceExePath`      | The path to the executable of the service                                                                                                                                                                         |
 
 ## InfluxDB
 

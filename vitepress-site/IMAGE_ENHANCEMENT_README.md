@@ -62,7 +62,10 @@ All existing markdown images automatically get:
 **Example:**
 
 ```markdown
-![Alt text](/img/example.png)
+<ResponsiveImage
+  src="/img/example.png"
+  alt="Alt text"
+/>
 ```
 
 ### Manual Control with Component
@@ -87,7 +90,11 @@ For the `/docs/concepts/reload-tasks/client-managed/alert-emails/` page:
 **Before:**
 
 ```markdown
-![Failed reload alert email on mobile home screen](/img/reload-fail-alert-email-mobile-1.png)
+<ResponsiveImage
+  src="/img/reload-fail-alert-email-mobile-1.png"
+  alt="Failed reload alert email on mobile home screen"
+  maxWidth="400px"
+/>
 ```
 
 **Option 1 - Keep as is:**

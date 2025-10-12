@@ -376,9 +376,9 @@ Payload: { "tag": ["daily-reports"] }
 
 For detailed implementation examples, see:
 
-- [REST API Examples](/docs/examples/start-task/start-task-from-rest/)
-- [MQTT Integration](/docs/examples/start-task/start-task-from-mqtt/)
-- [Authentication Setup](/docs/getting-started/setup/authentication/)
+- [REST API Examples](/docs/examples/start-task/start-task-from-rest)
+- [MQTT Integration](/docs/examples/start-task/start-task-from-mqtt)
+- [Qlik Sense Settings](/docs/getting-started/setup/qlik-sense-settings/server-settings/)
 
 :::
 

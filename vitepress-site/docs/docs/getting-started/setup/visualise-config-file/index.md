@@ -23,11 +23,19 @@ If the config file is obfuscated, the downloaded file will be obfuscated as well
 
 Here's an example of what the YAML view could look like:
 
-![YAML view of the Butler config file in use](/img/butler-visualise-config-yaml-1.png "YAML view of the Butler config file in use")
+<ResponsiveImage
+  src="/img/butler-visualise-config-yaml-1.png"
+  alt="YAML view of the Butler config file in use"
+  caption="YAML view of the Butler config file in use"
+/>
 
 And here's an example of the JSON view:
 
-![JSON view of the Butler config file in use](/img/butler-visualise-config-json-1.png "JSON view of the Butler config file in use")
+<ResponsiveImage
+  src="/img/butler-visualise-config-json-1.png"
+  alt="JSON view of the Butler config file in use"
+  caption="JSON view of the Butler config file in use"
+/>
 
 ## Settings in config file
 

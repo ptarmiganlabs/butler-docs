@@ -2,6 +2,28 @@
 
 Butler stores a lot of information in InfluxDB. This page describes the different measurements and tags that Butler send to InfluxDB.
 
+## Overview
+
+Butler writes data to InfluxDB from multiple sources:
+
+1. **Task execution events** (via UDP messages from Qlik Sense log appenders)
+
+   - Reload tasks (success/failure)
+   - External program tasks (success/failure)
+   - Distribute tasks (success/failure)
+   - Preload tasks (success only)
+   - User sync tasks (success only)
+
+2. **System monitoring** (scheduled/continuous monitoring)
+   - Windows service status
+   - Qlik Sense server version information
+   - Qlik Sense server license status
+   - Qlik Sense end user access license information
+   - Qlik Sense license releases
+   - Butler memory usage and uptime
+
+Each measurement below includes details about the tags and fields stored in InfluxDB.
+
 ## Failed reload tasks
 
 Measurement: `reload_task_failed`
@@ -83,6 +105,198 @@ Measurement: `reload_task_success`
 | task_executionDuration_min   | Duration of the reload task in minutes.                                       |
 | task_executionDuration_h     | Duration of the reload task in hours.                                         |
 
+## Failed external program tasks
+
+Measurement: `external_program_task_failed`
+
+### Tags
+
+| Tag name                                   | Description                                                                                              |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| host                                       | Server on which the external program task executed.                                                      |
+| user                                       | Full user info (directory + ID) for user running the task. Typically `sa_scheduler` for scheduled tasks. |
+| task_id                                    | ID of external program task that failed.                                                                 |
+| task_name                                  | Name of external program task that failed.                                                               |
+| log_level                                  | Log level of the Sense log file entry causing the alert.                                                 |
+| taskTag\_<task tag name 1 from Qlik Sense> | Task tag defined in the QMC for the Qlik Sense external program task.                                    |
+| taskTag\_<task tag name 2 from Qlik Sense> | Task tag defined in the QMC for the Qlik Sense external program task.                                    |
+| static-tag-1                               | Static tag specified in the Butler configuration file.                                                   |
+| static-tag-2                               | Static tag specified in the Butler configuration file.                                                   |
+
+### Fields
+
+| Field name    | Description                                                         |
+| ------------- | ------------------------------------------------------------------- |
+| log_timestamp | Timestamp of the Sense log file entry that triggered the event.     |
+| execution_id  | Execution ID of the external program task.                          |
+| log_message   | Raw message from the Sense log file entry that triggered the event. |
+
+## Successful external program tasks
+
+Measurement: `external_program_task_success`
+
+### Tags
+
+| Tag name                                   | Description                                                                                              |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| host                                       | Server on which the external program task executed.                                                      |
+| user                                       | Full user info (directory + ID) for user running the task. Typically `sa_scheduler` for scheduled tasks. |
+| task_id                                    | ID of external program task.                                                                             |
+| task_name                                  | Name of external program task.                                                                           |
+| log_level                                  | Log level of the Sense log file entry causing the event.                                                 |
+| task_executingNodeName                     | Name of node where the external program task was executed.                                               |
+| task_executionStatusNum                    | External program task's execution result code (numeric).                                                 |
+| task_executionStatusText                   | External program task's execution result (text).                                                         |
+| taskTag\_<task tag name 1 from Qlik Sense> | Task tag defined in the QMC for the Qlik Sense external program task.                                    |
+| taskTag\_<task tag name 2 from Qlik Sense> | Task tag defined in the QMC for the Qlik Sense external program task.                                    |
+| static-tag-1                               | Static tag specified in the Butler configuration file.                                                   |
+| static-tag-2                               | Static tag specified in the Butler configuration file.                                                   |
+
+### Fields
+
+| Field name                   | Description                                                                             |
+| ---------------------------- | --------------------------------------------------------------------------------------- |
+| log_timestamp                | Timestamp of the Sense log file entry that triggered the event.                         |
+| execution_id                 | Execution ID of the external program task.                                              |
+| log_message                  | Raw message from the Sense log file entry that triggered the event.                     |
+| task_executionStartTime_json | Start time of the external program task. Stringified JSON with seconds, minutes, hours. |
+| task_executionStopTime_json  | Stop time of the external program task. Stringified JSON with seconds, minutes, hours.  |
+| task_executionDuration_json  | Duration of the external program task. Stringified JSON with seconds, minutes, hours.   |
+| task_executionDuration_sec   | Duration of the external program task in seconds.                                       |
+| task_executionDuration_min   | Duration of the external program task in minutes.                                       |
+| task_executionDuration_h     | Duration of the external program task in hours.                                         |
+
+## Failed distribute tasks
+
+Measurement: `distribute_task_failed`
+
+### Tags
+
+| Tag name                                   | Description                                                                                              |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| host                                       | Server on which the distribute task executed.                                                            |
+| user                                       | Full user info (directory + ID) for user running the task. Typically `sa_scheduler` for scheduled tasks. |
+| task_id                                    | ID of distribute task that failed.                                                                       |
+| task_name                                  | Name of distribute task that failed.                                                                     |
+| log_level                                  | Log level of the Sense log file entry causing the alert.                                                 |
+| taskTag\_<task tag name 1 from Qlik Sense> | Task tag defined in the QMC for the Qlik Sense distribute task.                                          |
+| taskTag\_<task tag name 2 from Qlik Sense> | Task tag defined in the QMC for the Qlik Sense distribute task.                                          |
+| static-tag-1                               | Static tag specified in the Butler configuration file.                                                   |
+| static-tag-2                               | Static tag specified in the Butler configuration file.                                                   |
+
+### Fields
+
+| Field name    | Description                                                         |
+| ------------- | ------------------------------------------------------------------- |
+| log_timestamp | Timestamp of the Sense log file entry that triggered the event.     |
+| execution_id  | Execution ID of the distribute task.                                |
+| log_message   | Raw message from the Sense log file entry that triggered the event. |
+
+## Successful distribute tasks
+
+Measurement: `distribute_task_success`
+
+### Tags
+
+| Tag name                                   | Description                                                                                              |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| host                                       | Server on which the distribute task executed.                                                            |
+| user                                       | Full user info (directory + ID) for user running the task. Typically `sa_scheduler` for scheduled tasks. |
+| task_id                                    | ID of distribute task.                                                                                   |
+| task_name                                  | Name of distribute task.                                                                                 |
+| log_level                                  | Log level of the Sense log file entry causing the event.                                                 |
+| task_executingNodeName                     | Name of node where the distribute task was executed.                                                     |
+| task_executionStatusNum                    | Distribute task's execution result code (numeric).                                                       |
+| task_executionStatusText                   | Distribute task's execution result (text).                                                               |
+| taskTag\_<task tag name 1 from Qlik Sense> | Task tag defined in the QMC for the Qlik Sense distribute task.                                          |
+| taskTag\_<task tag name 2 from Qlik Sense> | Task tag defined in the QMC for the Qlik Sense distribute task.                                          |
+| static-tag-1                               | Static tag specified in the Butler configuration file.                                                   |
+| static-tag-2                               | Static tag specified in the Butler configuration file.                                                   |
+
+### Fields
+
+| Field name                   | Description                                                                       |
+| ---------------------------- | --------------------------------------------------------------------------------- |
+| log_timestamp                | Timestamp of the Sense log file entry that triggered the event.                   |
+| execution_id                 | Execution ID of the distribute task.                                              |
+| log_message                  | Raw message from the Sense log file entry that triggered the event.               |
+| task_executionStartTime_json | Start time of the distribute task. Stringified JSON with seconds, minutes, hours. |
+| task_executionStopTime_json  | Stop time of the distribute task. Stringified JSON with seconds, minutes, hours.  |
+| task_executionDuration_json  | Duration of the distribute task. Stringified JSON with seconds, minutes, hours.   |
+| task_executionDuration_sec   | Duration of the distribute task in seconds.                                       |
+| task_executionDuration_min   | Duration of the distribute task in minutes.                                       |
+| task_executionDuration_h     | Duration of the distribute task in hours.                                         |
+
+## Successful preload tasks
+
+Measurement: `preload_task_success`
+
+### Tags
+
+| Tag name                                   | Description                                                                                              |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| host                                       | Server on which the preload task executed.                                                               |
+| user                                       | Full user info (directory + ID) for user running the task. Typically `sa_scheduler` for scheduled tasks. |
+| task_id                                    | ID of preload task.                                                                                      |
+| task_name                                  | Name of preload task.                                                                                    |
+| log_level                                  | Log level of the Sense log file entry causing the event.                                                 |
+| task_executingNodeName                     | Name of node where the preload task was executed.                                                        |
+| task_executionStatusNum                    | Preload task's execution result code (numeric).                                                          |
+| task_executionStatusText                   | Preload task's execution result (text).                                                                  |
+| taskTag\_<task tag name 1 from Qlik Sense> | Task tag defined in the QMC for the Qlik Sense preload task.                                             |
+| taskTag\_<task tag name 2 from Qlik Sense> | Task tag defined in the QMC for the Qlik Sense preload task.                                             |
+| static-tag-1                               | Static tag specified in the Butler configuration file.                                                   |
+| static-tag-2                               | Static tag specified in the Butler configuration file.                                                   |
+
+### Fields
+
+| Field name                   | Description                                                                    |
+| ---------------------------- | ------------------------------------------------------------------------------ |
+| log_timestamp                | Timestamp of the Sense log file entry that triggered the event.                |
+| execution_id                 | Execution ID of the preload task.                                              |
+| log_message                  | Raw message from the Sense log file entry that triggered the event.            |
+| task_executionStartTime_json | Start time of the preload task. Stringified JSON with seconds, minutes, hours. |
+| task_executionStopTime_json  | Stop time of the preload task. Stringified JSON with seconds, minutes, hours.  |
+| task_executionDuration_json  | Duration of the preload task. Stringified JSON with seconds, minutes, hours.   |
+| task_executionDuration_sec   | Duration of the preload task in seconds.                                       |
+| task_executionDuration_min   | Duration of the preload task in minutes.                                       |
+| task_executionDuration_h     | Duration of the preload task in hours.                                         |
+
+## Successful user sync tasks
+
+Measurement: `user_sync_task_success`
+
+### Tags
+
+| Tag name                                   | Description                                                                                              |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| host                                       | Server on which the user sync task executed.                                                             |
+| user                                       | Full user info (directory + ID) for user running the task. Typically `sa_scheduler` for scheduled tasks. |
+| task_id                                    | ID of user sync task.                                                                                    |
+| task_name                                  | Name of user sync task.                                                                                  |
+| log_level                                  | Log level of the Sense log file entry causing the event.                                                 |
+| task_executingNodeName                     | Name of node where the user sync task was executed.                                                      |
+| task_executionStatusNum                    | User sync task's execution result code (numeric).                                                        |
+| task_executionStatusText                   | User sync task's execution result (text).                                                                |
+| taskTag\_<task tag name 1 from Qlik Sense> | Task tag defined in the QMC for the Qlik Sense user sync task.                                           |
+| taskTag\_<task tag name 2 from Qlik Sense> | Task tag defined in the QMC for the Qlik Sense user sync task.                                           |
+| static-tag-1                               | Static tag specified in the Butler configuration file.                                                   |
+| static-tag-2                               | Static tag specified in the Butler configuration file.                                                   |
+
+### Fields
+
+| Field name                   | Description                                                                      |
+| ---------------------------- | -------------------------------------------------------------------------------- |
+| log_timestamp                | Timestamp of the Sense log file entry that triggered the event.                  |
+| execution_id                 | Execution ID of the user sync task.                                              |
+| log_message                  | Raw message from the Sense log file entry that triggered the event.              |
+| task_executionStartTime_json | Start time of the user sync task. Stringified JSON with seconds, minutes, hours. |
+| task_executionStopTime_json  | Stop time of the user sync task. Stringified JSON with seconds, minutes, hours.  |
+| task_executionDuration_json  | Duration of the user sync task. Stringified JSON with seconds, minutes, hours.   |
+| task_executionDuration_sec   | Duration of the user sync task in seconds.                                       |
+| task_executionDuration_min   | Duration of the user sync task in minutes.                                       |
+| task_executionDuration_h     | Duration of the user sync task in hours.                                         |
+
 ## Windows service info
 
 Measurement: `win_service_state`
@@ -157,7 +371,7 @@ The access license information returned by the Qlik Sense API is not very well d
 As a result it is not always clear what the different fields mean.  
 This is highlighted for each affected field below.
 
-Measurement: `sense_license_info`
+Measurement: `qlik_sense_license`
 
 Each datapoint has a tag called `license_type` that can have the following values:
 
@@ -243,3 +457,25 @@ Measurement: `butler_memory_usage`
 | heap_total     | Total amount of heap memory available to Butler. |
 | external       | Amount of external memory used by Butler.        |
 | process_memory | Amount of memory used by the Butler process.     |
+
+## Qlik Sense license releases
+
+Measurement: `qlik_sense_license_release`
+
+This measurement tracks when Butler automatically releases unused Qlik Sense licenses based on the configured inactivity threshold.
+
+### Tags
+
+| Tag name        | Description                                                                     |
+| --------------- | ------------------------------------------------------------------------------- |
+| butler_instance | Name of the Butler instance, from `Butler.influxDb.instanceTag` in config file. |
+| license_type    | Type of license that was released (e.g., `professional`, `analyzer`).           |
+| user            | User whose license was released, in format `userDir\userId`.                    |
+
+In addition to above, all tags defined in `Butler.qlikSenseLicense.licenseRelease.destination.influxDb.tag.static` in the config file are added to each datapoint that is sent to InfluxDB.
+
+### Fields
+
+| Field name          | Description                                                 |
+| ------------------- | ----------------------------------------------------------- |
+| days_since_last_use | Number of days since the license was last used by the user. |

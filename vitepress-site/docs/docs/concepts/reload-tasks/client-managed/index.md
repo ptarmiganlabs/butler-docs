@@ -2,7 +2,7 @@
 
 Butler can send notifications to various destinations when a reload task fails, succeeds or is aborted in client-managed Qlik Sense.
 
-A comparison of the different destinations is available in the [setup documentation](/docs/getting-started/setup/reload-alerts/client-managed/).
+A comparison of the different destinations is available in the [setup documentation](/docs/getting-started/setup/task-alerts/client-managed/).
 
 ## Alert Destinations
 
@@ -10,11 +10,11 @@ Butler supports several notification channels for reload task notifications in c
 
 ### Email Notifications
 
-- **[Alert Emails](/docs/concepts/failed-reloads/client-managed/alert-emails/)** - Comprehensive HTML email alerts with script logs and custom formatting
+- **[Alert Emails](/docs/concepts/reload-tasks/client-managed/alert-emails/)** - Comprehensive HTML email alerts with script logs and custom formatting
 
 ### Messaging Platforms
 
-- **[Slack & Teams Alerts](/docs/concepts/failed-reloads/client-managed/alerts-slack-teams/)** - Rich formatted messages to Slack channels and Microsoft Teams
+- **[Slack & Teams Alerts](/docs/concepts/reload-tasks/client-managed/alerts-slack-teams/)** - Rich formatted messages to Slack channels and Microsoft Teams
 
 ### Incident Management
 
@@ -50,4 +50,4 @@ Alert destinations can be configured with:
 - **Recipient Targeting**: Who should receive alerts for different scenarios
 - **Delivery Options**: How and when alerts are delivered
 
-For detailed configuration instructions, see the [setup documentation](/docs/getting-started/setup/reload-alerts/client-managed/).
+For detailed configuration instructions, see the [setup documentation](/docs/getting-started/setup/task-alerts/client-managed/).

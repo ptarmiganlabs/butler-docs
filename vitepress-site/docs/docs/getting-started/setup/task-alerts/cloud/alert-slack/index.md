@@ -12,9 +12,9 @@ Butler can send two kinds of alert messages via Slack:
 
 - When an app fails during reload.
 
-See the [Concepts section](/docs/concepts/setting-up-teams-webhooks/) for additional details.
+See the [Concepts section](/docs/concepts/teams-messaging) for additional details.
 
-A complete reference to the config file format is found [here](/docs/reference/config-file/).
+A complete reference to the config file format is found [here](/docs/reference/config-file).
 
 ## Basic vs formatted Slack alerts
 
@@ -30,7 +30,11 @@ Which option to go for depends on whether you want just a notification that some
 
 An "app reload failed" Slack message using the custom formatting option could look like this:
 
-![Reload failed alert Slack message](/img/butler-cloud-failed-reload-slack-formatted_1.png "Reload failed alert Slack message")
+<ResponsiveImage
+  src="/img/butler-cloud-failed-reload-slack-formatted_1.png"
+  alt="Reload failed alert Slack message"
+  caption="Reload failed alert Slack message"
+/>
 
 Here's how to set this up:
 
@@ -52,7 +56,11 @@ Here's how to set this up:
 
 A "reload task failed" Slack message with basic formatting could look like this:
 
-![Reload failed alert Slack message](/img/failed-reload-slack-basic_1.png "Reload failed alert Slack message")
+<ResponsiveImage
+  src="/img/failed-reload-slack-basic_1.png"
+  alt="Reload failed alert Slack message"
+  caption="Reload failed alert Slack message"
+/>
 
 To set it up:
 
@@ -89,7 +97,7 @@ Some useful links to Slacks's documentation:
 ### Using custom links in templates
 
 It is also possible to define custom links in the config file, and use them in Slack templates.  
-This is described here: [Custom links in alerts](/docs/concepts/custom-links-in-alerts/).
+This is described here: [Custom links in alerts](/docs/concepts/custom-links).
 
 ## How it works
 

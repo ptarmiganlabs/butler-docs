@@ -4,7 +4,7 @@ Details about the Butler key-value store.
 
 ## Key-value store overview
 
-The [API documentation](/docs/reference/rest-api/) is the best, most complete source of information about the key-value API endpoints.
+The [API documentation](/docs/reference/rest-api) is the best, most complete source of information about the key-value API endpoints.
 
 ## Namespaces
 

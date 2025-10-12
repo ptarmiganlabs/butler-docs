@@ -43,7 +43,11 @@ Could look like this:
 
 This feature relies on the same Qlik Sense log appenders that the [reload alerts](/docs/getting-started/setup/task-alerts/) uses. Please see that page for an in-depth discussion on how log appenders work and how to set them up.
 
-![Butler high level system overview](/img/butler-failed-reload-log-1.png "Butler high level system overview")
+<ResponsiveImage
+  src="/img/butler-failed-reload-log-1.png"
+  alt="Butler high level system overview"
+  caption="Butler high level system overview"
+/>
 
 ::: warning
 The log appenders that catch failed reloads in the Qlik Sense scheduler must be set up on all Qlik Sense servers where reloads are happening for this feature to reliably capture _all_ failed reloads.
@@ -55,7 +59,12 @@ Storing script logs on disk is closely associated with sending alerts about fail
 
 Those alerts (email, Slack, Teams) can include the first and last few lines of the script log, whereas the full log is stored on disk using the feature described on this page.
 
-![Butler and Qlik Sense Cloud overview](/img/butler-cloud-app-reload-failed-alert-1.png "Butler and Qlik Sense Cloud overview")
+<ResponsiveImage
+  src="/img/butler-cloud-app-reload-failed-alert-1.png"
+  alt="Butler and Qlik Sense Cloud overview"
+  maxWidth="400px"
+  caption="Butler and Qlik Sense Cloud overview"
+/>
 
 Butler listens to the Qlik Sense Cloud event stream and captures the script logs of failed reloads.
 

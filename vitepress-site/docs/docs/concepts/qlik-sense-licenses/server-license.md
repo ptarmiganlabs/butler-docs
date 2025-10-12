@@ -65,6 +65,6 @@ Track license usage patterns and trends:
 
 ## Next Steps
 
-- **[Setup Guide](/docs/getting-started/setup/license-monitoring/)** - Configure license monitoring
+- **[Setup Guide](/docs/getting-started/setup/qlik-sense-licenses/server-licenses/)** - Configure license monitoring
 - **[Alert Templates](/docs/reference/alert-template-fields/)** - Customize license alert formats
-- **[Access License Monitoring](/docs/concepts/qlik-sense-licenses/access-licenses/)** - Monitor user access licenses
+- **[Access License Monitoring](/docs/concepts/qlik-sense-licenses/access-licenses)** - Monitor user access licenses
