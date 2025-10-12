@@ -4,7 +4,7 @@ Demo app showing how to publish messages to MQTT from Qlik Sense load script.
 
 ## Load script
 
-Assuming the [.qvs helper subs](/docs/reference/sense-helper-subs/) are used, only one line of script is needed to publish a MQTT message.
+Assuming the [.qvs helper subs](/docs/reference/sense-helper-subs) are used, only one line of script is needed to publish a MQTT message.
 
 The demo app does a bit more. First it posts a startup message to MQTT, then it loads some data and finally an all-done message is sent:
 
@@ -42,5 +42,5 @@ The video below is available at [Ptarmigan Labs' YouTube channel](https://www.yo
 
 ## See Also
 
-- [Messaging from Load Script](../../messaging-from-load-script) - More examples of Slack and MQTT messaging
-- [Butler helper functions](/docs/reference/sense-helper-subs/) - Complete reference for all load script helper subs
+- [Messaging from Load Script](/docs/examples/messaging-from-load-script) - More examples of Slack and MQTT messaging
+- [Butler helper functions](/docs/reference/sense-helper-subs) - Complete reference for all load script helper subs

@@ -18,7 +18,7 @@ export default withMermaid({
   sitemap: {
     hostname: "https://butler-sheet-icons.ptarmiganlabs.com",
   },
-  ignoreDeadLinks: true, // Set to true to ignore dead links and build anyway. False will fail the build if there are any dead links.
+  ignoreDeadLinks: false, // Set to true to ignore dead links and build anyway. False will fail the build if there are any dead links.
   
   head: [
     ["link", { rel: "icon", href: "/favicon.ico" }],

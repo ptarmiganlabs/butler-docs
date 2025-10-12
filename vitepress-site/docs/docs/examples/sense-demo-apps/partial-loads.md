@@ -9,7 +9,7 @@ A couple of demo apps are also included in the GitHub repository.
 
 ## Partial reload API
 
-The full API documentation is available in the [Reference section](/docs/reference/rest-api-1/?operationsSorter=alpha), here we're interested in the PUT `/v4/app/{appId}/reload` endpoint.
+The full API documentation is available in the [Reference section](/docs/reference/rest-api?operationsSorter=alpha), here we're interested in the PUT `/v4/app/{appId}/reload` endpoint.
 
 ## Demo apps for partial reloads
 

@@ -53,7 +53,7 @@ Looks like this. Note the response we get from Butler's API.
 
 ### List all enabled API endpoints
 
-Let's take a look at which API endpoints are [enabled in the restServerEndpointsEnable section of the config file](/docs/reference/config-file/):
+Let's take a look at which API endpoints are [enabled in the restServerEndpointsEnable section of the config file](/docs/reference/config-file):
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JdOt1aQj9Hw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

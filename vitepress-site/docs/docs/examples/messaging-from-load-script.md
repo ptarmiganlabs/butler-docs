@@ -69,5 +69,5 @@ You can use this to:
 ## See Also
 
 - [Reload chaining with parameters](./reload-chaining) - Pass data between apps using Butler's key-value store
-- [Start Sense tasks](./start-task) - Trigger reload tasks programmatically
-- [Butler helper functions](/docs/reference/sense-helper-subs/) - Complete reference for all Butler load script functions
+- [Start Sense tasks](/docs/examples/start-task/start-task-from-script) - Trigger reload tasks programmatically
+- [Butler helper functions](/docs/reference/sense-helper-subs) - Complete reference for all Butler load script functions

@@ -83,7 +83,7 @@ These settings are mandatory if you plan to use Butler's REST API from the load 
 The data connection used for POST, PUT, DELETE and all other HTTP operations beyond GET should be named "Butler_POST".  
 Its configuration is similar to that of Butler_GET, except that a message body is also needed for the POST to work.
 
-Assuming Butler's [key-value store is enabled](/docs/getting-started/setup/key-value-store) in the main config file, you can create a dummy key-value pair using a POST command with the following payload.
+Assuming Butler's [key-value store is enabled](/docs/getting-started/setup/key-value-store/) in the main config file, you can create a dummy key-value pair using a POST command with the following payload.
 
 The effect is that the data connection is created and can be used for future POST/PUT/DELETE operations against Butler's API.  
 The fact that is was created against the key-value store doesn't matter, the data connection details will be replaced each time it is used.

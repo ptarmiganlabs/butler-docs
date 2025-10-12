@@ -12,7 +12,7 @@ Butler can send these alert emails:
 
 - When an app reload fails during execution.
 
-See the [Concepts section](/docs/concepts/alert-emails/) for additional details and sample alert emails.
+See the [Concepts section](/docs/concepts/reload-tasks/) for additional details and sample alert emails.
 
 ## Basic vs formatted email alerts
 
@@ -33,7 +33,7 @@ Butler also has a de-duplication feature that ensure each email address that has
 
 ## Sending test emails to verify correct settings
 
-See the same section for [client-managed Qlik Sense](http://localhost:1313/docs/getting-started/setup/task-alerts/client-managed/alert-emails/#sending-test-emails-to-verify-correct-settings).  
+See the same section for [client-managed Qlik Sense](/docs/getting-started/setup/task-alerts/client-managed/alert-emails/#sending-test-emails-to-verify-correct-settings).  
 The commands are identical.
 
 ## Sending alert emails to app owners
@@ -208,8 +208,8 @@ You can use template fields in email subjects too!
 ### Using custom links in templates
 
 It is also possible to define custom links in the config file, and use them in email templates.  
-This is described here: [Custom links in alerts](/docs/concepts/custom-links-in-alerts/).
+This is described here: [Custom links in alerts](/docs/concepts/custom-links).
 
 ## Template fields reference
 
-A complete list of template fields - including descriptions - is available in the [Reference](/docs/reference/alert-template-fields) section.
+A complete list of template fields - including descriptions - is available in the [Reference](/docs/reference/alert-template-fields/) section.

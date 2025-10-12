@@ -148,4 +148,4 @@ Extract app structures to:
 
 - [Sense demo apps](./sense-demo-apps/) - Example apps demonstrating Butler features
 - [Butler API documentation](./openapi-docs) - Complete REST API reference
-- [Butler helper functions](/docs/reference/sense-helper-subs/) - Load script helper functions
+- [Butler helper functions](/docs/reference/sense-helper-subs) - Load script helper functions

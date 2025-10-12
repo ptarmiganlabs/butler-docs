@@ -14,12 +14,12 @@ Butler's reload alerting capabilities vary depending on your Qlik Sense deployme
 
 ### Client-Managed Qlik Sense
 
-**[Client-managed Qlik Sense](/docs/concepts/failed-reloads/client-managed/)** environments provide the most comprehensive alerting capabilities through Butler's integration with the Qlik Sense logging system.
+**[Client-managed Qlik Sense](/docs/concepts/reload-tasks/client-managed/)** environments provide the most comprehensive alerting capabilities through Butler's integration with the Qlik Sense logging system.
 
 **Available Alert/Data Destinations**:
 
-- **[Email Notifications](/docs/concepts/failed-reloads/client-managed/alert-emails/)** - Rich HTML emails with script logs and custom formatting
-- **[Slack & Teams](/docs/concepts/failed-reloads/client-managed/alerts-slack-teams/)** - Real-time messages to collaboration platforms
+- **[Email Notifications](/docs/concepts/reload-tasks/client-managed/alert-emails/)** - Rich HTML emails with script logs and custom formatting
+- **[Slack & Teams](/docs/concepts/reload-tasks/client-managed/alerts-slack-teams/)** - Real-time messages to collaboration platforms
 - **[Incident Management](/docs/concepts/incident-management/)** - Integration with New Relic, Signl4, and other platforms
 - **Data Storage** - InfluxDB metrics and MQTT publishing
 - **File System** - Automated script log storage and webhooks
@@ -179,6 +179,6 @@ Butler's client-managed alerting relies on proper log4net appender configuration
 ## Next Steps
 
 - **[Setup Guide](/docs/getting-started/setup/task-alerts/)** - Complete configuration walkthrough
-- **[Client-Managed Alerts](/docs/concepts/failed-reloads/client-managed/)** - Detailed client-managed capabilities
+- **[Client-Managed Alerts](/docs/concepts/reload-tasks/client-managed/)** - Detailed client-managed capabilities
 - **[Template Fields](/docs/reference/alert-template-fields/)** - Available template variables
 - **[Incident Management](/docs/concepts/incident-management/)** - Advanced alerting integrations

@@ -77,7 +77,7 @@ butlerSchedule:
     lastKnownState: started
 ```
 
-A full description of the scheduler and its file format is available in the [Reference docs](/docs/reference/scheduler/) section.
+A full description of the scheduler and its file format is available in the [Reference docs](/docs/reference/scheduler) section.
 
 ## Settings in config file
 

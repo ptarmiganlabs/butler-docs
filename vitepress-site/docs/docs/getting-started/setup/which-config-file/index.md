@@ -6,7 +6,7 @@ description: >
   Butler can use multiple config files. Here you learn to control which one is used by Butler.
 ---
 
-A description of the config file format is available [here](/docs/reference/config-file/).
+A description of the config file format is available [here](/docs/reference/config-file).
 
 ## Select which config file to use
 
@@ -15,7 +15,7 @@ Butler uses configuration files in YAML format.
 A default config file called `production_template.yaml` is included in the release Zip files on the [download page](https://github.com/ptarmiganlabs/butler/releases). It is also available in the [GitHub repository](https://github.com/ptarmiganlabs/butler/tree/master/src/config).
 
 Make a copy of it, then rename the copy `default.yaml`, `production.yaml`, `staging.yaml` or something else suitable to your specific use case.  
-Update it as needed (see the [config file reference page](/docs/reference/config-file/) for details).
+Update it as needed (see the [config file reference page](/docs/reference/config-file) for details).
 
 Trying to run Butler with the default config file (the one on GitHub) will not work - you must adapt it to your server environment. For example, you need to enter the IP or host name of you Sense server(s), the IP or host name where Butler is running etc.
 

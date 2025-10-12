@@ -7,7 +7,7 @@ description:
 
 ## What's this?
 
-A description of Butler's telemetry feature is available [here](/docs/about/telemetry/).
+A description of Butler's telemetry feature is available [here](/docs/about/telemetry).
 
 ## Settings in config file
 
@@ -17,7 +17,7 @@ Butler:
   # Logging configuration
   ...
   ...
-  anonTelemetry: true     # Can Butler send anonymous data about what computer it is running on? 
+  anonTelemetry: true     # Can Butler send anonymous data about what computer it is running on?
                           # More info on whata data is collected: https://butler.ptarmiganlabs.com/docs/about/telemetry/
                           # Please consider leaving this at true - it really helps future development of Butler!
   ...

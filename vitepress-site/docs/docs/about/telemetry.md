@@ -83,7 +83,7 @@ The telemetry data is sent to the [PostHog](https://posthog.com) service, using 
 
 Even though no-one (not even the Butler developers or Ptarmigan Labs who manage the telemetry database) has any way of ever connecting the data sent by _your_ Butler instance to _you_ (it's all anonymized, remember?), there can be cases where telemetry data must be deleted.
 
-The [legal page](/docs/legal-stuff/#telemetry-data) TODO has more information about this.
+The [legal page](/docs/legal-stuff#telemetry-data) TODO has more information about this.
 
 ### Field level description of telemetry data
 

@@ -20,9 +20,9 @@ The key-value has several use cases:
 The data in the key-value store is _not_ persisted to disk, which means that key-value data will be lost if Butler is restarted.  
 This behavior could possibly be changed if there is a need, please open a [GitHub ticket](https://github.com/ptarmiganlabs/butler/issues) if key-value persistence is of interest.
 
-Key-value data is manipulated using Butler's [REST API](/docs/reference/rest-api-1/?operationsSorter=alpha).
+Key-value data is manipulated using Butler's [REST API](/docs/reference/rest-api).
 
-The [Reference docs](/docs/reference/key-value/) section has more information about the key-value store.
+The [Reference docs](/docs/reference/key-value-store) section has more information about the key-value store.
 
 ## Settings in config file
 

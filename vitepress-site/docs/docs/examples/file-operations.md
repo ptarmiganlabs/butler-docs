@@ -12,7 +12,7 @@ These steps are needed to achieve the goal:
 1. Install and configure Butler's general settings.
 2. Add the directories in which file operations should be allowed to Butler's config file.  
    Make sure the account Butler runs under has the appropriate access to those directories.
-3. Make sure the [necessary Sense data connections](/docs/getting-started/setup/data-connections) exist.
+3. Make sure the [necessary Sense data connections](/docs/getting-started/setup/data-connections/) exist.
 4. Call the Butler APIs directly or use the subs included in the GitHub repo to do the desired file operations.
 
 ::: warning Warning: UNC paths only on Windows

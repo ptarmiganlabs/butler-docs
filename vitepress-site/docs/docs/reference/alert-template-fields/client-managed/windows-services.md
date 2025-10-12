@@ -12,7 +12,7 @@ Handlebars offers a lot of useful features (nested template fields, evaluation c
 ::: warning
 Not all alert destinations (MQTT, outgoing webhooks etc) support template fields.
 
-Please see the [Getting started](/docs/getting-started/setup/reload-alerts) sections for more information on how to set up alerts for each destination.
+Please see the [Getting started](/docs/getting-started/setup/windows-service-monitor/) sections for more information on how to set up alerts for each destination.
 :::
 
 If a template field is used for an alert type where that field is not supported, the field will simply be blank. No errors will occur.

@@ -12,9 +12,9 @@ Butler can send two kinds of alert messages via Teams:
 
 - When an app fails during reload.
 
-See the [Concepts section](/docs/concepts/setting-up-teams-webhooks/) for additional details.
+See the [Concepts section](/docs/concepts/teams-messaging) for additional details.
 
-A complete reference to the config file format is found [here](/docs/reference/config-file/).
+A complete reference to the config file format is found [here](/docs/reference/config-file).
 
 ## Basic vs formatted Teams alerts
 
@@ -38,7 +38,7 @@ An "app reload failed" Teams message using the custom formatting option could lo
 
 Here's how to set it up:
 
-1. Create a workflow in Teams, take note of its URL (you will need it in step 2 below). More information on how to create a Teams workflow in the [Concepts section](/docs/concepts/setting-up-teams-webhooks/).
+1. Create a workflow in Teams, take note of its URL (you will need it in step 2 below). More information on how to create a Teams workflow in the [Concepts section](/docs/concepts/teams-messaging).
 2. Edit the Teams section of the config file, i.e. the settings in `Butler.qlikSenseCloud.event.mqtt.tenant.alert.teamsNotification.reloadAppFailure`.
 
    The `messageType` property should be set to `formatted`.  
@@ -90,7 +90,7 @@ A few things to keep in mind when creating custom Teams messages:
 ### Using custom links in templates
 
 It is also possible to define custom links in the config file, and use them in Teams templates.  
-This is described here: [Custom links in alerts](/docs/concepts/custom-links-in-alerts/).
+This is described here: [Custom links in alerts](/docs/concepts/custom-links).
 
 ## How it works
 

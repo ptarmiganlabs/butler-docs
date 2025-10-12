@@ -29,7 +29,7 @@ These config file settings must be set up before Butler can use the REST API to 
   - Butler.restServerConfig.backgroundServerPort: `<Port used by Butler internally>`
 - Enable the start task API endpoint
   - Butler.restServerEndpointsEnable.senseStartTask: true
-- Sense data connections as described in the [Getting started](/docs/getting-started/setup/data-connections) section.
+- Sense data connections as described in the [Getting started](/docs/getting-started/setup/data-connections/) section.
 
 ## Available Helper Functions
 
@@ -66,9 +66,9 @@ The parameters are:
 - The value (required).
 - A time-to-live value in milliseconds (optional). When the ttl times out the key-value pair is automatically deleted.
 
-Documentation about Butler's key-value store is available [here](/docs/concepts/key-value/).
+Documentation about Butler's key-value store is available [here](/docs/concepts/key-value).
 
-An example showing how task chaining with parameters can be done using key-values is found [here](/docs/examples/reload-chaining/).
+An example showing how task chaining with parameters can be done using key-values is found [here](/docs/examples/reload-chaining).
 
 ## Examples
 

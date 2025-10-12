@@ -15,7 +15,7 @@ Only some alert destinations support template files, namely
 - Teams
 - Slack
 
-Please see the [Concepts](/docs/concepts) and [Getting started](/docs/getting-started/setup/reload-alerts) sections for more information about which alert types support templates.
+Please see the [Concepts](/docs/concepts/) and [Getting started](/docs/getting-started/setup/task-alerts/) sections for more information about which alert types support templates.
 :::
 
 If a template field is used for an alert type where that field is not supported, the field will simply be blank. No errors will occur, but it can still be tricky to debug if you're not aware of this.

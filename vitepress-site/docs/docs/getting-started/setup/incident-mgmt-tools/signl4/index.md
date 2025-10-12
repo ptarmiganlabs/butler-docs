@@ -16,7 +16,7 @@ description: >
 
 Reload failure/abort events can be forwarded to Signl4, where they become incidents that are tracked, (maybe) escalated and eventually (hopefully!) closed.
 
-Example [here](/docs/examples/signl4/).
+Example [here](/docs/concepts/incident-management/signl4).
 
 ## How it works
 

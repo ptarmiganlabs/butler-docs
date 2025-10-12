@@ -32,9 +32,9 @@ They are **currently not available** for:
 - Successful reload tasks
   :::
 
-See the [Concepts section](/docs/concepts/setting-up-teams-webhooks/) for additional details.
+See the [Concepts section](/docs/concepts/teams-messaging) for additional details.
 
-A complete reference to the config file format is found [here](/docs/reference/config-file/).
+A complete reference to the config file format is found [here](/docs/reference/config-file).
 
 ## Basic vs formatted Slack alerts
 
@@ -127,7 +127,7 @@ Some useful links to Slacks's documentation:
 ### Using custom links in templates
 
 It is also possible to define custom links in the config file, and use them in Slack templates.  
-This is described here: [Custom links in alerts](/docs/concepts/custom-links-in-alerts/).
+This is described here: [Custom links in alerts](/docs/concepts/custom-links).
 
 ## How it works
 

@@ -55,7 +55,7 @@ The information stored includes (among other things):
 - Dynamic app tags, i.e. Sense tags for the app being reloaded, if enabled in the config file `Butler.influxDb.reloadTaskFailure.tag.dynamic.useAppTags` section.
 - Dynamic reload task tags, i.e. Sense tags for the reload task being executed, if enabled in the config file `Butler.influxDb.reloadTaskFailure.tag.dynamic.useTaskTags` section.
 
-A complete definition of all information sent to InfluxDB is available in the [reference section](/docs/reference/influxdb/).
+A complete definition of all information sent to InfluxDB is available in the [reference section](/docs/reference/influxdb).
 
 ## Monitor successful reload tasks
 

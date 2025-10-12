@@ -97,6 +97,6 @@ Track version distribution across your environment:
 
 ## Next Steps
 
-- **[Setup Guide](/docs/getting-started/setup/server-version-monitoring/)** - Configure server version monitoring
+- **[Setup Guide](/docs/getting-started/setup/qlik-sense-settings/server-version/)** - Configure server version monitoring
 - **[Alert Templates](/docs/reference/alert-template-fields/)** - Customize version alert formats
-- **[Security Monitoring](/docs/concepts/security/)** - Integrate with security monitoring tools
+- **[Security](/docs/security)** - Security considerations and best practices

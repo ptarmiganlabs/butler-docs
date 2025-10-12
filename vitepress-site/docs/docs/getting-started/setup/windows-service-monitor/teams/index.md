@@ -57,7 +57,7 @@ The following information is available in formatted Teams messages:
 
 ## Creating a MS Teams webhook
 
-To create a webhook in MS Teams, follow the steps in the [Concepts section](/docs/concepts/setting-up-teams-webhooks/).
+To create a webhook in MS Teams, follow the steps in the [Concepts section](/docs/concepts/teams-messaging).
 
 ## Settings in config file
 
