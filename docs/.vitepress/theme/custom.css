@@ -54,19 +54,19 @@
 
 /* Full width layout https://github.com/vuejs/vitepress/discussions/1646#discussioncomment-11486171 */
 :root {
-  --vp-layout-max-width: 1920px;
+  --vp-layout-max-width: 1440px;
 }
 
 .VPDoc:not(.has-sidebar) .container {
-  max-width: 1584px !important;
+  max-width: min(1440px, 100%) !important;
 }
 
 .VPDoc:not(.has-sidebar) .content {
-  max-width: 1264px !important;
+  max-width: min(1200px, 100%) !important;
 }
 
 .VPDoc.has-aside .content-container {
-  max-width: 1168px !important;
+  max-width: min(1120px, 100%) !important;
 }
 
 /* Hero section with brick wall background */
