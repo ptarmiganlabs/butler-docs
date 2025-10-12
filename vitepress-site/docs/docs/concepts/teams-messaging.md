@@ -112,11 +112,19 @@ Creating a new channel is an easy two-step process:
 
 **Step 1**: Open the new channel window
 
-![Open the new channel window](/img/butler-teams-create-channel-1.png "Open the new channel window")
+<ResponsiveImage
+  src="/img/butler-teams-create-channel-1.png"
+  alt="Open the new channel window"
+  caption="Open the new channel window"
+/>
 
 **Step 2**: Select which team the channel should belong to, the channel name/description and permissions. Click Create.
 
-![Enter info about the new channel](/img/butler-teams-create-channel-2.png "Enter info about the new channel")
+<ResponsiveImage
+  src="/img/butler-teams-create-channel-2.png"
+  alt="Enter info about the new channel"
+  caption="Enter info about the new channel"
+/>
 
 ### Create a Webhook-Triggered Workflow
 
@@ -124,35 +132,67 @@ Now let's create a new workflow, with associated webhook that can be used to sen
 
 **Step 1**: Open the workflow view by clicking on the "Workflows" link in the menu on the left. It may be hidden under the three-button menu.
 
-![Open the workflow view](/img/butler-teams-create-webhook-1.png "Open the workflow view")
+<ResponsiveImage
+  src="/img/butler-teams-create-webhook-1.png"
+  alt="Open the workflow view"
+  caption="Open the workflow view"
+/>
 
 **Step 2**: Existing workflows are listed, for all channels the user has access to. Create a new workflow by clicking the "New flow" button in upper right corner.
 
-![Create new workflow](/img/butler-teams-create-webhook-2.png "Create new workflow")
+<ResponsiveImage
+  src="/img/butler-teams-create-webhook-2.png"
+  alt="Create new workflow"
+  caption="Create new workflow"
+/>
 
 **Step 3**: Start creating the new workflow.
 
-![Open the workflow view](/img/butler-teams-create-webhook-3.png "Open the workflow view")
+<ResponsiveImage
+  src="/img/butler-teams-create-webhook-3.png"
+  alt="Open the workflow view"
+  caption="Open the workflow view"
+/>
 
 **Step 4**: Search for "webhook" in the "Search templates" text box. The template we need is called "Post to a channel when a webhook request is received".
 
-![Search for workflow templates related to webhooks](/img/butler-teams-create-webhook-4.png "Search for workflow templates related to webhooks")
+<ResponsiveImage
+  src="/img/butler-teams-create-webhook-4.png"
+  alt="Search for workflow templates related to webhooks"
+  caption="Search for workflow templates related to webhooks"
+/>
 
 **Step 5**: Give the workflow a name and sign in. In most cases you will already be signed in, which shows by the green check mark to the right of the "Microsoft Teams" text.
 
-![Give the workflow a name](/img/butler-teams-create-webhook-5.png "Give the workflow a name")
+<ResponsiveImage
+  src="/img/butler-teams-create-webhook-5.png"
+  alt="Give the workflow a name"
+  caption="Give the workflow a name"
+/>
 
 **Step 6**: Select which team and channel posts should be sent to.
 
-![Select team and channel](/img/butler-teams-create-webhook-6.png "Select team and channel")
+<ResponsiveImage
+  src="/img/butler-teams-create-webhook-6.png"
+  alt="Select team and channel"
+  caption="Select team and channel"
+/>
 
 **Step 7**: Workflow has been created! Copy the shown URL - it should be pasted into the Butler config file.
 
-![Workflow created, take note of the URL](/img/butler-teams-create-webhook-7.png "Workflow created, take note of the URL")
+<ResponsiveImage
+  src="/img/butler-teams-create-webhook-7.png"
+  alt="Workflow created, take note of the URL"
+  caption="Workflow created, take note of the URL"
+/>
 
 **Step 8**: The new workflow shows up in the overview and is now enabled.
 
-![Workflow created and enabled](/img/butler-teams-create-webhook-8.png "Workflow created and enabled")
+<ResponsiveImage
+  src="/img/butler-teams-create-webhook-8.png"
+  alt="Workflow created and enabled"
+  caption="Workflow created and enabled"
+/>
 
 ::: warning Webhook Activation Delay
 It may take a few minutes (5-10) until the webhook starts working, so don't be worried if alert messages from Butler don't show up right away.
@@ -162,9 +202,17 @@ It may take a few minutes (5-10) until the webhook starts working, so don't be w
 
 Here the "Print Spooler" service was stopped and started again on a Windows server:
 
-![Alert when Windows service stopped](/img/butler-teams-winservice-alert-1.png "Alert when Windows service stopped")
+<ResponsiveImage
+  src="/img/butler-teams-winservice-alert-1.png"
+  alt="Alert when Windows service stopped"
+  caption="Alert when Windows service stopped"
+/>
 
-![Notification when Windows service started](/img/butler-teams-winservice-alert-2.png "Notification when Windows service started")
+<ResponsiveImage
+  src="/img/butler-teams-winservice-alert-2.png"
+  alt="Notification when Windows service started"
+  caption="Notification when Windows service started"
+/>
 
 ### Template Variables
 

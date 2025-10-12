@@ -105,7 +105,7 @@ Conceptually it works like this:
   caption="Flow diagram showing selective email alert configuration"
 />
 
-Instructions for how to configure this feature is available in the [setup documentation](/docs/getting-started/setup/task-alerts/alert-emails/#send-alerts-only-for-some-tasks).
+Instructions for how to configure this feature is available in the [setup documentation](/docs/getting-started/setup/task-alerts/client-managed/alert-emails/#send-alerts-only-for-some-tasks).
 
 ::: info Feature Independence
 This feature is similar to - but independent from - the "task specific email recipients" feature below. Either feature can be enabled or disabled independently of the other in Butler's config file.
@@ -128,7 +128,7 @@ Conceptually it works like this:
   caption="Conceptual diagram of task-specific email routing"
 />
 
-Instructions for how to configure this feature is available in the [setup documentation](/docs/getting-started/setup/task-alerts/alert-emails/#send-alerts-to-specific-people-for-some-tasks).
+Instructions for how to configure this feature is available in the [setup documentation](/docs/getting-started/setup/task-alerts/client-managed/alert-emails/#send-alerts-to-specific-people-for-some-tasks).
 
 ::: info Feature Independence
 This feature is similar to - but independent from - the "alert emails only for some tasks" feature above. Either feature can be enabled or disabled independently of the other in Butler's config file.
@@ -151,7 +151,7 @@ The high-level system overview below shows how email (and other alert types) are
 
 The Handlebars templating engine looks for _template fields_ in the template files you create.
 
-A complete list of template fields - including descriptions - is available in the [Reference](/docs/reference/alert-template-fields) section.
+A complete list of template fields - including descriptions - is available in the [Reference](/docs/reference/alert-template-fields/) section.
 
 ### Not All Failed Reloads Will Cause Alert Emails
 
@@ -186,6 +186,6 @@ Butler's email alerts depend on proper configuration of log4net appenders in you
 
 ## Next Steps
 
-- **[Setup Guide](/docs/getting-started/setup/task-alerts/alert-emails/)** - Configure email alerts step-by-step
+- **[Setup Guide](/docs/getting-started/setup/task-alerts/client-managed/alert-emails/)** - Configure email alerts step-by-step
 - **[Template Fields](/docs/reference/alert-template-fields/)** - Complete list of available template variables
-- **[Slack & Teams Alerts](/docs/concepts/failed-reloads/client-managed/alerts-slack-teams/)** - Alternative messaging platforms
+- **[Slack & Teams Alerts](/docs/concepts/reload-tasks/client-managed/alerts-slack-teams/)** - Alternative messaging platforms

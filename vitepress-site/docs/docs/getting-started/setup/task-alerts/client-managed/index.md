@@ -107,7 +107,11 @@ Log appenders offer a way to hook into Qlik Sense's logging subsystem, which is 
 
 By adding a carefully crafted .xml file in the right location on the Sense server(s), you can make Sense notify Butler by means of UDP messages when the events of interest occur. Conceptually it looks like this:
 
-![Butler high level system overview](/img/butler-log4net-appenders-1.png "Butler high level system overview")
+<ResponsiveImage
+  src="/img/butler-log4net-appenders-1.png"
+  alt="Butler high level system overview"
+  caption="Butler high level system overview"
+/>
 
 So what happens when a scheduled task fails?  
 Let's look at the steps:
@@ -157,7 +161,11 @@ The steps are:
 
 3. Sense will eventually detect and load the new xml file, but it might take a while (minutes). Restarting the Qlik Sense Scheduler Windows service will make the changes take effect immediately.
 
-![log4net log appender on Windows Server](/img/getting-started/setup/task-alerts/client-managed/reload-failure-notification-win-config-1.png log4net log appender on Windows Server)
+<ResponsiveImage
+  src="/img/getting-started/setup/task-alerts/client-managed/reload-failure-notification-win-config-1.png"
+  alt="log4net log appender on Windows Server"
+  caption="log4net log appender on Windows Server"
+/>
 
 ### Forwarding reload task events to Butler
 

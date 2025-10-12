@@ -32,7 +32,11 @@ Check out the [handlebars documentation](https://handlebarsjs.com/) for more inf
 
 A formatted Slack message can look something like this:
 
-![Slack message when a Windows service has stopped](/img/getting-started/setup/windows-service-monitor/slack/butler-win-svc-monitor-slack-1.png Slack message when a Windows service has stopped)
+<ResponsiveImage
+  src="/img/getting-started/setup/windows-service-monitor/slack/butler-win-svc-monitor-slack-1.png"
+  alt="Slack message when a Windows service has stopped"
+  caption="Slack message when a Windows service has stopped"
+/>
 
 ### Information available in formatted Slack messages
 

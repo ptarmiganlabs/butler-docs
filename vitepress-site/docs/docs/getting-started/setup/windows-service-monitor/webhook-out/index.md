@@ -35,7 +35,11 @@ The payload is sent as JSON in the body of the http message.
 
 Here [Node-RED](https://nodered.org) is used to receive the http message and display it in a debug window:
 
-![POST http call when Windows service has stopped](/img/getting-started/setup/windows-service-monitor/webhook-out/butler-win-svc-monitor-webhook-post-1.png POST http call when Windows service has stopped)
+<ResponsiveImage
+  src="/img/getting-started/setup/windows-service-monitor/webhook-out/butler-win-svc-monitor-webhook-post-1.png"
+  alt="POST http call when Windows service has stopped"
+  caption="POST http call when Windows service has stopped"
+/>
 
 ### PUT
 
@@ -43,7 +47,11 @@ The message payload is sent in the body, exactly as for POST messages.
 
 The same fields are used as for POST messages:
 
-![PUT http call when Windows service has stopped](/img/getting-started/setup/windows-service-monitor/webhook-out/butler-win-svc-monitor-webhook-put-1.png PUT http call when Windows service has stopped)
+<ResponsiveImage
+  src="/img/getting-started/setup/windows-service-monitor/webhook-out/butler-win-svc-monitor-webhook-put-1.png"
+  alt="PUT http call when Windows service has stopped"
+  caption="PUT http call when Windows service has stopped"
+/>
 
 ### GET
 
@@ -51,7 +59,11 @@ The message payload is sent as [URL query parameters](https://en.wikipedia.org/w
 
 The fields are the same as for POST and PUT messages, except that the field names are in lower case.
 
-![GET http call when Windows service has stopped](/img/getting-started/setup/windows-service-monitor/webhook-out/butler-win-svc-monitor-webhook-get-1.png GET http call when Windows service has stopped)
+<ResponsiveImage
+  src="/img/getting-started/setup/windows-service-monitor/webhook-out/butler-win-svc-monitor-webhook-get-1.png"
+  alt="GET http call when Windows service has stopped"
+  caption="GET http call when Windows service has stopped"
+/>
 
 ## Settings in config file
 

@@ -171,7 +171,7 @@ Store webhook URLs securely and rotate them regularly. Monitor webhook access lo
 
 ## Next Steps
 
-- **[Teams Setup Guide](/docs/getting-started/setup/task-alerts/alert-teams/)** - Configure Microsoft Teams integration
-- **[Slack Setup Guide](/docs/getting-started/setup/task-alerts/alert-slack/)** - Configure Slack integration
+- **[Teams Setup Guide](/docs/getting-started/setup/task-alerts/client-managed/alert-teams/)** - Configure Microsoft Teams integration
+- **[Slack Setup Guide](/docs/getting-started/setup/task-alerts/client-managed/alert-slack/)** - Configure Slack integration
 - **[Template Fields](/docs/reference/alert-template-fields/)** - Complete template variable reference
-- **[Email Alerts](/docs/concepts/failed-reloads/client-managed/alert-emails/)** - Alternative email notifications
+- **[Email Alerts](/docs/concepts/reload-tasks/client-managed/alert-emails/)** - Alternative email notifications

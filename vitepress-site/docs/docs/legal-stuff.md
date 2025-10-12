@@ -45,7 +45,7 @@ Web analytics data is stored on Plausible's servers in the EU.
 
 ## Telemetry data
 
-For detailed information about Butler's telemetry feature, what data is collected, and how it's used, please see the [telemetry documentation](/docs/about/telemetry/).
+For detailed information about Butler's telemetry feature, what data is collected, and how it's used, please see the [telemetry documentation](/docs/about/telemetry).
 
 If you at some future date decide that you want your Butler telemetry data deleted from the database operated by Ptarmigan Labs, please follow this process:
 

@@ -33,11 +33,11 @@ They are **currently not supported** for:
 - Successful reload tasks
   :::
 
-See the [Concepts section](/docs/concepts/incident-mgmt-tools/new-relic/) for examples on what a New Relic alert can look like.
+See the [Concepts section](/docs/concepts/incident-management/new-relic) for examples on what a New Relic alert can look like.
 
 [This page](/docs/getting-started/setup/incident-mgmt-tools/new-relic/) has additional info on how to set up Butler to work with New Relic.
 
-A complete reference to the config file format is found [here](/docs/reference/config-file/).
+A complete reference to the config file format is found [here](/docs/reference/config-file).
 
 ## Different kinds of New Relic messages
 

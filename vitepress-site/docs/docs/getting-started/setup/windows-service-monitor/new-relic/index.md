@@ -37,7 +37,11 @@ The values of dynamic attributes are determined at runtime and can be enabled or
 | butler_serviceDisplayName           | The display name of the service as defined in Windows. Can sometimes be a bit more human readable than the serviceName. |
 | butler_serviceStatus                | The status of the service, e.g. `RUNNING` or `STOPPED`                                                                  |
 
-![New Relic event for a Windows service alert message](/img/getting-started/setup/windows-service-monitor/new-relic/butler-win-svc-monitor-new-relic-event-1.png New Relic event for a Windows service alert message)
+<ResponsiveImage
+  src="/img/getting-started/setup/windows-service-monitor/new-relic/butler-win-svc-monitor-new-relic-event-1.png"
+  alt="New Relic event for a Windows service alert message"
+  caption="New Relic event for a Windows service alert message"
+/>
 
 ### New Relic log entries
 
@@ -47,7 +51,11 @@ Static and dynamic attributes are handled in the same way as for events.
 
 The raw data of a New Relic lg entry will look something like this:
 
-![New Relic log entry for a Windows service alert message](/img/getting-started/setup/windows-service-monitor/new-relic/butler-win-svc-monitor-new-relic-log-1.png New Relic log entry for a Windows service alert message)
+<ResponsiveImage
+  src="/img/getting-started/setup/windows-service-monitor/new-relic/butler-win-svc-monitor-new-relic-log-1.png"
+  alt="New Relic log entry for a Windows service alert message"
+  caption="New Relic log entry for a Windows service alert message"
+/>
 
 ## Settings in config file
 

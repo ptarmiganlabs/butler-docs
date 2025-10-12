@@ -8,7 +8,7 @@ Butler provides several key features that extend primarily client-managed Qlik S
 
 ### Monitoring & Alerting
 
-- **[Failed Reloads](/docs/concepts/failed-reloads/)** - Get notified when reload tasks fail
+- **[Failed Reloads](/docs/concepts/reload-tasks/)** - Get notified when reload tasks fail
 - **[Successful Reloads](/docs/concepts/successful-reloads)** - Track successful task completions for performance insights
 - **[Windows Services](/docs/concepts/windows-services)** - Monitor critical Qlik Sense services across multiple servers
 - **[Server Version](/docs/concepts/server-version)** - Track Qlik Sense server versions for compliance and planning
@@ -46,8 +46,8 @@ Butler provides several key features that extend primarily client-managed Qlik S
 If you're new to Butler, we recommend starting with:
 
 1. [Getting Started Guide](/docs/getting-started/) - Basic setup and installation
-2. [Failed Reload Notifications](/docs/concepts/failed-reloads/) - Most popular feature
-3. [Configuration Reference](/docs/reference/config-file/) - Understanding the config file
+2. [Failed Reload Notifications](/docs/concepts/reload-tasks/) - Most popular feature
+3. [Configuration Reference](/docs/reference/config-file) - Understanding the config file
 
 ::: tip Next Steps
 Each concept page includes practical examples and configuration details to help you implement Butler features in your Qlik Sense environment.

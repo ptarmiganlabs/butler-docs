@@ -57,7 +57,11 @@ You can run Butler on the Qlik Sense server itself, in Docker on Linux, in Kuber
 
 Butler typically runs as a sidecar/companion service close to Qlik Sense, exposing API endpoints and utilities that can be called from reload tasks, external schedulers, or platform automation. It focuses on integrations and operational guardrails/monitoring rather than core data processing.
 
-![Butler architecture](/img/butler-system-overview-1.png)
+<ResponsiveImage
+  src="/img/butler-system-overview-1.png"
+  alt="Butler architecture"
+  maxWidth="900px"
+/>
 
 ## Related
 

@@ -33,14 +33,14 @@ Email notifications are **currently not available** for:
 - User sync tasks - only InfluxDB metrics for success
   :::
 
-See the [Concepts section](/docs/concepts/failed-reloads/client-managed/) for additional details and sample alert emails for reload tasks.
+See the [Concepts section](/docs/concepts/reload-tasks/client-managed/) for additional details and sample alert emails for reload tasks.
 
 ## Basic vs formatted email alerts
 
 If you want Butler to send email alerts you must provide an email template file.
 
 For some other alert destinations (Slack and Teams) Butler offers a "basic" option. A fixed format alert is then sent by Butler.  
-The closest thing available for emails is to use the mail log appender described [here](/docs/getting-started/setup/reload-alerts/#sending-basic-alert-emails-from-log4net), but if you set up a log appender AND have Butler running, you might as well use the formatted email option as it provides **much** more flexibility than log4net's email appender.
+The closest thing available for emails is to use the mail log appender described [here](/docs/getting-started/setup/task-alerts/#sending-basic-alert-emails-from-log4net), but if you set up a log appender AND have Butler running, you might as well use the formatted email option as it provides **much** more flexibility than log4net's email appender.
 
 ## Rate limiting and de-duplication
 
@@ -92,7 +92,11 @@ If the settings in the config file's `Butler.emailNotification.smtp` section are
 
 The resulting email looks like this:
 
-![Test email from Butler](/img/butler-test-email-1.png "Test email from Butler")
+<ResponsiveImage
+  src="/img/butler-test-email-1.png"
+  alt="Test email from Butler"
+  caption="Test email from Butler"
+/>
 
 ## Sending alert emails to app owners
 
@@ -164,7 +168,7 @@ The concept described below applies to:
 - If that setting is `true` only some tasks will cause alert emails:
   - If a task has the value specified in `Butler.emailNotification.reloadTaskFailure.alertEnableByCustomProperty.enabledValue` set for the custom property named as specified in `Butler.emailNotification.reloadTaskFailure.alertEnableByCustomProperty.customPropertyName`, the alert will be sent.
   - If a task _does not_ have that custom property set, no alert will be sent for that task.
-    - A task can still cause an alert to be sent if a specific email address is specified for the task, see [below](/docs/getting-started/setup/reload-alerts/client-managed/alert-emails/#send-alerts-to-specific-people-for-some-tasks) for details.
+    - A task can still cause an alert to be sent if a specific email address is specified for the task, see [below](/docs/getting-started/setup/task-alerts/client-managed/alert-emails/#send-alerts-to-specific-people-for-some-tasks) for details.
 
 The same logic applies to other task types (distribute, preload) with their respective configuration settings.
 
@@ -178,7 +182,11 @@ Some configuration is needed to make this work:
 
 In the QMC the custom property can look like this:
 
-![QMC custom property for controlling reload alerts](/img/enable-reload-alert-for-specific-task-1.png "QMC custom property for controlling reload alerts")
+<ResponsiveImage
+  src="/img/enable-reload-alert-for-specific-task-1.png"
+  alt="QMC custom property for controlling reload alerts"
+  caption="QMC custom property for controlling reload alerts"
+/>
 
 ## Send alerts to specific people, for some tasks
 
@@ -201,20 +209,24 @@ These config settings control which custom property is used to store email addre
 - `Butler.emailNotification.reloadTaskSuccess.alertEnableByEmailAddress.customPropertyName` for successful reload tasks
 - Similar settings exist for distribute and preload tasks
 
-Email specific alert recipients is independent from the feature where alerts can be switched on/off for individual tasks (see [above](/docs/getting-started/setup/reload-alerts/client-managed/alert-emails/#send-alerts-only-for-some-tasks)).
+Email specific alert recipients is independent from the feature where alerts can be switched on/off for individual tasks (see [above](/docs/getting-started/setup/task-alerts/client-managed/alert-emails/#send-alerts-only-for-some-tasks)).
 
 In other words: If an email address has been designated as recipient of alert emails, that address will always receive alert emails for the configured task type and outcome.
 
 Having set two different (blurred out) recipients of alert emails for a reload task:
 
-![QMC custom property for sending alert emails to specific email addresses](/img/set-email-recipient-per-reload-task-1.png "QMC custom property for sending alert emails to specific email addresses")
+<ResponsiveImage
+  src="/img/set-email-recipient-per-reload-task-1.png"
+  alt="QMC custom property for sending alert emails to specific email addresses"
+  caption="QMC custom property for sending alert emails to specific email addresses"
+/>
 
 ## Settings in config file
 
 ::: warning
 
 Don't forget to create the log appender .xml files on the Sense server(s).  
-[This page](/docs/getting-started/setup/reload-alerts/#adding-a-log-appender) describes how. TODO
+[This page](/docs/getting-started/setup/task-alerts/#adding-a-log-appender) describes how. TODO
 
 Those xml files are the foundation on top of which all Butler task alerts are built - without them the alerts described on this page won't work.
 :::
@@ -412,8 +424,8 @@ You can use template fields in email subjects too!
 Links to Qlik Sense QMC and Hub (for both client-managed and Qlik Sense Cloud) can be included in email templates.
 
 It is also possible to define custom links in the config file, and use them in email templates.  
-This is described here: [Custom links in alerts](/docs/concepts/custom-links-in-alerts/).
+This is described here: [Custom links in alerts](/docs/concepts/custom-links).
 
 ## Template fields reference
 
-A complete list of template fields - including descriptions - is available in the [Reference](/docs/reference/alert-template-fields) section.
+A complete list of template fields - including descriptions - is available in the [Reference](/docs/reference/alert-template-fields/) section.

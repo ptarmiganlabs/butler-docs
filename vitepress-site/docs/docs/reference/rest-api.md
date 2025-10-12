@@ -5,7 +5,7 @@ Butler provides a REST API that allows you to interact with some of its features
 ::: warning Remember
 The "Try it out" feature of the API documentation below does not work when accessed from butler.ptarmiganlabs.com. This is only expected as this site does not know anything about where _your_ Butler instance is running.
 
-The same feature is however also available from Butler itself, see [this page](/docs/examples/openapi-docs/).
+The same feature is however also available from Butler itself, see [this page](/docs/examples/openapi-docs).
 :::
 
 ## API Overview
@@ -28,7 +28,7 @@ Butler's REST API is documented using the OpenAPI 3.0 specification and provides
 
 - [Download OpenAPI JSON](/openapi/butler_latest.json) - Raw OpenAPI specification
 - [Butler Examples](/docs/examples/) - Code examples and use cases
-- [Configuration Guide](/docs/reference/config-file/) - API configuration options
+- [Configuration Guide](/docs/reference/config-file) - API configuration options
 
 ## Getting Started with the API
 

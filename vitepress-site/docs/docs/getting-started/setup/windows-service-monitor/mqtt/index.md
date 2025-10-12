@@ -28,7 +28,11 @@ Butler will send two kinds of MQTT messages:
 
 A few MQTT message can look like this when viewed in [MQTT Explorer](https://mqtt-explorer.com):
 
-![MQTT messages related to Windows services](/img/getting-started/setup/windows-service-monitor/mqtt/butler-win-svc-monitor-mqtt-1.png 'MQTT messages related to Windows services')
+<ResponsiveImage
+  src="/img/getting-started/setup/windows-service-monitor/mqtt/butler-win-svc-monitor-mqtt-1.png"
+  alt="MQTT messages related to Windows services"
+  caption="'MQTT messages related to Windows services'"
+/>
 
 ## Settings in config file
 
