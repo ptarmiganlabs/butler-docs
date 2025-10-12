@@ -10,7 +10,7 @@ Alert messages/notifications come in two variants: "basic" and "formatted".
 
 ### Formatted Messages
 
-These messages take full advantage of the formatting available in each notification destination.
+These messages take full advantage of the formatting and customization options available in each notification destination.
 
 Slack has its own way for creating messages with rich layout and formatting - as does Teams and email.
 
@@ -18,11 +18,11 @@ Formatted messages are created using template files. Each notification destinati
 
 Message templates can include "template fields". These are placeholders that are replaced with actual event values before the message is sent.
 
-The GitHub repository includes fully functional template files for all destinations.
+The GitHub repository includes fully functional template files for all destinations that suppoert formatted messages.
 
 ### Basic Messages
 
-Basic message formats are available for all notification destinations.
+Basic message formats are simple, pre-defined text messages that include essential information about the event that triggered the alert.
 
 This message type is useful if you only want a short, basic notification that a task failed or was aborted. The basic formats are pre-defined and are thus easy to set up.
 
@@ -43,31 +43,6 @@ Basic and formatted reload task failure notifications can look like this in Team
   maxWidth="700px"
   caption="Formatted reload failure alert with rich card layout and detailed information"
 />
-
-### Teams Configuration Example
-
-```yaml
-Butler:
-  teamsNotification:
-    enable: true
-
-    # Webhook URLs for different Teams channels
-    webhooks:
-      critical: "https://company.webhook.office.com/webhookb2/critical-alerts"
-      general: "https://company.webhook.office.com/webhookb2/general-ops"
-
-    # Configure when to send Teams notifications
-    reloadTaskFailure:
-      enable: true
-      webhook: "critical"
-      messageCard: true
-      includeScriptLog: true
-
-    reloadTaskAborted:
-      enable: true
-      webhook: "general"
-      messageCard: true
-```
 
 ### Teams Message Features
 
@@ -95,32 +70,6 @@ Basic and formatted reload task failure notifications can look like this in Slac
   caption="Formatted reload failure alert with rich formatting and script log"
 />
 
-### Slack Configuration Example
-
-```yaml
-Butler:
-  slackNotification:
-    enable: true
-
-    # Slack webhook URLs
-    webhooks:
-      ops-alerts: "https://hooks.slack.com/services/T00000000/B00000000/XXXX"
-      dev-alerts: "https://hooks.slack.com/services/T00000000/B00000000/YYYY"
-
-    # Message configuration
-    reloadTaskFailure:
-      enable: true
-      webhook: "ops-alerts"
-      channel: "#qlik-alerts"
-      messageType: "formatted"
-      iconEmoji: ":warning:"
-
-    # Custom message templates
-    templates:
-      basic: "Reload failed for app: {{appName}} ({{taskName}})"
-      formatted: "/path/to/slack-template.json"
-```
-
 ### Slack Message Features
 
 - **Rich Formatting**: Bold, italic, code blocks, and lists
@@ -134,113 +83,24 @@ Butler:
 
 ### Handlebars Templating
 
-Both Teams and Slack notifications use Handlebars templating for dynamic content:
-
-```handlebars
-{ "title": "🚨 Reload Failed:
-{{appName}}", "text": "Reload task '{{taskName}}' failed on server
-{{hostName}}", "facts": [ { "name": "App Name", "value": "{{appName}}" }, {
-"name": "Error", "value": "{{errorMessage}}" }, { "name": "Duration", "value": "{{executionDuration}}"
-} ] }
-```
+Both Teams and Slack notifications use Handlebars templating for dynamic content.  
+Sample (but fully functional) templates are included in the distribution ZIP files as well as in the [GitHub repository](https://github.com/ptarmiganlabs/butler/tree/master/src/config/).
 
 ### Available Template Fields
 
-Common template fields available for both platforms:
+Common template fields available for both Teams and Slack include:
 
-- `{{appName}}` - Application name
-- `{{taskName}}` - Reload task name
-- `{{errorMessage}}` - Failure error message
-- `{{scriptLog}}` - Last lines of the reload script log
-- `{{hostName}}` - Server where reload was attempted
-- `{{timestamp}}` - When the failure occurred
-- `{{executionDuration}}` - How long the reload ran before failing
+| Field                                | Description                            |
+| ------------------------------------ | -------------------------------------- |
+| <code v-pre>{{appName}}</code>       | Application name                       |
+| <code v-pre>{{appId}}</code>         | Application ID                         |
+| <code v-pre>{{taskName}}</code>      | Reload task name                       |
+| <code v-pre>{{taskId}}</code>        | Reload task ID                         |
+| <code v-pre>{{taskType}}</code>      | Reload task type                       |
+| <code v-pre>{{scriptLogHead}}</code> | First x lines of the reload script log |
+| <code v-pre>{{scriptLogTail}}</code> | Last y lines of the reload script log  |
 
 For a complete list, see the [template fields reference](/docs/reference/alert-template-fields/).
-
-## Advanced Configuration
-
-### Environment-Specific Routing
-
-```yaml
-Butler:
-  # Teams configuration
-  teamsNotification:
-    enable: true
-
-    webhooks:
-      prod-critical: "https://company.webhook.office.com/prod-critical"
-      dev-general: "https://company.webhook.office.com/dev-general"
-
-    # Route based on app environment
-    routing:
-      production:
-        webhook: "prod-critical"
-        appFilter: ["*-PROD", "Executive-*"]
-      development:
-        webhook: "dev-general"
-        appFilter: ["*-DEV", "*-TEST"]
-
-  # Slack configuration
-  slackNotification:
-    enable: true
-
-    webhooks:
-      production: "https://hooks.slack.com/services/PROD"
-      development: "https://hooks.slack.com/services/DEV"
-
-    # Business hours configuration
-    businessHours:
-      enable: true
-      timezone: "America/New_York"
-      weekdays:
-        start: "08:00"
-        end: "18:00"
-      weekends: false
-```
-
-### Rate Limiting and Throttling
-
-```yaml
-Butler:
-  teamsNotification:
-    # Prevent alert flooding
-    rateLimit:
-      enable: true
-      maxAlerts: 10
-      timeWindow: 3600 # 1 hour
-
-    # Group similar alerts
-    alertGrouping:
-      enable: true
-      groupWindow: 300 # 5 minutes
-      maxGroupSize: 5
-
-  slackNotification:
-    # Similar rate limiting for Slack
-    rateLimit:
-      enable: true
-      maxAlerts: 15
-      timeWindow: 3600
-```
-
-### Conditional Alerting
-
-```yaml
-Butler:
-  teamsNotification:
-    # Only alert for critical apps
-    conditions:
-      criticalAppsOnly:
-        enable: true
-        customProperty: "Butler_Critical"
-        requiredValue: "Yes"
-
-      # Skip alerts for test reloads
-      excludeTestTasks:
-        enable: true
-        taskNameFilter: ["*test*", "*sandbox*"]
-```
 
 ## Best Practices
 
@@ -274,24 +134,6 @@ Butler:
 - Why it failed (error message)
 - Next steps (runbook links, contact info)
 
-### Escalation Integration
-
-```yaml
-Butler:
-  # Integrate with incident management
-  escalation:
-    # Escalate to PagerDuty after repeated failures
-    pagerDuty:
-      enable: true
-      trigger: "critical"
-      webhook: "https://events.pagerduty.com/generic/2010-04-15/create"
-
-    # Copy critical alerts to multiple channels
-    criticalAlertRouting:
-      teams: ["#qlik-critical", "#ops-managers"]
-      slack: ["#alerts-critical", "#on-call"]
-```
-
 ## Troubleshooting
 
 ### Common Issues
@@ -316,21 +158,6 @@ Butler:
 - Implement exponential backoff
 - Use message grouping to reduce volume
 - Consider multiple webhooks for high volume
-
-### Debug Configuration
-
-```yaml
-Butler:
-  teamsNotification:
-    debug: true
-    logLevel: "debug"
-    logWebhookResponses: true
-
-  slackNotification:
-    debug: true
-    logLevel: "debug"
-    validateTemplates: true
-```
 
 The configuration needed for setting this up is described in the [setup documentation](/docs/getting-started/setup/task-alerts/).
 

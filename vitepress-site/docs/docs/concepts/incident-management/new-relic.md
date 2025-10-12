@@ -26,18 +26,6 @@ The Butler-New Relic integration creates a seamless incident management workflow
 4. **Alert Policies**: Group conditions and define notification channels
 5. **Incident Management**: New Relic manages incident lifecycle until resolution
 
-### Data Flow
-
-```mermaid
-graph LR
-    A[Qlik Sense Event] --> B[Butler Processing]
-    B --> C[New Relic Events API]
-    C --> D[Alert Condition Check]
-    D --> E[Incident Creation]
-    E --> F[Notification Channels]
-    F --> G[Mobile/Email/Slack]
-```
-
 ## Integration Benefits
 
 ### Immediate Incident Visibility
@@ -153,98 +141,6 @@ New Relic can send formatted alerts to Slack channels:
 4. **Notification Channels**: Configure Slack, Teams, email, or PagerDuty
 5. **Dashboards**: Import or create Butler-specific dashboards
 
-### Butler Configuration
-
-```yaml
-Butler:
-  newRelic:
-    enable: true
-    accountId: "your-account-id"
-    insertApiKey: "your-insert-api-key"
-    region: "us" # or 'eu' for EU data centers
-
-    # Failed reload events
-    reloadTaskFailure:
-      enable: true
-      includeScriptLogs: true
-      logLines: 20
-
-    # Successful reload events
-    reloadTaskSuccess:
-      enable: true
-
-    # Windows service events
-    serviceMonitor:
-      enable: true
-```
-
-## Event Types and Data
-
-### Failed Reload Task Events
-
-```json
-{
-  "eventType": "ButlerReloadTaskFailure",
-  "timestamp": 1647875400000,
-  "appName": "Sales Dashboard",
-  "appId": "a8b4c123-def4-5678-9abc-def012345678",
-  "taskName": "Reload Sales Data",
-  "taskId": "b9c5d234-efe5-6789-abcd-ef0123456789",
-  "errorMessage": "Connection failed to database",
-  "scriptLog": "...",
-  "serverName": "qlik-server-01",
-  "severity": "high",
-  "environment": "production"
-}
-```
-
-### Windows Service Events
-
-```json
-{
-  "eventType": "ButlerWindowsService",
-  "timestamp": 1647875400000,
-  "serviceName": "QlikSenseEngineService",
-  "serviceDisplayName": "Qlik Sense Engine Service",
-  "hostName": "qlik-server-01",
-  "state": "stopped",
-  "previousState": "running",
-  "severity": "critical"
-}
-```
-
-## Alert Conditions
-
-### NRQL Queries for Alert Conditions
-
-**Failed Reload Alert**:
-
-```sql
-SELECT count(*)
-FROM ButlerReloadTaskFailure
-WHERE appName LIKE '%Production%'
-```
-
-**Critical Service Alert**:
-
-```sql
-SELECT latest(state)
-FROM ButlerWindowsService
-WHERE serviceName IN ('QlikSenseRepositoryService', 'QlikSenseEngineService')
-AND state = 'stopped'
-```
-
-**High Failure Rate Alert**:
-
-```sql
-SELECT percentage(count(*), WHERE eventType = 'ButlerReloadTaskFailure')
-FROM (
-  SELECT count(*) FROM ButlerReloadTaskFailure,
-  SELECT count(*) FROM ButlerReloadTaskSuccess
-)
-SINCE 1 hour ago
-```
-
 ## Best Practices
 
 ### Event Design
@@ -293,10 +189,8 @@ SINCE 1 hour ago
 
 ### Free Tier Optimization
 
-- **100GB/month**: Generous free tier for most Butler deployments
-- **1 User**: Sufficient for automated Butler integrations
-- **Data Retention**: 8 days retention on free tier
-- **Alert Policies**: Unlimited alert policies
+What is included in New Relic's free tier may differ over time.  
+Regularly review your usage against the free tier limits to avoid unexpected costs.
 
 ## Troubleshooting
 
@@ -323,98 +217,9 @@ SINCE 1 hour ago
 - Test notification channels independently
 - Review incident management workflow
 
-### Debug Configuration
-
-```yaml
-Butler:
-  newRelic:
-    debug: true
-    logApiCalls: true
-    validatePayloads: true
-
-  # Enhanced logging
-  logLevel: debug
-  logDestination: file
-```
-
-## Integration Examples
-
-### Basic Failed Reload Integration
-
-```yaml
-Butler:
-  newRelic:
-    enable: true
-    accountId: "1234567"
-    insertApiKey: "NRII-..."
-    reloadTaskFailure:
-      enable: true
-      includeScriptLogs: true
-      logLines: 25
-```
-
-### Comprehensive Monitoring
-
-```yaml
-Butler:
-  newRelic:
-    enable: true
-    accountId: "1234567"
-    insertApiKey: "NRII-..."
-
-    reloadTaskFailure:
-      enable: true
-      includeScriptLogs: true
-      logLines: 25
-
-    reloadTaskSuccess:
-      enable: true
-
-    serviceMonitor:
-      enable: true
-
-    customAttributes:
-      environment: production
-      datacenter: primary
-      team: qlik-ops
-```
-
-## Advanced Features
-
-### Custom Attributes
-
-Add environment-specific metadata to all events:
-
-```yaml
-Butler:
-  newRelic:
-    customAttributes:
-      environment: production
-      region: us-east-1
-      team: analytics
-      cost-center: it-operations
-```
-
-### Event Filtering
-
-Control which events are sent to New Relic:
-
-```yaml
-Butler:
-  newRelic:
-    filters:
-      excludeApps:
-        - "test-app-*"
-        - "sandbox-*"
-      includeApps:
-        - "*-production"
-        - "critical-*"
-      minimumSeverity: medium
-```
-
 ::: tip Getting Started
 
-1. **Create New Relic Account**: Start with the generous free tier
+1. **Create New Relic Account**: Start with the free tier
 2. **Generate API Keys**: Create Insert API key for Butler integration
 3. **Configure Butler**: Enable New Relic integration with basic settings
 4. **Test Integration**: Trigger test events to verify data flow

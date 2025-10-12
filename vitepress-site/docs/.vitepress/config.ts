@@ -234,7 +234,7 @@ export default withMermaid({
               text: 'Monitoring & Alerting',
               items: [
                 {
-                  text: 'Reload Monitoring',
+                  text: 'Task Monitoring',
                   items: [
                     { text: 'Reloads Tasks', link: '/docs/concepts/reload-tasks/' },
                     { text: 'Client-Managed', link: '/docs/concepts/reload-tasks/client-managed/' },

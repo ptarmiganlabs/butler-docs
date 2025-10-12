@@ -65,11 +65,11 @@ Note the end of the script - the last few lines of the reload log are often very
 
 Qlik Sense Enterprise on Windows uses the log4net logging framework to create log files. Log4net is quite flexible and can - among other things - send emails when events such as reload failures occur. There is however little flexibility when it comes to layout and contents of those emails. They are text only (no formatting, tables, different fonts, colors etc) and the email subjects cannot contain any dynamic fields (for example the name of the failed reload task).
 
+If you want to explore what's possible using just the features offered by log4net, Christof Schwarz has a [good post](https://www.linkedin.com/pulse/qlik-sense-task-email-notifications-so-easy-christof-schwarz/?trackingId=X8MEGEmppfSvdukFRbnLwQ%3D%3D) on sending basic notification emails when scheduled reloads fail, with links to [Levi Turner's great examples](https://github.com/levi-turner/getting_notified_from_qliksense).
+
 ### Butler Enhanced Emails
 
-The goal of Butler's alert emails is to address these limitations and offer a flexible foundation not only for emails, but for all kinds of alerts.
-
-If you want to explore what's possible using just the features offered by log4net, Christof Schwarz has a [good post](https://www.linkedin.com/pulse/qlik-sense-task-email-notifications-so-easy-christof-schwarz/?trackingId=X8MEGEmppfSvdukFRbnLwQ%3D%3D) on sending basic notification emails when scheduled reloads fail, with links to [Levi Turner's great examples](https://github.com/levi-turner/getting_notified_from_qliksense).
+> The goal of Butler's alert emails is to address the limitations mentioned above and offer a flexible foundation not only for emails, but for all kinds of alerts.
 
 ## Alert Emails to App Owners
 
@@ -165,74 +165,14 @@ The log appenders that drive Butler's alerts rely on the Scheduler logs - not th
 
 It is certainly possible to add log appenders also for engine logs and that way get notified when _any_ reload fail. The question is whether that's an interesting use case. In most cases sys admins aren't very interested in reloads that fail during app development - they only care about failures caused by apps in production - i.e. app reload tasks managed by the Sense Scheduler. Thus, Butler currently doesn't deal with reload failures reported from the Sense engine.
 
-## Configuration Examples
-
-### Basic Email Configuration
-
-```yaml
-Butler:
-  emailNotification:
-    enable: true
-
-    # SMTP server settings
-    smtp:
-      host: smtp.company.com
-      port: 587
-      secure: true
-      auth:
-        user: butler@company.com
-        password: secretpassword
-
-    # Default sender and recipients
-    from: "Butler <butler@company.com>"
-    to: ["admin@company.com", "qlik-team@company.com"]
-
-    # Email content
-    subject: "Qlik Sense reload failed: {{appName}}"
-    htmlTemplate: "/path/to/email-template.html"
-
-    # Include script log in email
-    includeScriptLog: true
-    scriptLogLines: 25
-```
-
-### Advanced Configuration with Custom Properties
-
-```yaml
-Butler:
-  emailNotification:
-    enable: true
-
-    # Custom property for task-specific configuration
-    alertOnlyForTasks:
-      enable: true
-      customProperty: "Butler_Email_Alert"
-      enabledValue: "Yes"
-
-    # Custom property for task-specific recipients
-    taskSpecificRecipients:
-      enable: true
-      customProperty: "Butler_Email_Recipients"
-
-    # Email templates for different scenarios
-    templates:
-      reloadFailed: "/templates/reload-failed.html"
-      reloadAborted: "/templates/reload-aborted.html"
-
-    # Rate limiting to prevent spam
-    rateLimit:
-      enable: true
-      maxEmails: 10
-      timeWindow: 3600 # 1 hour
-```
-
 ## References
 
-- [Qlik's documentation](https://help.qlik.com/en-US/sense-admin/September2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders.htm) around log appenders and how to hook into the Sense logs provides a starting point if you want to dive deeper into this topic.
+- [Qlik's documentation](https://help.qlik.com/en-US/sense-admin/May2025/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders.htm) around log appenders and how to hook into the Sense logs provides a starting point if you want to dive deeper into this topic.
 
 - The main [log4net documentation](https://logging.apache.org/log4net/) (log4net is the logging framework used by Qlik Sense Enterprise) can also be useful.
 
-These links describe how emails can be sent from the log4net logging framework itself, directly to the recipient. Butler includes sample XML files for this use case too, but Butler takes things further by using the data in the Sense logs to pull in more data around the failed or stopped reload.
+These links describe how emails can be sent from the log4net logging framework itself, directly to the recipient.  
+Butler includes sample XML files for this use case too, but Butler takes things (a lot!) further by using the data in the Sense logs to pull in more data around the failed/stopped/succeeded reload.
 
 In other words - Butler's alert emails are significantly more flexible and contain information (such as script logs) that are not available using purely log4net.
 

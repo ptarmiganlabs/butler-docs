@@ -4,7 +4,8 @@ Track and monitor successful reload task completions for performance insights an
 
 ## What's this?
 
-Butler can optionally track successfully completed reload tasks. While most Sense admins focus on failed reloads, monitoring successful ones provides valuable insights for performance planning and operational awareness.
+Butler can track successfully completed reload tasks.  
+While most Sense admins focus on failed reloads, monitoring successful ones provides valuable insights for performance planning and operational awareness.
 
 Tracking successful reloads helps you:
 
@@ -20,7 +21,7 @@ Butler provides flexible options for tracking successful reloads:
 ### All Reload Tasks
 
 - **Configuration**: Set `Butler.influxDb.reloadTaskSuccess.allReloadTasks.enable` to `true`
-- **Behavior**: Tracks every successful reload task in your environment
+- **Behavior**: Tracks every successful reload task in your environment, storing data in InfluxDB
 - **Use case**: Comprehensive monitoring for smaller environments or when you need complete visibility
 
 ### Selective Monitoring via Custom Property
@@ -36,30 +37,13 @@ If `allReloadTasks.enable` is set to `true`, the custom property setting is igno
 
 ## Using Tags for Enhanced Metadata
 
-Both Sense apps and reload tasks can have tags attached (configured in the QMC). Butler can capture these tags and include them in monitoring data.
+Both Sense apps and reload tasks can have tags attached (configured in the QMC). Butler can capture these tags and include them in data stored in InfluxDB. These tags are referred to as "dynamic" tags as their values can differ between different apps and tasks.
 
 ### Benefits of Tags
 
 - **InfluxDB Integration**: Tags become InfluxDB tags for efficient filtering and querying
 - **Grafana Dashboards**: Enable dynamic filtering and grouping in visualizations
-- **Static Tags**: Add custom, static tags via configuration for additional categorization
-
-### Configuration
-
-```yaml
-Butler:
-  influxDb:
-    reloadTaskSuccess:
-      tag:
-        static: # Custom static tags
-          - name: environment
-            value: production
-          - name: datacenter
-            value: primary
-        dynamic:
-          useAppTags: true # Include Sense app tags
-          useTaskTags: true # Include Sense task tags
-```
+- **Static Tags**: Static tags are defined in the YAML config file and added to each datapoint stored in InfluxDB
 
 ## Grafana Dashboards and Insights
 
@@ -133,56 +117,6 @@ Butler uses a UDP server to receive reload success messages from Qlik Sense's Lo
 ::: tip Setup Guide
 See the [reload alerts setup guide](/docs/getting-started/setup/task-alerts/#adding-a-log-appender) for XML appender configuration details.
 :::
-
-## Supported Destinations
-
-- **InfluxDB**: Time-series storage for analytics and monitoring
-- **Email**: Notifications for specific reload completions
-
-## Configuration Reference
-
-```yaml
-Butler:
-  influxDb:
-    enable: true
-    reloadTaskSuccess:
-      enable: true
-      allReloadTasks:
-        enable: false # Monitor all reload tasks
-      byCustomProperty:
-        enable: true # Monitor only tagged tasks
-        customPropertyName: "Butler_SuccessReloadTask_InfluxDB"
-        enabledValue: "Yes"
-      tag:
-        static: # Static tags for all events
-          - name: environment
-            value: production
-        dynamic:
-          useAppTags: true # Include Sense app tags
-          useTaskTags: true # Include Sense task tags
-
-  emailNotification:
-    enable: true
-    reloadTaskSuccess:
-      enable: true
-      alertEnableByCustomProperty: # Control via custom property
-        enable: false
-        customPropertyName: "Butler_SuccessAlertEnableEmail"
-        enabledValue: "Yes"
-      alertEnabledByEmailAddress: # Direct email targeting
-        customPropertyName: "Butler_SuccessAlertSendToEmail"
-      rateLimit: 60 # Minimum seconds between emails
-      headScriptLogLines: 15 # Include N lines from start of log
-      tailScriptLogLines: 25 # Include N lines from end of log
-      priority: high # Email priority (high/normal/low)
-      subject: '✅ Qlik Sense reload success: "{{taskName}}"'
-      bodyFileDirectory: path/to/email_templates
-      htmlTemplateFile: success-reload-qseow
-      fromAddress: Qlik Sense (no-reply) <qliksense-noreply@company.com>
-      recipients:
-        - admin@company.com
-        - team@company.com
-```
 
 ::: tip Best Practices
 

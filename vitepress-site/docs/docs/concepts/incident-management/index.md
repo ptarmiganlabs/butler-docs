@@ -36,7 +36,7 @@ Butler's incident management integrations provide:
 
 ## Supported Platforms
 
-Butler integrates with two proven incident management platforms:
+Butler integrates with two incident management platforms:
 
 ### New Relic
 
@@ -47,7 +47,7 @@ Butler integrates with two proven incident management platforms:
 
 ### Signl4
 
-- **Type**: Dedicated mobile-first incident management platform
+- **Type**: Mobile-first incident management platform
 - **Strengths**: Simple setup, excellent mobile experience, generous free tier
 - **Best For**: Teams wanting dedicated incident management without complexity
 - **Integration**: REST API for incident creation and management
@@ -57,26 +57,59 @@ Butler integrates with two proven incident management platforms:
 ### 1. Failed Reload Incident Workflow
 
 ```mermaid
-graph LR
-    A[Qlik Sense Task Fails] --> B[Butler Receives UDP Message]
-    B --> C[Butler Creates Incident]
-    C --> D[On-Call Person Notified]
-    D --> E[Incident Acknowledged]
-    E --> F[Issue Investigated]
-    F --> G[Issue Resolved]
-    G --> H[Incident Closed]
+graph TD
+    subgraph QS["Qlik Sense"]
+        A[Qlik Sense Task Fails]
+    end
+
+    subgraph Butler["Butler"]
+        B[Butler Receives UDP Message]
+        C[Butler Creates Incident]
+    end
+
+    subgraph IM["Incident Management Tool"]
+        D[On-Call Person Notified]
+        E[Incident Acknowledged]
+        F[Issue Investigated]
+        G[Issue Resolved]
+        H[Incident Closed]
+    end
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
 ```
 
 ### 2. Service Monitoring Integration
 
 ```mermaid
-graph LR
-    A[Windows Service Stops] --> B[Butler Detects State Change]
-    B --> C[Critical Incident Created]
-    C --> D[Immediate Escalation]
-    D --> E[Operations Team Alerted]
-    E --> F[Service Restored]
-    F --> G[Incident Resolved]
+graph TD
+    subgraph WS["Windows Services"]
+        A[Windows Service Stops]
+    end
+
+    subgraph Butler["Butler"]
+        B[Butler Detects State Change]
+        C[Critical Incident Created]
+    end
+
+    subgraph IM["Incident Management Tool"]
+        D[Immediate Escalation]
+        E[Operations Team Alerted]
+        F[Service Restored]
+        G[Incident Resolved]
+    end
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
 ```
 
 ## Implementation Considerations
@@ -121,40 +154,6 @@ Define clear severity levels for different types of Qlik Sense issues:
 - **Rate Limiting**: Prevent spam from rapidly failing tasks
 - **Contextual Information**: Include enough detail for quick triage
 - **Auto-Resolution**: Close incidents when conditions clear
-
-## Getting Started
-
-### 1. Choose Your Platform
-
-**Select New Relic if**:
-
-- You want comprehensive observability beyond incident management
-- You're already using New Relic for other monitoring
-- You need integration with Butler SOS metrics
-- You want unified dashboards for metrics and incidents
-
-**Select Signl4 if**:
-
-- You want dedicated incident management
-- You prioritize mobile-first experience
-- You need quick setup with minimal configuration
-- You want to start with a free tier
-
-### 2. Configure Butler Integration
-
-Each platform has specific setup requirements:
-
-- API keys and authentication
-- Webhook endpoints and routing
-- Incident templates and metadata
-- Escalation and notification policies
-
-### 3. Test and Refine
-
-- Start with non-critical alerts to test the workflow
-- Verify mobile notifications work correctly
-- Test escalation policies during business hours
-- Refine incident content and context based on feedback
 
 ## Best Practices
 
@@ -241,35 +240,6 @@ Ensure incidents contain enough information for quick triage:
 - Check Butler logs for API errors
 - Test API endpoints independently
 - Verify network connectivity
-
-**Mobile Notifications Not Working**:
-
-- Check mobile app configuration
-- Verify on-call schedules
-- Test notification preferences
-- Check escalation policies
-
-**Too Many Incidents**:
-
-- Review alert thresholds
-- Implement rate limiting
-- Use incident grouping/correlation
-- Refine alert criteria
-
-### Debug Configuration
-
-Enable detailed logging for incident management integrations:
-
-```yaml
-Butler:
-  incidentManagement:
-    debug: true
-    logLevel: debug
-  newRelic:
-    logApiCalls: true
-  signl4:
-    logApiCalls: true
-```
 
 ::: tip Getting Started
 

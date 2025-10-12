@@ -171,6 +171,7 @@ The site uses a nested directory structure in `/vitepress-site/docs/docs/`:
 - Front matter includes title, description, and optional custom layout
 - Vue components can be embedded directly in Markdown
 - Mermaid diagrams supported via fenced code blocks with `mermaid` language tag
+- Use the custom component <ResponsiveImage> for including images with captions and zoom functionality (see `/docs/docs/.vitepress/IMAGE_ENHANCEMENT_SUMMARY.md` for details)
 
 ### Common troubleshooting
 
