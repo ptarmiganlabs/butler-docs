@@ -14,34 +14,40 @@ description: >
 Butler supports alerts for multiple task types in Qlik Sense Enterprise on Windows (QSEoW):
 
 ### Reload tasks
+
 - **Reload task failure**: Send alerts when reload tasks fail, no matter if they were started on schedule or manually from the QMC.
 - **Reload task aborted**: Send alerts when reload tasks are manually aborted in the QMC.
 - **Reload task success**: Send alerts when reload tasks complete successfully.
 
-### Distribute tasks  
+### Distribute tasks
+
 - **Distribute task failure**: Send alerts when app distribution tasks fail.
 - **Distribute task success**: Send alerts when app distribution tasks complete successfully.
 
 ### Preload tasks
+
 - **Preload task failure**: Send alerts when app preload tasks fail.
 - **Preload task success**: Send alerts when app preload tasks complete successfully.
 
 ### External program tasks
+
 - **External program task failure**: Send alerts when external program tasks fail.
 - **External program task success**: Send alerts when external program tasks complete successfully.
 
 ### User sync tasks
+
 - **User sync task failure**: Send alerts when user directory sync tasks fail.
 - **User sync task success**: Send alerts when user directory sync tasks complete successfully.
 
 ::: tip Task type support
 Butler automatically detects the task type and routes notifications to the appropriate handlers. The task types are:
+
 - **Type 0**: Reload tasks
 - **Type 1**: External program tasks
 - **Type 2**: User sync tasks
 - **Type 3**: Distribute tasks (app distribution)
 - **Type 4**: Preload tasks (app preloading)
-:::
+  :::
 
 ## Alert destinations and options by task type
 
@@ -50,50 +56,50 @@ Butler automatically detects the task type and routes notifications to the appro
 Alerts can be sent to these destinations for reload tasks, with different options available for each destination.  
 Each destination can be individually enabled/disabled in the config file.
 
-| Destination      | Reload task failure | Reload task aborted | Reload task success | Enable/disable alert per reload task | Per reload task alert recipients | Flexible formatting | Basic formatting | Comment                                                                                                                              |
-| ---------------- | :-----------------: | :-----------------: | :-----------------: | :----------------------------------: | :------------------------------: | :-----------------: | :--------------: | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Destination      | Reload task failure | Reload task aborted | Reload task success | Enable/disable alert per reload task | Per reload task alert recipients | Flexible formatting | Basic formatting | Comment                                                                                                                            |
+| ---------------- | :-----------------: | :-----------------: | :-----------------: | :----------------------------------: | :------------------------------: | :-----------------: | :--------------: | ---------------------------------------------------------------------------------------------------------------------------------- |
 | Email            |         ✅          |         ✅          |         ✅          |                  ✅                  |                ✅                |         ✅          |        ✅        | Basic emails can be sent using a [log appender](/docs/getting-started/setup/task-alerts/#sending-basic-alert-emails-from-log4net). |
-| Slack            |         ✅          |         ✅          |                     |                                      |                                  |         ✅          |        ✅        |                                                                                                                                      |
-| MS Teams         |         ✅          |         ✅          |                     |                                      |                                  |         ✅          |        ✅        |                                                                                                                                      |
-| MQTT             |         ✅          |         ✅          |                     |                                      |                                  |                     |        ✅        | Basic: task name only. Full: Complete task details as JSON.                                                                          |
-| InfluxDB         |         ✅          |                     |         ✅          |                  ✅                  |                                  |         ✅          |                  | Metrics stored for visualization in Grafana or similar tools.                                                                        |
-| New Relic        |         ✅          |         ✅          |                     |                  ✅                  |                                  |         ✅          |                  | Sends both logs and events. The failed/aborted reload's script log is available in New Relic.                                        |
-| Signl4           |         ✅          |         ✅          |                     |                  ✅                  |                                  |         ✅          |                  | Alerts are presented in Signl4's own format in their mobile app.                                                                     |
-| Outgoing webhook |         ✅          |         ✅          |                     |                                      |                                  |                     |                  | HTTP POST to custom webhooks. Formatting is not relevant - sends structured JSON data.                                               |
+| Slack            |         ✅          |         ✅          |                     |                                      |                                  |         ✅          |        ✅        |                                                                                                                                    |
+| MS Teams         |         ✅          |         ✅          |                     |                                      |                                  |         ✅          |        ✅        |                                                                                                                                    |
+| MQTT             |         ✅          |         ✅          |                     |                                      |                                  |                     |        ✅        | Basic: task name only. Full: Complete task details as JSON.                                                                        |
+| InfluxDB         |         ✅          |                     |         ✅          |                  ✅                  |                                  |         ✅          |                  | Metrics stored for visualization in Grafana or similar tools.                                                                      |
+| New Relic        |         ✅          |         ✅          |                     |                  ✅                  |                                  |         ✅          |                  | Sends both logs and events. The failed/aborted reload's script log is available in New Relic.                                      |
+| Signl4           |         ✅          |         ✅          |                     |                  ✅                  |                                  |         ✅          |                  | Alerts are presented in Signl4's own format in their mobile app.                                                                   |
+| Outgoing webhook |         ✅          |         ✅          |                     |                                      |                                  |                     |                  | HTTP POST to custom webhooks. Formatting is not relevant - sends structured JSON data.                                             |
 
 ### Distribute tasks (app distribution)
 
 Alert destinations for distribute tasks:
 
-| Destination | Distribute task failure | Distribute task success | Comment                                                  |
-| ----------- | :---------------------: | :---------------------: | -------------------------------------------------------- |
-| Email       |           ✅            |           ✅            | Customizable email notifications with task details.       |
-| InfluxDB    |           ✅            |           ✅            | Metrics stored for visualization in Grafana or similar.  |
+| Destination | Distribute task failure | Distribute task success | Comment                                                 |
+| ----------- | :---------------------: | :---------------------: | ------------------------------------------------------- |
+| Email       |           ✅            |           ✅            | Customizable email notifications with task details.     |
+| InfluxDB    |           ✅            |           ✅            | Metrics stored for visualization in Grafana or similar. |
 
 ### Preload tasks (app preloading)
 
 Alert destinations for preload tasks:
 
-| Destination | Preload task failure | Preload task success | Comment                                                  |
-| ----------- | :------------------: | :------------------: | -------------------------------------------------------- |
-| Email       |          ✅          |          ✅          | Customizable email notifications with task details.       |
-| InfluxDB    |          ✅          |          ✅          | Metrics stored for visualization in Grafana or similar.  |
+| Destination | Preload task failure | Preload task success | Comment                                                 |
+| ----------- | :------------------: | :------------------: | ------------------------------------------------------- |
+| Email       |          ✅          |          ✅          | Customizable email notifications with task details.     |
+| InfluxDB    |          ✅          |          ✅          | Metrics stored for visualization in Grafana or similar. |
 
 ### External program tasks
 
 Alert destinations for external program tasks:
 
-| Destination | External program task failure | External program task success | Comment                                                  |
-| ----------- | :---------------------------: | :---------------------------: | -------------------------------------------------------- |
-| InfluxDB    |              ✅               |              ✅               | Metrics stored for visualization in Grafana or similar.  |
+| Destination | External program task failure | External program task success | Comment                                                 |
+| ----------- | :---------------------------: | :---------------------------: | ------------------------------------------------------- |
+| InfluxDB    |              ✅               |              ✅               | Metrics stored for visualization in Grafana or similar. |
 
 ### User sync tasks (user directory synchronization)
 
 Alert destinations for user sync tasks:
 
-| Destination | User sync task failure | User sync task success | Comment                                                  |
-| ----------- | :--------------------: | :--------------------: | -------------------------------------------------------- |
-| InfluxDB    |           ✅           |           ✅           | Metrics stored for visualization in Grafana or similar.  |
+| Destination | User sync task failure | User sync task success | Comment                                                 |
+| ----------- | :--------------------: | :--------------------: | ------------------------------------------------------- |
+| InfluxDB    |           ✅           |           ✅           | Metrics stored for visualization in Grafana or similar. |
 
 ::: info Limited notification channels for non-reload tasks
 Currently, non-reload task types (distribute, preload, external program, user sync) have more limited notification channel support compared to reload tasks. This is because these task types are less commonly used and have different monitoring requirements. Email and InfluxDB provide the core monitoring capabilities for these task types.
@@ -140,9 +146,10 @@ Failing to do so will result in Butler not being notified about some task failur
 
 ::: tip Multi-task type support
 The same log appender mechanism works for all task types. Butler automatically detects the task type from the incoming UDP message and routes it to the appropriate handler. This means:
+
 - **Reload tasks** (type 0) get the full range of notification options
 - **Distribute, preload, external program, and user sync tasks** (types 1-4) get email and/or InfluxDB notifications based on task type
-:::
+  :::
 
 ## Adding a log appender
 
@@ -163,7 +170,7 @@ The steps are:
 3. Sense will eventually detect and load the new xml file, but it might take a while (minutes). Restarting the Qlik Sense Scheduler Windows service will make the changes take effect immediately.
 
 <ResponsiveImage
-  src="/img/getting-started/setup/task-alerts/client-managed/reload-failure-notification-win-config-1.png"
+  src="/img/reload-failure-notification-win-config-1.png"
   alt="log4net log appender on Windows Server"
   caption="log4net log appender on Windows Server"
 />
