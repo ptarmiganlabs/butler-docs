@@ -195,7 +195,7 @@ Butler:
     - \\1.2.3.4\qlik\testdata\deletefile3
 ```
 
-In this case Butler is running on macOS (with IP 192.168.1.168 on port 8081) and we get warnings in the logs when starting Butler:
+In this case Butler is running on macOS (on port 8081) and we get warnings in the logs when starting Butler:
 
 <ResponsiveImage 
   src="/img/examples/butler-unc-path-on-macos-1.png" 

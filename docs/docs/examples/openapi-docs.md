@@ -14,7 +14,7 @@ Details may have changed (for example what API parameters are available), the ge
 The complete documentation for Butler's REST API is built into Butler itself.
 This means that its very easy to try out and get familiar with the various API endpoints, without having to create Sense apps for everything you want to try out.
 
-If Butler's config file contains the settings below, the API will be available at http://192.168.1.168:8080.
+If Butler's config file contains the settings below, the API will be available at `http://192.168.1.168:8080`.
 
 ```yaml
 restServerConfig:
@@ -24,7 +24,7 @@ restServerConfig:
   backgroundServerPort: 8083
 ```
 
-In addition to the API endpoints, the API documentation will be available at http://192.168.1.168:8080/documentation.  
+In addition to the API endpoints, the API documentation will be available at `http://192.168.1.168:8080/documentation`.  
 The beauty of the Swagger docs is that you can also test drive the API itself. If you have Butler running it's thus super easy to test the various REST API endpoints.
 
 The API doc page looks like this:
