@@ -11,8 +11,8 @@ Butler writes data to InfluxDB from multiple sources:
    - Reload tasks (success/failure)
    - External program tasks (success/failure)
    - Distribute tasks (success/failure)
-   - Preload tasks (success only)
-   - User sync tasks (success only)
+   - Preload tasks (success/failure)
+   - User sync tasks (success/failure)
 
 2. **System monitoring** (scheduled/continuous monitoring)
    - Windows service status
@@ -178,6 +178,8 @@ Measurement: `distribute_task_failed`
 | user                                       | Full user info (directory + ID) for user running the task. Typically `sa_scheduler` for scheduled tasks. |
 | task_id                                    | ID of distribute task that failed.                                                                       |
 | task_name                                  | Name of distribute task that failed.                                                                     |
+| app_id                                     | ID of Sense app associated with the distribute task (if available).                                      |
+| app_name                                   | Name of Sense app associated with the distribute task (if available).                                    |
 | log_level                                  | Log level of the Sense log file entry causing the alert.                                                 |
 | taskTag\_<task tag name 1 from Qlik Sense> | Task tag defined in the QMC for the Qlik Sense distribute task.                                          |
 | taskTag\_<task tag name 2 from Qlik Sense> | Task tag defined in the QMC for the Qlik Sense distribute task.                                          |
@@ -204,6 +206,8 @@ Measurement: `distribute_task_success`
 | user                                       | Full user info (directory + ID) for user running the task. Typically `sa_scheduler` for scheduled tasks. |
 | task_id                                    | ID of distribute task.                                                                                   |
 | task_name                                  | Name of distribute task.                                                                                 |
+| app_id                                     | ID of Sense app associated with the distribute task (if available).                                      |
+| app_name                                   | Name of Sense app associated with the distribute task (if available).                                    |
 | log_level                                  | Log level of the Sense log file entry causing the event.                                                 |
 | task_executingNodeName                     | Name of node where the distribute task was executed.                                                     |
 | task_executionStatusNum                    | Distribute task's execution result code (numeric).                                                       |
@@ -227,6 +231,34 @@ Measurement: `distribute_task_success`
 | task_executionDuration_min   | Duration of the distribute task in minutes.                                       |
 | task_executionDuration_h     | Duration of the distribute task in hours.                                         |
 
+## Failed preload tasks
+
+Measurement: `preload_task_failed`
+
+### Tags
+
+| Tag name                                   | Description                                                                                              |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| host                                       | Server on which the preload task executed.                                                               |
+| user                                       | Full user info (directory + ID) for user running the task. Typically `sa_scheduler` for scheduled tasks. |
+| task_id                                    | ID of preload task that failed.                                                                          |
+| task_name                                  | Name of preload task that failed.                                                                        |
+| app_id                                     | ID of Sense app associated with the preload task (if available).                                         |
+| app_name                                   | Name of Sense app associated with the preload task (if available).                                       |
+| log_level                                  | Log level of the Sense log file entry causing the alert.                                                 |
+| taskTag\_<task tag name 1 from Qlik Sense> | Task tag defined in the QMC for the Qlik Sense preload task.                                             |
+| taskTag\_<task tag name 2 from Qlik Sense> | Task tag defined in the QMC for the Qlik Sense preload task.                                             |
+| static-tag-1                               | Static tag specified in the Butler configuration file.                                                   |
+| static-tag-2                               | Static tag specified in the Butler configuration file.                                                   |
+
+### Fields
+
+| Field name    | Description                                                         |
+| ------------- | ------------------------------------------------------------------- |
+| log_timestamp | Timestamp of the Sense log file entry that triggered the event.     |
+| execution_id  | Execution ID of the preload task.                                   |
+| log_message   | Raw message from the Sense log file entry that triggered the event. |
+
 ## Successful preload tasks
 
 Measurement: `preload_task_success`
@@ -239,6 +271,8 @@ Measurement: `preload_task_success`
 | user                                       | Full user info (directory + ID) for user running the task. Typically `sa_scheduler` for scheduled tasks. |
 | task_id                                    | ID of preload task.                                                                                      |
 | task_name                                  | Name of preload task.                                                                                    |
+| app_id                                     | ID of Sense app associated with the preload task (if available).                                         |
+| app_name                                   | Name of Sense app associated with the preload task (if available).                                       |
 | log_level                                  | Log level of the Sense log file entry causing the event.                                                 |
 | task_executingNodeName                     | Name of node where the preload task was executed.                                                        |
 | task_executionStatusNum                    | Preload task's execution result code (numeric).                                                          |
@@ -261,6 +295,32 @@ Measurement: `preload_task_success`
 | task_executionDuration_sec   | Duration of the preload task in seconds.                                       |
 | task_executionDuration_min   | Duration of the preload task in minutes.                                       |
 | task_executionDuration_h     | Duration of the preload task in hours.                                         |
+
+## Failed user sync tasks
+
+Measurement: `user_sync_task_failed`
+
+### Tags
+
+| Tag name                                   | Description                                                                                              |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| host                                       | Server on which the user sync task executed.                                                             |
+| user                                       | Full user info (directory + ID) for user running the task. Typically `sa_scheduler` for scheduled tasks. |
+| task_id                                    | ID of user sync task that failed.                                                                        |
+| task_name                                  | Name of user sync task that failed.                                                                      |
+| log_level                                  | Log level of the Sense log file entry causing the alert.                                                 |
+| taskTag\_<task tag name 1 from Qlik Sense> | Task tag defined in the QMC for the Qlik Sense user sync task.                                           |
+| taskTag\_<task tag name 2 from Qlik Sense> | Task tag defined in the QMC for the Qlik Sense user sync task.                                           |
+| static-tag-1                               | Static tag specified in the Butler configuration file.                                                   |
+| static-tag-2                               | Static tag specified in the Butler configuration file.                                                   |
+
+### Fields
+
+| Field name    | Description                                                         |
+| ------------- | ------------------------------------------------------------------- |
+| log_timestamp | Timestamp of the Sense log file entry that triggered the event.     |
+| execution_id  | Execution ID of the user sync task.                                 |
+| log_message   | Raw message from the Sense log file entry that triggered the event. |
 
 ## Successful user sync tasks
 

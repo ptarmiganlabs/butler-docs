@@ -31,6 +31,7 @@ Butler supports alerts for multiple task types in Qlik Sense Enterprise on Windo
 - **External program task success**: Send alerts when external program tasks complete successfully.
 
 ### User sync tasks
+- **User sync task failure**: Send alerts when user directory sync tasks fail.
 - **User sync task success**: Send alerts when user directory sync tasks complete successfully.
 
 ::: tip Task type support
@@ -76,7 +77,7 @@ Alert destinations for preload tasks:
 | Destination | Preload task failure | Preload task success | Comment                                                  |
 | ----------- | :------------------: | :------------------: | -------------------------------------------------------- |
 | Email       |          ✅          |          ✅          | Customizable email notifications with task details.       |
-| InfluxDB    |                      |          ✅          | Metrics stored for visualization in Grafana or similar.  |
+| InfluxDB    |          ✅          |          ✅          | Metrics stored for visualization in Grafana or similar.  |
 
 ### External program tasks
 
@@ -90,9 +91,9 @@ Alert destinations for external program tasks:
 
 Alert destinations for user sync tasks:
 
-| Destination | User sync task success | Comment                                                  |
-| ----------- | :--------------------: | -------------------------------------------------------- |
-| InfluxDB    |           ✅           | Metrics stored for visualization in Grafana or similar.  |
+| Destination | User sync task failure | User sync task success | Comment                                                  |
+| ----------- | :--------------------: | :--------------------: | -------------------------------------------------------- |
+| InfluxDB    |           ✅           |           ✅           | Metrics stored for visualization in Grafana or similar.  |
 
 ::: info Limited notification channels for non-reload tasks
 Currently, non-reload task types (distribute, preload, external program, user sync) have more limited notification channel support compared to reload tasks. This is because these task types are less commonly used and have different monitoring requirements. Email and InfluxDB provide the core monitoring capabilities for these task types.
