@@ -16,7 +16,7 @@ export default withMermaid({
   lang: "en-US",
   cleanUrls: true,
   sitemap: {
-    hostname: "https://butler-sheet-icons.ptarmiganlabs.com",
+    hostname: "https://butler.ptarmiganlabs.com",
   },
   ignoreDeadLinks: false, // Set to true to ignore dead links and build anyway. False will fail the build if there are any dead links.
   
@@ -316,7 +316,7 @@ export default withMermaid({
                   items: [
                     { text: 'Scheduler', link: '/docs/concepts/scheduler/' },
                     { text: 'Start Sense Tasks', link: '/docs/concepts/start-sense-tasks' },
-                    { text: 'Key-Value Store', link: '/docs/concepts/key-value/' }
+                    { text: 'Key-Value Store', link: '/docs/concepts/key-value' }
                   ]
                 },
                 {
@@ -371,14 +371,14 @@ export default withMermaid({
           collapsed: true,
           items: [
             { text: 'Overview', link: '/docs/reference/' },
-            { text: 'Config File', link: '/docs/reference/config-file/' },
+            { text: 'Config File', link: '/docs/reference/config-file' },
             { text: 'Command Line Options', link: '/docs/reference/command-line-options' },
             { 
               text: 'REST API', 
-              link: '/docs/reference/rest-api/',
+              link: '/docs/reference/rest-api',
               collapsed: true,
               items: [
-                { text: 'Overview', link: '/docs/reference/rest-api/' },
+                { text: 'Overview', link: '/docs/reference/rest-api' },
                 // { text: 'System & Configuration', link: '/docs/reference/rest-api/system' },
                 // { text: 'File Operations', link: '/docs/reference/rest-api/files' },
                 // { text: 'Task Management', link: '/docs/reference/rest-api/tasks' },

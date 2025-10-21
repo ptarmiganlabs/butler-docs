@@ -109,14 +109,14 @@ Starting a task from the reload script is as easy as
 
 Trigger Sense reloads from external systems: When new data is available in a source database, that database can trigger a reload in Sense, and the data is loaded from the database into Sense. This way delays caused by Sense polling for data are minimized and data arrives at end users as quickly as possible.
 
-Starting reload tasks using REST API is described [here](https://butler.ptarmiganlabs.com/docs/examples/start-task/start-task-from-rest/). TODO  
-Using MQTT messages to achieve this is described [here](https://butler.ptarmiganlabs.com/docs/examples/start-task/start-task-from-mqtt/). TODO
+Starting reload tasks using REST API is described [here](/docs/examples/start-task/start-task-from-rest).  
+Using MQTT messages to achieve this is described [here](/docs/examples/start-task/start-task-from-mqtt).
 
 ## Passing parameters between reload tasks
 
 This has always been hard both in QlikView and Sense.
 
-Butler’s [key-value store](https://butler.ptarmiganlabs.com/docs/concepts/key-value/) TODO makes it much easier to pass values from one app to the next in a reload chain.
+Butler's [key-value store](/docs/concepts/key-value) makes it much easier to pass values from one app to the next in a reload chain.
 
 ## Sharing state between several apps
 
@@ -145,7 +145,7 @@ While QSEoW includes a competent reload scheduler, there are aspects of it that 
 
 Butler include a scheduler based on the [Cron](https://en.wikipedia.org/wiki/Cron) concept (available in all Linix and Unix systems). Using this standard it becomes very easy to create new reload schedules, for example "run this task every 3rd Wednesday at 2:25 pm".
 
-The scheduler can be controlled via a separate config file on disk or Butler's [REST API](https://butler.ptarmiganlabs.com/docs/concepts/scheduler/). TODO
+The scheduler can be controlled via a separate config file on disk or Butler's [REST API](/docs/concepts/scheduler/).
 
 ## Make new data reach end users as quickly as possible
 
@@ -172,9 +172,9 @@ In “standard mode” apps reloading in Qlik Sense Enterprise on Windows can’
 
 From time to time you need to delete temp QVDs though, or copy or move data files from one directory to another.
 
-Butler has REST API endpoints for these use cases, but as those endpoints are locked down to only work on specific, configurable directories they don’t result in the same security issues as seen in for example QlikView or Sense running in legacy mode.
+Butler has REST API endpoints for these use cases, but as those endpoints are locked down to only work on specific, configurable directories they don't result in the same security issues as seen in for example QlikView or Sense running in legacy mode.
 
-More info [here](https://butler.ptarmiganlabs.com/docs/examples/file-copy-move-delete/). TODO
+More info [here](/docs/examples/file-operations).
 
 ## Extract metadata for apps
 
@@ -182,7 +182,7 @@ Qlik Sense apps contain lots of metadata that can be useful for governance, line
 
 Doing regular snapshots of all apps in a Sense cluster is a fast and space-effective way of keeping point-in-time backups.
 
-The [REST API documentation](https://butler.ptarmiganlabs.com/docs/reference/rest-api/?operationsSorter=alpha) TODO has full docs on this.
+The [REST API documentation](/docs/reference/rest-api) has full docs on this.
 
 ## Easily post messages to Slack
 

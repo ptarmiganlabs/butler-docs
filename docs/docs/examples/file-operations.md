@@ -25,7 +25,7 @@ Butler will warn in the console and file logs if UNC paths are specified in the 
 
 ### 1. Install and configure Butler
 
-Described [here](https://butler.ptarmiganlabs.com/docs/getting-started/setup/).
+Described [here](/docs/getting-started/setup/).
 
 ### 2. Add approved directories to Butler config file
 

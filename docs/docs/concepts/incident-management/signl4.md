@@ -156,4 +156,4 @@ Signl4 webhooks should be treated as sensitive endpoints:
 
 - **[Setup Guide](/docs/getting-started/setup/incident-mgmt-tools/signl4/)** - Step-by-step configuration
 - **[Alert Templates](/docs/reference/alert-template-fields/)** - Customize alert payloads
-- **[Mobile App Guide](https://signl4.com/mobile-app/)** - Mobile app configuration and features
+- **[Mobile App Guide](https://signl4.com/)** - Mobile app configuration and features
