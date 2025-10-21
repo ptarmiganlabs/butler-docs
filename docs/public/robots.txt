@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Disallow crawling of hash fragments and query parameters on API documentation
+Disallow: /docs/reference/rest-api#*
+Disallow: /docs/reference/rest-api?*
+
+# Allow main API documentation page
+Allow: /docs/reference/rest-api
+
+# General sitemap location
+Sitemap: https://butler.ptarmiganlabs.com/sitemap.xml

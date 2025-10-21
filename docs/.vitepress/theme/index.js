@@ -19,9 +19,11 @@ export default {
     useOpenapi({
       spec,
       config: {
-        // Optional: Configure the theme
-        // hideInfo: false,
-        // hideServers: false,
+        // Configure the theme to reduce crawler issues
+        hideInfo: false,
+        hideServers: false,
+        hidePathsSummary: true,
+        groupByTags: true,
       },
     });
 
