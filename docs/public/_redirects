@@ -1,0 +1,60 @@
+# Redirect trailing slashes for pages (not directories)
+# This helps prevent Google indexing both versions
+
+# Individual pages should not have trailing slashes
+/docs/about/contributing/  /docs/about/contributing  301
+/docs/about/butler/        /docs/about/butler         301
+/docs/about/butler-family/ /docs/about/butler-family  301
+/docs/about/versioning/    /docs/about/versioning     301
+/docs/about/telemetry/     /docs/about/telemetry      301
+/docs/security/            /docs/security             301
+/docs/legal-stuff/         /docs/legal-stuff          301
+
+# Examples - individual pages
+/docs/examples/file-operations/                /docs/examples/file-operations                301
+/docs/examples/messaging-from-load-script/     /docs/examples/messaging-from-load-script     301
+/docs/examples/sense-app-introspection/        /docs/examples/sense-app-introspection        301
+/docs/examples/monitoring-butler/              /docs/examples/monitoring-butler              301
+/docs/examples/reload-chaining/                /docs/examples/reload-chaining                301
+/docs/examples/scheduling/                     /docs/examples/scheduling                     301
+/docs/examples/troubleshooting/                /docs/examples/troubleshooting                301
+/docs/examples/openapi-docs/                   /docs/examples/openapi-docs                   301
+/docs/examples/butler-windows-service/         /docs/examples/butler-windows-service         301
+
+# Start task examples - individual pages  
+/docs/examples/start-task/start-task-from-rest/   /docs/examples/start-task/start-task-from-rest   301
+/docs/examples/start-task/start-task-from-mqtt/   /docs/examples/start-task/start-task-from-mqtt   301
+/docs/examples/start-task/start-task-from-script/ /docs/examples/start-task/start-task-from-script 301
+
+# Sense demo apps - individual pages
+/docs/examples/sense-demo-apps/butler-api-demo/   /docs/examples/sense-demo-apps/butler-api-demo   301
+/docs/examples/sense-demo-apps/partial-loads/     /docs/examples/sense-demo-apps/partial-loads     301
+/docs/examples/sense-demo-apps/post-to-slack/     /docs/examples/sense-demo-apps/post-to-slack     301
+/docs/examples/sense-demo-apps/publish-to-mqtt/   /docs/examples/sense-demo-apps/publish-to-mqtt   301
+
+# Reference - individual pages
+/docs/reference/config-file/           /docs/reference/config-file           301
+/docs/reference/command-line-options/  /docs/reference/command-line-options  301
+/docs/reference/rest-api/              /docs/reference/rest-api              301
+/docs/reference/sense-helper-subs/     /docs/reference/sense-helper-subs     301
+/docs/reference/influxdb/              /docs/reference/influxdb              301
+/docs/reference/key-value-store/       /docs/reference/key-value-store       301
+/docs/reference/scheduler/             /docs/reference/scheduler             301
+/docs/reference/test-cases/            /docs/reference/test-cases            301
+
+# Concepts - individual pages
+/docs/concepts/custom-links/      /docs/concepts/custom-links      301
+/docs/concepts/file-system-access/ /docs/concepts/file-system-access 301
+/docs/concepts/key-value/         /docs/concepts/key-value         301
+/docs/concepts/teams-messaging/   /docs/concepts/teams-messaging   301
+/docs/concepts/udp-client/        /docs/concepts/udp-client        301
+/docs/concepts/windows-services/  /docs/concepts/windows-services  301
+/docs/concepts/server-version/    /docs/concepts/server-version    301
+/docs/concepts/start-sense-tasks/ /docs/concepts/start-sense-tasks 301
+/docs/concepts/successful-reloads/ /docs/concepts/successful-reloads 301
+
+# Getting Started - individual pages
+/docs/getting-started/upgrade/    /docs/getting-started/upgrade    301
+
+# Note: Directories with index.md files should keep trailing slashes
+# Examples: /docs/about/use-cases/, /docs/examples/, /docs/concepts/, etc.

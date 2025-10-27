@@ -8,5 +8,13 @@ Disallow: /docs/reference/rest-api?*
 # Allow main API documentation page
 Allow: /docs/reference/rest-api
 
+# Prefer canonical URLs without trailing slashes for individual pages
+# (Directories with index.md should keep trailing slashes)
+Disallow: /docs/about/contributing/
+Disallow: /docs/about/butler/
+Disallow: /docs/about/butler-family/
+Disallow: /docs/about/versioning/
+Disallow: /docs/about/telemetry/
+
 # General sitemap location
 Sitemap: https://butler.ptarmiganlabs.com/sitemap.xml

@@ -20,6 +20,23 @@ export default withMermaid({
   },
   ignoreDeadLinks: false, // Set to true to ignore dead links and build anyway. False will fail the build if there are any dead links.
   
+  // Transform page data to handle trailing slash redirects
+  transformPageData(pageData, context) {
+    // Ensure consistent URL patterns for SEO
+    const canonicalUrl = `https://butler.ptarmiganlabs.com${pageData.relativePath
+      .replace(/\/index\.md$/, '/')
+      .replace(/\.md$/, '')}`
+    
+    pageData.frontmatter = pageData.frontmatter || {}
+    pageData.frontmatter.head = pageData.frontmatter.head || []
+    
+    // Add canonical URL to prevent duplicate content issues
+    pageData.frontmatter.head.push([
+      'link',
+      { rel: 'canonical', href: canonicalUrl }
+    ])
+  },
+  
   head: [
     ["link", { rel: "icon", href: "/favicon.ico" }],
     ["meta", { property: "og:type", content: "website" }],
