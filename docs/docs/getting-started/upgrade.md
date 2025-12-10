@@ -115,6 +115,7 @@ Butler 15.0.0 is a major release with significant new features for task monitori
 This release includes breaking changes that require configuration file updates:
 
 1. **New InfluxDB configuration sections** - If you use InfluxDB for task monitoring, you must add the following new sections to your config file under `Butler.influxDb`:
+
    - `userSyncTaskSuccess` - Store successful user sync tasks in InfluxDB
    - `userSyncTaskFailure` - Store failed user sync tasks in InfluxDB
    - `externalProgramTaskSuccess` - Store successful external program tasks in InfluxDB
@@ -125,6 +126,7 @@ This release includes breaking changes that require configuration file updates:
    - `preloadTaskFailure` - Store failed preload tasks in InfluxDB
 
 2. **New email notification sections** - If you use email notifications, you must add these new sections under `Butler.emailNotification`:
+
    - `distributeTaskSuccess` - Email alerts for successful distribution tasks
    - `distributeTaskFailure` - Email alerts for failed distribution tasks
    - `preloadTaskSuccess` - Email alerts for successful preload tasks

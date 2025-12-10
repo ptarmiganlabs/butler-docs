@@ -91,8 +91,8 @@ Configure script log excerpts using these settings:
 Butler:
   emailNotification:
     reloadTaskSuccess:
-      headScriptLogLines: 15    # Number of lines from start of script log
-      tailScriptLogLines: 25    # Number of lines from end of script log
+      headScriptLogLines: 15 # Number of lines from start of script log
+      tailScriptLogLines: 25 # Number of lines from end of script log
 ```
 
 The script log excerpts are available in email templates via the `{{scriptLogHead}}` and `{{scriptLogTail}}` template fields.
@@ -483,18 +483,18 @@ Sample template files are found in the `src/config/email_templates` directory of
 
 Butler includes the following email template files:
 
-| Template File | Task Type | Outcome |
-|--------------|-----------|---------|
-| `failed-reload-qseow.handlebars` | Reload | Failure |
-| `aborted-reload-qseow.handlebars` | Reload | Aborted |
-| `success-reload-qseow.handlebars` | Reload | Success |
-| `failed-reload-qscloud.handlebars` | Reload (Cloud) | Failure |
-| `failed-distribute-qseow.handlebars` | Distribute | Failure |
-| `success-distribute-qseow.handlebars` | Distribute | Success |
-| `failed-preload-qseow.handlebars` | Preload | Failure |
-| `success-preload-qseow.handlebars` | Preload | Success |
-| `service-started.handlebars` | Windows Service | Started |
-| `service-stopped.handlebars` | Windows Service | Stopped |
+| Template File                         | Task Type       | Outcome |
+| ------------------------------------- | --------------- | ------- |
+| `failed-reload-qseow.handlebars`      | Reload          | Failure |
+| `aborted-reload-qseow.handlebars`     | Reload          | Aborted |
+| `success-reload-qseow.handlebars`     | Reload          | Success |
+| `failed-reload-qscloud.handlebars`    | Reload (Cloud)  | Failure |
+| `failed-distribute-qseow.handlebars`  | Distribute      | Failure |
+| `success-distribute-qseow.handlebars` | Distribute      | Success |
+| `failed-preload-qseow.handlebars`     | Preload         | Failure |
+| `success-preload-qseow.handlebars`    | Preload         | Success |
+| `service-started.handlebars`          | Windows Service | Started |
+| `service-stopped.handlebars`          | Windows Service | Stopped |
 
 ### Example: Distribute task failure template
 
@@ -506,29 +506,35 @@ Below is a simplified example of what a Handlebars email template looks like. Th
 <table>
   <tbody>
     <tr>
-      <td><strong>Task name</strong><br>{{taskName}}</td>
-      <td><strong>Task ID</strong><br>{{taskId}}</td>
+      <td><strong>Task name</strong><br />{{taskName}}</td>
+      <td><strong>Task ID</strong><br />{{taskId}}</td>
     </tr>
     <tr>
-      <td><strong>Task started</strong><br>{{executionStartTime.startTimeLocal1}}</td>
-      <td><strong>Task ended</strong><br>{{executionStopTime.stopTimeLocal1}}</td>
+      <td><strong>Task started</strong><br
+        />{{executionStartTime.startTimeLocal1}}</td>
+      <td><strong>Task ended</strong><br
+        />{{executionStopTime.stopTimeLocal1}}</td>
     </tr>
     <tr>
       <td>
-        <strong>Duration</strong><br>
-        {{executionDuration.hours}} hours, {{executionDuration.minutes}} minutes
+        <strong>Duration</strong><br />
+        {{executionDuration.hours}}
+        hours,
+        {{executionDuration.minutes}}
+        minutes
       </td>
-      <td><strong>Executing node</strong><br>{{executingNodeName}}</td>
+      <td><strong>Executing node</strong><br />{{executingNodeName}}</td>
     </tr>
     <tr>
-      <td><strong>Execution result</strong><br>{{executionStatusText}}</td>
-      <td><strong>Log message</strong><br>{{logMessage}}</td>
+      <td><strong>Execution result</strong><br />{{executionStatusText}}</td>
+      <td><strong>Log message</strong><br />{{logMessage}}</td>
     </tr>
   </tbody>
 </table>
 
 <p>
-  <a href="{{qlikSenseQMC}}">QMC</a> |
+  <a href="{{qlikSenseQMC}}">QMC</a>
+  |
   <a href="{{qlikSenseHub}}">Hub</a>
 </p>
 ```

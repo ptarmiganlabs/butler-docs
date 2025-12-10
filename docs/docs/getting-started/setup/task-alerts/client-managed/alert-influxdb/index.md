@@ -20,18 +20,18 @@ flowchart LR
         Scheduler["Scheduler Service"]
         LogAppender["Log4net Appender"]
     end
-    
+
     subgraph Butler["Butler"]
         UDP["UDP Server"]
         Parser["Event Parser"]
         InfluxWriter["InfluxDB Writer"]
     end
-    
+
     subgraph Storage["Data Storage"]
         InfluxDB[(InfluxDB)]
         Grafana["Grafana Dashboards"]
     end
-    
+
     Scheduler -->|"Task Events"| LogAppender
     LogAppender -->|"UDP Messages"| UDP
     UDP --> Parser
@@ -44,13 +44,13 @@ flowchart LR
 
 Butler supports storing information about all Qlik Sense task types in InfluxDB:
 
-| Task Type | Success | Failure | Notes |
-|-----------|:-------:|:-------:|-------|
-| **Reload tasks** | ✅ | ✅ | Full support including script log excerpts |
-| **External program tasks** | ✅ | ✅ | Task execution details |
-| **User sync tasks** | ✅ | ✅ | User directory synchronization status |
-| **Distribute tasks** | ✅ | ✅ | App distribution/publishing status |
-| **Preload tasks** | ✅ | ✅ | App preloading status |
+| Task Type                  | Success | Failure | Notes                                      |
+| -------------------------- | :-----: | :-----: | ------------------------------------------ |
+| **Reload tasks**           |   ✅    |   ✅    | Full support including script log excerpts |
+| **External program tasks** |   ✅    |   ✅    | Task execution details                     |
+| **User sync tasks**        |   ✅    |   ✅    | User directory synchronization status      |
+| **Distribute tasks**       |   ✅    |   ✅    | App distribution/publishing status         |
+| **Preload tasks**          |   ✅    |   ✅    | App preloading status                      |
 
 ::: info Aborted tasks
 Aborted tasks are **not stored** in InfluxDB. Only successful and failed task executions are tracked.
@@ -216,7 +216,7 @@ Butler:
     retentionPolicy:
       name: 10d
       duration: 10d
-    
+
     # Reload tasks
     reloadTaskFailure:
       enable: true
@@ -243,7 +243,7 @@ Butler:
         dynamic:
           useAppTags: true
           useTaskTags: true
-    
+
     # User sync tasks
     userSyncTaskSuccess:
       enable: true
@@ -257,7 +257,7 @@ Butler:
         static: []
         dynamic:
           useTaskTags: true
-    
+
     # External program tasks
     externalProgramTaskSuccess:
       enable: true
@@ -271,7 +271,7 @@ Butler:
         static: []
         dynamic:
           useTaskTags: true
-    
+
     # Distribute tasks
     distributeTaskSuccess:
       enable: true
@@ -285,7 +285,7 @@ Butler:
         static: []
         dynamic:
           useTaskTags: true
-    
+
     # Preload tasks
     preloadTaskSuccess:
       enable: true

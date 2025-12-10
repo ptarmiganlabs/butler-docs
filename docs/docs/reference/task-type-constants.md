@@ -27,13 +27,13 @@ Understanding these constants is helpful when:
 
 The following table shows which Butler features support each task type:
 
-| Task Type        | Email Alerts | InfluxDB Metrics | Slack/Teams | MQTT | New Relic | Webhooks |
-| ---------------- | :----------: | :--------------: | :---------: | :--: | :-------: | :------: |
-| Reload (0)       |      ✅      |        ✅        |     ✅      |  ✅  |    ✅     |    ✅    |
-| External Prog (1)|              |        ✅        |             |      |           |          |
-| User Sync (2)    |              |        ✅        |             |      |           |          |
-| Distribute (3)   |      ✅      |        ✅        |             |      |           |          |
-| Preload (4)      |      ✅      |        ✅        |             |      |           |          |
+| Task Type         | Email Alerts | InfluxDB Metrics | Slack/Teams | MQTT | New Relic | Webhooks |
+| ----------------- | :----------: | :--------------: | :---------: | :--: | :-------: | :------: |
+| Reload (0)        |      ✅      |        ✅        |     ✅      |  ✅  |    ✅     |    ✅    |
+| External Prog (1) |              |        ✅        |             |      |           |          |
+| User Sync (2)     |              |        ✅        |             |      |           |          |
+| Distribute (3)    |      ✅      |        ✅        |             |      |           |          |
+| Preload (4)       |      ✅      |        ✅        |             |      |           |          |
 
 ::: info Feature availability
 The table above reflects capabilities as of Butler 15.0.0. Reload tasks have the most complete support, while other task types have email and InfluxDB support as their primary notification channels.
@@ -51,13 +51,13 @@ Butler automatically detects the task type and routes the event to the appropria
 
 Each task type uses separate InfluxDB measurements:
 
-| Task Type        | Success Measurement              | Failure Measurement             |
-| ---------------- | -------------------------------- | ------------------------------- |
-| Reload           | `reload_task_success`            | `reload_task_failed`            |
-| External Program | `external_program_task_success`  | `external_program_task_failed`  |
-| User Sync        | `user_sync_task_success`         | `user_sync_task_failed`         |
-| Distribute       | `distribute_task_success`        | `distribute_task_failed`        |
-| Preload          | `preload_task_success`           | `preload_task_failed`           |
+| Task Type        | Success Measurement             | Failure Measurement            |
+| ---------------- | ------------------------------- | ------------------------------ |
+| Reload           | `reload_task_success`           | `reload_task_failed`           |
+| External Program | `external_program_task_success` | `external_program_task_failed` |
+| User Sync        | `user_sync_task_success`        | `user_sync_task_failed`        |
+| Distribute       | `distribute_task_success`       | `distribute_task_failed`       |
+| Preload          | `preload_task_success`          | `preload_task_failed`          |
 
 See the [InfluxDB reference](/docs/reference/influxdb/) for complete details on tags and fields for each measurement.
 

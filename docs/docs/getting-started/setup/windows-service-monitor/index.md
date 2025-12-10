@@ -1,13 +1,13 @@
 ---
-title: 'Monitoring Windows services'
-linkTitle: 'Windows services'
+title: "Monitoring Windows services"
+linkTitle: "Windows services"
 weight: 108
 description: >
-    Butler can monitor Windows services and alert if they are not running.  
-      
-    This is useful for monitoring services that are critical for Qlik Sense to function - or any other important service.  
-      
-    Messages can be sent when services stop or start, with message destinations such as Slack, Teams, email, New Relic, InfluxDB, webhooks and MQTT.
+  Butler can monitor Windows services and alert if they are not running.  
+    
+  This is useful for monitoring services that are critical for Qlik Sense to function - or any other important service.  
+    
+  Messages can be sent when services stop or start, with message destinations such as Slack, Teams, email, New Relic, InfluxDB, webhooks and MQTT.
 ---
 
 ## What's this?
@@ -41,14 +41,13 @@ Three pieces of information are needed for each service to be monitored:
 3. A "friendly name" that can be anything (`Butler.serviceMonitor.monitor.<services>.friendlyName`). This is useful as the Windows service name are not always very descriptive.  
    The friendly name is used in the alert messages sent to the various alert destinations, including InfluxDB and New Relic.
 
-Each alert destination can be enabled or disabled via the `Butler.serviceMonitor.alertDestination.<destination>.enable` setting.  
+Each alert destination can be enabled or disabled via the `Butler.serviceMonitor.alertDestination.<destination>.enable` setting.
 
 ## Settings in config file
 
 The configuration of each alert destination is done in the destinations' own section of the config file, for example `Butler.teamsNotification.serviceStopped`, `Butler.emailNotification.serviceStopped`, `Butler.emailNotification.serviceStarted` etc.
 
 Those settings are described in sub-pages of this page.
-
 
 ```yaml
 ---
@@ -84,7 +83,7 @@ Butler:
       newRelic:                     # Send service alerts to New Relic
         enable: true
       email:                        # Send service alerts as emails
-        enable: true                
+        enable: true
       mqtt:                         # Send service alerts as MQTT messages
         enable: true
       teams:                        # Send service alerts as MS Teams messages
