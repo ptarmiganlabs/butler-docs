@@ -107,6 +107,58 @@ Currently, non-reload task types (distribute, preload, external program, user sy
 
 ## How it works
 
+The following diagram shows how Butler processes task events and routes them to various alert destinations:
+
+```mermaid
+flowchart TB
+    subgraph QS["Qlik Sense Enterprise on Windows"]
+        Reload["Reload Tasks<br/>(type 0)"]
+        ExtProg["External Program Tasks<br/>(type 1)"]
+        UserSync["User Sync Tasks<br/>(type 2)"]
+        Distribute["Distribute Tasks<br/>(type 3)"]
+        Preload["Preload Tasks<br/>(type 4)"]
+        Log4Net["Log4Net UDP Appender"]
+    end
+
+    subgraph Butler["Butler"]
+        UDP["UDP Receiver<br/>(port 9998)"]
+        Dispatch["Event Dispatcher"]
+        ReloadH["Reload Handler"]
+        OtherH["Other Task Handler"]
+    end
+
+    subgraph Destinations["Alert Destinations"]
+        Email["📧 Email"]
+        Slack["💬 Slack"]
+        Teams["🟦 Teams"]
+        MQTT["📡 MQTT"]
+        InfluxDB["📊 InfluxDB"]
+        NewRelic["📈 New Relic"]
+        Signl4["🚨 Signl4"]
+        Webhook["🔗 Webhooks"]
+    end
+
+    Reload --> Log4Net
+    ExtProg --> Log4Net
+    UserSync --> Log4Net
+    Distribute --> Log4Net
+    Preload --> Log4Net
+    Log4Net --> UDP
+    UDP --> Dispatch
+    Dispatch --> ReloadH
+    Dispatch --> OtherH
+    ReloadH --> Email
+    ReloadH --> Slack
+    ReloadH --> Teams
+    ReloadH --> MQTT
+    ReloadH --> InfluxDB
+    ReloadH --> NewRelic
+    ReloadH --> Signl4
+    ReloadH --> Webhook
+    OtherH --> Email
+    OtherH --> InfluxDB
+```
+
 In order for Butler initiated alerts to become a reality, Butler must somehow be notified that the event of interest (for example a failed task) has occurred.  
 This is achieved by adding a **_log appender_** to Qlik Sense Enterprise on Windows.
 
