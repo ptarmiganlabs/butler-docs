@@ -418,6 +418,8 @@ export default withMermaid({
                   items: [
                     { text: 'Overview', link: '/docs/reference/alert-template-fields/client-managed/' },
                     { text: 'Reload Tasks', link: '/docs/reference/alert-template-fields/client-managed/reload-tasks' },
+                    { text: 'Distribute Tasks', link: '/docs/reference/alert-template-fields/client-managed/distribute-tasks' },
+                    { text: 'Preload Tasks', link: '/docs/reference/alert-template-fields/client-managed/preload-tasks' },
                     { text: 'Windows Services', link: '/docs/reference/alert-template-fields/client-managed/windows-services' }
                   ]
                 },
@@ -429,7 +431,8 @@ export default withMermaid({
                   ]
                 }
               ]
-            }
+            },
+            { text: 'Task Type Constants', link: '/docs/reference/task-type-constants' }
           ]
         },
         {
