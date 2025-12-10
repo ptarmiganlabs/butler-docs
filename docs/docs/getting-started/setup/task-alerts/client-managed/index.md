@@ -227,32 +227,49 @@ The steps are:
   caption="log4net log appender on Windows Server"
 />
 
-### Forwarding reload task events to Butler
+### Forwarding task events to Butler
 
-Here's the XML that should go into `C:\ProgramData\Qlik\Sense\Scheduler\LocalLogConfig.xml` to enable the various kinds of Butler task reload alerts.
+::: tip Updated in Butler 15.0.0
+The log appender configuration has been updated to support all task types: reload, external program, user sync, distribute, and preload tasks.
+:::
+
+Here's the XML that should go into `C:\ProgramData\Qlik\Sense\Scheduler\LocalLogConfig.xml` to enable task alerts for all supported task types.
 
 - The `remoteAddress` property should be set to the host name or IP where Butler is running.
 
 - The `remotePort` property should match the port number specified in Butler's config file. Note that Butler uses different ports for task related and user activity related events.
 
-- The first appender looks for the text "Max retries reached" in the `System.Scheduler.Scheduler.Master.Task.TaskSession` log stream. That log entry will be created when a reload task has failed and also carried out all its retries. Once the search string is found a UDP message will be sent to port 9998 on IP 10.11.12.13.
+- The **TaskFailLogger** appender detects failures for task types that have retries (reload, external program, preload). It looks for multiple patterns including "Max retries reached" for reload/external program tasks and specific preload failure messages.
 
-- The second appender looks for "Execution State Change to Aborting" in the `System.Scheduler.Scheduler.Master.Task.TaskSession` log stream. That log entry occurs when a user stops a running reload from the QMC's task view, or using the Sense APIs. When the search string is found a UDP message is once again sent to 10.11.12.13:9998, but with a different message (as specified in the `conversionpattern` property of the appender).
+- The **TaskAbortLogger** appender detects when tasks are aborted.
 
-- The third appender looks for "Reload complete" in the `System.Scheduler.Scheduler.Slave.Tasks.ReloadTask` log stream.  
-  That log entry occurs when a reload task has completed successfully.
+- The **TaskSuccessLogger** appender detects successful completion of any task type by looking for "Execution State Change to FinishedSuccess".
 
-Here is an XML file that would forward log events as UDP messages to Butler:
+- The **DistributionTaskLogger** appender specifically handles distribute task completion events.
+
+Here is the updated XML file that forwards log events for all task types to Butler:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration>
-    <!-- Appender for detecting reload task failures. Only the last of potentially several retries is reported -->
-    <appender name="TaskFailureLogger" type="log4net.Appender.UdpAppender">
+    <!-- Appender for detecting failures in task types that have retries -->
+    <!-- (reload, external program, preload) -->
+    <!-- Only the last of potentially several retries is reported -->
+    <appender name="TaskFailLogger" type="log4net.Appender.UdpAppender">
+        <!-- Log message for failed reload/external program tasks -->
         <filter type="log4net.Filter.StringMatchFilter">
             <param name="stringToMatch" value="Max retries reached" />
         </filter>
+
+        <!-- Preload tasks may have either of these log messages when failing -->
+        <filter type="log4net.Filter.StringMatchFilter">
+            <param name="stringToMatch" value="Failed to start session" />
+        </filter>
+        <filter type="log4net.Filter.StringMatchFilter">
+            <param name="stringToMatch" value="Could not reserve an executor for task" />
+        </filter>
+
         <filter type="log4net.Filter.DenyAllFilter" />
         <param name="remoteAddress" value="<IP of server where Butler is running>" />
         <param name="remotePort" value="9998" />
@@ -260,15 +277,19 @@ Here is an XML file that would forward log events as UDP messages to Butler:
         <layout type="log4net.Layout.PatternLayout">
             <converter>
                 <param name="name" value="hostname" />
-                <param name="type" value="Qlik.Sense.Logging.log4net.Layout.Pattern.HostNamePatternConverter" />
+                <param name="type"
+                    value="Qlik.Sense.Logging.log4net.Layout.Pattern.HostNamePatternConverter" />
             </converter>
-            <param name="conversionpattern" value="/scheduler-reload-failed/;%hostname;%property{TaskName};%property{AppName};%property{User};%property{TaskId};%property{AppId};%date;%level;%property{ExecutionId};%message" />
+            <param name="conversionpattern"
+                value="/scheduler-task-failed/;%hostname;%property{TaskName};%property{AppName};%property{User};%property{TaskId};%property{AppId};%date;%level;%property{ExecutionId};%message" />
         </layout>
     </appender>
 
-    <!-- Appender for detecting aborted reloads -->
-    <appender name="AbortedReloadTaskLogger" type="log4net.Appender.UdpAppender">
+    <!-- Appender for detecting aborted tasks of types that have retries -->
+    <!-- (reload, external program, preload) -->
+    <appender name="TaskAbortLogger" type="log4net.Appender.UdpAppender">
         <filter type="log4net.Filter.StringMatchFilter">
+            <!-- Log message for aborted tasks -->
             <param name="stringToMatch" value="Execution State Change to Aborting" />
         </filter>
         <filter type="log4net.Filter.DenyAllFilter" />
@@ -278,14 +299,17 @@ Here is an XML file that would forward log events as UDP messages to Butler:
         <layout type="log4net.Layout.PatternLayout">
             <converter>
                 <param name="name" value="hostname" />
-                <param name="type" value="Qlik.Sense.Logging.log4net.Layout.Pattern.HostNamePatternConverter" />
+                <param name="type"
+                    value="Qlik.Sense.Logging.log4net.Layout.Pattern.HostNamePatternConverter" />
             </converter>
-            <param name="conversionpattern" value="/scheduler-reload-aborted/;%hostname;%property{TaskName};%property{AppName};%property{User};%property{TaskId};%property{AppId};%date;%level;%property{ExecutionId};%message" />
+            <param name="conversionpattern"
+                value="/scheduler-task-aborted/;%hostname;%property{TaskName};%property{AppName};%property{User};%property{TaskId};%property{AppId};%date;%level;%property{ExecutionId};%message" />
         </layout>
     </appender>
 
-    <!-- Appender for detecting successful reload tasks -->
-    <appender name="ReloadTaskSuccessLogger" type="log4net.Appender.UdpAppender">
+    <!-- Appender for detecting successful tasks of all types -->
+    <!-- (reload, external program, preload, user sync) -->
+    <appender name="TaskSuccessLogger" type="log4net.Appender.UdpAppender">
         <filter type="log4net.Filter.StringMatchFilter">
             <param name="stringToMatch" value="Execution State Change to FinishedSuccess" />
         </filter>
@@ -296,25 +320,52 @@ Here is an XML file that would forward log events as UDP messages to Butler:
         <layout type="log4net.Layout.PatternLayout">
             <converter>
                 <param name="name" value="hostname" />
-                <param name="type" value="Qlik.Sense.Logging.log4net.Layout.Pattern.HostNamePatternConverter" />
+                <param name="type"
+                    value="Qlik.Sense.Logging.log4net.Layout.Pattern.HostNamePatternConverter" />
             </converter>
-            <param name="conversionpattern" value="/scheduler-reloadtask-success/;%hostname;%property{TaskName};%property{AppName};%property{User};%property{TaskId};%property{AppId};%date;%level;%property{ExecutionId};%message" />
+            <param name="conversionpattern"
+                value="/scheduler-task-success//;%hostname;%property{TaskName};%property{AppName};%property{User};%property{TaskId};%property{AppId};%date;%level;%property{ExecutionId};%message" />
         </layout>
     </appender>
 
-    <!-- Send message to Butler on task failure -->
-    <!-- Send message to Butler on task abort -->
-    <!-- Send message to Butler on reload task success -->
+    <!-- Appender for detecting distribution task completion -->
+    <!-- The task may be in queued, running, finished etc state -->
+    <appender name="DistributionTaskLogger" type="log4net.Appender.UdpAppender">
+        <filter type="log4net.Filter.StringMatchFilter">
+            <param name="stringToMatch" value="Exiting execute of Distribute task request." />
+        </filter>
+        <filter type="log4net.Filter.DenyAllFilter" />
+        <param name="remoteAddress" value="<IP of server where Butler is running>" />
+        <param name="remotePort" value="9998" />
+        <param name="encoding" value="utf-8" />
+        <layout type="log4net.Layout.PatternLayout">
+            <converter>
+                <param name="name" value="hostname" />
+                <param name="type"
+                    value="Qlik.Sense.Logging.log4net.Layout.Pattern.HostNamePatternConverter" />
+            </converter>
+            <param name="conversionpattern"
+                value="/scheduler-distribute/;%hostname;%property{TaskName};%property{AppName};%property{User};%property{TaskId};%property{AppId};%date;%level;%property{ExecutionId};%message" />
+        </layout>
+    </appender>
+
+    <!-- Send message to Butler on task failure/abort/success -->
+    <!-- For task types reload, external program, preload, user sync -->
     <logger name="System.Scheduler.Scheduler.Master.Task.TaskSession">
-        <appender-ref ref="TaskFailureLogger" />
-        <appender-ref ref="AbortedReloadTaskLogger" />
-        <appender-ref ref="ReloadTaskSuccessLogger" />
+        <appender-ref ref="TaskFailLogger" />
+        <appender-ref ref="TaskAbortLogger" />
+        <appender-ref ref="TaskSuccessLogger" />
+    </logger>
+
+    <!-- Send message to Butler on distribution task completion (any result) -->
+    <logger name="System.Scheduler.Scheduler.Slave.Tasks.ReloadTask">
+        <appender-ref ref="DistributionTaskLogger" />
     </logger>
 
 </configuration>
 ```
 
-The above configuration is enough to support all task reload alerts currently supported by Butler.
+The above configuration supports all task types in Butler 15.0.0 and later.
 
 ### Sending basic alert emails from Qlik Sense/log4net
 
