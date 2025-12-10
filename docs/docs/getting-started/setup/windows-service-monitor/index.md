@@ -19,6 +19,10 @@ Butler can monitor these services and alert if they are not running and when the
 
 This feature is only available when Butler is running on Windows, on other OSs a warning will be logged when Butler is starting and the feature will be disabled.
 
+::: tip Improved in Butler 15.0.0
+Butler 15.0.0 adds hostname validation for Windows service monitoring. If a service host is misconfigured (e.g., invalid hostname format), Butler will now provide clearer error messages to help diagnose the issue.
+:::
+
 ## How it works
 
 Butler will poll the Windows Service Control Manager (SCM) for the status of the services that are configured to be monitored.  
