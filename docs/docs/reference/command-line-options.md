@@ -119,7 +119,15 @@ This is the sender address for the test email. Only relevant when the SMTP serve
 
 Don't connect to Qlik Sense server at all. Run in isolated mode.
 
-This is probably only relevant when you're developing Butler and don't have a Qlik Sense server available, or when you want to automatically exporting the API docs for Butler's REST API (this is done during the build process).
+This is useful when:
+
+- You're developing Butler and don't have a Qlik Sense server available
+- You want to automatically export the API docs for Butler's REST API (this is done during the build process)
+- You're running Butler in a test environment without Qlik Sense connectivity
+
+::: tip Fixed in Butler 15.0.0
+Prior to Butler 15.0.0, using `--no-qs-connection` would still attempt to load Qlik Sense API certificates, which could cause errors if the certificate files didn't exist. This has been fixed - Butler now correctly skips certificate loading when running in isolated mode.
+:::
 
 ## --api-rate-limit
 
