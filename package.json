@@ -10,11 +10,11 @@
     "deploy": "gh workflow run deploy-vitepress.yml --ref $(git branch --show-current)"
   },
   "devDependencies": {
-    "mermaid": "^11.11.0",
+    "mermaid": "^11.12.2",
     "ufo": "^1.6.1",
     "vitepress": "^1.6.4",
     "vitepress-plugin-mermaid": "^2.0.17",
-    "vue": "^3.5.22"
+    "vue": "^3.5.25"
   },
   "pnpm": {
     "peerDependencyRules": {
@@ -25,8 +25,8 @@
   },
   "dependencies": {
     "medium-zoom": "^1.1.0",
-    "swagger-ui-dist": "^5.29.4",
-    "swagger-ui-react": "^5.29.4",
-    "vitepress-openapi": "^0.1.9"
+    "swagger-ui-dist": "^5.30.3",
+    "swagger-ui-react": "^5.30.3",
+    "vitepress-openapi": "^0.1.12"
   }
 }
