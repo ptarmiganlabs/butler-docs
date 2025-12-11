@@ -59,10 +59,10 @@ Each task type uses separate InfluxDB measurements:
 | Distribute       | `distribute_task_success`       | `distribute_task_failed`       |
 | Preload          | `preload_task_success`          | `preload_task_failed`          |
 
-See the [InfluxDB reference](/docs/reference/influxdb/) for complete details on tags and fields for each measurement.
+See the [InfluxDB reference](/docs/reference/influxdb) for complete details on tags and fields for each measurement.
 
 ## Related Resources
 
 - [Setting up task alerts](/docs/getting-started/setup/task-alerts/) - Configure alerts for all task types
-- [InfluxDB reference](/docs/reference/influxdb/) - Complete InfluxDB measurement documentation
-- [Config file reference](/docs/reference/config-file/) - Configuration options for each task type
+- [InfluxDB reference](/docs/reference/influxdb) - Complete InfluxDB measurement documentation
+- [Config file reference](/docs/reference/config-file) - Configuration options for each task type
