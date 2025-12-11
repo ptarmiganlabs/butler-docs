@@ -2,6 +2,17 @@
 
 Butler stores a lot of information in InfluxDB. This page describes the different measurements and tags that Butler send to InfluxDB.
 
+::: tip New in Butler 15.0.0
+Butler 15.0.0 adds InfluxDB support for **all task types** in Qlik Sense:
+
+- External program tasks (success and failure)
+- User sync tasks (success and failure)
+- Distribute tasks (success and failure)
+- Preload tasks (success and failure)
+
+Previously, only reload tasks were supported. See the [upgrade notes](/docs/getting-started/upgrade#upgrading-to-butler-1500) for configuration changes required when upgrading.
+:::
+
 ## Overview
 
 Butler writes data to InfluxDB from multiple sources:

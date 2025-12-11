@@ -14,7 +14,7 @@ Butler can send alert emails for multiple task types in Qlik Sense Enterprise on
 
 - When a reload task fails during execution
 - When a running reload task is stopped/aborted
-- When a reload task completes successfully
+- When a reload task completes successfully (including script log excerpts)
 
 ### Distribute tasks
 
@@ -31,7 +31,71 @@ Email notifications are **currently not available** for:
 
 - External program tasks - only InfluxDB metrics
 - User sync tasks - only InfluxDB metrics for success
-  :::
+
+:::
+
+## How it works
+
+The following diagram shows how Butler processes task events and sends email alerts:
+
+```mermaid
+flowchart LR
+    subgraph QS["Qlik Sense"]
+        Task[Task execution]
+        Log4Net[Log4Net UDP appender]
+    end
+
+    subgraph Butler["Butler"]
+        UDP[UDP receiver]
+        Proc[Event processor]
+        Templates[Handlebars templates]
+        SMTP[SMTP client]
+    end
+
+    subgraph Email["Email"]
+        Server[SMTP server]
+        Recipients[Email recipients]
+    end
+
+    Task --> |"Task event"| Log4Net
+    Log4Net --> |"UDP message"| UDP
+    UDP --> Proc
+    Proc --> Templates
+    Templates --> SMTP
+    SMTP --> Server
+    Server --> Recipients
+```
+
+Butler receives task events via UDP from Qlik Sense's Log4Net appender. When a task completes (success, failure, or abort), Butler:
+
+1. Receives the UDP message with task details
+2. Applies rate limiting to prevent alert spam
+3. Processes the appropriate Handlebars email template
+4. Sends the formatted email via the configured SMTP server
+
+## Script log excerpts in reload success emails
+
+::: tip New in Butler 15.0.0
+Reload success emails can now include excerpts from the script log, just like failure and abort emails.
+:::
+
+When a reload task completes successfully, you can include the first and last lines of the script log in the alert email. This is useful for:
+
+- Verifying that expected data was loaded
+- Confirming row counts or other metrics logged during reload
+- Providing context about what the reload accomplished
+
+Configure script log excerpts using these settings:
+
+```yaml
+Butler:
+  emailNotification:
+    reloadTaskSuccess:
+      headScriptLogLines: 15 # Number of lines from start of script log
+      tailScriptLogLines: 25 # Number of lines from end of script log
+```
+
+The script log excerpts are available in email templates via the `{{scriptLogHead}}` and `{{scriptLogTail}}` template fields.
 
 See the [Concepts section](/docs/concepts/reload-tasks/client-managed/) for additional details and sample alert emails for reload tasks.
 
@@ -414,6 +478,68 @@ Butler's process for sending alert emails is:
 5. Send the email.
 
 Sample template files are found in the `src/config/email_templates` directory of the [GitHub repository](https://github.com/ptarmiganlabs/butler).
+
+### Available template files
+
+Butler includes the following email template files:
+
+| Template File                         | Task Type       | Outcome |
+| ------------------------------------- | --------------- | ------- |
+| `failed-reload-qseow.handlebars`      | Reload          | Failure |
+| `aborted-reload-qseow.handlebars`     | Reload          | Aborted |
+| `success-reload-qseow.handlebars`     | Reload          | Success |
+| `failed-reload-qscloud.handlebars`    | Reload (Cloud)  | Failure |
+| `failed-distribute-qseow.handlebars`  | Distribute      | Failure |
+| `success-distribute-qseow.handlebars` | Distribute      | Success |
+| `failed-preload-qseow.handlebars`     | Preload         | Failure |
+| `success-preload-qseow.handlebars`    | Preload         | Success |
+| `service-started.handlebars`          | Windows Service | Started |
+| `service-stopped.handlebars`          | Windows Service | Stopped |
+
+### Example: Distribute task failure template
+
+Below is a simplified example of what a Handlebars email template looks like. This example shows key parts of the distribute task failure template:
+
+```handlebars
+<h1>Qlik Sense distribution task failed</h1>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Task name</strong><br />{{taskName}}</td>
+      <td><strong>Task ID</strong><br />{{taskId}}</td>
+    </tr>
+    <tr>
+      <td><strong>Task started</strong><br
+        />{{executionStartTime.startTimeLocal1}}</td>
+      <td><strong>Task ended</strong><br
+        />{{executionStopTime.stopTimeLocal1}}</td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Duration</strong><br />
+        {{executionDuration.hours}}
+        hours,
+        {{executionDuration.minutes}}
+        minutes
+      </td>
+      <td><strong>Executing node</strong><br />{{executingNodeName}}</td>
+    </tr>
+    <tr>
+      <td><strong>Execution result</strong><br />{{executionStatusText}}</td>
+      <td><strong>Log message</strong><br />{{logMessage}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  <a href="{{qlikSenseQMC}}">QMC</a>
+  |
+  <a href="{{qlikSenseHub}}">Hub</a>
+</p>
+```
+
+Templates use [Handlebars](https://handlebarsjs.com/) syntax. The `{{fieldName}}` placeholders are replaced with actual values when the email is sent.
 
 ::: tip
 You can use template fields in email subjects too!
