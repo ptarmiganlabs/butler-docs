@@ -26,7 +26,7 @@
   "dependencies": {
     "medium-zoom": "^1.1.0",
     "swagger-ui-dist": "^5.30.3",
-    "swagger-ui-react": "^5.30.3",
+    "swagger-ui-react": "^5.31.0",
     "vitepress-openapi": "^0.1.12"
   }
 }
