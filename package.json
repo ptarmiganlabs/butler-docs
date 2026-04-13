@@ -27,6 +27,6 @@
     "medium-zoom": "^1.1.0",
     "swagger-ui-dist": "^5.32.1",
     "swagger-ui-react": "^5.32.1",
-    "vitepress-openapi": "^0.1.19"
+    "vitepress-openapi": "^0.1.20"
   }
 }
