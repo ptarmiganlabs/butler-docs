@@ -2,17 +2,8 @@
 
 How to install Butler, including requirements and on what platforms Butler can be installed.
 
-::: warning
-Butler was developed with InfluxDB version 1.x in mind.  
-If you intend to use Butler together with InfluxDB you need to be aware of the following:
-
-InfluxDB is currently available in version 2.x and 3.x and while these versions bring lots of new goodies, it's not out-of-the-box compatible with Butler.  
-For that reason you should use the latest 1.x version of InfluxDB.
-
-If you do not intend to use any InfluxDB related features of Butler you can simply disregard this warning.
-
-In due time Butler will be updated to support later versions of InfluxDB.
-:::
+::: tip
+Butler supports InfluxDB v1, v2, and v3. Set the desired version using the `Butler.influxDb.version` config option (valid values: `1`, `2`, `3`).
 
 ::: info
 Given the cross platform nature of Node.js (which is the language Butler is written in), Butler can run on lots of different hardware platforms and operating systems.

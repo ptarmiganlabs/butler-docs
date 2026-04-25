@@ -206,6 +206,20 @@ These template files are included in the Butler distribution and should be place
 8. Stop the old Butler process
 9. Start Butler 15.0.0 and verify operation in logs
 
+### Upgrading to Butler 15.1.x
+
+Butler 15.1.x includes minor improvements and bug fixes.
+
+#### Changes
+
+- **Node.js 24**: Release binaries now bundle Node.js 24 (updated from Node.js 22)
+- **CI improvements**: Updated CI workflows for better reliability
+- **OSV scanner disabled**: OSV scanner action disabled as it does not support pinned dependencies
+
+#### Upgrade Steps
+
+No configuration changes are required when upgrading from 15.0.x to 15.1.x. Simply download the new release and replace the Butler binary.
+
 ## Finally: When things aren't working - check the logs
 
 By far the most common problem when upgrading to a new Butler version (or doing a fresh install) is an incorrect config file.
