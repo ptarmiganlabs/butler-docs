@@ -14,7 +14,7 @@
     "ufo": "^1.6.3",
     "vitepress": "^1.6.4",
     "vitepress-plugin-mermaid": "^2.0.17",
-    "vue": "^3.5.32"
+    "vue": "^3.5.33"
   },
   "pnpm": {
     "peerDependencyRules": {
@@ -25,8 +25,8 @@
   },
   "dependencies": {
     "medium-zoom": "^1.1.0",
-    "swagger-ui-dist": "^5.32.1",
-    "swagger-ui-react": "^5.32.1",
-    "vitepress-openapi": "^0.1.19"
+    "swagger-ui-dist": "^5.32.4",
+    "swagger-ui-react": "^5.32.4",
+    "vitepress-openapi": "^0.1.20"
   }
 }
