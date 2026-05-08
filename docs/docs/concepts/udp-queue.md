@@ -101,6 +101,31 @@ Butler:
 | `queueMetrics.influxdb.measurementName` | butler_udp_queue | InfluxDB measurement name |
 | `queueMetrics.influxdb.tags` | [] | Optional tags added to all queue metrics points |
 
+### Source IP Validation
+
+Butler can optionally validate the source IP address of incoming UDP messages. When enabled, only messages from IP addresses or hostnames in the allowed list will be processed.
+
+**How it works:**
+
+1. At startup, Butler parses `allowedSources` and resolves any hostnames to IPv4 addresses
+2. When a UDP message arrives, the sender's IP address is checked against the allowed list
+3. Messages from unauthorized sources are rejected with a warning log entry
+4. If `allowedSources` is empty while validation is enabled, all messages are denied
+
+**Supported formats:**
+
+- **IPv4 addresses**: Exact match (e.g., `192.168.1.100`)
+- **Hostnames**: Resolved to IPv4 at startup (e.g., `sense-server-01`)
+
+**Notes:**
+
+- Disabled by default (`enableSourceValidation: false`) for backward compatibility
+- Hostnames are resolved once at startup, not on each message
+- IPv6 addresses are not supported - use IPv4 addresses or hostnames that resolve to IPv4
+- Should be used together with firewall rules for defense in depth
+
+**Security benefit:** Since UDP lacks built-in authentication, source IP validation prevents unauthorized hosts from sending messages to Butler. This is critical for production deployments where Butler is exposed to the network.
+
 ## Performance Tuning
 
 ### Small Environment (< 50 users, < 10 apps)
