@@ -11,10 +11,10 @@
   },
   "devDependencies": {
     "mermaid": "^11.14.0",
-    "ufo": "^1.6.3",
+    "ufo": "^1.6.4",
     "vitepress": "^1.6.4",
     "vitepress-plugin-mermaid": "^2.0.17",
-    "vue": "^3.5.33"
+    "vue": "^3.5.34"
   },
   "pnpm": {
     "peerDependencyRules": {
@@ -25,8 +25,8 @@
   },
   "dependencies": {
     "medium-zoom": "^1.1.0",
-    "swagger-ui-dist": "^5.32.4",
-    "swagger-ui-react": "^5.32.4",
+    "swagger-ui-dist": "^5.32.5",
+    "swagger-ui-react": "^5.32.5",
     "vitepress-openapi": "^0.1.20"
   }
 }
