@@ -268,13 +268,14 @@ export default withMermaid({
                     { text: 'Successful Reloads', link: '/docs/concepts/successful-reloads' }
                   ]
                 },
-                {
-                  text: 'System Monitoring',
-                  items: [
-                    { text: 'Windows Services', link: '/docs/concepts/windows-services' },
-                    { text: 'Server Version', link: '/docs/concepts/server-version' }
-                  ]
-                }
+{
+              text: 'System Monitoring',
+              items: [
+                { text: 'Windows Services', link: '/docs/concepts/windows-services' },
+                { text: 'Server Version', link: '/docs/concepts/server-version' },
+                { text: 'UDP Queue', link: '/docs/concepts/udp-queue' }
+              ]
+            }
               ]
             },
             {
@@ -405,6 +406,7 @@ export default withMermaid({
             },
             { text: 'Sense Helper Subs', link: '/docs/reference/sense-helper-subs' },
             { text: 'InfluxDB Information', link: '/docs/reference/influxdb' },
+            { text: 'UDP Payload Format', link: '/docs/reference/udp-payload-format' },
             { text: 'Key-Value Store', link: '/docs/reference/key-value-store' },
             { text: 'Scheduler', link: '/docs/reference/scheduler' },
             { text: 'Test Cases', link: '/docs/reference/test-cases' },
