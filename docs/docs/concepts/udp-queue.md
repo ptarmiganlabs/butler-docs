@@ -107,10 +107,12 @@ Butler can optionally validate the source IP address of incoming UDP messages. W
 
 **How it works:**
 
-1. At startup, Butler parses `allowedSources` and resolves any hostnames to IPv4 addresses
-2. When a UDP message arrives, the sender's IP address is checked against the allowed list
-3. Messages from unauthorized sources are rejected with a warning log entry
-4. If `allowedSources` is empty while validation is enabled, all messages are denied
+1. At startup, Butler parses `allowedSources` and resolves any hostnames to IPv4 addresses in parallel — faster startup when multiple hosts are configured
+2. If some hostnames can't be resolved at startup, the valid ones are still enforced — Butler continues with the entries that resolved successfully
+3. When a UDP message arrives, the source IP is checked first, before any other validations — unauthorized messages are dropped immediately
+4. Repeated rejections from the same unauthorized IP are throttled in the logs to prevent log flooding
+5. If `allowedSources` is empty while validation is enabled, all messages are denied
+6. If no hosts can be resolved at startup, validation is automatically disabled to prevent lockout — all sources are accepted temporarily
 
 **Supported formats:**
 
@@ -121,7 +123,8 @@ Butler can optionally validate the source IP address of incoming UDP messages. W
 
 - Disabled by default (`enableSourceValidation: false`) for backward compatibility
 - Hostnames are resolved once at startup, not on each message
-- IPv6 addresses are not supported - use IPv4 addresses or hostnames that resolve to IPv4
+- DNS resolution runs in parallel for faster startup when multiple hostnames are configured
+- IPv6 addresses are not supported — use IPv4 addresses or hostnames that resolve to IPv4
 - Should be used together with firewall rules for defense in depth
 
 **Security benefit:** Since UDP lacks built-in authentication, source IP validation prevents unauthorized hosts from sending messages to Butler. This is critical for production deployments where Butler is exposed to the network.

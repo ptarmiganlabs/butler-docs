@@ -279,7 +279,7 @@ For detailed information about queue management, performance tuning, and trouble
 
 Butler includes several security features for UDP message handling:
 
-1. **Source IP Validation**: When `enableSourceValidation` is true, only messages from IPs/hostnames listed in `allowedSources` are processed.
+1. **Source IP Validation**: When `enableSourceValidation` is true, only messages from IPs/hostnames listed in `allowedSources` are processed. Hostnames are resolved at startup in parallel, partial DNS failures are handled gracefully (valid entries still enforced), and unauthorized message rejections are throttled to prevent log flooding.
 
 2. **Message Size Limits**: Messages larger than `maxMessageSize` are rejected before processing.
 
