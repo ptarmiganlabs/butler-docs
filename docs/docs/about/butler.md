@@ -1,11 +1,11 @@
 ---
 title: Butler
-description: Add battle-proven admin and DevOps superpowers to Qlik Sense Enterprise on Windows and Qlik Sense Cloud.
+description: Add battle-proven admin and DevOps superpowers to client-managed Qlik Sense and Qlik Sense Cloud.
 ---
 
 ## What is Butler?
 
-Butler adds a suite of features to both Qlik Sense Enterprise on Windows (QSEoW) and Qlik Sense Cloud.  
+Butler adds a suite of features to both client-managed Qlik Sense and Qlik Sense Cloud.  
 Some features are used from load scripts, while others integrate Qlik with 3rd‑party systems (for example visualization tools, chat and alerting platforms - and more).
 
 The general idea is to add battle‑proven admin and DevOps concepts and tools to Qlik Sense, making daily life easier for Qlik administrators and developers.
@@ -27,9 +27,9 @@ The general idea is to add battle‑proven admin and DevOps concepts and tools t
 
 ## Platform support at a glance
 
-While Butler originated on QSEoW, more Qlik Sense Cloud capabilities are added continuously.
+While Butler originated on client-managed Qlik Sense, more Qlik Sense Cloud capabilities are added continuously.
 
-| Area                   | Example capabilities                 | QSEoW | Qlik Cloud |
+| Area                   | Example capabilities                 | Client-managed | Qlik Cloud |
 | ---------------------- | ------------------------------------ | :---: | :--------: |
 | Alerts & notifications | Reload failure to Email/Slack/Teams  |  ✅   |     ✅     |
 | Script utilities       | Load‑script helpers and integrations |  ✅   |    ⚪︎     |

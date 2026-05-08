@@ -1,3 +1,3 @@
-# Client Managed Qlik Sense Enterprise on Windows
+# Client-Managed Qlik Sense Alert Template Fields
 
-List of template fields available in alert messages for client-managed Qlik Sense Enterprise on Windows.
+List of template fields available in alert messages for client-managed Qlik Sense.

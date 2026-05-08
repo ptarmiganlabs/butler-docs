@@ -3,12 +3,12 @@ title: "Connecting to a Qlik Sense server"
 linkTitle: "Sense server settings"
 weight: 20
 description: >
-  Details on how to configure the connection from Butler to Qlik Sense Enterprise on Windows.
+  Details on how to configure the connection from Butler to client-managed Qlik Sense.
 ---
 
 ## What's this?
 
-In order to interact with a Qlik Sense Enterprise on Windows (QSEoW) environment, Butler needs to know a few things about that environment. This is true no matter if the Sense cluster consists of a single Sense server or many.
+In order to interact with a client-managed Qlik Sense environment, Butler needs to know a few things about that environment. This is true no matter if the Sense cluster consists of a single Sense server or many.
 
 ## Settings in config file
 

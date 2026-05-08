@@ -4,7 +4,7 @@ Monitor and manage Qlik Sense server licenses to ensure compliance and optimal r
 
 ## What are Qlik Sense Server Licenses?
 
-Qlik Sense server licenses define the core capabilities and capacity of your client-managedQlik Sense deployment.  
+Qlik Sense server licenses define the core capabilities and capacity of your client-managed Qlik Sense deployment.  
 These licenses determine what features are available and how many users can access the system, using different license types.
 
 ## Why Monitor Server Licenses?

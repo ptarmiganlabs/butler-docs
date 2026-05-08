@@ -8,7 +8,7 @@ description: >
 
 ## What's this?
 
-Butler can send alert emails for multiple task types in Qlik Sense Enterprise on Windows (QSEoW):
+Butler can send alert emails for multiple task types in client-managed Qlik Sense:
 
 ### Reload tasks
 
@@ -133,7 +133,7 @@ The sender of the test email can be specified with `--test-email-from-address <a
 PS C:\tools\butler> .\butler.exe --help
 Usage: butler [options]
 
-Butler gives superpowers to client-managed Qlik Sense Enterprise on Windows!
+Butler gives superpowers to client-managed Qlik Sense!
 Advanced reload failure alerts, task scheduler, key-value store, file system access and much more.
 
 Options:
@@ -290,7 +290,7 @@ Having set two different (blurred out) recipients of alert emails for a reload t
 ::: warning
 
 Don't forget to create the log appender .xml files on the Sense server(s).  
-[This page](/docs/getting-started/setup/task-alerts/#adding-a-log-appender) describes how. TODO
+[This page](/docs/getting-started/setup/task-alerts/client-managed/#adding-a-log-appender) describes how.
 
 Those xml files are the foundation on top of which all Butler task alerts are built - without them the alerts described on this page won't work.
 :::

@@ -465,7 +465,7 @@ Butler:
         enable: false
         restMessage:
             webhookURL: https://hooks.slack.com/services/etc/etc # Webhook to use when sending basic Slack messages via Butler's REST API
-        reloadTaskFailure: # Reload task failed in QSEoW
+        reloadTaskFailure: # Reload task failed in client-managed Qlik Sense
             enable: false
             webhookURL: https://hooks.slack.com/services/etc/etc # web hook URL from Slack
             channel: sense-task-failure # Slack channel to which task failure notifications are sent
@@ -477,7 +477,7 @@ Butler:
             templateFile: /path/to/slack/template/directory/failed-reload-qseow.handlebars
             fromUser: Qlik Sense
             iconEmoji: ':ghost:'
-        reloadTaskAborted: # Reload task aborted in QSEoW
+        reloadTaskAborted: # Reload task aborted in client-managed Qlik Sense
             enable: false
             webhookURL: https://hooks.slack.com/services/etc/etc
             channel: sense-task-aborted # Slack channel to which task stopped notifications are sent

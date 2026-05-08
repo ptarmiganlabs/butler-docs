@@ -4,7 +4,7 @@ Reference for Qlik Sense task type numeric constants used in Butler.
 
 ## Overview
 
-Qlik Sense Enterprise on Windows uses numeric constants to identify different task types. Butler uses these same constants internally when processing task events from the Qlik Sense scheduler.
+Client-managed Qlik Sense uses numeric constants to identify different task types. Butler uses these same constants internally when processing task events from the Qlik Sense scheduler.
 
 Understanding these constants is helpful when:
 

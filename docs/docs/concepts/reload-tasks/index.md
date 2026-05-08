@@ -83,7 +83,7 @@ Personalize alerts using Handlebars templating:
 
 ### How Butler Detects Reload Events
 
-For client-managed deployments, Butler uses log4net appenders to monitor Qlik Sense scheduler logs:
+For client-managed deployments, Butler uses log4net appenders to monitor the Qlik Sense scheduler logs:
 
 ```mermaid
 graph LR

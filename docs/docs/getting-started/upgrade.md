@@ -96,7 +96,7 @@ A consequence of this is that all settings are now mandatory, even if you don't 
 3. Compare your existing main config file with the [template config file](https://raw.githubusercontent.com/ptarmiganlabs/butler/master/src/config/production_template.yaml) available on GitHub.  
    This comparison is a manual process and can be a bit tedious, but knowing your config file is really needed in order to make full and correct use of Butler.
    1. That file is also included in the Butler ZIP file available on the [download page](https://github.com/ptarmiganlabs/butler/releases).
-   2. A more in-depth description of the config file is available in the Reference docs > Config file syntax section of the documentation (TODO).
+   2. A more in-depth description of the config file is available in the Reference docs > Config file syntax section of the documentation.
 4. The result of the comparison will show you what parts of the config file are new (for medium-sized upgrades) and which parts have changed in a significant way (for major upgrades).
 5. Get the binaries for the new Butler version from the [download page](https://github.com/ptarmiganlabs/butler/releases).
 6. Start the new Butler version and let it run for a few minutes.

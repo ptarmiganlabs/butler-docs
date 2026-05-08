@@ -40,7 +40,7 @@ Several storage and visualization options available, including [InfluxDB](https:
 
 ### Butler Sheet Icons
 
-Automates the creation of sheet icons for both Qlik Sense Cloud and client-managed Qlik Sense Enterprise on Windows (QSEoW) applications.
+Automates the creation of sheet icons for both Qlik Sense Cloud and client-managed Qlik Sense applications.
 
 It's a cross platform command line tool which given the correct Sense credentials will take screen shots of all sheets in a Sense app (or all apps on a Sense server!), then create thumbnail versions of those screenshots. Finally those thumbnails will be set as sheet icons.
 

@@ -4,7 +4,7 @@ outline: deep
 
 # UDP Payload Format Reference
 
-Butler receives real-time task events from Qlik Sense Enterprise on Windows (QSEoW) via a UDP server. This reference describes the message formats Butler accepts.
+Butler receives real-time task events from client-managed Qlik Sense via a UDP server. This reference describes the message formats Butler accepts.
 
 ---
 

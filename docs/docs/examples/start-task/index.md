@@ -30,7 +30,7 @@ Start tasks directly from the load script of Qlik Sense apps using helper functi
 All methods require:
 
 - Butler properly configured and running
-- Connection to Qlik Sense Enterprise on Windows (QSEoW)
+- Connection to client-managed Qlik Sense
 - Appropriate Butler configuration settings enabled
 
 See the individual pages for specific requirements and examples.

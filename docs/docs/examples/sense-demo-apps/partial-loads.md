@@ -1,8 +1,8 @@
 # Partial loads in Qlik Sense
 
-It's surprisingly difficult to do partial loads in Qlik Sense Enterprise on Windows.
+It's surprisingly difficult to do partial loads in client-managed Qlik Sense.
 
-In QlikView that feature was easily available, but in QSEoW it's currently not possible to create reload tasks that do partial app reloads.
+In QlikView that feature was easily available, but in client-managed Qlik Sense it's currently not possible to create reload tasks that do partial app reloads.
 
 Butler has an API for doing partial reloads of apps.
 A couple of demo apps are also included in the GitHub repository.

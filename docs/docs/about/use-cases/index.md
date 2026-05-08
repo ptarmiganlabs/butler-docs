@@ -12,7 +12,7 @@ Butler can be used to solve various challenges in Qlik Sense environments, here 
   - [Passing parameters between reload tasks](#passing-parameters-between-reload-tasks)
   - [Sharing state between several apps](#sharing-state-between-several-apps)
     - [Time-to-live (TTL) for key-value pairs](#time-to-live-ttl-for-key-value-pairs)
-  - [Flexible scheduling of app reloads in Qlik Sense Enterprise on Windows](#flexible-scheduling-of-app-reloads-in-qlik-sense-enterprise-on-windows)
+  - [Flexible scheduling of app reloads in client-managed Qlik Sense](#flexible-scheduling-of-app-reloads-in-qlik-sense-enterprise-on-windows)
   - [Make new data reach end users as quickly as possible](#make-new-data-reach-end-users-as-quickly-as-possible)
   - [Using MQTT to notify downstream systems that Sense is done processing data](#using-mqtt-to-notify-downstream-systems-that-sense-is-done-processing-data)
   - [Create directories, copy/move/delete files](#create-directories-copymovedelete-files)
@@ -37,7 +37,7 @@ For email alerts both subject and body of the email can be templated.
 
 For both Slack and Teams there are options to use more flexible/configurable alert formats and more basic pre-configured alerts.
 
-The result is a very powerfulk tool for both QSEoW sysadmins and those responsible for Qlik Cloud tenants, who both want to be notified when reloads fail.
+The result is a very powerful tool for both client-managed Qlik Sense sysadmins and those responsible for Qlik Cloud tenants, who both want to be notified when reloads fail.
 
 More info in the [Concepts section](/docs/concepts/reload-tasks/).
 
@@ -55,7 +55,7 @@ Both offer incident management features on both the web and via mobile clients.
 Information about failed/aborted reloads can be sent to one or more New Relic accounts.  
 Tags for the reload task and associated app is sent to New Relic as metadata for the event/log entry that's created there.
 
-More info in the [Concepts section](/docs/concepts/reload-tasks/). TODO
+More info in the [Concepts section](/docs/concepts/reload-tasks/).
 
 ## Send alerts when reload tasks succeed
 
@@ -135,13 +135,13 @@ Each key-value pair (KV pair) is associated with a namespace. Each namespace in 
 
 This means that a KV pair can automatically be deleted after some time. Very useful to keep the KV store from growing too large when used in automated environments.
 
-## Flexible scheduling of app reloads in Qlik Sense Enterprise on Windows
+## Flexible scheduling of app reloads in client-managed Qlik Sense
 
-While QSEoW includes a competent reload scheduler, there are aspects of it that could be better:
+While client-managed Qlik Sense includes a competent reload scheduler, there are aspects of it that could be better:
 
 - Handling of time zones. While doable, it's not as elegant as it could be.
 - Chaining tasks using events is possible, but only for success/failed events. More granular events (reload started etc) are not available.
-- Using 3rd party scheduling tools (cron on Linux, AutoSys, Control-M etc) is often preferred in enterprise environments. QSEoW doesn't offer API endpoints to start arbitrary tasks in a clean way.
+- Using 3rd party scheduling tools (cron on Linux, AutoSys, Control-M etc) is often preferred in enterprise environments. Client-managed Qlik Sense doesn't offer API endpoints to start arbitrary tasks in a clean way.
 
 Butler include a scheduler based on the [Cron](https://en.wikipedia.org/wiki/Cron) concept (available in all Linix and Unix systems). Using this standard it becomes very easy to create new reload schedules, for example "run this task every 3rd Wednesday at 2:25 pm".
 
@@ -168,7 +168,7 @@ If your organisation already use MQTT (it's common in IoT scenarios) you can pro
 
 ## Create directories, copy/move/delete files
 
-In “standard mode” apps reloading in Qlik Sense Enterprise on Windows can’t access the file system of the Sense servers. This is a good thing because it adds a lot of security.
+In “standard mode” apps reloading in client-managed Qlik Sense can’t access the file system of the Sense servers. This is a good thing because it adds a lot of security.
 
 From time to time you need to delete temp QVDs though, or copy or move data files from one directory to another.
 
@@ -188,7 +188,7 @@ The [REST API documentation](/docs/reference/rest-api) has full docs on this.
 
 Posting messages to Slack is not exactly rocket science, but it's still convenient to have a clean REST API that can be called from Sense load scripts or other systems to send messages to Slack.
 
-More info [here](/docs/reference/rest-api). TODO
+More info [here](/docs/reference/rest-api).
 
 ## Monitor Windows services
 
@@ -200,5 +200,5 @@ Butler can monitor the usage of Qlik Sense user licenses and store the data in I
 
 Butler can also automatically release Professional and Analyzer user licenses that have been inactive for a certain period of time. This is useful in environments where some users use Sense sporadically, for example only during certain times of the year. In such cases it's a waste of resources to keep the license assigned to the user when it's not being used.
 
-Works with Qlik Sense Enterprise on Windows.  
-More info [here](/docs/concepts/qlik-sense-licenses/access-licenses). TODO
+Works with client-managed Qlik Sense.  
+More info [here](/docs/concepts/qlik-sense-licenses/access-licenses).
