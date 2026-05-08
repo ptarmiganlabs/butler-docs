@@ -8,7 +8,7 @@ Assuming the [.qvs helper subs](/docs/reference/sense-helper-subs) are used, onl
 
 The demo app does a bit more. First it posts a startup message to MQTT, then it loads some data and finally an all-done message is sent:
 
-```qlik
+```text
 // -------------------------------------------
 // Publish a MQTT message, load some data and publish another message
 Call PostToMQTT('butler/5.0/demo-reloading/status', 'reload started')
