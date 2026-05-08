@@ -106,6 +106,120 @@ A consequence of this is that all settings are now mandatory, even if you don't 
 
 ## Version-Specific Upgrade Notes
 
+### Upgrading to Butler 16.0.0
+
+Butler 16.0.0 adds support for InfluxDB v2 and v3, in addition to the existing v1 support. This brings Butler in line with Butler SOS, which already supports all three InfluxDB versions.
+
+#### New Features
+
+- **InfluxDB v2 and v3 support** - Butler can now store metrics in InfluxDB v1, v2, or v3. The version is selected using the `Butler.influxDb.version` configuration option.
+
+#### Breaking Changes
+
+This release includes breaking changes that require configuration file updates:
+
+1. **New InfluxDB configuration structure** - The InfluxDB configuration has been restructured to use version-specific blocks:
+
+   - `Butler.influxDb.version` - Set to `1`, `2`, or `3` to select InfluxDB version
+   - `Butler.influxDb.v1Config` - Settings for InfluxDB v1.x (database name, retention policy, authentication)
+   - `Butler.influxDb.v2Config` - Settings for InfluxDB v2.x (organization, bucket, token)
+   - `Butler.influxDb.v3Config` - Settings for InfluxDB v3.x (database, token, timeouts)
+
+   The old flat configuration (`Butler.influxDb.auth`, `Butler.influxDb.dbName`, `Butler.influxDb.retentionPolicy`) is no longer supported.
+
+2. **Backward compatibility removed** - If you were using the legacy v1 configuration format, you must migrate to the new versioned structure.
+
+#### InfluxDB Version Behavior Differences
+
+| Version | Behavior |
+|---------|----------|
+| **v1** | Butler automatically creates the database and default retention policy if they don't exist when Butler starts. |
+| **v2** | The InfluxDB bucket must be created before starting Butler. Butler will not auto-create buckets. |
+| **v3** | The InfluxDB database must be created before starting Butler. Butler will not auto-create databases. |
+
+#### Example: Migrating to v2/v3 Configuration
+
+**Old format (no longer works):**
+```yaml
+Butler:
+  influxDb:
+    enable: true
+    hostIP: influxdb.mycompany.com
+    hostPort: 8086
+    auth:
+      enable: false
+      username: user_joe
+      password: joesecret
+    dbName: butler
+    retentionPolicy:
+      name: 10d
+      duration: 10d
+```
+
+**New format for InfluxDB v1:**
+```yaml
+Butler:
+  influxDb:
+    enable: true
+    hostIP: influxdb.mycompany.com
+    hostPort: 8086
+    version: 1
+    v1Config:
+      auth:
+        enable: false
+        username: user_joe
+        password: joesecret
+      dbName: butler
+      retentionPolicy:
+        name: 10d
+        duration: 10d
+```
+
+**New format for InfluxDB v2:**
+```yaml
+Butler:
+  influxDb:
+    enable: true
+    hostIP: influxdb.mycompany.com
+    hostPort: 8086
+    version: 2
+    v2Config:
+      org: my-org
+      bucket: butler
+      token: my-v2-token
+      description: Butler metrics
+      retentionDuration: 10d
+```
+
+**New format for InfluxDB v3:**
+```yaml
+Butler:
+  influxDb:
+    enable: true
+    hostIP: influxdb.mycompany.com
+    hostPort: 8086
+    version: 3
+    v3Config:
+      database: butler
+      token: my-v3-token
+      description: Butler metrics
+      retentionDuration: 10d
+      writeTimeout: 10000
+      queryTimeout: 60000
+```
+
+#### Upgrade Steps for 16.0.0
+
+1. Back up your existing configuration file
+2. Download Butler 16.0.0 from the [releases page](https://github.com/ptarmiganlabs/butler/releases)
+3. Compare your config file with the [template config file](https://github.com/ptarmiganlabs/butler/blob/master/src/config/production_template.yaml)
+4. Add the `version` setting to `Butler.influxDb` (set to `1`, `2`, or `3` based on your InfluxDB version)
+5. Move your existing v1 settings into the `v1Config` block, or create `v2Config` / `v3Config` if using InfluxDB v2 or v3
+6. If using InfluxDB v2, create the bucket before starting Butler
+7. If using InfluxDB v3, create the database before starting Butler
+8. Stop the old Butler process
+9. Start Butler 16.0.0 and verify operation in logs
+
 ### Upgrading to Butler 15.0.0
 
 Butler 15.0.0 is a major release with significant new features for task monitoring and alerting. This version expands InfluxDB and email support to cover all Qlik Sense task types.

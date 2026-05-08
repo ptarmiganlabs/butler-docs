@@ -6,6 +6,12 @@ description: >
   Description of how information about all Qlik Sense task types and Windows services can be stored in InfluxDB.
 ---
 
+::: info InfluxDB Version Support
+Butler supports InfluxDB 1.x, 2.x and 3.x.
+
+There are reports that InfluxDB's cloud product also works with Butler, but that has not been tested by the Butler team.
+:::
+
 ## What's this?
 
 Butler can store information about all Qlik Sense task types and Windows services in InfluxDB, enabling comprehensive monitoring and visualization through tools like Grafana.
@@ -38,6 +44,67 @@ flowchart LR
     Parser --> InfluxWriter
     InfluxWriter -->|"Measurements"| InfluxDB
     InfluxDB --> Grafana
+```
+
+## InfluxDB Versions
+
+Butler can send data to InfluxDB v1, v2, or v3. The version is set using the `Butler.influxDb.version` configuration option.
+
+### How It Works
+
+Butler uses a compatibility layer that handles the differences between InfluxDB versions internally. This allows existing event-producing code to work unchanged while supporting all three versions:
+
+```mermaid
+flowchart LR
+    A[Butler event code<br/>writePoints legacy payload] --> B[Compatibility client]
+    B -->|version 1| C[influx package]
+    B -->|version 2| D["@influxdata/influxdb-client"]
+    B -->|version 3| E["@influxdata/influxdb3-client"]
+```
+
+### Version-Specific Behavior
+
+| Version | Behavior |
+|---------|----------|
+| **v1** | Butler automatically creates the database and default retention policy if they don't exist when Butler starts. |
+| **v2** | The InfluxDB bucket must be created before starting Butler. Butler will not auto-create buckets. |
+| **v3** | The InfluxDB database must be created before starting Butler. Butler will not auto-create databases. |
+
+### Configuration
+
+Use the `version` setting to specify which InfluxDB version to use, then configure the appropriate version-specific section:
+
+```yaml
+Butler:
+  influxDb:
+    enable: true                           # Master switch for InfluxDB integration. If false, no data will be sent to InfluxDB.
+    hostIP: influxdb.mycompany.com         # IP or FQDN of Influxdb server
+    hostPort: 8086                          # Port where Influxdb is listening. Default=8086
+    version: 3                              # InfluxDB major version. Supported values are 1, 2 and 3.
+    v1Config:                               # Settings for InfluxDB v1.x only
+      auth:
+        enable: false                      # Does InfluxDB require login?
+        username: user_joe
+        password: joesecret
+      dbName: butler                       # Name of database in InfluxDB to which Butler's data is written
+      # Default retention policy that should be created in InfluxDB when Butler creates a new database there.
+      # Any data older than retention policy threshold will be purged from InfluxDB.
+      retentionPolicy:
+        name: 10d
+        duration: 10d
+    v2Config:                               # Settings for InfluxDB v2.x only
+      org: my-org
+      bucket: butler
+      description: Butler metrics
+      token: my-v2-token
+      retentionDuration: 10d
+    v3Config:                               # Settings for InfluxDB v3.x only
+      database: butler
+      description: Butler metrics
+      token: my-v3-token
+      retentionDuration: 10d
+      writeTimeout: 10000
+      queryTimeout: 60000
 ```
 
 ## Supported Task Types
@@ -204,101 +271,133 @@ Below is a complete example showing all InfluxDB task monitoring settings:
 ---
 Butler:
   ...
+  # InfluxDB settings
   influxDb:
-    enable: true
-    hostIP: influxdb.mycompany.com
-    hostPort: 8086
-    auth:
-      enable: false
-      username: user_joe
-      password: joesecret
-    dbName: butler
-    retentionPolicy:
-      name: 10d
-      duration: 10d
-
-    # Reload tasks
+    enable: true                           # Master switch for InfluxDB integration. If false, no data will be sent to InfluxDB.
+    hostIP: influxdb.mycompany.com         # IP or FQDN of Influxdb server
+    hostPort: 8086                          # Port where Influxdb is listening. Default=8086
+    version: 3                              # InfluxDB major version. Supported values are 1, 2 and 3.
+    # Note: v1 will auto-create the database and retention policy if they don't exist.
+    # v2 and v3 require the bucket/database to be created beforehand - Butler will not auto-create them.
+    v1Config:                               # Settings for InfluxDB v1.x only
+      auth:
+        enable: false                      # Does InfluxDB require login?
+        username: user_joe
+        password: joesecret
+      dbName: butler                       # Name of database in InfluxDB to which Butler's data is written
+      # Default retention policy that should be created in InfluxDB when Butler creates a new database there.
+      # Any data older than retention policy threshold will be purged from InfluxDB.
+      retentionPolicy:
+        name: 10d
+        duration: 10d
+    v2Config:                               # Settings for InfluxDB v2.x only
+      org: my-org
+      bucket: butler
+      description: Butler metrics
+      token: my-v2-token
+      retentionDuration: 10d
+    v3Config:                               # Settings for InfluxDB v3.x only
+      database: butler
+      description: Butler metrics
+      token: my-v3-token
+      retentionDuration: 10d
+      writeTimeout: 10000
+      queryTimeout: 60000
+    tag:
+      static: # Static tags to attach to all data stored in InfluxDB
+        # - name: butler_instance
+        #   value: dev
     reloadTaskFailure:
       enable: true
       tailScriptLogLines: 20
       tag:
-        static:
+        static: # Static tags to attach to data stored in InfluxDB
           - name: butler_instance
             value: prod-1
         dynamic:
-          useAppTags: true
-          useTaskTags: true
+          useAppTags: true # Should app tags be stored in InfluxDB as tags?
+          useTaskTags: true # Should task tags be stored in InfluxDB as tags?
     reloadTaskSuccess:
       enable: true
       allReloadTasks:
         enable: false
       byCustomProperty:
-        enable: true
+        enable: false
         customPropertyName: 'Butler_SuccessReloadTask_InfluxDB'
         enabledValue: 'Yes'
       headScriptLogLines: 15
       tailScriptLogLines: 25
       tag:
-        static: []
+        static: # Static attributes/dimensions to attach to events sent to InfluxDb
+          # - name: event-specific-tag 1
+          #   value: abc 123
         dynamic:
-          useAppTags: true
-          useTaskTags: true
-
-    # User sync tasks
+          useAppTags: true # Should app tags be sent to InfluxDb as tags?
+          useTaskTags: true # Should task tags be sent to InfluxDb as tags?
     userSyncTaskSuccess:
-      enable: true
+      enable: false
       tag:
-        static: []
+        static: # Static attributes/dimensions to attach to events sent to InfluxDb
+          # - name: event-specific-tag 1
+          #   value: abc 123
         dynamic:
-          useTaskTags: true
+          useTaskTags: true # Should task tags be sent to InfluxDb as tags?
     userSyncTaskFailure:
-      enable: true
+      enable: false
       tag:
-        static: []
+        static: # Static tags to attach to data stored in InfluxDB
+          # - name: event-specific-tag 1
+          #   value: abc 123
         dynamic:
-          useTaskTags: true
-
-    # External program tasks
+          useTaskTags: true # Should task tags be stored in InfluxDB as tags?
     externalProgramTaskSuccess:
-      enable: true
+      enable: false
       tag:
-        static: []
+        static: # Static attributes/dimensions to attach to events sent to InfluxDb
+          # - name: event-specific-tag 1
+          #   value: abc 123
         dynamic:
-          useTaskTags: true
+          useTaskTags: true # Should task tags be sent to InfluxDb as tags?
     externalProgramTaskFailure:
-      enable: true
+      enable: false
       tag:
-        static: []
+        static: # Static tags to attach to data stored in InfluxDB
+          # - name: event-specific-tag 1
+          #   value: abc 123
         dynamic:
-          useTaskTags: true
-
-    # Distribute tasks
+          useTaskTags: true # Should task tags be stored in InfluxDB as tags?
     distributeTaskSuccess:
-      enable: true
+      enable: false
       tag:
-        static: []
+        static: # Static attributes/dimensions to attach to events sent to InfluxDb
+          # - name: event-specific-tag 1
+          #   value: abc 123
         dynamic:
-          useTaskTags: true
+          useTaskTags: true # Should task tags be sent to InfluxDb as tags?
     distributeTaskFailure:
-      enable: true
+      enable: false
       tag:
-        static: []
+        static: # Static tags to attach to data stored in InfluxDB
+          # - name: event-specific-tag 1
+          #   value: abc 123
         dynamic:
-          useTaskTags: true
-
-    # Preload tasks
+          useTaskTags: true # Should task tags be stored in InfluxDB as tags?
     preloadTaskSuccess:
-      enable: true
+      enable: false
       tag:
-        static: []
+        static: # Static attributes/dimensions to attach to events sent to InfluxDb
+          # - name: event-specific-tag 1
+          #   value: abc 123
         dynamic:
-          useTaskTags: true
+          useTaskTags: true # Should task tags be sent to InfluxDb as tags?
     preloadTaskFailure:
-      enable: true
+      enable: false
       tag:
-        static: []
+        static: # Static tags to attach to data stored in InfluxDB
+          # - name: event-specific-tag 1
+          #   value: abc 123
         dynamic:
-          useTaskTags: true
+          useTaskTags: true # Should task tags be stored in InfluxDB as tags?
   ...
 ```
 
