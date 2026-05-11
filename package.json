@@ -10,7 +10,7 @@
     "deploy": "gh workflow run deploy-vitepress.yml --ref $(git branch --show-current)"
   },
   "devDependencies": {
-    "mermaid": "^11.14.0",
+    "mermaid": "^11.15.0",
     "ufo": "^1.6.3",
     "vitepress": "^1.6.4",
     "vitepress-plugin-mermaid": "^2.0.17",
