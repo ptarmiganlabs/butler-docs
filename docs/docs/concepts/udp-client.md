@@ -74,7 +74,7 @@ Butler should log the received message with a warning as it does not conform to 
 
 The Sense log appenders send messages in specific formats where fields are separated by semicolons.
 
-Please refer to the log appender files included in the ZIP distribution for exact formats.
+For detailed information about the UDP message payload formats, field specifications, and validations, see the [UDP Payload Format Reference](/docs/reference/udp-payload-format).
 
 ## Testing Scenarios
 

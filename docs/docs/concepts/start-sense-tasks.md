@@ -105,12 +105,12 @@ Start tasks based on custom property values:
 
 ```yaml
 Tags in QMC:
-- "Butler 5.0 demo" (4 tasks)
+- "Butler demo" (4 tasks)
 - "startTask1" (3 tasks)
 - "hourly-reload" (6 tasks)
 ```
 
-A single API call with tag `Butler 5.0 demo` would start all 4 associated tasks.
+A single API call with tag `Butler demo` would start all 4 associated tasks.
 
 <ResponsiveImage 
   src="/img/start-tasks-using-tag-1.png" 

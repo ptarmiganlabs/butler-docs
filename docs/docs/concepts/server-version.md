@@ -37,7 +37,7 @@ Server version monitoring in Butler provides automated tracking of Qlik Sense se
 
 ## Integration with External Systems
 
-### TODO System Integration
+### System Integration
 
 - Automatically update CMDB with version information
 - Create change requests for version mismatches

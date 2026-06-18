@@ -3,7 +3,7 @@ title: "Qlik Sense server license"
 linkTitle: "Server license"
 weight: 114
 description: >
-  Butler can monitor the Qlik Sense server license that is used to run client-managed Qlik Sense (=Qlik Sense Enterprise on Windows).  
+  Butler can monitor the Qlik Sense server license that is used to run client-managed Qlik Sense.  
 
   - Check license expiration date and alert a configurable number of days before expiration.
 

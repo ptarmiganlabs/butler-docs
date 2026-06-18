@@ -10,7 +10,7 @@ Looks like this:
 ```shell
 Usage: butler [options]
 
-Butler gives superpowers to client-managed Qlik Sense Enterprise on Windows!
+Butler gives superpowers to client-managed Qlik Sense!
 Advanced reload failure alerts, task scheduler, key-value store, file system access and much more.
 
 Options:

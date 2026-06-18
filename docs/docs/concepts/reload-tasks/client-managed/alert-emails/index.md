@@ -4,7 +4,7 @@ Overview of the various kinds of alert emails Butler can send.
 
 ## Scheduled vs Manual App Reloads
 
-It might not be obvious at first, but there are several kinds of reloads in Qlik Sense Enterprise on Windows:
+It might not be obvious at first, but there are several kinds of reloads in client-managed Qlik Sense:
 
 1. **Reloads started from QMC.** These are usually created and managed in the QMC. Quite often they are also combined into reload chains. The common thing about these reloads is that they - under the hood - are managed by Sense's scheduling service.
 
@@ -63,7 +63,7 @@ Note the end of the script - the last few lines of the reload log are often very
 
 ### Basic Log4net Emails
 
-Qlik Sense Enterprise on Windows uses the log4net logging framework to create log files. Log4net is quite flexible and can - among other things - send emails when events such as reload failures occur. There is however little flexibility when it comes to layout and contents of those emails. They are text only (no formatting, tables, different fonts, colors etc) and the email subjects cannot contain any dynamic fields (for example the name of the failed reload task).
+Client-managed Qlik Sense uses the log4net logging framework to create log files. Log4net is quite flexible and can - among other things - send emails when events such as reload failures occur. There is however little flexibility when it comes to layout and contents of those emails. They are text only (no formatting, tables, different fonts, colors etc) and the email subjects cannot contain any dynamic fields (for example the name of the failed reload task).
 
 If you want to explore what's possible using just the features offered by log4net, Christof Schwarz has a [good post](https://www.linkedin.com/pulse/qlik-sense-task-email-notifications-so-easy-christof-schwarz/?trackingId=X8MEGEmppfSvdukFRbnLwQ%3D%3D) on sending basic notification emails when scheduled reloads fail, with links to [Levi Turner's great examples](https://github.com/levi-turner/getting_notified_from_qliksense).
 

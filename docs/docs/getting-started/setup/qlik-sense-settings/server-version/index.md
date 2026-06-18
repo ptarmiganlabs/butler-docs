@@ -29,6 +29,10 @@ The retrieved information is logged to the log file and can also optionally be s
 
 It is possible to add additional tags to the data sent to InfluxDB, for example to differentiate between PROD, TEST and DEV environments, to make later visualizations easier and richer.
 
+The Sense version info is retrieved from the `hostname:9032/v1/systeminfo` endpoint in Qlik Sense, where `hostname` is the hostname or IP address of the central node in the Qlik Sense environment.  
+The host name to use is configurable in the `Butler.qlikSenseVersion.versionMonitor.host` setting.  
+NOTE: Port 9032 must be open and accessible from the machine where Butler is running!
+
 ### How often to check the server version
 
 The frequency of the server version check is configurable in the `Butler.qlikSenseVersion.versionMonitor.frequency` setting.  

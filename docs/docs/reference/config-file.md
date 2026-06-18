@@ -174,6 +174,8 @@ Butler:
         hostIP: influxdb.mycompany.com # IP or FQDN of Influxdb server
         hostPort: 8086 # Port where Influxdb is listening. Default=8086
         version: 1 # InfluxDB major version. Supported values are 1, 2 and 3.
+        # Note: v1 will auto-create the database and retention policy if they don't exist.
+        # v2 and v3 require the bucket/database to be created beforehand - Butler will not auto-create them.
         v1Config: # Settings for InfluxDB v1.x only
             auth:
                 enable: false # Does InfluxDB require login?
@@ -463,7 +465,7 @@ Butler:
         enable: false
         restMessage:
             webhookURL: https://hooks.slack.com/services/etc/etc # Webhook to use when sending basic Slack messages via Butler's REST API
-        reloadTaskFailure: # Reload task failed in QSEoW
+        reloadTaskFailure: # Reload task failed in client-managed Qlik Sense
             enable: false
             webhookURL: https://hooks.slack.com/services/etc/etc # web hook URL from Slack
             channel: sense-task-failure # Slack channel to which task failure notifications are sent
@@ -475,7 +477,7 @@ Butler:
             templateFile: /path/to/slack/template/directory/failed-reload-qseow.handlebars
             fromUser: Qlik Sense
             iconEmoji: ':ghost:'
-        reloadTaskAborted: # Reload task aborted in QSEoW
+        reloadTaskAborted: # Reload task aborted in client-managed Qlik Sense
             enable: false
             webhookURL: https://hooks.slack.com/services/etc/etc
             channel: sense-task-aborted # Slack channel to which task stopped notifications are sent

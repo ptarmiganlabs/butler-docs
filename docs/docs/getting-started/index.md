@@ -4,7 +4,7 @@ What you need to know to get Butler off the ground.
 
 ## Overview
 
-Butler is an add-on tool for Qlik Sense Enterprise on Windows (QSEoW) and Qlik Sense Cloud that provides advanced monitoring, alerting, and automation capabilities.
+Butler is an add-on tool for client-managed Qlik Sense and Qlik Sense Cloud that provides advanced monitoring, alerting, and automation capabilities.
 
 ## Key Features
 

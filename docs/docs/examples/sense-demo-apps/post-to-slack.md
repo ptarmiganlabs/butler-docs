@@ -8,7 +8,7 @@ Demo app showing how to post messages to Slack from Qlik Sense load script.
 
 Assuming the [.qvs helper subs](/docs/reference/sense-helper-subs) are used, only one line of script is needed to send a Slack message:
 
-```qlik
+```text
 // -------------------------------------------
 // Post message to Slack
 // -------------------------------------------

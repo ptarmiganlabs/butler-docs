@@ -5,7 +5,7 @@ The how and why of the Butler scheduler.
 ## What is a scheduler?
 
 In the context of Qlik Sense, a scheduler is a tool that _triggers_ Qlik Sense _tasks_ at some specific time or interval.  
-Qlik Sense Enterprise has its own, [built-in scheduler](https://help.qlik.com/en-US/sense-admin/September2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Administer_QSEoW/Managing_QSEoW/schedulers-overview.htm) that can be accessed via the QMC.
+Qlik Sense has its own, [built-in scheduler](https://help.qlik.com/en-US/sense-admin/September2020/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Administer_QSEoW/Managing_QSEoW/schedulers-overview.htm) that can be accessed via the QMC.
 
 The QMC interface to Sense's standard scheduler lets you create schedules for two kinds of tasks:
 

@@ -49,3 +49,24 @@ The macOS executable binary is signed and notarized by Apple's standard process.
 A warning may still be shown first time the app is started. This is expected and normal.
 
 The Windows executable binary is signed by "Open Source Developer, Göran Sander".
+
+## Security Testing (PEN Testing)
+
+Butler undergoes regular penetration testing using a combination of static and dynamic analysis tools. This broadly follows the OWASP Testing Guide and PTES methodology.
+
+**Static analysis** examines source code and dependencies without running the application:
+
+- **Dependency scanning** (`npm audit`, Snyk) — checks all npm packages for known vulnerabilities
+- **Secret scanning** (Gitleaks) — detects accidentally committed credentials, API keys, and tokens in the entire git history
+- **SAST** (Semgrep) — applies security rules to source code to find injection vulnerabilities, insecure API usage, and OWASP Top 10 issues
+- **CodeQL** — deep semantic analysis to find vulnerabilities that pattern-based tools miss
+
+**Dynamic testing** probes a running instance of the application:
+
+- **Port scanning** (nmap) — discovers open ports and services on the target host
+- **TLS/SSL auditing** (sslscan) — verifies strong protocols and ciphers, checks for Heartbleed and similar vulnerabilities
+- **HTTP security headers** — verifies HSTS, CSP, X-Frame-Options, X-Content-Type-Options, and other recommended headers are set
+- **CVE and misconfiguration scanning** (Nuclei) — template-based scanning against thousands of known vulnerabilities, exposed panels, and default credentials
+- **DAST** (OWASP ZAP) — active and passive scanning to find XSS, SQL injection, broken authentication, and other runtime vulnerabilities
+
+Results are reviewed, prioritized, and acted on (unless deemed low/acceptable risk) before each release.

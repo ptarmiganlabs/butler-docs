@@ -1,6 +1,6 @@
 # Client-managed Qlik Sense
 
-Butler can send notifications to various destinations when a reload task fails, succeeds or is aborted in client-managed Qlik Sense.
+Butler can send notifications to various destinations when a reload task fails, succeeds, or is aborted in client-managed Qlik Sense.
 
 A comparison of the different destinations is available in the [setup documentation](/docs/getting-started/setup/task-alerts/client-managed/).
 

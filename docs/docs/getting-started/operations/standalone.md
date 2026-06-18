@@ -19,7 +19,7 @@ PS C:\tools\butler> .\butler.exe --help
 Running as standalone app. Executable path: D:/tools/insider-build/butler
 Usage: butler [options]
 
-Butler gives superpowers to client-managed Qlik Sense Enterprise on Windows!
+Butler gives superpowers to client-managed Qlik Sense!
 Advanced reload failure alerts, task scheduler, key-value store, file system access and much more.
 
 Options:
@@ -112,7 +112,7 @@ Running the standalone Butler tool without any parameters gives you a help text 
 Running as standalone app. Executable path: D:/tools/insider-build/butler
 Usage: butler [options]
 
-Butler gives superpowers to client-managed Qlik Sense Enterprise on Windows!
+Butler gives superpowers to client-managed Qlik Sense!
 Advanced reload failure alerts, task scheduler, key-value store, file system access and much more.
 
 Options:

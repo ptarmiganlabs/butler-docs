@@ -3,7 +3,7 @@ title: "Task alerts for client-managed Qlik Sense"
 linkTitle: "Client-managed"
 weight: 100
 description: >
-  Butler offers comprehensive monitoring and alerting for all task types in Qlik Sense Enterprise on Windows (QSEoW): reload, distribute, preload, external program, and user sync tasks.
+  Butler offers comprehensive monitoring and alerting for all task types in client-managed Qlik Sense: reload, distribute, preload, external program, and user sync tasks.
 
 
   Learn how to set up alerts for task failures, successes, and aborts across all supported task types.
@@ -11,7 +11,7 @@ description: >
 
 ## Alert types
 
-Butler supports alerts for multiple task types in Qlik Sense Enterprise on Windows (QSEoW):
+Butler supports alerts for multiple task types in client-managed Qlik Sense:
 
 ### Reload tasks
 
@@ -111,7 +111,7 @@ The following diagram shows how Butler processes task events and routes them to 
 
 ```mermaid
 flowchart TB
-    subgraph QS["Qlik Sense Enterprise on Windows"]
+    subgraph QS["Client-managed Qlik Sense"]
         Reload["Reload Tasks<br/>(type 0)"]
         ExtProg["External Program Tasks<br/>(type 1)"]
         UserSync["User Sync Tasks<br/>(type 2)"]
@@ -160,7 +160,7 @@ flowchart TB
 ```
 
 In order for Butler initiated alerts to become a reality, Butler must somehow be notified that the event of interest (for example a failed task) has occurred.  
-This is achieved by adding a **_log appender_** to Qlik Sense Enterprise on Windows.
+This is achieved by adding a **_log appender_** to client-managed Qlik Sense.
 
 Log appenders offer a way to hook into Qlik Sense's logging subsystem, which is called [log4net](https://help.qlik.com/en-US/sense-admin/May2024/Subsystems/DeployAdministerQSE/Content/Sense_DeployAdminister/QSEoW/Deploy_QSEoW/Server-Logging-Using-Appenders-QSRollingFileAppender-Built-in-Appenders.htm).
 
@@ -213,7 +213,7 @@ The steps are:
 
 1. In this case you want to be notified when certain events occur in the _scheduler_ log files.
 
-   This is important: Qlik Sense Enterprise on Windows consists of many different subsystems (engine, proxy, scheduler, printing etc) - here we're interested in log events from the _scheduler_ subsystem.
+   This is important: Client-managed Qlik Sense consists of many different subsystems (engine, proxy, scheduler, printing etc) - here we're interested in log events from the _scheduler_ subsystem.
 
    Add a file `LocalLogConfig.xml` in the `C:\ProgramData\Qlik\Sense\Scheduler` folder on the Sense server whose scheduler you want to get events from. If you have multiple Sense servers with schedulers running on them, the .xml file should be deployed on each server (assuming you want events from all the servers).
 
