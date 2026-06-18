@@ -12,7 +12,7 @@ Butler can be used to solve various challenges in Qlik Sense environments, here 
   - [Passing parameters between reload tasks](#passing-parameters-between-reload-tasks)
   - [Sharing state between several apps](#sharing-state-between-several-apps)
     - [Time-to-live (TTL) for key-value pairs](#time-to-live-ttl-for-key-value-pairs)
-  - [Flexible scheduling of app reloads in client-managed Qlik Sense](#flexible-scheduling-of-app-reloads-in-qlik-sense-enterprise-on-windows)
+  - [Flexible scheduling of app reloads in client-managed Qlik Sense](#flexible-scheduling-of-app-reloads-in-client-managed-qlik-sense)
   - [Make new data reach end users as quickly as possible](#make-new-data-reach-end-users-as-quickly-as-possible)
   - [Using MQTT to notify downstream systems that Sense is done processing data](#using-mqtt-to-notify-downstream-systems-that-sense-is-done-processing-data)
   - [Create directories, copy/move/delete files](#create-directories-copymovedelete-files)

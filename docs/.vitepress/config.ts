@@ -268,14 +268,14 @@ export default withMermaid({
                     { text: 'Successful Reloads', link: '/docs/concepts/successful-reloads' }
                   ]
                 },
-{
-              text: 'System Monitoring',
-              items: [
-                { text: 'Windows Services', link: '/docs/concepts/windows-services' },
-                { text: 'Server Version', link: '/docs/concepts/server-version' },
-                { text: 'UDP Queue', link: '/docs/concepts/udp-queue' }
-              ]
-            }
+                {
+                  text: 'System Monitoring',
+                  items: [
+                    { text: 'Windows Services', link: '/docs/concepts/windows-services' },
+                    { text: 'Server Version', link: '/docs/concepts/server-version' },
+                    { text: 'UDP Queue', link: '/docs/concepts/udp-queue' }
+                  ]
+                }
               ]
             },
             {
