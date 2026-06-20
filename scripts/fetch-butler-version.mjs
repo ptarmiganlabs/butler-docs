@@ -27,6 +27,13 @@ function isValidTag(tag) {
   return typeof tag === "string" && tag.trim().length > 0;
 }
 
+// Parse a "vX.Y.Z" style tag into a comparable integer array. Pre-release
+// suffixes are ignored for the major-version comparison.
+function majorOf(tag) {
+  const m = String(tag).match(/^v?(\d+)/);
+  return m ? Number(m[1]) : null;
+}
+
 async function main() {
   try {
     const headers = { "User-Agent": "bsi-docs-build-script" };
@@ -50,6 +57,28 @@ async function main() {
     // Normalize: keep from first 'v' onwards (e.g., 'butler-sheet-icons-v3.8.0' -> 'v3.8.0')
     const vIndex = rawTag.indexOf("v");
     const tag = vIndex >= 0 ? rawTag.slice(vIndex) : rawTag;
+
+    // If the local version.js is already on a newer major than what GitHub
+    // reports, keep the local value. This lets the repo document a future
+    // major (e.g. v17.0.0) before its official release without the build
+    // silently downgrading to the latest shipped major.
+    const localMatch = await fs
+      .readFile(outFile, "utf8")
+      .then((c) => c.match(/export const version = '([^']+)'/)?.[1])
+      .catch(() => null);
+    const localMajor = localMatch ? majorOf(localMatch) : null;
+    const fetchedMajor = majorOf(tag);
+    if (
+      localMatch &&
+      localMajor !== null &&
+      fetchedMajor !== null &&
+      localMajor > fetchedMajor
+    ) {
+      console.log(
+        `[bsi-docs] Local version ${localMatch} is on a newer major than GitHub ${tag}, keeping local`
+      );
+      return;
+    }
 
     await writeVersionFile(tag);
     console.log(`[bsi-docs] Latest ${REPO} version: ${tag}`);

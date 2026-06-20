@@ -1,0 +1,26 @@
+# Contribution guidelines
+
+How to contribute to Butler.
+
+::: tip Open source
+Butler is an open source project, using the [MIT license](https://choosealicense.com/licenses/mit/).
+
+This means that all source code, documentation etc is available as-is, at no cost.
+
+**It however also means that anyone interested can - and is encouraged to - contribute to the project!**
+:::
+
+Butler is developed in [Node.js](https://nodejs.org), with support from various [NPM](https://www.npmjs.com/) modules.
+
+We use [VitePress](https://vitepress.vuejs.org/) to format and generate this documentation site.  
+VitePress is a Vue.js-powered static site generator that provides us with templates, content organization in a standard directory structure, and a website generation engine. You write the pages in Markdown (or HTML if you want), and VitePress wraps them up into a website.
+
+All submissions to Butler or this doc site, including submissions by project members, require review. We use GitHub pull requests for this purpose. Consult [GitHub Help](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/about-pull-requests) for more information on using pull requests.
+
+## Creating an issue
+
+If you've found a problem - or have a feature suggestion - with Butler itself or the documentation, but you're not sure how to fix it yourself, please create an issue in the [Butler repo](https://github.com/ptarmiganlabs/butler/issues/new). You can also create an issue about a specific doc page by clicking the **Create Issue** button in the top right hand corner of the page.
+
+::: warning Security/Disclosure
+If you discover a serious bug with Butler that may pose a security problem, please disclose it confidentially to security@ptarmiganlabs.com first, so that it can be assessed and hopefully fixed prior to being exploited. Please do not raise GitHub issues for security-related doubts or problems.
+:::

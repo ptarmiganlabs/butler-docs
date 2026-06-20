@@ -5,6 +5,9 @@ node_modules/
 docs/.vitepress/cache
 docs/.vitepress/dist
 
+# Generated latest docs (copied from latest version at build time)
+docs/latest/
+
 # Hugo archive resources (keep themes for functionality)
 hugo-archive/resources/
 
