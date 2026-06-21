@@ -66,9 +66,10 @@ Butler:
     enableSourceValidation: false # Enable source IP validation for incoming UDP messages
     allowedSources: [] # List of allowed IPv4 addresses or hostnames (e.g., ["192.168.1.100", "sense-server-01"])
 
-    # Deduplication (new in 17.0)
-    deduplicationEnable: true # Suppress duplicate scheduler UDP messages by executionId
-    deduplicationTtlMinutes: 10 # How long a successfully processed executionId remains blocked
+    # Deduplication settings for scheduler UDP messages
+    deduplication:
+        enable: true # Set to false to disable executionId-based duplicate suppression for scheduler UDP messages.
+        ttlMinutes: 10 # Keep successful scheduler executionIds deduplicated for this many minutes.
 
     # Queue settings for handling incoming UDP messages
     messageQueue:
@@ -100,8 +101,8 @@ Butler:
 | `maxMessageSize` | 65507 | Max UDP message size in bytes (default: 65507 = IPv4 max, 65527 = IPv6 max) |
 | `enableSourceValidation` | false | Enable source IP validation for incoming UDP messages |
 | `allowedSources` | [] | List of allowed IPv4 addresses or hostnames (e.g., `["192.168.1.100", "sense-server-01"]`) |
-| `deduplicationEnable` | true | Suppress duplicate scheduler UDP messages by `executionId`. When `false`, duplicate scheduler messages are processed normally. |
-| `deduplicationTtlMinutes` | 10 | How long a successfully processed `executionId` remains blocked from reprocessing. Only used when `deduplicationEnable` is `true`. |
+| `deduplication.enable` | true | Suppress duplicate scheduler UDP messages by `executionId`. When `false`, duplicate scheduler messages are processed normally. |
+| `deduplication.ttlMinutes` | 10 | How long a successfully processed `executionId` remains blocked from reprocessing. Only used when `deduplication.enable` is `true`. |
 | `messageQueue.maxConcurrent` | 10 | Max concurrent message processing |
 | `messageQueue.maxSize` | 200 | Max queue size before rejecting |
 | `messageQueue.backpressureThreshold` | 80 | Log warning when queue reaches this utilization percentage (0-100) |
@@ -146,8 +147,10 @@ Butler 17.0 introduces UDP message deduplication, controlled by two settings und
 
 ```yaml
 udpServerConfig:
-  deduplicationEnable: true       # Default: true. Suppress duplicate scheduler UDP messages by executionId.
-  deduplicationTtlMinutes: 10     # Default: 10. How long a successfully processed executionId stays blocked.
+  # Deduplication settings for scheduler UDP messages
+  deduplication:
+    enable: true     # Default: true. Suppress duplicate scheduler UDP messages by executionId.
+    ttlMinutes: 10   # Default: 10. How long a successfully processed executionId stays blocked.
 ```
 
 Deduplication is based on the scheduler message `executionId` (field `9` in the scheduler UDP payload). The dedup check runs between rate-limit admission and full-payload sanitization, so duplicate scheduler messages are dropped before Butler spends CPU sanitizing them.

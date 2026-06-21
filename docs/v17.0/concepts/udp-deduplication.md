@@ -23,20 +23,22 @@ UDP deduplication is controlled by two settings under `Butler.udpServerConfig`:
 
 ```yaml
 udpServerConfig:
-    deduplicationEnable: true
-    deduplicationTtlMinutes: 10
+    # Deduplication settings for scheduler UDP messages
+    deduplication:
+        enable: true
+        ttlMinutes: 10
 ```
 
-### deduplicationEnable
+### `deduplication.enable`
 
 - Default: `true`
 - If `true`, Butler suppresses duplicate scheduler UDP messages based on execution ID.
 - If `false`, Butler fully bypasses deduplication. Duplicate scheduler messages are processed like any other incoming message.
 
-### deduplicationTtlMinutes
+### `deduplication.ttlMinutes`
 
 - Default: `10`
-- Used only when `deduplicationEnable` is `true`
+- Used only when `deduplication.enable` is `true`
 - Controls how long a successfully processed scheduler execution ID remains blocked from reprocessing.
 
 ## Where Deduplication Applies
@@ -156,11 +158,11 @@ There is currently no dedicated log line for TTL expiry. Expiry is handled silen
 
 ## TTL Behavior
 
-The deduplication TTL is configurable with `Butler.udpServerConfig.deduplicationTtlMinutes`.
+The deduplication TTL is configurable with `Butler.udpServerConfig.deduplication.ttlMinutes`.
 
 If you do not set that key, Butler defaults to `10` minutes.
 
-The TTL is used only when `Butler.udpServerConfig.deduplicationEnable` is `true`.
+The TTL is used only when `Butler.udpServerConfig.deduplication.enable` is `true`.
 
 This means:
 

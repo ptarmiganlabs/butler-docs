@@ -116,8 +116,8 @@ UDP message deduplication has been reworked in a way that changes its visible be
 
 Two new config keys, both with defaults (so existing configs keep working), control the new behavior:
 
-- `Butler.udpServerConfig.deduplicationEnable` (default `true`) — turn scheduler-message dedup on or off.
-- `Butler.udpServerConfig.deduplicationTtlMinutes` (default `10`) — how long a successfully processed `executionId` stays blocked from reprocessing.
+- `Butler.udpServerConfig.deduplication.enable` (default `true`) — turn scheduler-message dedup on or off.
+- `Butler.udpServerConfig.deduplication.ttlMinutes` (default `10`) — how long a successfully processed `executionId` stays blocked from reprocessing.
 
 For the full decision tree, the 11-row outcome table, retry semantics, and the metrics/logs to watch, see [UDP Message Deduplication](/v17.0/concepts/udp-deduplication).
 
