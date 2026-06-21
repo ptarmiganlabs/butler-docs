@@ -32,7 +32,14 @@ function createSidebar(p: string) {
           items: [
             { text: 'Which config file?', link: `${p}/getting-started/setup/which-config-file/` },
             { text: 'Minimal config', link: `${p}/getting-started/setup/minimal-config/` },
-            { text: 'REST API', link: `${p}/getting-started/setup/rest-api/` },
+            {
+              text: 'REST API',
+              link: `${p}/getting-started/setup/rest-api/`,
+              collapsed: true,
+              items: [
+                { text: 'HTTPS/TLS', link: `${p}/getting-started/setup/rest-api/https-tls` }
+              ]
+            },
             { text: 'Scheduler', link: `${p}/getting-started/setup/scheduler/` },
             { text: 'Key-value store', link: `${p}/getting-started/setup/key-value-store/` },
             { text: 'File system access', link: `${p}/getting-started/setup/file-system-access/` },

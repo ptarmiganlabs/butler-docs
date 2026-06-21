@@ -33,11 +33,11 @@ If you discover a serious bug with Butler that may pose a security problem, plea
 
 ## Butler's REST API
 
-Butler uses http for its REST API. As Butler typically runs on the Sense server itself (or a server in close network proximity to the Sense server), the firewalls of that server can be configured to protect Butler from unauthorized access.
+Butler can serve its REST API over either HTTP (the default) or HTTPS. As Butler typically runs on the Sense server itself (or a server in close network proximity to the Sense server), the firewalls of that server can be configured to protect Butler from unauthorized access.
 
-This way of using http for communication between internal systems is in many cases considered ok from a security perspective. You should however always consider what's ok in _your_ particular company/setup/configuration/network.
+When TLS is not enabled, Butler uses plain HTTP for the public REST API. This way of using HTTP for communication between internal systems is in many cases considered acceptable from a security perspective. You should however always consider what's ok in _your_ particular company/setup/configuration/network.
 
-Adding https support could be done, Node.js supports this very nicely.
+When TLS is needed, Butler can be configured to serve the public REST API over HTTPS by enabling `Butler.restServerConfig.tls` in the config file. See [Enabling HTTPS/TLS for the REST API](/v16.0/getting-started/setup/rest-api/https-tls) for the configuration, validation rules, and operational notes. Existing deployments that do not enable TLS continue to serve the REST API over HTTP exactly as before.
 
 ## Butler talking to Qlik Sense
 

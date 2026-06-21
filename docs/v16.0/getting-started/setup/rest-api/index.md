@@ -28,6 +28,11 @@ Butler:
     serverHost: <FQDN or IP (or localhost) of server where Butler is running>   # Use 0.0.0.0 to listen on all network interfaces (e.g. when running in Docker!).
     serverPort: 8080                                  # Port where Butler's REST is available. Any free port on the server where Butler is running can bse used.
     backgroundServerPort: 8081
+    # tls:                                            # Optional. Enable to serve the public REST API over HTTPS.
+    #   enable: false
+    #   cert: /path/to/cert/certfile.pem              # PEM-encoded certificate file (required when tls.enable is true).
+    #   key: /path/to/cert/keyfile.pem                # PEM-encoded private key matching tls.cert (required when tls.enable is true).
+    #   ca: /path/to/cert/ca-bundle.pem               # Optional. PEM-encoded CA/intermediate bundle. Use null if not needed.
 ```
 
 ### Ports used by Butler
@@ -45,6 +50,12 @@ Just make sure that the two settings `Butler.restServerConfig.serverPort` and `B
   src="/img/getting-started/setup/rest-api/butler-ports-1.png"
   alt=" Ports used by Butler "
 />
+
+### Enabling HTTPS/TLS
+
+The public REST API can be served over HTTPS by enabling the `Butler.restServerConfig.tls` block. When `tls.enable` is `true`, the `serverPort` listener accepts HTTPS connections using the configured PEM certificate and key, and Butler's Swagger/OpenAPI `/documentation` URL automatically switches from `http://` to `https://`. The internal `backgroundServerPort` is unaffected.
+
+See [Enabling HTTPS/TLS for the REST API](./https-tls) for the full configuration, validation rules, and operational notes.
 
 ## Rate limiting the REST API
 

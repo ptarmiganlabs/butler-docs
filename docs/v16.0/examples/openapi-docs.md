@@ -27,6 +27,10 @@ restServerConfig:
 In addition to the API endpoints, the API documentation will be available at `http://192.168.1.168:8080/documentation`.  
 The beauty of the Swagger docs is that you can also test drive the API itself. If you have Butler running it's thus super easy to test the various REST API endpoints.
 
+::: info TLS-enabled deployments
+When Butler is configured with `Butler.restServerConfig.tls.enable: true`, both the API base URL and the `/documentation` URL automatically switch from `http://` to `https://` (e.g. `https://192.168.1.168:8443/documentation`). See [Enabling HTTPS/TLS for the REST API](/v16.0/getting-started/setup/rest-api/https-tls) for details.
+:::
+
 The API doc page looks like this:
 
 <ResponsiveImage 

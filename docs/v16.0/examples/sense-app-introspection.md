@@ -144,6 +144,53 @@ Extract app structures to:
 - Migrate apps between environments
 - Standardize app structures across teams
 
+## App dump lineage data
+
+Both app dump endpoints — `/v4/senseappdump/:appId` and `/v4/app/:appId/dump` — now call the Qlik Sense Engine API `GetLineage` method while serializing an app. If the connected Engine version supports `GetLineage`, the returned data is added to the response payload as a top-level `lineage` object. The lineage information is useful for governance, troubleshooting, and understanding app data dependencies.
+
+The existing dump payload is unchanged except for the added (optional) `lineage` property and a root-level `appId`:
+
+```json
+{
+  "appId": "210832b5-6174-4572-bd19-3e61eda675ef",
+  "properties": {},
+  "loadScript": "",
+  "lineage": {
+    "qLineage": []
+  },
+  "sheets": [],
+  "stories": [],
+  "masterobjects": [],
+  "appprops": [],
+  "dataconnections": [],
+  "dimensions": [],
+  "bookmarks": [],
+  "embeddedmedia": [],
+  "snapshots": [],
+  "fields": [],
+  "variables": [],
+  "measures": []
+}
+```
+
+Each `lineage.qLineage[]` entry can include:
+
+- `qDiscriminator` — the origin of the lineage entry.
+- `qStatement` — the related `LOAD` or `SELECT` statement from the app script.
+
+The `qDiscriminator` field reports the source of each statement. Qlik documents these value categories:
+
+- Local file path, for example `\\10.11.12.13\testdata\tedtalk\ted_main.csv`
+- `INLINE`
+- `RESIDENT`
+- `AUTOGENERATE`
+- Connector provider name
+- Web file
+- `STORE`
+- `EXTENSION`
+
+For the full reference, including the JSON structure of the `lineage` object, see [App dump lineage data](/v16.0/reference/rest-api/app-dump-lineage).
+
 ## See Also
 
 - [Sense demo apps](./sense-demo-apps/) - Example apps demonstrating Butler features

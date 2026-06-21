@@ -22,6 +22,10 @@ Endpoints for managing Qlik Sense tasks and scheduling operations.
 
 <OAOperation operation-id="get-/v4/senseappdump/{appId}" />
 
+::: info Lineage data
+The response payload from both endpoints also includes a root-level `appId` and, when the connected Qlik Sense Engine supports it, an optional top-level `lineage` object populated from the Engine's `GetLineage` call. See [App dump lineage data](/v16.0/reference/rest-api/app-dump-lineage) for the response shape and the meaning of the `qDiscriminator` and `qStatement` fields.
+:::
+
 ### List Apps
 
 <OAOperation operation-id="get-/v4/apps/list" />
