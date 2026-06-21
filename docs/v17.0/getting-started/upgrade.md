@@ -108,9 +108,23 @@ A consequence of this is that all settings are now mandatory, even if you don't 
 
 ### Upgrading to Butler 17.0.0
 
-Butler 17.0 introduces a shared structured error-handling pattern for QRS (Repository Service) calls and a matching pattern for the Sense version monitor. Existing functionality is unchanged; logs become more useful and helper functions fail more gracefully when QRS returns unexpected responses.
+Butler 17.0 introduces a shared structured error-handling pattern for QRS (Repository Service) calls and a matching pattern for the Sense version monitor. It also reworks UDP message deduplication so it is treated as a **queue lifecycle** problem rather than a pre-queue filter. Existing functionality is unchanged; logs become more useful, helper functions fail more gracefully when QRS returns unexpected responses, and legitimate scheduler retries are no longer dropped after a queue-full or processing failure.
+
+#### Breaking Changes
+
+UDP message deduplication has been reworked in a way that changes its visible behavior. The previous design could permanently block an `executionId` after a queue-full drop or a processing failure, causing legitimate retries to be silently dropped. The new design reserves the `executionId` only while the message is queued or in flight, and only retains it after a *successful* handler run, for a configurable TTL window.
+
+Two new config keys, both with defaults (so existing configs keep working), control the new behavior:
+
+- `Butler.udpServerConfig.deduplicationEnable` (default `true`) — turn scheduler-message dedup on or off.
+- `Butler.udpServerConfig.deduplicationTtlMinutes` (default `10`) — how long a successfully processed `executionId` stays blocked from reprocessing.
+
+For the full decision tree, the 11-row outcome table, retry semantics, and the metrics/logs to watch, see [UDP Message Deduplication](/v17.0/concepts/udp-deduplication).
 
 #### New Features
+
+- **Structured QRS error messages** — A single error formatter is used across all Butler features that call the Qlik Sense Repository Service. Two error shapes are now possible: `Request failed - ...` (the request never reached QRS in a usable form) and `Unexpected QRS response - ...` (QRS replied but the reply wasn't what the operation expected).
+- **Structured HTTP error messages for the version monitor** — The Qlik Sense version monitor (calls `/v1/systeminfo` on port `9032`, not a QRS endpoint) now uses the same structured pattern.
 
 - **Structured QRS error messages** — A single error formatter is used across all Butler features that call the Qlik Sense Repository Service. Two error shapes are now possible: `Request failed - ...` (the request never reached QRS in a usable form) and `Unexpected QRS response - ...` (QRS replied but the reply wasn't what the operation expected).
 - **Structured HTTP error messages for the version monitor** — The Qlik Sense version monitor (calls `/v1/systeminfo` on port `9032`, not a QRS endpoint) now uses the same structured pattern.

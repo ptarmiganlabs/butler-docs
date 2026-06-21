@@ -161,8 +161,12 @@ function createSidebar(p: string, version: 'v16.0' | 'v17.0' | 'latest') {
               items: [
                 { text: 'Windows Services', link: `${p}/concepts/windows-services` },
                 { text: 'Server Version', link: `${p}/concepts/server-version` },
-                { text: 'UDP Queue', link: `${p}/concepts/udp-queue` }
-              ]
+                { text: 'UDP Queue', link: `${p}/concepts/udp-queue` },
+                version !== 'v16.0' && {
+                  text: 'UDP Deduplication',
+                  link: `${p}/concepts/udp-deduplication`,
+                },
+              ].filter(Boolean) as { text: string; link: string }[]
             }
           ]
         },

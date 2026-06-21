@@ -252,6 +252,8 @@ Butler:
     maxMessageSize: 65507                # Max UDP message size in bytes (default: 65507 = IPv4 max, 65527 = IPv6 max)
     enableSourceValidation: false       # Enable source IP validation for incoming UDP messages
     allowedSources: []                   # List of allowed IPv4 addresses or hostnames (e.g., ["192.168.1.100", "sense-server-01"])
+    deduplicationEnable: true            # Suppress duplicate scheduler UDP messages by executionId (new in 17.0)
+    deduplicationTtlMinutes: 10          # How long a successfully processed executionId remains blocked (new in 17.0)
 
     # Queue settings for handling incoming UDP messages
     messageQueue:
@@ -293,7 +295,7 @@ Butler includes several security features for UDP message handling:
 
 ### 1. UDP is Connectionless
 
-UDP is an unreliable protocol. Messages may be lost, duplicated, or arrive out of order. Butler does not implement any deduplication or ordering logic.
+UDP is an unreliable protocol. Messages may be lost, duplicated, or arrive out of order. Butler does not implement general-purpose deduplication or ordering logic for UDP, but starting with Butler 17.0, scheduler-family messages that carry an `executionId` are deduplicated during a configurable TTL window. Engine reload failures and other messages without an `executionId` are not deduplicated. See [UDP Message Deduplication](/v17.0/concepts/udp-deduplication) for the full behavior, the decision tree, and the new `deduplicationEnable` / `deduplicationTtlMinutes` config keys.
 
 ### 2. Semicolon Delimiter
 

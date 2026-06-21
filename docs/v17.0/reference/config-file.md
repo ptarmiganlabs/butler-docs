@@ -81,10 +81,11 @@ Butler:
     logLevel: info # Log level. Possible log levels are silly, debug, verbose, info, warn, error
     fileLogging: false # true/false to enable/disable logging to disk file
     logDirectory: log # Directory where log files are stored (no trailing / )
-    anonTelemetry:
-        true # Can Butler send anonymous telemetry data?
-        # More info on whata data is collected: https://butler.ptarmiganlabs.com/latest/about/telemetry/
-        # Please consider leaving this at true - it really helps future development of Butler!
+    
+    # Can Butler send anonymous telemetry data?
+    # More info on whata data is collected: https://butler.ptarmiganlabs.com/docs/about/telemetry/
+    # Please consider leaving this at true - it really helps future development of Butler!
+    anonTelemetry: true 
 
     # System information gathering
     # Butler collects system information for monitoring and diagnostic purposes.
@@ -173,9 +174,7 @@ Butler:
         enable: false # Master switch for InfluxDB integration. If false, no data will be sent to InfluxDB.
         hostIP: influxdb.mycompany.com # IP or FQDN of Influxdb server
         hostPort: 8086 # Port where Influxdb is listening. Default=8086
-        version: 1 # InfluxDB major version. Supported values are 1, 2 and 3.
-        # Note: v1 will auto-create the database and retention policy if they don't exist.
-        # v2 and v3 require the bucket/database to be created beforehand - Butler will not auto-create them.
+        version: 3 # InfluxDB major version. Supported values are 1, 2 and 3.
         v1Config: # Settings for InfluxDB v1.x only
             auth:
                 enable: false # Does InfluxDB require login?
@@ -465,7 +464,7 @@ Butler:
         enable: false
         restMessage:
             webhookURL: https://hooks.slack.com/services/etc/etc # Webhook to use when sending basic Slack messages via Butler's REST API
-        reloadTaskFailure: # Reload task failed in client-managed Qlik Sense
+        reloadTaskFailure: # Reload task failed in QSEoW
             enable: false
             webhookURL: https://hooks.slack.com/services/etc/etc # web hook URL from Slack
             channel: sense-task-failure # Slack channel to which task failure notifications are sent
@@ -477,7 +476,7 @@ Butler:
             templateFile: /path/to/slack/template/directory/failed-reload-qseow.handlebars
             fromUser: Qlik Sense
             iconEmoji: ':ghost:'
-        reloadTaskAborted: # Reload task aborted in client-managed Qlik Sense
+        reloadTaskAborted: # Reload task aborted in QSEoW
             enable: false
             webhookURL: https://hooks.slack.com/services/etc/etc
             channel: sense-task-aborted # Slack channel to which task stopped notifications are sent
@@ -1049,20 +1048,47 @@ Butler:
                         appReload: qscloud/app/reload
 
     udpServerConfig:
-        enable: false # Should the UDP server responsible for receving task failure/aborted events be started?
+        enable: false # Should the UDP server responsible for receiving task failure/aborted events be started?
         serverHost: 10.11.12.13 # FQDN or IP (or localhost) of server where Butler is running
         portTaskFailure: 9998
+        maxMessageSize: 65507 # Max UDP message size in bytes (default: 65507 = IPv4 max, 65527 = IPv6 max)
+        enableSourceValidation: false # Enable source IP validation for incoming UDP messages
+        allowedSources: [] # List of allowed IPv4 addresses or hostnames (e.g., ["192.168.1.100", "sense-server-01"])
+
+        # Queue settings for handling incoming UDP messages
+        messageQueue:
+            maxConcurrent: 10 # Max concurrent message processing
+            maxSize: 200 # Max queue size before rejecting
+            backpressureThreshold: 80 # Log warning when queue reaches this utilization percentage (0-100)
+
+        # Rate limiting (optional)
+        rateLimit:
+            enable: false # Enable rate limiting to prevent message flooding
+            maxMessagesPerMinute: 600 # Max messages per minute (~10/second)
+
+        # Deduplication settings for scheduler UDP messages
+        deduplication:
+            enable: true # Set to false to disable executionId-based duplicate suppression for scheduler UDP messages.
+            ttlMinutes: 10 # Keep successful scheduler executionIds deduplicated for this many minutes.
+
+        # Queue metrics (optional - requires InfluxDB)
+        queueMetrics:
+            influxdb:
+                enable: false # Store queue metrics in InfluxDB
+                writeFrequency: 20000 # Write interval (ms)
+                measurementName: butler_udp_queue
+                tags: [] # Optional tags added to all queue metrics points
 
     restServerConfig:
         enable: false # Should Butler's REST API be started? Must be true if *any* API endpoints are to be used.
         serverHost: 10.11.12.13 # FQDN or IP (or localhost) of server where Butler is running> # Use 0.0.0.0 to listen on all network interfaces (e.g. when running in Docker!).
-        serverPort: 8080 # Port where Butler's REST is available. Any free port on the server where Butler is running can bse used.
-        backgroundServerPort: 8081 # Port used internally by Butler's REST API. Any free port on the server where Butler is running can bse used.
-        # tls: # Optional. Enable to serve the public REST API over HTTPS.
-        #     enable: false # Set to true to terminate TLS on serverPort.
-        #     cert: /path/to/cert/certfile.pem # Required when tls.enable is true. PEM-encoded certificate.
-        #     key: /path/to/cert/keyfile.pem # Required when tls.enable is true. PEM-encoded private key matching tls.cert.
-        #     ca: /path/to/cert/ca-bundle.pem # Optional. PEM-encoded CA/intermediate bundle. Use null if not needed.
+        serverPort: 8080 # Port where Butler's REST is available. Any free port on the server where Butler is running can be used.
+        backgroundServerPort: 8081 # Port used internally by Butler's REST API. Any free port on the server where Butler is running can be used.
+        tls:
+            enable: false # Enable HTTPS for Butler's public REST API listener.
+            cert: /path/to/cert/certfile.pem # PEM encoded server certificate.
+            key: /path/to/cert/keyfile.pem # PEM encoded private key for the server certificate.
+            ca: null # Optional PEM encoded CA/intermediate certificate bundle.
 
     # List of directories between which file copying via the REST API can be done.
     # Butler will try to clean up messy paths like this one, which resolves to /Users/goran/butler-test-dir1
@@ -1349,6 +1375,7 @@ Butler:
 
     configDirectories:
         qvdPath: <Path to folder under which QVDs are stored>
+
 ```
 
 ### Comments

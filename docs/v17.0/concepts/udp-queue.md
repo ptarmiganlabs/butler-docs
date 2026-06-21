@@ -27,16 +27,21 @@ flowchart TD
     A["UDP Socket Receive"] --> B["Size Validation\nmaxMessageSize"]
     B -->|"OK"| C["Rate Limit Check\n(if enabled)"]
     B -->|"Too large"| D["Drop & count\nmessages_dropped_size"]
-    C -->|"OK"| E["Input Sanitization\n(control chars removed)"]
+    C -->|"OK"| E["Parse raw message and sanitize only routing fields"]
     C -->|"Rate exceeded"| F["Drop & count\nmessages_dropped_rate_limit"]
-    E --> G["UUID Validation\n(Task ID, App ID)"]
-    G -->|"Invalid"| H["Drop & count\nmessages_dropped_invalid"]
-    G -->|"Valid"| I["Message Queue"]
-    I -->|"Full"| J["Drop & count\nmessages_dropped_queue_full"]
-    I --> K["Concurrent Processing\nmaxConcurrent"]
-    K --> L["Task Handler"]
-    L --> M["Notification Destinations\n(Email, Slack, Teams, MQTT, InfluxDB)"]
+    E --> G["Dedup check\nexecutionId\n(if enabled)"]
+    G -->|"Duplicate"| G1["Drop & count\nmessages_dropped_duplicate"]
+    G -->|"Not duplicate<br/>or no executionId"| H["Input Sanitization\n(control chars removed)"]
+    H --> I["UUID Validation\n(Task ID, App ID)"]
+    I -->|"Invalid"| J["Drop & count\nmessages_dropped_invalid"]
+    I -->|"Valid"| K["Message Queue"]
+    K -->|"Full"| L["Drop & count\nmessages_dropped_queue_full"]
+    K --> M["Concurrent Processing\nmaxConcurrent"]
+    M --> N["Task Handler"]
+    N --> O["Notification Destinations\n(Email, Slack, Teams, MQTT, InfluxDB)"]
 ```
+
+When deduplication is enabled, the queue admission path includes an `executionId`-based dedup step that runs before the full payload is sanitized. See [UDP Message Deduplication](/v17.0/concepts/udp-deduplication) for the full decision tree, the outcome table, and the retry semantics.
 
 ### Components
 
@@ -60,6 +65,10 @@ Butler:
     maxMessageSize: 65507 # Max UDP message size in bytes (default: 65507 = IPv4 max, 65527 = IPv6 max)
     enableSourceValidation: false # Enable source IP validation for incoming UDP messages
     allowedSources: [] # List of allowed IPv4 addresses or hostnames (e.g., ["192.168.1.100", "sense-server-01"])
+
+    # Deduplication (new in 17.0)
+    deduplicationEnable: true # Suppress duplicate scheduler UDP messages by executionId
+    deduplicationTtlMinutes: 10 # How long a successfully processed executionId remains blocked
 
     # Queue settings for handling incoming UDP messages
     messageQueue:
@@ -90,7 +99,9 @@ Butler:
 | `portTaskFailure` | 9998 | Port where Butler listens for UDP messages |
 | `maxMessageSize` | 65507 | Max UDP message size in bytes (default: 65507 = IPv4 max, 65527 = IPv6 max) |
 | `enableSourceValidation` | false | Enable source IP validation for incoming UDP messages |
-| `allowedSources` | [] | List of allowed IPv4 addresses or hostnames (e.g., ["192.168.1.100", "sense-server-01"]) |
+| `allowedSources` | [] | List of allowed IPv4 addresses or hostnames (e.g., `["192.168.1.100", "sense-server-01"]`) |
+| `deduplicationEnable` | true | Suppress duplicate scheduler UDP messages by `executionId`. When `false`, duplicate scheduler messages are processed normally. |
+| `deduplicationTtlMinutes` | 10 | How long a successfully processed `executionId` remains blocked from reprocessing. Only used when `deduplicationEnable` is `true`. |
 | `messageQueue.maxConcurrent` | 10 | Max concurrent message processing |
 | `messageQueue.maxSize` | 200 | Max queue size before rejecting |
 | `messageQueue.backpressureThreshold` | 80 | Log warning when queue reaches this utilization percentage (0-100) |
@@ -128,6 +139,37 @@ Butler can optionally validate the source IP address of incoming UDP messages. W
 - Should be used together with firewall rules for defense in depth
 
 **Security benefit:** Since UDP lacks built-in authentication, source IP validation prevents unauthorized hosts from sending messages to Butler. This is critical for production deployments where Butler is exposed to the network.
+
+## Deduplication
+
+Butler 17.0 introduces UDP message deduplication, controlled by two settings under `Butler.udpServerConfig`:
+
+```yaml
+udpServerConfig:
+  deduplicationEnable: true       # Default: true. Suppress duplicate scheduler UDP messages by executionId.
+  deduplicationTtlMinutes: 10     # Default: 10. How long a successfully processed executionId stays blocked.
+```
+
+Deduplication is based on the scheduler message `executionId` (field `9` in the scheduler UDP payload). The dedup check runs between rate-limit admission and full-payload sanitization, so duplicate scheduler messages are dropped before Butler spends CPU sanitizing them.
+
+The dedup behavior is a **queue lifecycle**:
+
+1. The `executionId` is reserved while a message is queued or in flight.
+2. The reservation is released on queue-full rejection, validation failure, or handler exception.
+3. The `executionId` is retained only after a successful handler run, for the configured TTL window.
+
+This avoids the earlier failure mode where a queue-full drop or processing failure could poison an `executionId` and cause legitimate retries to be silently skipped.
+
+The scheduler message families that participate in dedup are listed on the dedicated page. Engine reload failures and other messages without an `executionId` bypass dedup and follow the normal queue path.
+
+### Metrics and logs to watch
+
+- `messagesDroppedDuplicate` — incremented when dedup drops a message because the `executionId` is already reserved or already processed and unexpired.
+- `deduplicationCacheSize` — current number of tracked `executionId`s. Stays at `0` when dedup is disabled.
+- Log signal: `[QSEOW] UDP HANDLER: Duplicate message detected ...` for duplicate suppression.
+- Log signal: `[QSEOW] UDP HANDLER: Scheduler message type ... has no executionId. Skipping deduplication for this message.` when a scheduler-family message has no `executionId`.
+
+For the full decision tree, the 11-row outcome table, and the retry semantics, see [UDP Message Deduplication](/v17.0/concepts/udp-deduplication).
 
 ## Performance Tuning
 
@@ -201,6 +243,7 @@ When `queueMetrics.influxdb.enable` is set to `true`, queue metrics are stored i
 | `queue_max_size` | integer | Maximum queue capacity |
 | `queue_utilization_pct` | float | Queue utilization percentage (0-100) |
 | `queue_running` | integer | Messages currently being processed |
+| `deduplication_cache_size` | integer | Current number of tracked `executionId`s. Stays at `0` when dedup is disabled. |
 
 #### Message Counters
 
@@ -219,6 +262,7 @@ When `queueMetrics.influxdb.enable` is set to `true`, queue metrics are stored i
 | `messages_dropped_rate_limit` | integer | Dropped due to rate limit |
 | `messages_dropped_queue_full` | integer | Dropped due to full queue |
 | `messages_dropped_size` | integer | Dropped due to size validation |
+| `messages_dropped_duplicate` | integer | Dropped as duplicate by `executionId` dedup. Stays at `0` when dedup is disabled. |
 
 #### Performance
 

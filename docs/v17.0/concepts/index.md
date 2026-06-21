@@ -31,6 +31,7 @@ Butler provides several key features that extend primarily client-managed Qlik S
 - **[MQTT](/v17.0/concepts/mqtt/)** - Connect to IoT and automation systems
 - **[Custom Links](/v17.0/concepts/custom-links)** - Include helpful links in alert messages
 - **[UDP Client](/v17.0/concepts/udp-client)** - Built-in testing tool for UDP message debugging
+- **[UDP Message Deduplication](/v17.0/concepts/udp-deduplication)** - Scheduler-message dedup by `executionId` with TTL (new in 17.0)
 
 ### Task Management
 
