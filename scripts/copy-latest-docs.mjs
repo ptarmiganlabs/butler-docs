@@ -113,6 +113,22 @@ async function main() {
   console.log(`[copy-latest] Rewriting links from /${majorVersion}/ to /latest/`);
   await rewriteLinks(latestDir, majorVersion, "latest");
 
+  // Keep /openapi/butler_latest.json served from public/ for the download
+  // link in the markdown files and the standalone swagger-ui.html page.
+  // The canonical spec now lives in docs/openapi/butler_latest.json so
+  // theme/index.js can import it through Vite's module graph.
+  const specSrc = path.join(docsDir, "openapi", "butler_latest.json");
+  const specDestDir = path.join(docsDir, "public", "openapi");
+  const specDest = path.join(specDestDir, "butler_latest.json");
+  try {
+    await fs.access(specSrc);
+    await fs.mkdir(specDestDir, { recursive: true });
+    await fs.copyFile(specSrc, specDest);
+    console.log("[copy-latest] Synced openapi/butler_latest.json to public/");
+  } catch {
+    console.log("[copy-latest] No openapi/butler_latest.json to sync, skipping");
+  }
+
   console.log("[copy-latest] Done");
 }
 

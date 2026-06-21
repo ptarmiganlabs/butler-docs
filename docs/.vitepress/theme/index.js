@@ -5,7 +5,7 @@ import { onMounted, watch, nextTick } from "vue";
 import { useRoute } from "vitepress";
 import mediumZoom from "medium-zoom";
 
-import spec from "../../public/openapi/butler_latest.json";
+import spec from "../../openapi/butler_latest.json";
 import ResponsiveImage from "../components/ResponsiveImage.vue";
 import "./custom.css";
 
