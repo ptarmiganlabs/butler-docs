@@ -106,6 +106,41 @@ A consequence of this is that all settings are now mandatory, even if you don't 
 
 ## Version-Specific Upgrade Notes
 
+### Upgrading to Butler 17.0.0
+
+Butler 17.0 introduces a shared structured error-handling pattern for QRS (Repository Service) calls and a matching pattern for the Sense version monitor. Existing functionality is unchanged; logs become more useful and helper functions fail more gracefully when QRS returns unexpected responses.
+
+#### New Features
+
+- **Structured QRS error messages** — A single error formatter is used across all Butler features that call the Qlik Sense Repository Service. Two error shapes are now possible: `Request failed - ...` (the request never reached QRS in a usable form) and `Unexpected QRS response - ...` (QRS replied but the reply wasn't what the operation expected).
+- **Structured HTTP error messages for the version monitor** — The Qlik Sense version monitor (calls `/v1/systeminfo` on port `9032`, not a QRS endpoint) now uses the same structured pattern.
+
+#### What Now Applies
+
+- License monitoring (server licenses, access licenses, professional/analyzer license release).
+- Task execution lookups (reload, preload, distribute, external program, user sync).
+- Script log retrieval (both the older and newer QRS script log endpoints, plus the fallback between them).
+- Metadata and lookup helpers (task existence, task listing, task start, app/task metadata, app/task tags, app owner, reload-task custom properties and definitions).
+- Configuration and routing helpers (QRS-backed New Relic config validation, reload-task custom property → New Relic destination mapping).
+
+See [QRS API Error Messages](/v17.0/concepts/qrs-error-messages) for the full reference, examples, and troubleshooting recipes.
+
+#### Sensitive Data Handling
+
+Common credential fields are redacted by the new formatter: authorization headers, tokens, passwords, cookies, secrets, API keys, private keys.
+
+#### Operational Impact
+
+No configuration changes are required. The change is backward-compatible operationally. External log parsers, alerts, or dashboards that depend on exact log text after the prefix may need updates because the message body is now richer.
+
+#### Troubleshooting
+
+For the two error patterns, the four common error patterns (timeout, connection refused, DNS failure, HTTP error from QRS), and detailed troubleshooting steps, see [QRS API Error Messages](/v17.0/concepts/qrs-error-messages).
+
+#### Upgrade Steps
+
+No configuration file changes are required. Download Butler 17.0.0 from the [releases page](https://github.com/ptarmiganlabs/butler/releases), replace the Butler binary, restart, and review the logs.
+
 ### Upgrading to Butler 16.0.0
 
 Butler 16.0.0 adds support for InfluxDB v2 and v3, in addition to the existing v1 support. This brings Butler in line with Butler SOS, which already supports all three InfluxDB versions.

@@ -12,6 +12,7 @@ Butler provides several key features that extend primarily client-managed Qlik S
 - **[Successful Reloads](/v17.0/concepts/successful-reloads)** - Track successful task completions for performance insights
 - **[Windows Services](/v17.0/concepts/windows-services)** - Monitor critical Qlik Sense services across multiple servers
 - **[Server Version](/v17.0/concepts/server-version)** - Track Qlik Sense server versions for compliance and planning
+- **[QRS API Error Messages](/v17.0/concepts/qrs-error-messages)** - Structured QRS error messages and troubleshooting guide (new in 17.0)
 
 ### License Management
 

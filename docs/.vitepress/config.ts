@@ -4,7 +4,7 @@ import { withMermaid } from "vitepress-plugin-mermaid";
 // Generated at build time by scripts/fetch-butler-version.mjs
 import { version as butlerVersion } from "./version.js";
 
-function createSidebar(p: string) {
+function createSidebar(p: string, version: 'v16.0' | 'v17.0' | 'latest') {
   return [
     {
       text: 'About',
@@ -249,16 +249,20 @@ function createSidebar(p: string) {
         { text: 'Troubleshooting', link: `${p}/examples/troubleshooting` },
         { text: 'OpenAPI Docs', link: `${p}/examples/openapi-docs` },
         { text: 'Windows Service', link: `${p}/examples/butler-windows-service` },
-        {
-          text: 'Start Sense Tasks',
-          collapsed: true,
-          items: [
-            { text: 'Overview', link: `${p}/examples/start-task/` },
-            { text: 'From REST API', link: `${p}/examples/start-task/start-task-from-rest` },
-            { text: 'From MQTT', link: `${p}/examples/start-task/start-task-from-mqtt` },
-            { text: 'From Load Script', link: `${p}/examples/start-task/start-task-from-script` }
-          ]
+    {
+      text: 'Monitoring & Alerting',
+      collapsed: true,
+      items: [
+        { text: 'Failed Reloads', link: `${p}/concepts/reload-tasks/` },
+        { text: 'Successful Reloads', link: `${p}/concepts/successful-reloads` },
+        { text: 'Windows Services', link: `${p}/concepts/windows-services` },
+        { text: 'Server Version', link: `${p}/concepts/server-version` },
+        version !== 'v16.0' && {
+          text: 'QRS API Error Messages',
+          link: `${p}/concepts/qrs-error-messages`,
         },
+      ].filter(Boolean) as { text: string; link: string }[]
+    },
         {
           text: 'Sense Demo Apps',
           collapsed: true,
@@ -455,9 +459,9 @@ export default withMermaid({
     ],
 
     sidebar: {
-      '/v16.0/': createSidebar('/v16.0'),
-      '/v17.0/': createSidebar('/v17.0'),
-      '/latest/': createSidebar('/latest'),
+      '/v16.0/': createSidebar('/v16.0', 'v16.0'),
+      '/v17.0/': createSidebar('/v17.0', 'v17.0'),
+      '/latest/': createSidebar('/latest', 'latest'),
     },
 
     socialLinks: [
