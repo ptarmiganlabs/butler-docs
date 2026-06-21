@@ -1,4 +1,10 @@
 # Backward-compat: old single-version URLs (/docs/...) point to /latest/
+
+# Specific page overrides (must precede /docs/* catch-all below)
+/docs/getting-started/setup/windows-service-monitor/slack/index.xml                                    /latest/getting-started/setup/windows-service-monitor/slack/  301
+/docs/concepts/scheduler/index.xml                                                                     /latest/concepts/scheduler/  301
+/docs/reference/alert-template-fields/qlik-sense-cloud/app-reload/?ref=ptarmiganlabs.com                /latest/reference/alert-template-fields/qlik-sense-cloud/app-reload?  301
+
 /docs/* /latest/:splat 301
 
 # Redirect unversioned section URLs to /latest/
