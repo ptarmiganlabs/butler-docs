@@ -1,2 +1,11 @@
 # Backward-compat: old single-version URLs (/docs/...) point to /latest/
 /docs/* /latest/:splat 301
+
+# Redirect unversioned section URLs to /latest/
+/about/* /latest/about/:splat 301
+/getting-started/* /latest/getting-started/:splat 301
+/concepts/* /latest/concepts/:splat 301
+/examples/* /latest/examples/:splat 301
+/reference/* /latest/reference/:splat 301
+/security /latest/security 301
+/legal-stuff /latest/legal-stuff 301
