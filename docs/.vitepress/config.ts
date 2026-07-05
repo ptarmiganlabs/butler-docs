@@ -346,8 +346,11 @@ export default withMermaid({
   base: '/',
   lang: "en-US",
   cleanUrls: true,
+  lastUpdated: true,
   sitemap: {
     hostname: "https://butler.ptarmiganlabs.com",
+    transformItems: (items) =>
+      items.filter((item) => item.url === '' || item.url.startsWith('latest/')),
   },
   ignoreDeadLinks: false, // Set to true to ignore dead links and build anyway. False will fail the build if there are any dead links.
 
@@ -369,7 +372,6 @@ export default withMermaid({
   },
 
   head: [
-    ["link", { rel: "icon", href: "/favicon.ico" }],
     ["meta", { property: "og:type", content: "website" }],
     [
       "meta",
@@ -380,6 +382,13 @@ export default withMermaid({
       {
         property: "og:description",
         content: "Superpowers for Qlik Sense",
+      },
+    ],
+    [
+      "meta",
+      {
+        property: "og:image",
+        content: "https://butler.ptarmiganlabs.com/og-banner.png",
       },
     ],
     [
@@ -474,7 +483,7 @@ export default withMermaid({
 
     footer: {
       message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2018–2025 Ptarmigan Labs AB'
+      copyright: `Copyright © 2018–${new Date().getFullYear()} Ptarmigan Labs AB`
     },
 
     search: {
@@ -484,8 +493,8 @@ export default withMermaid({
     lastUpdated: {
       text: "Updated at",
       formatOptions: {
-        dateStyle: "full",
-        timeStyle: "medium",
+        dateStyle: "long",
+        timeStyle: "short",
       },
     },
 
