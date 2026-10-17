@@ -116,6 +116,10 @@ export default withMermaid({
             link: "https://github.com/ptarmiganlabs/butler/discussions",
           },
           {
+            text: "Butler at ptarmiganlabs.com",
+            link: "https://ptarmiganlabs.com/products/butler/",
+          },
+          {
             text: "Ptarmigan Labs main site",
             link: "https://ptarmiganlabs.com",
           },

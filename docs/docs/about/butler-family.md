@@ -10,7 +10,7 @@ Over the years a few projects (for example Butler SOS, which provides real-time 
 Butler and Butler SOS both focus on enhancing the operational aspects of Qlik Sense deployments, especially Butler SOS focus on day 2 operations ([[1](https://www.infoworld.com/article/3442754/why-de-risking-day-2-operations-is-a-smart-business-strategy.html)], [[2](https://dzone.com/articles/defining-day-2-operations)]).
 
 All members of the Butler family are available on [Ptarmigan Labs' GitHub page](https://github.com/ptarmiganlabs).  
-There are also a rich set of blog posts covering various topics related to Butler and its ecosystem over at [ptarmiganlabs.com](https://ptarmiganlabs.com).
+There are also a rich set of blog posts covering various topics related to Butler and its ecosystem over at [ptarmiganlabs.com](https://ptarmiganlabs.com/blog/), and an overview of every tool on the [products page](https://ptarmiganlabs.com/products/).
 
 ## Projects with production grade release status
 
