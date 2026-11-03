@@ -110,24 +110,25 @@ The following template fields are available in alert messages:
 
 ## Script Log Information
 
-| Field name                | Description                                                |
-| ------------------------- | ---------------------------------------------------------- |
-| `executionStatusText`     | Final reload task status message, for example `FAILED`     |
-| `scriptLogSize`           | Size of the reload's script log (characters)               |
-| `scriptLogSizeRows`       | Size of the reload's script log (rows)                     |
-| `scriptLogSizeCharacters` | Size of the reload's script log (characters)               |
-| `scriptLogHeadCount`      | Number of lines extracted from the start of the script log |
-| `scriptLogTailCount`      | The first y lines from the reload's script log             |
-| `scriptLogHead`           | The first x lines from the reload's script log             |
-| `scriptLogTail`           | Number of lines extracted from the end of the script log   |
+| Field name                | Description                                                                                                                    |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `executionStatusText`     | Final reload task status message, for example `FAILED`                                                                         |
+| `scriptLogAvailable`      | `true` if Butler got the script log and it has rows, otherwise `false`. Use with <code v-pre>{{#if scriptLogAvailable}}</code> |
+| `scriptLogSize`           | Size of the reload's script log (rows)                                                                                         |
+| `scriptLogSizeRows`       | Size of the reload's script log (rows)                                                                                         |
+| `scriptLogSizeCharacters` | Size of the reload's script log (characters)                                                                                   |
+| `scriptLogHeadCount`      | Number of lines extracted from the start of the script log                                                                     |
+| `scriptLogTailCount`      | Number of lines extracted from the end of the script log                                                                       |
+| `scriptLogHead`           | The first x lines from the reload's script log                                                                                 |
+| `scriptLogTail`           | The last y lines from the reload's script log                                                                                  |
 
 ## System Links
 
-| Field name      | Description                                            |
-| --------------- | ------------------------------------------------------ |
-| `qliksSenseQMC` | Links to QMC, as defined in main config file           |
-| `qliksSenseHub` | Links to Hub, as defined in main config file           |
-| `genericUrls`   | Links to other systems, as defined in main config file |
+| Field name     | Description                                            |
+| -------------- | ------------------------------------------------------ |
+| `qlikSenseQMC` | Links to QMC, as defined in main config file           |
+| `qlikSenseHub` | Links to Hub, as defined in main config file           |
+| `genericUrls`  | Links to other systems, as defined in main config file |
 
 ## Example Log Message
 
