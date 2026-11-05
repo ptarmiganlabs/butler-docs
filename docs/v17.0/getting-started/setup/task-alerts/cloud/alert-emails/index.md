@@ -87,6 +87,7 @@ Butler controls which app reload failures cause email alerts by looking at a spe
 - If that setting is `true` only some apps will cause alert emails when their reload fails:
   - If an app has the tag specified in `Butler.qlikSenseCloud.event.mqtt.tenant.alert.emailNotification.reloadAppFailure.alertEnableByTag.tag`, an email alert will be sent for that app if it fails reloading.
   - If an app _does not_ have that tag set, no alert will be sent for that app.
+  - If Butler can't get the app's tags from Qlik Cloud, for example because the API call fails, it sends the alert email anyway and logs a warning. That way an app with the tag doesn't lose its alert.
 
 Some configuration in Sense is needed to make this work:
 
