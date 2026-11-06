@@ -100,6 +100,32 @@ Various solutions are possible, including:
 
 If the basic assumption is that you want to expose as little attack surface on the Internet as possible, the solution will most likely involve some kind of intermediate service that can be reached by Qlik Cloud, and that can in turn asynchronously forward the event to Butler.
 
+## Qlik Cloud's event formats
+
+Qlik Cloud is moving its webhook events from a legacy format to the [CloudEvents](https://cloudevents.io/) format.  
+Since 3 November 2025 the events have the attributes of both formats, and from 10 December 2026 they will have only the CloudEvents ones. More info in Qlik's [deprecation notice](https://qlik.dev/changelog/216-webhooks-legacy-fields-removal/).
+
+| Attribute                            | CloudEvents format   | Legacy format                   |
+| ------------------------------------ | -------------------- | ------------------------------- |
+| CloudEvents version                  | `specversion`        | `cloudEventsVersion`            |
+| Event ID                             | `id`                 | `eventId`                       |
+| Event time                           | `time`               | `eventTime`                     |
+| Event type                           | `type`               | `eventType`                     |
+| Content type of the event data       | `datacontenttype`    | `contentType`                   |
+| Tenant ID                            | `tenantid`           | `extensions.tenantId`           |
+| User ID of the app owner             | `ownerid`            | `extensions.ownerId`            |
+| User ID of the user who triggered it | `userid`             | `extensions.userId`             |
+| App ID, for app reload events        | `toplevelresourceid` | `extensions.topLevelResourceId` |
+| Event type version                   | none                 | `eventTypeVersion`              |
+
+The `source` and `data` attributes are the same in both formats, and so is the event type of a finished app reload, `com.qlik.v1.app.reload.finished`.
+
+Butler 17.0 and later read app reload events in either format. The gateway function below accepts events in either format too, and forwards them to MQTT as they are.
+
+::: warning
+A gateway that requires the legacy attributes, as earlier versions of the example below did, rejects every event from 10 December 2026. Butler then gets no events from Qlik Cloud, and sends no alerts about failed app reloads.
+:::
+
 ## Setting up the http-to-MQTT gateway
 
 An Azure Function App is used in this example, but the same concept can be used with other cloud providers, or on-premise.  
@@ -111,7 +137,7 @@ Note that the code below is a basic example that should be extended before being
 - Add better security, using the Qlik Cloud webhook secret to verify that the incoming request is coming from an approved Qlik Cloud tenant.
 - The function does verify that the incoming request has a http header named `x-myheader-foo1`, but it does not check the value of that header. Room for improvement there.
 
-All in all the function does work, it has been in test use for some months and should serve well as a starting point for your own implementation.
+All in all the function does work. An earlier version of it, which accepted only the legacy event format described above, was in test use for some months. It should serve well as a starting point for your own implementation.
 
 ```javascript
 import {
@@ -187,7 +213,7 @@ export async function qscloudreload(
 
   // Make sure select headers contain correct values
   // - accept-encoding: gzip
-  // - content-type: application/json
+  // - content-type: application/json | application/cloudevents+json
   // - user-agent: Qlik Webhook
   // - x-forwarded-proto: https
   // - x-forwarded-tlsversion: 1.2 | 1.3
@@ -201,7 +227,11 @@ export async function qscloudreload(
     };
   }
 
-  if (headers["content-type"] !== "application/json") {
+  // CloudEvents can also be sent with the content type application/cloudevents+json
+  if (
+    headers["content-type"] !== "application/json" &&
+    headers["content-type"] !== "application/cloudevents+json"
+  ) {
     context.log(
       `Invalid header value for content-type: ${headers["content-type"]}`
     );
@@ -250,80 +280,59 @@ export async function qscloudreload(
   let bodyString = JSON.stringify(body, null, 2);
   context.log(`Request body:\n${bodyString}`);
 
-  // Make sure the request body contains the expected properties
-  // The following properties are required:
-  // - cloudEventsVersion: 0.1
-  // - source: com.qlik/engine,
-  // - contentType: application/json,
-  // - eventId: b0f5c473-5dea-4d7e-a188-5e0b904cde33,
-  // - eventTime: 2024-07-27T13:57:27Z,
-  // - eventTypeVersion: 1.0.0,
-  // - eventType: com.qlik.v1.app.reload.finished,
-  // - extensions: <object with the following properties>
-  // -   ownerId: <userID of the owner of the Qlik Sense resource that triggered the event>
-  // -   tenantId: <tenantID of the Qlik Sense tenant that contains the Qlik Sense resource that triggered the event>
-  // -   userId: <userID of the user that triggered the event>
-  // data: <object>
-  const requiredProperties = [
-    "cloudEventsVersion",
-    "source",
-    "contentType",
-    "eventId",
-    "eventTime",
-    "eventTypeVersion",
-    "eventType",
-    "extensions",
-    "data",
-  ];
+  // Qlik Cloud sends events in the CloudEvents format, and until 10 December 2026 also in a legacy format.
+  // Get each attribute from the CloudEvents format when the event has it there, and from the legacy format otherwise.
+  // The following attributes are required:
+  // - specVersion: specversion (1.0), or cloudEventsVersion (0.1)
+  // - source: com.qlik/engine
+  // - id: id, or eventId (b0f5c473-5dea-4d7e-a188-5e0b904cde33)
+  // - time: time, or eventTime (2026-11-06T13:57:27Z)
+  // - type: type, or eventType (com.qlik.v1.app.reload.finished)
+  // - tenantId: tenantid, or extensions.tenantId (tenantID of the Qlik Sense tenant that contains the Qlik Sense resource that triggered the event)
+  // - ownerId: ownerid, or extensions.ownerId (userID of the owner of the Qlik Sense resource that triggered the event)
+  // - userId: userid, or extensions.userId (userID of the user that triggered the event)
+  // - data: <object>
+  const extensions = body.extensions ?? {};
+  const event = {
+    specVersion: body.specversion ?? body.cloudEventsVersion,
+    source: body.source,
+    id: body.id ?? body.eventId,
+    time: body.time ?? body.eventTime,
+    type: body.type ?? body.eventType,
+    tenantId: body.tenantid ?? extensions.tenantId,
+    ownerId: body.ownerid ?? extensions.ownerId,
+    userId: body.userid ?? extensions.userId,
+    data: body.data,
+  };
 
-  for (const property of requiredProperties) {
-    if (!body[property]) {
-      context.log(`Missing required body property: ${property}`);
+  for (const [attribute, value] of Object.entries(event)) {
+    if (!value) {
+      context.log(`Missing required event attribute: ${attribute}`);
       return {
         status: 400,
-        body: `Missing required body property`,
+        body: `Missing required event attribute`,
       };
     }
   }
 
-  // Make sure the extensions object contains the expected properties
-  // The following properties are required:
-  // - ownerId: <userID of the owner of the Qlik Sense resource that triggered the event>
-  // - tenantId: <tenantID of the Qlik Sense tenant that contains the Qlik Sense resource that triggered the event>
-  // - userId: <userID of the user that triggered the event>
-  const extensions = body.extensions;
-  const extensionsProperties = ["ownerId", "tenantId", "userId"];
-
-  for (const property of extensionsProperties) {
-    if (!extensions[property]) {
-      context.log(
-        `Missing required extensions property in request body: ${property}`
-      );
-      return {
-        status: 400,
-        body: `Missing required extensions property`,
-      };
-    }
-  }
-
-  // Make sure select properties contain correct values
-  // - cloudEventsVersion: 0.1
-  // - contentType: application/json
-  if (body.cloudEventsVersion !== "0.1") {
-    context.log(
-      `Invalid body value for cloudEventsVersion: ${body.cloudEventsVersion}`
-    );
+  // Make sure select attributes contain correct values
+  // - specVersion: 1.x in the CloudEvents format, 0.1 in the legacy format
+  // - The content type of the data, if the event has one: application/json
+  const specVersion = String(event.specVersion);
+  if (!specVersion.startsWith("1.") && specVersion !== "0.1") {
+    context.log(`Invalid CloudEvents version: ${specVersion}`);
     return {
       status: 400,
-      body: `Invalid body value for cloudEventsVersion`,
+      body: `Invalid CloudEvents version`,
     };
   }
 
-  if (body.contentType !== "application/json") {
-    context.log(`Invalid body value for contentType: ${body.contentType}`);
+  const dataContentType = body.datacontenttype ?? body.contentType;
+  if (dataContentType && dataContentType !== "application/json") {
+    context.log(`Invalid content type of event data: ${dataContentType}`);
     return {
       status: 400,
-      body: `Invalid body value for contentType`,
+      body: `Invalid content type of event data`,
     };
   }
 
@@ -335,7 +344,7 @@ export async function qscloudreload(
     username: "my-username",
     password: "my-password",
   });
-  const topic = `qscloud/app/reload/${body?.extensions?.tenantId}`;
+  const topic = `qscloud/app/reload/${event.tenantId}`;
   context.log(`Using MQTT topic: ${topic}`);
 
   context.log("MQTT client connected");
