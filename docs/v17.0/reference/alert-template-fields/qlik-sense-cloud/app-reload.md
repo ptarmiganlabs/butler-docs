@@ -48,7 +48,7 @@ The following template fields are available in alert messages:
 | `reloadTrigger`             | What triggered the reload? Manually, scheduled etc                    |
 | `source`                    | Source of the reload. Usually `com.qlik/engine`                       |
 | `eventType`                 | Type of QS Cloud event. For example `com.qlik.v1.app.reload.finished` |
-| `eventTypeVersion`          | Version of the event type                                             |
+| `eventTypeVersion`          | Version of the event type. Empty from 10 December 2026                |
 | `endedWithMemoryConstraint` | Did the reload end due to a memory constraint? (true/false)           |
 | `isDirectQueryMode`         | Is the app in Direct Query mode? (true/false)                         |
 | `isPartialReload`           | Was the reload a partial reload? (true/false)                         |
