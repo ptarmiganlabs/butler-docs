@@ -1,0 +1,221 @@
+# Checks the links this site sends readers to on other sites.
+#
+# From plabs-house-rules, templates/external-links/. Copy it as
+# .github/workflows/external-links.yaml and change only the lines marked EDIT;
+# rules/docs/external-links.md there says why it works this way.
+#
+# The work is scripts/check-external-links.mjs, which runs the same locally
+# (`npm run check:external`). This file builds the site, runs it, and reports:
+#
+#   - Once a month, and when dispatched: one issue labelled external-links lists
+#     what is broken. It is edited on every run, gets a comment only when the
+#     list changes, and is closed by the first run that finds nothing broken.
+#   - On a pull request: the external-links check goes red when a link is
+#     broken, and the run's summary lists them. Advisory only. The check is not
+#     in the ruleset and must never be added: a third-party site that is down
+#     would then block a merge that has nothing to do with it. `build` stays
+#     the one required check.
+#
+# Two jobs, so that a pull request's run never holds a token that can write
+# issues: `external-links` reads, and `report` runs only on the schedule or a
+# dispatch.
+name: External links
+
+on:
+    schedule:
+        # EDIT: a day of the month and a minute of the site's own, so the sites
+        # do not all start at once. Monthly, because an outbound link breaks on
+        # the other site's clock, and a weekly issue for a dead link nobody has
+        # had time to replace is noise.
+        - cron: '23 6 11 * *'
+    workflow_dispatch:
+    pull_request:
+        branches: [main, next]
+        # Only a change that can add, remove or re-route an outbound link.
+        paths:
+            - 'docs/**'
+            - 'lychee.toml'
+            - '.lycheeignore'
+            - 'scripts/check-external-links.mjs'
+            - '.github/workflows/external-links.yaml'
+
+permissions:
+    contents: read
+
+concurrency:
+    group: external-links-${{ github.event_name == 'pull_request' && github.ref || github.run_id }}
+    cancel-in-progress: true
+
+jobs:
+    # The job's id is the check's name on a pull request, beside `build`.
+    external-links:
+        # EDIT: the runner form this site's deploy-vitepress.yml uses.
+        runs-on: ubuntu-latest
+        # A site with hundreds of outbound links takes two minutes; the rest is
+        # npm, whose retries can legally cost 900s before the build starts.
+        timeout-minutes: 25
+        outputs:
+            status: ${{ steps.check.outputs.status }}
+            report: ${{ steps.check.outputs.report }}
+        steps:
+            - name: Checkout
+              uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+              with:
+                  persist-credentials: false
+
+            # No package-manager cache, as in build.yml: on a private runner it
+            # caches the host's npm directory, not this repository's packages.
+            - name: Setup Node
+              uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+              with:
+                  # EDIT: as deploy-vitepress.yml names the Node version; there is no .nvmrc.
+                  node-version: 22
+                  package-manager-cache: false
+
+            - name: Install dependencies
+              run: npm ci
+
+            # VitePress alone, not `npm run build`: the internal link checks are
+            # build.yml's, and one failing there must not hide this report.
+            - name: Build the site
+              # EDIT: the site's VitePress source directory, if it is not docs/.
+              run: npx vitepress build docs
+
+            - name: Check outbound links
+              id: check
+              env:
+                  # lychee checks github.com links through the API with this, which
+                  # is not throttled the way github.com's pages are.
+                  GITHUB_TOKEN: ${{ github.token }}
+              run: |
+                  set +e
+                  # EDIT: add --dist <dir> if the build is not docs/.vitepress/dist.
+                  node scripts/check-external-links.mjs --report "$RUNNER_TEMP/report.md" --issue-report "$RUNNER_TEMP/issue.md"
+                  status=$?
+                  set -e
+                  # 0: nothing broken; 2: broken links, in the report; anything else:
+                  # the check could not run, and its log says why.
+                  echo "status=$status" >> "$GITHUB_OUTPUT"
+                  # The whole report goes to the run's summary. The issue gets the
+                  # script's short one: it travels in an environment variable, and Linux
+                  # starts no process with one over 128 KiB.
+                  if [ -f "$RUNNER_TEMP/report.md" ]; then
+                      cat "$RUNNER_TEMP/report.md" >> "$GITHUB_STEP_SUMMARY"
+                  fi
+                  if [ -f "$RUNNER_TEMP/issue.md" ]; then
+                      {
+                          echo 'report<<EXTERNAL_LINKS_REPORT_END'
+                          cat "$RUNNER_TEMP/issue.md"
+                          echo 'EXTERNAL_LINKS_REPORT_END'
+                      } >> "$GITHUB_OUTPUT"
+                  fi
+                  # A pull request is told by the check itself. On the schedule the
+                  # issue says it, so a broken link fails nothing there; only the
+                  # check failing to run does.
+                  if [ "$status" != 0 ] && { [ "$GITHUB_EVENT_NAME" = pull_request ] || [ "$status" != 2 ]; }; then
+                      exit "$status"
+                  fi
+
+    report:
+        needs: external-links
+        # Not after a cancelled run: someone stopped it, and nothing is known.
+        if: ${{ !cancelled() && github.event_name != 'pull_request' }}
+        # EDIT: the runner form this site's deploy-vitepress.yml uses.
+        runs-on: ubuntu-latest
+        timeout-minutes: 5
+        permissions:
+            issues: write
+        env:
+            LABEL: external-links
+            TITLE: Broken outbound links
+        steps:
+            - name: Issue
+              uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+              env:
+                  STATUS: ${{ needs.external-links.outputs.status }}
+                  REPORT: ${{ needs.external-links.outputs.report }}
+              with:
+                  script: |
+                      const { owner, repo } = context.repo
+                      const { LABEL, TITLE, STATUS, REPORT } = process.env
+                      const run = `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`
+
+                      await github.rest.issues.createLabel({ owner, repo, name: LABEL, color: 'fbca04', description: 'An outbound link is broken' }).catch(() => {})
+                      const [issue] = (await github.rest.issues.listForRepo({ owner, repo, labels: LABEL, state: 'open' })).data.filter((i) => !i.pull_request)
+
+                      if (STATUS === '0') {
+                          if (issue) {
+                              await github.rest.issues.createComment({ owner, repo, issue_number: issue.number, body: `Nothing is broken any more ([run](${run})).` })
+                              await github.rest.issues.update({ owner, repo, issue_number: issue.number, state: 'closed', state_reason: 'completed' })
+                          }
+                          return
+                      }
+
+                      if (STATUS !== '2') {
+                          // The check did not run to the end -- npm, the build, the lychee
+                          // download -- so there is no list, only the run to look at. A
+                          // failure that repeats month after month edits its own comment.
+                          const body = `The external-links check could not run: [run](${run}). Its log says which step.`
+                          if (!issue) {
+                              await github.rest.issues.create({ owner, repo, title: TITLE, body, labels: [LABEL] })
+                              return
+                          }
+                          const comments = await github.paginate(github.rest.issues.listComments, { owner, repo, issue_number: issue.number, per_page: 100 })
+                          const last = comments.at(-1)
+                          if (last && last.body.startsWith('The external-links check could not run')) {
+                              await github.rest.issues.updateComment({ owner, repo, comment_id: last.id, body })
+                          } else {
+                              await github.rest.issues.createComment({ owner, repo, issue_number: issue.number, body })
+                          }
+                          return
+                      }
+
+                      // The script made the report short enough for an issue, and put a hash of
+                      // every broken URL on its first line. It changes only when the set of
+                      // broken URLs does, so that is when the issue gets a comment.
+                      const report = REPORT.trim()
+                      const marker = report.match(/^<!-- external-links: [0-9a-f]{64} -->/)?.[0] ?? report
+
+                      const body = [
+                          report,
+                          '',
+                          'Replace or remove each link. A page that works for a reader and only refuses a checker goes in `.lycheeignore`, with the reason and the date, rather than being accepted by its status: see `rules/docs/external-links.md` in plabs-house-rules. This issue closes itself on the first run that finds nothing broken.',
+                          '',
+                          `Last seen by [this run](${run}).`
+                      ].join('\n')
+                      // Edited every run, so it shows the latest; a comment only when the set
+                      // of broken URLs changes, so a monthly run with nothing new notifies nobody.
+                      if (!issue) {
+                          await github.rest.issues.create({ owner, repo, title: TITLE, body, labels: [LABEL] })
+                      } else if (!(issue.body ?? '').includes(marker)) {
+                          await github.rest.issues.update({ owner, repo, issue_number: issue.number, body })
+                          await github.rest.issues.createComment({ owner, repo, issue_number: issue.number, body: `What is broken has changed ([run](${run})).` })
+                      } else {
+                          await github.rest.issues.update({ owner, repo, issue_number: issue.number, body })
+                      }
+
+            # The step above failed -- an API error, a body GitHub refused -- rather than the
+            # check finding something. A scheduled run that fails tells only whoever last
+            # edited this file, so the issue says so, and a repeat edits its own comment.
+            - name: Report a failed run
+              if: failure()
+              uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+              with:
+                  script: |
+                      const { owner, repo } = context.repo
+                      const { LABEL, TITLE } = process.env
+                      const run = `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`
+                      const body = `The external-links workflow could not report: [run](${run}). Its log says which step.`
+                      await github.rest.issues.createLabel({ owner, repo, name: LABEL, color: 'fbca04', description: 'An outbound link is broken' }).catch(() => {})
+                      const [issue] = (await github.rest.issues.listForRepo({ owner, repo, labels: LABEL, state: 'open' })).data.filter((i) => !i.pull_request)
+                      if (!issue) {
+                          await github.rest.issues.create({ owner, repo, title: TITLE, body, labels: [LABEL] })
+                          return
+                      }
+                      const comments = await github.paginate(github.rest.issues.listComments, { owner, repo, issue_number: issue.number, per_page: 100 })
+                      const last = comments.at(-1)
+                      if (last && last.body.startsWith('The external-links workflow could not report')) {
+                          await github.rest.issues.updateComment({ owner, repo, comment_id: last.id, body })
+                      } else {
+                          await github.rest.issues.createComment({ owner, repo, issue_number: issue.number, body })
+                      }

@@ -1,0 +1,64 @@
+# lychee settings for checking a documentation site's outbound links.
+#
+# From plabs-house-rules, templates/external-links/. Copy it unchanged, as lychee.toml at the
+# repository root; rules/docs/external-links.md there says why each setting is what it is.
+# A site's own exclusions go in .lycheeignore, not here. A change every site needs is a
+# change to the template first, then copied onward.
+#
+# What makes this an outbound check at all -- only http and https, root-relative links
+# resolved inside the build, the build read although .gitignore names it -- is passed by
+# scripts/check-external-links.mjs on the command line, so nothing here can undo it.
+
+# A link passes on 2xx, after redirects, and on nothing else. A 403 is not accepted across the
+# board: a site behind a bot wall answers 403 for a page that exists and for one that does not,
+# so accepting it would pass dead links too. Such a host is excluded by name instead, below or
+# in .lycheeignore, so what goes unchecked is written down.
+accept = ["200..=299"]
+
+# Patient rather than fast. This runs monthly and on pull requests nobody waits on, and a
+# third party that is briefly slow should not open an issue.
+timeout = 30
+max_retries = 3
+retry_wait_time = 2
+max_redirects = 10
+max_concurrency = 16
+host_concurrency = 2
+
+# A browser's user agent. Several hosts refuse lychee's own outright, for pages that load
+# fine for a reader.
+user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+
+# Check that the #anchor of an outbound link is on the page it names, as check-links.mjs does
+# for internal links. Measured on magpie-docs, butler-docs and network.qs-docs in November 2026:
+# 19 outbound links carry an anchor, 18 were checked correctly, and the one false alarm was a
+# single-page app's route (#/faq), which goes in .lycheeignore.
+include_fragments = "anchor-only"
+
+# A URL in a code block is an example, not a link: https://<host>:4242/qrs/..., localhost.
+include_verbatim = false
+
+# Mail addresses are not probed: SMTP gives no reliable answer, and the one address a
+# commercial site names, support@ptarmiganlabs.com, is fixed by rules/docs/support-links.md.
+include_mail = false
+
+# Nothing on a reader's own network, or on ours, is reachable from a runner the same way.
+exclude_all_private = true
+
+# Shared exclusions: hosts every site may link and no checker can verify. Each entry says why
+# and when it was found. A host only one site links goes in that site's .lycheeignore.
+exclude = [
+    # Reserved for documentation (RFC 2606, RFC 6761): never real pages.
+    '^https?://([^/]+\.)?example\.(com|net|org)(/|$)',
+    '^https?://[^/]+\.(example|test|invalid|localhost)(:\d+)?(/|$)',
+    # Cloudflare bot challenge: 403 for every page, existing or not, to any client that does
+    # not run its JavaScript, browser headers included (2026-11-24).
+    '^https?://(www\.)?iso\.org/',
+    '^https?://(www\.)?npmjs\.com/',
+]
+
+# github.com throttles a burst of page requests with 503s. lychee uses GitHub's API instead
+# when GITHUB_TOKEN is set, as it is in CI; this keeps a run without one, on a laptop, from
+# reporting throttling as broken links.
+[hosts."github.com"]
+concurrency = 1
+request_interval = "500ms"

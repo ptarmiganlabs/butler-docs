@@ -6,6 +6,7 @@
     "pre:version": "node ./scripts/fetch-butler-version.mjs",
     "dev": "npm run pre:version && vitepress dev docs",
     "build": "npm run pre:version && vitepress build docs",
+    "check:external": "node scripts/check-external-links.mjs",
     "serve": "npm run pre:version && vitepress serve docs",
     "deploy": "gh workflow run deploy-vitepress.yml --ref $(git branch --show-current)"
   },
