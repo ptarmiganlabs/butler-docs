@@ -1,0 +1,25 @@
+# Outbound URLs this site does not check. Read by lychee from the repository root, one
+# regular expression per line, matched against the whole URL; anchor each one with ^.
+#
+# From plabs-house-rules, templates/external-links/. Copy it as .lycheeignore; every line
+# below the comments is yours. rules/docs/external-links.md there says when an exclusion is
+# right and when it hides a dead link.
+#
+# Every entry carries a comment saying why and when, because an exclusion nobody can explain
+# is one nobody dares remove. A host every site links goes in the template's lychee.toml
+# instead, not here.
+
+# This site's own hostname (2026-11-24). Its pages are checked as built, by VitePress itself
+# (ignoreDeadLinks: false in docs/.vitepress/config.ts), rather than as deployed: requested on
+# GitHub Pages, a link would be checked against the last deploy, not the build in hand, so a
+# pull request adding a page would fail on its own new links. VitePress checks relative links
+# only, so an absolute link to this host is checked by neither: write internal links relative.
+# On 2026-11-24 the absolute ones were the canonical URLs config.ts writes on every page, and
+# two examples inside YAML code blocks. The pattern ends with (/|$), so
+# a mistyped link such as https://butler.ptarmiganlabs.comdocs/ is still checked and still
+# fails. That mistake was on 129 pages until ptarmiganlabs/butler-docs#69.
+^https?://butler\.ptarmiganlabs\.com(/|$)
+
+# Slack's Block Kit Builder answers 403 to any checker (2026-11-24). In a browser it redirects
+# to Slack's workspace sign-in, so the page is fine for a reader.
+^https://app\.slack\.com/block-kit-builder/
