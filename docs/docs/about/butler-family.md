@@ -44,7 +44,7 @@ Automates the creation of sheet icons for both Qlik Sense Cloud and client-manag
 
 It's a cross platform command line tool which given the correct Sense credentials will take screen shots of all sheets in a Sense app (or all apps on a Sense server!), then create thumbnail versions of those screenshots. Finally those thumbnails will be set as sheet icons.
 
-No more manual screenshot taking, resizing images, navigating hundreds of sheets in dozens of apps. Start Butler Sheet Icons instead and go get a nice [fika](https://www.swedishfood.com/fika).
+No more manual screenshot taking, resizing images, navigating hundreds of sheets in dozens of apps. Start Butler Sheet Icons instead and go get a nice [fika](https://en.wikipedia.org/wiki/Fika_(Sweden)).
 
 The tool can be used stand-alone or as part of an automated release process.
 
