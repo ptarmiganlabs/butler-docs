@@ -22,10 +22,14 @@ export default withMermaid({
   
   // Transform page data to handle trailing slash redirects
   transformPageData(pageData, context) {
-    // Ensure consistent URL patterns for SEO
-    const canonicalUrl = `https://butler.ptarmiganlabs.com${pageData.relativePath
-      .replace(/\/index\.md$/, '/')
-      .replace(/\.md$/, '')}`
+    // Ensure consistent URL patterns for SEO, matching the sitemap's form:
+    // index pages end in a slash, other pages have no extension.
+    // relativePath has no leading slash ("index.md", "docs/about/telemetry.md"),
+    // so the slash after the hostname is added here, exactly once.
+    const pagePath = pageData.relativePath
+      .replace(/(^|\/)index\.md$/, '$1')
+      .replace(/\.md$/, '')
+    const canonicalUrl = `https://butler.ptarmiganlabs.com/${pagePath}`
     
     pageData.frontmatter = pageData.frontmatter || {}
     pageData.frontmatter.head = pageData.frontmatter.head || []
